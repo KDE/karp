@@ -5,11 +5,11 @@
  -->
 <component type="desktop-application">
   <id>org.kde.deafed</id>
-  <name>deafed Kirigami Application</name>
+  <name>deafed Simple PDF Editor</name>
   <summary>A short summary describing what this software is about</summary>
   <metadata_license>A permissive license for this metadata, e.g. "FSFAP" + Update the SPDX tags above!</metadata_license>
   <project_license>The license of this software as SPDX string, e.g. "GPL-2.0-or-later"</project_license>
-  <developer_name>The software vendor name, e.g. "ACME Corporation"</developer_name>
+  <developer_name>Tomasz Bojczuk</developer_name>
   <description>
     <p>Multiple paragraphs of long description, describing this software component.</p>
     <p>You can also use ordered and unordered lists:</p>

@@ -35,6 +35,7 @@ if (ANDROID)
         help-about
         application-exit
         applications-graphics
+        # app icon
     )
 else()
     target_link_libraries(deafed_static PUBLIC Qt::Widgets)

@@ -62,22 +62,23 @@ int main(int argc, char *argv[])
         // The program name used internally.
         u"deafed"_s,
         // A displayable program name string.
-        i18nc("@title", "deafed"),
+        i18nc("@title", "DeaFEd"),
         // The program version string.
         QStringLiteral(DEAFED_VERSION_STRING),
         // Short description of what the app does.
-        i18n("Application Description"),
+        i18n("Simple PDF editor"),
         // The license this code is released under.
-        KAboutLicense::GPL,
+        KAboutLicense::GPL_V3,
         // Copyright Statement.
-        i18n("(c) %{CURRENT_YEAR}"));
-    aboutData.addAuthor(i18nc("@info:credit", "%{AUTHOR}"),
+        i18n("(c) 2024 Tomasz Bojczuk"));
+    aboutData.addAuthor(i18nc("@info:credit", "Tomasz Bojczuk"),
                         i18nc("@info:credit", "Maintainer"),
-                        u"%{EMAIL}"_s,
-                        u"https://yourwebsite.com"_s);
-    aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+                        u"seelook@gmail.com"_s,
+                        u"https://sourceforge.net/u/seelook/profile"_s);
+    // aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
-    QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.deafed"_s));
+    QGuiApplication::setWindowIcon(QIcon::fromTheme(u"application-pdf"_s));
+    // QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.deafed"_s));
 
     QQmlApplicationEngine engine;
 
@@ -86,7 +87,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.deafed.private", 1, 0, "Config", config);
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    engine.loadFromModule("org.kde.deafed", u"Main.qml");
+    engine.loadFromModule("org.kde.deafed", u"Main"_s);
 
     if (engine.rootObjects().isEmpty()) {
         return -1;
