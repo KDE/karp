@@ -44,7 +44,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("About DeaFEd")
                 icon.name: "help-about"
-                onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/contents/ui/About.qml")
+                onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/About.qml")
                 // pageStack.push(Qt.resolvedUrl('About.qml'))
             },
             Kirigami.Action {

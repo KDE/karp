@@ -7,8 +7,8 @@ qt_add_qml_module(deafed_static
     URI org.kde.deafed
     VERSION 1.0
     QML_FILES
-        contents/ui/Main.qml
-        contents/ui/About.qml
+        ui/Main.qml
+        ui/About.qml
 )
 
 target_sources(deafed_static PUBLIC
