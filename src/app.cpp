@@ -6,7 +6,7 @@
 #include <KWindowConfig>
 #include <QQuickWindow>
 
-void App::restoreWindowGeometry(QQuickWindow *window, const QString &group) const
+void ED::restoreWindowGeometry(QQuickWindow *window, const QString &group) const
 {
     KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, QStringLiteral("Window-") + group);
@@ -14,7 +14,7 @@ void App::restoreWindowGeometry(QQuickWindow *window, const QString &group) cons
     KWindowConfig::restoreWindowPosition(window, windowGroup);
 }
 
-void App::saveWindowGeometry(QQuickWindow *window, const QString &group) const
+void ED::saveWindowGeometry(QQuickWindow *window, const QString &group) const
 {
     KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, QStringLiteral("Window-") + group);

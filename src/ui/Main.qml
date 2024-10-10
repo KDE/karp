@@ -15,14 +15,14 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 20
 
-    onClosing: App.saveWindowGeometry(mainWin)
+    onClosing: ED.saveWindowGeometry(mainWin)
 
     onWidthChanged: saveWindowGeometryTimer.restart()
     onHeightChanged: saveWindowGeometryTimer.restart()
     onXChanged: saveWindowGeometryTimer.restart()
     onYChanged: saveWindowGeometryTimer.restart()
 
-    Component.onCompleted: App.restoreWindowGeometry(mainWin)
+    Component.onCompleted: ED.restoreWindowGeometry(mainWin)
 
     // This timer allows to batch update the window size change to reduce
     // the io load and also work around the fact that x/y/width/height are
@@ -31,7 +31,7 @@ Kirigami.ApplicationWindow {
     Timer {
         id: saveWindowGeometryTimer
         interval: 1000
-        onTriggered: App.saveWindowGeometry(mainWin)
+        onTriggered: ED.saveWindowGeometry(mainWin)
     }
 
     property int counter: 0
