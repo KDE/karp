@@ -10,6 +10,7 @@ qt_add_qml_module(deafed_static
         ui/Main.qml
         ui/About.qml
         ui/ArrangePage.qml
+        ui/DeaFEdMultiPageView.qml
 )
 
 target_sources(deafed_static PUBLIC
@@ -23,6 +24,7 @@ target_link_libraries(deafed_static PUBLIC
     Qt6::Quick
     Qt6::QuickControls2
     Qt6::Svg
+    Qt6::Pdf
     KF6::I18n
     KF6::CoreAddons
     KF6::ConfigCore
