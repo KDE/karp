@@ -16,7 +16,7 @@
 #include <QQuickStyle>
 #include <QUrl>
 
-#include "app.h"
+#include "deafed.h"
 #include "version-deafed.h"
 #include <KAboutData>
 #include <KLocalizedContext>

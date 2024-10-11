@@ -15,24 +15,9 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 20
 
-    onClosing: ED.saveWindowGeometry(mainWin)
+    onClosing: PDFED.saveWindowGeometry(mainWin)
 
-    onWidthChanged: saveWindowGeometryTimer.restart()
-    onHeightChanged: saveWindowGeometryTimer.restart()
-    onXChanged: saveWindowGeometryTimer.restart()
-    onYChanged: saveWindowGeometryTimer.restart()
-
-    Component.onCompleted: ED.restoreWindowGeometry(mainWin)
-
-    // This timer allows to batch update the window size change to reduce
-    // the io load and also work around the fact that x/y/width/height are
-    // changed when loading the page and overwrite the saved geometry from
-    // the previous session.
-    Timer {
-        id: saveWindowGeometryTimer
-        interval: 1000
-        onTriggered: ED.saveWindowGeometry(mainWin)
-    }
+    Component.onCompleted: PDFED.restoreWindowGeometry(mainWin)
 
     property int counter: 0
 
@@ -65,16 +50,4 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.initialPage: page
-
-    Kirigami.Page {
-        id: page
-
-        title: i18n("Reorder PDF Pages")
-
-        ColumnLayout {
-            width: page.width
-
-            anchors.centerIn: parent
-        }
-    }
 }
