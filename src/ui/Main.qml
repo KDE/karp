@@ -10,7 +10,7 @@ import org.kde.deafed
 Kirigami.ApplicationWindow {
     id: mainWin
 
-    title: "DeaFEd"
+    title: PDFED.name
 
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 20
@@ -50,4 +50,6 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.initialPage: page
+
+    ArrangePage { id: page }
 }

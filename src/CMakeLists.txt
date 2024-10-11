@@ -9,6 +9,7 @@ qt_add_qml_module(deafed_static
     QML_FILES
         ui/Main.qml
         ui/About.qml
+        ui/ArrangePage.qml
 )
 
 target_sources(deafed_static PUBLIC
