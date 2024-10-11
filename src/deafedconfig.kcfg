@@ -7,10 +7,9 @@
 SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
 SPDX-License-Identifier: LGPL-2.0-or-later
 -->
+<kcfgfile name="deafedrc" />
     <group name="General">
-        <entry name="someSetting" type="Bool">
-            <label>Some setting description</label>
-            <default>true</default>
+        <entry key="lastDir" type="String" >
         </entry>
     </group>
 </kcfg>

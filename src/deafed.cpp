@@ -2,12 +2,18 @@
 // SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
 
 #include "deafed.h"
+#include "deafedconfig.h"
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QDebug>
 #include <QFileDialog>
 #include <QQuickWindow>
+
+DeaFEd::DeaFEd(QObject *parent)
+    : QObject(parent)
+{
+}
 
 void DeaFEd::restoreWindowGeometry(QQuickWindow *window, const QString &group) const
 {
@@ -19,6 +25,11 @@ void DeaFEd::restoreWindowGeometry(QQuickWindow *window, const QString &group) c
 
 void DeaFEd::saveWindowGeometry(QQuickWindow *window, const QString &group) const
 {
+    if (!m_path.isEmpty()) {
+        QFileInfo lastPathInfo(m_path);
+        deafedConfig::self()->setLastDir(lastPathInfo.absoluteDir().path());
+    }
+    deafedConfig::self()->save();
     KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, QStringLiteral("Window-") + group);
     KWindowConfig::saveWindowPosition(window, windowGroup);
@@ -28,7 +39,11 @@ void DeaFEd::saveWindowGeometry(QQuickWindow *window, const QString &group) cons
 
 void DeaFEd::getPdfFile()
 {
-    auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), QString(), QLatin1String("*.pdf"));
+    QString lastPath = deafedConfig::self()->lastDir();
+    if (lastPath.isEmpty()) {
+        lastPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
+    }
+    auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), lastPath, QLatin1String("*.pdf"));
     if (pdfFile.isEmpty())
         return;
     setPdfLoaded(true);
