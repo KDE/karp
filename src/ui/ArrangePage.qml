@@ -16,7 +16,10 @@ Kirigami.Page {
         visible: !PDFED.pdfLoaded
         anchors.centerIn: parent
         text: i18n("Select PDF file")
-        onClicked: PDFED.getPdfFile()
+        onClicked: {
+            PDFED.getPdfFile()
+            PDFED.pdfModel.maxPageWidth = Qt.binding(function() { return page.width / 3 })
+        }
     }
 
     ListView {
@@ -27,15 +30,23 @@ Kirigami.Page {
         spacing: height * 0.1
         model: PDFED.pdfModel
 
-        delegate: Rectangle {
-            // clip: true
-            width: pdfView.width; height: pdfView.height * 0.4
-            color: "transparent"
-            border { width: 2; color: "red" }
-            PdfPageItem {
-                x: 1; y: 1
-                image: pageImg
-            }
+        delegate: PdfPageItem {
+          x: 2; y: 2
+          image: pageImg
+          Rectangle {
+              anchors { bottom: parent.bottom; right: parent.right }
+              height: Kirigami.Units.gridUnit * 1.5
+              width: height * 4
+              color: PDFED.alpha(Kirigami.Theme.textColor, 150)
+              Text {
+                  anchors.fill: parent
+                  horizontalAlignment: Text.AlignRight
+                  verticalAlignment: Text.AlignVCenter
+                  color: Kirigami.Theme.backgroundColor
+                  font { pixelSize: parent.height * 0.8; bold: true }
+                  text: index + 1
+              }
+          }
         }
     }
 
