@@ -7,6 +7,7 @@
 #include <QQmlEngine>
 
 class QQuickWindow;
+class PdfEditModel;
 
 class DeaFEd : public QObject
 {
@@ -17,6 +18,7 @@ class DeaFEd : public QObject
     Q_PROPERTY(bool pdfLoaded READ pdfLoaded NOTIFY pdfLoadedChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString path READ path NOTIFY pathChanged)
+    Q_PROPERTY(QVariant pdfModel READ pdfModel NOTIFY pdfLoadedChanged)
 
 public:
     explicit DeaFEd(QObject *parent = nullptr);
@@ -38,6 +40,8 @@ public:
     QString path() const;
     void setPath(QString pdfPath);
 
+    QVariant pdfModel();
+
 Q_SIGNALS:
     void pdfLoadedChanged();
     void nameChanged();
@@ -47,4 +51,5 @@ private:
     bool m_pdfLoaded = false;
     QString m_name;
     QString m_path;
+    PdfEditModel *m_pdfModel = nullptr;
 };

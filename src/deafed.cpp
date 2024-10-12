@@ -3,6 +3,7 @@
 
 #include "deafed.h"
 #include "deafedconfig.h"
+#include "pdfeditmodel.h"
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
@@ -46,10 +47,14 @@ void DeaFEd::getPdfFile()
     auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), lastPath, QLatin1String("*.pdf"));
     if (pdfFile.isEmpty())
         return;
-    setPdfLoaded(true);
+
     setPath(pdfFile);
     QFileInfo pdfFileInfo(pdfFile);
     setName(pdfFileInfo.fileName());
+    if (!m_pdfModel) {
+        m_pdfModel = new PdfEditModel(m_path, this);
+    }
+    setPdfLoaded(true);
 }
 
 bool DeaFEd::pdfLoaded() const
@@ -89,6 +94,11 @@ void DeaFEd::setPath(QString pdfPath)
         return;
     m_path = pdfPath;
     Q_EMIT pathChanged();
+}
+
+QVariant DeaFEd::pdfModel()
+{
+    return QVariant::fromValue(m_pdfModel);
 }
 
 #include "moc_deafed.cpp"

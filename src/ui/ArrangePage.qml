@@ -13,19 +13,26 @@ Kirigami.Page {
     title: i18n("Arrange PDF Pages") + ": " + PDFED.name
 
     QQC2.Button {
-        visible: pdfDoc.status !== PdfDocument.Ready
+        visible: !PDFED.pdfLoaded
         anchors.centerIn: parent
         text: i18n("Select PDF file")
         onClicked: PDFED.getPdfFile()
     }
 
-    DeaFEdMultiPageView {
-        visible: pdfDoc.status === PdfDocument.Ready
-        width: parent.width * 0.9; height: parent.height
+    ListView {
+        id: pdfView
+        visible: PDFED.pdfLoaded
+        width: page.width / 2; height: page.height * 0.8
         clip: true
-        document: PdfDocument {
-            id: pdfDoc
-            source: "file:/" + PDFED.path
+        spacing: height * 0.1
+        model: PDFED.pdfModel
+
+        delegate: Rectangle {
+            clip: true
+            width: pdfView.width; height: pdfView.height * 0.4
+            radius: Kirigami.Units.gridUnit
+            color: "transparent"
+            border { width: 1; color: "red" }
         }
     }
 
