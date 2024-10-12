@@ -39,6 +39,27 @@ void PdfEditModel::setMaxPageWidth(qreal maxPW)
     endInsertRows();
 }
 
+void PdfEditModel::addRotation(int pageId, int angle)
+{
+    bool addRotationToList = true;
+    int c = 0;
+    for (auto &r : m_rotations) {
+        if (pageId == r.pageNr) {
+            addRotationToList = false;
+            if (angle == 0) {
+                m_rotations.removeAt(c);
+            } else {
+                r.angle = angle;
+            }
+            break;
+        }
+        c++;
+    }
+    if (addRotationToList && angle != 0) {
+        m_rotations << PageRotation(pageId, angle);
+    }
+}
+
 QPdfDocument *PdfEditModel::pdfDocument() const
 {
     return m_pdfDoc;

@@ -44,6 +44,7 @@ Kirigami.Page {
                 id: img
                 x: 2; y: 2; z: -1
                 image: pageImg
+                onRotationChanged: PDFED.pdfModel.addRotation(index, rotation)
             }
             Rectangle {
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }

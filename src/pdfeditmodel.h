@@ -24,6 +24,20 @@ public:
     qreal maxPageWidth() const;
     void setMaxPageWidth(qreal maxPW);
 
+    class PageRotation
+    {
+    public:
+        PageRotation(quint16 nr, qint16 ang)
+            : pageNr(nr)
+            , angle(ang)
+        {
+        }
+        quint16 pageNr = 0;
+        qint16 angle = 0;
+    };
+
+    Q_INVOKABLE void addRotation(int pageId, int angle);
+
     QPdfDocument *pdfDocument() const;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -43,4 +57,5 @@ private:
     QPdfDocument *m_pdfDoc = nullptr;
     int m_rows = 0;
     qreal m_maxPageWidth = 1.0;
+    QVector<PageRotation> m_rotations;
 };
