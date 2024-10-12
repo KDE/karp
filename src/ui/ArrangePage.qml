@@ -29,25 +29,53 @@ Kirigami.Page {
         clip: true
         spacing: height * 0.1
         model: PDFED.pdfModel
+        currentIndex: -1
 
-        delegate: PdfPageItem {
-          x: 2; y: 2
-          image: pageImg
-          Rectangle {
-              anchors { bottom: parent.bottom; right: parent.right }
-              height: Kirigami.Units.gridUnit * 1.5
-              width: height * 4
-              color: PDFED.alpha(Kirigami.Theme.textColor, 150)
-              Text {
-                  anchors.fill: parent
-                  horizontalAlignment: Text.AlignRight
-                  verticalAlignment: Text.AlignVCenter
-                  color: Kirigami.Theme.backgroundColor
-                  font { pixelSize: parent.height * 0.8; bold: true }
-                  text: index + 1
-              }
-          }
+        delegate: Rectangle {
+            id: delegRect
+            property bool checked: pdfView.currentIndex === index
+            width: img.width + 4; height: img.height + 4
+            color: "transparent"
+            border {
+                width: checked ? 3 : 0
+                color: Kirigami.Theme.highlightColor
+            }
+            PdfPageItem {
+                id: img
+                x: 2; y: 2; z: -1
+                image: pageImg
+            }
+            Rectangle {
+                anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
+                height: Math.max(parent.height, parent.width) * 0.05
+                width: height * 3
+                color: "#80000000"
+                Text {
+                    width: parent.width * 0.9; height: parent.height
+                    horizontalAlignment: Text.AlignRight
+                    verticalAlignment: Text.AlignVCenter
+                    color: "#fff"
+                    font { pixelSize: parent.height * 0.8; bold: true }
+                    text: (index + 1) + " <font size=\"1\">(" + (index + 1) + ")</font>"
+                }
+            }
+            MouseArea {
+                id: ma
+                anchors.fill: parent
+                onClicked: pdfView.currentIndex = index
+            }
+            QQC2.Button {
+                visible: delegRect.checked
+                anchors { verticalCenter: parent.verticalCenter; left: parent.left }
+                icon.name: "object-rotate-left"
+                onClicked: img.rotation = img.rotation > -270 ? img.rotation - 90 : 0
+            }
+            QQC2.Button {
+                visible: delegRect.checked
+                anchors { verticalCenter: parent.verticalCenter; right: parent.right }
+                icon.name: "object-rotate-right"
+                onClicked: img.rotation = img.rotation < 270 ? img.rotation + 90 : 0
+            }
         }
-    }
-
+    } // ListView
 }
