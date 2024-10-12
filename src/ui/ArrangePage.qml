@@ -28,11 +28,14 @@ Kirigami.Page {
         model: PDFED.pdfModel
 
         delegate: Rectangle {
-            clip: true
+            // clip: true
             width: pdfView.width; height: pdfView.height * 0.4
-            radius: Kirigami.Units.gridUnit
             color: "transparent"
-            border { width: 1; color: "red" }
+            border { width: 2; color: "red" }
+            PdfPageItem {
+                x: 1; y: 1
+                image: pageImg
+            }
         }
     }
 
