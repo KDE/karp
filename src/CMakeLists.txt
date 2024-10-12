@@ -15,6 +15,7 @@ qt_add_qml_module(deafed_static
 
 target_sources(deafed_static PUBLIC
     deafed.cpp
+    pdfeditmodel.cpp
 )
 
 target_link_libraries(deafed_static PUBLIC
