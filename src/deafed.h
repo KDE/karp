@@ -42,6 +42,9 @@ public:
 
     QVariant pdfModel();
 
+    // helpers
+    Q_INVOKABLE QColor alpha(const QColor &c, int alpha);
+
 Q_SIGNALS:
     void pdfLoadedChanged();
     void nameChanged();

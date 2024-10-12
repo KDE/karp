@@ -101,4 +101,9 @@ QVariant DeaFEd::pdfModel()
     return QVariant::fromValue(m_pdfModel);
 }
 
+QColor DeaFEd::alpha(const QColor &c, int alpha)
+{
+    return QColor(c.red(), c.green(), c.blue(), alpha);
+}
+
 #include "moc_deafed.cpp"
