@@ -16,8 +16,13 @@ class PdfEditModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
 
+    Q_PROPERTY(qreal maxPageWidth READ maxPageWidth WRITE setMaxPageWidth NOTIFY maxPageWidthChanged)
+
 public:
     explicit PdfEditModel(const QString &pdfFile = QString(), QObject *parent = nullptr);
+
+    qreal maxPageWidth() const;
+    void setMaxPageWidth(qreal maxPW);
 
     QPdfDocument *pdfDocument() const;
 
@@ -31,7 +36,11 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+Q_SIGNALS:
+    void maxPageWidthChanged();
+
 private:
     QPdfDocument *m_pdfDoc = nullptr;
     int m_rows = 0;
+    qreal m_maxPageWidth = 1.0;
 };
