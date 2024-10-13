@@ -17,12 +17,15 @@ class PdfEditModel : public QAbstractListModel
     QML_ELEMENT
 
     Q_PROPERTY(qreal maxPageWidth READ maxPageWidth WRITE setMaxPageWidth NOTIFY maxPageWidthChanged)
+    Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
 
 public:
     explicit PdfEditModel(const QString &pdfFile = QString(), QObject *parent = nullptr);
 
     qreal maxPageWidth() const;
     void setMaxPageWidth(qreal maxPW);
+
+    bool edited() const;
 
     class PageRotation
     {
@@ -52,10 +55,12 @@ public:
 
 Q_SIGNALS:
     void maxPageWidthChanged();
+    void editedChanged();
 
 private:
     QPdfDocument *m_pdfDoc = nullptr;
     int m_rows = 0;
     qreal m_maxPageWidth = 1.0;
+    // PDF modifications
     QVector<PageRotation> m_rotations;
 };
