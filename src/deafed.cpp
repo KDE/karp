@@ -11,6 +11,8 @@
 #include <QFileDialog>
 #include <QQuickWindow>
 
+using namespace Qt::Literals::StringLiterals;
+
 DeaFEd::DeaFEd(QObject *parent)
     : QObject(parent)
 {
@@ -18,8 +20,8 @@ DeaFEd::DeaFEd(QObject *parent)
 
 void DeaFEd::restoreWindowGeometry(QQuickWindow *window, const QString &group) const
 {
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, QStringLiteral("Window-") + group);
+    KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
     KWindowConfig::restoreWindowSize(window, windowGroup);
     KWindowConfig::restoreWindowPosition(window, windowGroup);
 }
@@ -31,8 +33,8 @@ void DeaFEd::saveWindowGeometry(QQuickWindow *window, const QString &group) cons
         deafedConfig::self()->setLastDir(lastPathInfo.absoluteDir().path());
     }
     deafedConfig::self()->save();
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, QStringLiteral("Window-") + group);
+    KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
     KWindowConfig::saveWindowPosition(window, windowGroup);
     KWindowConfig::saveWindowSize(window, windowGroup);
     dataResource.sync();
@@ -44,7 +46,7 @@ void DeaFEd::getPdfFile()
     if (lastPath.isEmpty()) {
         lastPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
     }
-    auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), lastPath, QLatin1String("*.pdf"));
+    auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), lastPath, u"*.pdf"_s);
     if (pdfFile.isEmpty())
         return;
 
