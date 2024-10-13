@@ -104,7 +104,7 @@ Kirigami.Page {
 
     QQC2.Button {
         visible: PDFED.pdfLoaded
-        enabled: PDFED.pdfModel.edited
+        enabled: PDFED.pdfModel && PDFED.pdfModel.edited
         anchors { bottom: parent.bottom; right: parent.right }
         icon.name: "application-pdf"
         text: i18n("Generate")
