@@ -45,6 +45,7 @@ Kirigami.Page {
                 id: img
                 x: 2; y: 2; z: -1
                 image: pageImg
+                rotation: rotated
                 onRotationChanged: PDFED.pdfModel.addRotation(index, rotation)
             }
             Rectangle {
@@ -94,5 +95,6 @@ Kirigami.Page {
         anchors { bottom: parent.bottom; right: parent.right }
         icon.name: "application-pdf"
         text: i18n("Generate")
+        onClicked: PDFED.pdfModel.generate()
     }
 }

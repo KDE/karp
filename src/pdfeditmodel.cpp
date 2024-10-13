@@ -4,6 +4,9 @@
 #include "pdfeditmodel.h"
 #include <QDebug>
 #include <QPdfDocument>
+#include <QProcess>
+
+using namespace Qt::Literals::StringLiterals;
 
 PdfEditModel::PdfEditModel(const QString &pdfFile, QObject *parent)
     : QAbstractListModel(parent)
@@ -14,8 +17,16 @@ PdfEditModel::PdfEditModel(const QString &pdfFile, QObject *parent)
         qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile;
         return;
     }
+    m_pdfFile = pdfFile;
 
     m_rows = m_pdfDoc->pageCount();
+    m_rotated = new quint16[m_rows]{0};
+}
+
+PdfEditModel::~PdfEditModel()
+{
+    if (m_rotated)
+        delete[] m_rotated;
 }
 
 qreal PdfEditModel::maxPageWidth() const
@@ -41,31 +52,58 @@ void PdfEditModel::setMaxPageWidth(qreal maxPW)
 
 bool PdfEditModel::edited() const
 {
-    return !m_rotations.isEmpty();
+    return true; // TODO
 }
 
 void PdfEditModel::addRotation(int pageId, int angle)
 {
-    bool addRotationToList = true;
-    int pageAt = 0;
-    for (auto &r : m_rotations) {
-        if (pageId == r.pageNr) {
-            addRotationToList = false;
-            if (angle == 0) {
-                m_rotations.removeAt(pageAt);
-            } else {
-                r.angle = angle;
-            }
+    if (pageId < 0 || pageId >= m_rows)
+        return;
+    if (angle < 0) {
+        switch (angle) {
+        case -90:
+            angle = 270;
+            break;
+        case -180:
+            angle = 180;
+            break;
+        case -270:
+            angle = 90;
             break;
         }
-        if (pageId >= r.pageNr)
-            break;
-        pageAt++;
     }
-    if (addRotationToList && angle != 0) {
-        m_rotations.insert(pageAt, PageRotation(pageId, angle));
-    }
+    m_rotated[pageId] = angle;
     Q_EMIT editedChanged();
+}
+
+void PdfEditModel::generate()
+{
+    QProcess p;
+    p.setProgram(u"qpdf"_s);
+    p.setArguments(QStringList() << u"--version"_s);
+    p.start();
+    p.waitForFinished();
+    qDebug().noquote() << p.readLine();
+    p.close();
+
+    QStringList args;
+    // Rotation pages - aggregate angles
+    QVector<quint16> r90, r180, r270;
+    for (int r = 0; r < m_rows; ++r) {
+        if (m_rotated[r] == 90)
+            r90 << r;
+        else if (m_rotated[r] == 180)
+            r180 << r;
+        else if (m_rotated[r] == 270)
+            r270 << r;
+    }
+    if (!r90.isEmpty())
+        args << getPagesForRotation(90, r90);
+    if (!r180.isEmpty())
+        args << getPagesForRotation(180, r180);
+    if (!r270.isEmpty())
+        args << getPagesForRotation(270, r270);
+    qDebug() << args;
 }
 
 QPdfDocument *PdfEditModel::pdfDocument() const
@@ -82,11 +120,13 @@ int PdfEditModel::rowCount(const QModelIndex &parent) const
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
-    case PdfEditImage: {
+    case RoleImage: {
         QSizeF pSize = m_pdfDoc->pagePointSize(index.row());
         qreal pageRatio = pSize.height() / pSize.width();
         return QVariant::fromValue(m_pdfDoc->render(index.row(), QSize(m_maxPageWidth, qFloor(m_maxPageWidth * pageRatio))));
     }
+    case RoleRotated:
+        return m_rotated[index.row()];
     default:
         return QVariant();
     }
@@ -94,7 +134,23 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{PdfEditImage, "pageImg"}};
+    return {{RoleImage, "pageImg"}, {RoleRotated, "rotated"}};
+}
+
+QString PdfEditModel::getPagesForRotation(int angle, const QVector<quint16> &pageList)
+{
+    QString pRange;
+    if (!pageList.isEmpty()) {
+        pRange.append(QString(u"--rotate=+%1:"_s).arg(angle));
+        pRange.append(QString::number(pageList[0] + 1));
+    }
+    int p = 1;
+    while (p < pageList.count()) {
+        pRange.append(u","_s);
+        pRange.append(QString::number(pageList[p] + 1));
+        p++;
+    }
+    return pRange;
 }
 
 #include "moc_pdfeditmodel.cpp"

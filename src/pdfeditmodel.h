@@ -21,32 +21,24 @@ class PdfEditModel : public QAbstractListModel
 
 public:
     explicit PdfEditModel(const QString &pdfFile = QString(), QObject *parent = nullptr);
+    ~PdfEditModel() override;
 
     qreal maxPageWidth() const;
     void setMaxPageWidth(qreal maxPW);
 
     bool edited() const;
 
-    class PageRotation
-    {
-    public:
-        PageRotation(quint16 nr, qint16 ang)
-            : pageNr(nr)
-            , angle(ang)
-        {
-        }
-        quint16 pageNr = 0;
-        qint16 angle = 0;
-    };
-
     Q_INVOKABLE void addRotation(int pageId, int angle);
+
+    Q_INVOKABLE void generate();
 
     QPdfDocument *pdfDocument() const;
 
     int rowCount(const QModelIndex &parent) const override;
 
     enum PdfEditRoles {
-        PdfEditImage = Qt::UserRole,
+        RoleImage = Qt::UserRole,
+        RoleRotated,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -57,10 +49,14 @@ Q_SIGNALS:
     void maxPageWidthChanged();
     void editedChanged();
 
+protected:
+    QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
+
 private:
+    QString m_pdfFile;
     QPdfDocument *m_pdfDoc = nullptr;
     int m_rows = 0;
     qreal m_maxPageWidth = 1.0;
     // PDF modifications
-    QVector<PageRotation> m_rotations;
+    quint16 *m_rotated = nullptr;
 };
