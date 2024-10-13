@@ -44,14 +44,7 @@ void PdfEditModel::setMaxPageWidth(qreal maxPW)
         return;
     m_maxPageWidth = maxPW;
     Q_EMIT maxPageWidthChanged();
-    // TODO: improve scaling
-    beginRemoveRows(QModelIndex(), 0, m_rows - 1);
-    m_rows = 0;
-    endRemoveRows();
-    int tmpRowCount = m_pdfDoc->pageCount();
-    beginInsertRows(QModelIndex(), 0, tmpRowCount - 1);
-    m_rows = tmpRowCount;
-    endInsertRows();
+    Q_EMIT dataChanged(index(0), index(m_rows - 1), QList<int>() << RoleImage);
 }
 
 bool PdfEditModel::edited() const
