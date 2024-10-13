@@ -16,6 +16,7 @@ Kirigami.Page {
         visible: !PDFED.pdfLoaded
         anchors.centerIn: parent
         text: i18n("Select PDF file")
+        icon.name: "application-pdf"
         onClicked: {
             PDFED.getPdfFile()
             PDFED.pdfModel.maxPageWidth = Qt.binding(function() { return page.width / 3 })
@@ -67,6 +68,13 @@ Kirigami.Page {
             }
             QQC2.Button {
                 visible: delegRect.checked
+                anchors { top: parent.top; left: parent.left }
+                icon.name: "edit-delete"
+                icon.color: "red"
+                onClicked: console.log("delete Page", index)
+            }
+            QQC2.Button {
+                visible: delegRect.checked
                 anchors { verticalCenter: parent.verticalCenter; left: parent.left }
                 icon.name: "object-rotate-left"
                 onClicked: img.rotation = img.rotation > -270 ? img.rotation - 90 : 0
@@ -79,4 +87,12 @@ Kirigami.Page {
             }
         }
     } // ListView
+
+    QQC2.Button {
+        visible: PDFED.pdfLoaded
+        enabled: PDFED.pdfModel.edited
+        anchors { bottom: parent.bottom; right: parent.right }
+        icon.name: "application-pdf"
+        text: i18n("Generate")
+    }
 }
