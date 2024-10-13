@@ -67,24 +67,37 @@ Kirigami.Page {
                 anchors.fill: parent
                 onClicked: pdfView.currentIndex = index
             }
-            QQC2.Button {
-                visible: delegRect.checked
-                anchors { top: parent.top; left: parent.left }
-                icon.name: "edit-delete"
-                icon.color: "red"
-                onClicked: console.log("delete Page", index)
+            Item {
+                anchors.fill: parent
+                visible: delegRect.checked && !deleted
+                QQC2.Button {
+                    anchors { top: parent.top; left: parent.left }
+                    icon.name: "edit-delete"
+                    icon.color: "red"
+                    onClicked: {
+                        img.rotation = 0
+                        PDFED.pdfModel.addDeletion(index, true)
+                    }
+                }
+                QQC2.Button {
+                    anchors { verticalCenter: parent.verticalCenter; left: parent.left }
+                    icon.name: "object-rotate-left"
+                    onClicked: img.rotation = img.rotation > -270 ? img.rotation - 90 : 0
+                }
+                QQC2.Button {
+                    anchors { verticalCenter: parent.verticalCenter; right: parent.right }
+                    icon.name: "object-rotate-right"
+                    onClicked: img.rotation = img.rotation < 270 ? img.rotation + 90 : 0
+                }
             }
-            QQC2.Button {
-                visible: delegRect.checked
-                anchors { verticalCenter: parent.verticalCenter; left: parent.left }
-                icon.name: "object-rotate-left"
-                onClicked: img.rotation = img.rotation > -270 ? img.rotation - 90 : 0
-            }
-            QQC2.Button {
-                visible: delegRect.checked
-                anchors { verticalCenter: parent.verticalCenter; right: parent.right }
-                icon.name: "object-rotate-right"
-                onClicked: img.rotation = img.rotation < 270 ? img.rotation + 90 : 0
+            Loader {
+                active: deleted
+                z: 5 // atop of mouse area
+                anchors.fill: parent
+                sourceComponent: DeletedDelegate {
+                    buttonVisible: delegRect.checked
+                    onWantRevert: PDFED.pdfModel.addDeletion(index, false)
+                }
             }
         }
     } // ListView

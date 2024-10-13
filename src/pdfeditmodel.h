@@ -29,6 +29,7 @@ public:
     bool edited() const;
 
     Q_INVOKABLE void addRotation(int pageId, int angle);
+    Q_INVOKABLE void addDeletion(int pageId, bool doDel);
 
     Q_INVOKABLE void generate();
 
@@ -39,6 +40,7 @@ public:
     enum PdfEditRoles {
         RoleImage = Qt::UserRole,
         RoleRotated,
+        RoleDeleted,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -59,4 +61,6 @@ private:
     qreal m_maxPageWidth = 1.0;
     // PDF modifications
     quint16 *m_rotated = nullptr;
+    quint16 m_deletedCount = 0;
+    bool *m_deleted = nullptr;
 };
