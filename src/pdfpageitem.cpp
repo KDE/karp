@@ -19,10 +19,12 @@ void PdfPageItem::setImage(QVariant img)
 {
     m_image = qvariant_cast<QImage>(img);
     setSize(m_image.size());
+    update();
 }
 
 void PdfPageItem::paint(QPainter *painter)
 {
+    painter->fillRect(0, 0, width() - 1, height() - 1, Qt::white);
     painter->drawImage(0, 0, m_image);
 }
 
