@@ -12,6 +12,16 @@ Kirigami.Page {
 
     title: i18n("Arrange PDF Pages") + ": " + PDFED.name
 
+    actions: [
+        Kirigami.Action {
+            visible: PDFED.pdfLoaded
+            enabled: PDFED.pdfModel && PDFED.pdfModel.edited
+            icon.name: "application-pdf"
+            text: i18n("Generate")
+            onTriggered: PDFED.pdfModel.generate()
+        }
+    ]
+
     QQC2.Button {
         visible: !PDFED.pdfLoaded
         anchors.centerIn: parent
@@ -23,18 +33,26 @@ Kirigami.Page {
         }
     }
 
+    Rectangle {
+        visible: PDFED.pdfLoaded
+        anchors.fill: pdfView
+        color: Kirigami.Theme.alternateBackgroundColor
+    }
+
     ListView {
         id: pdfView
         visible: PDFED.pdfLoaded
-        width: page.width / 2; height: page.height * 0.8
+        width: page.width - Kirigami.Units.largeSpacing * 4
+        height: page.height - bottomRect.height - Kirigami.Units.largeSpacing
         clip: true
-        spacing: height * 0.1
+        spacing: Kirigami.Units.smallSpacing
         model: PDFED.pdfModel
         currentIndex: -1
 
         delegate: Rectangle {
             id: delegRect
             property bool checked: pdfView.currentIndex === index
+            x: Kirigami.Units.smallSpacing
             width: img.width + 4; height: img.height + 4
             color: "transparent"
             border {
@@ -112,15 +130,13 @@ Kirigami.Page {
                 }
             }
         }
+        QQC2.ScrollBar.vertical: QQC2.ScrollBar { visible: true }
     } // ListView
 
-    QQC2.Button {
-        visible: PDFED.pdfLoaded
-        enabled: PDFED.pdfModel && PDFED.pdfModel.edited
-        anchors { bottom: parent.bottom; right: parent.right }
-        icon.name: "application-pdf"
-        text: i18n("Generate")
-        onClicked: PDFED.pdfModel.generate()
+    footer: Rectangle {
+        id: bottomRect
+        width: page.width; height: Kirigami.Units.gridUnit * 2
+        color: Kirigami.Theme.alternateBackgroundColor
     }
 
     function movePage(from, to) {
