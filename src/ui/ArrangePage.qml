@@ -10,43 +10,45 @@ import org.kde.deafed
 Kirigami.Page {
     id: page
 
-    title: i18n("Arrange PDF Pages") + ": " + PDFED.name
+    title: i18n("Arrange") + ": " + PDFED.name
 
     actions: [
         Kirigami.Action {
-            visible: PDFED.pdfLoaded
-            enabled: PDFED.pdfModel && PDFED.pdfModel.edited
+            visible: pdfView.count
+            enabled: pdfModel.edited
             icon.name: "application-pdf"
             text: i18n("Generate")
-            onTriggered: PDFED.pdfModel.generate()
+            onTriggered: pdfModel.generate()
         }
     ]
 
+    PdfEditModel {
+        id: pdfModel
+        maxPageWidth: pdfView.width / 4
+    }
+
     QQC2.Button {
-        visible: !PDFED.pdfLoaded
+        visible: !pdfView.count
         anchors.centerIn: parent
         text: i18n("Select PDF file")
         icon.name: "application-pdf"
-        onClicked: {
-            PDFED.getPdfFile()
-            PDFED.pdfModel.maxPageWidth = Qt.binding(function() { return page.width / 3 })
-        }
+        onClicked: pdfModel.loadPdfFile(PDFED.getPdfFile())
     }
 
     Rectangle {
-        visible: PDFED.pdfLoaded
+        visible: pdfView.count
         anchors.fill: pdfView
         color: Kirigami.Theme.alternateBackgroundColor
     }
 
     ListView {
         id: pdfView
-        visible: PDFED.pdfLoaded
+        visible: count
         width: page.width - Kirigami.Units.largeSpacing * 4
         height: page.height - bottomRect.height - Kirigami.Units.largeSpacing
         clip: true
         spacing: Kirigami.Units.smallSpacing
-        model: PDFED.pdfModel
+        model: pdfModel
         currentIndex: -1
 
         delegate: Rectangle {
@@ -64,7 +66,7 @@ Kirigami.Page {
                 x: 2; y: 2; z: -1
                 image: pageImg
                 rotation: rotated
-                onRotationChanged: PDFED.pdfModel.addRotation(index, rotation)
+                onRotationChanged: pdfModel.addRotation(index, rotation)
             }
             Rectangle {
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
@@ -94,7 +96,7 @@ Kirigami.Page {
                     icon.color: "red"
                     onClicked: {
                         img.rotation = 0
-                        PDFED.pdfModel.addDeletion(index, true)
+                        pdfModel.addDeletion(index, true)
                     }
                 }
                 QQC2.Button {
@@ -126,7 +128,7 @@ Kirigami.Page {
                 anchors.fill: parent
                 sourceComponent: DeletedDelegate {
                     buttonVisible: delegRect.checked
-                    onWantRevert: PDFED.pdfModel.addDeletion(index, false)
+                    onWantRevert: pdfModel.addDeletion(index, false)
                 }
             }
         }
@@ -139,14 +141,14 @@ Kirigami.Page {
         color: Kirigami.Theme.alternateBackgroundColor
         Text {
             anchors { fill: parent; margins: Kirigami.Units.smallSpacing }
-            text: PDFED.pdfModel ? PDFED.pdfModel.command : ""
+            text: pdfModel.command
             wrapMode: Text.WordWrap
             color: Kirigami.Theme.textColor
         }
     }
 
     function movePage(from, to) {
-        var pageNr = PDFED.pdfModel.addMove(from, to)
+        var pageNr = pdfModel.addMove(from, to)
         if (pageNr > -1)
             pdfView.currentIndex = pageNr
     }

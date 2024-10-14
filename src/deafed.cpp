@@ -40,7 +40,7 @@ void DeaFEd::saveWindowGeometry(QQuickWindow *window, const QString &group) cons
     dataResource.sync();
 }
 
-void DeaFEd::getPdfFile()
+QString DeaFEd::getPdfFile()
 {
     QString lastPath = deafedConfig::self()->lastDir();
     if (lastPath.isEmpty()) {
@@ -48,15 +48,13 @@ void DeaFEd::getPdfFile()
     }
     auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), lastPath, u"*.pdf"_s);
     if (pdfFile.isEmpty())
-        return;
+        return QString();
 
     setPath(pdfFile);
     QFileInfo pdfFileInfo(pdfFile);
     setName(pdfFileInfo.fileName());
-    if (!m_pdfModel) {
-        m_pdfModel = new PdfEditModel(m_path, this);
-    }
     setPdfLoaded(true);
+    return m_path;
 }
 
 bool DeaFEd::pdfLoaded() const
@@ -96,11 +94,6 @@ void DeaFEd::setPath(QString pdfPath)
         return;
     m_path = pdfPath;
     Q_EMIT pathChanged();
-}
-
-QVariant DeaFEd::pdfModel()
-{
-    return QVariant::fromValue(m_pdfModel);
 }
 
 QColor DeaFEd::alpha(const QColor &c, int alpha)

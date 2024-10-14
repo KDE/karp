@@ -21,8 +21,10 @@ class PdfEditModel : public QAbstractListModel
     Q_PROPERTY(QString command READ command NOTIFY commandChanged)
 
 public:
-    explicit PdfEditModel(const QString &pdfFile = QString(), QObject *parent = nullptr);
+    explicit PdfEditModel(QObject *parent = nullptr);
     ~PdfEditModel() override;
+
+    Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
     qreal maxPageWidth() const;
     void setMaxPageWidth(qreal maxPW);

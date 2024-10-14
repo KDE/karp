@@ -8,10 +8,22 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-PdfEditModel::PdfEditModel(const QString &pdfFile, QObject *parent)
+PdfEditModel::PdfEditModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     m_pdfDoc = new QPdfDocument(this);
+}
+
+PdfEditModel::~PdfEditModel()
+{
+    if (m_rotated)
+        delete[] m_rotated;
+    if (m_deleted)
+        delete[] m_deleted;
+}
+
+void PdfEditModel::loadPdfFile(const QString &pdfFile)
+{
     auto res = m_pdfDoc->load(pdfFile);
     if (res != QPdfDocument::Error::None) {
         qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile;
@@ -29,14 +41,8 @@ PdfEditModel::PdfEditModel(const QString &pdfFile, QObject *parent)
     for (int i = 0; i < m_rows; ++i) {
         m_pageMap << i;
     }
-}
-
-PdfEditModel::~PdfEditModel()
-{
-    if (m_rotated)
-        delete[] m_rotated;
-    if (m_deleted)
-        delete[] m_deleted;
+    beginInsertRows(QModelIndex(), 0, m_rows - 1);
+    endInsertRows();
 }
 
 qreal PdfEditModel::maxPageWidth() const
