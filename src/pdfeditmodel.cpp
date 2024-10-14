@@ -101,6 +101,7 @@ void PdfEditModel::addDeletion(int pageId, bool doDel)
  * Moves given @p pageNr to @p toPage.
  * If next page after @p toPage is deleted, moves @p pageNr after deleted page.
  * Returns -1 if target page can be determined or target page number.
+ * It skip all deleted page in row if they occur after @p toPage target.
  */
 int PdfEditModel::addMove(int pageNr, int toPage)
 {
@@ -108,16 +109,20 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         return -1;
 
     m_wasMoved = true;
-    int cnt = toPage + 1;
-    while (cnt < m_rows) {
-        if (!m_deleted[map(cnt)]) {
-            toPage = cnt - 1;
-            break;
+    if (toPage < m_rows - 1 && m_deleted[map(toPage + 1)]) {
+        // if not the last page - check is page after target  one deleted
+        // if so, move page after deleted
+        int cnt = toPage + 1;
+        while (cnt < m_rows) {
+            if (!m_deleted[map(cnt)]) {
+                toPage = cnt - 1;
+                break;
+            }
+            cnt++;
         }
-        cnt++;
+        if (cnt >= m_rows)
+            return -1;
     }
-    if (cnt >= m_rows)
-        return -1;
     m_pageMap.move(pageNr, toPage);
     Q_EMIT editedChanged();
     Q_EMIT dataChanged(index(0), index(m_rows - 1));
