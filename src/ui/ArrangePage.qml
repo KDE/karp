@@ -59,7 +59,7 @@ Kirigami.Page {
                     verticalAlignment: Text.AlignVCenter
                     color: "#fff"
                     font { pixelSize: parent.height * 0.8; bold: true }
-                    text: (index + 1) + " <font size=\"1\">(" + (index + 1) + ")</font>"
+                    text: (index + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
                 }
             }
             MouseArea {
@@ -89,6 +89,18 @@ Kirigami.Page {
                     icon.name: "object-rotate-right"
                     onClicked: img.rotation = img.rotation < 270 ? img.rotation + 90 : 0
                 }
+                QQC2.Button {
+                    visible: pdfView.currentIndex !== 0
+                    anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
+                    icon.name: "go-up"
+                    onClicked: movePage(index, index - 1)
+                }
+                QQC2.Button {
+                    visible: pdfView.currentIndex !== pdfView.count - 1
+                    anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
+                    icon.name: "go-down"
+                    onClicked: movePage(index, index + 1)
+                }
             }
             Loader {
                 active: deleted
@@ -109,5 +121,11 @@ Kirigami.Page {
         icon.name: "application-pdf"
         text: i18n("Generate")
         onClicked: PDFED.pdfModel.generate()
+    }
+
+    function movePage(from, to) {
+        var pageNr = PDFED.pdfModel.addMove(from, to)
+        if (pageNr > -1)
+            pdfView.currentIndex = pageNr
     }
 }

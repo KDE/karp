@@ -23,6 +23,11 @@ PdfEditModel::PdfEditModel(const QString &pdfFile, QObject *parent)
     m_rotated = new quint16[m_rows]{0};
     m_deleted = new bool[m_rows]{false};
     m_deletedCount = 0;
+    m_pageMap.clear();
+    m_wasMoved = false;
+    for (int i = 0; i < m_rows; ++i) {
+        m_pageMap << i;
+    }
 }
 
 PdfEditModel::~PdfEditModel()
@@ -49,7 +54,7 @@ void PdfEditModel::setMaxPageWidth(qreal maxPW)
 
 bool PdfEditModel::edited() const
 {
-    return true && m_deletedCount > 0; // TODO
+    return true && (m_deletedCount > 0 || m_wasMoved); // TODO
 }
 
 void PdfEditModel::addRotation(int pageId, int angle)
@@ -69,7 +74,7 @@ void PdfEditModel::addRotation(int pageId, int angle)
             break;
         }
     }
-    m_rotated[pageId] = angle;
+    m_rotated[map(pageId)] = angle;
     Q_EMIT editedChanged(); /// TODO
 }
 
@@ -77,7 +82,7 @@ void PdfEditModel::addDeletion(int pageId, bool doDel)
 {
     if (pageId < 0 || pageId >= m_rows)
         return;
-    m_deleted[pageId] = doDel;
+    m_deleted[map(pageId)] = doDel;
     if (doDel) {
         m_deletedCount++;
     } else {
@@ -92,8 +97,37 @@ void PdfEditModel::addDeletion(int pageId, bool doDel)
     Q_EMIT dataChanged(index(pageId), index(pageId), QList<int>() << RoleDeleted);
 }
 
+/**
+ * Moves given @p pageNr to @p toPage.
+ * If next page after @p toPage is deleted, moves @p pageNr after deleted page.
+ * Returns -1 if target page can be determined or target page number.
+ */
+int PdfEditModel::addMove(int pageNr, int toPage)
+{
+    if (pageNr < 0 || pageNr >= m_rows || toPage < 0 || toPage >= m_rows)
+        return -1;
+
+    m_wasMoved = true;
+    int cnt = toPage + 1;
+    while (cnt < m_rows) {
+        if (!m_deleted[map(cnt)]) {
+            toPage = cnt - 1;
+            break;
+        }
+        cnt++;
+    }
+    if (cnt >= m_rows)
+        return -1;
+    m_pageMap.move(pageNr, toPage);
+    Q_EMIT editedChanged();
+    Q_EMIT dataChanged(index(0), index(m_rows - 1));
+    return toPage;
+}
+
 void PdfEditModel::generate()
 {
+    if (m_deletedCount >= m_rows)
+        return;
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
     p.setProgram(u"qpdf"_s);
@@ -104,25 +138,43 @@ void PdfEditModel::generate()
     // p.close();
 
     QStringList args;
-    // Find page ranges according to deleted ones
     args << m_pdfFile;
-    if (m_deletedCount > 0) {
+    if (m_deletedCount > 0 || m_wasMoved) {
         QString delArgs;
         args << u"--pages"_s << u"."_s;
         QVector<QPair<int, int>> pageRanges;
-        pageRanges << QPair<int, int>(-1, -1);
-        for (int d = 0; d < m_rows; ++d) {
-            if (m_deleted[d]) {
-                if (pageRanges.last().first != -1)
-                    pageRanges << QPair<int, int>(-1, -1);
+        bool lastRangeClosed = false;
+        int cnt = 0;
+        while (cnt < m_rows && m_deleted[map(cnt)]) {
+            cnt++;
+        }
+        // cnt++;
+        if (cnt >= m_rows)
+            return;
+        int fromPage = map(cnt);
+        int toPage = fromPage + 1;
+        cnt++;
+        for (int d = cnt; d < m_rows; ++d) {
+            int nr = map(d);
+            if (m_deleted[nr]) {
+                if (d == m_rows - 1)
+                    lastRangeClosed = false;
+                continue;
+            }
+            if (nr == toPage) {
+                toPage++;
+                lastRangeClosed = false;
+                continue;
             } else {
-                if (pageRanges.last().first == -1)
-                    pageRanges.last().first = d;
-                pageRanges.last().second = d;
+                toPage--;
+                pageRanges << QPair<int, int>(fromPage, toPage);
+                lastRangeClosed = d < m_rows - 1;
+                fromPage = nr;
+                toPage = fromPage + 1;
             }
         }
-        if (pageRanges.last().first == -1)
-            pageRanges.removeLast();
+        if (!pageRanges.isEmpty() && !lastRangeClosed)
+            pageRanges << QPair<int, int>(fromPage, toPage - 1);
         for (auto &r : pageRanges) {
             if (!delArgs.isEmpty())
                 delArgs.append(u","_s);
@@ -153,7 +205,7 @@ void PdfEditModel::generate()
     auto out = m_pdfFile;
     out.insert(m_pdfFile.length() - 4, u"-out"_s);
     args << out;
-    qDebug().noquote() << args;
+    qDebug().noquote() << args.join(u" "_s);
     p.setArguments(args);
     p.start();
     p.waitForFinished();
@@ -174,16 +226,21 @@ int PdfEditModel::rowCount(const QModelIndex &parent) const
 
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= m_rows)
+        return QVariant();
+    int row = map(index.row());
     switch (role) {
     case RoleImage: {
-        QSizeF pSize = m_pdfDoc->pagePointSize(index.row());
+        QSizeF pSize = m_pdfDoc->pagePointSize(row);
         qreal pageRatio = pSize.height() / pSize.width();
-        return QVariant::fromValue(m_pdfDoc->render(index.row(), QSize(m_maxPageWidth, qFloor(m_maxPageWidth * pageRatio))));
+        return QVariant::fromValue(m_pdfDoc->render(row, QSize(m_maxPageWidth, qFloor(m_maxPageWidth * pageRatio))));
     }
     case RoleRotated:
-        return m_rotated[index.row()];
+        return m_rotated[row];
     case RoleDeleted:
-        return m_deleted[index.row()];
+        return m_deleted[row];
+    case RoleOrigNr:
+        return row;
     default:
         return QVariant();
     }
@@ -191,7 +248,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{RoleImage, "pageImg"}, {RoleRotated, "rotated"}, {RoleDeleted, "deleted"}};
+    return {{RoleImage, "pageImg"}, {RoleRotated, "rotated"}, {RoleDeleted, "deleted"}, {RoleOrigNr, "origPage"}};
 }
 
 QString PdfEditModel::getPagesForRotation(int angle, const QVector<quint16> &pageList)
@@ -199,13 +256,13 @@ QString PdfEditModel::getPagesForRotation(int angle, const QVector<quint16> &pag
     QString pRange;
     if (!pageList.isEmpty()) {
         pRange.append(QString(u"--rotate=+%1:"_s).arg(angle));
-        pRange.append(QString::number(pageList[0] + 1));
+        pRange.append(QString::number(map(pageList[0]) + 1));
     }
     int p = 1;
     while (p < pageList.count()) {
         if (!pRange.isEmpty())
             pRange.append(u","_s);
-        pRange.append(QString::number(pageList[p] + 1));
+        pRange.append(QString::number(map(pageList[p]) + 1));
         p++;
     }
     return pRange;

@@ -28,8 +28,17 @@ public:
 
     bool edited() const;
 
+    /**
+     * Maps given page @p nr to origin number
+     */
+    int map(int nr) const
+    {
+        return m_pageMap[nr];
+    }
+
     Q_INVOKABLE void addRotation(int pageId, int angle);
     Q_INVOKABLE void addDeletion(int pageId, bool doDel);
+    Q_INVOKABLE int addMove(int pageNr, int toPage);
 
     Q_INVOKABLE void generate();
 
@@ -41,6 +50,7 @@ public:
         RoleImage = Qt::UserRole,
         RoleRotated,
         RoleDeleted,
+        RoleOrigNr,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -63,4 +73,6 @@ private:
     quint16 *m_rotated = nullptr;
     quint16 m_deletedCount = 0;
     bool *m_deleted = nullptr;
+    bool m_wasMoved = false;
+    QVector<quint16> m_pageMap;
 };
