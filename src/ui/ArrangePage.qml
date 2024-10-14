@@ -135,8 +135,14 @@ Kirigami.Page {
 
     footer: Rectangle {
         id: bottomRect
-        width: page.width; height: Kirigami.Units.gridUnit * 2
+        width: page.width; height: Kirigami.Units.gridUnit * 3
         color: Kirigami.Theme.alternateBackgroundColor
+        Text {
+            anchors { fill: parent; margins: Kirigami.Units.smallSpacing }
+            text: PDFED.pdfModel ? PDFED.pdfModel.command : ""
+            wrapMode: Text.WordWrap
+            color: Kirigami.Theme.textColor
+        }
     }
 
     function movePage(from, to) {

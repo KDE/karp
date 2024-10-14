@@ -18,6 +18,7 @@ class PdfEditModel : public QAbstractListModel
 
     Q_PROPERTY(qreal maxPageWidth READ maxPageWidth WRITE setMaxPageWidth NOTIFY maxPageWidthChanged)
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
+    Q_PROPERTY(QString command READ command NOTIFY commandChanged)
 
 public:
     explicit PdfEditModel(const QString &pdfFile = QString(), QObject *parent = nullptr);
@@ -27,6 +28,9 @@ public:
     void setMaxPageWidth(qreal maxPW);
 
     bool edited() const;
+
+    QString command() const;
+    void setCommand(const QString &cmd);
 
     /**
      * Maps given page @p nr to origin number
@@ -60,6 +64,7 @@ public:
 Q_SIGNALS:
     void maxPageWidthChanged();
     void editedChanged();
+    void commandChanged();
 
 protected:
     QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
@@ -69,6 +74,7 @@ private:
     QPdfDocument *m_pdfDoc = nullptr;
     int m_rows = 0;
     qreal m_maxPageWidth = 1.0;
+    QString m_command;
     // PDF modifications
     quint16 m_rotatedCount = 0;
     quint16 *m_rotated = nullptr;

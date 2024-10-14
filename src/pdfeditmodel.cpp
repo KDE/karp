@@ -58,6 +58,17 @@ bool PdfEditModel::edited() const
     return m_rotatedCount || m_deletedCount || m_wasMoved;
 }
 
+QString PdfEditModel::command() const
+{
+    return m_command;
+}
+
+void PdfEditModel::setCommand(const QString &cmd)
+{
+    m_command = cmd;
+    Q_EMIT commandChanged();
+}
+
 void PdfEditModel::addRotation(int pageId, int angle)
 {
     if (pageId < 0 || pageId >= m_rows)
@@ -215,7 +226,8 @@ void PdfEditModel::generate()
     auto out = m_pdfFile;
     out.insert(m_pdfFile.length() - 4, u"-out"_s);
     args << out;
-    qDebug().noquote() << args.join(u" "_s);
+    setCommand(u"qpdf"_s + u" "_s + args.join(u" "_s));
+    qDebug().noquote() << m_command;
     p.setArguments(args);
     p.start();
     p.waitForFinished();
