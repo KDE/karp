@@ -21,7 +21,7 @@ class DeaFEd : public QObject
 public:
     explicit DeaFEd(QObject *parent = nullptr);
 
-    Q_INVOKABLE void restoreWindowGeometry(QQuickWindow *window, const QString &group = QLatin1String("main")) const;
+    Q_INVOKABLE void restoreWindowGeometry(QQuickWindow *window, const QString &group = QLatin1String("main"));
 
     Q_INVOKABLE void saveWindowGeometry(QQuickWindow *window, const QString &group = QLatin1String("main")) const;
 

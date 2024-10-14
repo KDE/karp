@@ -152,4 +152,9 @@ Kirigami.Page {
         if (pageNr > -1)
             pdfView.currentIndex = pageNr
     }
+
+    Component.onCompleted: {
+        if (PDFED.path !== "")
+            pdfModel.loadPdfFile(PDFED.path)
+    }
 }

@@ -7,6 +7,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QFileDialog>
 #include <QQuickWindow>
@@ -16,9 +17,16 @@ using namespace Qt::Literals::StringLiterals;
 DeaFEd::DeaFEd(QObject *parent)
     : QObject(parent)
 {
+    QCommandLineParser cmd;
+    QCommandLineOption fileOpt(QStringList() << u"file"_s << u"f"_s, u"PDF file to proceed\n"_s, u"some.pdf"_s);
+    cmd.addOption(fileOpt);
+    cmd.parse(qApp->arguments());
+    if (cmd.isSet(fileOpt)) {
+        m_path = cmd.value(fileOpt);
+    }
 }
 
-void DeaFEd::restoreWindowGeometry(QQuickWindow *window, const QString &group) const
+void DeaFEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
 {
     KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
