@@ -20,6 +20,7 @@ PdfEditModel::PdfEditModel(const QString &pdfFile, QObject *parent)
     m_pdfFile = pdfFile;
 
     m_rows = m_pdfDoc->pageCount();
+    m_rotatedCount = 0;
     m_rotated = new quint16[m_rows]{0};
     m_deleted = new bool[m_rows]{false};
     m_deletedCount = 0;
@@ -54,7 +55,7 @@ void PdfEditModel::setMaxPageWidth(qreal maxPW)
 
 bool PdfEditModel::edited() const
 {
-    return true && (m_deletedCount > 0 || m_wasMoved); // TODO
+    return m_rotatedCount || m_deletedCount || m_wasMoved;
 }
 
 void PdfEditModel::addRotation(int pageId, int angle)
@@ -74,8 +75,12 @@ void PdfEditModel::addRotation(int pageId, int angle)
             break;
         }
     }
+    if (angle)
+        m_rotatedCount++;
+    else
+        m_rotatedCount--;
     m_rotated[map(pageId)] = angle;
-    Q_EMIT editedChanged(); /// TODO
+    Q_EMIT editedChanged();
 }
 
 void PdfEditModel::addDeletion(int pageId, bool doDel)

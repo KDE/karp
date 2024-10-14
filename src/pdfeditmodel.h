@@ -70,6 +70,7 @@ private:
     int m_rows = 0;
     qreal m_maxPageWidth = 1.0;
     // PDF modifications
+    quint16 m_rotatedCount = 0;
     quint16 *m_rotated = nullptr;
     quint16 m_deletedCount = 0;
     bool *m_deleted = nullptr;
