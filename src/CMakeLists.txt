@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: BSD-2-Clause
 # SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
 
-# Target: static library
-qt_add_qml_module(deafed_static
-    STATIC
+add_executable(deafed)
+
+qt_add_qml_module(deafed
     URI org.kde.deafed
     VERSION 1.0
     QML_FILES
@@ -14,13 +14,15 @@ qt_add_qml_module(deafed_static
         ui/PdfMetadataDialog.qml
 )
 
-target_sources(deafed_static PUBLIC
+target_sources(deafed PUBLIC
+    main.cpp
     deafed.cpp
     pdfeditmodel.cpp
     pdfpageitem.cpp
 )
 
-target_link_libraries(deafed_static PUBLIC
+target_link_libraries(deafed
+    PUBLIC
     Qt6::Core
     Qt6::Gui
     Qt6::Qml
@@ -33,7 +35,7 @@ target_link_libraries(deafed_static PUBLIC
     KF6::ConfigCore
     KF6::ConfigGui
 )
-target_include_directories(deafed_static PUBLIC ${CMAKE_BINARY_DIR})
+target_include_directories(deafed PUBLIC ${CMAKE_BINARY_DIR})
 
 if (ANDROID)
     kirigami_package_breeze_icons(ICONS
@@ -44,12 +46,9 @@ if (ANDROID)
         # app icon
     )
 else()
-    target_link_libraries(deafed_static PUBLIC Qt::Widgets)
+    target_link_libraries(deafed PUBLIC Qt::Widgets)
 endif()
 
-kconfig_add_kcfg_files(deafed_static GENERATE_MOC deafedconfig.kcfgc)
+kconfig_add_kcfg_files(deafed GENERATE_MOC deafedconfig.kcfgc)
 
-# Target: main executable
-add_executable(deafed main.cpp)
-target_link_libraries(deafed PUBLIC deafed_static deafed_staticplugin)
 install(TARGETS deafed ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
