@@ -10,7 +10,7 @@ Kirigami.Dialog {
     id: menuDialog
     title: i18n("PDF properties")
     visible: true
-    standardButtons: QQC2.DialogButtonBox.Save
+    standardButtons: QQC2.DialogButtonBox.NoButton //Save
 
     width: Kirigami.Units.gridUnit * 35
     height: Kirigami.Units.gridUnit * 25

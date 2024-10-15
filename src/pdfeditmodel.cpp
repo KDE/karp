@@ -183,7 +183,7 @@ QStringList PdfEditModel::metaDataModel()
         QString value;
         auto fieldType = static_cast<QPdfDocument::MetaDataField>(i);
         if (fieldType == QPdfDocument::MetaDataField::ModificationDate || fieldType == QPdfDocument::MetaDataField::CreationDate) {
-            value = m_pdfDoc->metaData(fieldType).toDateTime().toString(u"yyyy.MM.dd-hh:mm:ss"_s);
+            value = m_pdfDoc->metaData(fieldType).toDateTime().toString(u"yyyy.MM.dd hh:mm:ss"_s);
         } else {
             value = m_pdfDoc->metaData(fieldType).toString();
         }
