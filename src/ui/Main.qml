@@ -27,13 +27,13 @@ Kirigami.ApplicationWindow {
         isMenu: Kirigami.Settings.isMobile
         actions: [
             Kirigami.Action {
-                text: i18n("About DeaFEd")
+                text: i18n("About Deaf Ed")
                 icon.name: "help-about"
                 onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/About.qml")
                 // pageStack.push(Qt.resolvedUrl('About.qml'))
             },
             Kirigami.Action {
-                text: i18n("Reorder pages")
+                text: i18n("Arrange pages")
                 icon.name: "view-sort"
                 // onTriggered: mainWin.pageStack.pushDialogLayer("qrc:About.qml")
             },

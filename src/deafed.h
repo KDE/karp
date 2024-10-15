@@ -8,7 +8,7 @@
 
 class QQuickWindow;
 
-class DeaFEd : public QObject
+class DeafEd : public QObject
 {
     Q_OBJECT
     QML_NAMED_ELEMENT(PDFED)
@@ -19,7 +19,7 @@ class DeaFEd : public QObject
     Q_PROPERTY(QString path READ path NOTIFY pathChanged)
 
 public:
-    explicit DeaFEd(QObject *parent = nullptr);
+    explicit DeafEd(QObject *parent = nullptr);
 
     Q_INVOKABLE void restoreWindowGeometry(QQuickWindow *window, const QString &group = QLatin1String("main"));
 

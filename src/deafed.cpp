@@ -14,7 +14,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-DeaFEd::DeaFEd(QObject *parent)
+DeafEd::DeafEd(QObject *parent)
     : QObject(parent)
 {
     QCommandLineParser cmd;
@@ -26,7 +26,7 @@ DeaFEd::DeaFEd(QObject *parent)
     }
 }
 
-void DeaFEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
+void DeafEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
 {
     KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
@@ -34,7 +34,7 @@ void DeaFEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
     KWindowConfig::restoreWindowPosition(window, windowGroup);
 }
 
-void DeaFEd::saveWindowGeometry(QQuickWindow *window, const QString &group) const
+void DeafEd::saveWindowGeometry(QQuickWindow *window, const QString &group) const
 {
     if (!m_path.isEmpty()) {
         QFileInfo lastPathInfo(m_path);
@@ -48,7 +48,7 @@ void DeaFEd::saveWindowGeometry(QQuickWindow *window, const QString &group) cons
     dataResource.sync();
 }
 
-QString DeaFEd::getPdfFile()
+QString DeafEd::getPdfFile()
 {
     QString lastPath = deafedConfig::self()->lastDir();
     if (lastPath.isEmpty()) {
@@ -65,12 +65,12 @@ QString DeaFEd::getPdfFile()
     return m_path;
 }
 
-bool DeaFEd::pdfLoaded() const
+bool DeafEd::pdfLoaded() const
 {
     return m_pdfLoaded;
 }
 
-void DeaFEd::setPdfLoaded(bool isLoaded)
+void DeafEd::setPdfLoaded(bool isLoaded)
 {
     if (isLoaded == m_pdfLoaded)
         return;
@@ -78,12 +78,12 @@ void DeaFEd::setPdfLoaded(bool isLoaded)
     Q_EMIT pdfLoadedChanged();
 }
 
-QString DeaFEd::name() const
+QString DeafEd::name() const
 {
     return m_name;
 }
 
-void DeaFEd::setName(QString pdfName)
+void DeafEd::setName(QString pdfName)
 {
     if (pdfName == m_name)
         return;
@@ -91,12 +91,12 @@ void DeaFEd::setName(QString pdfName)
     Q_EMIT nameChanged();
 }
 
-QString DeaFEd::path() const
+QString DeafEd::path() const
 {
     return m_path;
 }
 
-void DeaFEd::setPath(QString pdfPath)
+void DeafEd::setPath(QString pdfPath)
 {
     if (pdfPath == m_path)
         return;
@@ -104,7 +104,7 @@ void DeaFEd::setPath(QString pdfPath)
     Q_EMIT pathChanged();
 }
 
-QColor DeaFEd::alpha(const QColor &c, int alpha)
+QColor DeafEd::alpha(const QColor &c, int alpha)
 {
     return QColor(c.red(), c.green(), c.blue(), alpha);
 }

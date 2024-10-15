@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
         // The program name used internally.
         u"deafed"_s,
         // A displayable program name string.
-        i18nc("@title", "DeaFEd"),
+        i18nc("@title", "Deaf Ed"),
         // The program version string.
         QStringLiteral(DEAFED_VERSION_STRING),
         // Short description of what the app does.
