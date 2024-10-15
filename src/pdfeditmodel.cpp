@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
 
 #include "pdfeditmodel.h"
+#include <KLazyLocalizedString>
 #include <QDebug>
 #include <QPdfDocument>
 #include <QProcess>
@@ -61,7 +62,7 @@ void PdfEditModel::setMaxPageWidth(qreal maxPW)
 
 bool PdfEditModel::edited() const
 {
-    return m_rotatedCount || m_deletedCount || m_wasMoved;
+    return m_rotatedCount || m_deletedCount || m_wasMoved || m_optimizeImages;
 }
 
 QString PdfEditModel::command() const
@@ -73,6 +74,20 @@ void PdfEditModel::setCommand(const QString &cmd)
 {
     m_command = cmd;
     Q_EMIT commandChanged();
+}
+
+bool PdfEditModel::optimizeImages() const
+{
+    return m_optimizeImages;
+}
+
+void PdfEditModel::setOptimizeImages(bool optImgs)
+{
+    if (m_optimizeImages == optImgs)
+        return;
+    m_optimizeImages = optImgs;
+    Q_EMIT optimizeImagesChanged();
+    Q_EMIT editedChanged();
 }
 
 void PdfEditModel::addRotation(int pageId, int angle)
@@ -151,6 +166,32 @@ int PdfEditModel::addMove(int pageNr, int toPage)
     return toPage;
 }
 
+QStringList PdfEditModel::metaDataModel()
+{
+    QStringList mdm;
+    if (m_pdfFile.isEmpty())
+        return mdm;
+    static const KLazyLocalizedString fNames[]{kli18n("Title"),
+                                               kli18n("Author"),
+                                               kli18n("Subject"),
+                                               kli18n("Keyword"),
+                                               kli18n("Producer"),
+                                               kli18n("Creator"),
+                                               kli18n("Creation Date"),
+                                               kli18n("Modification Date")};
+    for (int i = 0; i <= static_cast<int>(QPdfDocument::MetaDataField::ModificationDate); ++i) {
+        QString value;
+        auto fieldType = static_cast<QPdfDocument::MetaDataField>(i);
+        if (fieldType == QPdfDocument::MetaDataField::ModificationDate || fieldType == QPdfDocument::MetaDataField::CreationDate) {
+            value = m_pdfDoc->metaData(fieldType).toDateTime().toString(u"yyyy.MM.dd-hh:mm:ss"_s);
+        } else {
+            value = m_pdfDoc->metaData(fieldType).toString();
+        }
+        mdm << KLocalizedString(fNames[i]).toString() + u"|"_s + value;
+    }
+    return mdm;
+}
+
 void PdfEditModel::generate()
 {
     if (m_deletedCount >= m_rows)
@@ -166,6 +207,7 @@ void PdfEditModel::generate()
 
     QStringList args;
     args << m_pdfFile;
+    // pages order and skipping deleted
     if (m_deletedCount > 0 || m_wasMoved) {
         QString delArgs;
         args << u"--pages"_s << u"."_s;
@@ -212,6 +254,11 @@ void PdfEditModel::generate()
             }
         }
         args << delArgs << u"--"_s;
+    }
+    // images optimization
+    if (m_optimizeImages) {
+        args << u"-recompress-flate"_s << u"--compression-level=9"_s << u"--compress-streams=y"_s << u"--object-streams=generate"_s;
+        // args << u"--optimize-images"_s;
     }
     // Rotation of pages - aggregate angles
     QVector<quint16> r90, r180, r270;

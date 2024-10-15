@@ -19,6 +19,7 @@ class PdfEditModel : public QAbstractListModel
     Q_PROPERTY(qreal maxPageWidth READ maxPageWidth WRITE setMaxPageWidth NOTIFY maxPageWidthChanged)
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
     Q_PROPERTY(QString command READ command NOTIFY commandChanged)
+    Q_PROPERTY(bool optimizeImages READ optimizeImages WRITE setOptimizeImages NOTIFY optimizeImagesChanged)
 
 public:
     explicit PdfEditModel(QObject *parent = nullptr);
@@ -34,6 +35,9 @@ public:
     QString command() const;
     void setCommand(const QString &cmd);
 
+    bool optimizeImages() const;
+    void setOptimizeImages(bool optImgs);
+
     /**
      * Maps given page @p nr to origin number
      */
@@ -45,6 +49,8 @@ public:
     Q_INVOKABLE void addRotation(int pageId, int angle);
     Q_INVOKABLE void addDeletion(int pageId, bool doDel);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
+
+    Q_INVOKABLE QStringList metaDataModel();
 
     Q_INVOKABLE void generate();
 
@@ -67,6 +73,7 @@ Q_SIGNALS:
     void maxPageWidthChanged();
     void editedChanged();
     void commandChanged();
+    void optimizeImagesChanged();
 
 protected:
     QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
@@ -84,4 +91,5 @@ private:
     bool *m_deleted = nullptr;
     bool m_wasMoved = false;
     QVector<quint16> m_pageMap;
+    bool m_optimizeImages = false;
 };

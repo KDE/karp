@@ -11,6 +11,7 @@ qt_add_qml_module(deafed_static
         ui/About.qml
         ui/ArrangePage.qml
         ui/DeletedDelegate.qml
+        ui/PdfMetadataDialog.qml
 )
 
 target_sources(deafed_static PUBLIC

@@ -3,7 +3,6 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Pdf
 import org.kde.kirigami as Kirigami
 import org.kde.deafed
 
@@ -12,6 +11,8 @@ Kirigami.Page {
 
     title: i18n("Arrange") + ": " + PDFED.name
 
+    property alias pdfModel: pdfModel
+
     actions: [
         Kirigami.Action {
             visible: pdfView.count
@@ -19,6 +20,23 @@ Kirigami.Page {
             icon.name: "application-pdf"
             text: i18n("Generate")
             onTriggered: pdfModel.generate()
+        },
+        Kirigami.Action {
+            // visible: pdfView.count
+            icon.name: "settings-configure"
+            text: i18n("PDF Options")
+            Kirigami.Action {
+                icon.name: "image-x-generic"
+                text: i18n("Optimize images")
+                checkable: true
+                checked: pdfModel.optimizeImages
+                onTriggered: pdfModel.optimizeImages = checked
+            }
+            Kirigami.Action {
+                icon.name: "viewpdf"
+                text: i18n("PDF properties")
+                onTriggered: Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfMetadataDialog.qml").createObject(page)
+            }
         }
     ]
 
