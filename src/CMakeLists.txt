@@ -10,7 +10,6 @@ qt_add_qml_module(deafed_static
         ui/Main.qml
         ui/About.qml
         ui/ArrangePage.qml
-        ui/DeaFEdMultiPageView.qml
         ui/DeletedDelegate.qml
 )
 
