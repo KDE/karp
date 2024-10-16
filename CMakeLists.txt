@@ -9,6 +9,7 @@ include(FeatureSummary)
 
 set(QT6_MIN_VERSION 6.5.0)
 set(KF6_MIN_VERSION 6.0.0)
+set(KIRIGAMI_ADDONS_MIN_VERSION 1.5.0)
 
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -37,6 +38,12 @@ endif()
 
 find_package(Qt6 ${QT6_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg Pdf ${QT_EXTRA_COMPONENTS})
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Kirigami CoreAddons Config I18n)
+find_package(KF6KirigamiAddons ${KIRIGAMI_ADDONS_MIN_VERSION})
+set_package_properties(KF6KirigamiAddons PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Required application components and runtime dependency"
+)
+
 
 qt_policy(SET QTP0001 NEW)
 

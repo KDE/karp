@@ -12,6 +12,8 @@ qt_add_qml_module(deafed
         ui/ArrangePage.qml
         ui/DeletedDelegate.qml
         ui/PdfMetadataDialog.qml
+        ui/Settings/SettingsPage.qml
+        ui/Settings/PdfTools.qml
 )
 
 target_sources(deafed PUBLIC
@@ -34,6 +36,7 @@ target_link_libraries(deafed
     KF6::CoreAddons
     KF6::ConfigCore
     KF6::ConfigGui
+    KF6::Kirigami
 )
 target_include_directories(deafed PUBLIC ${CMAKE_BINARY_DIR})
 

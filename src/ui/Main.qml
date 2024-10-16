@@ -30,12 +30,15 @@ Kirigami.ApplicationWindow {
                 text: i18n("About Deaf Ed")
                 icon.name: "help-about"
                 onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/About.qml")
-                // pageStack.push(Qt.resolvedUrl('About.qml'))
             },
             Kirigami.Action {
                 text: i18n("Arrange pages")
                 icon.name: "view-sort"
-                // onTriggered: mainWin.pageStack.pushDialogLayer("qrc:About.qml")
+            },
+            Kirigami.Action {
+                text: i18n("Settings")
+                icon.name: "settings-configure"
+                onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/Settings/SettingsPage.qml")
             },
             Kirigami.Action {
                 text: i18n("Quit")
@@ -49,7 +52,5 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
     }
 
-    pageStack.initialPage: page
-
-    ArrangePage { id: page }
+    pageStack.initialPage: ArrangePage {}
 }
