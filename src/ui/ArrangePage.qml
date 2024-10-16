@@ -15,14 +15,14 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
-            visible: pdfView.count
+            visible: pdfModel.pageCount
             enabled: pdfModel.edited
             icon.name: "application-pdf"
             text: i18n("Generate")
             onTriggered: pdfModel.generate()
         },
         Kirigami.Action {
-            // visible: pdfView.count
+            // visible: pdfModel.pageCount
             icon.name: "settings-configure"
             text: i18n("PDF Options")
             Kirigami.Action {
@@ -42,11 +42,11 @@ Kirigami.Page {
 
     PdfEditModel {
         id: pdfModel
-        maxPageWidth: pdfView.width / 4
+        maxPageWidth: (pdfView.width - (9 * pdfView.columnSpacing)) / 3
     }
 
     QQC2.Button {
-        visible: !pdfView.count
+        visible: !pdfModel.pageCount
         anchors.centerIn: parent
         text: i18n("Select PDF file")
         icon.name: "application-pdf"
@@ -54,29 +54,31 @@ Kirigami.Page {
     }
 
     Rectangle {
-        visible: pdfView.count
+        visible: pdfModel.pageCount
         anchors.fill: pdfView
         color: Kirigami.Theme.alternateBackgroundColor
     }
 
-    ListView {
+    TableView {
         id: pdfView
-        visible: count
+        visible: pdfModel.pageCount
         width: page.width - Kirigami.Units.largeSpacing * 4
-        height: page.height - bottomRect.height - Kirigami.Units.largeSpacing
+        height: page.height - Kirigami.Units.largeSpacing * 2
         clip: true
-        spacing: Kirigami.Units.smallSpacing
+        columnSpacing: Kirigami.Units.smallSpacing
+        rowSpacing: Kirigami.Units.smallSpacing
         model: pdfModel
-        currentIndex: -1
 
         delegate: Rectangle {
             id: delegRect
-            property bool checked: pdfView.currentIndex === index
+            visible: pageNr < pdfModel.pageCount
+            required property bool selected
+            required property bool current
             x: Kirigami.Units.smallSpacing
-            width: img.width + 4; height: img.height + 4
+            implicitWidth: img.width; implicitHeight: img.height
             color: "transparent"
             border {
-                width: checked ? 3 : 0
+                width: current ? 3 : 0
                 color: Kirigami.Theme.highlightColor
             }
             PdfPageItem {
@@ -84,7 +86,7 @@ Kirigami.Page {
                 x: 2; y: 2; z: -1
                 image: pageImg
                 rotation: rotated
-                onRotationChanged: pdfModel.addRotation(index, rotation)
+                onRotationChanged: pdfModel.addRotation(pageNr, rotation)
             }
             Rectangle {
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
@@ -97,24 +99,24 @@ Kirigami.Page {
                     verticalAlignment: Text.AlignVCenter
                     color: "#fff"
                     font { pixelSize: parent.height * 0.8; bold: true }
-                    text: (index + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
+                    text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
                 }
             }
             MouseArea {
                 id: ma
                 anchors.fill: parent
-                onClicked: pdfView.currentIndex = index
+                onClicked: current = true
             }
             Item {
                 anchors.fill: parent
-                visible: delegRect.checked && !deleted
+                visible: current && !deleted
                 QQC2.Button {
                     anchors { top: parent.top; left: parent.left }
                     icon.name: "edit-delete"
                     icon.color: "red"
                     onClicked: {
                         img.rotation = 0
-                        pdfModel.addDeletion(index, true)
+                        pdfModel.addDeletion(pageNr, true)
                     }
                 }
                 QQC2.Button {
@@ -128,16 +130,16 @@ Kirigami.Page {
                     onClicked: img.rotation = img.rotation < 270 ? img.rotation + 90 : 0
                 }
                 QQC2.Button {
-                    visible: pdfView.currentIndex !== 0
+                    visible: pageNr > 0
                     anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
                     icon.name: "go-up"
-                    onClicked: movePage(index, index - 1)
+                    onClicked: movePage(pageNr, pageNr - 1)
                 }
                 QQC2.Button {
-                    visible: pdfView.currentIndex !== pdfView.count - 1
+                    visible: pageNr !== pdfModel.pageCount - 1
                     anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
                     icon.name: "go-down"
-                    onClicked: movePage(index, index + 1)
+                    onClicked: movePage(pageNr, pageNr + 1)
                 }
             }
             Loader {
@@ -146,29 +148,29 @@ Kirigami.Page {
                 anchors.fill: parent
                 sourceComponent: DeletedDelegate {
                     buttonVisible: delegRect.checked
-                    onWantRevert: pdfModel.addDeletion(index, false)
+                    onWantRevert: pdfModel.addDeletion(pageNr, false)
                 }
             }
         }
         QQC2.ScrollBar.vertical: QQC2.ScrollBar { visible: true }
     } // ListView
 
-    footer: Rectangle {
-        id: bottomRect
-        width: page.width; height: Kirigami.Units.gridUnit * 3
-        color: Kirigami.Theme.alternateBackgroundColor
-        Text {
-            anchors { fill: parent; margins: Kirigami.Units.smallSpacing }
-            text: pdfModel.command
-            wrapMode: Text.WordWrap
-            color: Kirigami.Theme.textColor
-        }
-    }
+    // footer: Rectangle {
+    //     id: bottomRect
+    //     width: page.width; height: Kirigami.Units.gridUnit * 3
+    //     color: Kirigami.Theme.alternateBackgroundColor
+    //     Text {
+    //         anchors { fill: parent; margins: Kirigami.Units.smallSpacing }
+    //         text: pdfModel.command
+    //         wrapMode: Text.WordWrap
+    //         color: Kirigami.Theme.textColor
+    //     }
+    // }
 
     function movePage(from, to) {
         var pageNr = pdfModel.addMove(from, to)
-        if (pageNr > -1)
-            pdfView.currentIndex = pageNr
+        // if (pageNr > -1) // TODO
+        //     pdfView.currentIndex = pageNr
     }
 
     Component.onCompleted: {

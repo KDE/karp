@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <QAbstractListModel>
+#include <QAbstractTableModel>
 #include <QQmlEngine>
 
 class QPdfDocument;
@@ -11,11 +11,12 @@ class QPdfDocument;
 /**
  * @brief @p PdfEditModel handles pages from PDF document
  */
-class PdfEditModel : public QAbstractListModel
+class PdfEditModel : public QAbstractTableModel
 {
     Q_OBJECT
     QML_ELEMENT
 
+    Q_PROPERTY(int pageCount READ pageCount NOTIFY pageCountChanged)
     Q_PROPERTY(qreal maxPageWidth READ maxPageWidth WRITE setMaxPageWidth NOTIFY maxPageWidthChanged)
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
     Q_PROPERTY(QString command READ command NOTIFY commandChanged)
@@ -26,6 +27,8 @@ public:
     ~PdfEditModel() override;
 
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
+
+    int pageCount() const;
 
     qreal maxPageWidth() const;
     void setMaxPageWidth(qreal maxPW);
@@ -57,12 +60,14 @@ public:
     QPdfDocument *pdfDocument() const;
 
     int rowCount(const QModelIndex &parent) const override;
+    int columnCount(const QModelIndex &parent) const override;
 
     enum PdfEditRoles {
         RoleImage = Qt::UserRole,
         RoleRotated,
         RoleDeleted,
         RoleOrigNr,
+        RolePageNr,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -70,6 +75,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
 Q_SIGNALS:
+    void pageCountChanged();
     void maxPageWidthChanged();
     void editedChanged();
     void commandChanged();
@@ -81,7 +87,9 @@ protected:
 private:
     QString m_pdfFile;
     QPdfDocument *m_pdfDoc = nullptr;
+    int m_pages = 0;
     int m_rows = 0;
+    int m_columns = 0;
     qreal m_maxPageWidth = 1.0;
     QString m_command;
     // PDF modifications
