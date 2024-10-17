@@ -407,6 +407,14 @@ QHash<int, QByteArray> PdfEditModel::roleNames() const
     return {{RoleImage, "pageImg"}, {RoleRotated, "rotated"}, {RoleDeleted, "deleted"}, {RoleOrigNr, "origPage"}, {RolePageNr, "pageNr"}};
 }
 
+Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
+{
+    int pageNr = index.row() * m_columns + index.column();
+    if (pageNr < m_pages && !m_deleted[map(pageNr)])
+        return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+    return Qt::NoItemFlags;
+}
+
 QString PdfEditModel::getPagesForRotation(int angle, const QVector<quint16> &pageList)
 {
     QString pRange;

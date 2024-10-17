@@ -78,6 +78,8 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+
 Q_SIGNALS:
     void pageCountChanged();
     void maxPageWidthChanged();

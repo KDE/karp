@@ -76,6 +76,7 @@ Kirigami.Page {
         columnSpacing: Kirigami.Units.smallSpacing
         rowSpacing: Kirigami.Units.smallSpacing
         model: pdfModel
+        selectionModel: ItemSelectionModel {}
 
         delegate: Rectangle {
             id: delegRect
@@ -110,56 +111,17 @@ Kirigami.Page {
                     text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
                 }
             }
-            MouseArea {
-                id: ma
-                anchors.fill: parent
-                onClicked: current = true
-            }
-            Item {
-                anchors.fill: parent
-                visible: current && !deleted
-                QQC2.Button {
-                    anchors { top: parent.top; left: parent.left }
-                    icon.name: "edit-delete"
-                    icon.color: "red"
-                    onClicked: {
-                        img.rotation = 0
-                        pdfModel.addDeletion(pageNr, true)
-                    }
-                }
-                QQC2.Button {
-                    anchors { verticalCenter: parent.verticalCenter; left: parent.left }
-                    icon.name: "object-rotate-left"
-                    onClicked: img.rotation = img.rotation > -270 ? img.rotation - 90 : 0
-                }
-                QQC2.Button {
-                    anchors { verticalCenter: parent.verticalCenter; right: parent.right }
-                    icon.name: "object-rotate-right"
-                    onClicked: img.rotation = img.rotation < 270 ? img.rotation + 90 : 0
-                }
-                QQC2.Button {
-                    visible: pageNr > 0
-                    anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
-                    icon.name: "go-up"
-                    onClicked: movePage(pageNr, pageNr - 1)
-                }
-                QQC2.Button {
-                    visible: pageNr !== pdfModel.pageCount - 1
-                    anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
-                    icon.name: "go-down"
-                    onClicked: movePage(pageNr, pageNr + 1)
-                }
-            }
+            TableView.editDelegate: EditDelegate {}
             Loader {
                 active: deleted
                 z: 5 // atop of mouse area
                 anchors.fill: parent
                 sourceComponent: DeletedDelegate {
-                    buttonVisible: delegRect.checked
+                    buttonVisible: current
                     onWantRevert: pdfModel.addDeletion(pageNr, false)
                 }
             }
-        }
+        } // delegate
         QQC2.ScrollBar.vertical: QQC2.ScrollBar { visible: true }
     } // ListView
 
