@@ -21,6 +21,7 @@ class PdfEditModel : public QAbstractTableModel
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
     Q_PROPERTY(QString command READ command NOTIFY commandChanged)
     Q_PROPERTY(bool optimizeImages READ optimizeImages WRITE setOptimizeImages NOTIFY optimizeImagesChanged)
+    Q_PROPERTY(bool reduceSize READ reduceSize WRITE setReduceSize NOTIFY reduceSizeChanged)
 
 public:
     explicit PdfEditModel(QObject *parent = nullptr);
@@ -40,6 +41,9 @@ public:
 
     bool optimizeImages() const;
     void setOptimizeImages(bool optImgs);
+
+    bool reduceSize() const;
+    void setReduceSize(bool redS);
 
     /**
      * Maps given page @p nr to origin number
@@ -80,6 +84,7 @@ Q_SIGNALS:
     void editedChanged();
     void commandChanged();
     void optimizeImagesChanged();
+    void reduceSizeChanged();
 
 protected:
     QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
@@ -100,4 +105,5 @@ private:
     bool m_wasMoved = false;
     QVector<quint16> m_pageMap;
     bool m_optimizeImages = false;
+    bool m_reduceSize = false;
 };

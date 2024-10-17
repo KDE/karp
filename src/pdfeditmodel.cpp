@@ -4,8 +4,10 @@
 #include "pdfeditmodel.h"
 #include <KLazyLocalizedString>
 #include <QDebug>
+#include <QFileInfo>
 #include <QPdfDocument>
 #include <QProcess>
+#include <QStandardPaths>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -72,7 +74,7 @@ void PdfEditModel::setMaxPageWidth(qreal maxPW)
 
 bool PdfEditModel::edited() const
 {
-    return m_rotatedCount || m_deletedCount || m_wasMoved || m_optimizeImages;
+    return m_rotatedCount || m_deletedCount || m_wasMoved || m_optimizeImages || m_reduceSize;
 }
 
 QString PdfEditModel::command() const
@@ -97,6 +99,21 @@ void PdfEditModel::setOptimizeImages(bool optImgs)
         return;
     m_optimizeImages = optImgs;
     Q_EMIT optimizeImagesChanged();
+    Q_EMIT editedChanged();
+}
+
+bool PdfEditModel::reduceSize() const
+{
+    return m_reduceSize;
+}
+
+void PdfEditModel::setReduceSize(bool redS)
+{
+    if (m_reduceSize == redS)
+        return;
+
+    m_reduceSize = redS;
+    Q_EMIT reduceSizeChanged();
     Q_EMIT editedChanged();
 }
 
@@ -219,6 +236,8 @@ void PdfEditModel::generate()
 
     QStringList args;
     args << m_pdfFile;
+    auto out = m_pdfFile;
+    out.insert(m_pdfFile.length() - 4, u"-out"_s);
     // pages order and skipping deleted
     if (m_deletedCount > 0 || m_wasMoved) {
         QString delArgs;
@@ -269,8 +288,8 @@ void PdfEditModel::generate()
     }
     // images optimization
     if (m_optimizeImages) {
-        args << u"-recompress-flate"_s << u"--compression-level=9"_s << u"--compress-streams=y"_s << u"--object-streams=generate"_s;
-        // args << u"--optimize-images"_s;
+        // args << u"-recompress-flate"_s << u"--compression-level=9"_s << u"--compress-streams=y"_s << u"--object-streams=generate"_s;
+        args << u"--optimize-images"_s;
     }
     // Rotation of pages - aggregate angles
     QVector<quint16> r90, r180, r270;
@@ -288,8 +307,6 @@ void PdfEditModel::generate()
         args << getPagesForRotation(180, r180);
     if (!r270.isEmpty())
         args << getPagesForRotation(270, r270);
-    auto out = m_pdfFile;
-    out.insert(m_pdfFile.length() - 4, u"-out"_s);
     args << out;
     setCommand(u"qpdf"_s + u" "_s + args.join(u" "_s));
     qDebug().noquote() << m_command;
@@ -298,6 +315,39 @@ void PdfEditModel::generate()
     p.waitForFinished();
     qDebug().noquote().nospace() << p.readAll();
     p.close();
+
+    if (m_reduceSize) {
+        p.setProgram(u"pdf2ps"_s);
+        args.clear();
+        args << out;
+        QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + u"/"_s;
+        QFileInfo outInfo(out);
+        auto outFileSize = outInfo.size();
+        args << tmpPath + outInfo.baseName() + u".ps"_s;
+        p.setArguments(args);
+        p.start();
+        p.waitForFinished();
+        // perform pdf2ps - store *.ps file in /tmp
+        p.close();
+        p.setProgram(u"ps2pdf"_s);
+        args.remove(0);
+        args << tmpPath + outInfo.fileName();
+        p.setArguments(args);
+        p.start();
+        p.waitForFinished();
+        p.close();
+        outInfo.setFile(args[1]);
+        // qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
+        if (outInfo.size() < outFileSize) {
+            // override out file with new size, but delete existing file first
+            if (QFile::exists(out))
+                QFile::remove(out);
+            qDebug() << "[PdfEditModel]" << "PDF file size successfully reduced.";
+            QFile::copy(outInfo.filePath(), out);
+        }
+        QFile::remove(tmpPath + outInfo.baseName() + u".ps"_s); // remove /tmp/file-out.ps
+        QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
+    }
 }
 
 QPdfDocument *PdfEditModel::pdfDocument() const

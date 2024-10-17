@@ -33,9 +33,17 @@ Kirigami.Page {
                 onTriggered: pdfModel.optimizeImages = checked
             }
             Kirigami.Action {
+                icon.name: "application-x-compressed-tar"
+                text: i18n("Reduce size")
+                checkable: true
+                checked: pdfModel.reduceSize
+                onTriggered: pdfModel.reduceSize = checked
+            }
+            Kirigami.Action {
                 icon.name: "viewpdf"
                 text: i18n("PDF properties")
-                onTriggered: Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfMetadataDialog.qml").createObject(page)
+                onTriggered: Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfMetadataDialog.qml")
+                                                .createObject(page, { metaDataModel: pdfModel.metaDataModel() })
             }
         }
     ]
