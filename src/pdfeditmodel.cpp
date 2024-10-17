@@ -411,7 +411,7 @@ Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
 {
     int pageNr = index.row() * m_columns + index.column();
     if (pageNr < m_pages && !m_deleted[map(pageNr)])
-        return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+        return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
     return Qt::NoItemFlags;
 }
 

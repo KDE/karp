@@ -76,26 +76,28 @@ Kirigami.Page {
         columnSpacing: Kirigami.Units.smallSpacing
         rowSpacing: Kirigami.Units.smallSpacing
         model: pdfModel
-        selectionModel: ItemSelectionModel {}
+
+        selectionModel: ItemSelectionModel { id: selModel }
 
         delegate: Rectangle {
             id: delegRect
             visible: pageNr < pdfModel.pageCount
-            required property bool selected
+            // required property bool selected // TODO
             required property bool current
-            x: Kirigami.Units.smallSpacing
             implicitWidth: img.width; implicitHeight: img.height
             color: "transparent"
             border {
-                width: current ? 3 : 0
+                width: current ? 5 : 0
                 color: Kirigami.Theme.highlightColor
             }
             PdfPageItem {
                 id: img
-                x: 2; y: 2; z: -1
+                z: -1
                 image: pageImg
                 rotation: rotated
                 onRotationChanged: pdfModel.addRotation(pageNr, rotation)
+                Behavior on x { NumberAnimation {} }
+                Behavior on y { NumberAnimation {} }
             }
             Rectangle {
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
@@ -114,7 +116,6 @@ Kirigami.Page {
             TableView.editDelegate: EditDelegate {}
             Loader {
                 active: deleted
-                z: 5 // atop of mouse area
                 anchors.fill: parent
                 sourceComponent: DeletedDelegate {
                     buttonVisible: current
@@ -139,8 +140,10 @@ Kirigami.Page {
 
     function movePage(from, to) {
         var pageNr = pdfModel.addMove(from, to)
-        // if (pageNr > -1) // TODO
-        //     pdfView.currentIndex = pageNr
+        if (pageNr > -1) {
+            selModel.setCurrentIndex(pdfView.index(pageNr / pdfView.columns, pageNr % pdfView.columns), ItemSelectionModel.Current)
+            pdfView.edit(selModel.currentIndex)
+        }
     }
 
     Component.onCompleted: {
