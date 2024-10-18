@@ -410,7 +410,7 @@ QHash<int, QByteArray> PdfEditModel::roleNames() const
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
 {
     int pageNr = index.row() * m_columns + index.column();
-    if (pageNr < m_pages && !m_deleted[map(pageNr)])
+    if (pageNr < m_pages)
         return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
     return Qt::NoItemFlags;
 }
