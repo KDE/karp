@@ -8,6 +8,38 @@ Item {
     anchors.fill: parent
     visible: !deleted
 
+    /**
+     * Calculates page number from given @p mouse position
+     */
+    function pageAtMouse(mouse) {
+        var pos = dragButt.mapToItem(pdfView.contentItem, mouse.x, mouse.y)
+        var cellPos = pdfView.cellAtPosition(pos.x, pos.y, true)
+        return cellPos.y * pdfView.columns + cellPos.x
+    }
+
+    QQC2.Button {
+        id: dragButt
+        anchors.centerIn: parent
+        icon.name: "transform-move"
+        MouseArea {
+            anchors.fill: parent
+            drag.target: img
+            drag.axis: Drag.XAndYAxis
+            onPositionChanged: (mouse) => {
+                var targetPage = pageAtMouse(mouse)
+                if (targetPage !== pageNr)
+                    pdfView.dragTargetPage = targetPage
+            }
+            onReleased: (mouse) => {
+                img.x = 0
+                img.y = 0
+                pdfView.dragTargetPage = -1
+                var targetPage = pageAtMouse(mouse)
+                if (targetPage !== pageNr)
+                    movePage(pageNr, targetPage)
+            }
+        }
+    }
     QQC2.Button {
         anchors { bottom: parent.bottom; left: parent.left }
         icon.name: "edit-delete"

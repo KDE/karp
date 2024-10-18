@@ -76,13 +76,16 @@ Kirigami.Page {
         columnSpacing: Kirigami.Units.smallSpacing
         rowSpacing: Kirigami.Units.smallSpacing
         model: pdfModel
+        editTriggers: TableView.SingleTapped | TableView.AnyKeyPressed
+
+        property int dragTargetPage: -1
 
         selectionModel: ItemSelectionModel { id: selModel }
 
         delegate: Rectangle {
             id: delegRect
             visible: pageNr < pdfModel.pageCount
-            // required property bool selected // TODO
+            // required property bool selected // TODO - multiple selection
             required property bool current
             implicitWidth: img.width; implicitHeight: img.height
             color: "transparent"
@@ -94,10 +97,11 @@ Kirigami.Page {
                 id: img
                 z: -1
                 image: pageImg
-                rotation: rotated
-                onRotationChanged: pdfModel.addRotation(pageNr, rotation)
                 Behavior on x { NumberAnimation {} }
                 Behavior on y { NumberAnimation {} }
+                opacity: x !== 0 || y !== 0 ? 0.3 : 1
+                rotation: rotated
+                onRotationChanged: pdfModel.addRotation(pageNr, rotation)
             }
             Rectangle {
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
@@ -120,6 +124,16 @@ Kirigami.Page {
                 sourceComponent: DeletedDelegate {
                     buttonVisible: current
                     onWantRevert: pdfModel.addDeletion(pageNr, false)
+                }
+            }
+            Loader {
+                active: pdfView.dragTargetPage === pageNr
+                z: 5
+                sourceComponent: Rectangle {
+                    x: delegRect.width * 0.9 + Kirigami.Units.smallSpacing
+                    y: delegRect.height * 0.05
+                    width: delegRect.width * 0.1; height: delegRect.height * 0.9
+                    color: Kirigami.Theme.highlightColor
                 }
             }
         } // delegate
