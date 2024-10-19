@@ -16,6 +16,22 @@ Kirigami.Page {
     actions: [
         Kirigami.Action {
             visible: pdfModel.pageCount
+            icon.name: "zoom-out"
+            text: i18n("Zoom Out")
+            // shortcutsName: "ZoomOut"
+            onTriggered: pdfModel.zoomOut()
+            enabled: pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
+        },
+        Kirigami.Action {
+            visible: pdfModel.pageCount
+            icon.name: "zoom-in"
+            text: i18n("Zoom In")
+            // shortcutsName: "ZoomIn"
+            onTriggered: pdfModel.zoomIn()
+            enabled: pdfView.columns > 1
+        },
+        Kirigami.Action {
+            visible: pdfModel.pageCount
             enabled: pdfModel.edited
             icon.name: "application-pdf"
             text: i18n("Generate")
@@ -50,7 +66,8 @@ Kirigami.Page {
 
     PdfEditModel {
         id: pdfModel
-        maxPageWidth: (pdfView.width - (9 * pdfView.columnSpacing)) / 3
+        viewWidth: pdfView.width
+        spacing: pdfView.columnSpacing
     }
 
     QQC2.Button {
@@ -105,7 +122,7 @@ Kirigami.Page {
             }
             Rectangle {
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
-                height: Math.max(parent.height, parent.width) * 0.05
+                height: Kirigami.Units.gridUnit * 2
                 width: height * 3
                 color: "#80000000"
                 Text {
@@ -113,6 +130,8 @@ Kirigami.Page {
                     horizontalAlignment: Text.AlignRight
                     verticalAlignment: Text.AlignVCenter
                     color: "#fff"
+                    fontSizeMode: Text.HorizontalFit
+                    minimumPixelSize: 6
                     font { pixelSize: parent.height * 0.8; bold: true }
                     text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
                 }

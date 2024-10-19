@@ -17,7 +17,9 @@ class PdfEditModel : public QAbstractTableModel
     QML_ELEMENT
 
     Q_PROPERTY(int pageCount READ pageCount NOTIFY pageCountChanged)
-    Q_PROPERTY(qreal maxPageWidth READ maxPageWidth WRITE setMaxPageWidth NOTIFY maxPageWidthChanged)
+    Q_PROPERTY(qreal viewWidth READ viewWidth WRITE setViewWidth NOTIFY viewWidthChanged)
+    Q_PROPERTY(qreal maxPageWidth READ maxPageWidth NOTIFY maxPageWidthChanged)
+    Q_PROPERTY(qreal spacing READ spacing WRITE setSpacing NOTIFY spacingChanged)
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
     Q_PROPERTY(QString command READ command NOTIFY commandChanged)
     Q_PROPERTY(bool optimizeImages READ optimizeImages WRITE setOptimizeImages NOTIFY optimizeImagesChanged)
@@ -31,8 +33,13 @@ public:
 
     int pageCount() const;
 
+    qreal viewWidth() const;
+    void setViewWidth(qreal vw);
+
     qreal maxPageWidth() const;
-    void setMaxPageWidth(qreal maxPW);
+
+    qreal spacing() const;
+    void setSpacing(qreal sp);
 
     bool edited() const;
 
@@ -44,6 +51,12 @@ public:
 
     bool reduceSize() const;
     void setReduceSize(bool redS);
+
+    /**
+     * In fact @p zoomIn() and @p zoomOut() change columns number
+     */
+    Q_INVOKABLE void zoomIn();
+    Q_INVOKABLE void zoomOut();
 
     /**
      * Maps given page @p nr to origin number
@@ -82,7 +95,9 @@ public:
 
 Q_SIGNALS:
     void pageCountChanged();
+    void viewWidthChanged();
     void maxPageWidthChanged();
+    void spacingChanged();
     void editedChanged();
     void commandChanged();
     void optimizeImagesChanged();
@@ -90,6 +105,12 @@ Q_SIGNALS:
 
 protected:
     QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
+    void changeColumnCount(int colCnt);
+
+    /**
+     * Page image width according to @p viewWidth(), @p spacing() and @p columnCount()
+     */
+    void updateMaxPageWidth();
 
 private:
     QString m_pdfFile;
@@ -98,6 +119,8 @@ private:
     int m_rows = 0;
     int m_columns = 0;
     qreal m_maxPageWidth = 1.0;
+    qreal m_viewWidth = 1.0;
+    qreal m_spacing = 1.0;
     QString m_command;
     // PDF modifications
     quint16 m_rotatedCount = 0;
