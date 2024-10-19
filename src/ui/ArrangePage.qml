@@ -15,6 +15,14 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
+            id: labelsAction
+            visible: pdfModel.pageCount
+            icon.name: "label"
+            text: i18n("Labels")
+            checkable: true
+            checked: true
+        },
+        Kirigami.Action {
             visible: pdfModel.pageCount
             icon.name: "zoom-out"
             text: i18n("Zoom Out")
@@ -120,20 +128,27 @@ Kirigami.Page {
                 rotation: rotated
                 onRotationChanged: pdfModel.addRotation(pageNr, rotation)
             }
-            Rectangle {
+            Loader {
+                active: labelsAction.checked
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
                 height: Kirigami.Units.gridUnit * 2
                 width: height * 3
-                color: "#80000000"
-                Text {
-                    width: parent.width * 0.9; height: parent.height
-                    horizontalAlignment: Text.AlignRight
-                    verticalAlignment: Text.AlignVCenter
-                    color: "#fff"
-                    fontSizeMode: Text.HorizontalFit
-                    minimumPixelSize: 6
-                    font { pixelSize: parent.height * 0.8; bold: true }
-                    text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
+                sourceComponent: Rectangle {
+                    anchors.fill: parent
+                    // anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
+                    // height: Kirigami.Units.gridUnit * 2
+                    // width: height * 3
+                    color: "#80000000"
+                    Text {
+                        width: parent.width * 0.9; height: parent.height
+                        horizontalAlignment: Text.AlignRight
+                        verticalAlignment: Text.AlignVCenter
+                        color: "#fff"
+                        fontSizeMode: Text.HorizontalFit
+                        minimumPixelSize: 6
+                        font { pixelSize: parent.height * 0.8; bold: true }
+                        text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
+                    }
                 }
             }
             TableView.editDelegate: EditDelegate {}
