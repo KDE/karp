@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 Item {
+    id: editDelg
     anchors.fill: parent
     visible: !deleted
 
@@ -25,14 +26,15 @@ Item {
             anchors.fill: parent
             drag.target: img
             drag.axis: Drag.XAndYAxis
+            onPressed: img.opacity = 0.3
             onPositionChanged: (mouse) => {
                 var targetPage = pageAtMouse(mouse)
-                if (targetPage !== pageNr)
-                    pdfView.dragTargetPage = targetPage
+                pdfView.dragTargetPage = targetPage === pageNr ? -1 : targetPage
             }
             onReleased: (mouse) => {
-                img.x = 0
-                img.y = 0
+                img.x = (editDelg.width - img.width) / 2
+                img.y = (editDelg.height - img.height) / 2
+                img.opacity = 1
                 pdfView.dragTargetPage = -1
                 var targetPage = pageAtMouse(mouse)
                 if (targetPage !== pageNr)
@@ -45,19 +47,19 @@ Item {
         icon.name: "edit-delete"
         icon.color: "red"
         onClicked: {
-            img.rotation = 0
+            pdfModel.addRotation(pageNr, 0)
             pdfModel.addDeletion(pageNr, true)
         }
     }
     QQC2.Button {
         anchors { top: parent.top; left: parent.left }
         icon.name: "object-rotate-left"
-        onClicked: img.rotation = img.rotation > -270 ? img.rotation - 90 : 0
+        onClicked: pdfModel.addRotation(pageNr, img.rotation > -270 ? img.rotation - 90 : 0)
     }
     QQC2.Button {
         anchors { top: parent.top; right: parent.right }
         icon.name: "object-rotate-right"
-        onClicked: img.rotation = img.rotation < 270 ? img.rotation + 90 : 0
+        onClicked: pdfModel.addRotation(pageNr, img.rotation < 270 ? img.rotation + 90 : 0)
     }
     // move at upper row
     QQC2.Button {

@@ -112,7 +112,7 @@ Kirigami.Page {
             visible: pageNr < pdfModel.pageCount
             // required property bool selected // TODO - multiple selection
             required property bool current
-            implicitWidth: img.width; implicitHeight: img.height
+            implicitWidth: pdfModel.maxPageWidth; implicitHeight: pdfModel.maxPageWidth * pageRatio
             color: "transparent"
             border {
                 width: current ? 5 : 0
@@ -121,12 +121,13 @@ Kirigami.Page {
             PdfPageItem {
                 id: img
                 z: -1
+                x: (parent.width - width) / 2
+                y: (parent.height - height) / 2
                 image: pageImg
+                scale: parent.width / width
                 Behavior on x { NumberAnimation {} }
                 Behavior on y { NumberAnimation {} }
-                opacity: x !== 0 || y !== 0 ? 0.3 : 1
                 rotation: rotated
-                onRotationChanged: pdfModel.addRotation(pageNr, rotation)
             }
             Loader {
                 active: labelsAction.checked
@@ -135,9 +136,6 @@ Kirigami.Page {
                 width: height * 3
                 sourceComponent: Rectangle {
                     anchors.fill: parent
-                    // anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
-                    // height: Kirigami.Units.gridUnit * 2
-                    // width: height * 3
                     color: "#80000000"
                     Text {
                         width: parent.width * 0.9; height: parent.height
