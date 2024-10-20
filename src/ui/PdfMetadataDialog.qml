@@ -29,11 +29,13 @@ FormCard.FormCardDialog {
             width: parent.width
             Repeater {
                 id: fieldRepeater
-                FormCard.FormTextFieldDelegate {
+                FormCard.FormCard {
                     required property string modelData
                     property var metaData: modelData.split("|")
-                    label: metaData[0]
-                    text: metaData[1]
+                    FormCard.FormTextFieldDelegate {
+                        label: metaData[0]
+                        text: metaData[1]
+                    }
                 }
             }
         }
