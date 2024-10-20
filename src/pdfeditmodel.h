@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "pdfpage.h"
 #include <QAbstractTableModel>
 #include <QQmlEngine>
 
@@ -58,12 +59,15 @@ public:
     Q_INVOKABLE void zoomIn();
     Q_INVOKABLE void zoomOut();
 
+    Q_INVOKABLE QDateTime creationDate() const;
+
     /**
      * Maps given page @p nr to origin number
      */
     int map(int nr) const
     {
-        return m_pageMap[nr];
+        return m_pgList[nr].origPage();
+        // return m_pageMap[nr];
     }
 
     Q_INVOKABLE void addRotation(int pageId, int angle);
@@ -85,6 +89,7 @@ public:
         RoleDeleted,
         RoleOrigNr,
         RolePageNr,
+        RolePageRatio,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -112,23 +117,26 @@ protected:
      */
     void updateMaxPageWidth();
 
+    void renderImageSlot(int pageNr);
+
+Q_SIGNALS:
+    void wantRenderImage(int) const;
+
 private:
     QString m_pdfFile;
     QPdfDocument *m_pdfDoc = nullptr;
     int m_pages = 0;
     int m_rows = 0;
     int m_columns = 0;
-    qreal m_maxPageWidth = 1.0;
+    qreal m_maxPageWidth = 100.0;
     qreal m_viewWidth = 1.0;
     qreal m_spacing = 1.0;
     QString m_command;
     // PDF modifications
+    QVector<PdfPage> m_pgList;
     quint16 m_rotatedCount = 0;
-    quint16 *m_rotated = nullptr;
     quint16 m_deletedCount = 0;
-    bool *m_deleted = nullptr;
     bool m_wasMoved = false;
-    QVector<quint16> m_pageMap;
     bool m_optimizeImages = false;
     bool m_reduceSize = false;
 };

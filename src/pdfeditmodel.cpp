@@ -7,6 +7,7 @@
 #include <QFileInfo>
 #include <QPdfDocument>
 #include <QProcess>
+#include <QScreen>
 #include <QStandardPaths>
 
 using namespace Qt::Literals::StringLiterals;
@@ -17,14 +18,11 @@ PdfEditModel::PdfEditModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
     m_pdfDoc = new QPdfDocument(this);
+    connect(this, &PdfEditModel::wantRenderImage, this, &PdfEditModel::renderImageSlot);
 }
 
 PdfEditModel::~PdfEditModel()
 {
-    if (m_rotated)
-        delete[] m_rotated;
-    if (m_deleted)
-        delete[] m_deleted;
 }
 
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
@@ -38,13 +36,11 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
 
     m_pages = m_pdfDoc->pageCount();
     m_rotatedCount = 0;
-    m_rotated = new quint16[m_pages]{0};
-    m_deleted = new bool[m_pages]{false};
     m_deletedCount = 0;
-    m_pageMap.clear();
     m_wasMoved = false;
     for (int i = 0; i < m_pages; ++i) {
-        m_pageMap << i;
+        m_pgList << PdfPage(i);
+        // m_pgList << PdfPage(m_pdfDoc->render(i, QSize(prefPageWidth, qFloor(prefPageWidth * pageRatio))), i);
     }
     m_columns = INIT_COLUM_COUNT;
     updateMaxPageWidth();
@@ -156,9 +152,14 @@ void PdfEditModel::zoomOut()
     changeColumnCount(m_columns + 1);
 }
 
+QDateTime PdfEditModel::creationDate() const
+{
+    return m_pdfDoc->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
+}
+
 void PdfEditModel::addRotation(int pageId, int angle)
 {
-    if (pageId < 0 || pageId >= m_rows)
+    if (pageId < 0 || pageId >= m_pages)
         return;
     if (angle < 0) {
         switch (angle) {
@@ -177,7 +178,10 @@ void PdfEditModel::addRotation(int pageId, int angle)
         m_rotatedCount++;
     else
         m_rotatedCount--;
-    m_rotated[map(pageId)] = angle;
+    m_pgList[pageId].setRotated(angle);
+    int r = pageId / m_columns;
+    int c = pageId % m_columns;
+    Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
     Q_EMIT editedChanged();
 }
 
@@ -185,7 +189,7 @@ void PdfEditModel::addDeletion(int pageId, bool doDel)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
-    m_deleted[map(pageId)] = doDel;
+    m_pgList[pageId].setDeleted(doDel);
     if (doDel) {
         m_deletedCount++;
     } else {
@@ -214,12 +218,12 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         return -1;
 
     m_wasMoved = true;
-    if (toPage < m_pages - 1 && m_deleted[map(toPage + 1)]) {
+    if (toPage < m_pages - 1 && m_pgList[toPage + 1].deleted()) {
         // if not the last page - check is page after target  one deleted
         // if so, move page after deleted
         int cnt = toPage + 1;
         while (cnt < m_pages) {
-            if (!m_deleted[map(cnt)]) {
+            if (!m_pgList[cnt].deleted()) {
                 toPage = cnt - 1;
                 break;
             }
@@ -228,7 +232,7 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         if (cnt >= m_pages)
             return -1;
     }
-    m_pageMap.move(pageNr, toPage);
+    m_pgList.move(pageNr, toPage);
     Q_EMIT editedChanged();
     int startPage = qMin(pageNr, toPage);
     int endPage = qMax(pageNr, toPage);
@@ -287,18 +291,17 @@ void PdfEditModel::generate()
         QVector<QPair<int, int>> pageRanges;
         bool lastRangeClosed = false;
         int cnt = 0;
-        while (cnt < m_pages && m_deleted[map(cnt)]) {
+        while (cnt < m_pages && m_pgList[cnt].deleted()) {
             cnt++;
         }
-        // cnt++;
         if (cnt >= m_pages)
             return;
-        int fromPage = map(cnt);
+        int fromPage = m_pgList[cnt].origPage();
         int toPage = fromPage + 1;
         cnt++;
         for (int d = cnt; d < m_pages; ++d) {
-            int nr = map(d);
-            if (m_deleted[nr]) {
+            int nr = m_pgList[d].origPage();
+            if (m_pgList[d].deleted()) {
                 if (d == m_pages - 1)
                     lastRangeClosed = false;
                 continue;
@@ -336,11 +339,11 @@ void PdfEditModel::generate()
     // Rotation of pages - aggregate angles
     QVector<quint16> r90, r180, r270;
     for (int r = 0; r < m_pages; ++r) {
-        if (m_rotated[r] == 90)
+        if (m_pgList[r].rotated() == 90)
             r90 << r;
-        else if (m_rotated[r] == 180)
+        else if (m_pgList[r].rotated() == 180)
             r180 << r;
-        else if (m_rotated[r] == 270)
+        else if (m_pgList[r].rotated() == 270)
             r270 << r;
     }
     if (!r90.isEmpty())
@@ -414,31 +417,37 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= m_rows || index.column() < 0 || index.column() >= m_columns)
         return QVariant();
     int pageNr = index.row() * m_columns + index.column();
-    int origPage = 0;
-    if (pageNr < m_pages)
-        origPage = map(pageNr);
     switch (role) {
     case RoleImage: {
         if (pageNr >= m_pages)
             return QVariant::fromValue(QImage());
-        QSizeF pSize = m_pdfDoc->pagePointSize(origPage);
-        qreal pageRatio = pSize.height() / pSize.width();
-        return QVariant::fromValue(m_pdfDoc->render(origPage, QSize(m_maxPageWidth, qFloor(m_maxPageWidth * pageRatio))));
+        if (m_pgList[pageNr].nullImage())
+            Q_EMIT wantRenderImage(pageNr);
+        return QVariant::fromValue(m_pgList[pageNr].image());
     }
     case RoleRotated: {
         if (pageNr >= m_pages)
             return 0;
-        return m_rotated[origPage];
+        return m_pgList[pageNr].rotated();
     }
     case RoleDeleted: {
         if (pageNr >= m_pages)
             return false;
-        return m_deleted[origPage];
+        return m_pgList[pageNr].deleted();
     }
     case RoleOrigNr:
-        return origPage;
+        if (pageNr >= m_pages)
+            return 0;
+        return m_pgList[pageNr].origPage();
     case RolePageNr:
         return pageNr;
+    case RolePageRatio: {
+        int pNr = pageNr;
+        if (pageNr >= m_pages)
+            pNr = 0;
+        auto pageSize = m_pdfDoc->pagePointSize(pNr);
+        return pageSize.height() / pageSize.width();
+    }
     default:
         return QVariant();
     }
@@ -446,7 +455,12 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{RoleImage, "pageImg"}, {RoleRotated, "rotated"}, {RoleDeleted, "deleted"}, {RoleOrigNr, "origPage"}, {RolePageNr, "pageNr"}};
+    return {{RoleImage, "pageImg"},
+            {RoleRotated, "rotated"},
+            {RoleDeleted, "deleted"},
+            {RoleOrigNr, "origPage"},
+            {RolePageNr, "pageNr"},
+            {RolePageRatio, "pageRatio"}};
 }
 
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
@@ -462,13 +476,13 @@ QString PdfEditModel::getPagesForRotation(int angle, const QVector<quint16> &pag
     QString pRange;
     if (!pageList.isEmpty()) {
         pRange.append(QString(u"--rotate=+%1:"_s).arg(angle));
-        pRange.append(QString::number(map(pageList[0]) + 1));
+        pRange.append(QString::number(pageList[0] + 1));
     }
     int p = 1;
     while (p < pageList.count()) {
         if (!pRange.isEmpty())
             pRange.append(u","_s);
-        pRange.append(QString::number(map(pageList[p]) + 1));
+        pRange.append(QString::number(pageList[p] + 1));
         p++;
     }
     return pRange;
@@ -491,9 +505,21 @@ void PdfEditModel::updateMaxPageWidth()
     if (m_columns == 0)
         return;
     qreal oldMax = m_maxPageWidth;
-    m_maxPageWidth = (m_viewWidth - (m_columns * m_spacing)) / static_cast<qreal>(m_columns);
+    m_maxPageWidth = (m_viewWidth - ((m_columns + 5) * m_spacing)) / static_cast<qreal>(m_columns);
     if (oldMax != m_maxPageWidth)
         Q_EMIT maxPageWidthChanged();
+}
+
+void PdfEditModel::renderImageSlot(int pageNr)
+{
+    // for reasonable visual effect lets take quarter of screen width.
+    // It is sufficient for up-scaling and down-scaling as well.
+    // TODO: in the future it can be configurable option
+    int prefPageWidth = qApp->screens().first()->size().width() / 4;
+    // TODO: find current screen
+    QSizeF pSize = m_pdfDoc->pagePointSize(pageNr);
+    qreal pageRatio = pSize.height() / pSize.width();
+    m_pgList[pageNr].setImage(m_pdfDoc->render(pageNr, QSize(prefPageWidth, qFloor(prefPageWidth * pageRatio))));
 }
 
 #include "moc_pdfeditmodel.cpp"
