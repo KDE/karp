@@ -120,13 +120,14 @@ Kirigami.Page {
             }
             PdfPageItem {
                 id: img
+                property bool enableAnimation: false
                 z: -1
                 x: (parent.width - width) / 2
                 y: (parent.height - height) / 2
                 image: pageImg
                 scale: parent.width / width
-                Behavior on x { NumberAnimation {} }
-                Behavior on y { NumberAnimation {} }
+                Behavior on x { enabled: img.enableAnimation; NumberAnimation {} }
+                Behavior on y { enabled: img.enableAnimation; NumberAnimation {} }
                 rotation: rotated
             }
             Loader {

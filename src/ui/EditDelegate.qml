@@ -32,6 +32,7 @@ Item {
                 pdfView.dragTargetPage = targetPage === pageNr ? -1 : targetPage
             }
             onReleased: (mouse) => {
+                img.enableAnimation = true
                 img.x = (editDelg.width - img.width) / 2
                 img.y = (editDelg.height - img.height) / 2
                 img.opacity = 1
