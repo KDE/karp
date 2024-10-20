@@ -20,6 +20,7 @@ qt_add_qml_module(deafed
 target_sources(deafed PUBLIC
     main.cpp
     deafed.cpp
+    pdfpage.cpp
     pdfeditmodel.cpp
     pdfpageitem.cpp
 )
