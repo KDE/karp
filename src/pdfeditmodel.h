@@ -8,6 +8,7 @@
 #include <QQmlEngine>
 
 class QPdfDocument;
+class QPdfPageRenderer;
 
 /**
  * @brief @p PdfEditModel handles pages from PDF document
@@ -33,6 +34,8 @@ public:
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
     int pageCount() const;
+
+    QPdfDocument *doc();
 
     qreal viewWidth() const;
     void setViewWidth(qreal vw);
@@ -80,6 +83,11 @@ public:
 
     QPdfDocument *pdfDocument() const;
 
+    PdfPage *page(int p)
+    {
+        return &m_pgList[p];
+    }
+
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
 
@@ -117,10 +125,11 @@ protected:
      */
     void updateMaxPageWidth();
 
-    void renderImageSlot(int pageNr);
+    void pageRenderedSlot(int pageNr, QSize pageSize, const QImage &img);
 
 Q_SIGNALS:
     void wantRenderImage(int) const;
+    void wantRenderPage(int, PdfPage *) const;
 
 private:
     QString m_pdfFile;
@@ -132,6 +141,8 @@ private:
     qreal m_viewWidth = 1.0;
     qreal m_spacing = 1.0;
     QString m_command;
+    QPdfPageRenderer *m_renderer = nullptr;
+    int m_prefPageWidth = 200;
     // PDF modifications
     QVector<PdfPage> m_pgList;
     quint16 m_rotatedCount = 0;

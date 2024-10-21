@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QPdfDocument>
+#include <QPdfPageRenderer>
 #include <QProcess>
 #include <QScreen>
 #include <QStandardPaths>
@@ -17,12 +18,16 @@ using namespace Qt::Literals::StringLiterals;
 PdfEditModel::PdfEditModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
-    m_pdfDoc = new QPdfDocument(this);
-    connect(this, &PdfEditModel::wantRenderImage, this, &PdfEditModel::renderImageSlot);
+    m_prefPageWidth = qApp->screens().first()->size().width() / 4;
+    m_pdfDoc = new QPdfDocument();
+    m_renderer = new QPdfPageRenderer();
+    connect(m_renderer, &QPdfPageRenderer::pageRendered, this, &PdfEditModel::pageRenderedSlot);
 }
 
 PdfEditModel::~PdfEditModel()
 {
+    m_renderer->deleteLater();
+    m_pdfDoc->deleteLater();
 }
 
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
@@ -34,13 +39,14 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
     }
     m_pdfFile = pdfFile;
 
+    m_renderer->setRenderMode(QPdfPageRenderer::RenderMode::MultiThreaded);
+    m_renderer->setDocument(m_pdfDoc);
     m_pages = m_pdfDoc->pageCount();
     m_rotatedCount = 0;
     m_deletedCount = 0;
     m_wasMoved = false;
     for (int i = 0; i < m_pages; ++i) {
         m_pgList << PdfPage(i);
-        // m_pgList << PdfPage(m_pdfDoc->render(i, QSize(prefPageWidth, qFloor(prefPageWidth * pageRatio))), i);
     }
     m_columns = INIT_COLUM_COUNT;
     updateMaxPageWidth();
@@ -55,6 +61,11 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
 int PdfEditModel::pageCount() const
 {
     return m_pages;
+}
+
+QPdfDocument *PdfEditModel::doc()
+{
+    return m_pdfDoc;
 }
 
 qreal PdfEditModel::viewWidth() const
@@ -421,8 +432,12 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     case RoleImage: {
         if (pageNr >= m_pages)
             return QVariant::fromValue(QImage());
-        if (m_pgList[pageNr].nullImage())
-            Q_EMIT wantRenderImage(pageNr);
+        if (m_pgList[pageNr].nullImage()) {
+            // TODO: find current screen
+            QSizeF pSize = m_pdfDoc->pagePointSize(pageNr);
+            qreal pageRatio = pSize.height() / pSize.width();
+            m_renderer->requestPage(pageNr, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)));
+        }
         return QVariant::fromValue(m_pgList[pageNr].image());
     }
     case RoleRotated: {
@@ -510,16 +525,13 @@ void PdfEditModel::updateMaxPageWidth()
         Q_EMIT maxPageWidthChanged();
 }
 
-void PdfEditModel::renderImageSlot(int pageNr)
+void PdfEditModel::pageRenderedSlot(int pageNr, QSize pageSize, const QImage &img)
 {
-    // for reasonable visual effect lets take quarter of screen width.
-    // It is sufficient for up-scaling and down-scaling as well.
-    // TODO: in the future it can be configurable option
-    int prefPageWidth = qApp->screens().first()->size().width() / 4;
-    // TODO: find current screen
-    QSizeF pSize = m_pdfDoc->pagePointSize(pageNr);
-    qreal pageRatio = pSize.height() / pSize.width();
-    m_pgList[pageNr].setImage(m_pdfDoc->render(pageNr, QSize(prefPageWidth, qFloor(prefPageWidth * pageRatio))));
+    Q_UNUSED(pageSize)
+    m_pgList[pageNr].setImage(img);
+    int r = pageNr / m_columns;
+    int c = pageNr % m_columns;
+    Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleImage);
 }
 
 #include "moc_pdfeditmodel.cpp"
