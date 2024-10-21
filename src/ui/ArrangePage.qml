@@ -125,7 +125,7 @@ Kirigami.Page {
                 x: (parent.width - width) / 2
                 y: (parent.height - height) / 2
                 image: pageImg
-                scale: parent.width / width
+                scale: parent.width / (rotated === 90 || rotated === 270 ? height : width)
                 Behavior on x { enabled: img.enableAnimation; NumberAnimation {} }
                 Behavior on y { enabled: img.enableAnimation; NumberAnimation {} }
                 rotation: rotated
