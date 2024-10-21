@@ -9,35 +9,11 @@ import org.kde.deafed
 Kirigami.Page {
     id: page
 
-    title: i18n("Arrange") + ": " + PDFED.name
+    title: PDFED.name
 
     property alias pdfModel: pdfModel
 
     actions: [
-        Kirigami.Action {
-            id: labelsAction
-            visible: pdfModel.pageCount
-            icon.name: "label"
-            text: i18n("Labels")
-            checkable: true
-            checked: true
-        },
-        Kirigami.Action {
-            visible: pdfModel.pageCount
-            icon.name: "zoom-out"
-            text: i18n("Zoom Out")
-            // shortcutsName: "ZoomOut"
-            onTriggered: pdfModel.zoomOut()
-            enabled: pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
-        },
-        Kirigami.Action {
-            visible: pdfModel.pageCount
-            icon.name: "zoom-in"
-            text: i18n("Zoom In")
-            // shortcutsName: "ZoomIn"
-            onTriggered: pdfModel.zoomIn()
-            enabled: pdfView.columns > 1
-        },
         Kirigami.Action {
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
@@ -96,7 +72,7 @@ Kirigami.Page {
         id: pdfView
         visible: pdfModel.pageCount
         width: page.width - Kirigami.Units.largeSpacing * 4
-        height: page.height - Kirigami.Units.largeSpacing * 2
+        height: page.height - Kirigami.Units.largeSpacing * 3 - bottomBar.height
         clip: true
         columnSpacing: Kirigami.Units.smallSpacing
         rowSpacing: Kirigami.Units.smallSpacing
@@ -173,17 +149,51 @@ Kirigami.Page {
         QQC2.ScrollBar.vertical: QQC2.ScrollBar { visible: true }
     } // ListView
 
-    // footer: Rectangle {
-    //     id: bottomRect
-    //     width: page.width; height: Kirigami.Units.gridUnit * 3
-    //     color: Kirigami.Theme.alternateBackgroundColor
-    //     Text {
-    //         anchors { fill: parent; margins: Kirigami.Units.smallSpacing }
-    //         text: pdfModel.command
-    //         wrapMode: Text.WordWrap
-    //         color: Kirigami.Theme.textColor
-    //     }
-    // }
+    footer: Kirigami.ActionToolBar {
+        id: bottomBar
+        visible: pdfModel.pageCount
+        // anchors { /*left: parent.left;*/ right: parent.right }
+
+        actions: [
+            Kirigami.Action {
+                id: labelsAction
+                icon.name: "label"
+                tooltip: i18n("show page labels")
+                checkable: true
+                checked: true
+            },
+            Kirigami.Action {
+                icon.name: "zoom-out"
+                tooltip: i18n("Zoom Out")
+                // shortcutsName: "ZoomOut"
+                onTriggered: pdfModel.zoomOut()
+                enabled: pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
+            },
+            Kirigami.Action {
+                icon.name: "zoom-in"
+                tooltip: i18n("Zoom In")
+                // shortcutsName: "ZoomIn"
+                onTriggered: pdfModel.zoomIn()
+                enabled: pdfView.columns > 1
+            },
+            Kirigami.Action {
+                displayComponent: QQC2.Label {
+                    text: i18n("go to page") + " "
+                }
+            },
+            Kirigami.Action {
+                displayComponent: QQC2.SpinBox {
+                    id: pageSpin
+                    from: 1; to: pdfModel.pageCount
+                    onValueModified: pdfView.positionViewAtRow((value - 1) / pdfView.columns, TableView.AlignTop)
+                    Binding {
+                        pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
+                        delayed: true
+                    }
+                }
+            }
+        ]
+    }
 
     function movePage(from, to) {
         var pageNr = pdfModel.addMove(from, to)
