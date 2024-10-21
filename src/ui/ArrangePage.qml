@@ -152,7 +152,7 @@ Kirigami.Page {
     footer: Kirigami.ActionToolBar {
         id: bottomBar
         visible: pdfModel.pageCount
-        // anchors { /*left: parent.left;*/ right: parent.right }
+        alignment: Qt.AlignHCenter
 
         actions: [
             Kirigami.Action {
