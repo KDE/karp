@@ -12,7 +12,7 @@ FormCard.FormCardDialog {
 
     title: i18n("PDF properties")
     visible: true
-    standardButtons: QQC2.DialogButtonBox.Save | QQC2.DialogButtonBox.Close
+    standardButtons: QQC2.DialogButtonBox.Close // TODO | QQC2.DialogButtonBox.Save
 
     width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9)
     height: Math.min(Kirigami.Units.gridUnit * 30, mainWin.height * 0.9)
