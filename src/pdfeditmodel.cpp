@@ -37,7 +37,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
         qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile;
         return;
     }
-    m_pdfFile = pdfFile;
+    m_pdfs << pdfFile;
 
     m_renderer->setRenderMode(QPdfPageRenderer::RenderMode::MultiThreaded);
     m_renderer->setDocument(m_pdfDoc);
@@ -66,6 +66,11 @@ int PdfEditModel::pageCount() const
 QPdfDocument *PdfEditModel::doc()
 {
     return m_pdfDoc;
+}
+
+QStringList PdfEditModel::pdfs() const
+{
+    return m_pdfs;
 }
 
 qreal PdfEditModel::viewWidth() const
@@ -255,7 +260,7 @@ int PdfEditModel::addMove(int pageNr, int toPage)
 QStringList PdfEditModel::metaDataModel()
 {
     QStringList mdm;
-    if (m_pdfFile.isEmpty())
+    if (m_pdfs.isEmpty())
         return mdm;
     static const KLazyLocalizedString fNames[]{kli18n("Title"),
                                                kli18n("Author"),
@@ -292,9 +297,9 @@ void PdfEditModel::generate()
     // p.close();
 
     QStringList args;
-    args << m_pdfFile;
-    auto out = m_pdfFile;
-    out.insert(m_pdfFile.length() - 4, u"-out"_s);
+    args << m_pdfs.first();
+    auto out = m_pdfs.first();
+    out.insert(out.length() - 4, u"-out"_s);
     // pages order and skipping deleted
     if (m_deletedCount > 0 || m_wasMoved) {
         QString delArgs;

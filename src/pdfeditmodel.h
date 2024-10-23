@@ -36,6 +36,7 @@ public:
     int pageCount() const;
 
     QPdfDocument *doc();
+    QStringList pdfs() const;
 
     qreal viewWidth() const;
     void setViewWidth(qreal vw);
@@ -70,7 +71,6 @@ public:
     int map(int nr) const
     {
         return m_pgList[nr].origPage();
-        // return m_pageMap[nr];
     }
 
     Q_INVOKABLE void addRotation(int pageId, int angle);
@@ -132,7 +132,7 @@ Q_SIGNALS:
     void wantRenderPage(int, PdfPage *) const;
 
 private:
-    QString m_pdfFile;
+    QStringList m_pdfs;
     QPdfDocument *m_pdfDoc = nullptr;
     int m_pages = 0;
     int m_rows = 0;
