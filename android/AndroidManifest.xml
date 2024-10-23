@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--
   - SPDX-License-Identifier: BSD-3-Clause
-  - SPDX-FileCopyrightText: 2024 by Tomasz Bojczzuk <seelook@gmail.com>
+  - SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.kde.deafed"

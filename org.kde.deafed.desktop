@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: CC0-1.0
-# SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
+# SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 [Desktop Entry]
 Name=deafed
-Comment=deafed Kirigami Application
+Comment=Dwaf Ed - Simple PDF editor
 Version=1.0
 Exec=deafed
 Icon=applications-development
