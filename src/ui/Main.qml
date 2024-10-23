@@ -19,8 +19,6 @@ Kirigami.ApplicationWindow {
 
     Component.onCompleted: PDFED.restoreWindowGeometry(mainWin)
 
-    property int counter: 0
-
     globalDrawer: Kirigami.GlobalDrawer {
         title: i18n("Simple PDF editor")
         titleIcon: "application-pdf"
@@ -30,10 +28,6 @@ Kirigami.ApplicationWindow {
                 text: i18n("About Deaf Ed")
                 icon.name: "help-about"
                 onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/About.qml")
-            },
-            Kirigami.Action {
-                text: i18n("Arrange pages")
-                icon.name: "view-sort"
             },
             Kirigami.Action {
                 text: i18n("Settings")
@@ -46,10 +40,6 @@ Kirigami.ApplicationWindow {
                 onTriggered: Qt.quit()
             }
         ]
-    }
-
-    contextDrawer: Kirigami.ContextDrawer {
-        id: contextDrawer
     }
 
     pageStack.initialPage: ArrangePage {}
