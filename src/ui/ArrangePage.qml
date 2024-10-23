@@ -210,7 +210,10 @@ Kirigami.Page {
     }
 
     Component.onCompleted: {
-        if (PDFED.path !== "")
-            pdfModel.loadPdfFile(PDFED.path)
+        var initFiles = PDFED.getInitFileList()
+        if (initFiles.length === 1)
+            pdfModel.loadPdfFile(initFiles[0])
+        else if (initFiles.length > 1)
+            Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfFilesDialog.qml").createObject(page, { pdfEdit: pdfModel, initFiles: initFiles })
     }
 }

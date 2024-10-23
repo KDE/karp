@@ -84,6 +84,19 @@ QVariant PdfsOrganizer::editModel()
 }
 
 /**
+ * Dummy function - no need for this value - just @p setInitFiles() matter
+ */
+QVariant PdfsOrganizer::initFiles() const
+{
+    return QVariant();
+}
+
+void PdfsOrganizer::setInitFiles(const QVariant &filesVar)
+{
+    addPdfList(filesVar.toStringList());
+}
+
+/**
  * This method has to be called just once - when @p PdfsOrganizer is created.
  * To assign @p PdfEditModel
  */
@@ -125,12 +138,16 @@ bool PdfsOrganizer::addMorePDFs()
     if (lastPath.isEmpty())
         lastPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
 
-    auto pdfFiles = QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files to append"), lastPath, u"*.pdf"_s);
-    qDebug() << pdfFiles;
-    for (auto &pdfFile : pdfFiles) {
+    auto pdfList = QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files to append"), lastPath, u"*.pdf"_s);
+    addPdfList(pdfList);
+    return !pdfList.isEmpty();
+}
+
+void PdfsOrganizer::addPdfList(const QStringList &pdfList)
+{
+    for (auto &pdfFile : pdfList) {
         m_totalPages += m_fileModel->appendFile(pdfFile);
     }
-    if (!pdfFiles.isEmpty())
+    if (!pdfList.isEmpty())
         Q_EMIT totalPagesChanged();
-    return !pdfFiles.isEmpty();
 }

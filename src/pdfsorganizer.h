@@ -56,6 +56,7 @@ class PdfsOrganizer : public QObject
     Q_PROPERTY(QVariant editModel READ editModel WRITE setEditModel NOTIFY editModelChanged)
     Q_PROPERTY(QVariant fileModel READ fileModel NOTIFY fileModelChanged)
     Q_PROPERTY(int totalPages READ totalPages NOTIFY totalPagesChanged)
+    Q_PROPERTY(QVariant initFiles READ initFiles WRITE setInitFiles NOTIFY initFilesChanged)
 
 public:
     explicit PdfsOrganizer(QObject *parent = nullptr);
@@ -66,6 +67,9 @@ public:
     QVariant fileModel() const;
 
     int totalPages() const;
+
+    QVariant initFiles() const;
+    void setInitFiles(const QVariant &filesVar);
 
     /**
      * Opens File Dialog to select one or more PDF files.
@@ -78,6 +82,10 @@ Q_SIGNALS:
     void editModelChanged();
     void fileModelChanged();
     void totalPagesChanged();
+    void initFilesChanged(); // dummy
+
+protected:
+    void addPdfList(const QStringList &pdfList);
 
 private:
     PdfEditModel *m_editModel = nullptr;

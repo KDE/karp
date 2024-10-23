@@ -7,7 +7,6 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
-#include <QCommandLineParser>
 #include <QDebug>
 #include <QFileDialog>
 #include <QQuickWindow>
@@ -17,13 +16,6 @@ using namespace Qt::Literals::StringLiterals;
 DeafEd::DeafEd(QObject *parent)
     : QObject(parent)
 {
-    QCommandLineParser cmd;
-    QCommandLineOption fileOpt(QStringList() << u"file"_s << u"f"_s, u"PDF file to proceed\n"_s, u"some.pdf"_s);
-    cmd.addOption(fileOpt);
-    cmd.parse(qApp->arguments());
-    if (cmd.isSet(fileOpt)) {
-        m_path = cmd.value(fileOpt);
-    }
 }
 
 void DeafEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
@@ -63,6 +55,23 @@ QString DeafEd::getPdfFile()
     setName(pdfFileInfo.fileName());
     setPdfLoaded(true);
     return m_path;
+}
+
+/**
+ * Look up for files in command line arguments.
+ * If PDF file list will be passed by file browser we cannot use @p QCommandLineParser
+ * which requires some flag for every value, so iterate args and check is any a PDF file.
+ */
+QStringList DeafEd::getInitFileList()
+{
+    QStringList initFiles;
+    for (int a = 1; a < qApp->arguments().count(); ++a) {
+        auto argString = qApp->arguments().at(a);
+        QFileInfo someFile(argString);
+        if (someFile.exists() && someFile.suffix().compare(u"pdf"_s, Qt::CaseInsensitive) == 0)
+            initFiles << argString;
+    }
+    return initFiles;
 }
 
 bool DeafEd::pdfLoaded() const

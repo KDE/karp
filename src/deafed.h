@@ -27,6 +27,8 @@ public:
 
     Q_INVOKABLE QString getPdfFile();
 
+    Q_INVOKABLE QStringList getInitFileList();
+
     // properties
 
     bool pdfLoaded() const;

@@ -12,8 +12,9 @@ FormCard.FormCardDialog {
     id: pdfsDialog
 
     property alias pdfEdit: pdfOrg.editModel
+    property alias initFiles: pdfOrg.initFiles
 
-    title: i18n("Arrange PDF files")
+    title: i18n("Add and arrange PDF files")
     visible: true
     width: mainWin.width - Kirigami.Units.gridUnit * 2
     height: mainWin.height - Kirigami.Units.gridUnit * 2
