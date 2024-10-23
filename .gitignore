@@ -75,3 +75,4 @@ Thumbs.db
 
 # CMake
 *.txt.user*
+.clang-format
