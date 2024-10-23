@@ -13,6 +13,7 @@ qt_add_qml_module(deafed
         ui/DeletedDelegate.qml
         ui/EditDelegate.qml
         ui/PdfMetadataDialog.qml
+        ui/PdfFilesDialog.qml
         ui/Settings/SettingsPage.qml
         ui/Settings/PdfTools.qml
 )
@@ -21,8 +22,10 @@ target_sources(deafed PUBLIC
     main.cpp
     deafed.cpp
     pdfpage.cpp
+    pdffile.cpp
     pdfeditmodel.cpp
     pdfpageitem.cpp
+    pdfsorganizer.cpp
 )
 
 target_link_libraries(deafed
