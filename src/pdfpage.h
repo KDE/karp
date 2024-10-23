@@ -6,12 +6,13 @@
 #include <QImage>
 
 /**
- * @brief PdfPage is container class with informations about PDF page
+ * @brief PdfPage is container class with information about PDF page.
  */
 class PdfPage
 {
 public:
     PdfPage(const QImage &image, quint16 origPage);
+
     PdfPage(quint16 origPage)
         : m_origPage(origPage)
     {
@@ -21,9 +22,11 @@ public:
     {
         return m_image;
     }
-
     void setImage(const QImage &img);
 
+    /**
+     * True when image is not set - has null dimension.
+     */
     bool nullImage() const
     {
         return m_image.isNull();
@@ -43,24 +46,19 @@ public:
     {
         return (m_flags & PageRotated270) * 90;
     }
-
     void setRotated(int r);
 
     bool deleted() const
     {
         return m_flags & PageDeleted;
     }
-
-    void setDeleted(bool isDel)
-    {
-        if (isDel)
-            m_flags |= PageDeleted;
-        else
-            m_flags &= ~PageDeleted;
-    }
+    void setDeleted(bool isDel);
 
     qreal ratio() const;
 
+    /**
+     * Page state kept into @p m_flags
+     */
     enum PageFlags : quint8 {
         PageUnchanged = 0,
         PageRotated90 = 1,

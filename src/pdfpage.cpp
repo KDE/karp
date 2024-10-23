@@ -14,6 +14,14 @@ void PdfPage::setImage(const QImage &img)
     m_image = img;
 }
 
+void PdfPage::setDeleted(bool isDel)
+{
+    if (isDel)
+        m_flags |= PageDeleted;
+    else
+        m_flags &= ~PageDeleted;
+}
+
 void PdfPage::setRotated(int r)
 {
     m_flags &= ~PageRotated270; // reset
