@@ -15,6 +15,12 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
+            icon.name: "application-pdf"
+            text: i18n("Add PDF files")
+            onTriggered: Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfFilesDialog.qml")
+                                            .createObject(page, { pdfEdit: pdfModel })
+        },
+        Kirigami.Action {
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
             icon.name: "application-pdf"
