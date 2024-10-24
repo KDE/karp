@@ -183,14 +183,12 @@ Kirigami.Page {
                 enabled: pdfView.columns > 1
             },
             Kirigami.Action {
-                displayComponent: QQC2.Label {
-                    text: i18n("go to page") + " "
-                }
-            },
-            Kirigami.Action {
                 displayComponent: QQC2.SpinBox {
                     id: pageSpin
                     from: 1; to: pdfModel.pageCount
+                    textFromValue: function(value) {
+                        return i18n("Page %1 of %2", value, to)
+                    }
                     onValueModified: pdfView.positionViewAtRow((value - 1) / pdfView.columns, TableView.AlignTop)
                     Binding {
                         pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
