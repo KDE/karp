@@ -5,9 +5,7 @@
 #include "pdfeditmodel.h"
 #include <KLocalizedString>
 #include <QDebug>
-#include <QDir>
 #include <QFileDialog>
-#include <QFileInfo>
 #include <QPdfDocument>
 #include <QStandardPaths>
 
@@ -26,17 +24,25 @@ PdfListModel::PdfListModel(QObject *parent)
  */
 int PdfListModel::appendFile(const QString &pdfFile)
 {
-    QFileInfo pdfInfo(pdfFile);
-    auto dir = pdfInfo.canonicalPath() + QDir::separator();
-    auto name = pdfInfo.fileName();
-    QPdfDocument pdfDoc;
-    pdfDoc.load(pdfFile);
-    quint16 pages = pdfDoc.pageCount();
-    m_pdfInfos << PdfFile(dir, name, pages);
+    auto newPdf = new PdfFile(pdfFile, m_rows);
+    if (newPdf->pageCount() < 1) { // do not add empty/wrong file
+        newPdf->deleteLater();
+        return 0;
+    }
+    m_pdfFiles << newPdf;
     beginInsertRows(QModelIndex(), m_rows, m_rows);
     m_rows++;
     endInsertRows();
-    return pages;
+    return newPdf->pageCount();
+}
+
+int PdfListModel::appendPdfFile(PdfFile *pdf)
+{
+    m_pdfFiles << pdf;
+    beginInsertRows(QModelIndex(), m_rows, m_rows);
+    m_rows++;
+    endInsertRows();
+    return pdf->pageCount();
 }
 
 int PdfListModel::rowCount(const QModelIndex &parent) const
@@ -49,11 +55,11 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
     case RoleDirName:
-        return m_pdfInfos[index.row()].dir();
+        return m_pdfFiles[index.row()]->dir();
     case RoleFileName:
-        return m_pdfInfos[index.row()].name();
+        return m_pdfFiles[index.row()]->name();
     case RolePageCount:
-        return m_pdfInfos[index.row()].pages();
+        return m_pdfFiles[index.row()]->pageCount();
     default:
         return QVariant();
     }
@@ -62,11 +68,6 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> PdfListModel::roleNames() const
 {
     return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}};
-}
-
-QVector<PdfFile> &PdfListModel::pdfInfos()
-{
-    return m_pdfInfos;
 }
 
 // #################################################################################################
@@ -114,7 +115,7 @@ void PdfsOrganizer::setEditModel(const QVariant &edMod)
     Q_EMIT editModelChanged();
 
     for (auto &pdfFile : m_editModel->pdfs()) {
-        m_totalPages += m_fileModel->appendFile(pdfFile);
+        m_totalPages += m_fileModel->appendPdfFile(pdfFile);
     }
     Q_EMIT fileModelChanged();
     Q_EMIT totalPagesChanged();
@@ -133,14 +134,27 @@ int PdfsOrganizer::totalPages() const
 bool PdfsOrganizer::addMorePDFs()
 {
     QString lastPath;
-    if (!m_fileModel->pdfInfos().isEmpty())
-        lastPath = m_fileModel->pdfInfos().last().dir();
+    if (m_fileModel->rows() > 0)
+        lastPath = m_fileModel->lastPdf()->dir();
     if (lastPath.isEmpty())
         lastPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
 
     auto pdfList = QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files to append"), lastPath, u"*.pdf"_s);
     addPdfList(pdfList);
     return !pdfList.isEmpty();
+}
+
+void PdfsOrganizer::aplyNewFiles()
+{
+    QVector<PdfFile *> newFiles;
+    for (int p = 0; p < m_fileModel->rows(); ++p) {
+        auto pdf = m_fileModel->getPdfFile(p);
+        if (pdf->state() == PdfFile::PdfNotAdded)
+            newFiles << pdf;
+    }
+    if (newFiles.isEmpty())
+        return;
+    m_editModel->addPdfs(newFiles);
 }
 
 void PdfsOrganizer::addPdfList(const QStringList &pdfList)

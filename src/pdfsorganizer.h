@@ -9,6 +9,7 @@
 #include <QQmlEngine>
 
 class PdfEditModel;
+class PdfFile;
 
 /**
  * @brief PdfListModel exposes selected PDF files to ListView
@@ -32,17 +33,31 @@ public:
      * Returns number of pages the file has or 0.
      */
     int appendFile(const QString &pdfFile);
+    int appendPdfFile(PdfFile *pdf);
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    QVector<PdfFile> &pdfInfos();
+    int rows() const
+    {
+        return m_rows;
+    }
+
+    PdfFile *getPdfFile(int id)
+    {
+        return m_pdfFiles[id];
+    }
+
+    PdfFile *lastPdf()
+    {
+        return m_pdfFiles.last();
+    }
 
 private:
     int m_rows = 0;
 
-    QVector<PdfFile> m_pdfInfos;
+    QVector<PdfFile *> m_pdfFiles;
 };
 
 /**
@@ -77,6 +92,8 @@ public:
      * and returns TRUE.
      */
     Q_INVOKABLE bool addMorePDFs();
+
+    Q_INVOKABLE void aplyNewFiles();
 
 Q_SIGNALS:
     void editModelChanged();
