@@ -3,9 +3,10 @@
 
 #include "pdfpage.h"
 
-PdfPage::PdfPage(const QImage &image, quint16 origPage)
+PdfPage::PdfPage(const QImage &image, quint16 origPage, quint16 refFile)
     : m_image(image)
     , m_origPage(origPage)
+    , m_refFile(refFile)
 {
 }
 

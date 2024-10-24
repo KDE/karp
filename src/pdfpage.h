@@ -11,10 +11,11 @@
 class PdfPage
 {
 public:
-    PdfPage(const QImage &image, quint16 origPage);
+    PdfPage(const QImage &image, quint16 origPage, quint16 refFile = 0);
 
-    PdfPage(quint16 origPage)
+    PdfPage(quint16 origPage, quint16 refFile = 0)
         : m_origPage(origPage)
+        , m_refFile(refFile)
     {
     }
 
@@ -32,14 +33,25 @@ public:
         return m_image.isNull();
     }
 
-    void setOrigPage(quint16 origP)
-    {
-        m_origPage = origP;
-    }
-
+    /**
+     * Page number in reference file. It doesn't change when pages are moved.
+     */
     quint16 origPage() const
     {
         return m_origPage;
+    }
+
+    /**
+     * Number of the file in the list of PDF files which contains this page
+     */
+    quint16 referenceFile() const
+    {
+        return m_refFile;
+    }
+
+    void setReferenceFile(quint16 refFile)
+    {
+        m_refFile = refFile;
     }
 
     int rotated() const
@@ -70,5 +82,6 @@ public:
 private:
     QImage m_image;
     quint16 m_origPage = 0;
+    quint16 m_refFile = 0;
     quint8 m_flags = 0;
 };
