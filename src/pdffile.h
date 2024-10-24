@@ -3,13 +3,24 @@
 
 #pragma once
 
-#include <QString>
+#include <QPdfDocument>
+
+class QPdfDocument;
+class QPdfPageRenderer;
+class PdfPage;
+
+#define NO_PAGE_ID (65535)
 
 /**
- * @brief PdfFileInfo is container class to keep info about PDF file.
+ * @brief PdfFile extends @p QPdfDocument class.
+ *
+ * It render pages in separate thread with @p QPdfPageRenderer
+ * and collects queries for rendering pages.
  */
-class PdfFile
+class PdfFile : public QPdfDocument
 {
+    Q_OBJECT
+
 public:
     enum PdfFileFlags : quint8 {
         PdfNotAdded = 0, /**< Initial state when file was not yet loaded to the model */
@@ -19,7 +30,25 @@ public:
         PdfEveryNPage,
     };
 
-    PdfFile(const QString &d, const QString &n, quint16 p, PdfFileFlags s = PdfNotAdded);
+    PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s = PdfNotAdded);
+    ~PdfFile();
+
+    void setFile(const QString &fileName);
+
+    quint16 referenceFileId() const
+    {
+        return m_refFileId;
+    }
+
+    PdfFileFlags state()
+    {
+        return m_state;
+    }
+
+    void setState(PdfFileFlags s)
+    {
+        m_state = s;
+    }
 
     /**
      * PDF file path (without name)
@@ -37,15 +66,41 @@ public:
         return m_name;
     }
 
-    quint16 pages() const
+    QString filePath() const
     {
-        return m_pages;
+        return m_dir + m_name;
     }
 
+    /**
+     * Request rendering image for @p pdfPage of @p pageId in pages list.
+     * Saves rendered @p QImage and emits @p pageRendered() when ready.
+     */
+    void requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId);
+
+Q_SIGNALS:
+    void pageRendered(quint16, PdfPage *);
+
+protected:
+    void requestPageSlot(int pageNumber, QSize imageSize, const QImage &img);
+
+    struct PageToRender {
+        PdfPage *pdfPage = nullptr;
+        quint16 pageId = NO_PAGE_ID;
+        QSize size;
+        PageToRender(PdfPage *p, quint16 id, const QSize &s)
+            : pdfPage(p)
+            , pageId(id)
+            , size(s)
+        {
+        }
+    };
+
 private:
+    quint16 m_refFileId = 0;
+    PdfFileFlags m_state = PdfNotAdded;
+    QPdfPageRenderer *m_renderer = nullptr;
     QString m_dir;
     QString m_name;
-    quint16 m_pages = 0;
-    PdfFileFlags m_state = PdfNotAdded;
-    quint16 m_n = 1;
+    quint16 m_Nstep = 1;
+    QVector<PageToRender> m_pagesToRender;
 };
