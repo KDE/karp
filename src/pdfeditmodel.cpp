@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfeditmodel.h"
+#include "pdffile.h"
 #include <KLazyLocalizedString>
 #include <QDebug>
 #include <QFileInfo>
@@ -19,43 +20,36 @@ PdfEditModel::PdfEditModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
     m_prefPageWidth = qApp->screens().first()->size().width() / 4;
-    m_pdfDoc = new QPdfDocument();
-    m_renderer = new QPdfPageRenderer();
-    connect(m_renderer, &QPdfPageRenderer::pageRendered, this, &PdfEditModel::pageRenderedSlot);
+    m_columns = INIT_COLUM_COUNT;
 }
 
 PdfEditModel::~PdfEditModel()
 {
-    m_renderer->deleteLater();
-    m_pdfDoc->deleteLater();
+    qDeleteAll(m_pdfList);
 }
 
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
 {
-    auto res = m_pdfDoc->load(pdfFile);
-    if (res != QPdfDocument::Error::None) {
+    auto newPdf = new PdfFile(pdfFile, pdfCount());
+    if (newPdf->pageCount() < 1) {
         qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile;
+        newPdf->deleteLater();
         return;
     }
-    m_pdfs << pdfFile;
+    m_pdfList << newPdf;
+    newPdf->setState(PdfFile::PdfLoaded);
+    connect(newPdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
+    addPdfFileToModel(newPdf);
+}
 
-    m_renderer->setRenderMode(QPdfPageRenderer::RenderMode::MultiThreaded);
-    m_renderer->setDocument(m_pdfDoc);
-    m_pages = m_pdfDoc->pageCount();
-    m_rotatedCount = 0;
-    m_deletedCount = 0;
-    m_wasMoved = false;
-    for (int i = 0; i < m_pages; ++i) {
-        m_pgList << PdfPage(i);
+void PdfEditModel::addPdfs(QVector<PdfFile *> &pdfList)
+{
+    for (auto &pdf : pdfList) {
+        m_pdfList << pdf;
+        pdf->setState(PdfFile::PdfLoaded);
+        connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
+        addPdfFileToModel(pdf);
     }
-    m_columns = INIT_COLUM_COUNT;
-    updateMaxPageWidth();
-    m_rows = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
-    beginInsertRows(QModelIndex(), 0, m_rows - 1);
-    endInsertRows();
-    beginInsertColumns(QModelIndex(), 0, m_columns - 1);
-    endInsertColumns();
-    Q_EMIT pageCountChanged();
 }
 
 int PdfEditModel::pageCount() const
@@ -63,14 +57,9 @@ int PdfEditModel::pageCount() const
     return m_pages;
 }
 
-QPdfDocument *PdfEditModel::doc()
+QVector<PdfFile *> &PdfEditModel::pdfs()
 {
-    return m_pdfDoc;
-}
-
-QStringList PdfEditModel::pdfs() const
-{
-    return m_pdfs;
+    return m_pdfList;
 }
 
 qreal PdfEditModel::viewWidth() const
@@ -168,9 +157,10 @@ void PdfEditModel::zoomOut()
     changeColumnCount(m_columns + 1);
 }
 
+// TODO argument for PDF id
 QDateTime PdfEditModel::creationDate() const
 {
-    return m_pdfDoc->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
+    return m_pdfList.first()->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
 }
 
 void PdfEditModel::addRotation(int pageId, int angle)
@@ -194,7 +184,7 @@ void PdfEditModel::addRotation(int pageId, int angle)
         m_rotatedCount++;
     else
         m_rotatedCount--;
-    m_pgList[pageId].setRotated(angle);
+    m_pageList[pageId].setRotated(angle);
     int r = pageId / m_columns;
     int c = pageId % m_columns;
     Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
@@ -205,7 +195,7 @@ void PdfEditModel::addDeletion(int pageId, bool doDel)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
-    m_pgList[pageId].setDeleted(doDel);
+    m_pageList[pageId].setDeleted(doDel);
     if (doDel) {
         m_deletedCount++;
     } else {
@@ -234,12 +224,12 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         return -1;
 
     m_wasMoved = true;
-    if (toPage < m_pages - 1 && m_pgList[toPage + 1].deleted()) {
+    if (toPage < m_pages - 1 && m_pageList[toPage + 1].deleted()) {
         // if not the last page - check is page after target  one deleted
         // if so, move page after deleted
         int cnt = toPage + 1;
         while (cnt < m_pages) {
-            if (!m_pgList[cnt].deleted()) {
+            if (!m_pageList[cnt].deleted()) {
                 toPage = cnt - 1;
                 break;
             }
@@ -248,7 +238,7 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         if (cnt >= m_pages)
             return -1;
     }
-    m_pgList.move(pageNr, toPage);
+    m_pageList.move(pageNr, toPage);
     Q_EMIT editedChanged();
     int startPage = qMin(pageNr, toPage);
     int endPage = qMax(pageNr, toPage);
@@ -257,10 +247,11 @@ int PdfEditModel::addMove(int pageNr, int toPage)
     return toPage;
 }
 
+// TODO: multiple documents
 QStringList PdfEditModel::metaDataModel()
 {
     QStringList mdm;
-    if (m_pdfs.isEmpty())
+    if (m_pdfList.isEmpty())
         return mdm;
     static const KLazyLocalizedString fNames[]{kli18n("Title"),
                                                kli18n("Author"),
@@ -270,13 +261,15 @@ QStringList PdfEditModel::metaDataModel()
                                                kli18n("Creator"),
                                                kli18n("Creation Date"),
                                                kli18n("Modification Date")};
+
+    auto pdf = m_pdfList.first();
     for (int i = 0; i <= static_cast<int>(QPdfDocument::MetaDataField::ModificationDate); ++i) {
         QString value;
         auto fieldType = static_cast<QPdfDocument::MetaDataField>(i);
         if (fieldType == QPdfDocument::MetaDataField::ModificationDate || fieldType == QPdfDocument::MetaDataField::CreationDate) {
-            value = m_pdfDoc->metaData(fieldType).toDateTime().toString(u"yyyy.MM.dd hh:mm:ss"_s);
+            value = pdf->metaData(fieldType).toDateTime().toString(u"yyyy.MM.dd hh:mm:ss"_s);
         } else {
-            value = m_pdfDoc->metaData(fieldType).toString();
+            value = pdf->metaData(fieldType).toString();
         }
         mdm << KLocalizedString(fNames[i]).toString() + u"|"_s + value;
     }
@@ -297,8 +290,8 @@ void PdfEditModel::generate()
     // p.close();
 
     QStringList args;
-    args << m_pdfs.first();
-    auto out = m_pdfs.first();
+    auto out = m_pdfList.first()->filePath();
+    args << out;
     out.insert(out.length() - 4, u"-out"_s);
     // pages order and skipping deleted
     if (m_deletedCount > 0 || m_wasMoved) {
@@ -307,17 +300,17 @@ void PdfEditModel::generate()
         QVector<QPair<int, int>> pageRanges;
         bool lastRangeClosed = false;
         int cnt = 0;
-        while (cnt < m_pages && m_pgList[cnt].deleted()) {
+        while (cnt < m_pages && m_pageList[cnt].deleted()) {
             cnt++;
         }
         if (cnt >= m_pages)
             return;
-        int fromPage = m_pgList[cnt].origPage();
+        int fromPage = m_pageList[cnt].origPage();
         int toPage = fromPage + 1;
         cnt++;
         for (int d = cnt; d < m_pages; ++d) {
-            int nr = m_pgList[d].origPage();
-            if (m_pgList[d].deleted()) {
+            int nr = m_pageList[d].origPage();
+            if (m_pageList[d].deleted()) {
                 if (d == m_pages - 1)
                     lastRangeClosed = false;
                 continue;
@@ -355,11 +348,11 @@ void PdfEditModel::generate()
     // Rotation of pages - aggregate angles
     QVector<quint16> r90, r180, r270;
     for (int r = 0; r < m_pages; ++r) {
-        if (m_pgList[r].rotated() == 90)
+        if (m_pageList[r].rotated() == 90)
             r90 << r;
-        else if (m_pgList[r].rotated() == 180)
+        else if (m_pageList[r].rotated() == 180)
             r180 << r;
-        else if (m_pgList[r].rotated() == 270)
+        else if (m_pageList[r].rotated() == 270)
             r270 << r;
     }
     if (!r90.isEmpty())
@@ -411,10 +404,10 @@ void PdfEditModel::generate()
     }
 }
 
-QPdfDocument *PdfEditModel::pdfDocument() const
-{
-    return m_pdfDoc;
-}
+// QPdfDocument *PdfEditModel::pdfDocument() const
+// {
+//     return m_pdfDoc;
+// }
 
 int PdfEditModel::rowCount(const QModelIndex &parent) const
 {
@@ -433,39 +426,48 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= m_rows || index.column() < 0 || index.column() >= m_columns)
         return QVariant();
     int pageNr = index.row() * m_columns + index.column();
+    PdfFile *pdf = nullptr;
+    PdfPage *page = nullptr;
+    if (pageNr < m_pages) {
+        page = const_cast<PdfPage *>(&m_pageList.at(pageNr));
+        if (role == RoleImage || role == RolePageRatio) {
+            int refFileId = page->referenceFile();
+            if (refFileId < pdfCount())
+                pdf = m_pdfList[refFileId];
+        }
+    }
     switch (role) {
     case RoleImage: {
         if (pageNr >= m_pages)
             return QVariant::fromValue(QImage());
-        if (m_pgList[pageNr].nullImage()) {
+        if (page->nullImage() && pdf) {
             // TODO: find current screen
-            QSizeF pSize = m_pdfDoc->pagePointSize(pageNr);
+            QSizeF pSize = pdf->pagePointSize(page->origPage());
             qreal pageRatio = pSize.height() / pSize.width();
-            m_renderer->requestPage(pageNr, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)));
+            pdf->requestPage(page, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
         }
-        return QVariant::fromValue(m_pgList[pageNr].image());
+        return QVariant::fromValue(m_pageList[pageNr].image());
     }
     case RoleRotated: {
         if (pageNr >= m_pages)
             return 0;
-        return m_pgList[pageNr].rotated();
+        return page->rotated();
     }
     case RoleDeleted: {
         if (pageNr >= m_pages)
             return false;
-        return m_pgList[pageNr].deleted();
+        return page->deleted();
     }
     case RoleOrigNr:
         if (pageNr >= m_pages)
             return 0;
-        return m_pgList[pageNr].origPage();
+        return page->origPage();
     case RolePageNr:
         return pageNr;
     case RolePageRatio: {
-        int pNr = pageNr;
         if (pageNr >= m_pages)
-            pNr = 0;
-        auto pageSize = m_pdfDoc->pagePointSize(pNr);
+            return QSize();
+        auto pageSize = pdf->pagePointSize(page->origPage());
         return pageSize.height() / pageSize.width();
     }
     default:
@@ -530,13 +532,31 @@ void PdfEditModel::updateMaxPageWidth()
         Q_EMIT maxPageWidthChanged();
 }
 
-void PdfEditModel::pageRenderedSlot(int pageNr, QSize pageSize, const QImage &img)
+void PdfEditModel::pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage)
 {
-    Q_UNUSED(pageSize)
-    m_pgList[pageNr].setImage(img);
+    Q_UNUSED(pdfPage)
     int r = pageNr / m_columns;
     int c = pageNr % m_columns;
     Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleImage);
+}
+
+void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
+{
+    int pagesToAdd = pdf->pageCount();
+    for (int i = 0; i < pagesToAdd; ++i) {
+        m_pageList << PdfPage(i, pdf->referenceFileId());
+    }
+    // updateMaxPageWidth();
+    m_pages += pagesToAdd;
+    int newRowCount = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
+    beginInsertRows(QModelIndex(), m_rows, newRowCount - 1);
+    m_rows = newRowCount;
+    endInsertRows();
+    if (m_columns < 1) {
+        beginInsertColumns(QModelIndex(), 0, m_columns - 1);
+        endInsertColumns();
+    }
+    Q_EMIT pageCountChanged();
 }
 
 #include "moc_pdfeditmodel.cpp"

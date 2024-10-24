@@ -9,6 +9,7 @@
 
 class QPdfDocument;
 class QPdfPageRenderer;
+class PdfFile;
 
 /**
  * @brief @p PdfEditModel handles pages from PDF document
@@ -33,10 +34,15 @@ public:
 
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
+    void addPdfs(QVector<PdfFile *> &pdfList);
+
     int pageCount() const;
 
-    QPdfDocument *doc();
-    QStringList pdfs() const;
+    QVector<PdfFile *> &pdfs();
+    int pdfCount() const
+    {
+        return m_pdfList.count();
+    }
 
     qreal viewWidth() const;
     void setViewWidth(qreal vw);
@@ -70,7 +76,7 @@ public:
      */
     int map(int nr) const
     {
-        return m_pgList[nr].origPage();
+        return m_pageList[nr].origPage();
     }
 
     Q_INVOKABLE void addRotation(int pageId, int angle);
@@ -81,11 +87,9 @@ public:
 
     Q_INVOKABLE void generate();
 
-    QPdfDocument *pdfDocument() const;
-
     PdfPage *page(int p)
     {
-        return &m_pgList[p];
+        return &m_pageList[p];
     }
 
     int rowCount(const QModelIndex &parent) const override;
@@ -125,15 +129,16 @@ protected:
      */
     void updateMaxPageWidth();
 
-    void pageRenderedSlot(int pageNr, QSize pageSize, const QImage &img);
+    void pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage);
+
+    void addPdfFileToModel(PdfFile *pdf);
 
 Q_SIGNALS:
     void wantRenderImage(int) const;
     void wantRenderPage(int, PdfPage *) const;
 
 private:
-    QStringList m_pdfs;
-    QPdfDocument *m_pdfDoc = nullptr;
+    QVector<PdfFile *> m_pdfList;
     int m_pages = 0;
     int m_rows = 0;
     int m_columns = 0;
@@ -141,10 +146,9 @@ private:
     qreal m_viewWidth = 1.0;
     qreal m_spacing = 1.0;
     QString m_command;
-    QPdfPageRenderer *m_renderer = nullptr;
     int m_prefPageWidth = 200;
     // PDF modifications
-    QVector<PdfPage> m_pgList;
+    QVector<PdfPage> m_pageList;
     quint16 m_rotatedCount = 0;
     quint16 m_deletedCount = 0;
     bool m_wasMoved = false;
