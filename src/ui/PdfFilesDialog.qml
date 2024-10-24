@@ -75,6 +75,19 @@ FormCard.FormCardDialog {
                         id: drawRect
                         width: parent.width; height: parent.height
                         color: "transparent"
+                        MouseArea {
+                            anchors.fill: parent
+                            drag.target: drawRect
+                            drag.axis: Drag.YAxis
+                            onPressed: drawRect.color = PDFED.alpha(Kirigami.Theme.highlightColor, 50)
+                            // onPositionChanged: (mouse) => {
+                            // }
+                            onReleased: (mouse) => {
+                                drawRect.x = 0
+                                drawRect.y = 0
+                                drawRect.color = "transparent"
+                            }
+                        }
                         RowLayout {
                             id: rowLay
                             anchors { left: parent.left; top: parent.top; right: parent.right }
@@ -104,70 +117,39 @@ FormCard.FormCardDialog {
                                 text: i18n("%1 pages", pageCount)
                                 Layout.alignment: Qt.AlignRight
                             }
+                            // Action bar is shrunk by Layout so it shows only '⋮' which is exactly what we want
                             Kirigami.ActionToolBar {
-                                Layout.preferredWidth: Kirigami.Units.iconSizes.medium * 4
                                 actions: [
                                     Kirigami.Action {
-                                        icon.name: "handle-left"
-                                        Kirigami.Action {
-                                            enabled: false
-                                            text: i18n("Add only odd pages")
-                                            icon.name: "page-simple"
-                                        }
-                                        Kirigami.Action {
-                                            enabled: false
-                                            text: i18n("Add only even pages")
-                                            icon.name: "page-simple"
-                                        }
-                                        Kirigami.Action {
-                                            enabled: false
-                                            text: i18n("Add every N page")
-                                            icon.name: "page-simple"
-                                        }
-                                        Kirigami.Action {
-                                            text: i18n("Remove from list")
-                                            icon.name: "user-trash"
-                                        }
+                                        enabled: false
+                                        text: i18n("Add only odd pages")
+                                        icon.name: "page-simple"
                                     },
                                     Kirigami.Action {
-                                        icon.name: "go-up"
+                                        enabled: false
+                                        text: i18n("Add only even pages")
+                                        icon.name: "page-simple"
                                     },
                                     Kirigami.Action {
-                                        icon.name: "go-down"
+                                        enabled: false
+                                        text: i18n("Add every N page")
+                                        icon.name: "page-simple"
+                                    },
+                                    Kirigami.Action {
+                                        text: i18n("Remove from list")
+                                        icon.name: "user-trash"
                                     }
                                 ]
                             }
-                            QQC2.Button {
-                                icon.name: "handle-sort"
-                                MouseArea {
-                                    anchors.fill: parent
-                                    drag.target: drawRect
-                                    drag.axis: Drag.YAxis
-                                    onPressed: drawRect.color = PDFED.alpha(Kirigami.Theme.highlightColor, 50)
-                                    // onPositionChanged: (mouse) => {
-                                    //     var targetPage = pageAtMouse(mouse)
-                                    //     pdfView.dragTargetPage = targetPage === pageNr ? -1 : targetPage
-                                    // }
-                                    onReleased: (mouse) => {
-                                        drawRect.x = 0
-                                        drawRect.y = 0
-                                        drawRect.color = "transparent"
-                                        // pdfView.dragTargetPage = -1
-                                        // var targetPage = pageAtMouse(mouse)
-                                        // if (targetPage !== pageNr)
-                                        //     movePage(pageNr, targetPage)
-                                    }
-                                }
-                            }
                         } // RowLayout
-                    }
+                    } // Rectangle
                 }
             } // delegate
         }
     }
 
     onApplied: {
-        console.log("Load new files to PDF model")
+        pdfOrg.aplyNewFiles()
         close()
     }
     onClosed: destroy()
