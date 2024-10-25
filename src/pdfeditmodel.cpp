@@ -199,10 +199,7 @@ void PdfEditModel::addDeletion(int pageId)
 }
 
 /**
- * Moves given @p pageNr to @p toPage.
- * If next page after @p toPage is deleted, moves @p pageNr after deleted page.
- * Returns -1 if target page can be determined or target page number.
- * It skip all deleted page in row if they occur after @p toPage target.
+ * Returns -1 if move can't be performed or target page number.
  */
 int PdfEditModel::addMove(int pageNr, int toPage)
 {
@@ -210,13 +207,13 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         return -1;
 
     m_wasMoved = true;
-    if (toPage < pageNr) // QVector::move method workaround when moving backward
+    if (toPage / m_columns < pageNr / m_columns) // QVector::move method workaround when moving backward from other row
         toPage++;
     m_pageList.move(pageNr, toPage);
     Q_EMIT editedChanged();
     int startPage = qMin(pageNr, toPage);
     int endPage = qMax(pageNr, toPage);
-    // update all affected rows entirely
+    // update all cells in affected rows
     Q_EMIT dataChanged(index(startPage / m_columns, 0), index(endPage / m_columns, m_columns - 1));
     return toPage;
 }
@@ -291,7 +288,7 @@ void PdfEditModel::generate()
                 toPage = fromPage + 1;
             }
         }
-        if (!pageRanges.isEmpty() && !lastRangeClosed)
+        if ((!pageRanges.isEmpty() && !lastRangeClosed) || pageRanges.empty())
             pageRanges << QPair<int, int>(fromPage, toPage - 1);
         for (auto &r : pageRanges) {
             if (!delArgs.isEmpty())

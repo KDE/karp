@@ -63,7 +63,7 @@ Item {
         visible: pageNr > pdfView.columns
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
         icon.name: "go-up"
-        onClicked: movePage(pageNr, pageNr - pdfView.columns)
+        onClicked: movePage(pageNr, pageNr - pdfView.columns - 1)
     }
     // move at lower row
     QQC2.Button {
