@@ -97,7 +97,7 @@ void PdfEditModel::setSpacing(qreal sp)
 
 bool PdfEditModel::edited() const
 {
-    return m_rotatedCount || m_deletedCount || m_wasMoved || m_optimizeImages || m_reduceSize;
+    return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || m_reduceSize;
 }
 
 QString PdfEditModel::command() const
@@ -185,25 +185,17 @@ void PdfEditModel::addRotation(int pageId, int angle)
     Q_EMIT editedChanged();
 }
 
-void PdfEditModel::addDeletion(int pageId, bool doDel)
+void PdfEditModel::addDeletion(int pageId)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
-    m_pageList[pageId].setDeleted(doDel);
-    if (doDel) {
-        m_deletedCount++;
-    } else {
-        if (m_deletedCount == 0) {
-            qDebug() << "[PdfEditModel]" << "No page was deleted yet!";
-            return;
-        } else {
-            m_deletedCount--;
-        }
-    }
+    m_pageList[pageId].setDeleted(true);
+    beginResetModel();
+    m_deletedList << m_pageList.takeAt(pageId);
+    m_pages--;
+    m_rows = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
+    endResetModel();
     Q_EMIT editedChanged();
-    int r = pageId / m_columns;
-    int c = pageId % m_columns;
-    Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleDeleted);
 }
 
 /**
@@ -260,7 +252,7 @@ QStringList PdfEditModel::metaDataModel()
 
 void PdfEditModel::generate()
 {
-    if (m_deletedCount >= m_pages)
+    if (m_deletedList.count() >= m_pages)
         return;
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
@@ -276,27 +268,17 @@ void PdfEditModel::generate()
     args << out;
     out.insert(out.length() - 4, u"-out"_s);
     // pages order and skipping deleted
-    if (m_deletedCount > 0 || m_wasMoved) {
+    if (!m_deletedList.isEmpty() || m_wasMoved) {
         QString delArgs;
         args << u"--pages"_s << u"."_s;
         QVector<QPair<int, int>> pageRanges;
         bool lastRangeClosed = false;
         int cnt = 0;
-        while (cnt < m_pages && m_pageList[cnt].deleted()) {
-            cnt++;
-        }
-        if (cnt >= m_pages)
-            return;
         int fromPage = m_pageList[cnt].origPage();
         int toPage = fromPage + 1;
         cnt++;
         for (int d = cnt; d < m_pages; ++d) {
             int nr = m_pageList[d].origPage();
-            if (m_pageList[d].deleted()) {
-                if (d == m_pages - 1)
-                    lastRangeClosed = false;
-                continue;
-            }
             if (nr == toPage) {
                 toPage++;
                 lastRangeClosed = false;
@@ -386,11 +368,6 @@ void PdfEditModel::generate()
     }
 }
 
-// QPdfDocument *PdfEditModel::pdfDocument() const
-// {
-//     return m_pdfDoc;
-// }
-
 int PdfEditModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
@@ -435,11 +412,6 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
             return 0;
         return page->rotated();
     }
-    case RoleDeleted: {
-        if (pageNr >= m_pages)
-            return false;
-        return page->deleted();
-    }
     case RoleOrigNr:
         if (pageNr >= m_pages)
             return 0;
@@ -459,12 +431,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{RoleImage, "pageImg"},
-            {RoleRotated, "rotated"},
-            {RoleDeleted, "deleted"},
-            {RoleOrigNr, "origPage"},
-            {RolePageNr, "pageNr"},
-            {RolePageRatio, "pageRatio"}};
+    return {{RoleImage, "pageImg"}, {RoleRotated, "rotated"}, {RoleOrigNr, "origPage"}, {RolePageNr, "pageNr"}, {RolePageRatio, "pageRatio"}};
 }
 
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const

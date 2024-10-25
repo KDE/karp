@@ -134,14 +134,6 @@ Kirigami.Page {
             }
             TableView.editDelegate: EditDelegate {}
             Loader {
-                active: deleted
-                anchors.fill: parent
-                sourceComponent: DeletedDelegate {
-                    buttonVisible: current
-                    onWantRevert: pdfModel.addDeletion(pageNr, false)
-                }
-            }
-            Loader {
                 active: pdfView.dragTargetPage === pageNr
                 z: 5
                 sourceComponent: Rectangle {

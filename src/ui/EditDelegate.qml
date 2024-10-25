@@ -7,7 +7,6 @@ import QtQuick.Controls as QQC2
 Item {
     id: editDelg
     anchors.fill: parent
-    visible: !deleted
 
     /**
      * Calculates page number from given @p mouse position
@@ -47,10 +46,7 @@ Item {
         anchors { bottom: parent.bottom; left: parent.left }
         icon.name: "edit-delete"
         icon.color: "red"
-        onClicked: {
-            pdfModel.addRotation(pageNr, 0)
-            pdfModel.addDeletion(pageNr, true)
-        }
+        onClicked: pdfModel.addDeletion(pageNr)
     }
     QQC2.Button {
         anchors { top: parent.top; left: parent.left }

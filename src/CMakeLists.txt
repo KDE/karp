@@ -10,7 +10,6 @@ qt_add_qml_module(deafed
         ui/Main.qml
         ui/About.qml
         ui/ArrangePage.qml
-        ui/DeletedDelegate.qml
         ui/EditDelegate.qml
         ui/PdfMetadataDialog.qml
         ui/PdfFilesDialog.qml

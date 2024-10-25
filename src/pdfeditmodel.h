@@ -80,7 +80,7 @@ public:
     }
 
     Q_INVOKABLE void addRotation(int pageId, int angle);
-    Q_INVOKABLE void addDeletion(int pageId, bool doDel);
+    Q_INVOKABLE void addDeletion(int pageId);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
 
     Q_INVOKABLE QStringList metaDataModel();
@@ -98,7 +98,6 @@ public:
     enum PdfEditRoles {
         RoleImage = Qt::UserRole,
         RoleRotated,
-        RoleDeleted,
         RoleOrigNr,
         RolePageNr,
         RolePageRatio,
@@ -139,6 +138,7 @@ Q_SIGNALS:
 
 private:
     QVector<PdfFile *> m_pdfList;
+    QVector<PdfPage> m_pageList;
     int m_pages = 0;
     int m_rows = 0;
     int m_columns = 0;
@@ -148,9 +148,8 @@ private:
     QString m_command;
     int m_prefPageWidth = 200;
     // PDF modifications
-    QVector<PdfPage> m_pageList;
     quint16 m_rotatedCount = 0;
-    quint16 m_deletedCount = 0;
+    QVector<PdfPage> m_deletedList;
     bool m_wasMoved = false;
     bool m_optimizeImages = false;
     bool m_reduceSize = false;
