@@ -44,6 +44,7 @@ public:
     {
         return m_pdfList.count();
     }
+    Q_INVOKABLE QString getPdfName(int fileId);
 
     qreal viewWidth() const;
     void setViewWidth(qreal vw);

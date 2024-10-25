@@ -9,14 +9,19 @@ import org.kde.deafed
 Kirigami.Page {
     id: page
 
-    title: PDFED.name
-
     property alias pdfModel: pdfModel
 
     actions: [
         Kirigami.Action {
-            icon.name: "application-pdf"
-            text: i18n("Add PDF files")
+            id: nameAct
+            visible: pdfModel.pdfCount > 0
+            text: pdfModel.pdfCount > 0 ? "1. " + pdfModel.getPdfName(0) : ""
+            icon.name: "snap-page"
+            icon.color: pdfModel.labelColor(0)
+        },
+        Kirigami.Action {
+            icon.name: "list-add"
+            tooltip: i18n("Add more PDF files")
             onTriggered: Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfFilesDialog.qml")
                                             .createObject(page, { pdfEdit: pdfModel })
         },
@@ -197,6 +202,23 @@ Kirigami.Page {
             selModel.setCurrentIndex(pdfView.index(pageNr / pdfView.columns, pageNr % pdfView.columns), ItemSelectionModel.Current)
             pdfView.edit(selModel.currentIndex)
         }
+    }
+
+    Connections {
+        target: pdfModel
+        function onPdfCountChanged() {
+            if (pdfModel.pdfCount > 1) {
+                    var newAct = actionComp.createObject(newAct)
+                    newAct.text = pdfModel.pdfCount + ". " + pdfModel.getPdfName(pdfModel.pdfCount - 1)
+                    newAct.icon.color = pdfModel.labelColor(pdfModel.pdfCount - 1)
+                    nameAct.children.push(newAct)
+            }
+        }
+    }
+
+    Component {
+        id: actionComp
+        Kirigami.Action { icon.name: "snap-page" }
     }
 
     Component.onCompleted: {

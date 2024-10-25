@@ -62,6 +62,11 @@ QVector<PdfFile *> &PdfEditModel::pdfs()
     return m_pdfList;
 }
 
+QString PdfEditModel::getPdfName(int fileId)
+{
+    return fileId < pdfCount() ? m_pdfList[fileId]->name() : QString();
+}
+
 qreal PdfEditModel::viewWidth() const
 {
     return m_viewWidth;
@@ -255,6 +260,9 @@ QStringList PdfEditModel::metaDataModel()
 
 void PdfEditModel::generate()
 {
+    if (m_pdfList.isEmpty())
+        return;
+
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
     p.setProgram(u"qpdf"_s);
@@ -264,14 +272,16 @@ void PdfEditModel::generate()
     // qDebug().noquote() << p.readLine();
     // p.close();
 
+    auto pdf = m_pdfList[m_pageList.first().referenceFile()];
     QStringList args;
-    auto out = m_pdfList.first()->filePath();
+    auto out = pdf->filePath();
     args << out;
     out.insert(out.length() - 4, u"-out"_s);
     // pages order and skipping deleted
-    if (!m_deletedList.isEmpty() || m_wasMoved) {
-        QString delArgs;
+    if (!m_deletedList.isEmpty() || m_wasMoved || pdfCount() > 1) {
         args << u"--pages"_s << u"."_s;
+        int fileId = m_pageList.first().referenceFile();
+        QString rangeArgs;
         QVector<QPair<int, int>> pageRanges;
         bool lastRangeClosed = false;
         int cnt = 0;
@@ -279,6 +289,29 @@ void PdfEditModel::generate()
         int toPage = fromPage + 1;
         cnt++;
         for (int d = cnt; d < m_pages; ++d) {
+            if (fileId != m_pageList[d].referenceFile()) {
+                if ((!pageRanges.empty() && !lastRangeClosed) || pageRanges.empty())
+                    pageRanges << QPair<int, int>(fromPage, toPage - 1);
+                for (auto &r : pageRanges) {
+                    if (!rangeArgs.isEmpty())
+                        rangeArgs.append(u","_s);
+                    if (r.first == r.second) {
+                        rangeArgs.append(QString::number(r.first + 1));
+                    } else {
+                        rangeArgs.append(QString(u"%1-%2"_s).arg(r.first + 1).arg(r.second + 1));
+                    }
+                }
+                pageRanges.clear();
+                args << rangeArgs;
+                rangeArgs.clear();
+                fileId = m_pageList[d].referenceFile();
+                pdf = m_pdfList[fileId];
+                args << pdf->filePath();
+                lastRangeClosed = false;
+                fromPage = m_pageList[d].origPage();
+                toPage = fromPage + 1;
+                continue;
+            }
             int nr = m_pageList[d].origPage();
             if (nr == toPage) {
                 toPage++;
@@ -294,17 +327,17 @@ void PdfEditModel::generate()
         }
         if ((!pageRanges.empty() && !lastRangeClosed) || pageRanges.empty())
             pageRanges << QPair<int, int>(fromPage, toPage - 1);
-        qDebug() << pageRanges;
         for (auto &r : pageRanges) {
-            if (!delArgs.isEmpty())
-                delArgs.append(u","_s);
+            if (!rangeArgs.isEmpty())
+                rangeArgs.append(u","_s);
             if (r.first == r.second) {
-                delArgs.append(QString::number(r.first + 1));
+                rangeArgs.append(QString::number(r.first + 1));
             } else {
-                delArgs.append(QString(u"%1-%2"_s).arg(r.first + 1).arg(r.second + 1));
+                rangeArgs.append(QString(u"%1-%2"_s).arg(r.first + 1).arg(r.second + 1));
             }
         }
-        args << delArgs << u"--"_s;
+        args << rangeArgs;
+        args << u"--"_s;
     }
     // images optimization
     if (m_optimizeImages) {
@@ -312,6 +345,7 @@ void PdfEditModel::generate()
         args << u"--optimize-images"_s;
     }
     // Rotation of pages - aggregate angles
+    // NOTICE: page number (r) refers to number in m_pageList not orig page number in PDF file
     QVector<quint16> r90, r180, r270;
     for (int r = 0; r < m_pages; ++r) {
         if (m_pageList[r].rotated() == 90)
