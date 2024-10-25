@@ -138,6 +138,8 @@ protected:
 
     void addPdfFileToModel(PdfFile *pdf);
 
+    QStringList getQPDFargs(const QVector<QVector<quint16>> &chunks);
+
 Q_SIGNALS:
     void wantRenderImage(int) const;
     void wantRenderPage(int, PdfPage *) const;

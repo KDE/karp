@@ -260,85 +260,38 @@ QStringList PdfEditModel::metaDataModel()
 
 void PdfEditModel::generate()
 {
-    if (m_pdfList.isEmpty())
+    if (m_pdfList.isEmpty() || m_pageList.isEmpty())
         return;
 
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
     p.setProgram(u"qpdf"_s);
-    // p.setArguments(QStringList() << u"--version"_s);
-    // p.start();
-    // p.waitForFinished();
-    // qDebug().noquote() << p.readLine();
-    // p.close();
 
     auto pdf = m_pdfList[m_pageList.first().referenceFile()];
     QStringList args;
     auto out = pdf->filePath();
     args << out;
     out.insert(out.length() - 4, u"-out"_s);
-    // pages order and skipping deleted
-    if (!m_deletedList.isEmpty() || m_wasMoved || pdfCount() > 1) {
-        args << u"--pages"_s << u"."_s;
-        int fileId = m_pageList.first().referenceFile();
-        QString rangeArgs;
-        QVector<QPair<int, int>> pageRanges;
-        bool lastRangeClosed = false;
-        int cnt = 0;
-        int fromPage = m_pageList[cnt].origPage();
-        int toPage = fromPage + 1;
-        cnt++;
-        for (int d = cnt; d < m_pages; ++d) {
-            if (fileId != m_pageList[d].referenceFile()) {
-                if ((!pageRanges.empty() && !lastRangeClosed) || pageRanges.empty())
-                    pageRanges << QPair<int, int>(fromPage, toPage - 1);
-                for (auto &r : pageRanges) {
-                    if (!rangeArgs.isEmpty())
-                        rangeArgs.append(u","_s);
-                    if (r.first == r.second) {
-                        rangeArgs.append(QString::number(r.first + 1));
-                    } else {
-                        rangeArgs.append(QString(u"%1-%2"_s).arg(r.first + 1).arg(r.second + 1));
-                    }
-                }
-                pageRanges.clear();
-                args << rangeArgs;
-                rangeArgs.clear();
-                fileId = m_pageList[d].referenceFile();
-                pdf = m_pdfList[fileId];
-                args << pdf->filePath();
-                lastRangeClosed = false;
-                fromPage = m_pageList[d].origPage();
-                toPage = fromPage + 1;
-                continue;
-            }
-            int nr = m_pageList[d].origPage();
-            if (nr == toPage) {
-                toPage++;
-                lastRangeClosed = false;
-                continue;
-            } else {
-                toPage--;
-                pageRanges << QPair<int, int>(fromPage, toPage);
-                lastRangeClosed = d < m_pages - 1;
-                fromPage = nr;
-                toPage = fromPage + 1;
-            }
+    args << u"--pages"_s << u"."_s;
+
+    QVector<QVector<quint16>> chunks;
+    auto &firstPage = m_pageList.first();
+    int fromPage = firstPage.origPage();
+    int fileId = firstPage.referenceFile();
+    chunks << (QVector<quint16>() << fileId << fromPage);
+    for (int p = 1; p < m_pages; ++p) {
+        auto nextPage = m_pageList[p];
+        if (nextPage.referenceFile() != fileId) {
+            fileId = nextPage.referenceFile();
+            fromPage = nextPage.origPage();
+            chunks << (QVector<quint16>() << fileId << fromPage);
+            continue;
         }
-        if ((!pageRanges.empty() && !lastRangeClosed) || pageRanges.empty())
-            pageRanges << QPair<int, int>(fromPage, toPage - 1);
-        for (auto &r : pageRanges) {
-            if (!rangeArgs.isEmpty())
-                rangeArgs.append(u","_s);
-            if (r.first == r.second) {
-                rangeArgs.append(QString::number(r.first + 1));
-            } else {
-                rangeArgs.append(QString(u"%1-%2"_s).arg(r.first + 1).arg(r.second + 1));
-            }
-        }
-        args << rangeArgs;
-        args << u"--"_s;
+        chunks.last() << nextPage.origPage();
     }
+
+    args << getQPDFargs(chunks);
+    args << u"--"_s;
     // images optimization
     if (m_optimizeImages) {
         // args << u"-recompress-flate"_s << u"--compression-level=9"_s << u"--compress-streams=y"_s << u"--object-streams=generate"_s;
@@ -557,6 +510,40 @@ void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
     }
     Q_EMIT pageCountChanged();
     Q_EMIT pdfCountChanged();
+}
+
+QStringList PdfEditModel::getQPDFargs(const QVector<QVector<quint16>> &chunks)
+{
+    QStringList args;
+    QString rangeArgs;
+    for (int c = 0; c < chunks.count(); ++c) {
+        auto &fileChunk = chunks[c];
+        if (c > 0)
+            args << m_pdfList[fileChunk[0]]->filePath();
+        int fromPage = fileChunk[1];
+        int toPage = fromPage + 1;
+        rangeArgs = QString::number(fromPage + 1);
+        for (int p = 2; p < fileChunk.count(); ++p) {
+            if (fileChunk[p] == toPage) {
+                if (p == fileChunk.count() - 1) {
+                    int span = toPage - fromPage;
+                    if (span > 0)
+                        rangeArgs.append(QString(u"-%1"_s).arg(fromPage + span + 1));
+                }
+                toPage++;
+            } else {
+                int span = toPage - fromPage - 1;
+                if (span > 0)
+                    rangeArgs.append(QString(u"-%1"_s).arg(fromPage + span + 1));
+                fromPage = fileChunk[p];
+                toPage = fromPage + 1;
+                rangeArgs.append(u","_s);
+                rangeArgs.append(QString::number(fromPage + 1));
+            }
+        }
+        args << rangeArgs;
+    }
+    return args;
 }
 
 #include "moc_pdfeditmodel.cpp"
