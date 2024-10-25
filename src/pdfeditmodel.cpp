@@ -36,18 +36,12 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
         newPdf->deleteLater();
         return;
     }
-    m_pdfList << newPdf;
-    newPdf->setState(PdfFile::PdfLoaded);
-    connect(newPdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
     addPdfFileToModel(newPdf);
 }
 
 void PdfEditModel::addPdfs(QVector<PdfFile *> &pdfList)
 {
     for (auto &pdf : pdfList) {
-        m_pdfList << pdf;
-        pdf->setState(PdfFile::PdfLoaded);
-        connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
         addPdfFileToModel(pdf);
     }
 }
@@ -530,11 +524,13 @@ void PdfEditModel::pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage)
 
 void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
 {
+    m_pdfList << pdf;
+    pdf->setState(PdfFile::PdfLoaded); // TODO = handle other states
+    connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
     int pagesToAdd = pdf->pageCount();
     for (int i = 0; i < pagesToAdd; ++i) {
         m_pageList << PdfPage(i, pdf->referenceFileId());
     }
-    // updateMaxPageWidth();
     m_pages += pagesToAdd;
     int newRowCount = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
     beginInsertRows(QModelIndex(), m_rows, newRowCount - 1);
