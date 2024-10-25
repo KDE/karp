@@ -249,8 +249,6 @@ QStringList PdfEditModel::metaDataModel()
 
 void PdfEditModel::generate()
 {
-    if (m_deletedList.count() >= m_pages)
-        return;
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
     p.setProgram(u"qpdf"_s);
@@ -288,8 +286,9 @@ void PdfEditModel::generate()
                 toPage = fromPage + 1;
             }
         }
-        if ((!pageRanges.isEmpty() && !lastRangeClosed) || pageRanges.empty())
+        if ((!pageRanges.empty() && !lastRangeClosed) || pageRanges.empty())
             pageRanges << QPair<int, int>(fromPage, toPage - 1);
+        qDebug() << pageRanges;
         for (auto &r : pageRanges) {
             if (!delArgs.isEmpty())
                 delArgs.append(u","_s);
