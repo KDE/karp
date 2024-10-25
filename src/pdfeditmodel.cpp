@@ -224,20 +224,8 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         return -1;
 
     m_wasMoved = true;
-    if (toPage < m_pages - 1 && m_pageList[toPage + 1].deleted()) {
-        // if not the last page - check is page after target  one deleted
-        // if so, move page after deleted
-        int cnt = toPage + 1;
-        while (cnt < m_pages) {
-            if (!m_pageList[cnt].deleted()) {
-                toPage = cnt - 1;
-                break;
-            }
-            cnt++;
-        }
-        if (cnt >= m_pages)
-            return -1;
-    }
+    if (toPage < pageNr) // QVector::move method workaround when moving backward
+        toPage++;
     m_pageList.move(pageNr, toPage);
     Q_EMIT editedChanged();
     int startPage = qMin(pageNr, toPage);
