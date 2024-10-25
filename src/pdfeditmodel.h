@@ -20,6 +20,7 @@ class PdfEditModel : public QAbstractTableModel
     QML_ELEMENT
 
     Q_PROPERTY(int pageCount READ pageCount NOTIFY pageCountChanged)
+    Q_PROPERTY(int pdfCount READ pdfCount NOTIFY pdfCountChanged)
     Q_PROPERTY(qreal viewWidth READ viewWidth WRITE setViewWidth NOTIFY viewWidthChanged)
     Q_PROPERTY(qreal maxPageWidth READ maxPageWidth NOTIFY maxPageWidthChanged)
     Q_PROPERTY(qreal spacing READ spacing WRITE setSpacing NOTIFY spacingChanged)
@@ -87,6 +88,8 @@ public:
 
     Q_INVOKABLE void generate();
 
+    Q_INVOKABLE QColor labelColor(int fileId);
+
     PdfPage *page(int p)
     {
         return &m_pageList[p];
@@ -101,6 +104,7 @@ public:
         RoleOrigNr,
         RolePageNr,
         RolePageRatio,
+        RoleFileId,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -111,6 +115,7 @@ public:
 
 Q_SIGNALS:
     void pageCountChanged();
+    void pdfCountChanged();
     void viewWidthChanged();
     void maxPageWidthChanged();
     void spacingChanged();
@@ -153,4 +158,5 @@ private:
     bool m_wasMoved = false;
     bool m_optimizeImages = false;
     bool m_reduceSize = false;
+    QVector<QColor> m_labelColors;
 };

@@ -16,11 +16,17 @@ using namespace Qt::Literals::StringLiterals;
 
 #define INIT_COLUM_COUNT (3)
 
+QColor alpha(const QColor &c)
+{
+    return QColor(c.red(), c.green(), c.blue(), 0x80);
+}
+
 PdfEditModel::PdfEditModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
     m_prefPageWidth = qApp->screens().first()->size().width() / 4;
     m_columns = INIT_COLUM_COUNT;
+    m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
 }
 
 PdfEditModel::~PdfEditModel()
@@ -376,6 +382,11 @@ int PdfEditModel::columnCount(const QModelIndex &parent) const
     return m_columns;
 }
 
+QColor PdfEditModel::labelColor(int fileId)
+{
+    return m_labelColors[fileId % m_labelColors.count()];
+}
+
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= m_rows || index.column() < 0 || index.column() >= m_columns)
@@ -385,7 +396,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     PdfPage *page = nullptr;
     if (pageNr < m_pages) {
         page = const_cast<PdfPage *>(&m_pageList.at(pageNr));
-        if (role == RoleImage || role == RolePageRatio) {
+        if (role == RoleImage || role == RolePageRatio || role == RoleFileId) {
             int refFileId = page->referenceFile();
             if (refFileId < pdfCount())
                 pdf = m_pdfList[refFileId];
@@ -420,6 +431,8 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
         auto pageSize = pdf->pagePointSize(page->origPage());
         return pageSize.height() / pageSize.width();
     }
+    case RoleFileId:
+        return pdf ? pdf->referenceFileId() : 0;
     default:
         return QVariant();
     }
@@ -427,7 +440,12 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{RoleImage, "pageImg"}, {RoleRotated, "rotated"}, {RoleOrigNr, "origPage"}, {RolePageNr, "pageNr"}, {RolePageRatio, "pageRatio"}};
+    return {{RoleImage, "pageImg"},
+            {RoleRotated, "rotated"},
+            {RoleOrigNr, "origPage"},
+            {RolePageNr, "pageNr"},
+            {RolePageRatio, "pageRatio"},
+            {RoleFileId, "fileId"}};
 }
 
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
@@ -504,6 +522,7 @@ void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
         endInsertColumns();
     }
     Q_EMIT pageCountChanged();
+    Q_EMIT pdfCountChanged();
 }
 
 #include "moc_pdfeditmodel.cpp"

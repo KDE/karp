@@ -119,7 +119,7 @@ Kirigami.Page {
                 width: height * 3
                 sourceComponent: Rectangle {
                     anchors.fill: parent
-                    color: "#80000000"
+                    color: pdfModel.labelColor(fileId)
                     Text {
                         width: parent.width * 0.9; height: parent.height
                         horizontalAlignment: Text.AlignRight
@@ -128,7 +128,7 @@ Kirigami.Page {
                         fontSizeMode: Text.HorizontalFit
                         minimumPixelSize: 6
                         font { pixelSize: parent.height * 0.8; bold: true }
-                        text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + ")</font>"
+                        text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + (pdfModel.pdfCount > 1 ? "/" + (fileId + 1) : "") + ")</font>"
                     }
                 }
             }
