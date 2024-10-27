@@ -2,9 +2,11 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfeditmodel.h"
+#include "deafedconfig.h"
 #include "pdffile.h"
 #include <KLazyLocalizedString>
 #include <QDebug>
+#include <QFileDialog>
 #include <QFileInfo>
 #include <QPdfDocument>
 #include <QPdfPageRenderer>
@@ -14,7 +16,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-#define INIT_COLUM_COUNT (3)
+#define INIT_COLUM_COUNT (4)
 
 QColor alpha(const QColor &c)
 {
@@ -263,15 +265,23 @@ void PdfEditModel::generate()
     if (m_pdfList.isEmpty() || m_pageList.isEmpty())
         return;
 
+    QString out;
+    auto pdf = m_pdfList[m_pageList.first().referenceFile()];
+    auto conf = deafedConfig::self();
+    if (conf->askForOutFile()) {
+        QFileInfo inInfo(pdf->filePath());
+        out = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
+    } else {
+        out = pdf->filePath();
+        out.insert(out.length() - 4, u"-out"_s);
+    }
+
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
     p.setProgram(u"qpdf"_s);
 
-    auto pdf = m_pdfList[m_pageList.first().referenceFile()];
     QStringList args;
-    auto out = pdf->filePath();
-    args << out;
-    out.insert(out.length() - 4, u"-out"_s);
+    args << pdf->filePath();
     args << u"--pages"_s << u"."_s;
 
     QVector<QVector<quint16>> chunks;
