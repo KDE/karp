@@ -25,14 +25,14 @@ Kirigami.ApplicationWindow {
         isMenu: Kirigami.Settings.isMobile
         actions: [
             Kirigami.Action {
-                text: i18n("About Deaf Ed")
-                icon.name: "help-about"
-                onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/About.qml")
-            },
-            Kirigami.Action {
                 text: i18n("Settings")
                 icon.name: "settings-configure"
                 onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/Settings/SettingsPage.qml")
+            },
+            Kirigami.Action {
+                text: i18n("About Deaf Ed")
+                icon.name: "help-about"
+                onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/About.qml")
             },
             Kirigami.Action {
                 text: i18n("Quit")
