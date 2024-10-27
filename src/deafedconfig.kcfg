@@ -4,12 +4,27 @@
     xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
     http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
 <!--
-SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
-SPDX-License-Identifier: LGPL-2.0-or-later
+SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 -->
 <kcfgfile name="deafedrc" />
     <group name="General">
         <entry key="lastDir" type="String" >
+        </entry>
+        <entry key="openLastDir" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry key="fixedLastDir" type="String" >
+            <default></default>
+        </entry>
+        <entry key="askForOutFile" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry key="appendXfix" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry key="outFileXfix" type="String" >
+            <default>-out</default>
         </entry>
     </group>
 </kcfg>

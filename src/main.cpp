@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 
     auto config = deafedConfig::self();
 
-    qmlRegisterSingletonInstance("org.kde.deafed.private", 1, 0, "Config", config);
+    qmlRegisterSingletonInstance("org.kde.deafed.config", 1, 0, "DeafEdConf", config);
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.loadFromModule("org.kde.deafed", u"Main"_s);

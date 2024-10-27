@@ -20,19 +20,23 @@ DeafEd::DeafEd(QObject *parent)
 
 void DeafEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
 {
+    auto conf = deafedConfig::self();
     KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
     KWindowConfig::restoreWindowSize(window, windowGroup);
     KWindowConfig::restoreWindowPosition(window, windowGroup);
+    if (conf->fixedLastDir().isEmpty())
+        conf->setFixedLastDir(QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first());
 }
 
 void DeafEd::saveWindowGeometry(QQuickWindow *window, const QString &group) const
 {
+    auto conf = deafedConfig::self();
     if (!m_path.isEmpty()) {
         QFileInfo lastPathInfo(m_path);
-        deafedConfig::self()->setLastDir(lastPathInfo.absoluteDir().path());
+        conf->setLastDir(lastPathInfo.absoluteDir().path());
     }
-    deafedConfig::self()->save();
+    conf->save();
     KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
     KWindowConfig::saveWindowPosition(window, windowGroup);
