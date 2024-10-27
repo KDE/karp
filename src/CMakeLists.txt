@@ -15,6 +15,7 @@ qt_add_qml_module(deafed
         ui/PdfFilesDialog.qml
         ui/Settings/SettingsPage.qml
         ui/Settings/PdfTools.qml
+        ui/Settings/General.qml
 )
 
 target_sources(deafed PUBLIC
