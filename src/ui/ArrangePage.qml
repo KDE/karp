@@ -13,6 +13,12 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
+            visible: pdfModel.pdfCount > 0
+            displayComponent: QQC2.Label {
+                text: i18np("file", "files", pdfModel.pdfCount) + ":"
+            }
+        },
+        Kirigami.Action {
             id: nameAct
             visible: pdfModel.pdfCount > 0
             text: pdfModel.pdfCount > 0 ? "1. " + pdfModel.getPdfName(0) : ""
@@ -126,11 +132,12 @@ Kirigami.Page {
                     anchors.fill: parent
                     color: pdfModel.labelColor(fileId)
                     Text {
-                        width: parent.width * 0.9; height: parent.height
+                        x: Kirigami.Units.smallSpacing
+                        width: parent.width - x * 2; height: parent.height
                         horizontalAlignment: Text.AlignRight
                         verticalAlignment: Text.AlignVCenter
                         color: "#fff"
-                        fontSizeMode: Text.HorizontalFit
+                        fontSizeMode: Text.Fit
                         minimumPixelSize: 6
                         font { pixelSize: parent.height * 0.8; bold: true }
                         text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + (pdfModel.pdfCount > 1 ? "/" + (fileId + 1) : "") + ")</font>"
