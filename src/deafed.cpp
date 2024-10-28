@@ -4,6 +4,7 @@
 #include "deafed.h"
 #include "deafedconfig.h"
 #include "pdfeditmodel.h"
+#include "toolsthread.h"
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
@@ -16,6 +17,9 @@ using namespace Qt::Literals::StringLiterals;
 DeafEd::DeafEd(QObject *parent)
     : QObject(parent)
 {
+    m_tools = new ToolsThread();
+    connect(m_tools, &ToolsThread::lookingDone, this, &DeafEd::findToolsSlot);
+    m_tools->lookForTools();
 }
 
 void DeafEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
@@ -117,9 +121,24 @@ void DeafEd::setPath(QString pdfPath)
     Q_EMIT pathChanged();
 }
 
+QString DeafEd::qpdfVersion() const
+{
+    return m_tools->qpdfVersion();
+}
+
+QString DeafEd::gsVersion() const
+{
+    return m_tools->gsVersion();
+}
+
 QColor DeafEd::alpha(const QColor &c, int alpha)
 {
     return QColor(c.red(), c.green(), c.blue(), alpha);
+}
+
+void DeafEd::findToolsSlot()
+{
+    Q_EMIT toolsVersionChanged();
 }
 
 #include "moc_deafed.cpp"

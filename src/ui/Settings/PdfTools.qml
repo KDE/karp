@@ -5,6 +5,7 @@ import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.deafed
+import org.kde.deafed.config
 
 FormCard.FormCardPage {
     id: root
@@ -16,7 +17,7 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            text: "QPDF 1.2.3"
+            text: "QPDF " + (PDFED.qpdfVersion === "" ? i18n("not found") : PDFED.qpdfVersion)
             description: i18n("Allows PDF page arrangements.")
         }
         FormCard.FormDelegateSeparator {
@@ -25,8 +26,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: qpdfButt
             icon.name: "list-add"
-            text: "/usr/bin/qpdf"
-            onClicked: console.info("Look for qpdf")
+            text: DeafEdConf.qpdfPath
         }
     }
     FormCard.FormHeader {
@@ -34,25 +34,18 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            text: "GPL Ghostscript"
-            description: i18n("Manage quality of output PDF file and their size.")
+            text: "GPL Ghostscript " + (PDFED.gsVersion === "" ? i18n("not found") : PDFED.gsVersion)
+            description: i18n("Manage size and quality of output PDF file.")
         }
-        FormCard.FormDelegateSeparator {
-            above: ps2Button
-        }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
-            id: ps2Button
             icon.name: "list-add"
-            text: "/usr/bin/ps2pdf"
+            text: DeafEdConf.pdf2psPath
         }
-        FormCard.FormDelegateSeparator {
-            above: pdf2Button
-            below: ps2Button
-        }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
-            id: pdf2Button
             icon.name: "list-add"
-            text: "/usr/bin/pdf2ps"
+            text: DeafEdConf.ps2pdfPath
         }
     }
 

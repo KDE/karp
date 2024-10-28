@@ -7,6 +7,7 @@
 #include <QQmlEngine>
 
 class QQuickWindow;
+class ToolsThread;
 
 class DeafEd : public QObject
 {
@@ -17,6 +18,8 @@ class DeafEd : public QObject
     Q_PROPERTY(bool pdfLoaded READ pdfLoaded NOTIFY pdfLoadedChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString path READ path NOTIFY pathChanged)
+    Q_PROPERTY(QString qpdfVersion READ qpdfVersion NOTIFY toolsVersionChanged)
+    Q_PROPERTY(QString gsVersion READ gsVersion NOTIFY toolsVersionChanged)
 
 public:
     explicit DeafEd(QObject *parent = nullptr);
@@ -40,6 +43,9 @@ public:
     QString path() const;
     void setPath(QString pdfPath);
 
+    QString qpdfVersion() const;
+    QString gsVersion() const;
+
     // helpers
     Q_INVOKABLE QColor alpha(const QColor &c, int alpha);
 
@@ -47,9 +53,14 @@ Q_SIGNALS:
     void pdfLoadedChanged();
     void nameChanged();
     void pathChanged();
+    void toolsVersionChanged();
+
+protected:
+    void findToolsSlot();
 
 private:
     bool m_pdfLoaded = false;
     QString m_name;
     QString m_path;
+    ToolsThread *m_tools;
 };
