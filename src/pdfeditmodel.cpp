@@ -273,7 +273,7 @@ void PdfEditModel::generate()
         out = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
     } else {
         out = pdf->filePath();
-        out.insert(out.length() - 4, u"-out"_s);
+        out.insert(out.length() - 4, conf->outFileXfix());
     }
 
     QProcess p;
@@ -334,26 +334,31 @@ void PdfEditModel::generate()
     p.close();
 
     if (m_reduceSize) {
-        p.setProgram(u"pdf2ps"_s);
+        p.setProgram(u"gs"_s);
         args.clear();
-        args << out;
         QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + u"/"_s;
         QFileInfo outInfo(out);
+        auto psFile = tmpPath + outInfo.baseName() + u".ps"_s;
         auto outFileSize = outInfo.size();
-        args << tmpPath + outInfo.baseName() + u".ps"_s;
+        // gs -q -dNOPAUSE -dBATCH -P- -dSAFER -sDEVICE=ps2write -sOutputFile=file.ps -c save pop -f input.pdf
+        args << u"-q"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-P-"_s << u"-dSAFER"_s << u"-sDEVICE=ps2write"_s << u"-sOutputFile="_s + psFile << u"-c"_s
+             << u"save"_s << u"pop"_s << u"-f"_s << out;
+        qDebug() << args;
         p.setArguments(args);
         p.start();
         p.waitForFinished();
         // perform pdf2ps - store *.ps file in /tmp
         p.close();
-        p.setProgram(u"ps2pdf"_s);
-        args.remove(0);
-        args << tmpPath + outInfo.fileName();
+        args.clear();
+        // gs -q -P- -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sstdout=%stderr -sOutputFile=file.pdf file.ps
+        args << u"-q"_s << u"-P-"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-sDEVICE=pdfwrite"_s << u"-sstdout=%stderr"_s
+             << u"-sOutputFile="_s + tmpPath + outInfo.fileName() << psFile;
+        qDebug() << args;
         p.setArguments(args);
         p.start();
         p.waitForFinished();
         p.close();
-        outInfo.setFile(args[1]);
+        outInfo.setFile(tmpPath + outInfo.fileName());
         // qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
         if (outInfo.size() < outFileSize) {
             // override out file with new size, but delete existing file first
@@ -362,7 +367,7 @@ void PdfEditModel::generate()
             qDebug() << "[PdfEditModel]" << "PDF file size successfully reduced.";
             QFile::copy(outInfo.filePath(), out);
         }
-        QFile::remove(tmpPath + outInfo.baseName() + u".ps"_s); // remove /tmp/file-out.ps
+        QFile::remove(psFile); // remove /tmp/file-out.ps
         QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
     }
 }
