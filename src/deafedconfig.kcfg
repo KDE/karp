@@ -27,4 +27,15 @@ SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
             <default>-out</default>
         </entry>
     </group>
+    <group name="Tools">
+        <entry key="qpdfPath" type="String" >
+            <default></default>
+        </entry>
+        <entry key="pdf2psPath" type="String" >
+            <default></default>
+        </entry>
+        <entry key="ps2pdfPath" type="String" >
+            <default></default>
+        </entry>
+    </group>
 </kcfg>

@@ -26,6 +26,7 @@ target_sources(deafed PUBLIC
     pdfeditmodel.cpp
     pdfpageitem.cpp
     pdfsorganizer.cpp
+    toolsthread.cpp
 )
 
 target_link_libraries(deafed
