@@ -20,11 +20,8 @@ FormCard.FormCardPage {
             text: "QPDF " + (PDFED.qpdfVersion === "" ? i18n("not found") : PDFED.qpdfVersion)
             description: i18n("Allows PDF page arrangements.")
         }
-        FormCard.FormDelegateSeparator {
-            above: qpdfButt
-        }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
-            id: qpdfButt
             icon.name: "list-add"
             text: DeafEdConf.qpdfPath
         }
@@ -40,12 +37,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             icon.name: "list-add"
-            text: DeafEdConf.pdf2psPath
-        }
-        FormCard.FormDelegateSeparator {}
-        FormCard.FormButtonDelegate {
-            icon.name: "list-add"
-            text: DeafEdConf.ps2pdfPath
+            text: DeafEdConf.gsPath
         }
     }
 

@@ -43,11 +43,7 @@ void ToolsThread::findPdfTools()
 {
     auto conf = deafedConfig::self();
     conf->setQpdfPath(findQpdf());
-    auto gsPaths = findGhostScript().split(u";"_s);
-    if (gsPaths.size() == 2) {
-        conf->setPdf2psPath(gsPaths[0]);
-        conf->setPs2pdfPath(gsPaths[1]);
-    }
+    conf->setGsPath(findGhostScript());
 
     m_mode = ToolsIdle;
     Q_EMIT lookingDone();
@@ -99,7 +95,6 @@ QString ToolsThread::findGhostScript()
     p.start();
     p.waitForFinished();
     m_gsVersion.clear();
-    // m_qpdfPath.clear();
     auto versionLine = p.readLine().split(' ');
     if (versionLine.size() > 2) {
         if (versionLine[1].compare("Ghostscript", Qt::CaseInsensitive) == 0) {
@@ -116,20 +111,14 @@ QString ToolsThread::findGhostScript()
     } else {
 #if defined(Q_OS_UNIX)
         p.setProgram(u"whereis"_s);
-        p.setArguments(QStringList() << u"pdf2ps"_s);
+        p.setArguments(QStringList() << u"gs"_s);
         p.start();
         p.waitForFinished();
         auto paths = p.readAll().split(' ');
         if (paths.size() > 1)
             gsPath = QString::fromLocal8Bit(paths[1]);
-        p.setArguments(QStringList() << u"ps2pdf"_s);
-        p.start();
-        p.waitForFinished();
-        paths = p.readAll().split(' ');
-        if (paths.size() > 1)
-            gsPath.append(u";"_s + QString::fromLocal8Bit(paths[1]));
 #else
-        return u"pdf2ps"_s + u" "_s + u"ps2pdf"_s;
+        return u"gswin64.exe"_s; // TODO: handle windows
 #endif
     }
     return gsPath;

@@ -31,10 +31,7 @@ SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
         <entry key="qpdfPath" type="String" >
             <default></default>
         </entry>
-        <entry key="pdf2psPath" type="String" >
-            <default></default>
-        </entry>
-        <entry key="ps2pdfPath" type="String" >
+        <entry key="gsPath" type="String" >
             <default></default>
         </entry>
     </group>
