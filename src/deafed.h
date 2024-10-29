@@ -54,6 +54,7 @@ Q_SIGNALS:
     void nameChanged();
     void pathChanged();
     void toolsVersionChanged();
+    void toolIsMissing(const QString &);
 
 protected:
     void findToolsSlot();

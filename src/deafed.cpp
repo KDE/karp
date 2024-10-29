@@ -138,6 +138,18 @@ QColor DeafEd::alpha(const QColor &c, int alpha)
 
 void DeafEd::findToolsSlot()
 {
+    QString message;
+    if (m_tools->qpdfVersion().isEmpty())
+        message = i18n("QPDF is missing.");
+    if (m_tools->gsVersion().isEmpty()) {
+        if (!message.isEmpty())
+            message.append(u"\n"_s);
+        message.append(i18n("Ghostscript is missing."));
+    }
+    if (!message.isEmpty()) {
+        message.append(u"\n"_s + i18n("Install programs mentioned above, otherwise not all functions will be available."));
+        Q_EMIT toolIsMissing(message);
+    }
     Q_EMIT toolsVersionChanged();
 }
 
