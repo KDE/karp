@@ -223,6 +223,13 @@ Kirigami.Page {
         }
     }
 
+    Connections {
+        target: PDFED
+        function onToolIsMissing(warn) {
+            Qt.createComponent("org.kde.deafed", "MissingPdfTool").createObject(page, { text: warn })
+        }
+    }
+
     Component {
         id: actionComp
         Kirigami.Action { icon.name: "snap-page" }

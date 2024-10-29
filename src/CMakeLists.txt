@@ -16,6 +16,7 @@ qt_add_qml_module(deafed
         ui/Settings/SettingsPage.qml
         ui/Settings/PdfTools.qml
         ui/Settings/General.qml
+        ui/Messages/MissingPdfTool.qml
 )
 
 target_sources(deafed PUBLIC
