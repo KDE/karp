@@ -265,9 +265,12 @@ void PdfEditModel::generate()
     if (m_pdfList.isEmpty() || m_pageList.isEmpty())
         return;
 
+    auto conf = deafedConfig::self();
+    if (conf->qpdfPath().isEmpty())
+        return;
+    // TODO but allow gs if available
     QString out;
     auto pdf = m_pdfList[m_pageList.first().referenceFile()];
-    auto conf = deafedConfig::self();
     if (conf->askForOutFile()) {
         QFileInfo inInfo(pdf->filePath());
         out = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
@@ -278,7 +281,7 @@ void PdfEditModel::generate()
 
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
-    p.setProgram(u"qpdf"_s);
+    p.setProgram(conf->qpdfPath());
 
     QStringList args;
     args << pdf->filePath();
@@ -333,8 +336,8 @@ void PdfEditModel::generate()
     qDebug().noquote().nospace() << p.readAll();
     p.close();
 
-    if (m_reduceSize) {
-        p.setProgram(u"gs"_s);
+    if (m_reduceSize && !conf->gsPath().isEmpty()) {
+        p.setProgram(conf->gsPath());
         args.clear();
         QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + u"/"_s;
         QFileInfo outInfo(out);
