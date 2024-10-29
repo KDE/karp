@@ -12,9 +12,7 @@ FormCard.FormCardPage {
 
     title: i18n("PDF Tools")
 
-    FormCard.FormHeader {
-        title: ""
-    }
+    FormCard.FormHeader { title: "QPDF" }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             text: "QPDF " + (PDFED.qpdfVersion === "" ? i18n("not found") : PDFED.qpdfVersion)
@@ -26,9 +24,7 @@ FormCard.FormCardPage {
             text: DeafEdConf.qpdfPath
         }
     }
-    FormCard.FormHeader {
-      title: ""
-    }
+    FormCard.FormHeader { title: "Ghostscript" }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             text: "GPL Ghostscript " + (PDFED.gsVersion === "" ? i18n("not found") : PDFED.gsVersion)

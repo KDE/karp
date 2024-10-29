@@ -27,7 +27,11 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Settings")
                 icon.name: "settings-configure"
-                onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/ui/Settings/SettingsPage.qml")
+                onTriggered: {
+                    if (!settings)
+                        settings = Qt.createComponent("org.kde.deafed", "SettingsPage").createObject(mainWin)
+                    settings.open()
+                }
             },
             Kirigami.Action {
                 text: i18n("About Deaf Ed")
@@ -41,6 +45,8 @@ Kirigami.ApplicationWindow {
             }
         ]
     }
+
+    property SettingsPage settings
 
     pageStack.initialPage: ArrangePage {}
 }

@@ -71,6 +71,7 @@ FormCard.FormCardPage {
                     id: fixText
                     Layout.fillWidth: true
                     text: DeafEdConf.outFileXfix
+                    onEditingFinished: DeafEdConf.outFileXfix = text !== "" ? text : "-out"
                 }
             }
         }

@@ -215,7 +215,7 @@ Kirigami.Page {
         target: pdfModel
         function onPdfCountChanged() {
             if (pdfModel.pdfCount > 1) {
-                    var newAct = actionComp.createObject(newAct)
+                    var newAct = actionComp.createObject(nameAct)
                     newAct.text = pdfModel.pdfCount + ". " + pdfModel.getPdfName(pdfModel.pdfCount - 1)
                     newAct.icon.color = pdfModel.labelColor(pdfModel.pdfCount - 1)
                     nameAct.children.push(newAct)
