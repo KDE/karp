@@ -90,7 +90,11 @@ QString ToolsThread::findQpdf()
 QString ToolsThread::findGhostScript()
 {
     QProcess p;
+#if defined(Q_OS_UNIX)
     p.setProgram(u"gs"_s);
+#else
+    p.setProgram(u"gswin64.exe"_s);
+#endif
     p.setArguments(QStringList() << u"-v"_s);
     p.start();
     p.waitForFinished();
