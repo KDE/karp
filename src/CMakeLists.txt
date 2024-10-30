@@ -13,6 +13,7 @@ qt_add_qml_module(deafed
         ui/EditDelegate.qml
         ui/PdfMetadataDialog.qml
         ui/PdfFilesDialog.qml
+        ui/PdfFileDelegate.qml
         ui/Settings/SettingsPage.qml
         ui/Settings/PdfTools.qml
         ui/Settings/General.qml
