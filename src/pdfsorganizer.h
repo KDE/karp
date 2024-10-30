@@ -55,6 +55,7 @@ public:
     }
 
     Q_INVOKABLE void move(int fromId, int toId);
+    Q_INVOKABLE void remove(int fileId);
 
 private:
     int m_rows = 0;

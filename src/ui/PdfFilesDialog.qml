@@ -151,6 +151,7 @@ FormCard.FormCardDialog {
                                     Kirigami.Action {
                                         text: i18n("Remove from list")
                                         icon.name: "user-trash"
+                                        onTriggered: pdfOrg.fileModel.remove(index)
                                     }
                                 ]
                             }

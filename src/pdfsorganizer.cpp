@@ -82,6 +82,19 @@ void PdfListModel::move(int fromId, int toId)
     Q_EMIT dataChanged(index(startId, 0), index(endId, 0));
 }
 
+void PdfListModel::remove(int fileId)
+{
+    if (fileId < 0 || fileId >= m_rows)
+        return;
+    beginRemoveRows(QModelIndex(), fileId, fileId);
+    auto toRoemove = m_pdfFiles.takeAt(fileId);
+    toRoemove->deleteLater();
+    m_rows--;
+    for (int f = fileId; f < m_rows; ++f)
+        m_pdfFiles[f]->setReferenceId(f);
+    endRemoveRows();
+}
+
 // #################################################################################################
 // ###################            PdfsOrganizer         ############################################
 // #################################################################################################
