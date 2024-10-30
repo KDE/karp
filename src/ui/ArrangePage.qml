@@ -28,8 +28,7 @@ Kirigami.Page {
         Kirigami.Action {
             icon.name: "list-add"
             tooltip: i18n("Add more PDF files")
-            onTriggered: Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfFilesDialog.qml")
-                                            .createObject(page, { pdfEdit: pdfModel })
+            onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
         },
         Kirigami.Action {
             visible: pdfModel.pageCount
@@ -59,8 +58,7 @@ Kirigami.Page {
             Kirigami.Action {
                 icon.name: "viewpdf"
                 text: i18n("PDF properties")
-                onTriggered: Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfMetadataDialog.qml")
-                                                .createObject(page, { metaDataModel: pdfModel.metaDataModel() })
+                onTriggered: Qt.createComponent("org.kde.deafed", "PdfMetadataDialog").createObject(page, { pdfModel: pdfModel })
             }
         }
     ]
@@ -215,7 +213,7 @@ Kirigami.Page {
         target: pdfModel
         function onPdfCountChanged() {
             if (pdfModel.pdfCount > 1) {
-                    var newAct = actionComp.createObject(nameAct)
+                    let newAct = actionComp.createObject(nameAct)
                     newAct.text = pdfModel.pdfCount + ". " + pdfModel.getPdfName(pdfModel.pdfCount - 1)
                     newAct.icon.color = pdfModel.labelColor(pdfModel.pdfCount - 1)
                     nameAct.children.push(newAct)
