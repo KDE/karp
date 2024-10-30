@@ -66,11 +66,12 @@ FormCard.FormCardDialog {
             property int dragTargetIndex: -1
 
             delegate: Kirigami.AbstractCard {
-                id: cardDelegate
+                property ListView lv: ListView.view
                 required property int index
                 required property string path
                 required property string fileName
                 required property int pageCount
+                required property bool locked
                 z: dragArea.pressed ? 5 : 1
                 contentItem: Item {
                     implicitWidth: rowLay.implicitWidth
@@ -81,7 +82,7 @@ FormCard.FormCardDialog {
                         color: {
                             if (dragArea.pressed)
                                 return PDFED.alpha(Kirigami.Theme.textColor, 50)
-                            else if (fileView.dragTargetIndex === index)
+                            else if (lv.dragTargetIndex === index)
                                 return PDFED.alpha(Kirigami.Theme.highlightColor, 150)
                             else
                                 return "transparent"
@@ -93,7 +94,7 @@ FormCard.FormCardDialog {
                                 text: (index + 1)
                             }
                             Kirigami.Icon {
-                                source: "handle-sort"
+                                source: locked ? "lock" : "handle-sort"
                                 Layout.fillHeight: true
                                 Layout.maximumHeight: Kirigami.Units.iconSizes.large
                                 Layout.preferredWidth: height
@@ -102,20 +103,21 @@ FormCard.FormCardDialog {
                                     anchors.fill: parent
                                     drag.target: drawRect
                                     drag.axis: Drag.YAxis
+                                    cursorShape: pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor
                                     onPositionChanged: (mouse) => {
-                                        let pos = mapToItem(fileView.contentItem, mouse.x, mouse.y)
-                                        let targetId = fileView.indexAt(pos.x, pos.y)
-                                        if (targetId !== index)
-                                            fileView.dragTargetIndex = targetId
+                                        let pos = mapToItem(lv.contentItem, mouse.x, mouse.y)
+                                        let targetId = lv.indexAt(pos.x, pos.y)
+                                        if (targetId !== index && !lv.itemAtIndex(targetId)?.locked)
+                                            lv.dragTargetIndex = targetId
                                     }
                                     onReleased: (mouse) => {
-                                        let pos = mapToItem(fileView.contentItem, mouse.x, mouse.y)
-                                        let targetId = fileView.indexAt(pos.x, pos.y)
+                                        let pos = mapToItem(lv.contentItem, mouse.x, mouse.y)
+                                        let targetId = lv.indexAt(pos.x, pos.y)
                                         if (targetId !== index)
-                                            pdfOrg.fileModel.move(index, targetId)
+                                            lv.model.move(index, targetId)
                                             drawRect.x = 0
                                             drawRect.y = 0
-                                            fileView.dragTargetIndex = -1
+                                            lv.dragTargetIndex = -1
                                     }
                                 }
                             }
@@ -157,7 +159,7 @@ FormCard.FormCardDialog {
                                     Kirigami.Action {
                                         text: i18n("Remove from list")
                                         icon.name: "user-trash"
-                                        onTriggered: pdfOrg.fileModel.remove(index)
+                                        onTriggered: lv.model.remove(index)
                                     }
                                 ]
                             }

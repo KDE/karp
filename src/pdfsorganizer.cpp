@@ -60,6 +60,8 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
         return m_pdfFiles[index.row()]->name();
     case RolePageCount:
         return m_pdfFiles[index.row()]->pageCount();
+    case RoleLocked:
+        return m_pdfFiles[index.row()]->state() == PdfFile::PdfLoaded;
     default:
         return QVariant();
     }
@@ -67,7 +69,7 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfListModel::roleNames() const
 {
-    return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}};
+    return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}, {RoleLocked, "locked"}};
 }
 
 void PdfListModel::move(int fromId, int toId)

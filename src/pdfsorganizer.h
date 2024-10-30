@@ -26,6 +26,7 @@ public:
         RoleDirName = Qt::UserRole,
         RoleFileName,
         RolePageCount,
+        RoleLocked,
     };
 
     /**
