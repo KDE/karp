@@ -54,6 +54,8 @@ public:
         return m_pdfFiles.last();
     }
 
+    Q_INVOKABLE void move(int fromId, int toId);
+
 private:
     int m_rows = 0;
 

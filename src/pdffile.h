@@ -40,6 +40,11 @@ public:
         return m_refFileId;
     }
 
+    void setReferenceId(quint16 refId)
+    {
+        m_refFileId = refId;
+    }
+
     PdfFileFlags state()
     {
         return m_state;

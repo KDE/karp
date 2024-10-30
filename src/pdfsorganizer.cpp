@@ -70,6 +70,18 @@ QHash<int, QByteArray> PdfListModel::roleNames() const
     return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}};
 }
 
+void PdfListModel::move(int fromId, int toId)
+{
+    if (fromId < 0 || fromId >= m_rows || toId < 0 || toId >= m_rows)
+        return;
+    m_pdfFiles.move(fromId, toId);
+    int startId = qMin(fromId, toId);
+    int endId = qMax(fromId, toId);
+    for (int f = startId; f <= endId; ++f)
+        m_pdfFiles[f]->setReferenceId(f);
+    Q_EMIT dataChanged(index(startId, 0), index(endId, 0));
+}
+
 // #################################################################################################
 // ###################            PdfsOrganizer         ############################################
 // #################################################################################################

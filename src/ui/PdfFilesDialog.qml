@@ -63,29 +63,42 @@ FormCard.FormCardDialog {
             spacing: Kirigami.Units.smallSpacing
             model: pdfOrg.fileModel
 
+            property int dragTargetIndex: -1
+
             delegate: Kirigami.AbstractCard {
                 required property int index
                 required property string path
                 required property string fileName
                 required property int pageCount
+                z: dragArea.pressed ? 5 : 1
                 contentItem: Item {
                     implicitWidth: rowLay.implicitWidth
                     implicitHeight: rowLay.implicitHeight
                     Rectangle {
                         id: drawRect
                         width: parent.width; height: parent.height
-                        color: "transparent"
+                        color: dragArea.pressed ? PDFED.alpha(Kirigami.Theme.textColor, 50) : "transparent"
                         MouseArea {
+                            id: dragArea
                             anchors.fill: parent
                             drag.target: drawRect
                             drag.axis: Drag.YAxis
-                            onPressed: drawRect.color = PDFED.alpha(Kirigami.Theme.highlightColor, 50)
-                            // onPositionChanged: (mouse) => {
+                            // onPressed: {
                             // }
+                            onPositionChanged: (mouse) => {
+                                let pos = mapToItem(fileView.contentItem, mouse.x, mouse.y + height / 2)
+                                let targetId = fileView.indexAt(pos.x, pos.y)
+                                if (targetId !== index)
+                                    fileView.dragTargetIndex = targetId
+                            }
                             onReleased: (mouse) => {
+                                let pos = mapToItem(fileView.contentItem, mouse.x, mouse.y + height / 2)
+                                let targetId = fileView.indexAt(pos.x, pos.y)
+                                if (targetId !== index)
+                                    pdfOrg.fileModel.move(index, targetId)
                                 drawRect.x = 0
                                 drawRect.y = 0
-                                drawRect.color = "transparent"
+                                fileView.dragTargetIndex = -1
                             }
                         }
                         RowLayout {
@@ -143,7 +156,15 @@ FormCard.FormCardDialog {
                             }
                         } // RowLayout
                     } // Rectangle
-                }
+                    Loader {
+                        active: fileView.dragTargetIndex === index
+                        sourceComponent: Rectangle {
+                            y: -fileView.spacing * 2
+                            width: drawRect.width; height: fileView.spacing * 3
+                            color: Kirigami.Theme.highlightColor
+                        }
+                    }
+                } // Item (contentItem)
             } // delegate
         }
     }
