@@ -231,11 +231,10 @@ int PdfEditModel::addMove(int pageNr, int toPage)
     return toPage;
 }
 
-// TODO: multiple documents
-QStringList PdfEditModel::metaDataModel()
+QStringList PdfEditModel::getMetaDataModel(int fileId)
 {
     QStringList mdm;
-    if (m_pdfList.isEmpty())
+    if (m_pdfList.isEmpty() || fileId >= pdfCount() || fileId < 0)
         return mdm;
     static const KLazyLocalizedString fNames[]{kli18n("Title"),
                                                kli18n("Author"),
@@ -246,7 +245,7 @@ QStringList PdfEditModel::metaDataModel()
                                                kli18n("Creation Date"),
                                                kli18n("Modification Date")};
 
-    auto pdf = m_pdfList.first();
+    auto pdf = m_pdfList[fileId];
     for (int i = 0; i <= static_cast<int>(QPdfDocument::MetaDataField::ModificationDate); ++i) {
         QString value;
         auto fieldType = static_cast<QPdfDocument::MetaDataField>(i);

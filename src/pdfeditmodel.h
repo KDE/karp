@@ -85,7 +85,7 @@ public:
     Q_INVOKABLE void addDeletion(int pageId);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
 
-    Q_INVOKABLE QStringList metaDataModel();
+    Q_INVOKABLE QStringList getMetaDataModel(int fileId);
 
     Q_INVOKABLE void generate();
 
