@@ -16,9 +16,14 @@ It operates on command line programs:
  * Removing pages
  * Rotating pages
  * Reducing PDF file size
+ * Optimizing images (if possible)
  * Viewing PDF properties
 
 #### Planned features
  * Editing bookmarks
  * Modifying PDF metadata
- * Merging 2 PDFs: one for even pages and another obe for odd pages
+ * Merging 2 PDFs: one for even pages and another one for odd pages
+ * Extracting images
+ * Adding watermark
+ * Adding page numbers or other labels
+ * Improving image quality, text visibility
