@@ -5,18 +5,35 @@
  -->
 <component type="desktop-application">
   <id>org.kde.deafed</id>
-  <name>deafed Simple PDF Editor</name>
-  <summary>A short summary describing what this software is about</summary>
-  <metadata_license>A permissive license for this metadata, e.g. "FSFAP" + Update the SPDX tags above!</metadata_license>
-  <project_license>The license of this software as SPDX string, e.g. "GPL-2.0-or-later"</project_license>
-  <developer_name>Tomasz Bojczuk</developer_name>
+  <name>Deaf Ed</name>
+  <name xml:lang="pl">Deaf Ed</name>
+  <summary>Simple PDF editor</summary>
+  <summary xml:lang="pl">Prosty edytor PDF-ów</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <content_rating type="oars-1.1"/>
+  <developer id="kde.org">
+      <name translate="no">KDE</name>
+  </developer>
   <description>
-    <p>Multiple paragraphs of long description, describing this software component.</p>
-    <p>You can also use ordered and unordered lists:</p>
+    <p>Deaf Ed - [p]DeaF Ed[itor] allows easy modification of PDF files.</p>
+    <p>Main features:</p>
     <ul>
-      <li>Feature 1</li>
-      <li>Feature 2</li>
+        <li>Reordering pages</li>
+        <li>Removing pages</li>
+        <li>Rotating pages</li>
+        <li>Reducing PDF file size</li>
+        <li>Optimizing images</li>
+        <li>Viewing PDF properties</li>
     </ul>
-    <p>Keep in mind to XML-escape characters, and that this is not HTML markup.</p>
   </description>
+  <provides>
+      <binary>deafed</binary>
+  </provides>
+  <categories>
+      <category>Qt</category>
+      <category>Office</category>
+      <category>KDE</category>
+  </categories>
+  <launchable type="desktop-id">org.kde.deafed.desktop</launchable>
 </component>
