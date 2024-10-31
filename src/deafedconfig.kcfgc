@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: %{CURRENT_YEAR} %{AUTHOR} <%{EMAIL}>
-# SPDX-License-Identifier: LGPL-2.0-or-later
-
 File=deafedconfig.kcfg
 ClassName=deafedConfig
 Mutators=true

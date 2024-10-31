@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: BSD-2-Clause
+# SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 add_executable(deafed)

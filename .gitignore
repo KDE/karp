@@ -1,5 +1,5 @@
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 *~
 *.autosave
