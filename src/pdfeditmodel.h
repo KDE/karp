@@ -89,6 +89,11 @@ public:
 
     Q_INVOKABLE void generate();
 
+    /**
+     * Removes all @p PdfFile instances and clears out the model
+     */
+    Q_INVOKABLE void clearAll();
+
     Q_INVOKABLE QColor labelColor(int fileId);
 
     PdfPage *page(int p)

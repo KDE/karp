@@ -11,6 +11,10 @@ Kirigami.Page {
 
     property alias pdfModel: pdfModel
 
+    function clearAll() {
+        pdfModel.clearAll()
+    }
+
     actions: [
         Kirigami.Action {
             visible: pdfModel.pdfCount > 0
@@ -27,7 +31,7 @@ Kirigami.Page {
         },
         Kirigami.Action {
             icon.name: "list-add"
-            tooltip: i18n("Add more PDF files")
+            tooltip: i18n("Add PDF files")
             onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
         },
         Kirigami.Action {

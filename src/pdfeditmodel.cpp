@@ -374,6 +374,26 @@ void PdfEditModel::generate()
     }
 }
 
+void PdfEditModel::clearAll()
+{
+    beginResetModel();
+    m_pageList.clear(); // TODO:qDeleteAll when we will switch to pointers
+    m_deletedList.clear();
+    qDeleteAll(m_pdfList);
+    m_pdfList.clear();
+    m_rows = 0;
+    m_columns = INIT_COLUM_COUNT;
+    m_pages = 0;
+    m_rotatedCount = 0;
+    m_wasMoved = false;
+    endResetModel();
+    Q_EMIT pageCountChanged();
+    Q_EMIT pdfCountChanged();
+    Q_EMIT editedChanged();
+    setOptimizeImages(false);
+    setReduceSize(false);
+}
+
 int PdfEditModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)

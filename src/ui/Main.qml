@@ -25,6 +25,16 @@ Kirigami.ApplicationWindow {
         isMenu: Kirigami.Settings.isMobile
         actions: [
             Kirigami.Action {
+                text: i18n("Add PDF files")
+                icon.name: "list-add"
+                onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(mainPage, { pdfEdit: mainPage.pdfModel })
+            },
+            Kirigami.Action {
+                text: i18n("Clear all files")
+                icon.name: "edit-clear-all"
+                onTriggered: mainPage.clearAll()
+            },
+            Kirigami.Action {
                 text: i18n("Settings")
                 icon.name: "settings-configure"
                 onTriggered: {
@@ -46,7 +56,10 @@ Kirigami.ApplicationWindow {
         ]
     }
 
+    // private
     property SettingsPage settings
 
-    pageStack.initialPage: ArrangePage {}
+    pageStack.initialPage: ArrangePage {
+        id: mainPage
+    }
 }
