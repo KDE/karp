@@ -8,7 +8,7 @@ project(deafed VERSION 0.1)
 include(FeatureSummary)
 
 set(QT6_MIN_VERSION 6.5.0)
-set(KF6_MIN_VERSION 6.0.0)
+set(KF6_MIN_VERSION 6.5.0)
 set(KIRIGAMI_ADDONS_MIN_VERSION 1.5.0)
 
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
