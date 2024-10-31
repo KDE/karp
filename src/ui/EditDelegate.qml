@@ -62,28 +62,28 @@ Item {
     QQC2.Button {
         visible: pageNr > pdfView.columns
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
-        icon.name: "go-up"
+        icon.name: "arrow-up"
         onClicked: movePage(pageNr, pageNr - pdfView.columns - 1)
     }
     // move at lower row
     QQC2.Button {
         visible: pageNr < pdfModel.pageCount - pdfView.columns
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
-        icon.name: "go-down"
+        icon.name: "arrow-down"
         onClicked: movePage(pageNr, pageNr + pdfView.columns)
     }
     // move at next column
     QQC2.Button {
         visible: pageNr < pdfModel.pageCount - 1
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
-        icon.name: "go-right"
+        icon.name: "arrow-right"
         onClicked: movePage(pageNr, pageNr + 1)
     }
     // move at previous column
     QQC2.Button {
         visible: pageNr > 0
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
-        icon.name: "go-left"
+        icon.name: "arrow-left"
         onClicked: movePage(pageNr, pageNr - 1)
     }
 }
