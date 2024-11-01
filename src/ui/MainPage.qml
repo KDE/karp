@@ -17,6 +17,13 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
+            visible: pdfModel.pageCount
+            enabled: pdfModel.edited
+            icon.name: "document-save"
+            text: i18n("Save")
+            onTriggered: pdfModel.generate()
+        },
+        Kirigami.Action {
             visible: pdfModel.pdfCount > 0
             displayComponent: QQC2.Label {
                 text: i18np("file", "files", pdfModel.pdfCount) + ":"
@@ -33,13 +40,6 @@ Kirigami.Page {
             icon.name: "list-add"
             tooltip: i18n("Add PDF files")
             onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
-        },
-        Kirigami.Action {
-            visible: pdfModel.pageCount
-            enabled: pdfModel.edited
-            icon.name: "application-pdf"
-            text: i18n("Generate")
-            onTriggered: pdfModel.generate()
         },
         Kirigami.Action {
             // visible: pdfModel.pageCount

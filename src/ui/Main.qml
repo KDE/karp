@@ -30,6 +30,13 @@ Kirigami.ApplicationWindow {
                 onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(mainPage, { pdfEdit: mainPage.pdfModel })
             },
             Kirigami.Action {
+                enabled: mainPage.pdfModel.edited
+                icon.name: "document-save"
+                text: i18n("Save")
+                onTriggered: mainPage.pdfModel.generate()
+            },
+            Kirigami.Action {
+                enabled: mainPage.pdfModel.pageCount
                 text: i18n("Clear all files")
                 icon.name: "edit-clear-all"
                 onTriggered: mainPage.clearAll()
@@ -59,7 +66,7 @@ Kirigami.ApplicationWindow {
     // private
     property SettingsPage settings
 
-    pageStack.initialPage: ArrangePage {
+    pageStack.initialPage: MainPage {
         id: mainPage
     }
 }
