@@ -19,10 +19,13 @@ It operates on command line programs:
  * Optimizing images (if possible)
  * Viewing PDF properties
 
+<img src="extras/reorder.gif"/>
+
 #### Planned features
- * Editing bookmarks
- * Modifying PDF metadata
+ * Editing bookmarks (other tool needed, like [pdftk](https://en.wikipedia.org/wiki/PDFtk))
+ * Modifying PDF metadata (other tool needed, like [pdftk](https://en.wikipedia.org/wiki/PDFtk))
  * Merging 2 PDFs: one for even pages and another one for odd pages
+ * Resizing pages
  * Extracting images
  * Adding watermark
  * Adding page numbers or other labels

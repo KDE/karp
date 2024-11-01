@@ -16,15 +16,13 @@
       <name translate="no">KDE</name>
   </developer>
   <description>
-    <p>Deaf Ed - [p]DeaF Ed[itor] allows easy modification of PDF files.</p>
-    <p>Main features:</p>
+    <p>Deaf Ed - [p]DeaF Ed[itor] gives simple UI for PDF files modification. With a few mouse strokes user can:</p>
     <ul>
-        <li>Reordering pages</li>
-        <li>Removing pages</li>
-        <li>Rotating pages</li>
-        <li>Reducing PDF file size</li>
-        <li>Optimizing images</li>
-        <li>Viewing PDF properties</li>
+        <li>Append more PDF files and merge</li>
+        <li>Delete, rotate and reorder pages</li>
+        <li>Reduce PDF file size</li>
+        <li>Optimize images</li>
+        <li>View PDF properties</li>
     </ul>
   </description>
   <provides>
@@ -36,4 +34,5 @@
       <category>KDE</category>
   </categories>
   <launchable type="desktop-id">org.kde.deafed.desktop</launchable>
+  <url type="homepage">https://invent.kde.org/tomaszbojczuk/deafed</url>
 </component>
