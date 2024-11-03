@@ -2,7 +2,6 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 import QtQuick
-import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.settings as KirigamiSettings
 
 KirigamiSettings.ConfigurationView {

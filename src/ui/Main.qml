@@ -2,8 +2,6 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 import QtQuick
-import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.deafed
 
@@ -27,7 +25,9 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Add PDF files")
                 icon.name: "list-add"
-                onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(mainPage, { pdfEdit: mainPage.pdfModel })
+                onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(mainPage, {
+                    pdfEdit: mainPage.pdfModel
+                })
             },
             Kirigami.Action {
                 enabled: mainPage.pdfModel.edited
@@ -46,8 +46,8 @@ Kirigami.ApplicationWindow {
                 icon.name: "settings-configure"
                 onTriggered: {
                     if (!settings)
-                        settings = Qt.createComponent("org.kde.deafed", "SettingsPage").createObject(mainWin)
-                    settings.open()
+                        settings = Qt.createComponent("org.kde.deafed", "SettingsPage").createObject(mainWin);
+                    settings.open();
                 }
             },
             Kirigami.Action {
