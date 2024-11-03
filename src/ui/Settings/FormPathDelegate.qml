@@ -212,10 +212,10 @@ FormCard.AbstractFormDelegate {
                 y: textField.height
                 x: Kirigami.Units.gridUnit
                 width: textField.width - Kirigami.Units.gridUnit * 2
-                height: Math.min(Kirigami.Units.gridUnit * 8 + Kirigami.Units.smallSpacing * 7, suggestionList.contentHeight)
+                height: Math.min(Kirigami.Units.gridUnit * 8 + Kirigami.Units.smallSpacing * 7, hintListView.contentHeight)
                 padding: 0
                 ListView {
-                    id: suggestionList
+                    id: hintListView
                     width: parent.width
                     height: popup.height
                     model: folderModel.hintCount
@@ -223,6 +223,7 @@ FormCard.AbstractFormDelegate {
                     clip: true
                     delegate: QQC2.ItemDelegate {
                         required property int index
+                        implicitWidth: hintListView.width
                         text: folderModel.get(folderModel.hintArray[index], "fileName")
                         onClicked: {
                             if (folderModel.isFolder(folderModel.hintArray[index])) {
@@ -242,7 +243,7 @@ FormCard.AbstractFormDelegate {
             Keys.onDownPressed: {
                 if (root.enableSuggest) {
                     popup.forceActiveFocus();
-                    suggestionList.itemAtIndex(0)?.forceActiveFocus();
+                    hintListView.itemAtIndex(0)?.forceActiveFocus();
                 }
             }
             Keys.onTabPressed: (event) => {

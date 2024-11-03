@@ -22,18 +22,20 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18n("Last opened directory")
             checked: DeafEdConf.openLastDir
+            onToggled: DeafEdConf.openLastDir = checked
         }
         FormCard.FormRadioDelegate {
             id: staticPathRadio
             text: i18n("Fixed path")
             checked: !DeafEdConf.openLastDir
+            onToggled: DeafEdConf.openLastDir = !checked
         }
-        FormCard.FormButtonDelegate {
+        FormPathDelegate {
             id: fixDirButton
             enabled: staticPathRadio.checked
-            icon.name: "document-open-folder"
-            text: DeafEdConf.fixedLastDir.replace("file://", "")
-            onClicked: selectPathDialog.open()
+            pathType: FormPathDelegate.Folder
+            path: DeafEdConf.fixedLastDir
+            onAccepted: DeafEdConf.fixedLastDir = path
         }
     }
 
@@ -79,11 +81,5 @@ FormCard.FormCardPage {
             enabled: nameXfixRadio.checked
             text: i18n("It will produce: <b>%1filename%2.pdf</b>", appPrepCombo.doPrepend ? "" : fixText.text, appPrepCombo.doPrepend ? fixText.text : "")
         }
-    }
-
-    FolderDialog {
-        id: selectPathDialog
-        currentFolder: "file://" + fixDirButton.text
-        onAccepted: DeafEdConf.fixedLastDir = selectedFolder.toString().replace("file://", "")
     }
 }

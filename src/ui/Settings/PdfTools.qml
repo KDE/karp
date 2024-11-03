@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
-import QtQuick
-import org.kde.kirigami as Kirigami
+// import QtQuick
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.deafed
 import org.kde.deafed.config
@@ -19,9 +18,10 @@ FormCard.FormCardPage {
             description: i18n("Allows PDF page arrangements.")
         }
         FormCard.FormDelegateSeparator {}
-        FormCard.FormButtonDelegate {
-            icon.name: "list-add"
-            text: DeafEdConf.qpdfPath
+        FormPathDelegate {
+            icon.name: "system-run"
+            path: DeafEdConf.qpdfPath
+            onAccepted: PDFED.checkQPDF(text)
         }
     }
     FormCard.FormHeader { title: "Ghostscript" }
@@ -31,9 +31,10 @@ FormCard.FormCardPage {
             description: i18n("Manage size and quality of output PDF file.")
         }
         FormCard.FormDelegateSeparator {}
-        FormCard.FormButtonDelegate {
-            icon.name: "list-add"
-            text: DeafEdConf.gsPath
+        FormPathDelegate {
+            icon.name: "system-run"
+            path: DeafEdConf.gsPath
+            onAccepted: PDFED.checkGS(text)
         }
     }
 
