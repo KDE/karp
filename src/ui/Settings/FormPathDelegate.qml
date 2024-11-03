@@ -14,10 +14,14 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 /**
- * @brief A Form delegate with text field and button
- * to select file or folder path.
+ * @brief A Form delegate with text field and button to select a path
+ * of a folder or a file
  *
- * It supports suggestions
+ * It shows suggestions (auto completion) when 'enableSuggest' is set.
+ * When path is typed a popup appears with current folder content.
+ * The top-most suggestion can be selected by TAB key
+ * or the list can be navigated by arrow keys and then selected.
+ * 'nameFilters' array can limit suggested file to desired types.
  *
  * @inherit AbstractFormDelegate
  */
@@ -25,8 +29,7 @@ FormCard.AbstractFormDelegate {
     id: root
 
     /**
-     * @brief File of Folder path.
-     * It is alias of text property to clear it purpose.
+     * @brief File or Folder path. Just alias of 'text' property to clear it purpose.
      */
     property alias path: root.text
 
@@ -215,16 +218,14 @@ FormCard.AbstractFormDelegate {
                     id: suggestionList
                     width: parent.width
                     height: popup.height
-                    model: suggestionModel
-                    visible: suggestionModel.count > 0
+                    model: folderModel.hintCount
+                    visible: folderModel.hintCount > 0
                     clip: true
                     delegate: QQC2.ItemDelegate {
-                        required property string fileName
-                        required property bool isFolder
                         required property int index
-                        text: fileName
+                        text: folderModel.get(folderModel.hintArray[index], "fileName")
                         onClicked: {
-                            if (isFolder) {
+                            if (folderModel.isFolder(folderModel.hintArray[index])) {
                                 folderModel.dir += text + folderModel.separator
                                 textField.text = folderModel.dir
                             } else
@@ -246,14 +247,14 @@ FormCard.AbstractFormDelegate {
             }
             Keys.onTabPressed: (event) => {
                 if (popup.visible) {
-                    let suggestion = suggestionModel.get(0)
-                    if (suggestion) {
-                        if (suggestion.isFolder) {
-                            folderModel.dir += suggestion.fileName + folderModel.separator
+                    if (folderModel.hintCount) {
+                        let fileName = folderModel.get(folderModel.hintArray[0], "fileName")
+                        if (folderModel.isFolder(folderModel.hintArray[0])) {
+                            folderModel.dir += fileName + folderModel.separator
                             textField.text = folderModel.dir
                         } else {
-                            textField.text = folderModel.dir + suggestion.fileName
-                            // TODO: hide popup or allow went trough suggestions with TAB key
+                            textField.text = folderModel.dir + fileName
+                            // TODO: hide popup or allow to go trough suggestions with TAB key
                         }
                     }
                 } else
@@ -288,6 +289,9 @@ FormCard.AbstractFormDelegate {
 
     FolderListModel {
         id: folderModel
+         // Array with reference numbers to @p folderModel items which match current path text
+        property var hintArray: []
+        property int hintCount: 0 // due to JS array length is not dynamic
         property string separator: Qt.platform.os === "windows" ? "\\" : "/"
         property string dir: root.path.slice(0, lastSlash)
         property int lastSlash: textField.text.lastIndexOf(separator) + 1
@@ -301,10 +305,6 @@ FormCard.AbstractFormDelegate {
         }
     }
 
-    ListModel {
-        id: suggestionModel
-    }
-
     function updateSuggestions() {
         if (textField.text[textField.length - 1] === folderModel.separator) {
             folderModel.lastSlash = textField.length
@@ -315,17 +315,18 @@ FormCard.AbstractFormDelegate {
         }
         if (folderModel.status !== FolderListModel.Ready)
             return;
-        suggestionModel.clear();
+        folderModel.hintArray.length = 0
+        folderModel.hintCount = 0
 
         let searchText = textField.text.slice(folderModel.lastSlash, textField.length);
         for (var i = 0; i < folderModel.count; i++) {
             let file = folderModel.get(i, "fileName");
-            if (searchText === "" || file.startsWith(searchText)) {
-                suggestionModel.append({ "fileName": file, "isFolder": folderModel.isFolder(i) });
-            }
+            if (searchText === "" || file.startsWith(searchText))
+                folderModel.hintArray.push(i);
         }
-        // console.log(folderModel.dir, textField.text, searchText, folderModel.lastSlash, suggestionModel.count)
-        if (suggestionModel.count && textField.activeFocus)
+        folderModel.hintCount = folderModel.hintArray.length
+        // console.log(folderModel.dir, textField.text, searchText, folderModel.lastSlash, folderModel.hintCount)
+        if (folderModel.hintCount && textField.activeFocus)
             popup.open();
         else
             popup.close();
