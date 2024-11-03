@@ -265,6 +265,14 @@ FormCard.AbstractFormDelegate {
                 popup.close()
                 event.accepted = false
             }
+            Keys.onPressed: (event) => { // handle pasting text
+                if (root.enableSuggest && event.matches(StandardKey.Paste)) {
+                    folderModel.lastSlash = textField.text.lastIndexOf(folderModel.separator) + 1
+                    folderModel.dir = textField.text.slice(0, folderModel.lastSlash)
+                    // after paste updateSuggestions() will be triggered by textChanged
+                } else
+                    event.accepted = false
+            }
         }
         QQC2.Button {
             id: button
