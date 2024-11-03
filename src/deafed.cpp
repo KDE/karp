@@ -82,6 +82,16 @@ QStringList DeafEd::getInitFileList()
     return initFiles;
 }
 
+void DeafEd::checkQPDF(const QString &qpdfPath)
+{
+    m_tools->lookForQPDF(qpdfPath);
+}
+
+void DeafEd::checkGS(const QString &gsPath)
+{
+    m_tools->lookForGS(gsPath);
+}
+
 bool DeafEd::pdfLoaded() const
 {
     return m_pdfLoaded;

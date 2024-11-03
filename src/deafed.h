@@ -32,6 +32,9 @@ public:
 
     Q_INVOKABLE QStringList getInitFileList();
 
+    Q_INVOKABLE void checkQPDF(const QString &qpdfPath);
+    Q_INVOKABLE void checkGS(const QString &gsPath);
+
     // properties
 
     bool pdfLoaded() const;
@@ -55,6 +58,7 @@ Q_SIGNALS:
     void pathChanged();
     void toolsVersionChanged();
     void toolIsMissing(const QString &);
+    void toolCheckMessage(const QString &);
 
 protected:
     void findToolsSlot();

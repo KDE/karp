@@ -14,6 +14,8 @@ public:
     ~ToolsThread();
 
     void lookForTools();
+    void lookForQPDF(const QString &qpdfPath);
+    void lookForGS(const QString &gsPath);
 
     QString qpdfVersion() const;
     QString gsVersion() const;
@@ -24,17 +26,20 @@ Q_SIGNALS:
 protected:
     enum ToolsMode : quint8 {
         ToolsIdle = 0,
-        ToolsFind,
+        ToolsFindAll,
+        ToolsFindQPDF,
+        ToolsFindGS,
     };
 
     void run() override;
 
     void findPdfTools();
-    QString findQpdf();
-    QString findGhostScript();
+    QString findQpdf(const QString &qpdfPath = QString());
+    QString findGhostScript(const QString &gsfPath = QString());
 
 private:
     ToolsMode m_mode = ToolsIdle;
     QString m_qpdfVersion;
     QString m_gsVersion;
+    QString m_arg1;
 };
