@@ -18,7 +18,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
  * of a folder or a file
  *
  * It shows suggestions (auto completion) when 'enableSuggest' is set.
- * When path is typed a popup appears with current folder content.
+ * When path is typed a textField.popup appears with current folder content.
  * The top-most suggestion can be selected by TAB key
  * or the list can be navigated by arrow keys and then selected.
  * 'nameFilters' array can limit suggested file to desired types.
@@ -187,13 +187,14 @@ FormCard.AbstractFormDelegate {
         spacing: Kirigami.Units.largeSpacing
         QQC2.TextField {
             id: textField
+            property QQC2.Popup popup: null
             Layout.fillWidth: true
             placeholderText: root.placeholderText
             text: root.text
             onTextChanged: root.text = text
             onAccepted: {
                 if (root.enableSuggest)
-                    popup.close()
+                    textField.popup?.close()
                 root.accepted()
             }
             onEditingFinished: root.editingFinished()
@@ -204,50 +205,17 @@ FormCard.AbstractFormDelegate {
                 if (length > 0)
                     root.updateSuggestions()
                 else
-                    popup.close()
+                    textField.popup?.close()
             }
             activeFocusOnTab: false
-            QQC2.Popup {
-                id: popup
-                y: textField.height
-                x: Kirigami.Units.gridUnit
-                width: textField.width - Kirigami.Units.gridUnit * 2
-                height: Math.min(Kirigami.Units.gridUnit * 8 + Kirigami.Units.smallSpacing * 7, hintListView.contentHeight)
-                padding: 0
-                ListView {
-                    id: hintListView
-                    width: parent.width
-                    height: popup.height
-                    model: folderModel.hintCount
-                    visible: folderModel.hintCount > 0
-                    clip: true
-                    delegate: QQC2.ItemDelegate {
-                        required property int index
-                        implicitWidth: hintListView.width
-                        text: folderModel.get(folderModel.hintArray[index], "fileName")
-                        onClicked: {
-                            if (folderModel.isFolder(folderModel.hintArray[index])) {
-                                folderModel.dir += text + folderModel.separator
-                                textField.text = folderModel.dir
-                            } else
-                                textField.text = folderModel.dir + text
-                            textField.forceActiveFocus();
-                            popup.close();
-                        }
-                        Keys.onReturnPressed: clicked()
-                        Keys.onEnterPressed: clicked()
-                    }
-                    QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
-                }
-            }
             Keys.onDownPressed: {
                 if (root.enableSuggest) {
-                    popup.forceActiveFocus();
+                    textField.popup.forceActiveFocus();
                     hintListView.itemAtIndex(0)?.forceActiveFocus();
                 }
             }
             Keys.onTabPressed: (event) => {
-                if (popup.visible) {
+                if (textField.popup.visible) {
                     if (folderModel.hintCount) {
                         let fileName = folderModel.get(folderModel.hintArray[0], "fileName")
                         if (folderModel.isFolder(folderModel.hintArray[0])) {
@@ -255,14 +223,14 @@ FormCard.AbstractFormDelegate {
                             textField.text = folderModel.dir
                         } else {
                             textField.text = folderModel.dir + fileName
-                            // TODO: hide popup or allow to go trough suggestions with TAB key
+                            // TODO: hide textField.popup or allow to go trough suggestions with TAB key
                         }
                     }
                 } else
                     event.accepted = false
             }
             Keys.onEscapePressed: (event) => {
-                popup.close()
+                textField.popup?.close()
                 event.accepted = false
             }
             Keys.onPressed: (event) => { // handle pasting text
@@ -279,10 +247,10 @@ FormCard.AbstractFormDelegate {
             icon: root.icon
             onClicked: {
                 if (root.pathType === FormPathDelegate.File) {
-                    selectFileDialog.currentFile = folderModel.prefix + folderModel.dir
-                    selectFileDialog.open()
+                    fileDlgComp.createObject(root, { currentFile: folderModel.prefix + folderModel.dir })
+                    // nameFilters: folderModel.nameFilters // TODO: convert
                 } else
-                    selectFolderDialog.open()
+                    folderDlgComp.createObject(root)
             }
         }
 
@@ -298,7 +266,7 @@ FormCard.AbstractFormDelegate {
 
     FolderListModel {
         id: folderModel
-         // Array with reference numbers to @p folderModel items which match current path text
+         // Array with reference numbers to folderModel items which match current user text
         property var hintArray: []
         property int hintCount: 0 // due to JS array length is not dynamic
         property string separator: Qt.platform.os === "windows" ? "\\" : "/"
@@ -331,32 +299,76 @@ FormCard.AbstractFormDelegate {
         for (var i = 0; i < folderModel.count; i++) {
             let file = folderModel.get(i, "fileName");
             if (searchText === "" || file.startsWith(searchText))
-                folderModel.hintArray.push(i);
+                folderModel.hintArray.push(i)
         }
         folderModel.hintCount = folderModel.hintArray.length
         // console.log(folderModel.dir, textField.text, searchText, folderModel.lastSlash, folderModel.hintCount)
-        if (folderModel.hintCount && textField.activeFocus)
-            popup.open();
-        else
-            popup.close();
+        if (folderModel.hintCount && textField.activeFocus) {
+            if (!textField.popup)
+                textField.popup = popupComp.createObject(textField)
+            textField.popup.open()
+        } else
+            textField.popup?.close()
     }
 
-    FolderDialog {
-        id: selectFolderDialog
-        currentFolder: folderModel.prefix + folderModel.dir
-        onAccepted: {
-            root.path = selectedFolder.toString().replace(folderModel.prefix, "")
-            folderModel.dir = root.path
-            root.accepted()
+    Component {
+        id: popupComp
+        QQC2.Popup {
+            y: textField.height
+            x: Kirigami.Units.gridUnit
+            width: textField.width - Kirigami.Units.gridUnit * 2
+            height: Math.min(Kirigami.Units.gridUnit * 8 + Kirigami.Units.smallSpacing * 7, hintListView.contentHeight)
+            padding: 0
+            ListView {
+                id: hintListView
+                width: parent.width
+                height: textField.popup?.height
+                model: folderModel.hintCount
+                visible: folderModel.hintCount > 0
+                clip: true
+                delegate: QQC2.ItemDelegate {
+                    required property int index
+                    implicitWidth: hintListView.width
+                    text: folderModel.get(folderModel.hintArray[index], "fileName")
+                    onClicked: {
+                        if (folderModel.isFolder(folderModel.hintArray[index])) {
+                            folderModel.dir += text + folderModel.separator
+                            textField.text = folderModel.dir
+                        } else
+                            textField.text = folderModel.dir + text
+                            textField.forceActiveFocus();
+                        textField.popup.close();
+                    }
+                    Keys.onReturnPressed: clicked()
+                    Keys.onEnterPressed: clicked()
+                }
+                QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+            }
         }
     }
-    FileDialog {
-        id: selectFileDialog
-        // nameFilters: folderModel.nameFilters // TODO: convert
-        onAccepted: {
-            root.path = selectedFile.toString().replace(folderModel.prefix, "")
-            folderModel.dir = root.path
-            root.accepted()
+    Component {
+        id: folderDlgComp
+        FolderDialog {
+            visible: true
+            currentFolder: folderModel.prefix + folderModel.dir
+            onAccepted: {
+                root.path = selectedFolder.toString().replace(folderModel.prefix, "")
+                folderModel.dir = root.path
+                root.accepted()
+            }
+            onVisibleChanged: if (!visible) destroy()
+        }
+    }
+    Component {
+        id: fileDlgComp
+        FileDialog {
+            visible: true
+            onAccepted: {
+                root.path = selectedFile.toString().replace(folderModel.prefix, "")
+                folderModel.dir = root.path
+                root.accepted()
+            }
+            onVisibleChanged: if (!visible) destroy()
         }
     }
 }
