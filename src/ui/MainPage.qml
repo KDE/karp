@@ -131,7 +131,7 @@ Kirigami.Page {
                 rotation: rotated
             }
             Loader {
-                active: labelsAction.checked
+                active: bottomBar.labelsVisible
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
                 height: Kirigami.Units.gridUnit * 2
                 width: height * 3
@@ -166,48 +166,9 @@ Kirigami.Page {
         QQC2.ScrollBar.vertical: QQC2.ScrollBar { visible: true }
     } // ListView
 
-    footer: Kirigami.ActionToolBar {
+    footer: MainToolbar {
         id: bottomBar
-        visible: pdfModel.pageCount
-        alignment: Qt.AlignHCenter
-
-        actions: [
-            Kirigami.Action {
-                id: labelsAction
-                icon.name: "label"
-                tooltip: i18n("show page labels")
-                checkable: true
-                checked: true
-            },
-            Kirigami.Action {
-                icon.name: "zoom-out"
-                tooltip: i18n("Zoom Out")
-                // shortcutsName: "ZoomOut"
-                onTriggered: pdfModel.zoomOut()
-                enabled: pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
-            },
-            Kirigami.Action {
-                icon.name: "zoom-in"
-                tooltip: i18n("Zoom In")
-                // shortcutsName: "ZoomIn"
-                onTriggered: pdfModel.zoomIn()
-                enabled: pdfView.columns > 1
-            },
-            Kirigami.Action {
-                displayComponent: QQC2.SpinBox {
-                    id: pageSpin
-                    from: 1; to: pdfModel.pageCount
-                    textFromValue: function(value) {
-                        return i18n("Page %1 of %2", value, to)
-                    }
-                    onValueModified: pdfView.positionViewAtRow((value - 1) / pdfView.columns, TableView.AlignTop)
-                    Binding {
-                        pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
-                        delayed: true
-                    }
-                }
-            }
-        ]
+        pdfModel: pdfModel
     }
 
     function movePage(from, to) {
