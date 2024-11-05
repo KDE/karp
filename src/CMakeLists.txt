@@ -19,6 +19,7 @@ qt_add_qml_module(deafed
         ui/Settings/General.qml
         ui/Settings/FormPathDelegate.qml
         ui/Messages/MissingPdfTool.qml
+        ui/Messages/ProgressDialog.qml
 )
 
 target_sources(deafed PUBLIC
