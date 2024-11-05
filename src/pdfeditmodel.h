@@ -28,6 +28,7 @@ class PdfEditModel : public QAbstractTableModel
     Q_PROPERTY(QString command READ command NOTIFY commandChanged)
     Q_PROPERTY(bool optimizeImages READ optimizeImages WRITE setOptimizeImages NOTIFY optimizeImagesChanged)
     Q_PROPERTY(bool reduceSize READ reduceSize WRITE setReduceSize NOTIFY reduceSizeChanged)
+    Q_PROPERTY(qreal progress READ progress NOTIFY progressChanged)
 
 public:
     explicit PdfEditModel(QObject *parent = nullptr);
@@ -65,6 +66,9 @@ public:
     bool reduceSize() const;
     void setReduceSize(bool redS);
 
+    qreal progress() const;
+    void setProgress(qreal prog);
+
     /**
      * In fact @p zoomIn() and @p zoomOut() change columns number
      */
@@ -88,6 +92,7 @@ public:
     Q_INVOKABLE QStringList getMetaDataModel(int fileId);
 
     Q_INVOKABLE void generate();
+    Q_INVOKABLE void cancel();
 
     /**
      * Removes all @p PdfFile instances and clears out the model
@@ -129,6 +134,8 @@ Q_SIGNALS:
     void commandChanged();
     void optimizeImagesChanged();
     void reduceSizeChanged();
+    void progressChanged();
+    void pdfGenerated();
 
 protected:
     QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
@@ -144,6 +151,8 @@ protected:
     void addPdfFileToModel(PdfFile *pdf);
 
     QStringList getQPDFargs(const QVector<QVector<quint16>> &chunks);
+
+    void toolProgressSlot(qreal prog);
 
 Q_SIGNALS:
     void wantRenderImage(int) const;
@@ -167,4 +176,5 @@ private:
     bool m_optimizeImages = false;
     bool m_reduceSize = false;
     QVector<QColor> m_labelColors;
+    qreal m_progress = 0.0;
 };

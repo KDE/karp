@@ -4,6 +4,7 @@
 #include "pdfeditmodel.h"
 #include "deafedconfig.h"
 #include "pdffile.h"
+#include "toolsthread.h"
 #include <KLazyLocalizedString>
 #include <QDebug>
 #include <QFileDialog>
@@ -13,6 +14,7 @@
 #include <QProcess>
 #include <QScreen>
 #include <QStandardPaths>
+#include <QTimer>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -153,6 +155,17 @@ void PdfEditModel::setReduceSize(bool redS)
     Q_EMIT editedChanged();
 }
 
+qreal PdfEditModel::progress() const
+{
+    return m_progress;
+}
+
+void PdfEditModel::setProgress(qreal prog)
+{
+    m_progress = prog;
+    Q_EMIT progressChanged();
+}
+
 void PdfEditModel::zoomIn()
 {
     if (m_columns > 1)
@@ -268,6 +281,7 @@ void PdfEditModel::generate()
     if (conf->qpdfPath().isEmpty())
         return;
     // TODO but allow gs if available
+    setProgress(0.05);
     QString out;
     auto pdf = m_pdfList[m_pageList.first().referenceFile()];
     if (conf->askForOutFile()) {
@@ -335,43 +349,16 @@ void PdfEditModel::generate()
     qDebug().noquote().nospace() << p.readAll();
     p.close();
 
-    if (m_reduceSize && !conf->gsPath().isEmpty()) {
-        p.setProgram(conf->gsPath());
-        args.clear();
-        QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + u"/"_s;
-        QFileInfo outInfo(out);
-        auto psFile = tmpPath + outInfo.baseName() + u".ps"_s;
-        auto outFileSize = outInfo.size();
-        // gs -q -dNOPAUSE -dBATCH -P- -dSAFER -sDEVICE=ps2write -sOutputFile=file.ps -c save pop -f input.pdf
-        args << u"-q"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-P-"_s << u"-dSAFER"_s << u"-sDEVICE=ps2write"_s << u"-sOutputFile="_s + psFile << u"-c"_s
-             << u"save"_s << u"pop"_s << u"-f"_s << out;
-        qDebug() << args;
-        p.setArguments(args);
-        p.start();
-        p.waitForFinished();
-        // perform pdf2ps - store *.ps file in /tmp
-        p.close();
-        args.clear();
-        // gs -q -P- -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sstdout=%stderr -sOutputFile=file.pdf file.ps
-        args << u"-q"_s << u"-P-"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-sDEVICE=pdfwrite"_s << u"-sstdout=%stderr"_s
-             << u"-sOutputFile="_s + tmpPath + outInfo.fileName() << psFile;
-        qDebug() << args;
-        p.setArguments(args);
-        p.start();
-        p.waitForFinished();
-        p.close();
-        outInfo.setFile(tmpPath + outInfo.fileName());
-        // qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
-        if (outInfo.size() < outFileSize) {
-            // override out file with new size, but delete existing file first
-            if (QFile::exists(out))
-                QFile::remove(out);
-            qDebug() << "[PdfEditModel]" << "PDF file size successfully reduced.";
-            QFile::copy(outInfo.filePath(), out);
-        }
-        QFile::remove(psFile); // remove /tmp/file-out.ps
-        QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
-    }
+    if (m_reduceSize) {
+        connect(ToolsThread::self(), &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
+        ToolsThread::self()->resizeByGs(out, m_pages);
+    } else
+        toolProgressSlot(1.0);
+}
+
+void PdfEditModel::cancel()
+{
+    ToolsThread::self()->cancel();
 }
 
 void PdfEditModel::clearAll()
@@ -581,6 +568,18 @@ QStringList PdfEditModel::getQPDFargs(const QVector<QVector<quint16>> &chunks)
         args << rangeArgs;
     }
     return args;
+}
+
+void PdfEditModel::toolProgressSlot(qreal prog)
+{
+    setProgress(0.1 + 0.9 * prog);
+    if (prog >= 1.0) {
+        disconnect(ToolsThread::self(), &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
+        setProgress(1.0);
+        QTimer::singleShot(300, this, [=] {
+            Q_EMIT pdfGenerated();
+        });
+    }
 }
 
 #include "moc_pdfeditmodel.cpp"
