@@ -4,13 +4,18 @@
 #include "toolsthread.h"
 #include "deafedconfig.h"
 #include <QDebug>
+#include <QDir>
+#include <QFileInfo>
 #include <QProcess>
 
 using namespace Qt::Literals::StringLiterals;
 
+ToolsThread *ToolsThread::m_self = nullptr;
+
 ToolsThread::ToolsThread()
     : QThread()
 {
+    m_self = this;
 }
 
 ToolsThread::~ToolsThread()
@@ -25,16 +30,31 @@ void ToolsThread::lookForTools()
 
 void ToolsThread::lookForQPDF(const QString &qpdfPath)
 {
-    m_arg1 = qpdfPath;
+    m_pathArg = qpdfPath;
     m_mode = ToolsFindQPDF;
     start();
 }
 
 void ToolsThread::lookForGS(const QString &gsPath)
 {
-    m_arg1 = gsPath;
+    m_pathArg = gsPath;
     m_mode = ToolsFindGS;
     start();
+}
+
+void ToolsThread::resizeByGs(const QString &filePath, int pages)
+{
+    m_pathArg = filePath;
+    m_pageCountArg = pages;
+    m_mode = ToolsResizeByGs;
+    start();
+}
+
+void ToolsThread::cancel()
+{
+    if (!isRunning())
+        qDebug() << "[ToolsThread]" << "is not running";
+    m_doCancel = true;
 }
 
 QString ToolsThread::qpdfVersion() const
@@ -52,14 +72,19 @@ void ToolsThread::run()
     if (m_mode == ToolsFindAll)
         findPdfTools();
     else if (m_mode == ToolsFindQPDF) {
-        findQpdf(m_arg1);
+        findQpdf(m_pathArg);
         m_mode = ToolsIdle;
         Q_EMIT lookingDone();
     } else if (m_mode == ToolsFindGS) {
-        findGhostScript(m_arg1);
+        findGhostScript(m_pathArg);
         m_mode = ToolsIdle;
         Q_EMIT lookingDone();
+    } else if (m_mode == ToolsResizeByGs) {
+        resizeByGsThread();
+        m_mode = ToolsIdle;
+        Q_EMIT progressChanged(1.0);
     }
+    m_doCancel = false;
 }
 
 void ToolsThread::findPdfTools()
@@ -150,4 +175,73 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
 #endif
     }
     return gsPath;
+}
+
+bool ToolsThread::resizeByGsThread()
+{
+    if (m_pageCountArg < 1 || m_pathArg.isEmpty())
+        return false;
+    QProcess p;
+    QStringList args;
+    auto conf = deafedConfig::self();
+    p.setProcessChannelMode(QProcess::MergedChannels);
+    p.setProgram(conf->gsPath());
+
+    QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
+    QFileInfo outInfo(m_pathArg);
+    auto outFileSize = outInfo.size();
+    auto ps = u"ps"_s;
+    auto pdf = u"pdf"_s;
+    QStringList pages;
+    for (int i = 0; i < m_pageCountArg; ++i) {
+        if (m_doCancel)
+            break;
+        auto pagePath = tmpPath + QString(u"deafed-%1."_s).arg(i, 4, 10, QLatin1Char('0'));
+        pages << pagePath + pdf;
+        auto pageNr = QString::number(i + 1);
+        // gs -q -dNOPAUSE -dBATCH -P- -dSAFER -sDEVICE=ps2write -sOutputFile=page.ps -c save pop -dFirstPage=i -dLastPage=i -f input.pdf
+        args << u"-q"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-P-"_s << u"-dSAFER"_s << u"-sDEVICE=ps2write"_s
+             << QLatin1String("-sOutputFile=") + pagePath + ps << u"-c"_s << u"save"_s << u"pop"_s << QLatin1String("-dFirstPage=") + pageNr
+             << QLatin1String("-dLastPage=") + pageNr << u"-f"_s << m_pathArg;
+        p.setArguments(args);
+        p.start();
+        p.waitForFinished();
+        p.close();
+        args.clear();
+        // gs -q -P- -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sstdout=%stderr -sOutputFile=file.pdf file.ps
+        args << u"-q"_s << u"-P-"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-sDEVICE=pdfwrite"_s << u"-sstdout=%stderr"_s
+             << QLatin1String("-sOutputFile=") + pagePath + pdf << pagePath + ps;
+        p.setArguments(args);
+        p.start();
+        p.waitForFinished();
+        p.close();
+        args.clear();
+        QFile::remove(pagePath + ps);
+        Q_EMIT progressChanged((i + 1) / static_cast<qreal>(m_pageCountArg + 2));
+    }
+
+    if (!m_doCancel) {
+        p.setProgram(conf->qpdfPath());
+        args << u"--empty"_s << u"--pages"_s << pages << u"--"_s << tmpPath + outInfo.fileName();
+        p.setArguments(args);
+        qDebug().noquote() << p.program() << p.arguments();
+        p.start();
+        p.waitForFinished();
+        qDebug() << p.readAll();
+        p.close();
+        outInfo.setFile(tmpPath + outInfo.fileName());
+        qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
+        if (outInfo.size() < outFileSize) {
+            // override out file with new size, but delete existing file first
+            if (QFile::exists(m_pathArg))
+                QFile::remove(m_pathArg);
+            qDebug() << "[PdfEditModel]" << "PDF file size successfully reduced." << outInfo.filePath();
+            QFile::copy(outInfo.filePath(), m_pathArg);
+        }
+        QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
+    }
+    for (auto &tp : pages)
+        QFile::remove(tp);
+
+    return true;
 }
