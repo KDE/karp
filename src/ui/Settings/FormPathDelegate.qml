@@ -23,6 +23,14 @@ import org.kde.kirigamiaddons.formcard as FormCard
  * or the list can be navigated by arrow keys and then selected.
  * 'nameFilters' array can limit suggested file to desired types.
  *
+ * ```qml
+ * FormPathDelegate {
+ *   nameFilters: [ "*.png" ]
+ *   icon.source: "image-png"
+ *   path: "/home/user/Images"
+ * }
+ * ```
+ *
  * @inherit AbstractFormDelegate
  */
 FormCard.AbstractFormDelegate {
@@ -32,6 +40,50 @@ FormCard.AbstractFormDelegate {
      * @brief File or Folder path. Just alias of 'text' property to clear it purpose.
      */
     property alias path: root.text
+
+    /**
+     * @brief The enum to determine is a path for file of for folder/directory.
+     */
+    enum PathType {
+        File,
+        Folder
+    }
+
+    /**
+     * @brief pathType can be File or Folder. By default is File.
+     */
+    property int pathType: FormPathDelegate.File
+
+    /**
+     * @brief Icon can be adjusted by icon property. By default it is folder-image.
+     */
+    icon.source: "document-open-folder"
+
+    /**
+     * @brief enableSuggest enables file/folder name suggestions during typing.
+     */
+    property bool enableSuggest: true
+
+    /**
+     * @brief array of file extensions to filtering names when
+     * enableSuggest is set. Default is [ "*" ] - all files.
+     */
+    property alias nameFilters: folderModel.nameFilters
+
+    /**
+     * @brief This property keeps name filters for file dialog.
+     * By default it is the same like nameFilters for suggestions.
+     *
+     * @see <a href="https://doc.qt.io/qt-6/qml-qtquick-dialogs-filedialog.html#nameFilters-prop">FileDialog.nameFilters</a>
+     * The syntax differs from nameFilters of FolderListModel.
+     * For FileDialog any filter has to be wrapped with ().
+     * For nameFilter: { "*.png" } it is dialogNameFilters: [ "(*.png)" ]
+     * and it will be done automatically from nameFilters property
+     * when dialogNameFilters are set to default [].
+     * To add any details to the filter in FileDialog dialogNameFilters has to be used directly:
+     * dialogNameFilters: [ "Png image files (*.png)" ]
+     */
+    property var dialogNameFilters: []
 
     /**
      * @brief This property holds the `placeholderText` of the
@@ -46,41 +98,6 @@ FormCard.AbstractFormDelegate {
      * @brief This property holds the `validator` of the internal TextField.
      */
     property alias validator: textField.validator
-
-    /**
-     * @brief This property holds the `acceptableInput` of the internal TextField.
-     */
-    property alias acceptableInput: textField.acceptableInput
-
-    /**
-     * @brief This property holds the current status message type of
-     * the text field.
-     *
-     * This consists of an inline message with a colorful background
-     * and an appropriate icon.
-     *
-     * The status property will affect the color of ::statusMessage used.
-     *
-     * Accepted values:
-     * - `Kirigami.MessageType.Information` (blue color)
-     * - `Kirigami.MessageType.Positive` (green color)
-     * - `Kirigami.MessageType.Warning` (orange color)
-     * - `Kirigami.MessageType.Error` (red color)
-     *
-     * default: `Kirigami.MessageType.Information` if ::statusMessage is set,
-     * nothing otherwise.
-     *
-     * @see Kirigami.MessageType
-     */
-    property var status: Kirigami.MessageType.Information
-
-    /**
-     * @brief This property holds the current status message of
-     * the text field.
-     *
-     * If this property is not set, no ::status will be shown.
-     */
-    property string statusMessage: ""
 
     /**
      * @This signal is emitted when the Return or Enter key is pressed.
@@ -152,37 +169,6 @@ FormCard.AbstractFormDelegate {
     background: null
     Accessible.role: Accessible.EditableText
 
-/// FormPathDelegate
-
-    /**
-     * @brief The enum to determine is a path for file of for folder/directory.
-     */
-    enum PathType {
-        File,
-        Folder
-    }
-
-    /**
-     * @brief pathType can be File or Folder and by default is File.
-     */
-    property int pathType: FormPathDelegate.File
-
-    /**
-     * @brief Icon can be adjusted by icon property. By default it is folder-image.
-     */
-    icon.source: "document-open-folder"
-
-    /**
-     * @brief enableSuggest enables file/folder name suggestions during typing.
-     */
-    property bool enableSuggest: true
-
-    /**
-     * @brief array of file extensions to filtering names when
-     * enableSuggest is set. Default is [ "*" ] - all files.
-     */
-    property alias nameFilters: folderModel.nameFilters
-
     contentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
         QQC2.TextField {
@@ -247,20 +233,15 @@ FormCard.AbstractFormDelegate {
             icon: root.icon
             onClicked: {
                 if (root.pathType === FormPathDelegate.File) {
-                    fileDlgComp.createObject(root, { currentFile: folderModel.prefix + folderModel.dir })
-                    // nameFilters: folderModel.nameFilters // TODO: convert
+                    if (root.dialogNameFilters.length === 0) {
+                        for (var i = 0; i < root.nameFilters.length; ++i) {
+                            root.dialogNameFilters.push("(" + root.nameFilters[i] + ")")
+                        }
+                    }
+                    fileDlgComp.createObject(root, { currentFile: folderModel.prefix + folderModel.dir, nameFilters: root.dialogNameFilters })
                 } else
                     folderDlgComp.createObject(root)
             }
-        }
-
-        Kirigami.InlineMessage {
-            id: formErrorHandler
-            visible: root.statusMessage.length > 0
-            Layout.topMargin: visible ? Kirigami.Units.smallSpacing : 0
-            Layout.fillWidth: true
-            text: root.statusMessage
-            type: root.status
         }
     }
 
