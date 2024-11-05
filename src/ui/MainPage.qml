@@ -15,13 +15,18 @@ Kirigami.Page {
         pdfModel.clearAll()
     }
 
+    function generate() {
+        Qt.createComponent("org.kde.deafed", "ProgressDialog").createObject(page, { pdfModel: pdfModel })
+        pdfModel.generate()
+    }
+
     actions: [
         Kirigami.Action {
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
             icon.name: "document-save"
             text: i18n("Save")
-            onTriggered: pdfModel.generate()
+            onTriggered: page.generate()
         },
         Kirigami.Action {
             visible: pdfModel.pdfCount > 0

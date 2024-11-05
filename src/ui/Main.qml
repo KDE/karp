@@ -33,7 +33,7 @@ Kirigami.ApplicationWindow {
                 enabled: mainPage.pdfModel.edited
                 icon.name: "document-save"
                 text: i18n("Save")
-                onTriggered: mainPage.pdfModel.generate()
+                onTriggered: mainPage.generate()
             },
             Kirigami.Action {
                 enabled: mainPage.pdfModel.pageCount
