@@ -36,16 +36,27 @@ Kirigami.ApplicationWindow {
                 id: fixDirButton
                 enabled: staticPathRadio.checked
                 pathType: FormPathDelegate.Folder
+                labelVisible: false
             }
         }
+        FormCard.FormHeader { title: "" }
         FormCard.FormCard {
             FormPathDelegate {
-                nameFilters: [ "*.png" ]
-                icon.source: "image-png"
-                path: "/home/"
+                // nameFilters: [ "*.png" ]
+                icon.source: "path-reverse"
+                label: "Label on the right path:"
+                path: "/dev/null"
             }
             FormCard.FormDelegateSeparator {}
+
             FormPathDelegate {
+                labelVisible: false
+                placeholderText: "Label invisible"
+            }
+            FormCard.FormDelegateSeparator {}
+
+            FormPathDelegate {
+                placeholderText: "Label is empty"
             }
         }
     }

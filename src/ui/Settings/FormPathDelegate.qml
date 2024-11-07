@@ -55,6 +55,14 @@ FormCard.AbstractFormDelegate {
     property int pathType: FormPathDelegate.File
 
     /**
+     * @brief A label containing primary text that appears above and
+     * to the left the text field.
+     */
+    property string label
+
+    property alias labelVisible: pathLabel.visible
+
+    /**
      * @brief Icon can be adjusted by icon property. By default it is folder-image.
      */
     icon.source: "document-open-folder"
@@ -169,78 +177,92 @@ FormCard.AbstractFormDelegate {
     background: null
     Accessible.role: Accessible.EditableText
 
-    contentItem: RowLayout {
-        spacing: Kirigami.Units.largeSpacing
-        QQC2.TextField {
-            id: textField
-            property QQC2.Popup popup: null
+    contentItem: ColumnLayout {
+        // spacing: Private.FormCardUnits.verticalSpacing
+        spacing: Kirigami.Settings.isMobile ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
+        QQC2.Label {
+            id: pathLabel
             Layout.fillWidth: true
-            placeholderText: root.placeholderText
-            text: root.text
-            onTextChanged: root.text = text
-            onAccepted: {
-                if (root.enableSuggest)
+            text: root.label
+            elide: Text.ElideRight
+            color: root.enabled ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
+            wrapMode: Text.Wrap
+            maximumLineCount: 2
+            Accessible.ignored: true
+        }
+        RowLayout {
+            spacing: Kirigami.Units.largeSpacing
+            QQC2.TextField {
+                id: textField
+                property QQC2.Popup popup: null
+                Layout.fillWidth: true
+                placeholderText: root.placeholderText
+                text: root.text
+                onTextChanged: root.text = text
+                onAccepted: {
+                    if (root.enableSuggest)
+                        textField.popup?.close()
+                    root.accepted()
+                }
+                onEditingFinished: root.editingFinished()
+                onTextEdited: {
+                    root.textEdited()
+                    if (!root.enableSuggest)
+                        return
+                    if (length > 0)
+                        root.updateSuggestions()
+                    else
+                        textField.popup?.close()
+                }
+                activeFocusOnTab: false
+                Keys.onDownPressed: {
+                    if (root.enableSuggest) {
+                        textField.popup.forceActiveFocus();
+                        popup?.hintListView.itemAtIndex(0)?.forceActiveFocus();
+                    }
+                }
+                Keys.onTabPressed: (event) => {
+                    if (textField.popup?.visible) {
+                        if (folderModel.hintCount) {
+                            let fileName = folderModel.get(folderModel.hintArray[0], "fileName")
+                            if (folderModel.isFolder(folderModel.hintArray[0])) {
+                                folderModel.dir += fileName + folderModel.separator
+                                textField.text = folderModel.dir
+                            } else {
+                                textField.text = folderModel.dir + fileName
+                                // TODO: hide textField.popup or allow to go trough suggestions with TAB key
+                            }
+                        }
+                    } else
+                        event.accepted = false
+                }
+                Keys.onEscapePressed: (event) => {
                     textField.popup?.close()
-                root.accepted()
-            }
-            onEditingFinished: root.editingFinished()
-            onTextEdited: {
-                root.textEdited()
-                if (!root.enableSuggest)
-                    return
-                if (length > 0)
-                    root.updateSuggestions()
-                else
-                    textField.popup?.close()
-            }
-            activeFocusOnTab: false
-            Keys.onDownPressed: {
-                if (root.enableSuggest) {
-                    textField.popup.forceActiveFocus();
-                    hintListView.itemAtIndex(0)?.forceActiveFocus();
+                    event.accepted = false
+                }
+                Keys.onPressed: (event) => { // handle pasting text
+                    if (root.enableSuggest && event.matches(StandardKey.Paste)) {
+                        folderModel.lastSlash = textField.text.lastIndexOf(folderModel.separator) + 1
+                        folderModel.dir = textField.text.slice(0, folderModel.lastSlash)
+                        // after paste updateSuggestions() will be triggered by textChanged
+                    } else
+                        event.accepted = false
                 }
             }
-            Keys.onTabPressed: (event) => {
-                if (textField.popup.visible) {
-                    if (folderModel.hintCount) {
-                        let fileName = folderModel.get(folderModel.hintArray[0], "fileName")
-                        if (folderModel.isFolder(folderModel.hintArray[0])) {
-                            folderModel.dir += fileName + folderModel.separator
-                            textField.text = folderModel.dir
-                        } else {
-                            textField.text = folderModel.dir + fileName
-                            // TODO: hide textField.popup or allow to go trough suggestions with TAB key
+            QQC2.Button {
+                id: button
+                icon: root.icon
+                onClicked: {
+                    if (root.pathType === FormPathDelegate.File) {
+                        if (root.dialogNameFilters.length === 0) {
+                            for (var i = 0; i < root.nameFilters.length; ++i) {
+                                root.dialogNameFilters.push("(" + root.nameFilters[i] + ")")
+                            }
                         }
-                    }
-                } else
-                    event.accepted = false
-            }
-            Keys.onEscapePressed: (event) => {
-                textField.popup?.close()
-                event.accepted = false
-            }
-            Keys.onPressed: (event) => { // handle pasting text
-                if (root.enableSuggest && event.matches(StandardKey.Paste)) {
-                    folderModel.lastSlash = textField.text.lastIndexOf(folderModel.separator) + 1
-                    folderModel.dir = textField.text.slice(0, folderModel.lastSlash)
-                    // after paste updateSuggestions() will be triggered by textChanged
-                } else
-                    event.accepted = false
-            }
-        }
-        QQC2.Button {
-            id: button
-            icon: root.icon
-            onClicked: {
-                if (root.pathType === FormPathDelegate.File) {
-                    if (root.dialogNameFilters.length === 0) {
-                        for (var i = 0; i < root.nameFilters.length; ++i) {
-                            root.dialogNameFilters.push("(" + root.nameFilters[i] + ")")
-                        }
-                    }
-                    fileDlgComp.createObject(root, { currentFile: folderModel.prefix + folderModel.dir, nameFilters: root.dialogNameFilters })
-                } else
-                    folderDlgComp.createObject(root)
+                        fileDlgComp.createObject(root, { currentFile: folderModel.prefix + folderModel.dir, nameFilters: root.dialogNameFilters })
+                    } else
+                        folderDlgComp.createObject(root)
+                }
             }
         }
     }
@@ -295,6 +317,7 @@ FormCard.AbstractFormDelegate {
     Component {
         id: popupComp
         QQC2.Popup {
+            property alias hintListView: hintListView
             y: textField.height
             x: Kirigami.Units.gridUnit
             width: textField.width - Kirigami.Units.gridUnit * 2
