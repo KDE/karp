@@ -32,6 +32,7 @@ target_sources(deafed PUBLIC
     pdfpageitem.cpp
     pdfsorganizer.cpp
     toolsthread.cpp
+    pagerange.cpp
 )
 
 target_link_libraries(deafed
