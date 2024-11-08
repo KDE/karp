@@ -173,9 +173,17 @@ FormCard.AbstractFormDelegate {
         }
     }
 
-    onClicked: textField.forceActiveFocus()
-    background: null
+    onClicked: {
+        if (!Kirigami.Settings.isMobile)
+            textField.forceActiveFocus()
+    }
+
     Accessible.role: Accessible.EditableText
+
+    Component.onCompleted: { // keep background on mobile to visualize tap
+        if (!Kirigami.Settings.isMobile)
+            background.destroy()
+    }
 
     contentItem: ColumnLayout {
         // spacing: Private.FormCardUnits.verticalSpacing
@@ -194,10 +202,18 @@ FormCard.AbstractFormDelegate {
             spacing: Kirigami.Units.largeSpacing
             QQC2.TextField {
                 id: textField
+                readOnly: Kirigami.Settings.isMobile
+                activeFocusOnPress: !Kirigami.Settings.isMobile
                 property QQC2.Popup popup: null
                 Layout.fillWidth: true
                 placeholderText: root.placeholderText
                 text: root.text
+                onPressed: (event) => {
+                    if (Kirigami.Settings.isMobile) {
+                        event.accepted = false
+                        root.openDialog()
+                    }
+                }
                 onTextChanged: root.text = text
                 onAccepted: {
                     if (root.enableSuggest)
@@ -259,9 +275,8 @@ FormCard.AbstractFormDelegate {
                                 root.dialogNameFilters.push("(" + root.nameFilters[i] + ")")
                             }
                         }
-                        fileDlgComp.createObject(root, { currentFile: folderModel.prefix + folderModel.dir, nameFilters: root.dialogNameFilters })
-                    } else
-                        folderDlgComp.createObject(root)
+                    }
+                    root.openDialog()
                 }
             }
         }
@@ -312,6 +327,13 @@ FormCard.AbstractFormDelegate {
             textField.popup.open()
         } else
             textField.popup?.close()
+    }
+
+    function openDialog() {
+        if (root.pathType === FormPathDelegate.File)
+            fileDlgComp.createObject(root, { currentFile: folderModel.prefix + folderModel.dir, nameFilters: root.dialogNameFilters })
+        else
+            folderDlgComp.createObject(root)
     }
 
     Component {
