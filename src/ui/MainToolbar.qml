@@ -15,9 +15,15 @@ Kirigami.ActionToolBar {
 
     actions: [
         Kirigami.Action {
+            icon.name: "edit-delete"
+            icon.color: "red"
+            tooltip: i18n("Select pages to delete")
+            onTriggered: delDlgComp.createObject()
+        },
+        Kirigami.Action {
             id: labelsAction
             icon.name: "label"
-            tooltip: i18n("show page labels")
+            tooltip: i18n("Show page labels")
             checkable: true
             checked: true
         },
@@ -48,4 +54,14 @@ Kirigami.ActionToolBar {
             }
         }
     ]
+
+    Component {
+        id: delDlgComp
+        SelectPagesDialog {
+            visible: true
+            title: i18n("Delete selected pages")
+            pageCount: pdfModel.pageCount
+            onAccepted: pdfModel.deletePages(range)
+        }
+    }
 }
