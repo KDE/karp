@@ -24,11 +24,16 @@
 
 #include "deafedconfig.h"
 
-using namespace Qt::Literals::StringLiterals;
+#ifdef Q_OS_WINDOWS
+#include <windows.h>
+#endif
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
 #endif
+
+using namespace Qt::Literals::StringLiterals;
+
 int main(int argc, char *argv[])
 {
 #ifdef Q_OS_ANDROID
@@ -45,8 +50,12 @@ int main(int argc, char *argv[])
 
 #ifdef Q_OS_WINDOWS
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONOUT$", "w", stderr);
+        FILE *outFile = freopen("CONOUT$", "w", stdout);
+        if (!outFile)
+            qWarning() << "Failed to reopen stdout";
+        FILE *errFile = freopen("CONOUT$", "w", stderr);
+        if (!errFile)
+            qWarning() << "Failed to reopen stderr";
     }
 
     QApplication::setStyle(QStringLiteral("breeze"));
