@@ -8,6 +8,7 @@
 
 class QQuickWindow;
 class ToolsThread;
+class PageRange;
 
 class DeafEd : public QObject
 {
@@ -51,6 +52,8 @@ public:
 
     // helpers
     Q_INVOKABLE QColor alpha(const QColor &c, int alpha);
+
+    Q_INVOKABLE PageRange range(int from, int to);
 
 Q_SIGNALS:
     void pdfLoadedChanged();

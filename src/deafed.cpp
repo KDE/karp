@@ -3,6 +3,7 @@
 
 #include "deafed.h"
 #include "deafedconfig.h"
+#include "pagerange.h"
 #include "pdfeditmodel.h"
 #include "toolsthread.h"
 #include <KLocalizedString>
@@ -144,6 +145,14 @@ QString DeafEd::gsVersion() const
 QColor DeafEd::alpha(const QColor &c, int alpha)
 {
     return QColor(c.red(), c.green(), c.blue(), alpha);
+}
+
+PageRange DeafEd::range(int from, int to)
+{
+    PageRange pr;
+    pr.setFrom(from);
+    pr.setTo(to);
+    return pr;
 }
 
 void DeafEd::findToolsSlot()
