@@ -10,6 +10,7 @@
 class QPdfDocument;
 class QPdfPageRenderer;
 class PdfFile;
+class PageRange;
 
 /**
  * @brief @p PdfEditModel handles pages from PDF document
@@ -87,6 +88,7 @@ public:
 
     Q_INVOKABLE void addRotation(int pageId, int angle);
     Q_INVOKABLE void addDeletion(int pageId);
+    Q_INVOKABLE void deletePages(const PageRange &range);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
 
     Q_INVOKABLE QStringList getMetaDataModel(int fileId);

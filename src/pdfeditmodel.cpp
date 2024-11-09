@@ -3,6 +3,7 @@
 
 #include "pdfeditmodel.h"
 #include "deafedconfig.h"
+#include "pagerange.h"
 #include "pdffile.h"
 #include "toolsthread.h"
 #include <KLazyLocalizedString>
@@ -221,6 +222,44 @@ void PdfEditModel::addDeletion(int pageId)
     m_pages--;
     m_rows = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
     endResetModel();
+    Q_EMIT pageCountChanged();
+    Q_EMIT editedChanged();
+}
+
+/**
+ * NOTICE: @p PageRange is numbering pages from 1, 0 is invalid
+ */
+void PdfEditModel::deletePages(const PageRange &range)
+{
+    if (range.from() < 1 || range.from() > m_pages || range.to() < 1 || range.to() > m_pages) {
+        qDebug() << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n();
+        return;
+    }
+    // qDebug() << range.from() << range.to() << range.type() << range.n();
+    int from, to;
+    int step = range.type() == PageRange::EveryNPage ? range.n() : 1;
+    beginResetModel();
+    if (range.type() == PageRange::AllOutOfRange) {
+        // At first, delete what is after the range to preserve numbering at the beginning
+        from = range.to();
+        to = m_pages;
+        for (int p = from; p < to; ++p) {
+            m_deletedList << m_pageList.takeAt(from);
+            m_pages--;
+        }
+    }
+    from = range.type() == PageRange::AllOutOfRange ? 0 : range.from() - 1;
+    to = range.type() == PageRange::AllOutOfRange ? range.from() - 2 : range.to() - 1;
+    QVector<int> toTakeList;
+    for (int p = from; p <= to; p += step) {
+        toTakeList << p;
+    }
+    while (!toTakeList.empty()) {
+        m_deletedList << m_pageList.takeAt(toTakeList.takeLast());
+        m_pages--;
+    }
+    endResetModel();
+    Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
 }
 
@@ -233,7 +272,7 @@ int PdfEditModel::addMove(int pageNr, int toPage)
         return -1;
 
     m_wasMoved = true;
-    if (toPage / m_columns < pageNr / m_columns) // QVector::move method workaround when moving backward from other row
+    if (toPage / m_columns < pageNr / m_columns) // QVector::workaround for 'move' method when moving backward from other row
         toPage++;
     m_pageList.move(pageNr, toPage);
     Q_EMIT editedChanged();
@@ -438,7 +477,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
         return pageNr;
     case RolePageRatio: {
         if (pageNr >= m_pages)
-            return QSize();
+            return 1;
         auto pageSize = pdf->pagePointSize(page->origPage());
         return pageSize.height() / pageSize.width();
     }
