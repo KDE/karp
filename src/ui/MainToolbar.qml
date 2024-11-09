@@ -19,7 +19,7 @@ Kirigami.ActionToolBar {
             icon.color: "red"
             tooltip: i18n("Select pages to delete")
             onTriggered: {
-                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn : 1
+                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
                 delDlgComp.createObject(null, { range: PDFED.range(pageNr, pageNr) })
             }
         },
