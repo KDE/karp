@@ -8,6 +8,8 @@ Item {
     id: editDelg
     anchors.fill: parent
 
+    visible: current
+
     /**
      * Calculates page number from given @p mouse position
      */
@@ -85,5 +87,22 @@ Item {
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
         icon.name: "arrow-left"
         onClicked: movePage(pageNr, pageNr - 1)
+    }
+
+    /**
+     * This Mouse gives possibility to clear current index and hide EditDelegate
+     * When current index is cleared, it changes parent to delegate item directly
+     * to be clickable and allow revert current index on this cell
+     */
+    MouseArea {
+        id: ma
+        anchors.fill: parent
+        onClicked: {
+            if (current)
+                pdfView.selectionModel.clearCurrentIndex()
+            else
+                pdfView.selectionModel.setCurrentIndex(pdfView.index(pageNr / pdfView.columns, pageNr % pdfView.columns), ItemSelectionModel.Current)
+            ma.parent = current ? editDelg : editDelg.parent
+        }
     }
 }
