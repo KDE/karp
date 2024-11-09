@@ -35,6 +35,7 @@ FormCard.FormCardPage {
             enabled: staticPathRadio.checked
             pathType: FormPathDelegate.Folder
             path: DeafEdConf.fixedLastDir
+            labelVisible: false
             onAccepted: DeafEdConf.fixedLastDir = path
         }
     }

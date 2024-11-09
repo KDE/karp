@@ -17,10 +17,10 @@ FormCard.FormCardPage {
             text: "QPDF " + (PDFED.qpdfVersion === "" ? i18n("not found") : PDFED.qpdfVersion)
             description: i18n("Allows PDF page arrangements.")
         }
-        FormCard.FormDelegateSeparator {}
         FormPathDelegate {
             icon.name: "system-run"
             path: DeafEdConf.qpdfPath
+            labelVisible: false
             onAccepted: PDFED.checkQPDF(text)
         }
     }
@@ -30,10 +30,10 @@ FormCard.FormCardPage {
             text: "GPL Ghostscript " + (PDFED.gsVersion === "" ? i18n("not found") : PDFED.gsVersion)
             description: i18n("Manage size and quality of output PDF file.")
         }
-        FormCard.FormDelegateSeparator {}
         FormPathDelegate {
             icon.name: "system-run"
             path: DeafEdConf.gsPath
+            labelVisible: false
             onAccepted: PDFED.checkGS(text)
         }
     }
