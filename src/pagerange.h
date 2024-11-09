@@ -19,7 +19,10 @@ class PageRange
     Q_PROPERTY(int from READ from WRITE setFrom)
     Q_PROPERTY(int to READ to WRITE setTo)
     Q_PROPERTY(int n READ n WRITE setN)
-    Q_PROPERTY(int type READ typeInt WRITE setTypeInt)
+    Q_PROPERTY(int type READ type WRITE setTypeInt)
+    Q_PROPERTY(bool allInRange READ allInRange)
+    Q_PROPERTY(bool everyN READ everyN)
+    Q_PROPERTY(bool allOutOfRange READ allOutOfRange)
 
 public:
     PageRange()
@@ -45,8 +48,11 @@ public:
 
     PageRange::RangeType type() const;
     void setType(RangeType rType);
-    int typeInt() const;
     void setTypeInt(int rType);
+
+    bool allInRange() const;
+    bool everyN() const;
+    bool allOutOfRange() const;
 
 private:
     int m_from = 1;

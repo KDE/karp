@@ -84,6 +84,7 @@ Kirigami.Dialog {
                     QQC2.ButtonGroup.group: radioGr
                 }
                 QQC2.SpinBox {
+                    enabled: everyNpageRadio.checked
                     id: nSpin
                     from: 1
                     to: inner.selectedCount / 2
@@ -104,9 +105,9 @@ Kirigami.Dialog {
         fromSpin.value = range.from
         toSpin.value = range.to
         nSpin.value = range.n
-        allPagesRadio.checked = range.type === PageRange.AllInRange
-        everyNpageRadio.checked = range.type === PageRange.EveryNPage
-        allOutRadio.checked = range.type === PageRange.AllOutOfRange
+        allPagesRadio.checked = range.allInRange
+        everyNpageRadio.checked = range.everyN
+        allOutRadio.checked = range.allOutOfRange
     }
 
     onAccepted: {

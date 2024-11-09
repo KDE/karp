@@ -43,12 +43,22 @@ void PageRange::setType(RangeType rType)
     m_type = rType;
 }
 
-int PageRange::typeInt() const
-{
-    return static_cast<int>(m_type);
-}
-
 void PageRange::setTypeInt(int rType)
 {
     m_type = static_cast<RangeType>(rType);
+}
+
+bool PageRange::allInRange() const
+{
+    return m_type == AllInRange;
+}
+
+bool PageRange::everyN() const
+{
+    return m_type == EveryNPage;
+}
+
+bool PageRange::allOutOfRange() const
+{
+    return m_type == AllOutOfRange;
 }
