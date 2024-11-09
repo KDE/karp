@@ -6,7 +6,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
-import "../src/ui/Settings/"
+import "../src/qml/Settings/"
 
 /**
  * Test for FormPathDelegate

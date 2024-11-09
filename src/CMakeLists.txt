@@ -7,21 +7,21 @@ qt_add_qml_module(deafed
     URI org.kde.deafed
     VERSION 1.0
     QML_FILES
-        ui/Main.qml
-        ui/About.qml
-        ui/MainPage.qml
-        ui/MainToolbar.qml
-        ui/EditDelegate.qml
-        ui/SelectPagesDialog.qml
-        ui/PdfMetadataDialog.qml
-        ui/PdfFilesDialog.qml
-        ui/PdfFileDelegate.qml
-        ui/Settings/SettingsPage.qml
-        ui/Settings/PdfTools.qml
-        ui/Settings/General.qml
-        ui/Settings/FormPathDelegate.qml
-        ui/Messages/MissingPdfTool.qml
-        ui/Messages/ProgressDialog.qml
+        qml/Main.qml
+        qml/About.qml
+        qml/MainPage.qml
+        qml/MainToolbar.qml
+        qml/EditDelegate.qml
+        qml/PdfFileDelegate.qml
+        qml/Dialogs/SelectPagesDialog.qml
+        qml/Dialogs/PdfMetadataDialog.qml
+        qml/Dialogs/PdfFilesDialog.qml
+        qml/Settings/SettingsPage.qml
+        qml/Settings/PdfTools.qml
+        qml/Settings/General.qml
+        qml/Settings/FormPathDelegate.qml
+        qml/Messages/MissingPdfTool.qml
+        qml/Messages/ProgressDialog.qml
 )
 
 target_sources(deafed PUBLIC

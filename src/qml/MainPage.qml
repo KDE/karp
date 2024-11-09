@@ -208,6 +208,6 @@ Kirigami.Page {
         if (initFiles.length === 1)
             pdfModel.loadPdfFile(initFiles[0])
         else if (initFiles.length > 1)
-            Qt.createComponent("qrc:/qt/qml/org/kde/deafed/ui/PdfFilesDialog.qml").createObject(page, { pdfEdit: pdfModel, initFiles: initFiles })
+            Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel, initFiles: initFiles })
     }
 }
