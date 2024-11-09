@@ -68,37 +68,39 @@ Kirigami.Dialog {
                 }
             }
         }
-        QQC2.RadioButton {
-            id: allPagesRadio
-            text: i18n("all pages in selected range")
-            QQC2.ButtonGroup.group: radioGr
-        }
-        RowLayout {
-            enabled: inner.selectedCount > 1
-            spacing: Kirigami.Units.largeSpacing
+        ColumnLayout {
+            Layout.alignment: Qt.AlignHCenter
             QQC2.RadioButton {
-                id: everyNpageRadio
-                text: i18n("every")
+                id: allPagesRadio
+                text: i18n("all pages in selected range")
                 QQC2.ButtonGroup.group: radioGr
             }
-            QQC2.SpinBox {
-                id: nSpin
-                from: 1
-                to: inner.selectedCount / 2
+            RowLayout {
+                enabled: inner.selectedCount > 1
+                spacing: Kirigami.Units.largeSpacing
+                QQC2.RadioButton {
+                    id: everyNpageRadio
+                    text: i18n("every %1 page", nSpin.value)
+                    QQC2.ButtonGroup.group: radioGr
+                }
+                QQC2.SpinBox {
+                    id: nSpin
+                    from: 1
+                    to: inner.selectedCount / 2
+                }
             }
-            QQC2.Label { text: i18n("page") }
-        }
-        QQC2.RadioButton {
-            id: allOutRadio
-            enabled: inner.selectedCount < root.pageCount
-            text: i18n("all pages out of range")
-            QQC2.ButtonGroup.group: radioGr
+            QQC2.RadioButton {
+                id: allOutRadio
+                enabled: inner.selectedCount < root.pageCount
+                text: i18n("all pages out of range")
+                QQC2.ButtonGroup.group: radioGr
+            }
         }
     }
 
     Component.onCompleted: {
         standardButton(Kirigami.Dialog.Ok).text = i18n("Select pages")
-        // Do not bind result properties
+        // Do not bind result properties, assign them just one
         fromSpin.value = range.from
         toSpin.value = range.to
         nSpin.value = range.n
