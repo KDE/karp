@@ -3,7 +3,13 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-project(deafed VERSION 0.1)
+# KDE Applications version, managed by release script.
+set(RELEASE_SERVICE_VERSION_MAJOR "25")
+set(RELEASE_SERVICE_VERSION_MINOR "03")
+set(RELEASE_SERVICE_VERSION_MICRO "70")
+set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
+
+project(deafed VERSION ${RELEASE_SERVICE_VERSION})
 
 include(FeatureSummary)
 
@@ -37,6 +43,11 @@ if (NOT ANDROID)
 endif()
 
 find_package(Qt6 ${QT6_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg Pdf ${QT_EXTRA_COMPONENTS})
+
+if (QT_KNOWN_POLICY_QTP0004)
+    qt_policy(SET QTP0004 NEW)
+endif ()
+
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Kirigami CoreAddons Config I18n)
 find_package(KF6KirigamiAddons ${KIRIGAMI_ADDONS_MIN_VERSION})
 set_package_properties(KF6KirigamiAddons PROPERTIES
