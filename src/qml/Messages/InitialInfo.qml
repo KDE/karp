@@ -4,29 +4,25 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 
-Column {
+FormCard.FormCard {
     id: root
 
     signal clicked()
 
     width: parent.width
+    height: addButt.height + Kirigami.Units.gridUnit * 2
     anchors { centerIn: parent; margins: Kirigami.Units.gridUnit }
-    spacing: Kirigami.Units.largeSpacing
-
-    QQC2.Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        icon.name: "list-add"
-        onClicked: root.clicked()
-    }
-    QQC2.Label {
-        anchors.horizontalCenter: parent.horizontalCenter
-        width: Math.min(parent.width - Kirigami.Units.gridUnit * 2, Kirigami.Units.gridUnit * 30)
-        horizontalAlignment: QQC2.Label.AlignHCenter
-        text: i18n("Select one or more PDF files.\n\
-When more files is selected - order them first.\n\
+    FormCard.FormButtonDelegate {
+        id: addButt
+        icon.name: "application-pdf"
+        text: i18n("Select one or more PDF files.")
+        description: i18n(
+"When more files is selected - order them first.\n\
 Then arrange all pages: reorder, rotate, remove.\n\
-At the end save new PDF with selected options.")
-        wrapMode: QQC2.Label.WordWrap
+At the end save new PDF with selected options."
+        )
+        onClicked: root.clicked()
     }
 }
