@@ -51,11 +51,7 @@ void DeafEd::saveWindowGeometry(QQuickWindow *window, const QString &group) cons
 
 QString DeafEd::getPdfFile()
 {
-    QString lastPath = deafedConfig::self()->lastDir();
-    if (lastPath.isEmpty()) {
-        lastPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
-    }
-    auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), lastPath, u"*.pdf"_s);
+    auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), getOpenDIr(), u"*.pdf"_s);
     if (pdfFile.isEmpty())
         return QString();
 
@@ -81,6 +77,17 @@ QStringList DeafEd::getInitFileList()
             initFiles << argString;
     }
     return initFiles;
+}
+
+QString DeafEd::getOpenDIr() const
+{
+    auto conf = deafedConfig::self();
+    if (conf->openLastDir())
+        return conf->lastDir();
+    else if (conf->fixedLastDir().isEmpty())
+        return QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
+    else
+        return conf->fixedLastDir();
 }
 
 void DeafEd::checkQPDF(const QString &qpdfPath)

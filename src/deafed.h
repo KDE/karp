@@ -33,6 +33,11 @@ public:
 
     Q_INVOKABLE QStringList getInitFileList();
 
+    /**
+     * Directory path depends on user preferences: static or last opened
+     */
+    Q_INVOKABLE QString getOpenDIr() const;
+
     Q_INVOKABLE void checkQPDF(const QString &qpdfPath);
     Q_INVOKABLE void checkGS(const QString &gsPath);
 
