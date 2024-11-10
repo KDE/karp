@@ -21,6 +21,7 @@ Item {
 
     QQC2.Button {
         id: dragButt
+        z: 1
         anchors.centerIn: parent
         icon.name: "transform-move"
         MouseArea {
@@ -45,17 +46,20 @@ Item {
         }
     }
     QQC2.Button {
+        z: 1
         anchors { bottom: parent.bottom; left: parent.left }
         icon.name: "edit-delete"
         icon.color: "red"
         onClicked: pdfModel.addDeletion(pageNr)
     }
     QQC2.Button {
+        z: 1
         anchors { top: parent.top; left: parent.left }
         icon.name: "object-rotate-left"
         onClicked: pdfModel.addRotation(pageNr, img.rotation > -270 ? img.rotation - 90 : 0)
     }
     QQC2.Button {
+        z: 1
         anchors { top: parent.top; right: parent.right }
         icon.name: "object-rotate-right"
         onClicked: pdfModel.addRotation(pageNr, img.rotation < 270 ? img.rotation + 90 : 0)
@@ -63,6 +67,7 @@ Item {
     // move at upper row
     QQC2.Button {
         visible: pageNr > pdfView.columns
+        z: 1
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
         icon.name: "arrow-up"
         onClicked: movePage(pageNr, pageNr - pdfView.columns - 1)
@@ -70,6 +75,7 @@ Item {
     // move at lower row
     QQC2.Button {
         visible: pageNr < pdfModel.pageCount - pdfView.columns
+        z: 1
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
         icon.name: "arrow-down"
         onClicked: movePage(pageNr, pageNr + pdfView.columns)
@@ -77,6 +83,7 @@ Item {
     // move at next column
     QQC2.Button {
         visible: pageNr < pdfModel.pageCount - 1
+        z: 1
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
         icon.name: "arrow-right"
         onClicked: movePage(pageNr, pageNr + 1)
@@ -84,6 +91,7 @@ Item {
     // move at previous column
     QQC2.Button {
         visible: pageNr > 0
+        z: 1
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
         icon.name: "arrow-left"
         onClicked: movePage(pageNr, pageNr - 1)
