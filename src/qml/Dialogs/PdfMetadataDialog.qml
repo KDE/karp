@@ -3,12 +3,13 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.deafed
 
 FormCard.FormCardDialog {
-    property alias metaDataModel: fieldRepeater.model
+    required property var pdfModel
 
     title: i18n("PDF properties")
     visible: true
@@ -17,27 +18,46 @@ FormCard.FormCardDialog {
     width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9)
     height: Math.min(Kirigami.Units.gridUnit * 30, mainWin.height * 0.9)
 
+    padding: Kirigami.Units.largeSpacing
 
-    Flickable {
-        x: parent.width * 0.05; y: parent.height * 0.05
-        width: parent.width * 0.9
-        height: parent.height * 0.9 - Kirigami.Units.gridUnit * 2
-        contentWidth: width; contentHeight: metaCard.height
-        clip: true
-        FormCard.FormCard {
-            id: metaCard
-            width: parent.width
+    QQC2.ButtonGroup { id: tabsGr }
+
+    contentItem: ColumnLayout {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Flow {
+            id: tabBar
+            visible: pdfModel?.pdfCount > 1
+            Layout.fillWidth: true
+            spacing: Kirigami.Units.largeSpacing
             Repeater {
-                id: fieldRepeater
-                FormCard.FormCard {
-                    required property string modelData
-                    property var metaData: modelData.split("|")
-                    FormCard.FormTextFieldDelegate {
-                        label: metaData[0]
-                        text: metaData[1]
-                    }
+                model: pdfModel.pdfCount
+                Kirigami.Chip {
+                    QQC2.ButtonGroup.group: tabsGr
+                    text: pdfModel.getPdfName(index).replace(".pdf", "")
+                    checkable: true
+                    closable: false
+                    checked: index === 0
+                    onClicked: metaView.model = pdfModel.getMetaDataModel(index)
                 }
             }
+        }
+        Kirigami.CardsListView {
+            id: metaView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            clip: true
+            model: pdfModel.getMetaDataModel(0)
+            delegate: FormCard.FormCard {
+                width: parent.width
+                required property string modelData
+                property var metaData: modelData.split("|")
+                FormCard.FormTextFieldDelegate {
+                    label: metaData[0]
+                    text: metaData[1]
+                }
+            }
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
     }
 
