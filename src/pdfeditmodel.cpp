@@ -48,6 +48,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
         return;
     }
     addPdfFileToModel(newPdf);
+    deafedConfig::self()->setLastDir(m_pdfList.last()->dir());
 }
 
 void PdfEditModel::addPdfs(QVector<PdfFile *> &pdfList)
@@ -55,6 +56,7 @@ void PdfEditModel::addPdfs(QVector<PdfFile *> &pdfList)
     for (auto &pdf : pdfList) {
         addPdfFileToModel(pdf);
     }
+    deafedConfig::self()->setLastDir(pdfList.last()->dir());
 }
 
 int PdfEditModel::pageCount() const
