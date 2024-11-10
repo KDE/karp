@@ -79,6 +79,11 @@ QStringList DeafEd::getInitFileList()
     return initFiles;
 }
 
+QStringList DeafEd::getPdfFiles()
+{
+    return QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files"), getOpenDIr(), u"*.pdf"_s);
+}
+
 QString DeafEd::getOpenDIr() const
 {
     auto conf = deafedConfig::self();

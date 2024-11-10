@@ -30,6 +30,7 @@ public:
     Q_INVOKABLE void saveWindowGeometry(QQuickWindow *window, const QString &group = QLatin1String("main")) const;
 
     Q_INVOKABLE QString getPdfFile();
+    Q_INVOKABLE QStringList getPdfFiles();
 
     Q_INVOKABLE QStringList getInitFileList();
 

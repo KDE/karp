@@ -74,7 +74,7 @@ Kirigami.Page {
 
     InitialInfo {
         visible: !pdfModel.pageCount
-        onClicked: pdfModel.loadPdfFile(PDFED.getPdfFile())
+        onClicked: openPDFs(PDFED.getPdfFiles())
     }
 
     PdfEditModel {
@@ -201,10 +201,17 @@ Kirigami.Page {
     }
 
     Component.onCompleted: {
-        var initFiles = PDFED.getInitFileList()
-        if (initFiles.length === 1)
-            pdfModel.loadPdfFile(initFiles[0])
-        else if (initFiles.length > 1)
-            Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel, initFiles: initFiles })
+        openPDFs(PDFED.getInitFileList())
+    }
+
+    /**
+     * Common function to handle @p pdfFiles argument.
+     * When it is just single file - load it immediately or open PdfFilesDialog
+     */
+    function openPDFs(pdfFiles) {
+        if (pdfFiles.length === 1)
+            pdfModel.loadPdfFile(pdfFiles[0])
+        else if (pdfFiles.length > 1)
+            Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel, initFiles: pdfFiles })
     }
 }
