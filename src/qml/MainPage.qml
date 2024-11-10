@@ -72,18 +72,15 @@ Kirigami.Page {
         }
     ]
 
+    InitialInfo {
+        visible: !pdfModel.pageCount
+        onClicked: pdfModel.loadPdfFile(PDFED.getPdfFile())
+    }
+
     PdfEditModel {
         id: pdfModel
         viewWidth: pdfView.width
         spacing: pdfView.columnSpacing
-    }
-
-    QQC2.Button {
-        visible: !pdfModel.pageCount
-        anchors.centerIn: parent
-        text: i18n("Select PDF file")
-        icon.name: "application-pdf"
-        onClicked: pdfModel.loadPdfFile(PDFED.getPdfFile())
     }
 
     Rectangle {

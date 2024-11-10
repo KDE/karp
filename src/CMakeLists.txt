@@ -13,15 +13,19 @@ qt_add_qml_module(deafed
         qml/MainToolbar.qml
         qml/EditDelegate.qml
         qml/PdfFileDelegate.qml
+
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/PdfMetadataDialog.qml
         qml/Dialogs/PdfFilesDialog.qml
+
         qml/Settings/SettingsPage.qml
         qml/Settings/PdfTools.qml
         qml/Settings/General.qml
         qml/Settings/FormPathDelegate.qml
+
         qml/Messages/MissingPdfTool.qml
         qml/Messages/ProgressDialog.qml
+        qml/Messages/InitialInfo.qml
 )
 
 target_sources(deafed PUBLIC
