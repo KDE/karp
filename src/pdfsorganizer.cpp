@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QPdfDocument>
 #include <QStandardPaths>
+#include <QTimer>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -25,7 +26,7 @@ PdfListModel::PdfListModel(QObject *parent)
 int PdfListModel::appendFile(const QString &pdfFile)
 {
     auto newPdf = new PdfFile(pdfFile, m_rows);
-    if (newPdf->pageCount() < 1) { // do not add empty/wrong file
+    if (!(newPdf->error() == QPdfDocument::Error::None || newPdf->error() == QPdfDocument::Error::IncorrectPassword)) {
         newPdf->deleteLater();
         return 0;
     }
@@ -99,6 +100,20 @@ void PdfListModel::remove(int fileId)
     endRemoveRows();
 }
 
+int PdfListModel::setPdfPassword(int fileId, const QString &pass)
+{
+    if (fileId < 0 || fileId >= rows())
+        return 0;
+    auto pdf = getPdfFile(fileId);
+    pdf->setPassword(pass);
+    pdf->load(pdf->filePath());
+    if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
+        remove(fileId);
+        return 0;
+    }
+    Q_EMIT dataChanged(index(fileId, 0), index(fileId, 0), QList<int>() << RolePageCount);
+    return pdf->pageCount();
+}
 // #################################################################################################
 // ###################            PdfsOrganizer         ############################################
 // #################################################################################################
@@ -186,10 +201,37 @@ void PdfsOrganizer::aplyNewFiles()
     m_editModel->addPdfs(newFiles);
 }
 
+void PdfsOrganizer::setPdfPassword(int fileId, const QString &pass)
+{
+    int pagesAdded = m_fileModel->setPdfPassword(fileId, pass);
+    if (pagesAdded) {
+        m_totalPages += pagesAdded;
+        Q_EMIT totalPagesChanged();
+        auto passFileId = m_passFiles.takeFirst();
+        if (passFileId != fileId)
+            qDebug() << "[PdfsOrganizer]" << "Password Ids don't match. FIXME!" << fileId << passFileId;
+        if (!m_passFiles.isEmpty()) {
+            int nextFileId = m_passFiles.first();
+            Q_EMIT passwordRequired(m_fileModel->getPdfFile(nextFileId)->name(), nextFileId);
+        }
+    }
+}
+
 void PdfsOrganizer::addPdfList(const QStringList &pdfList)
 {
     for (auto &pdfFile : pdfList) {
         m_totalPages += m_fileModel->appendFile(pdfFile);
+        auto pdf = m_fileModel->lastPdf();
+        if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
+            bool askForPass = m_passFiles.isEmpty();
+            m_passFiles << m_fileModel->rows() - 1;
+            if (askForPass) {
+                // ask for password with some delay to instantiate all QML stuff
+                QTimer::singleShot(200, this, [=] {
+                    Q_EMIT passwordRequired(pdf->name(), m_passFiles.first());
+                });
+            }
+        }
     }
     if (!pdfList.isEmpty())
         Q_EMIT totalPagesChanged();

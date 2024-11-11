@@ -59,6 +59,8 @@ public:
     Q_INVOKABLE void move(int fromId, int toId);
     Q_INVOKABLE void remove(int fileId);
 
+    int setPdfPassword(int fileId, const QString &pass);
+
 private:
     int m_rows = 0;
 
@@ -100,11 +102,19 @@ public:
 
     Q_INVOKABLE void aplyNewFiles();
 
+    Q_INVOKABLE void setPdfPassword(int fileId, const QString &pass);
+
 Q_SIGNALS:
     void editModelChanged();
     void fileModelChanged();
     void totalPagesChanged();
     void initFilesChanged(); // dummy
+
+    /**
+     * Emitted when PDF file requires password to open.
+     * 1st argument is file name and 2nd is file id in the list
+     */
+    void passwordRequired(const QString &, int);
 
 protected:
     void addPdfList(const QStringList &pdfList);
@@ -113,4 +123,5 @@ private:
     PdfEditModel *m_editModel = nullptr;
     PdfListModel *m_fileModel;
     int m_totalPages = 0;
+    QList<int> m_passFiles;
 };

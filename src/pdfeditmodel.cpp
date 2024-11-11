@@ -441,7 +441,6 @@ QColor PdfEditModel::labelColor(int fileId)
 
 void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
 {
-    qDebug() << fileId << pass;
     if (fileId < 0 || fileId >= pdfCount())
         return;
     auto pdf = m_pdfList[fileId];

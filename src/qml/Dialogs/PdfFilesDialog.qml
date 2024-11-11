@@ -16,13 +16,19 @@ FormCard.FormCardDialog {
 
     title: i18n("Add and arrange PDF files")
     visible: true
-    width: mainWin.width - Kirigami.Units.gridUnit * 2
-    height: mainWin.height - Kirigami.Units.gridUnit * 2
+    width: Kirigami.ApplicationWindow.window.width - Kirigami.Units.gridUnit * 2
+    height: Kirigami.ApplicationWindow.window.height - Kirigami.Units.gridUnit * 2
+    // popupType: FormCard.FormCardDialog.Native
 
     standardButtons: QQC2.DialogButtonBox.Cancel | QQC2.DialogButtonBox.Apply
 
     PdfsOrganizer {
         id: pdfOrg
+        onPasswordRequired: (fName, fId) => {
+            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page, { fileName: fName, fileId: fId })
+            passDlg.accepted.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, passDlg.passKey) })
+            passDlg.rejected.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, "") })
+        }
     }
 
     // place this information atop of footer - on the left. There is plenty of space
@@ -35,8 +41,10 @@ FormCard.FormCardDialog {
         text: i18n("Total pages") + ": " + pdfOrg.totalPages
     }
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         Layout.margins: Kirigami.Units.gridUnit
+        Layout.fillHeight: true
+        Layout.fillWidth: true
 
         Kirigami.ActionToolBar {
             id: toolBar
