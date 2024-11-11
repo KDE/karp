@@ -62,6 +62,8 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
         return m_pdfFiles[index.row()]->pageCount();
     case RoleLocked:
         return m_pdfFiles[index.row()]->state() == PdfFile::PdfLoaded;
+    case RoleAllPages:
+        return m_pdfFiles[index.row()]->range().type() == PageRange::AllInRange;
     default:
         return QVariant();
     }
@@ -69,7 +71,7 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfListModel::roleNames() const
 {
-    return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}, {RoleLocked, "locked"}};
+    return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}, {RoleLocked, "locked"}, {RoleAllPages, "selectAll"}};
 }
 
 void PdfListModel::move(int fromId, int toId)
@@ -166,7 +168,7 @@ bool PdfsOrganizer::addMorePDFs()
     if (lastPath.isEmpty())
         lastPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
 
-    auto pdfList = QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files to append"), lastPath, u"*.pdf"_s);
+    auto pdfList = QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files"), lastPath, u"*.pdf"_s);
     addPdfList(pdfList);
     return !pdfList.isEmpty();
 }

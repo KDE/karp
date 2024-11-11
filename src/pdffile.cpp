@@ -33,7 +33,8 @@ void PdfFile::setFile(const QString &fileName)
     QFileInfo pdfInfo(fileName);
     m_dir = pdfInfo.canonicalPath() + QDir::separator();
     m_name = pdfInfo.fileName();
-    load(fileName); // TODO: check load result
+    load(fileName);
+    m_range.setTo(pageCount());
 }
 
 void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId)

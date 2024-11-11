@@ -8,12 +8,14 @@ import QtQuick.Layouts
 import org.kde.deafed
 
 Kirigami.AbstractCard {
+    id: fileDelg
     property ListView lv: ListView.view
     required property int index
     required property string path
     required property string fileName
     required property int pageCount
     required property bool locked
+    required property bool selectAll
 
     z: dragArea.pressed ? 5 : 1
 
@@ -86,19 +88,23 @@ Kirigami.AbstractCard {
                 Kirigami.ActionToolBar {
                     actions: [
                         Kirigami.Action {
-                            enabled: false
-                            text: i18n("Add only odd pages")
+                            enabled: !locked
+                            visible: false
+                            text: i18n("Add all pages")
                             icon.name: "page-simple"
+                            checkable: true
+                            checked: selectAll
                         },
                         Kirigami.Action {
-                            enabled: false
-                            text: i18n("Add only even pages")
+                            enabled: !locked
+                            visible: false
+                            text: i18n("Add selected pages")
                             icon.name: "page-simple"
-                        },
-                        Kirigami.Action {
-                            enabled: false
-                            text: i18n("Add every N page")
-                            icon.name: "page-simple"
+                            checkable: true
+                            checked: !selectAll
+                            onTriggered: {
+                                selectComp.createObject()
+                            }
                         },
                         Kirigami.Action {
                             text: i18n("Remove from list")
@@ -110,4 +116,14 @@ Kirigami.AbstractCard {
             } // RowLayout
         } // Rectangle
     } // Item (contentItem)
+
+    Component {
+        id: selectComp
+        SelectPagesDialog {
+            visible: true
+            title: i18n("Select pages to add")
+            pageCount: fileDelg.pageCount
+            onAccepted: console.log("Accepted")
+        }
+    }
 }

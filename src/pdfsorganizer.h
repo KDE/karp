@@ -27,6 +27,7 @@ public:
         RoleFileName,
         RolePageCount,
         RoleLocked,
+        RoleAllPages,
     };
 
     /**

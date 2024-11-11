@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "pagerange.h"
 #include <QPdfDocument>
 
 class QPdfDocument;
@@ -25,8 +26,7 @@ public:
     enum PdfFileFlags : quint8 {
         PdfNotAdded = 0, /**< Initial state when file was not yet loaded to the model */
         PdfLoaded,
-        PdfEvenOnly,
-        PdfOddOnly,
+        PdfAllPages,
         PdfEveryNPage,
     };
 
@@ -76,6 +76,11 @@ public:
         return m_dir + m_name;
     }
 
+    PageRange range() const
+    {
+        return m_range;
+    }
+
     /**
      * Request rendering image for @p pdfPage of @p pageId in pages list.
      * Saves rendered @p QImage and emits @p pageRendered() when ready.
@@ -106,6 +111,6 @@ private:
     QPdfPageRenderer *m_renderer = nullptr;
     QString m_dir;
     QString m_name;
-    quint16 m_Nstep = 1;
+    PageRange m_range;
     QVector<PageToRender> m_pagesToRender;
 };
