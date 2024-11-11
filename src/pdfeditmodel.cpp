@@ -118,17 +118,6 @@ bool PdfEditModel::edited() const
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || m_reduceSize;
 }
 
-QString PdfEditModel::command() const
-{
-    return m_command;
-}
-
-void PdfEditModel::setCommand(const QString &cmd)
-{
-    m_command = cmd;
-    Q_EMIT commandChanged();
-}
-
 bool PdfEditModel::optimizeImages() const
 {
     return m_optimizeImages;
@@ -382,8 +371,7 @@ void PdfEditModel::generate()
     if (!r270.isEmpty())
         args << getPagesForRotation(270, r270);
     args << out;
-    setCommand(u"qpdf"_s + u" "_s + args.join(u" "_s));
-    qDebug().noquote() << m_command;
+    qDebug().noquote() << "qpdf" << args.join(u" "_s);
     p.setArguments(args);
     p.start();
     p.waitForFinished();

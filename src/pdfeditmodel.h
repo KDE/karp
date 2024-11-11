@@ -26,7 +26,6 @@ class PdfEditModel : public QAbstractTableModel
     Q_PROPERTY(qreal maxPageWidth READ maxPageWidth NOTIFY maxPageWidthChanged)
     Q_PROPERTY(qreal spacing READ spacing WRITE setSpacing NOTIFY spacingChanged)
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
-    Q_PROPERTY(QString command READ command NOTIFY commandChanged)
     Q_PROPERTY(bool optimizeImages READ optimizeImages WRITE setOptimizeImages NOTIFY optimizeImagesChanged)
     Q_PROPERTY(bool reduceSize READ reduceSize WRITE setReduceSize NOTIFY reduceSizeChanged)
     Q_PROPERTY(qreal progress READ progress NOTIFY progressChanged)
@@ -57,9 +56,6 @@ public:
     void setSpacing(qreal sp);
 
     bool edited() const;
-
-    QString command() const;
-    void setCommand(const QString &cmd);
 
     bool optimizeImages() const;
     void setOptimizeImages(bool optImgs);
@@ -135,7 +131,6 @@ Q_SIGNALS:
     void maxPageWidthChanged();
     void spacingChanged();
     void editedChanged();
-    void commandChanged();
     void optimizeImagesChanged();
     void reduceSizeChanged();
     void progressChanged();
@@ -178,7 +173,6 @@ private:
     qreal m_maxPageWidth = 100.0;
     qreal m_viewWidth = 1.0;
     qreal m_spacing = 1.0;
-    QString m_command;
     int m_prefPageWidth = 200;
     // PDF modifications
     quint16 m_rotatedCount = 0;
