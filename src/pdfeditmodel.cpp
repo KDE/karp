@@ -448,10 +448,11 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     pdf->setFile(pdf->filePath());
     if (pdf->error() != QPdfDocument::Error::None) {
         qDebug() << "[PdfEditModel] Wrong password!" << pdf->error();
+        m_pdfList.remove(fileId);
         pdf->deleteLater();
-        return;
+    } else {
+        insertPdfPages(pdf);
     }
-    insertPdfPages(pdf);
 }
 
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
@@ -576,6 +577,7 @@ void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
     pdf->setState(PdfFile::PdfLoaded); // TODO = handle other states
     connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
     if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
+        // It occurs only when app is called with one file argument
         Q_EMIT passwordRequired(pdf->name(), pdfCount() - 1);
         return;
     }
