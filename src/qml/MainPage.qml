@@ -204,10 +204,6 @@ Kirigami.Page {
         Kirigami.Action { icon.name: "snap-page" }
     }
 
-    Component.onCompleted: {
-        openPDFs(PDFED.getInitFileList())
-    }
-
     /**
      * Common function to handle @p pdfFiles argument.
      * When it is just single file - load it immediately or open PdfFilesDialog

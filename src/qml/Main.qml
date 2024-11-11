@@ -15,7 +15,10 @@ Kirigami.ApplicationWindow {
 
     onClosing: PDFED.saveWindowGeometry(mainWin)
 
-    Component.onCompleted: PDFED.restoreWindowGeometry(mainWin)
+    Component.onCompleted: {
+        PDFED.restoreWindowGeometry(mainWin)
+        mainPage.openPDFs(PDFED.getInitFileList())
+    }
 
     globalDrawer: Kirigami.GlobalDrawer {
         title: i18n("Simple PDF editor")
