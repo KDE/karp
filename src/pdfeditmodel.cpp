@@ -42,8 +42,8 @@ PdfEditModel::~PdfEditModel()
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
 {
     auto newPdf = new PdfFile(pdfFile, pdfCount());
-    if (newPdf->pageCount() < 1) {
-        qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile;
+    if (!(newPdf->error() == QPdfDocument::Error::None || newPdf->error() == QPdfDocument::Error::IncorrectPassword)) {
+        qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile << newPdf->error();
         newPdf->deleteLater();
         return;
     }
@@ -439,6 +439,22 @@ QColor PdfEditModel::labelColor(int fileId)
     return m_labelColors[fileId % m_labelColors.count()];
 }
 
+void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
+{
+    qDebug() << fileId << pass;
+    if (fileId < 0 || fileId >= pdfCount())
+        return;
+    auto pdf = m_pdfList[fileId];
+    pdf->setPassword(pass);
+    pdf->setFile(pdf->filePath());
+    if (pdf->error() != QPdfDocument::Error::None) {
+        qDebug() << "[PdfEditModel] Wrong password!" << pdf->error();
+        pdf->deleteLater();
+        return;
+    }
+    insertPdfPages(pdf);
+}
+
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= m_rows || index.column() < 0 || index.column() >= m_columns)
@@ -560,6 +576,15 @@ void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
     m_pdfList << pdf;
     pdf->setState(PdfFile::PdfLoaded); // TODO = handle other states
     connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
+    if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
+        Q_EMIT passwordRequired(pdf->name(), pdfCount() - 1);
+        return;
+    }
+    insertPdfPages(pdf);
+}
+
+void PdfEditModel::insertPdfPages(PdfFile *pdf)
+{
     int pagesToAdd = pdf->pageCount();
     for (int i = 0; i < pagesToAdd; ++i) {
         m_pageList << PdfPage(i, pdf->referenceFileId());

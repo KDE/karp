@@ -103,6 +103,8 @@ public:
 
     Q_INVOKABLE QColor labelColor(int fileId);
 
+    Q_INVOKABLE void setPdfPassword(int fileId, const QString &pass);
+
     PdfPage *page(int p)
     {
         return &m_pageList[p];
@@ -139,6 +141,12 @@ Q_SIGNALS:
     void progressChanged();
     void pdfGenerated();
 
+    /**
+     * Emitted when PDF file requires password to open.
+     * 1st argument is file name and 2nd is file id in the list
+     */
+    void passwordRequired(const QString &, int);
+
 protected:
     QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
     void changeColumnCount(int colCnt);
@@ -151,6 +159,7 @@ protected:
     void pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage);
 
     void addPdfFileToModel(PdfFile *pdf);
+    void insertPdfPages(PdfFile *pdf);
 
     QStringList getQPDFargs(const QVector<QVector<quint16>> &chunks);
 
