@@ -186,6 +186,10 @@ Kirigami.Page {
                     nameAct.children.push(newAct)
             }
         }
+        function onPasswordRequired(fName, fId) {
+            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page, { fileName: fName, fileId: fId })
+            passDlg.accepted.connect(function(){ pdfModel.setPdfPassword(passDlg.fileId, passDlg.passKey) })
+        }
     }
 
     Connections {
