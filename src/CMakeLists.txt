@@ -17,6 +17,7 @@ qt_add_qml_module(deafed
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/PdfMetadataDialog.qml
         qml/Dialogs/PdfFilesDialog.qml
+        qml/Dialogs/PdfPassDialog.qml
 
         qml/Settings/SettingsPage.qml
         qml/Settings/PdfTools.qml
