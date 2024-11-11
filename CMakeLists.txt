@@ -13,7 +13,11 @@ project(deafed VERSION ${RELEASE_SERVICE_VERSION})
 
 include(FeatureSummary)
 
-set(QT6_MIN_VERSION 6.8.0)
+if (BSD)
+    set(QT6_MIN_VERSION 6.7.0)
+else()
+    set(QT6_MIN_VERSION 6.8.0)
+endif()
 set(KF6_MIN_VERSION 6.0.0)
 set(KIRIGAMI_ADDONS_MIN_VERSION 1.5.0)
 
