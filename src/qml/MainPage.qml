@@ -65,6 +65,18 @@ Kirigami.Page {
                 onTriggered: pdfModel.reduceSize = checked
             }
             Kirigami.Action {
+                icon.name: "lock"
+                text: i18n("Set password")
+                checkable: true
+                checked: pdfModel.passKey !== ""
+                onTriggered: {
+                    let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page,
+                        { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: "", passKey: pdfModel.passKey })
+                    passDlg.accepted.connect(function(){ pdfModel.passKey = passDlg.passKey })
+                    passDlg.rejected.connect(function(){ pdfModel.passKey = "" })
+                }
+            }
+            Kirigami.Action {
                 icon.name: "viewpdf"
                 text: i18n("PDF properties")
                 onTriggered: Qt.createComponent("org.kde.deafed", "PdfMetadataDialog").createObject(page, { pdfModel: pdfModel })
