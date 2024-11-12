@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 import QtQuick.Layouts
 
 Kirigami.PromptDialog {
@@ -12,27 +13,28 @@ Kirigami.PromptDialog {
     required property string fileName
     required property int fileId
     property alias passKey: passField.text
+    property alias passLabel: passField.label
 
     visible: true
     title: i18n("Password required")
-    subtitle: i18n("Provide password to open file %1", "\n" + fileName)
     standardButtons: QQC2.DialogButtonBox.Cancel | QQC2.DialogButtonBox.Ok
     closePolicy: Kirigami.PromptDialog.NoAutoClose
-    popupType: Kirigami.PromptDialog.Native
+    // popupType: Kirigami.PromptDialog.Native
 
     // when dialog is too narrow it looks ugly
     width: Math.min(Kirigami.Units.gridUnit * 30, Kirigami.ApplicationWindow.window.width - Kirigami.Units.gridUnit * 2)
 
     ColumnLayout {
-        QQC2.TextField {
-            id: passField
-            Layout.fillWidth: true
-            echoMode: QQC2.TextField.PasswordEchoOnEdit
-            placeholderText: "*****"
-            onAccepted: passDialog.accept()
+        FormCard.FormCard {
+            FormCard.FormPasswordFieldDelegate {
+                id: passField
+                label: i18n("Provide password to open file %1", "\n" + fileName)
+                onAccepted: passDialog.accept()
+            }
         }
     }
 
     Component.onCompleted: passField.forceActiveFocus()
+
     onClosed: destroy()
 }
