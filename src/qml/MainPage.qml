@@ -139,25 +139,22 @@ Kirigami.Page {
                 Behavior on y { enabled: img.enableAnimation; NumberAnimation {} }
                 rotation: rotated
             }
-            Loader {
-                active: bottomBar.labelsVisible
+            Rectangle {
+                visible: bottomBar.labelsVisible
                 anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
                 height: Kirigami.Units.gridUnit * 2
                 width: height * 3
-                sourceComponent: Rectangle {
-                    anchors.fill: parent
-                    color: pdfModel.labelColor(fileId)
-                    Text {
-                        x: Kirigami.Units.smallSpacing
-                        width: parent.width - x * 2; height: parent.height
-                        horizontalAlignment: Text.AlignRight
-                        verticalAlignment: Text.AlignVCenter
-                        color: "#fff"
-                        fontSizeMode: Text.Fit
-                        minimumPixelSize: 6
-                        font { pixelSize: parent.height * 0.8; bold: true }
-                        text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + (pdfModel.pdfCount > 1 ? "/" + (fileId + 1) : "") + ")</font>"
-                    }
+                color: pdfModel.labelColor(fileId)
+                Text {
+                    x: Kirigami.Units.smallSpacing
+                    width: parent.width - x * 2; height: parent.height
+                    horizontalAlignment: Text.AlignRight
+                    verticalAlignment: Text.AlignVCenter
+                    color: "#fff"
+                    fontSizeMode: Text.Fit
+                    minimumPixelSize: 6
+                    font { pixelSize: parent.height * 0.8; bold: true }
+                    text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + (pdfModel.pdfCount > 1 ? "/" + (fileId + 1) : "") + ")</font>"
                 }
             }
             TableView.editDelegate: EditDelegate {}
