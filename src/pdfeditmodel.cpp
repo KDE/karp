@@ -115,7 +115,7 @@ void PdfEditModel::setSpacing(qreal sp)
 
 bool PdfEditModel::edited() const
 {
-    return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || m_reduceSize || !m_passKey.isEmpty();
+    return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty();
 }
 
 bool PdfEditModel::optimizeImages() const
