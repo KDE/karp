@@ -55,6 +55,7 @@ target_link_libraries(deafed
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::Kirigami
+    qpdf::libqpdf
 )
 target_include_directories(deafed PUBLIC ${CMAKE_BINARY_DIR})
 
