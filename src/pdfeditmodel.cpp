@@ -115,7 +115,7 @@ void PdfEditModel::setSpacing(qreal sp)
 
 bool PdfEditModel::edited() const
 {
-    return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || m_reduceSize;
+    return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || m_reduceSize || !m_passKey.isEmpty();
 }
 
 bool PdfEditModel::optimizeImages() const
@@ -144,6 +144,18 @@ void PdfEditModel::setReduceSize(bool redS)
 
     m_reduceSize = redS;
     Q_EMIT reduceSizeChanged();
+    Q_EMIT editedChanged();
+}
+
+QString PdfEditModel::passKey() const
+{
+    return m_passKey;
+}
+
+void PdfEditModel::setPassKey(const QString &pass)
+{
+    m_passKey = pass;
+    Q_EMIT passKeyChanged();
     Q_EMIT editedChanged();
 }
 
@@ -326,9 +338,10 @@ void PdfEditModel::generate()
     p.setProcessChannelMode(QProcess::MergedChannels);
     p.setProgram(conf->qpdfPath());
 
+    QString dash = u"--"_s;
     QStringList args;
     args << pdf->filePath();
-    args << u"--pages"_s << u"."_s;
+    args << dash + u"pages"_s << u"."_s;
 
     QVector<QVector<quint16>> chunks;
     auto &firstPage = m_pageList.first();
@@ -347,11 +360,15 @@ void PdfEditModel::generate()
     }
 
     args << getQPDFargs(chunks);
-    args << u"--"_s;
+    args << dash;
     // images optimization
     if (m_optimizeImages) {
-        // args << u"-recompress-flate"_s << u"--compression-level=9"_s << u"--compress-streams=y"_s << u"--object-streams=generate"_s;
-        args << u"--optimize-images"_s;
+        // args << dash + u"recompress-flate"_s << dash + u"compression-level=9"_s << dash + u"compress-streams=y"_s << dash + u"object-streams=generate"_s;
+        args << dash + u"optimize-images"_s;
+    }
+
+    if (!m_passKey.isEmpty()) {
+        args << dash + u"encrypt"_s << m_passKey << m_passKey << u"256"_s << dash;
     }
     // Rotation of pages - aggregate angles
     // NOTICE: page number (r) refers to number in m_pageList not orig page number in PDF file
@@ -381,6 +398,7 @@ void PdfEditModel::generate()
     if (m_reduceSize) {
         connect(ToolsThread::self(), &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
         ToolsThread::self()->resizeByGs(out, m_pages);
+        // TODO: after gs manipulations output PDF has no proper metadata and no password
     } else
         toolProgressSlot(1.0);
 }
@@ -516,7 +534,7 @@ QString PdfEditModel::getPagesForRotation(int angle, const QVector<quint16> &pag
 {
     QString pRange;
     if (!pageList.isEmpty()) {
-        pRange.append(QString(u"--rotate=+%1:"_s).arg(angle));
+        pRange.append(QString(u"--"_s + u"rotate=+%1:"_s).arg(angle));
         pRange.append(QString::number(pageList[0] + 1));
     }
     int p = 1;

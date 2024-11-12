@@ -28,6 +28,7 @@ class PdfEditModel : public QAbstractTableModel
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
     Q_PROPERTY(bool optimizeImages READ optimizeImages WRITE setOptimizeImages NOTIFY optimizeImagesChanged)
     Q_PROPERTY(bool reduceSize READ reduceSize WRITE setReduceSize NOTIFY reduceSizeChanged)
+    Q_PROPERTY(QString passKey READ passKey WRITE setPassKey NOTIFY passKeyChanged)
     Q_PROPERTY(qreal progress READ progress NOTIFY progressChanged)
 
 public:
@@ -62,6 +63,9 @@ public:
 
     bool reduceSize() const;
     void setReduceSize(bool redS);
+
+    QString passKey() const;
+    void setPassKey(const QString &pass);
 
     qreal progress() const;
     void setProgress(qreal prog);
@@ -133,6 +137,7 @@ Q_SIGNALS:
     void editedChanged();
     void optimizeImagesChanged();
     void reduceSizeChanged();
+    void passKeyChanged();
     void progressChanged();
     void pdfGenerated();
 
@@ -182,4 +187,5 @@ private:
     bool m_reduceSize = false;
     QVector<QColor> m_labelColors;
     qreal m_progress = 0.0;
+    QString m_passKey;
 };
