@@ -6,7 +6,7 @@ Simple PDF editor which can select, delete, rearrange pages, merge PDF files and
 
 Deaf Ed uses [Kirigami framework](https://invent.kde.org/frameworks/kirigami)
 
-It operates on command line programs:
+For now it operates on command line programs:
  * [QPDF](https://qpdf.sourceforge.io)
  * [GPL Ghostscript](https://www.ghostscript.com)
 
@@ -18,12 +18,13 @@ It operates on command line programs:
  * Reducing PDF file size
  * Optimizing images (if possible)
  * Viewing PDF properties
+ * Protect PDF file with password
 
 <img src="extras/reorder.gif"/>
 
 #### Planned features
- * Editing bookmarks (other tool needed, like [pdftk](https://en.wikipedia.org/wiki/PDFtk))
- * Modifying PDF metadata (other tool needed, like [pdftk](https://en.wikipedia.org/wiki/PDFtk))
+ * Editing bookmarks
+ * Modifying PDF metadata
  * Merging 2 PDFs: one for even pages and another one for odd pages
  * Resizing pages
  * Extracting images

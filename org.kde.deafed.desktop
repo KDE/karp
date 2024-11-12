@@ -2,12 +2,10 @@
 # SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 [Desktop Entry]
 Name=deafed
-Comment=Dwaf Ed - Simple PDF editor
+Comment=Deaf Ed - Simple PDF editor
 Version=1.0
 Exec=deafed %U
-Icon=applications-development
+Icon=org.kde.deafed
 Type=Application
 Terminal=false
-# Add an actual main category here (and possibly applicable additional ones)
-#   https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry
-Categories=Qt;KDE;
+Categories=Office;Utility;
