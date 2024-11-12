@@ -363,8 +363,8 @@ void PdfEditModel::generate()
     args << dash;
     // images optimization
     if (m_optimizeImages) {
-        // args << dash + u"recompress-flate"_s << dash + u"compression-level=9"_s << dash + u"compress-streams=y"_s << dash + u"object-streams=generate"_s;
-        args << dash + u"optimize-images"_s;
+        args << dash + u"recompress-flate"_s; // << dash + u"compression-level=9"_s << dash + u"compress-streams=y"_s << dash + u"object-streams=generate"_s;
+        // args << dash + u"optimize-images"_s;
     }
 
     if (!m_passKey.isEmpty()) {
