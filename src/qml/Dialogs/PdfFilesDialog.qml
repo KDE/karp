@@ -25,7 +25,7 @@ FormCard.FormCardDialog {
     PdfsOrganizer {
         id: pdfOrg
         onPasswordRequired: (fName, fId) => {
-            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page, { fileName: fName, fileId: fId })
+            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(pdfsDialog, { fileName: fName, fileId: fId })
             passDlg.accepted.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, passDlg.passKey) })
             passDlg.rejected.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, "") })
         }
