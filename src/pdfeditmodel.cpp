@@ -341,6 +341,8 @@ void PdfEditModel::generate()
     QString dash = u"--"_s;
     QStringList args;
     args << pdf->filePath();
+    if (!pdf->password().isEmpty())
+        args << dash + u"password="_s + pdf->password();
     args << dash + u"pages"_s << u"."_s;
 
     QVector<QVector<quint16>> chunks;
@@ -367,7 +369,19 @@ void PdfEditModel::generate()
         // args << dash + u"optimize-images"_s;
     }
 
-    if (!m_passKey.isEmpty()) {
+    if (m_passKey.isEmpty()) {
+        // if password is not set for output file, find if component file(s) have
+        // and set --decrypt flag to reset any of their password(s)
+        bool hasPass = false;
+        for (auto &pf : m_pdfList) {
+            if (!pf->password().isEmpty()) {
+                hasPass = true;
+                break;
+            }
+        }
+        if (hasPass)
+            args << dash + u"decrypt"_s;
+    } else {
         args << dash + u"encrypt"_s << m_passKey << m_passKey << u"256"_s << dash;
     }
     // Rotation of pages - aggregate angles
@@ -615,8 +629,12 @@ QStringList PdfEditModel::getQPDFargs(const QVector<QVector<quint16>> &chunks)
     QString rangeArgs;
     for (int c = 0; c < chunks.count(); ++c) {
         auto &fileChunk = chunks[c];
-        if (c > 0)
-            args << m_pdfList[fileChunk[0]]->filePath();
+        if (c > 0) {
+            auto pdf = m_pdfList[fileChunk[0]];
+            args << pdf->filePath();
+            if (!pdf->password().isEmpty())
+                args << u"--"_s + u"password="_s + pdf->password();
+        }
         int fromPage = fileChunk[1];
         int toPage = fromPage + 1;
         rangeArgs = QString::number(fromPage + 1);
