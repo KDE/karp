@@ -71,7 +71,7 @@ Kirigami.Page {
                 checked: pdfModel.passKey !== ""
                 onTriggered: {
                     let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page,
-                        { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: "", passKey: pdfModel.passKey })
+                        { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: i18n("Protect PDF file with password."), passKey: pdfModel.passKey })
                     passDlg.accepted.connect(function(){ pdfModel.passKey = passDlg.passKey })
                     passDlg.rejected.connect(function(){ pdfModel.passKey = "" })
                 }
@@ -201,6 +201,7 @@ Kirigami.Page {
         function onPasswordRequired(fName, fId) {
             let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page, { fileName: fName, fileId: fId })
             passDlg.accepted.connect(function(){ pdfModel.setPdfPassword(passDlg.fileId, passDlg.passKey) })
+            passDlg.rejected.connect(function(){ pdfModel.setPdfPassword(passDlg.fileId, "") })
         }
     }
 
