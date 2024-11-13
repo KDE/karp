@@ -369,7 +369,7 @@ void PdfEditModel::generate()
         // args << dash + u"optimize-images"_s;
     }
 
-    if (m_passKey.isEmpty()) {
+    if (m_passKey.isEmpty() || m_reduceSize) { // TODO suppress password if reducing size - for now
         // if password is not set for output file, find if component file(s) have
         // and set --decrypt flag to reset any of their password(s)
         bool hasPass = false;
