@@ -3,9 +3,15 @@
 
 #include "toolsthread.h"
 #include "deafedconfig.h"
+#include "pdffile.h"
+#include "pdfmetadata.h"
+#include "version-deafed.h"
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QProcess>
 
 using namespace Qt::Literals::StringLiterals;
@@ -57,6 +63,14 @@ void ToolsThread::cancel()
     m_doCancel = true;
 }
 
+void ToolsThread::applyMetadata(const QString &pdfPath, PdfMetaData *metadata)
+{
+    m_pathArg = pdfPath;
+    m_metadataArg = metadata;
+    m_mode = ToolsMetadata;
+    start();
+}
+
 QString ToolsThread::qpdfVersion() const
 {
     return m_qpdfVersion;
@@ -83,6 +97,9 @@ void ToolsThread::run()
         resizeByGsThread();
         m_mode = ToolsIdle;
         Q_EMIT progressChanged(1.0);
+    } else if (m_mode == ToolsMetadata) {
+        doMetadata();
+        m_mode = ToolsIdle;
     }
     m_doCancel = false;
 }
@@ -244,4 +261,81 @@ bool ToolsThread::resizeByGsThread()
         QFile::remove(tp);
 
     return true;
+}
+
+void ToolsThread::doMetadata()
+{
+    if (m_pathArg.isEmpty())
+        return;
+    QProcess p;
+    p.setProcessChannelMode(QProcess::MergedChannels);
+    auto conf = deafedConfig::self();
+    QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
+    p.setProgram(conf->qpdfPath());
+    QStringList args;
+    args << u"--json"_s << m_pathArg << tmpPath + QLatin1String("pdf_metadata_out.json");
+    p.setArguments(args);
+    p.start();
+    p.waitForFinished();
+    qDebug().noquote() << p.readAll();
+    p.close();
+    qDebug() << p.program() << args;
+
+    QFile jsonFile(args.last());
+    if (!jsonFile.open(QIODevice::ReadOnly))
+        return;
+
+    QByteArray metaKey;
+    bool metaFound = false;
+    while (!jsonFile.atEnd()) {
+        auto line = jsonFile.readLine();
+        if (line.contains("obj:")) {
+            if (metaFound)
+                break;
+            else
+                metaKey = line;
+        } else {
+            for (auto &k : PdfMetaData::tags()) {
+                if (line.contains(k)) {
+                    metaFound = true;
+                    break;
+                }
+            }
+        }
+    }
+    jsonFile.close();
+    if (metaFound) {
+        auto quotePos = metaKey.indexOf("obj:");
+        metaKey.slice(quotePos);
+        quotePos = metaKey.lastIndexOf("\"");
+        metaKey.truncate(quotePos);
+        // qDebug().noquote() << metaKey;
+    } else {
+        qDebug() << "TODO"; // TODO
+        return;
+    }
+
+    QJsonObject rootJSON;
+    QJsonObject qpdfJSON;
+    qpdfJSON.insert(u"jsonversion"_s, QJsonValue::fromVariant(2));
+    QJsonArray qpdfArray;
+    QJsonObject metaJSON;
+    metaJSON.insert(QLatin1String(metaKey), m_metadataArg->toJSON());
+    qpdfArray.push_back(qpdfJSON);
+    qpdfArray.push_back(metaJSON);
+    rootJSON.insert(u"qpdf"_s, qpdfArray);
+    QJsonDocument json(rootJSON);
+    // qDebug().noquote() << json.toJson();
+    jsonFile.remove();
+    if (!jsonFile.open(QIODevice::WriteOnly))
+        return;
+    jsonFile.write(json.toJson());
+    jsonFile.close();
+    args.clear();
+    args << m_pathArg << u"--replace-input"_s << QLatin1String("--update-from-json=") + jsonFile.fileName();
+    p.setArguments(args);
+    p.start();
+    p.waitForFinished();
+    qDebug() << p.readAll();
+    jsonFile.remove();
 }
