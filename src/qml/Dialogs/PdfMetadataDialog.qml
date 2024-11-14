@@ -9,14 +9,16 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.deafed
 
 FormCard.FormCardDialog {
+    id: metaDlg
+
     required property var pdfModel
 
     title: i18n("PDF properties")
     visible: true
-    standardButtons: QQC2.DialogButtonBox.Close // TODO | QQC2.DialogButtonBox.Save
+    standardButtons: QQC2.DialogButtonBox.Close | QQC2.DialogButtonBox.Save
 
     width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9)
-    height: Math.min(Kirigami.Units.gridUnit * 30, mainWin.height * 0.9)
+    height: Math.min(Kirigami.Units.gridUnit * 40, mainWin.height * 0.9)
 
     padding: Kirigami.Units.largeSpacing
 
@@ -27,40 +29,109 @@ FormCard.FormCardDialog {
         Layout.fillHeight: true
         Flow {
             id: tabBar
-            visible: pdfModel?.pdfCount > 1
             Layout.fillWidth: true
             spacing: Kirigami.Units.largeSpacing
             Repeater {
+                id: chipsRep
                 model: pdfModel.pdfCount
                 Kirigami.Chip {
                     QQC2.ButtonGroup.group: tabsGr
                     text: pdfModel.getPdfName(index).replace(".pdf", "")
                     checkable: true
                     closable: false
-                    checked: index === 0
                     onClicked: metaView.model = pdfModel.getMetaDataModel(index)
                 }
             }
+            Kirigami.Chip {
+                id: outChip
+                QQC2.ButtonGroup.group: tabsGr
+                text: i18n("Output PDF")
+                checkable: true
+                checked: true
+                closable: false
+            }
         }
+
         Kirigami.CardsListView {
             id: metaView
+            visible: !outChip.checked
             Layout.fillWidth: true
             Layout.fillHeight: true
             clip: true
             model: pdfModel.getMetaDataModel(0)
             delegate: FormCard.FormCard {
-                width: parent.width
+                visible: metaData[1] !== ""
+                width: metaView.contentItem.width
+                // height: visible ? implicitHeight : 0
                 required property string modelData
+                required property int index
                 property var metaData: modelData.split("|")
-                FormCard.FormTextFieldDelegate {
-                    label: metaData[0]
+                FormCard.FormSectionText {
+                    visible: parent.visible
+                    text: metaData[0]
+                }
+                FormCard.FormButtonDelegate {
+                    visible: parent.visible
                     text: metaData[1]
+                    onDoubleClicked: {
+                        copyAnim.start()
+                        targetView.itemAtIndex(index).text = text
+                    }
                 }
             }
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
+        Kirigami.CardsListView {
+            id: targetView
+            visible: outChip.checked
+            property var metaArr: pdfModel.getTargetMetaData()
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            clip: true
+            cacheBuffer: Kirigami.Units.gridUnit * 40
+            model: pdfModel.getMetaDataModel(0)
+            delegate: FormCard.FormCard {
+                width: parent?.width
+                required property string modelData
+                required property int index
+                property alias text: metaField.text
+                FormCard.FormTextFieldDelegate {
+                    id: metaField
+                    label: modelData.split("|")[0]
+                    text: targetView.metaArr[index]
+                }
+            }
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+        }
+
+        Kirigami.InlineMessage {
+            visible: true
+            text: i18n("Double click to copy metadata into output PDF file.")
+            icon.source: "edit-copy"
+            Layout.fillWidth: true
+            showCloseButton: true
+        }
     }
 
-    onAccepted: console.log("Not yet implemented")
+    SequentialAnimation {
+        id: copyAnim
+        loops: 5
+        ScriptAction { script: outChip.visible = false }
+        PauseAnimation { duration: Kirigami.Units.shortDuration }
+        ScriptAction { script: outChip.visible = true }
+        PauseAnimation { duration: Kirigami.Units.shortDuration }
+    }
+
+    // At first make targetView visible to create all TextFileds,
+    // then switch to first chip with first PDF metadata
+    Component.onCompleted: {
+        chipsRep.itemAt(0).checked = true
+    }
+
+    onAccepted: {
+        for (let i = 0; i < targetView.count; ++i)
+            targetView.metaArr[i] = targetView.itemAtIndex(i).text
+        pdfModel.setTargetMetaData(targetView.metaArr)
+    }
     onClosed: destroy()
 }
