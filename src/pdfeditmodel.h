@@ -11,6 +11,7 @@ class QPdfDocument;
 class QPdfPageRenderer;
 class PdfFile;
 class PageRange;
+class PdfMetaData;
 
 /**
  * @brief @p PdfEditModel handles pages from PDF document
@@ -91,7 +92,9 @@ public:
     Q_INVOKABLE void deletePages(const PageRange &range);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
 
-    Q_INVOKABLE QStringList getMetaDataModel(int fileId);
+    Q_INVOKABLE QStringList getMetaDataModel(int fileId) const;
+    Q_INVOKABLE QStringList getTargetMetaData() const;
+    Q_INVOKABLE void setTargetMetaData(const QVariant &metaList);
 
     Q_INVOKABLE void generate();
     Q_INVOKABLE void cancel();
@@ -188,4 +191,5 @@ private:
     QVector<QColor> m_labelColors;
     qreal m_progress = 0.0;
     QString m_passKey;
+    PdfMetaData *m_metaData = nullptr;
 };

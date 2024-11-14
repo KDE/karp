@@ -5,6 +5,7 @@
 #include "deafedconfig.h"
 #include "pagerange.h"
 #include "pdffile.h"
+#include "pdfmetadata.h"
 #include "toolsthread.h"
 #include <KLazyLocalizedString>
 #include <QDebug>
@@ -29,6 +30,7 @@ QColor alpha(const QColor &c)
 PdfEditModel::PdfEditModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
+    m_metaData = new PdfMetaData();
     m_prefPageWidth = qApp->screens().first()->size().width() / 4;
     m_columns = INIT_COLUM_COUNT;
     m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
@@ -37,6 +39,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
 PdfEditModel::~PdfEditModel()
 {
     qDeleteAll(m_pdfList);
+    delete m_metaData;
 }
 
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
@@ -115,7 +118,8 @@ void PdfEditModel::setSpacing(qreal sp)
 
 bool PdfEditModel::edited() const
 {
-    return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty();
+    return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
+        || m_metaData->modyfied();
 }
 
 bool PdfEditModel::optimizeImages() const
@@ -286,14 +290,14 @@ int PdfEditModel::addMove(int pageNr, int toPage)
     return toPage;
 }
 
-QStringList PdfEditModel::getMetaDataModel(int fileId)
+QStringList PdfEditModel::getMetaDataModel(int fileId) const
 {
     QStringList mdm;
     if (m_pdfList.isEmpty() || fileId >= pdfCount() || fileId < 0)
         return mdm;
     static const KLazyLocalizedString fNames[]{kli18n("Title"),
-                                               kli18n("Author"),
                                                kli18n("Subject"),
+                                               kli18n("Author"),
                                                kli18n("Keyword"),
                                                kli18n("Producer"),
                                                kli18n("Creator"),
@@ -312,6 +316,17 @@ QStringList PdfEditModel::getMetaDataModel(int fileId)
         mdm << KLocalizedString(fNames[i]).toString() + u"|"_s + value;
     }
     return mdm;
+}
+
+QStringList PdfEditModel::getTargetMetaData() const
+{
+    return m_metaData->model();
+}
+
+void PdfEditModel::setTargetMetaData(const QVariant &metaList)
+{
+    m_metaData->setData(metaList.toStringList());
+    Q_EMIT editedChanged();
 }
 
 void PdfEditModel::generate()
@@ -409,12 +424,14 @@ void PdfEditModel::generate()
     qDebug().noquote().nospace() << p.readAll();
     p.close();
 
+    auto tools = ToolsThread::self();
     if (m_reduceSize) {
-        connect(ToolsThread::self(), &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
-        ToolsThread::self()->resizeByGs(out, m_pages);
+        connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
+        tools->resizeByGs(out, m_pages);
         // TODO: after gs manipulations output PDF has no proper metadata and no password
     } else
         toolProgressSlot(1.0);
+    tools->applyMetadata(out, m_metaData);
 }
 
 void PdfEditModel::cancel()
