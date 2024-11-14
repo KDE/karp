@@ -34,6 +34,7 @@ target_sources(deafed PUBLIC
     deafed.cpp
     pdfpage.cpp
     pdffile.cpp
+    pdfmetadata.cpp
     pdfeditmodel.cpp
     pdfpageitem.cpp
     pdfsorganizer.cpp
