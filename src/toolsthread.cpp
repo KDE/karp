@@ -306,7 +306,7 @@ void ToolsThread::doMetadata()
     jsonFile.close();
     if (metaFound) {
         auto quotePos = metaKey.indexOf("obj:");
-        metaKey.slice(quotePos);
+        metaKey = metaKey.sliced(quotePos);
         quotePos = metaKey.lastIndexOf("\"");
         metaKey.truncate(quotePos);
         // qDebug().noquote() << metaKey;
