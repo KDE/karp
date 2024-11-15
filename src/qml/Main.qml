@@ -26,17 +26,15 @@ Kirigami.ApplicationWindow {
         isMenu: Kirigami.Settings.isMobile
         actions: [
             Kirigami.Action {
-                text: i18n("Add PDF files")
-                icon.name: "list-add"
-                onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(mainPage, {
-                    pdfEdit: mainPage.pdfModel
-                })
+                text: mainPage.addFilesAction.tooltip
+                icon: mainPage.addFilesAction.icon
+                onTriggered: mainPage.addFilesAction.trigger()
             },
             Kirigami.Action {
-                enabled: mainPage.pdfModel.edited
-                icon.name: "document-save"
-                text: i18n("Save")
-                onTriggered: mainPage.generate()
+                enabled: mainPage.saveAction.enabled
+                icon: mainPage.saveAction.icon
+                text: mainPage.saveAction.text
+                onTriggered: mainPage.saveAction.trigger()
             },
             Kirigami.Action {
                 enabled: mainPage.pdfModel.pageCount

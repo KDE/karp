@@ -5,11 +5,14 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.deafed
+import org.kde.deafed.config
 
 Kirigami.Page {
     id: page
 
     property alias pdfModel: pdfModel
+    readonly property alias saveAction: saveAction
+    readonly property alias addFilesAction: addFilesAction
 
     function clearAll() {
         pdfModel.clearAll()
@@ -22,10 +25,12 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
+            id: saveAction
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
             icon.name: "document-save"
-            text: i18n("Save")
+            text: DeafEdConf.askForOutFile ? i18nc("@action:inmenu", "&Save As...") : i18nc("@action:inmenu", "Save")
+            shortcut: StandardKey.Save
             onTriggered: page.generate()
         },
         Kirigami.Action {
@@ -42,8 +47,10 @@ Kirigami.Page {
             icon.color: pdfModel.labelColor(0)
         },
         Kirigami.Action {
+            id: addFilesAction
             icon.name: "list-add"
             tooltip: i18n("Add PDF files")
+            shortcut: StandardKey.Open
             onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
         },
         Kirigami.Action {
