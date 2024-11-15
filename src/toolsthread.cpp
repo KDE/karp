@@ -285,11 +285,11 @@ void ToolsThread::doMetadata()
     if (!jsonFile.open(QIODevice::ReadOnly))
         return;
 
-    QByteArray metaKey;
+    QByteArray metaKey, rootKey;
     bool metaFound = false;
     while (!jsonFile.atEnd()) {
         auto line = jsonFile.readLine();
-        if (line.contains("obj:")) {
+        if (line.contains("obj:"_ba)) {
             if (metaFound)
                 break;
             else
@@ -303,24 +303,53 @@ void ToolsThread::doMetadata()
             }
         }
     }
-    jsonFile.close();
+    int maxObjectId = -1;
     if (metaFound) {
-        auto quotePos = metaKey.indexOf("obj:");
-        metaKey = metaKey.sliced(quotePos);
-        quotePos = metaKey.lastIndexOf("\"");
-        metaKey.truncate(quotePos);
-        // qDebug().noquote() << metaKey;
+        auto pos = metaKey.indexOf("obj:"_ba);
+        metaKey = metaKey.sliced(pos);
+        pos = metaKey.lastIndexOf("\""_ba);
+        metaKey.truncate(pos);
     } else {
-        qDebug() << "TODO"; // TODO
-        return;
+        jsonFile.seek(0);
+        while (!jsonFile.atEnd()) {
+            auto line = jsonFile.readLine();
+            if (line.contains("maxobjectid"_ba)) {
+                auto s = line.split(':');
+                if (s.size() < 2)
+                    return;
+                maxObjectId = QString::fromLatin1(s[1]).toInt();
+                metaKey = QString(u"%1 0 R"_s).arg(maxObjectId + 1).toStdString().data();
+            } else if (line.contains("/Root"_ba)) {
+                auto s = line.split(':');
+                if (s.size() < 2)
+                    return;
+                auto pos = s[1].indexOf("\""_ba);
+                rootKey = s[1].sliced(pos + 1);
+                pos = rootKey.lastIndexOf("\""_ba);
+                rootKey.truncate(pos);
+                break;
+            }
+        }
     }
+    jsonFile.close();
+    // qDebug().noquote() << metaKey;
 
     QJsonObject rootJSON;
     QJsonObject qpdfJSON;
-    qpdfJSON.insert(u"jsonversion"_s, QJsonValue::fromVariant(2));
+    qpdfJSON.insert("jsonversion"_L1, QJsonValue::fromVariant(2));
     QJsonArray qpdfArray;
     QJsonObject metaJSON;
-    metaJSON.insert(QLatin1String(metaKey), m_metadataArg->toJSON());
+    if (maxObjectId > -1) {
+        metaJSON.insert(QLatin1String("obj:"_ba + metaKey), m_metadataArg->toJSON());
+        QJsonObject infoJSON;
+        infoJSON.insert("/Info"_L1, QJsonValue::fromVariant(metaKey));
+        infoJSON.insert("/Root"_L1, QJsonValue::fromVariant(rootKey));
+        QJsonObject valueJSON;
+        valueJSON.insert("value"_L1, infoJSON);
+        metaJSON.insert("trailer"_L1, valueJSON);
+    } else {
+        metaJSON.insert(QLatin1String(metaKey), m_metadataArg->toJSON());
+    }
     qpdfArray.push_back(qpdfJSON);
     qpdfArray.push_back(metaJSON);
     rootJSON.insert(u"qpdf"_s, qpdfArray);
@@ -332,10 +361,10 @@ void ToolsThread::doMetadata()
     jsonFile.write(json.toJson());
     jsonFile.close();
     args.clear();
-    args << m_pathArg << u"--replace-input"_s << QLatin1String("--update-from-json=") + jsonFile.fileName();
+    args << m_pathArg << u"--replace-input"_s << "--update-from-json="_L1 + jsonFile.fileName();
     p.setArguments(args);
     p.start();
     p.waitForFinished();
-    qDebug() << p.readAll();
+    // qDebug() << p.readAll();
     jsonFile.remove();
 }
