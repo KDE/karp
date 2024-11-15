@@ -8,16 +8,16 @@ import org.kde.deafed
 Kirigami.ApplicationWindow {
     id: mainWin
 
-    title: PDFED.name
+    title: APP.name
 
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 20
 
-    onClosing: PDFED.saveWindowGeometry(mainWin)
+    onClosing: APP.saveWindowGeometry(mainWin)
 
     Component.onCompleted: {
-        PDFED.restoreWindowGeometry(mainWin)
-        mainPage.openPDFs(PDFED.getInitFileList())
+        APP.restoreWindowGeometry(mainWin)
+        mainPage.openPDFs(APP.getInitFileList())
     }
 
     globalDrawer: Kirigami.GlobalDrawer {

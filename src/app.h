@@ -10,10 +10,10 @@ class QQuickWindow;
 class ToolsThread;
 class PageRange;
 
-class DeafEd : public QObject
+class App : public QObject
 {
     Q_OBJECT
-    QML_NAMED_ELEMENT(PDFED)
+    QML_NAMED_ELEMENT(APP)
     QML_SINGLETON
 
     Q_PROPERTY(bool pdfLoaded READ pdfLoaded NOTIFY pdfLoadedChanged)
@@ -23,7 +23,7 @@ class DeafEd : public QObject
     Q_PROPERTY(QString gsVersion READ gsVersion NOTIFY toolsVersionChanged)
 
 public:
-    explicit DeafEd(QObject *parent = nullptr);
+    explicit App(QObject *parent = nullptr);
 
     Q_INVOKABLE void restoreWindowGeometry(QQuickWindow *window, const QString &group = QLatin1String("main"));
 

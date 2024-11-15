@@ -93,7 +93,7 @@ Kirigami.Page {
 
     InitialInfo {
         visible: !pdfModel.pageCount
-        onClicked: openPDFs(PDFED.getPdfFiles())
+        onClicked: openPDFs(APP.getPdfFiles())
     }
 
     PdfEditModel {
@@ -210,7 +210,7 @@ Kirigami.Page {
     }
 
     Connections {
-        target: PDFED
+        target: APP
         function onToolIsMissing(warn) {
             Qt.createComponent("org.kde.deafed", "MissingPdfTool").createObject(page, { text: warn })
         }

@@ -27,9 +27,9 @@ Kirigami.AbstractCard {
             width: parent.width; height: parent.height
             color: {
                 if (dragArea.pressed)
-                    return PDFED.alpha(Kirigami.Theme.textColor, 50)
+                    return APP.alpha(Kirigami.Theme.textColor, 50)
                 else if (lv.dragTargetIndex === index)
-                    return PDFED.alpha(Kirigami.Theme.highlightColor, 150)
+                    return APP.alpha(Kirigami.Theme.highlightColor, 150)
                 else
                     return "transparent"
             }

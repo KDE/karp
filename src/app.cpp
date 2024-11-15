@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
-#include "deafed.h"
+#include "app.h"
 #include "deafedconfig.h"
 #include "pagerange.h"
 #include "pdfeditmodel.h"
@@ -15,15 +15,15 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-DeafEd::DeafEd(QObject *parent)
+App::App(QObject *parent)
     : QObject(parent)
 {
     m_tools = new ToolsThread();
-    connect(m_tools, &ToolsThread::lookingDone, this, &DeafEd::findToolsSlot);
+    connect(m_tools, &ToolsThread::lookingDone, this, &App::findToolsSlot);
     m_tools->lookForTools();
 }
 
-void DeafEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
+void App::restoreWindowGeometry(QQuickWindow *window, const QString &group)
 {
     auto conf = deafedConfig::self();
     KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
@@ -34,7 +34,7 @@ void DeafEd::restoreWindowGeometry(QQuickWindow *window, const QString &group)
         conf->setFixedLastDir(QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first());
 }
 
-void DeafEd::saveWindowGeometry(QQuickWindow *window, const QString &group) const
+void App::saveWindowGeometry(QQuickWindow *window, const QString &group) const
 {
     auto conf = deafedConfig::self();
     if (!m_path.isEmpty()) {
@@ -49,7 +49,7 @@ void DeafEd::saveWindowGeometry(QQuickWindow *window, const QString &group) cons
     dataResource.sync();
 }
 
-QString DeafEd::getPdfFile()
+QString App::getPdfFile()
 {
     auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), getOpenDIr(), u"*.pdf"_s);
     if (pdfFile.isEmpty())
@@ -67,7 +67,7 @@ QString DeafEd::getPdfFile()
  * If PDF file list will be passed by file browser we cannot use @p QCommandLineParser
  * which requires some flag for every value, so iterate args and check is any a PDF file.
  */
-QStringList DeafEd::getInitFileList()
+QStringList App::getInitFileList()
 {
     QStringList initFiles;
     for (int a = 1; a < qApp->arguments().count(); ++a) {
@@ -79,12 +79,12 @@ QStringList DeafEd::getInitFileList()
     return initFiles;
 }
 
-QStringList DeafEd::getPdfFiles()
+QStringList App::getPdfFiles()
 {
     return QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files"), getOpenDIr(), u"*.pdf"_s);
 }
 
-QString DeafEd::getOpenDIr() const
+QString App::getOpenDIr() const
 {
     auto conf = deafedConfig::self();
     if (conf->openLastDir())
@@ -95,22 +95,22 @@ QString DeafEd::getOpenDIr() const
         return conf->fixedLastDir();
 }
 
-void DeafEd::checkQPDF(const QString &qpdfPath)
+void App::checkQPDF(const QString &qpdfPath)
 {
     m_tools->lookForQPDF(qpdfPath);
 }
 
-void DeafEd::checkGS(const QString &gsPath)
+void App::checkGS(const QString &gsPath)
 {
     m_tools->lookForGS(gsPath);
 }
 
-bool DeafEd::pdfLoaded() const
+bool App::pdfLoaded() const
 {
     return m_pdfLoaded;
 }
 
-void DeafEd::setPdfLoaded(bool isLoaded)
+void App::setPdfLoaded(bool isLoaded)
 {
     if (isLoaded == m_pdfLoaded)
         return;
@@ -118,12 +118,12 @@ void DeafEd::setPdfLoaded(bool isLoaded)
     Q_EMIT pdfLoadedChanged();
 }
 
-QString DeafEd::name() const
+QString App::name() const
 {
     return m_name;
 }
 
-void DeafEd::setName(QString pdfName)
+void App::setName(QString pdfName)
 {
     if (pdfName == m_name)
         return;
@@ -131,12 +131,12 @@ void DeafEd::setName(QString pdfName)
     Q_EMIT nameChanged();
 }
 
-QString DeafEd::path() const
+QString App::path() const
 {
     return m_path;
 }
 
-void DeafEd::setPath(QString pdfPath)
+void App::setPath(QString pdfPath)
 {
     if (pdfPath == m_path)
         return;
@@ -144,22 +144,22 @@ void DeafEd::setPath(QString pdfPath)
     Q_EMIT pathChanged();
 }
 
-QString DeafEd::qpdfVersion() const
+QString App::qpdfVersion() const
 {
     return m_tools->qpdfVersion();
 }
 
-QString DeafEd::gsVersion() const
+QString App::gsVersion() const
 {
     return m_tools->gsVersion();
 }
 
-QColor DeafEd::alpha(const QColor &c, int alpha)
+QColor App::alpha(const QColor &c, int alpha)
 {
     return QColor(c.red(), c.green(), c.blue(), alpha);
 }
 
-PageRange DeafEd::range(int from, int to)
+PageRange App::range(int from, int to)
 {
     PageRange pr;
     pr.setFrom(from);
@@ -167,7 +167,7 @@ PageRange DeafEd::range(int from, int to)
     return pr;
 }
 
-void DeafEd::findToolsSlot()
+void App::findToolsSlot()
 {
     QString message;
     if (m_tools->qpdfVersion().isEmpty())
@@ -184,4 +184,4 @@ void DeafEd::findToolsSlot()
     Q_EMIT toolsVersionChanged();
 }
 
-#include "moc_deafed.cpp"
+#include "moc_app.cpp"
