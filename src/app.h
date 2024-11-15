@@ -3,14 +3,14 @@
 
 #pragma once
 
-#include <QObject>
+#include <AbstractKirigamiApplication>
 #include <QQmlEngine>
 
 class QQuickWindow;
 class ToolsThread;
 class PageRange;
 
-class App : public QObject
+class App : public AbstractKirigamiApplication
 {
     Q_OBJECT
     QML_NAMED_ELEMENT(APP)
@@ -68,9 +68,21 @@ Q_SIGNALS:
     void toolsVersionChanged();
     void toolIsMissing(const QString &);
     void toolCheckMessage(const QString &);
+    // Main Actions
+    void wantClearAll();
+    void wantSettings();
+    // Main Page Actions
+    void wantSavePdf();
+    void wantOpenPdf();
+    // PDF options
+    void wantOptimize();
+    void wantReduceSize();
+    void wantSetPassword();
+    void wantPdfMeta();
 
 protected:
     void findToolsSlot();
+    void setupActions() override;
 
 private:
     bool m_pdfLoaded = false;

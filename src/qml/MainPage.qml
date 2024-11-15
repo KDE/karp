@@ -12,7 +12,6 @@ Kirigami.Page {
 
     property alias pdfModel: pdfModel
     readonly property alias saveAction: saveAction
-    readonly property alias addFilesAction: addFilesAction
 
     function clearAll() {
         pdfModel.clearAll()
@@ -28,10 +27,8 @@ Kirigami.Page {
             id: saveAction
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
-            icon.name: "document-save"
-            text: DeafEdConf.askForOutFile ? i18nc("@action:inmenu", "&Save As...") : i18nc("@action:inmenu", "Save")
-            shortcut: StandardKey.Save
-            onTriggered: page.generate()
+            fromQAction: APP.action("save_pdf")
+            text: DeafEdConf.askForOutFile ? i18nc("@action:inmenu", "Save As...") : i18nc("@action:inmenu", "Save")
         },
         Kirigami.Action {
             visible: pdfModel.pdfCount > 0
@@ -47,46 +44,29 @@ Kirigami.Page {
             icon.color: pdfModel.labelColor(0)
         },
         Kirigami.Action {
-            id: addFilesAction
-            icon.name: "list-add"
-            tooltip: i18n("Add PDF files")
-            shortcut: StandardKey.Open
-            onTriggered: Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
+            fromQAction: APP.action("open_pdf")
+            text: ""
         },
         Kirigami.Action {
             // visible: pdfModel.pageCount
             icon.name: "settings-configure"
             text: i18n("PDF Options")
             Kirigami.Action {
-                icon.name: "image-x-generic"
-                text: i18n("Optimize images")
-                checkable: true
+                id: optimizeAct
+                fromQAction: APP.action("optimize")
                 checked: pdfModel.optimizeImages
-                onTriggered: pdfModel.optimizeImages = checked
             }
             Kirigami.Action {
-                icon.name: "application-x-compressed-tar"
-                text: i18n("Reduce size")
-                checkable: true
+                id: redSizeAct
+                fromQAction: APP.action("reduce_size")
                 checked: pdfModel.reduceSize
-                onTriggered: pdfModel.reduceSize = checked
             }
             Kirigami.Action {
-                icon.name: "lock"
-                text: i18n("Set password")
-                checkable: true
+                fromQAction: APP.action("set_password")
                 checked: pdfModel.passKey !== ""
-                onTriggered: {
-                    let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page,
-                        { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: i18n("Protect PDF file with password."), passKey: pdfModel.passKey })
-                    passDlg.accepted.connect(function(){ pdfModel.passKey = passDlg.passKey })
-                    passDlg.rejected.connect(function(){ pdfModel.passKey = "" })
-                }
             }
             Kirigami.Action {
-                icon.name: "viewpdf"
-                text: i18n("PDF properties")
-                onTriggered: Qt.createComponent("org.kde.deafed", "PdfMetadataDialog").createObject(page, { pdfModel: pdfModel })
+                fromQAction: APP.action("pdf_meta")
             }
         }
     ]
@@ -213,6 +193,31 @@ Kirigami.Page {
         target: APP
         function onToolIsMissing(warn) {
             Qt.createComponent("org.kde.deafed", "MissingPdfTool").createObject(page, { text: warn })
+        }
+        // Actions
+        function onWantSavePdf() {
+            page.generate()
+        }
+        function onWantOpenPdf() {
+            Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
+        }
+        function onWantClearAll() {
+            page.clearAll()
+        }
+        function onWantOptimize() {
+            pdfModel.optimizeImages = optimizeAct.checked
+        }
+        function onWantReduceSize() {
+            pdfModel.reduceSize = redSizeAct.checked
+        }
+        function onWantSetPassword() {
+            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page,
+                { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: i18n("Protect PDF file with password."), passKey: pdfModel.passKey })
+            passDlg.accepted.connect(function(){ pdfModel.passKey = passDlg.passKey })
+            passDlg.rejected.connect(function(){ pdfModel.passKey = "" })
+        }
+        function onWantPdfMeta() {
+            Qt.createComponent("org.kde.deafed", "PdfMetadataDialog").createObject(page, { pdfModel: pdfModel })
         }
     }
 

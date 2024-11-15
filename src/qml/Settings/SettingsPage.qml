@@ -5,8 +5,6 @@ import QtQuick
 import org.kde.kirigamiaddons.settings as KirigamiSettings
 
 KirigamiSettings.ConfigurationView {
-    window: mainWin // for mobile
-
     modules: [
         KirigamiSettings.ConfigurationModule {
             moduleId: "general"

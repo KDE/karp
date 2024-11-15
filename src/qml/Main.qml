@@ -26,35 +26,24 @@ Kirigami.ApplicationWindow {
         isMenu: Kirigami.Settings.isMobile
         actions: [
             Kirigami.Action {
-                text: mainPage.addFilesAction.tooltip
-                icon: mainPage.addFilesAction.icon
-                onTriggered: mainPage.addFilesAction.trigger()
+                fromQAction: APP.action("open_pdf")
             },
             Kirigami.Action {
-                enabled: mainPage.saveAction.enabled
-                icon: mainPage.saveAction.icon
+                fromQAction: APP.action("save_pdf")
                 text: mainPage.saveAction.text
-                onTriggered: mainPage.saveAction.trigger()
             },
             Kirigami.Action {
+                fromQAction: APP.action("clear_all")
                 enabled: mainPage.pdfModel.pageCount
-                text: i18n("Clear all files")
-                icon.name: "edit-clear-all"
-                onTriggered: mainPage.clearAll()
             },
             Kirigami.Action {
-                text: i18n("Settings")
-                icon.name: "settings-configure"
-                onTriggered: {
-                    if (!settings)
-                        settings = Qt.createComponent("org.kde.deafed", "SettingsPage").createObject(mainWin);
-                    settings.open();
-                }
+                fromQAction: APP.action("options_configure")
             },
+            // Kirigami.Action {
+            //     fromQAction: APP.action('open_kcommand_bar')
+            // },
             Kirigami.Action {
-                text: i18n("About Deaf Ed")
-                icon.name: "help-about"
-                onTriggered: mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/qml/About.qml")
+                fromQAction: APP.action('open_about_page')
             },
             Kirigami.Action {
                 text: i18n("Quit")
@@ -62,6 +51,18 @@ Kirigami.ApplicationWindow {
                 onTriggered: Qt.quit()
             }
         ]
+    }
+
+    Connections {
+        target: APP
+        function onWantSettings(): void {
+            if (!settings)
+                settings = Qt.createComponent("org.kde.deafed", "SettingsPage").createObject(mainWin, { window: mainWin });
+            settings.open();
+        }
+        function onOpenAboutPage(): void {
+            mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/qml/About.qml")
+        }
     }
 
     // private
