@@ -47,19 +47,13 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18n("Always ask for file name")
             checked: DeafEdConf.askForOutFile
-            onToggled: {
-                DeafEdConf.askForOutFile = true
-                console.log(DeafEdConf.askForOutFile)
-            }
+            onToggled: DeafEdConf.askForOutFile = true
         }
         FormCard.FormRadioDelegate {
             id: nameXfixRadio
             text: i18n("Combine with input file name")
             checked: !DeafEdConf.askForOutFile
-            onToggled: {
-                DeafEdConf.askForOutFile = false
-                console.log(DeafEdConf.askForOutFile)
-            }
+            onToggled: DeafEdConf.askForOutFile = false
         }
         FormCard.AbstractFormDelegate {
             contentItem: RowLayout {
