@@ -6,14 +6,13 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-QByteArrayList PdfMetaData::m_tags = QByteArrayList() << QByteArrayLiteral("Title") << QByteArrayLiteral("Subject") << QByteArrayLiteral("Author")
-                                                      << QByteArrayLiteral("Keyword") << QByteArrayLiteral("Creator") << QByteArrayLiteral("Producer")
-                                                      << QByteArrayLiteral("CreationDate") << QByteArrayLiteral("ModDate");
+QByteArrayList PdfMetaData::m_tags = QByteArrayList() << "Title"_ba << "Subject"_ba << "Author"_ba << "Keyword"_ba << "Creator"_ba << "Producer"_ba
+                                                      << "CreationDate"_ba << "ModDate"_ba;
 
 PdfMetaData::PdfMetaData()
 {
-    m_creator = QLatin1String("Deaf Ed ") + QLatin1String("(http://deafed.kde.org)");
-    m_producer = QLatin1String("Deaf Ed ") + QLatin1String(DEAFED_VERSION_STRING);
+    m_creator = "Deaf Ed "_L1 + "(https://deafed.kde.org)"_L1;
+    m_producer = "Deaf Ed "_L1 + QLatin1String(DEAFED_VERSION_STRING);
     m_modDate = QDateTime::currentDateTime();
     m_creationDate = m_modDate;
 }
