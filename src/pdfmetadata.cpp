@@ -6,7 +6,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-QByteArrayList PdfMetaData::m_tags = QByteArrayList() << "Title"_ba << "Subject"_ba << "Author"_ba << "Keyword"_ba << "Creator"_ba << "Producer"_ba
+QByteArrayList PdfMetaData::m_tags = QByteArrayList() << "Title"_ba << "Subject"_ba << "Author"_ba << "Keywords"_ba << "Creator"_ba << "Producer"_ba
                                                       << "CreationDate"_ba << "ModDate"_ba;
 
 PdfMetaData::PdfMetaData()
