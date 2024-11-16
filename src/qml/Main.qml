@@ -26,24 +26,27 @@ Kirigami.ApplicationWindow {
         isMenu: Kirigami.Settings.isMobile
         actions: [
             Kirigami.Action {
-                fromQAction: APP.action("open_pdf")
+                fromQAction: APP.action('open_pdf')
             },
             Kirigami.Action {
-                fromQAction: APP.action("save_pdf")
+                fromQAction: APP.action('save_pdf')
                 text: mainPage.saveAction.text
             },
             Kirigami.Action {
-                fromQAction: APP.action("clear_all")
+                fromQAction: APP.action('clear_all')
                 enabled: mainPage.pdfModel.pageCount
             },
             Kirigami.Action {
-                fromQAction: APP.action("options_configure")
+                fromQAction: APP.action('options_configure')
             },
             // Kirigami.Action {
             //     fromQAction: APP.action('open_kcommand_bar')
             // },
             Kirigami.Action {
                 fromQAction: APP.action('open_about_page')
+            },
+            Kirigami.Action {
+                fromQAction: APP.action('open_about_kde_page')
             },
             Kirigami.Action {
                 text: i18n("Quit")
@@ -61,7 +64,20 @@ Kirigami.ApplicationWindow {
             settings.open();
         }
         function onOpenAboutPage(): void {
-            mainWin.pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/deafed/qml/About.qml")
+            const aboutDlg = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
+                width: mainPage.width
+            }, {
+                width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9),
+                height: Math.min(Kirigami.Units.gridUnit * 30, mainWin.height * 0.8)
+            });
+        }
+        function onOpenAboutKDEPage(): void {
+            const aboutKdeDlg = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {
+                width: mainPage.width
+            }, {
+                width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9),
+                height: Math.min(Kirigami.Units.gridUnit * 30, mainWin.height * 0.8)
+            });
         }
     }
 
