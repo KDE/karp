@@ -60,12 +60,11 @@ FormCard.FormCardDialog {
             clip: true
             model: pdfModel.getMetaDataModel(0)
             delegate: FormCard.FormCard {
-                visible: metaData[1] !== ""
-                width: metaView.contentItem.width
-                // height: visible ? implicitHeight : 0
                 required property string modelData
                 required property int index
                 property var metaData: modelData.split("|")
+                visible: metaData[1] !== ""
+                width: metaView.contentItem.width
                 FormCard.FormSectionText {
                     visible: parent.visible
                     text: metaData[0]
@@ -76,6 +75,21 @@ FormCard.FormCardDialog {
                     onDoubleClicked: {
                         copyAnim.start()
                         targetView.itemAtIndex(index).text = text
+                    }
+                }
+            }
+            footer: FormCard.FormCard {
+                width: metaView.contentItem.width
+                FormCard.FormButtonDelegate {
+                    text: i18n("Copy all metadata keys")
+                    icon.name: "edit-copy"
+                    onDoubleClicked: {
+                        copyAnim.start()
+                        for (var m = 0; m < metaView.count; ++m) {
+                            let it = metaView.itemAtIndex(m)
+                            if (it.visible)
+                                targetView.itemAtIndex(m).text = it.metaData[1]
+                        }
                     }
                 }
             }
@@ -115,7 +129,7 @@ FormCard.FormCardDialog {
 
     SequentialAnimation {
         id: copyAnim
-        loops: 5
+        loops: 4
         ScriptAction { script: outChip.visible = false }
         PauseAnimation { duration: Kirigami.Units.shortDuration }
         ScriptAction { script: outChip.visible = true }
