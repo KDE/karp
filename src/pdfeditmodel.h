@@ -87,9 +87,9 @@ public:
         return m_pageList[nr].origPage();
     }
 
-    Q_INVOKABLE void addRotation(int pageId, int angle);
+    Q_INVOKABLE void rotatePage(int pageId, int angle);
     Q_INVOKABLE void rotatePages(const PageRange &range, int angle);
-    Q_INVOKABLE void addDeletion(int pageId);
+    Q_INVOKABLE void deletePage(int pageId);
     Q_INVOKABLE void deletePages(const PageRange &range);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
 

@@ -50,19 +50,19 @@ Item {
         anchors { bottom: parent.bottom; left: parent.left }
         icon.name: "edit-delete"
         icon.color: "red"
-        onClicked: pdfModel.addDeletion(pageNr)
+        onClicked: pdfModel.deletePage(pageNr)
     }
     QQC2.Button {
         z: 1
         anchors { top: parent.top; left: parent.left }
         icon.name: "object-rotate-left"
-        onClicked: pdfModel.addRotation(pageNr, img.rotation > -270 ? img.rotation - 90 : 0)
+        onClicked: pdfModel.rotatePage(pageNr, img.rotation > -270 ? img.rotation - 90 : 0)
     }
     QQC2.Button {
         z: 1
         anchors { top: parent.top; right: parent.right }
         icon.name: "object-rotate-right"
-        onClicked: pdfModel.addRotation(pageNr, img.rotation < 270 ? img.rotation + 90 : 0)
+        onClicked: pdfModel.rotatePage(pageNr, img.rotation < 270 ? img.rotation + 90 : 0)
     }
     // move at upper row
     QQC2.Button {

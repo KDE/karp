@@ -191,7 +191,7 @@ QDateTime PdfEditModel::creationDate() const
     return m_pdfList.first()->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
 }
 
-void PdfEditModel::addRotation(int pageId, int angle)
+void PdfEditModel::rotatePage(int pageId, int angle)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
@@ -238,6 +238,10 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
         int r = p / m_columns;
         int c = p % m_columns;
         Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+        if (angle)
+            m_rotatedCount++;
+        else
+            m_rotatedCount--;
     }
     if (range.allOutOfRange()) {
         from = range.to(); // we start 1 page after the range.to
@@ -247,12 +251,16 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
             int r = p / m_columns;
             int c = p % m_columns;
             Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+            if (angle)
+                m_rotatedCount++;
+            else
+                m_rotatedCount--;
         }
     }
     Q_EMIT editedChanged();
 }
 
-void PdfEditModel::addDeletion(int pageId)
+void PdfEditModel::deletePage(int pageId)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
@@ -276,9 +284,9 @@ void PdfEditModel::deletePages(const PageRange &range)
 
     // qDebug() << range.from() << range.to() << range.type() << range.n();
     int from, to;
-    int step = range.type() == PageRange::EveryNPage ? range.n() : 1;
+    int step = range.everyN() ? range.n() : 1;
     beginResetModel();
-    if (range.type() == PageRange::AllOutOfRange) {
+    if (range.allOutOfRange()) {
         // At first, delete what is after the range to preserve numbering at the beginning
         from = range.to();
         to = m_pages;
@@ -287,8 +295,8 @@ void PdfEditModel::deletePages(const PageRange &range)
             m_pages--;
         }
     }
-    from = range.type() == PageRange::AllOutOfRange ? 0 : range.from() - 1;
-    to = range.type() == PageRange::AllOutOfRange ? range.from() - 2 : range.to() - 1;
+    from = range.allOutOfRange() ? 0 : range.from() - 1;
+    to = range.allOutOfRange() ? range.from() - 2 : range.to() - 1;
     QVector<int> toTakeList;
     for (int p = from; p <= to; p += step) {
         toTakeList << p;
