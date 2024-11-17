@@ -17,8 +17,10 @@ FormCard.FormCardDialog {
     visible: true
     standardButtons: QQC2.DialogButtonBox.Close | QQC2.DialogButtonBox.Save
 
+    property var mainWin: Kirigami.ApplicationWindow.window
+
     width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9)
-    height: Math.min(Kirigami.Units.gridUnit * 40, mainWin.height * 0.9)
+    height: Math.min(Kirigami.Units.gridUnit * 40, mainWin.height * 0.9 - Kirigami.Units.gridUnit * 2)
 
     padding: Kirigami.Units.largeSpacing
 
@@ -72,29 +74,26 @@ FormCard.FormCardDialog {
                 FormCard.FormButtonDelegate {
                     visible: parent.visible
                     text: metaData[1]
+                    onClicked: singleClickNotification()
                     onDoubleClicked: {
                         copyAnim.start()
                         targetView.itemAtIndex(index).text = text
                     }
                 }
-            }
-            footer: FormCard.FormCard {
-                width: metaView.contentItem.width
-                FormCard.FormButtonDelegate {
-                    text: i18n("Copy all metadata keys")
-                    icon.name: "edit-copy"
-                    onDoubleClicked: {
-                        copyAnim.start()
-                        for (var m = 0; m < metaView.count; ++m) {
-                            let it = metaView.itemAtIndex(m)
-                            if (it.visible)
-                                targetView.itemAtIndex(m).text = it.metaData[1]
-                        }
-                    }
-                }
+                Component.onCompleted: copyAllButton.enabled |= visible
             }
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+            onModelChanged: {
+                if (!metaView.count) // skip check when no delegates instantiated yet
+                    return
+                copyAllButton.enabled = false
+                for (var m = 0; m < metaView.count; ++m) {
+                    // enable 'copy all button only when there is any metadata
+                    copyAllButton.enabled |= metaView.itemAtIndex(m).visible
+                }
+            }
         }
+
         Kirigami.CardsListView {
             id: targetView
             visible: outChip.checked
@@ -118,12 +117,24 @@ FormCard.FormCardDialog {
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
 
-        Kirigami.InlineMessage {
-            visible: true
-            text: i18n("Double click to copy metadata into output PDF file.")
-            icon.source: "edit-copy"
+        FormCard.FormCard {
+            id: copyAllButton
+            visible: metaView.visible
+            enabled: false
             Layout.fillWidth: true
-            showCloseButton: true
+            FormCard.FormButtonDelegate {
+                text: i18n("Copy all metadata keys to output file")
+                icon.name: "edit-copy"
+                onClicked: singleClickNotification()
+                onDoubleClicked: {
+                    copyAnim.start()
+                    for (var m = 0; m < metaView.count; ++m) {
+                        let it = metaView.itemAtIndex(m)
+                        if (it.visible)
+                            targetView.itemAtIndex(m).text = it.metaData[1]
+                    }
+                }
+            }
         }
     }
 
@@ -134,6 +145,11 @@ FormCard.FormCardDialog {
         PauseAnimation { duration: Kirigami.Units.shortDuration }
         ScriptAction { script: outChip.visible = true }
         PauseAnimation { duration: Kirigami.Units.shortDuration }
+    }
+
+    function singleClickNotification(): void {
+        hidePassiveNotification()
+        showPassiveNotification(i18n("Double click to copy metadata into output PDF file."))
     }
 
     // At first make targetView visible to create all TextFileds,
