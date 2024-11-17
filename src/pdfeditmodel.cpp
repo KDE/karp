@@ -219,6 +219,39 @@ void PdfEditModel::addRotation(int pageId, int angle)
     Q_EMIT editedChanged();
 }
 
+void PdfEditModel::rotatePages(const PageRange &range, int angle)
+{
+    if (rangeIsInvalid(range))
+        return;
+
+    int from, to;
+    int step = range.everyN() ? range.n() : 1;
+    if (range.allInRange() || range.everyN()) {
+        from = range.from() - 1;
+        to = range.to();
+    } else {
+        from = 0;
+        to = range.from();
+    }
+    for (int p = from; p < to; p += step) {
+        m_pageList[p].setRotated(angle);
+        int r = p / m_columns;
+        int c = p % m_columns;
+        Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+    }
+    if (range.allOutOfRange()) {
+        from = range.to(); // we start 1 page after the range.to
+        to = m_pages;
+        for (int p = from; p < to; p += step) {
+            m_pageList[p].setRotated(angle);
+            int r = p / m_columns;
+            int c = p % m_columns;
+            Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+        }
+    }
+    Q_EMIT editedChanged();
+}
+
 void PdfEditModel::addDeletion(int pageId)
 {
     if (pageId < 0 || pageId >= m_pages)
@@ -238,10 +271,9 @@ void PdfEditModel::addDeletion(int pageId)
  */
 void PdfEditModel::deletePages(const PageRange &range)
 {
-    if (range.from() < 1 || range.from() > m_pages || range.to() < 1 || range.to() > m_pages) {
-        qDebug() << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n();
+    if (rangeIsInvalid(range))
         return;
-    }
+
     // qDebug() << range.from() << range.to() << range.type() << range.n();
     int from, to;
     int step = range.type() == PageRange::EveryNPage ? range.n() : 1;
@@ -688,6 +720,15 @@ void PdfEditModel::toolProgressSlot(qreal prog)
             Q_EMIT pdfGenerated();
         });
     }
+}
+
+bool PdfEditModel::rangeIsInvalid(const PageRange &range)
+{
+    if (range.from() < 1 || range.from() > m_pages || range.to() < 1 || range.to() > m_pages) {
+        qDebug() << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n();
+        return true;
+    }
+    return false;
 }
 
 #include "moc_pdfeditmodel.cpp"

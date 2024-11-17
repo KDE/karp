@@ -88,6 +88,7 @@ public:
     }
 
     Q_INVOKABLE void addRotation(int pageId, int angle);
+    Q_INVOKABLE void rotatePages(const PageRange &range, int angle);
     Q_INVOKABLE void addDeletion(int pageId);
     Q_INVOKABLE void deletePages(const PageRange &range);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
@@ -167,6 +168,8 @@ protected:
     QStringList getQPDFargs(const QVector<QVector<quint16>> &chunks);
 
     void toolProgressSlot(qreal prog);
+
+    bool rangeIsInvalid(const PageRange &range);
 
 Q_SIGNALS:
     void wantRenderImage(int) const;
