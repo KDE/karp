@@ -95,16 +95,9 @@ Kirigami.ActionToolBar {
                     QQC2.Label { text: i18n("Angle") }
                     QQC2.ComboBox {
                         id: angleCombo
-                        model: [ "90°", "180°", "270°" ]
-                        currentIndex: rotDlg.angle === 90 ? 0 : (rotDlg.angle === 180 ? 1 : 2)
-                        onActivated: (index) => {
-                            if (index === 0)
-                                rotDlg.angle = 90
-                            else if (index === 1)
-                                rotDlg.angle = 180
-                            else
-                                rotDlg.angle = 270
-                        }
+                        model: [ "0°", "90°", "180°", "270°" ]
+                        currentIndex: rotDlg.angle / 90
+                        onActivated: (index) => { rotDlg.angle = currentIndex * 90 }
                     }
                     Item { height: 1; Layout.fillWidth: true }
                 }
