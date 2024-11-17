@@ -50,8 +50,22 @@ public:
     void setType(RangeType rType);
     void setTypeInt(int rType);
 
+    /**
+     * Shortcut for @p RangeType::AllInRange
+     * All pages @p from() @p to() included from and to
+     */
     bool allInRange() const;
+
+    /**
+     * Shortcut for @p RangeType::EveryNPage
+     * Every @p n() page in range @p from @p to
+     */
     bool everyN() const;
+
+    /**
+     * Shortcut for @p RangeType::AllOutOfRange
+     * All pages before @p from and after @p to
+     */
     bool allOutOfRange() const;
 
 private:
