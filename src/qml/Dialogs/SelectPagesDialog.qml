@@ -25,6 +25,16 @@ Kirigami.Dialog {
      */
     property pageRange range
 
+    /**
+     * Extra item above page range card
+     */
+    property alias topItem: topLoader.sourceComponent
+
+    /**
+     * Text on confirmation/accept button, i.e.: Delete
+     */
+    property string acceptText: ""
+
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
     implicitWidth: Kirigami.Units.gridUnit * 30
     implicitHeight: Kirigami.Units.gridUnit * 20
@@ -39,6 +49,13 @@ Kirigami.Dialog {
 
         Layout.fillWidth: true
         spacing: Kirigami.Units.largeSpacing
+
+        Loader {
+            id: topLoader
+            active: true
+            height: item?.implicitHeight
+            Layout.fillWidth: true
+        }
 
         QQC2.Label { text: i18n("Page range") }
         Kirigami.AbstractCard {
@@ -100,7 +117,8 @@ Kirigami.Dialog {
     }
 
     Component.onCompleted: {
-        standardButton(Kirigami.Dialog.Ok).text = i18n("Select pages")
+        if (root.acceptText !== "")
+            standardButton(Kirigami.Dialog.Ok).text = root.acceptText
         // Do not bind result properties, assign them just one
         fromSpin.value = range.from
         toSpin.value = range.to
