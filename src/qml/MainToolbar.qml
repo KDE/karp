@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import QtQuick.Layouts
 import org.kde.deafed
 
 Kirigami.ActionToolBar {
@@ -21,6 +22,14 @@ Kirigami.ActionToolBar {
             onTriggered: {
                 let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
                 delDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+            }
+        },
+        Kirigami.Action {
+            icon.name: "object-rotate-left"
+            tooltip: i18n("Select pages to rotate")
+            onTriggered: {
+                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                rotDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
             }
         },
         Kirigami.Action {
@@ -62,9 +71,45 @@ Kirigami.ActionToolBar {
         id: delDlgComp
         SelectPagesDialog {
             visible: true
-            title: i18n("Delete selected pages")
+            title: i18n("Select pages to delete")
+            acceptText: i18nc("@action:button", "Delete")
             pageCount: pdfModel.pageCount
             onAccepted: pdfModel.deletePages(range)
+        }
+    }
+    Component {
+        id: rotDlgComp
+        SelectPagesDialog {
+            id: rotDlg
+            visible: true
+            property int angle: 90
+            title: i18n("Select pages to rotate")
+            acceptText: i18nc("@action:button", "Rotate")
+            height: Kirigami.Units.gridUnit * 23
+            pageCount: pdfModel.pageCount
+            topItem: Kirigami.AbstractCard {
+                Layout.fillWidth: true
+                contentItem: RowLayout {
+                    Item { height: 1; Layout.fillWidth: true }
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Label { text: i18n("Angle") }
+                    QQC2.ComboBox {
+                        id: angleCombo
+                        model: [ "90°", "180°", "270°" ]
+                        currentIndex: rotDlg.angle === 90 ? 0 : (rotDlg.angle === 180 ? 1 : 2)
+                        onActivated: (index) => {
+                            if (index === 0)
+                                rotDlg.angle = 90
+                            else if (index === 1)
+                                rotDlg.angle = 180
+                            else
+                                rotDlg.angle = 270
+                        }
+                    }
+                    Item { height: 1; Layout.fillWidth: true }
+                }
+            }
+            onAccepted: pdfModel.rotatePages(range, rotDlg.angle)
         }
     }
 }
