@@ -35,6 +35,11 @@ Kirigami.Dialog {
      */
     property string acceptText: ""
 
+    /**
+     * Text on confirmation/accept button, i.e.: edit-delete
+     */
+    property string acceptIcon: ""
+
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
     implicitWidth: Kirigami.Units.gridUnit * 30
     implicitHeight: Kirigami.Units.gridUnit * 20
@@ -119,6 +124,8 @@ Kirigami.Dialog {
     Component.onCompleted: {
         if (root.acceptText !== "")
             standardButton(Kirigami.Dialog.Ok).text = root.acceptText
+        if (root.acceptIcon !== "")
+            standardButton(Kirigami.Dialog.Ok).icon.name = root.acceptIcon
         // Do not bind result properties, assign them just one
         fromSpin.value = range.from
         toSpin.value = range.to
