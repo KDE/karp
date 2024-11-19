@@ -2,7 +2,7 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Deaf Ed
 Upstream-Contact: Tomasz Bojczuk <seelook@gmail.com>
 
-Files: README.md src/deafedconfig.kcfgc
+Files: README.md src/karpconfig.kcfgc
 Copyright: 2024 Tomasz Bojczuk <seelook@gmail.com>
 License: CC0-1.0
 
@@ -10,6 +10,6 @@ Files: android/res/drawable/splash.xml
 Copyright: 2024 Tomasz Bojczuk <seelook@gmail.com>
 License: BSD-3-Clause
 
-Files: org.kde.deafed.svg android/res/drawable/deafed.png logo.png extras/*
+Files: org.kde.karp.svg android/res/drawable/karp.png logo.png extras/*
 Copyright: 2024 Tomasz Bojczuk <seelook@gmail.com>
 License: CC-BY-SA-4.0
