@@ -2,10 +2,10 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "toolsthread.h"
-#include "deafedconfig.h"
+#include "karpconfig.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
-#include "version-deafed.h"
+#include "version-karp.h"
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
@@ -108,7 +108,7 @@ void ToolsThread::run()
 
 void ToolsThread::findPdfTools()
 {
-    auto conf = deafedConfig::self();
+    auto conf = karpConfig::self();
     conf->setQpdfPath(findQpdf());
     conf->setGsPath(findGhostScript());
 
@@ -203,7 +203,7 @@ bool ToolsThread::resizeByGsThread()
         return false;
     QProcess p;
     QStringList args;
-    auto conf = deafedConfig::self();
+    auto conf = karpConfig::self();
     p.setProcessChannelMode(QProcess::MergedChannels);
     p.setProgram(conf->gsPath());
 
@@ -216,7 +216,7 @@ bool ToolsThread::resizeByGsThread()
     for (int i = 0; i < m_pageCountArg; ++i) {
         if (m_doCancel)
             break;
-        auto pagePath = tmpPath + QString(u"deafed-%1."_s).arg(i, 4, 10, QLatin1Char('0'));
+        auto pagePath = tmpPath + QString(u"karp-%1."_s).arg(i, 4, 10, QLatin1Char('0'));
         pages << pagePath + pdf;
         auto pageNr = QString::number(i + 1);
         // gs -q -dNOPAUSE -dBATCH -P- -dSAFER -sDEVICE=ps2write -sOutputFile=page.ps -c save pop -dFirstPage=i -dLastPage=i -f input.pdf
@@ -272,7 +272,7 @@ void ToolsThread::doMetadata()
         return;
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
-    auto conf = deafedConfig::self();
+    auto conf = karpConfig::self();
     QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
     p.setProgram(conf->qpdfPath());
     QStringList args;

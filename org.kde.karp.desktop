@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 [Desktop Entry]
-Name=deafed
-Comment=Deaf Ed - Simple PDF editor
-Version=1.0
-Exec=deafed %U
-Icon=org.kde.deafed
+Name=karp
+Comment=Karp - KDE arranger for PDFs
+Version=25.03.70
+Exec=karp %U
+Icon=org.kde.karp
 Type=Application
 Terminal=false
 Categories=Office;Utility;

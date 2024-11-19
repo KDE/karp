@@ -1,5 +1,5 @@
-File=deafedconfig.kcfg
-ClassName=deafedConfig
+File=karpconfig.kcfg
+ClassName=karpConfig
 Mutators=true
 DefaultValueGetters=true
 GenerateProperties=true

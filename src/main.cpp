@@ -17,12 +17,12 @@
 #include <QUrl>
 
 #include "app.h"
-#include "version-deafed.h"
+#include "version-karp.h"
 #include <KAboutData>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
-#include "deafedconfig.h"
+#include "karpconfig.h"
 
 #ifdef Q_OS_WINDOWS
 #include <windows.h>
@@ -64,18 +64,18 @@ int main(int argc, char *argv[])
     app.setFont(font);
 #endif
 
-    KLocalizedString::setApplicationDomain("deafed");
+    KLocalizedString::setApplicationDomain("karp");
     QCoreApplication::setOrganizationName(u"KDE"_s);
 
     KAboutData aboutData(
         // The program name used internally.
-        u"deafed"_s,
+        u"karp"_s,
         // A displayable program name string.
-        i18nc("@title", "Deaf Ed"),
+        i18nc("@title", "Karp"),
         // The program version string.
-        QStringLiteral(DEAFED_VERSION_STRING),
+        QStringLiteral(KARP_VERSION_STRING),
         // Short description of what the app does.
-        i18n("Simple PDF editor"),
+        i18n("KDE arranger for PDFs"),
         // The license this code is released under.
         KAboutLicense::GPL,
         // Copyright Statement.
@@ -87,16 +87,16 @@ int main(int argc, char *argv[])
     // aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(u"application-pdf"_s));
-    // QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.deafed"_s));
+    // QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.karp"_s));
 
     QQmlApplicationEngine engine;
 
-    auto config = deafedConfig::self();
+    auto config = karpConfig::self();
 
-    qmlRegisterSingletonInstance("org.kde.deafed.config", 1, 0, "DeafEdConf", config);
+    qmlRegisterSingletonInstance("org.kde.karp.config", 1, 0, "KarpConf", config);
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    engine.loadFromModule("org.kde.deafed", u"Main"_s);
+    engine.loadFromModule("org.kde.karp", u"Main"_s);
 
     if (engine.rootObjects().isEmpty()) {
         return -1;

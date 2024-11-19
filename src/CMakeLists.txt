@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
-add_executable(deafed)
+add_executable(karp)
 
-qt_add_qml_module(deafed
-    URI org.kde.deafed
+qt_add_qml_module(karp
+    URI org.kde.karp
     VERSION 1.0
     QML_FILES
         qml/Main.qml
@@ -29,7 +29,7 @@ qt_add_qml_module(deafed
         qml/Messages/InitialInfo.qml
 )
 
-target_sources(deafed PUBLIC
+target_sources(karp PUBLIC
     main.cpp
     app.cpp
     pdfpage.cpp
@@ -42,7 +42,7 @@ target_sources(deafed PUBLIC
     pagerange.cpp
 )
 
-target_link_libraries(deafed
+target_link_libraries(karp
     PUBLIC
     Qt6::Core
     Qt6::Gui
@@ -59,7 +59,7 @@ target_link_libraries(deafed
     KirigamiAddonsStatefulApp
     # qpdf::libqpdf
 )
-target_include_directories(deafed PUBLIC ${CMAKE_BINARY_DIR})
+target_include_directories(karp PUBLIC ${CMAKE_BINARY_DIR})
 
 if (ANDROID)
     kirigami_package_breeze_icons(ICONS
@@ -70,9 +70,9 @@ if (ANDROID)
         # app icon
     )
 else()
-    target_link_libraries(deafed PUBLIC Qt::Widgets)
+    target_link_libraries(karp PUBLIC Qt::Widgets)
 endif()
 
-kconfig_add_kcfg_files(deafed GENERATE_MOC deafedconfig.kcfgc)
+kconfig_add_kcfg_files(karp GENERATE_MOC karpconfig.kcfgc)
 
-install(TARGETS deafed ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS karp ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

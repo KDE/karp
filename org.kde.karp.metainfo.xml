@@ -4,11 +4,11 @@
   SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
  -->
 <component type="desktop-application">
-  <id>org.kde.deafed</id>
-  <name>Deaf Ed</name>
-  <name xml:lang="pl">Deaf Ed</name>
-  <summary>Simple PDF editor</summary>
-  <summary xml:lang="pl">Prosty edytor PDF-ów</summary>
+  <id>org.kde.karp</id>
+  <name>Karp</name>
+  <name xml:lang="pl">Karp</name>
+  <summary>KDE arranger for PDFs</summary>
+  <summary xml:lang="pl">Aranżer PDF-ów dla KDE</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <content_rating type="oars-1.1"/>
@@ -16,23 +16,24 @@
       <name translate="no">KDE</name>
   </developer>
   <description>
-    <p>Deaf Ed - [p]DeaF Ed[itor] gives simple UI for PDF files modification. With a few mouse strokes user can:</p>
+    <p>Karp - gives simple UI for PDF files modification. With a few mouse strokes user can:</p>
     <ul>
         <li>Append more PDF files and merge</li>
         <li>Delete, rotate and reorder pages</li>
         <li>Reduce PDF file size</li>
         <li>Optimize images</li>
-        <li>View PDF properties</li>
+        <li>View and modify PDF properties</li>
+        <li>Protect PDF with password</li>
     </ul>
   </description>
   <provides>
-      <binary>deafed</binary>
+      <binary>karp</binary>
   </provides>
   <categories>
       <category>Qt</category>
       <category>Office</category>
       <category>KDE</category>
   </categories>
-  <launchable type="desktop-id">org.kde.deafed.desktop</launchable>
-  <url type="homepage">https://invent.kde.org/tomaszbojczuk/deafed</url>
+  <launchable type="desktop-id">org.kde.karp.desktop</launchable>
+  <url type="homepage">https://invent.kde.org/tomaszbojczuk/karp</url>
 </component>

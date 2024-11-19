@@ -6,7 +6,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import QtQuick.Layouts
-import org.kde.deafed
+import org.kde.karp
 
 FormCard.FormCardDialog {
     id: pdfsDialog
@@ -25,7 +25,7 @@ FormCard.FormCardDialog {
     PdfsOrganizer {
         id: pdfOrg
         onPasswordRequired: (fName, fId) => {
-            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(pdfsDialog, { fileName: fName, fileId: fId })
+            let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(pdfsDialog, { fileName: fName, fileId: fId })
             passDlg.accepted.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, passDlg.passKey) })
             passDlg.rejected.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, "") })
         }

@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfeditmodel.h"
-#include "deafedconfig.h"
+#include "karpconfig.h"
 #include "pagerange.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
@@ -51,7 +51,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
         return;
     }
     addPdfFileToModel(newPdf);
-    deafedConfig::self()->setLastDir(m_pdfList.last()->dir());
+    karpConfig::self()->setLastDir(m_pdfList.last()->dir());
 }
 
 void PdfEditModel::addPdfs(QVector<PdfFile *> &pdfList)
@@ -59,7 +59,7 @@ void PdfEditModel::addPdfs(QVector<PdfFile *> &pdfList)
     for (auto &pdf : pdfList) {
         addPdfFileToModel(pdf);
     }
-    deafedConfig::self()->setLastDir(pdfList.last()->dir());
+    karpConfig::self()->setLastDir(pdfList.last()->dir());
 }
 
 int PdfEditModel::pageCount() const
@@ -374,7 +374,7 @@ void PdfEditModel::generate()
     if (m_pdfList.isEmpty() || m_pageList.isEmpty())
         return;
 
-    auto conf = deafedConfig::self();
+    auto conf = karpConfig::self();
     if (conf->qpdfPath().isEmpty())
         return;
     // TODO but allow gs if available

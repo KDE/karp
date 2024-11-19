@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfmetadata.h"
-#include "version-deafed.h"
+#include "version-karp.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -11,8 +11,8 @@ QByteArrayList PdfMetaData::m_tags = QByteArrayList() << "Title"_ba << "Subject"
 
 PdfMetaData::PdfMetaData()
 {
-    m_creator = "Deaf Ed "_L1 + "(https://deafed.kde.org)"_L1;
-    m_producer = "Deaf Ed "_L1 + QLatin1String(DEAFED_VERSION_STRING);
+    m_creator = "Karp "_L1 + "(https://karp.kde.org)"_L1;
+    m_producer = "Karp - KDE arranger for PDFs "_L1 + QLatin1String(KARP_VERSION_STRING);
     m_modDate = QDateTime::currentDateTime();
     m_creationDate = m_modDate;
 }

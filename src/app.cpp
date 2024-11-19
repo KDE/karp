@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "app.h"
-#include "deafedconfig.h"
+#include "karpconfig.h"
 #include "pagerange.h"
 #include "pdfeditmodel.h"
 #include "toolsthread.h"
@@ -27,7 +27,7 @@ App::App(QObject *parent)
 
 void App::restoreWindowGeometry(QQuickWindow *window, const QString &group)
 {
-    auto conf = deafedConfig::self();
+    auto conf = karpConfig::self();
     KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
     KWindowConfig::restoreWindowSize(window, windowGroup);
@@ -38,7 +38,7 @@ void App::restoreWindowGeometry(QQuickWindow *window, const QString &group)
 
 void App::saveWindowGeometry(QQuickWindow *window, const QString &group) const
 {
-    auto conf = deafedConfig::self();
+    auto conf = karpConfig::self();
     if (!m_path.isEmpty()) {
         QFileInfo lastPathInfo(m_path);
         conf->setLastDir(lastPathInfo.absoluteDir().path());
@@ -88,7 +88,7 @@ QStringList App::getPdfFiles()
 
 QString App::getOpenDIr() const
 {
-    auto conf = deafedConfig::self();
+    auto conf = karpConfig::self();
     if (conf->openLastDir())
         return conf->lastDir();
     else if (conf->fixedLastDir().isEmpty())

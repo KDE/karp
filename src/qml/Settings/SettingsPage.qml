@@ -10,17 +10,17 @@ KirigamiSettings.ConfigurationView {
             moduleId: "general"
             text: i18nc("@action:button Category in settings", "General")
             icon.name: "settings-configure"
-            page: () => Qt.createComponent("org.kde.deafed", "General")
+            page: () => Qt.createComponent("org.kde.karp", "General")
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "about"
             text: i18nc("@action:button Category in settings", "PDF tools")
             icon.name: "application-pdf"
-            page: () => Qt.createComponent("org.kde.deafed", "PdfTools")
+            page: () => Qt.createComponent("org.kde.karp", "PdfTools")
         },
         KirigamiSettings.ConfigurationModule {
-            moduleId: "aboutDeafEd"
-            text: i18nc("@action:button", "About Deaf Ed")
+            moduleId: "aboutKarp"
+            text: i18nc("@action:button", "About Karp")
             icon.name: "help-about"
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage")
         },

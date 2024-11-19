@@ -3,7 +3,7 @@
 
 import QtQuick
 import org.kde.kirigami as Kirigami
-import org.kde.deafed
+import org.kde.karp
 
 Kirigami.ApplicationWindow {
     id: mainWin
@@ -60,7 +60,7 @@ Kirigami.ApplicationWindow {
         target: APP
         function onWantSettings(): void {
             if (!settings)
-                settings = Qt.createComponent("org.kde.deafed", "SettingsPage").createObject(mainWin, { window: mainWin });
+                settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(mainWin, { window: mainWin });
             settings.open();
         }
         function onOpenAboutPage(): void {

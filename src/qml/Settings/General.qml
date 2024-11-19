@@ -7,13 +7,13 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.deafed
-import org.kde.deafed.config
+import org.kde.karp
+import org.kde.karp.config
 
 FormCard.FormCardPage {
     id: root
 
-    title: i18n("Deaf Ed Settings")
+    // title: i18n("Karp Settings")
 
     FormCard.FormHeader {
         title: i18n("Open file dialog at")
@@ -21,22 +21,22 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
             text: i18n("Last opened directory")
-            checked: DeafEdConf.openLastDir
-            onToggled: DeafEdConf.openLastDir = checked
+            checked: KarpConf.openLastDir
+            onToggled: KarpConf.openLastDir = checked
         }
         FormCard.FormRadioDelegate {
             id: staticPathRadio
             text: i18n("Fixed path")
-            checked: !DeafEdConf.openLastDir
-            onToggled: DeafEdConf.openLastDir = !checked
+            checked: !KarpConf.openLastDir
+            onToggled: KarpConf.openLastDir = !checked
         }
         FormPathDelegate {
             id: fixDirButton
             enabled: staticPathRadio.checked
             pathType: FormPathDelegate.Folder
-            path: DeafEdConf.fixedLastDir
+            path: KarpConf.fixedLastDir
             labelVisible: false
-            onAccepted: DeafEdConf.fixedLastDir = path
+            onAccepted: KarpConf.fixedLastDir = path
         }
     }
 
@@ -46,14 +46,14 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
             text: i18n("Always ask for file name")
-            checked: DeafEdConf.askForOutFile
-            onToggled: DeafEdConf.askForOutFile = true
+            checked: KarpConf.askForOutFile
+            onToggled: KarpConf.askForOutFile = true
         }
         FormCard.FormRadioDelegate {
             id: nameXfixRadio
             text: i18n("Combine with input file name")
-            checked: !DeafEdConf.askForOutFile
-            onToggled: DeafEdConf.askForOutFile = false
+            checked: !KarpConf.askForOutFile
+            onToggled: KarpConf.askForOutFile = false
         }
         FormCard.AbstractFormDelegate {
             contentItem: RowLayout {
@@ -62,13 +62,13 @@ FormCard.FormCardPage {
                     id: appPrepCombo
                     property bool doPrepend: currentIndex === 0
                     model: [ i18n("Append"), i18n("Prepend") ]
-                    currentIndex: DeafEdConf.appendXfix ? 0 : 1
+                    currentIndex: KarpConf.appendXfix ? 0 : 1
                 }
                 QQC2.TextField {
                     id: fixText
                     Layout.fillWidth: true
-                    text: DeafEdConf.outFileXfix
-                    onEditingFinished: DeafEdConf.outFileXfix = text !== "" ? text : "-out"
+                    text: KarpConf.outFileXfix
+                    onEditingFinished: KarpConf.outFileXfix = text !== "" ? text : "-out"
                 }
             }
         }

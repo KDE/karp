@@ -3,8 +3,8 @@
 
 // import QtQuick
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.deafed
-import org.kde.deafed.config
+import org.kde.karp
+import org.kde.karp.config
 
 FormCard.FormCardPage {
     id: root
@@ -19,7 +19,7 @@ FormCard.FormCardPage {
         }
         FormPathDelegate {
             icon.name: "system-run"
-            path: DeafEdConf.qpdfPath
+            path: KarpConf.qpdfPath
             labelVisible: false
             onAccepted: APP.checkQPDF(text)
         }
@@ -32,7 +32,7 @@ FormCard.FormCardPage {
         }
         FormPathDelegate {
             icon.name: "system-run"
-            path: DeafEdConf.gsPath
+            path: KarpConf.gsPath
             labelVisible: false
             onAccepted: APP.checkGS(text)
         }

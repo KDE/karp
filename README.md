@@ -1,10 +1,10 @@
-# <img width="128" src="logo.png"/>  Deaf Ed - [p]DeaF Ed[itor]
+# <img width="128" src="logo.png"/>  Karp - KDE arranger for PDFs
 
 Simple PDF editor which can select, delete, rearrange pages, merge PDF files and reduce file size.
 
-<img src="extras/deafed.gif"/>
+<img src="extras/karp.gif"/>
 
-Deaf Ed uses [Kirigami framework](https://invent.kde.org/frameworks/kirigami)
+Karp uses [Kirigami framework](https://invent.kde.org/frameworks/kirigami)
 
 For now it operates on command line programs:
  * [QPDF](https://qpdf.sourceforge.io)

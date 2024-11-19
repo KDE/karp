@@ -4,14 +4,14 @@
   - SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.kde.deafed"
+          package="org.kde.karp"
           android:versionName="${versionName}"
           android:versionCode="${versionCode}"
           android:installLocation="auto">
-    <application android:name="org.qtproject.qt.android.bindings.QtApplication" android:label="deafed" android:icon="@drawable/logo">
+    <application android:name="org.qtproject.qt.android.bindings.QtApplication" android:label="karp" android:icon="@drawable/logo">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
                   android:name="org.qtproject.qt.android.bindings.QtActivity"
-                  android:label="deafed"
+                  android:label="karp"
                   android:windowSoftInputMode="adjustResize"
                   android:launchMode="singleTop"
                   android:exported="true">
@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-            <meta-data android:name="android.app.lib_name" android:value="deafed"/>
+            <meta-data android:name="android.app.lib_name" android:value="karp"/>
             <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
             <meta-data android:name="android.app.repository" android:value="default"/>
             <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>

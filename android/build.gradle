@@ -72,8 +72,8 @@ android {
     defaultConfig {
         minSdkVersion qtMinSdkVersion
         targetSdkVersion qtTargetSdkVersion
-        applicationId "org.kde.deafed"
-        namespace "org.kde.deafed"
+        applicationId "org.kde.karp"
+        namespace "org.kde.karp"
         versionCode timestamp
         versionName projectVersionFull
         manifestPlaceholders = [versionName: projectVersionFull, versionCode: timestamp]

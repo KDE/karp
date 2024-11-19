@@ -4,8 +4,8 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
-import org.kde.deafed
-import org.kde.deafed.config
+import org.kde.karp
+import org.kde.karp.config
 
 Kirigami.Page {
     id: page
@@ -18,7 +18,7 @@ Kirigami.Page {
     }
 
     function generate() {
-        Qt.createComponent("org.kde.deafed", "ProgressDialog").createObject(page, { pdfModel: pdfModel })
+        Qt.createComponent("org.kde.karp", "ProgressDialog").createObject(page, { pdfModel: pdfModel })
         pdfModel.generate()
     }
 
@@ -28,7 +28,7 @@ Kirigami.Page {
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
             fromQAction: APP.action("save_pdf")
-            text: DeafEdConf.askForOutFile ? i18nc("@action:inmenu", "Save As...") : i18nc("@action:inmenu", "Save")
+            text: KarpConf.askForOutFile ? i18nc("@action:inmenu", "Save As...") : i18nc("@action:inmenu", "Save")
         },
         Kirigami.Action {
             visible: pdfModel.pdfCount > 0
@@ -183,7 +183,7 @@ Kirigami.Page {
             }
         }
         function onPasswordRequired(fName, fId) {
-            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page, { fileName: fName, fileId: fId })
+            let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page, { fileName: fName, fileId: fId })
             passDlg.accepted.connect(function(){ pdfModel.setPdfPassword(passDlg.fileId, passDlg.passKey) })
             passDlg.rejected.connect(function(){ pdfModel.setPdfPassword(passDlg.fileId, "") })
         }
@@ -192,14 +192,14 @@ Kirigami.Page {
     Connections {
         target: APP
         function onToolIsMissing(warn) {
-            Qt.createComponent("org.kde.deafed", "MissingPdfTool").createObject(page, { text: warn })
+            Qt.createComponent("org.kde.karp", "MissingPdfTool").createObject(page, { text: warn })
         }
         // Actions
         function onWantSavePdf() {
             page.generate()
         }
         function onWantOpenPdf() {
-            Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
+            Qt.createComponent("org.kde.karp", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
         }
         function onWantClearAll() {
             page.clearAll()
@@ -211,13 +211,13 @@ Kirigami.Page {
             pdfModel.reduceSize = redSizeAct.checked
         }
         function onWantSetPassword() {
-            let passDlg = Qt.createComponent("org.kde.deafed", "PdfPassDialog").createObject(page,
+            let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page,
                 { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: i18n("Protect PDF file with password."), passKey: pdfModel.passKey })
             passDlg.accepted.connect(function(){ pdfModel.passKey = passDlg.passKey })
             passDlg.rejected.connect(function(){ pdfModel.passKey = "" })
         }
         function onWantPdfMeta() {
-            Qt.createComponent("org.kde.deafed", "PdfMetadataDialog").createObject(page, { pdfModel: pdfModel })
+            Qt.createComponent("org.kde.karp", "PdfMetadataDialog").createObject(page, { pdfModel: pdfModel })
         }
     }
 
@@ -234,6 +234,6 @@ Kirigami.Page {
         if (pdfFiles.length === 1)
             pdfModel.loadPdfFile(pdfFiles[0])
         else if (pdfFiles.length > 1)
-            Qt.createComponent("org.kde.deafed", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel, initFiles: pdfFiles })
+            Qt.createComponent("org.kde.karp", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel, initFiles: pdfFiles })
     }
 }
