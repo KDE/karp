@@ -469,6 +469,7 @@ void PdfEditModel::generate()
         connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
         tools->resizeByGs(out, m_pages);
         // TODO: after gs manipulations output PDF has no proper metadata and no password
+        return;
     } else
         toolProgressSlot(1.0);
     tools->applyMetadata(out, m_metaData);
@@ -723,6 +724,7 @@ void PdfEditModel::toolProgressSlot(qreal prog)
     setProgress(0.1 + 0.9 * prog);
     if (prog >= 1.0) {
         disconnect(ToolsThread::self(), &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
+        ToolsThread::self()->applyMetadata(QString(), m_metaData);
         setProgress(1.0);
         QTimer::singleShot(300, this, [=] {
             Q_EMIT pdfGenerated();

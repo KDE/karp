@@ -65,7 +65,9 @@ void ToolsThread::cancel()
 
 void ToolsThread::applyMetadata(const QString &pdfPath, PdfMetaData *metadata)
 {
-    m_pathArg = pdfPath;
+    // HACK: this is clumsy - m_pathArg can be set before by resizeByGs() and we can use it at end
+    if (!pdfPath.isEmpty())
+        m_pathArg = pdfPath;
     m_metadataArg = metadata;
     m_mode = ToolsMetadata;
     start();
@@ -196,6 +198,7 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
 
 bool ToolsThread::resizeByGsThread()
 {
+    qDebug() << "resizeByGsThread" << m_pageCountArg << m_pathArg;
     if (m_pageCountArg < 1 || m_pathArg.isEmpty())
         return false;
     QProcess p;
