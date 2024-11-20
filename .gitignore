@@ -61,6 +61,8 @@ Thumbs.db
 *.Debug
 *.Release
 
+compile_commands.json
+
 # Python byte code
 *.pyc
 
@@ -76,3 +78,7 @@ Thumbs.db
 # CMake
 *.txt.user*
 .clang-format
+
+# VS code
+.vscode*
+.cache*
