@@ -12,7 +12,7 @@ QByteArrayList PdfMetaData::m_tags = QByteArrayList() << "Title"_ba << "Subject"
 PdfMetaData::PdfMetaData()
 {
     m_creator = "Karp "_L1 + "(https://karp.kde.org)"_L1;
-    m_producer = "Karp - KDE arranger for PDFs "_L1 + QLatin1String(KARP_VERSION_STRING);
+    m_producer = "Karp "_L1 + QLatin1String(KARP_VERSION_STRING) + " - KDE arranger for PDFs "_L1;
     m_modDate = QDateTime::currentDateTime();
     m_creationDate = m_modDate;
 }
