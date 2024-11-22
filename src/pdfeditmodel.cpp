@@ -313,7 +313,7 @@ void PdfEditModel::deletePages(const PageRange &range)
 /**
  * Returns -1 if move can't be performed or target page number.
  */
-int PdfEditModel::addMove(int pageNr, int toPage)
+int PdfEditModel::movePage(int pageNr, int toPage)
 {
     if (pageNr < 0 || pageNr >= m_pages || toPage < 0 || toPage >= m_pages)
         return -1;

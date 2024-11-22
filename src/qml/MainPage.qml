@@ -165,7 +165,7 @@ Kirigami.Page {
     }
 
     function movePage(from, to) {
-        var pageNr = pdfModel.addMove(from, to)
+        var pageNr = pdfModel.movePage(from, to)
         if (pageNr > -1) {
             selModel.setCurrentIndex(pdfView.index(pageNr / pdfView.columns, pageNr % pdfView.columns), ItemSelectionModel.Current)
             pdfView.edit(selModel.currentIndex)

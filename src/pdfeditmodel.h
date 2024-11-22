@@ -91,7 +91,7 @@ public:
     Q_INVOKABLE void rotatePages(const PageRange &range, int angle);
     Q_INVOKABLE void deletePage(int pageId);
     Q_INVOKABLE void deletePages(const PageRange &range);
-    Q_INVOKABLE int addMove(int pageNr, int toPage);
+    Q_INVOKABLE int movePage(int pageNr, int toPage);
 
     /**
      * Moves selected pages in @p range before or after @P targetPage.
