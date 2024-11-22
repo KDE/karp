@@ -25,11 +25,19 @@ Kirigami.ActionToolBar {
             }
         },
         Kirigami.Action {
-            icon.name: "object-rotate-left"
+            icon.name: "object-rotate-right"
             tooltip: i18n("Select pages to rotate")
             onTriggered: {
                 let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
                 rotDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+            }
+        },
+        Kirigami.Action {
+            icon.name: "transform-move"
+            tooltip: i18n("Select pages to move")
+            onTriggered: {
+                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                mvDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
             }
         },
         Kirigami.Action {
@@ -85,13 +93,14 @@ Kirigami.ActionToolBar {
             property int angle: 90
             title: i18n("Select pages to rotate")
             acceptText: i18nc("@action:button", "Rotate")
+            acceptIcon: "object-rotate-right"
             height: Kirigami.Units.gridUnit * 23
             pageCount: pdfModel.pageCount
             topItem: Kirigami.AbstractCard {
                 Layout.fillWidth: true
                 contentItem: RowLayout {
-                    Item { height: 1; Layout.fillWidth: true }
                     spacing: Kirigami.Units.largeSpacing
+                    Item { height: 1; Layout.fillWidth: true }
                     QQC2.Label { text: i18n("Angle") }
                     QQC2.ComboBox {
                         id: angleCombo
@@ -103,6 +112,16 @@ Kirigami.ActionToolBar {
                 }
             }
             onAccepted: pdfModel.rotatePages(range, rotDlg.angle)
+        }
+    }
+    Component {
+        id: mvDlgComp
+        MovePagesDialog {
+            id: mvDlg
+            visible: true
+            title: i18n("Select pages to move")
+            pageCount: pdfModel.pageCount
+            onAccepted: pdfModel.movePages(range, targetPage)
         }
     }
 }
