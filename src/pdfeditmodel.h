@@ -93,6 +93,12 @@ public:
     Q_INVOKABLE void deletePages(const PageRange &range);
     Q_INVOKABLE int addMove(int pageNr, int toPage);
 
+    /**
+     * Moves selected pages in @p range before or after @P targetPage.
+     * If @p targetPage is negative range is inserted before this page.
+     */
+    Q_INVOKABLE void movePages(const PageRange &range, int targetPage);
+
     Q_INVOKABLE QStringList getMetaDataModel(int fileId) const;
     Q_INVOKABLE QStringList getTargetMetaData() const;
     Q_INVOKABLE void setTargetMetaData(const QVariant &metaList);

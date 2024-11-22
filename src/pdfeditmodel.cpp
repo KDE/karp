@@ -20,7 +20,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-#define INIT_COLUM_COUNT (4)
+#define INIT_COLUMN_COUNT (4)
 
 QColor alpha(const QColor &c)
 {
@@ -32,7 +32,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
 {
     m_metaData = new PdfMetaData();
     m_prefPageWidth = qApp->screens().first()->size().width() / 4;
-    m_columns = INIT_COLUM_COUNT;
+    m_columns = INIT_COLUMN_COUNT;
     m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
 }
 
@@ -119,7 +119,7 @@ void PdfEditModel::setSpacing(qreal sp)
 bool PdfEditModel::edited() const
 {
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
-        || m_metaData->modyfied();
+        || m_metaData->modified();
 }
 
 bool PdfEditModel::optimizeImages() const
@@ -330,6 +330,36 @@ int PdfEditModel::addMove(int pageNr, int toPage)
     return toPage;
 }
 
+void PdfEditModel::movePages(const PageRange &range, int targetPage)
+{
+    if (rangeIsInvalid(range))
+        return;
+
+    int from = range.from() - 1;
+    int to = range.to() - 1;
+    int targetNr = qAbs(targetPage);
+    // 1. take pages which are going to be moved
+    QVector<PdfPage> pagesToMove;
+    for (int p = from; p <= to; ++p) {
+        pagesToMove << m_pageList.takeAt(from);
+    }
+    if (targetNr > from)
+        targetNr = targetNr - (to - from) - 1;
+    if (targetPage < 0)
+        targetNr--;
+    if (targetNr < 0) {
+        qDebug() << "PdfEditModel" << "Wrong target page:" << targetNr << "FIXME!";
+        return;
+    }
+    // 2. Insert selected pages after or before target page
+    for (int p = from; p <= to; ++p) {
+        m_pageList.insert(targetNr + (p - from), pagesToMove.takeFirst());
+    }
+    int startPage = qMin(from, targetNr);
+    int endPage = qMax(to, targetNr + (to - from));
+    Q_EMIT dataChanged(index(startPage / m_columns, 0), index(endPage / m_columns, m_columns - 1));
+}
+
 QStringList PdfEditModel::getMetaDataModel(int fileId) const
 {
     QStringList mdm;
@@ -488,7 +518,7 @@ void PdfEditModel::clearAll()
     qDeleteAll(m_pdfList);
     m_pdfList.clear();
     m_rows = 0;
-    m_columns = INIT_COLUM_COUNT;
+    m_columns = INIT_COLUMN_COUNT;
     m_pages = 0;
     m_rotatedCount = 0;
     m_wasMoved = false;
