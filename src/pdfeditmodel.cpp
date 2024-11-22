@@ -17,6 +17,7 @@
 #include <QScreen>
 #include <QStandardPaths>
 #include <QTimer>
+#include <qalgorithms.h>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -38,6 +39,8 @@ PdfEditModel::PdfEditModel(QObject *parent)
 
 PdfEditModel::~PdfEditModel()
 {
+    qDeleteAll(m_pageList);
+    qDeleteAll(m_deletedList);
     qDeleteAll(m_pdfList);
     delete m_metaData;
 }
@@ -212,7 +215,7 @@ void PdfEditModel::rotatePage(int pageId, int angle)
         m_rotatedCount++;
     else
         m_rotatedCount--;
-    m_pageList[pageId].setRotated(angle);
+    m_pageList[pageId]->setRotated(angle);
     int r = pageId / m_columns;
     int c = pageId % m_columns;
     Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
@@ -234,7 +237,7 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
         to = range.from();
     }
     for (int p = from; p < to; p += step) {
-        m_pageList[p].setRotated(angle);
+        m_pageList[p]->setRotated(angle);
         int r = p / m_columns;
         int c = p % m_columns;
         Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
@@ -247,7 +250,7 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
         from = range.to(); // we start 1 page after the range.to
         to = m_pages;
         for (int p = from; p < to; p += step) {
-            m_pageList[p].setRotated(angle);
+            m_pageList[p]->setRotated(angle);
             int r = p / m_columns;
             int c = p % m_columns;
             Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
@@ -264,7 +267,7 @@ void PdfEditModel::deletePage(int pageId)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
-    m_pageList[pageId].setDeleted(true);
+    m_pageList[pageId]->setDeleted(true);
     beginResetModel();
     m_deletedList << m_pageList.takeAt(pageId);
     m_pages--;
@@ -339,7 +342,7 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     int to = range.to() - 1;
     int targetNr = qAbs(targetPage);
     // 1. take pages which are going to be moved
-    QVector<PdfPage> pagesToMove;
+    QVector<PdfPage *> pagesToMove;
     for (int p = from; p <= to; ++p) {
         pagesToMove << m_pageList.takeAt(from);
     }
@@ -410,7 +413,7 @@ void PdfEditModel::generate()
     // TODO but allow gs if available
     setProgress(0.05);
     QString out;
-    auto pdf = m_pdfList[m_pageList.first().referenceFile()];
+    auto pdf = m_pdfList[m_pageList.first()->referenceFile()];
     if (conf->askForOutFile()) {
         QFileInfo inInfo(pdf->filePath());
         out = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
@@ -432,18 +435,18 @@ void PdfEditModel::generate()
 
     QVector<QVector<quint16>> chunks;
     auto &firstPage = m_pageList.first();
-    int fromPage = firstPage.origPage();
-    int fileId = firstPage.referenceFile();
+    int fromPage = firstPage->origPage();
+    int fileId = firstPage->referenceFile();
     chunks << (QVector<quint16>() << fileId << fromPage);
     for (int p = 1; p < m_pages; ++p) {
         auto nextPage = m_pageList[p];
-        if (nextPage.referenceFile() != fileId) {
-            fileId = nextPage.referenceFile();
-            fromPage = nextPage.origPage();
+        if (nextPage->referenceFile() != fileId) {
+            fileId = nextPage->referenceFile();
+            fromPage = nextPage->origPage();
             chunks << (QVector<quint16>() << fileId << fromPage);
             continue;
         }
-        chunks.last() << nextPage.origPage();
+        chunks.last() << nextPage->origPage();
     }
 
     args << getQPDFargs(chunks);
@@ -473,11 +476,11 @@ void PdfEditModel::generate()
     // NOTICE: page number (r) refers to number in m_pageList not orig page number in PDF file
     QVector<quint16> r90, r180, r270;
     for (int r = 0; r < m_pages; ++r) {
-        if (m_pageList[r].rotated() == 90)
+        if (m_pageList[r]->rotated() == 90)
             r90 << r;
-        else if (m_pageList[r].rotated() == 180)
+        else if (m_pageList[r]->rotated() == 180)
             r180 << r;
-        else if (m_pageList[r].rotated() == 270)
+        else if (m_pageList[r]->rotated() == 270)
             r270 << r;
     }
     if (!r90.isEmpty())
@@ -513,7 +516,9 @@ void PdfEditModel::cancel()
 void PdfEditModel::clearAll()
 {
     beginResetModel();
-    m_pageList.clear(); // TODO:qDeleteAll when we will switch to pointers
+    qDeleteAll(m_pageList);
+    m_pageList.clear();
+    qDeleteAll(m_deletedList);
     m_deletedList.clear();
     qDeleteAll(m_pdfList);
     m_pdfList.clear();
@@ -571,7 +576,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     PdfFile *pdf = nullptr;
     PdfPage *page = nullptr;
     if (pageNr < m_pages) {
-        page = const_cast<PdfPage *>(&m_pageList.at(pageNr));
+        page = m_pageList.at(pageNr);
         if (role == RoleImage || role == RolePageRatio || role == RoleFileId) {
             int refFileId = page->referenceFile();
             if (refFileId < pdfCount())
@@ -588,7 +593,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
             qreal pageRatio = pSize.height() / pSize.width();
             pdf->requestPage(page, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
         }
-        return QVariant::fromValue(m_pageList[pageNr].image());
+        return QVariant::fromValue(m_pageList[pageNr]->image());
     }
     case RoleRotated: {
         if (pageNr >= m_pages)
@@ -696,7 +701,7 @@ void PdfEditModel::insertPdfPages(PdfFile *pdf)
 {
     int pagesToAdd = pdf->pageCount();
     for (int i = 0; i < pagesToAdd; ++i) {
-        m_pageList << PdfPage(i, pdf->referenceFileId());
+        m_pageList << new PdfPage(i, pdf->referenceFileId());
     }
     m_pages += pagesToAdd;
     int newRowCount = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);

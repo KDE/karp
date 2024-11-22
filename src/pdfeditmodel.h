@@ -84,7 +84,7 @@ public:
      */
     int map(int nr) const
     {
-        return m_pageList[nr].origPage();
+        return m_pageList[nr]->origPage();
     }
 
     Q_INVOKABLE void rotatePage(int pageId, int angle);
@@ -117,7 +117,7 @@ public:
 
     PdfPage *page(int p)
     {
-        return &m_pageList[p];
+        return m_pageList[p];
     }
 
     int rowCount(const QModelIndex &parent) const override;
@@ -183,7 +183,7 @@ Q_SIGNALS:
 
 private:
     QVector<PdfFile *> m_pdfList;
-    QVector<PdfPage> m_pageList;
+    QVector<PdfPage *> m_pageList;
     int m_pages = 0;
     int m_rows = 0;
     int m_columns = 0;
@@ -193,7 +193,7 @@ private:
     int m_prefPageWidth = 200;
     // PDF modifications
     quint16 m_rotatedCount = 0;
-    QVector<PdfPage> m_deletedList;
+    QVector<PdfPage *> m_deletedList;
     bool m_wasMoved = false;
     bool m_optimizeImages = false;
     bool m_reduceSize = false;
