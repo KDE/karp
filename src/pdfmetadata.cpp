@@ -17,7 +17,7 @@ PdfMetaData::PdfMetaData()
     m_creationDate = m_modDate;
 }
 
-bool PdfMetaData::modyfied() const
+bool PdfMetaData::modified() const
 {
     return m_modified;
 }

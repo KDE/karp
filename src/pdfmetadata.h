@@ -17,7 +17,7 @@ class PdfMetaData
 public:
     PdfMetaData();
 
-    bool modyfied() const;
+    bool modified() const;
 
     QString title() const;
     void setTitle(const QString &title);
