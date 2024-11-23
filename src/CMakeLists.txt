@@ -12,13 +12,13 @@ qt_add_qml_module(karp
         qml/MainPage.qml
         qml/MainToolbar.qml
         qml/EditDelegate.qml
-        qml/PdfFileDelegate.qml
 
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/MovePagesDialog.qml
         qml/Dialogs/PdfMetadataDialog.qml
         qml/Dialogs/PdfFilesDialog.qml
         qml/Dialogs/PdfPassDialog.qml
+        qml/Dialogs/PdfFileDelegate.qml
 
         qml/Settings/SettingsPage.qml
         qml/Settings/PdfTools.qml

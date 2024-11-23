@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
@@ -104,10 +106,16 @@ Kirigami.Page {
         selectionModel: ItemSelectionModel { id: selModel }
 
         delegate: Rectangle {
-            id: delegRect
-            visible: pageNr < pdfModel.pageCount
+            id: delegateRect
+            required property int pageNr
+            required property int fileId
+            required property int origPage
+            required property real pageRatio
+            required property var pageImg
+            required property bool rotated
             // required property bool selected // TODO - multiple selection
             required property bool current
+            visible: pageNr < pdfModel.pageCount
             implicitWidth: pdfModel.maxPageWidth; implicitHeight: pdfModel.maxPageWidth * pageRatio
             color: "transparent"
             border {
@@ -149,9 +157,9 @@ Kirigami.Page {
                 active: pdfView.dragTargetPage === pageNr
                 z: 5
                 sourceComponent: Rectangle {
-                    x: delegRect.width * 0.9 + Kirigami.Units.smallSpacing
-                    y: delegRect.height * 0.05
-                    width: delegRect.width * 0.1; height: delegRect.height * 0.9
+                    x: delegateRect.width * 0.9 + Kirigami.Units.smallSpacing
+                    y: delegateRect.height * 0.05
+                    width: delegateRect.width * 0.1; height: delegateRect.height * 0.9
                     color: Kirigami.Theme.highlightColor
                 }
             }

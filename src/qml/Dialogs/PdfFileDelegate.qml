@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
@@ -8,7 +10,7 @@ import QtQuick.Layouts
 import org.kde.karp
 
 Kirigami.AbstractCard {
-    id: fileDelg
+    id: fileDelegate
     property ListView lv: ListView.view
     required property int index
     required property string path
@@ -122,7 +124,7 @@ Kirigami.AbstractCard {
         SelectPagesDialog {
             visible: true
             title: i18n("Select pages to add")
-            pageCount: fileDelg.pageCount
+            pageCount: fileDelegate.pageCount
             onAccepted: console.log("Accepted")
         }
     }
