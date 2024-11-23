@@ -2,7 +2,23 @@
 # SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 [Desktop Entry]
 Name=karp
+Name[ca]=Karp
+Name[es]=karp
+Name[eu]=karp
+Name[nl]=karp
+Name[sl]=karp
+Name[tr]=Karp
+Name[uk]=karp
+Name[x-test]=xxkarpxx
 Comment=Karp - KDE arranger for PDFs
+Comment[ca]=Karp - Arranjador de PDF de KDE
+Comment[es]=Karp - Organizador PDF de KDE
+Comment[eu]=Karp - KDEren PDF moldatzailea
+Comment[nl]=Karp - KDE arrangeur voor PDF's
+Comment[sl]=Karp - KDE razvrščevalnik za PDF-e
+Comment[tr]=Karp — PDF Düzenleyicisi
+Comment[uk]=Karp — впорядкувальник PDF від KDE
+Comment[x-test]=xxKarp - KDE arranger for PDFsxx
 Version=25.03.70
 Exec=karp %U
 Icon=org.kde.karp
