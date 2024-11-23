@@ -100,7 +100,7 @@ public:
      */
     Q_INVOKABLE bool addMorePDFs();
 
-    Q_INVOKABLE void aplyNewFiles();
+    Q_INVOKABLE void applyNewFiles();
 
     Q_INVOKABLE void setPdfPassword(int fileId, const QString &pass);
 

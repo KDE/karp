@@ -92,8 +92,8 @@ void PdfListModel::remove(int fileId)
     if (fileId < 0 || fileId >= m_rows)
         return;
     beginRemoveRows(QModelIndex(), fileId, fileId);
-    auto toRoemove = m_pdfFiles.takeAt(fileId);
-    toRoemove->deleteLater();
+    auto toRemove = m_pdfFiles.takeAt(fileId);
+    toRemove->deleteLater();
     m_rows--;
     for (int f = fileId; f < m_rows; ++f)
         m_pdfFiles[f]->setReferenceId(f);
@@ -188,7 +188,7 @@ bool PdfsOrganizer::addMorePDFs()
     return !pdfList.isEmpty();
 }
 
-void PdfsOrganizer::aplyNewFiles()
+void PdfsOrganizer::applyNewFiles()
 {
     QVector<PdfFile *> newFiles;
     for (int p = 0; p < m_fileModel->rows(); ++p) {

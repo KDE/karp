@@ -78,7 +78,7 @@ FormCard.FormCardDialog {
     }
 
     onApplied: {
-        pdfOrg.aplyNewFiles()
+        pdfOrg.applyNewFiles()
         close()
     }
     onClosed: destroy()
