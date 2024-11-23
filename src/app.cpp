@@ -253,7 +253,7 @@ void App::setupActions()
     actionName = "pdf_meta"_L1;
     if (KAuthorized::authorizeAction(actionName)) {
         auto action = mainCollection()->addAction(actionName, this, &App::wantPdfMeta);
-        action->setText(i18nc("@action:inmenu", "PDF matadata"));
+        action->setText(i18nc("@action:inmenu", "PDF metadata"));
         action->setIcon(QIcon::fromTheme(u"viewpdf"_s));
         mainCollection()->addAction(action->objectName(), action);
     }
