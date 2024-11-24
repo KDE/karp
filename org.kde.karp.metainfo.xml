@@ -7,6 +7,7 @@
   <id>org.kde.karp</id>
   <name>Karp</name>
   <name xml:lang="ca">Karp</name>
+  <name xml:lang="ca-valencia">Karp</name>
   <name xml:lang="es">Karp</name>
   <name xml:lang="eu">Karp</name>
   <name xml:lang="nl">Karp</name>
@@ -16,6 +17,7 @@
   <name xml:lang="x-test">xxKarpxx</name>
   <summary>KDE arranger for PDFs</summary>
   <summary xml:lang="ca">Arranjador de PDF de KDE</summary>
+  <summary xml:lang="ca-valencia">Arranjador de PDF de KDE</summary>
   <summary xml:lang="es">Organizador PDF de KDE</summary>
   <summary xml:lang="eu">KDEren PDF moldatzailea</summary>
   <summary xml:lang="nl">KDE arrangeur voor PDF's</summary>
@@ -32,6 +34,7 @@
   <description>
     <p>Karp - gives simple UI for PDF files modification. With a few mouse strokes user can:</p>
     <p xml:lang="ca">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
+    <p xml:lang="ca-valencia">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
     <p xml:lang="es">Karp proporciona una interfaz sencilla para modificar archivos PDF. Con unos clics de ratón puede:</p>
     <p xml:lang="eu">Karp - PDF fitxategiak aldatzeko EI sinple bat ematen du. Saguaren trazu gutxi batzuekin erabiltzaileak ondokoak egin ditzake:</p>
     <p xml:lang="nl">Karp - geeft een eenvoudige UI voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
@@ -41,7 +44,8 @@
     <p xml:lang="x-test">xxKarp - gives simple UI for PDF files modification. With a few mouse strokes user can:xx</p>
     <ul>
       <li>Append more PDF files and merge</li>
-      <li xml:lang="ca">Afegir més fitxers PDF i fusiona</li>
+      <li xml:lang="ca">Afegir més fitxers PDF i fusionar-los</li>
+      <li xml:lang="ca-valencia">Afegir més fitxers PDF i fusionar-los</li>
       <li xml:lang="es">Añadir más archivos PDF y fusionarlos</li>
       <li xml:lang="eu">PDF fitxategi gehiago erantsi eta elkartu</li>
       <li xml:lang="nl">Meer PDF bestanden achter voegen en mengen</li>
@@ -51,6 +55,7 @@
       <li xml:lang="x-test">xxAppend more PDF files and mergexx</li>
       <li>Delete, rotate and reorder pages</li>
       <li xml:lang="ca">Suprimir, girar o reordenar pàgines</li>
+      <li xml:lang="ca-valencia">Suprimir, girar o reordenar pàgines</li>
       <li xml:lang="es">Borrar, rotar y reordenar las páginas</li>
       <li xml:lang="eu">Orrialdeak ezabatu, biratu eta berrantolatu</li>
       <li xml:lang="nl">Pagina's verwijderen, draaien en opnieuw ordenen</li>
@@ -60,6 +65,7 @@
       <li xml:lang="x-test">xxDelete, rotate and reorder pagesxx</li>
       <li>Reduce PDF file size</li>
       <li xml:lang="ca">Reduir la mida de fitxers PDF</li>
+      <li xml:lang="ca-valencia">Reduir la mida de fitxers PDF</li>
       <li xml:lang="es">Reducir el tamaño del archivo PDF</li>
       <li xml:lang="eu">PDF fitxategiaren neurria murriztu</li>
       <li xml:lang="nl">Bestandsgrootte van PDF bestand verminderen</li>
@@ -69,6 +75,7 @@
       <li xml:lang="x-test">xxReduce PDF file sizexx</li>
       <li>Optimize images</li>
       <li xml:lang="ca">Optimitzar les imatges</li>
+      <li xml:lang="ca-valencia">Optimitzar les imatges</li>
       <li xml:lang="es">Optimizar imágenes</li>
       <li xml:lang="eu">Irudiak optimizatu</li>
       <li xml:lang="nl">Afbeeldingen optimaliseren</li>
@@ -78,6 +85,7 @@
       <li xml:lang="x-test">xxOptimize imagesxx</li>
       <li>View and modify PDF properties</li>
       <li xml:lang="ca">Veure i modificar les propietats del PDF</li>
+      <li xml:lang="ca-valencia">Veure i modificar les propietats de PDF</li>
       <li xml:lang="es">Ver y modificar las propiedades del PDF</li>
       <li xml:lang="eu">PDF propietateak ikusi eta aldatu</li>
       <li xml:lang="nl">PDF eigenschappen bekijken en wijzigen</li>
@@ -87,6 +95,7 @@
       <li xml:lang="x-test">xxView and modify PDF propertiesxx</li>
       <li>Protect PDF with password</li>
       <li xml:lang="ca">Protegir el PDF amb una contrasenya</li>
+      <li xml:lang="ca-valencia">Protegir PDF amb una contrasenya</li>
       <li xml:lang="es">Proteger el PDF con contraseña</li>
       <li xml:lang="eu">PDFak pasahitz bidez babestu</li>
       <li xml:lang="nl">PDF met een wachtwoord beschermen</li>
