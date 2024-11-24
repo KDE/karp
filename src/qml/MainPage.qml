@@ -64,6 +64,11 @@ Kirigami.Page {
                 checked: pdfModel.reduceSize
             }
             Kirigami.Action {
+                id: pdfVerAct
+                fromQAction: APP.action("pdf_version")
+                checked: pdfModel.reduceSize
+            }
+            Kirigami.Action {
                 fromQAction: APP.action("set_password")
                 checked: pdfModel.passKey !== ""
             }
@@ -203,22 +208,29 @@ Kirigami.Page {
             Qt.createComponent("org.kde.karp", "MissingPdfTool").createObject(page, { text: warn })
         }
         // Actions
-        function onWantSavePdf() {
+        function onWantSavePdf() : void {
             page.generate()
         }
-        function onWantOpenPdf() {
+        function onWantOpenPdf() : void {
             Qt.createComponent("org.kde.karp", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
         }
-        function onWantClearAll() {
+        function onWantClearAll() : void {
             page.clearAll()
         }
-        function onWantOptimize() {
+        function onWantOptimize() : void {
             pdfModel.optimizeImages = optimizeAct.checked
         }
-        function onWantReduceSize() {
+        function onWantReduceSize() : void {
             pdfModel.reduceSize = redSizeAct.checked
         }
-        function onWantSetPassword() {
+        function onWantPdfVersion() : void {
+            let verDlg = Qt.createComponent("org.kde.karp", "PdfVersionDialog").createObject(page, { pdfVersion: pdfModel.pdfVersion })
+            verDlg.accepted.connect(function(){ 
+                pdfModel.pdfVersion = verDlg.pdfVersion
+                pdfVerAct.checked = pdfModel.pdfVersion > 0 
+            })
+        }
+        function onWantSetPassword() : void {
             let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page,
                 { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: i18n("Protect PDF file with password."), passKey: pdfModel.passKey })
             passDlg.accepted.connect(function(){ pdfModel.passKey = passDlg.passKey })

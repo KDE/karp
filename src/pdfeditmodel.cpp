@@ -18,6 +18,9 @@
 #include <QStandardPaths>
 #include <QTimer>
 #include <qalgorithms.h>
+#include <qlogging.h>
+#include <qtmetamacros.h>
+#include <qtypes.h>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -122,7 +125,7 @@ void PdfEditModel::setSpacing(qreal sp)
 bool PdfEditModel::edited() const
 {
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
-        || m_metaData->modified();
+        || m_metaData->modified() || m_pdfVersion > 0.0;
 }
 
 bool PdfEditModel::optimizeImages() const
@@ -151,6 +154,21 @@ void PdfEditModel::setReduceSize(bool redS)
 
     m_reduceSize = redS;
     Q_EMIT reduceSizeChanged();
+    Q_EMIT editedChanged();
+}
+
+qreal PdfEditModel::pdfVersion() const
+{
+    return m_pdfVersion;
+}
+
+void PdfEditModel::setPdfVersion(qreal pV)
+{
+    if (m_pdfVersion == pV)
+        return;
+
+    m_pdfVersion = pV;
+    Q_EMIT pdfVersionChanged();
     Q_EMIT editedChanged();
 }
 
@@ -490,6 +508,12 @@ void PdfEditModel::generate()
     if (!r270.isEmpty())
         args << getPagesForRotation(270, r270);
     args << out;
+
+    if (m_pdfVersion > 0.0) {
+        args << dash + "force-version="_L1 + QString::number(m_pdfVersion);
+    }
+
+    // perform qpdf process
     qDebug().noquote() << "qpdf" << args.join(u" "_s);
     p.setArguments(args);
     p.start();
@@ -501,7 +525,7 @@ void PdfEditModel::generate()
     if (m_reduceSize) {
         connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
         tools->resizeByGs(out, m_pages);
-        // TODO: after gs manipulations output PDF has no proper metadata and no password
+        // TODO: after gs manipulations output PDF has no password
         return;
     } else
         toolProgressSlot(1.0);
