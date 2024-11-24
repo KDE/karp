@@ -68,6 +68,7 @@ add_subdirectory(src)
 
 install(FILES org.kde.karp.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.karp.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES org.kde.karp.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 ki18n_install(po)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

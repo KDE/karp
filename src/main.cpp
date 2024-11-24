@@ -16,7 +16,6 @@
 #include <QQuickStyle>
 #include <QUrl>
 
-#include "app.h"
 #include "version-karp.h"
 #include <KAboutData>
 #include <KLocalizedContext>
@@ -86,8 +85,7 @@ int main(int argc, char *argv[])
                         u"https://sourceforge.net/u/seelook/profile"_s);
     // aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
-    QGuiApplication::setWindowIcon(QIcon::fromTheme(u"application-pdf"_s));
-    // QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.karp"_s));
+    QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.karp"_s));
 
     QQmlApplicationEngine engine;
 
