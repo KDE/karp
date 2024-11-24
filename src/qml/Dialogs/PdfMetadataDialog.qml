@@ -39,6 +39,7 @@ FormCard.FormCardDialog {
                 id: chipsRep
                 model: pdfModel.pdfCount
                 Kirigami.Chip {
+                    required property int index
                     QQC2.ButtonGroup.group: tabsGr
                     text: pdfModel.getPdfName(index).replace(".pdf", "")
                     checkable: true
