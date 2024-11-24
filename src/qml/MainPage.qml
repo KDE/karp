@@ -172,7 +172,7 @@ Kirigami.Page {
         pdfModel: pdfModel
     }
 
-    function movePage(from, to) {
+    function movePage(from: int, to: int) : void {
         var pageNr = pdfModel.movePage(from, to)
         if (pageNr > -1) {
             selModel.setCurrentIndex(pdfView.index(pageNr / pdfView.columns, pageNr % pdfView.columns), ItemSelectionModel.Current)
@@ -182,7 +182,7 @@ Kirigami.Page {
 
     Connections {
         target: pdfModel
-        function onPdfCountChanged() {
+        function onPdfCountChanged() : void {
             if (pdfModel.pdfCount > 1) {
                     let newAct = actionComp.createObject(nameAct)
                     newAct.text = pdfModel.pdfCount + ". " + pdfModel.getPdfName(pdfModel.pdfCount - 1)
@@ -190,7 +190,7 @@ Kirigami.Page {
                     nameAct.children.push(newAct)
             }
         }
-        function onPasswordRequired(fName, fId) {
+        function onPasswordRequired(fName: string , fId: int) : void {
             let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page, { fileName: fName, fileId: fId })
             passDlg.accepted.connect(function(){ pdfModel.setPdfPassword(passDlg.fileId, passDlg.passKey) })
             passDlg.rejected.connect(function(){ pdfModel.setPdfPassword(passDlg.fileId, "") })
@@ -199,7 +199,7 @@ Kirigami.Page {
 
     Connections {
         target: APP
-        function onToolIsMissing(warn) {
+        function onToolIsMissing(warn: string) : void {
             Qt.createComponent("org.kde.karp", "MissingPdfTool").createObject(page, { text: warn })
         }
         // Actions
@@ -238,7 +238,7 @@ Kirigami.Page {
      * Common function to handle @p pdfFiles argument.
      * When it is just single file - load it immediately or open PdfFilesDialog
      */
-    function openPDFs(pdfFiles) {
+    function openPDFs(pdfFiles: var) {
         if (pdfFiles.length === 1)
             pdfModel.loadPdfFile(pdfFiles[0])
         else if (pdfFiles.length > 1)

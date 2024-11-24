@@ -162,7 +162,7 @@ Kirigami.Dialog {
 
     onClosed: destroy()
 
-    function checkTargetValue() {
+    function checkTargetValue() : void {
         if (targetSpin.value >= fromSpin.value && targetSpin.value <= toSpin.value) {
             let mid = Math.max(fromSpin.value + (toSpin.value - fromSpin.value) / 2, 1)
             if (targetSpin.value >= mid) {

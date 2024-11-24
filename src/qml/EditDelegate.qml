@@ -15,7 +15,7 @@ Item {
     /**
      * Calculates page number from given @p mouse position
      */
-    function pageAtMouse(mouse) {
+    function pageAtMouse(mouse) : void {
         var pos = dragButt.mapToItem(pdfView.contentItem, mouse.x, mouse.y)
         var cellPos = pdfView.cellAtPosition(pos.x, pos.y, true)
         return cellPos.y * pdfView.columns + cellPos.x

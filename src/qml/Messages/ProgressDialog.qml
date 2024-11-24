@@ -31,7 +31,7 @@ Kirigami.Dialog {
 
     Connections {
         target: pdfModel
-        function onPdfGenerated() {
+        function onPdfGenerated() : void {
             dialog.close()
         }
     }
