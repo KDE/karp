@@ -1,0 +1,536 @@
+# SPDX-FileCopyrightText: 2024 Matjaž Jeran <matjaz.jeran@amis.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-24 00:39+0000\n"
+"PO-Revision-Date: 2024-11-23 07:52+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 24.08.3\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#, fuzzy, kde-format
+#| msgid "Your names"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Matjaž Jeran"
+
+#, fuzzy, kde-format
+#| msgid "Your emails"
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "matjaz.jeran@amis.net"
+
+#: app.cpp:56 pdfeditmodel.cpp:419
+#, kde-format
+msgid "PDF file to edit"
+msgstr "PDF datoteka za urejanje"
+
+#: app.cpp:86 pdfsorganizer.cpp:186
+#, kde-format
+msgid "Select PDF files"
+msgstr "Izberite datoteke PDF"
+
+#: app.cpp:176
+#, kde-format
+msgid "QPDF is missing."
+msgstr "QPDF manjka."
+
+#: app.cpp:180
+#, kde-format
+msgid "Ghostscript is missing."
+msgstr "Ghostscript manjka."
+
+#: app.cpp:183
+#, kde-format
+msgid ""
+"Install programs mentioned above, otherwise not all functions will be "
+"available."
+msgstr ""
+"Namestite zgoraj omenjene programe, sicer ne bodo na voljo vse funkcije."
+
+#: app.cpp:205
+#, fuzzy, kde-format
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add PDF files"
+msgstr "Dodaj datoteke PDF"
+
+#: app.cpp:215
+#, fuzzy, kde-format
+#| msgid "Clear all files"
+msgctxt "@action:inmenu"
+msgid "Clear all files"
+msgstr "Počisti vse datoteke"
+
+#: app.cpp:229
+#, fuzzy, kde-format
+#| msgid "Optimize PDF"
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimiziraj PDF"
+
+#: app.cpp:238
+#, fuzzy, kde-format
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce size"
+msgstr "Zmanjšaj velikost"
+
+#: app.cpp:247
+#, fuzzy, kde-format
+#| msgctxt "app.cpp:247"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Set password"
+msgstr "Nastavite geslo"
+
+#: app.cpp:256
+#, fuzzy, kde-format
+#| msgid "PDF matadata"
+msgctxt "@action:inmenu"
+msgid "PDF metadata"
+msgstr "Metapodatki PDF"
+
+#: main.cpp:74
+#, fuzzy, kde-format
+#| msgid "Karp"
+msgctxt "@title"
+msgid "Karp"
+msgstr "Karp"
+
+#: main.cpp:78
+#, kde-format
+msgid "KDE arranger for PDFs"
+msgstr "KDE razvrščevalnik za PDFe"
+
+#: main.cpp:82
+#, kde-format
+msgid "(c) 2024 Tomasz Bojczuk"
+msgstr "(c) 2024 Tomasz Bojczuk"
+
+#: main.cpp:83
+#, fuzzy, kde-format
+#| msgid "Tomasz Bojczuk"
+msgctxt "@info:credit"
+msgid "Tomasz Bojczuk"
+msgstr "Tomasz Bojczuk"
+
+#: main.cpp:84
+#, fuzzy, kde-format
+#| msgid "Maintainer"
+msgctxt "@info:credit"
+msgid "Maintainer"
+msgstr "Vzdrževalec"
+
+#: pdfeditmodel.cpp:371
+msgid "Title"
+msgstr "Naslov"
+
+#: pdfeditmodel.cpp:372
+msgid "Subject"
+msgstr "Predmet"
+
+#: pdfeditmodel.cpp:373
+msgid "Author"
+msgstr "Avtor"
+
+#: pdfeditmodel.cpp:374
+msgid "Keyword"
+msgstr "Ključna beseda"
+
+#: pdfeditmodel.cpp:375
+msgid "Producer"
+msgstr "Producent"
+
+#: pdfeditmodel.cpp:376
+msgid "Creator"
+msgstr "Ustvarjalec"
+
+#: pdfeditmodel.cpp:377
+msgid "Creation Date"
+msgstr "Datum nastanka"
+
+#: pdfeditmodel.cpp:378
+msgid "Modification Date"
+msgstr "Datum spremembe"
+
+#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#, kde-format
+msgid "Page range"
+msgstr "Obseg strani"
+
+#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#, kde-format
+msgid "from"
+msgstr "od"
+
+#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#, kde-format
+msgid "to"
+msgstr "do"
+
+#: qml/Dialogs/MovePagesDialog.qml:75
+#, kde-format
+msgid "Move to"
+msgstr "Premakni na"
+
+#: qml/Dialogs/MovePagesDialog.qml:93
+#, fuzzy, kde-format
+#| msgid "before"
+msgctxt "@combobox:before/after"
+msgid "before"
+msgstr "pred"
+
+#: qml/Dialogs/MovePagesDialog.qml:93
+#, fuzzy, kde-format
+#| msgid "after"
+msgctxt "@combobox:before/after"
+msgid "after"
+msgstr "po"
+
+#: qml/Dialogs/MovePagesDialog.qml:133
+#, fuzzy, kde-format
+#| msgid "page"
+msgctxt "Move page range after/before (number)"
+msgid "page"
+msgstr "stran"
+
+#: qml/Dialogs/MovePagesDialog.qml:148
+#, fuzzy, kde-format
+#| msgid "Move"
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Premakni"
+
+#: qml/Dialogs/PdfFileDelegate.qml:86
+#, kde-format
+msgid "%1 pages"
+msgstr "%1 strani"
+
+#: qml/Dialogs/PdfFileDelegate.qml:95
+#, kde-format
+msgid "Add all pages"
+msgstr "Dodaj vse strani"
+
+#: qml/Dialogs/PdfFileDelegate.qml:103
+#, kde-format
+msgid "Add selected pages"
+msgstr "Dodaj izbrane strani"
+
+#: qml/Dialogs/PdfFileDelegate.qml:112
+#, kde-format
+msgid "Remove from list"
+msgstr "Odstrani iz seznama"
+
+#: qml/Dialogs/PdfFileDelegate.qml:126
+#, kde-format
+msgid "Select pages to add"
+msgstr "Izberite strani za dodajanje"
+
+#: qml/Dialogs/PdfFilesDialog.qml:17
+#, kde-format
+msgid "Add and arrange PDF files"
+msgstr "Dodaj in razvrsti datoteke PDF"
+
+#: qml/Dialogs/PdfFilesDialog.qml:41
+#, kde-format
+msgid "Total pages"
+msgstr "Skupno število strani"
+
+#: qml/Dialogs/PdfFilesDialog.qml:54
+#, kde-format
+msgid "add PDF files"
+msgstr "dodaj datoteke PDF"
+
+#: qml/Dialogs/PdfFilesDialog.qml:59
+#, kde-format
+msgid "show PDF path"
+msgstr "pokaži pot PDF"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:18
+#, kde-format
+msgid "PDF properties"
+msgstr "Lastnosti PDF"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:52
+#, kde-format
+msgid "Output PDF"
+msgstr "Output PDF"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:128
+#, kde-format
+msgid "Copy all metadata keys to output file"
+msgstr "Kopiraj vse metapodatkovne ključe v izhodno datoteko"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:154
+#, kde-format
+msgid "Double click to copy metadata into output PDF file."
+msgstr "Dvokliknite za kopiranje metapodatkov v izhodno datoteko PDF."
+
+#: qml/Dialogs/PdfPassDialog.qml:19
+#, kde-format
+msgid "Password required"
+msgstr "Zahtevano je geslo"
+
+#: qml/Dialogs/PdfPassDialog.qml:31
+#, kde-format
+msgid "Provide password to open file %1"
+msgstr "Vnesite geslo za odpiranje datoteke %1"
+
+#: qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "prva"
+
+#: qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "zadnja"
+
+#: qml/Dialogs/SelectPagesDialog.qml:97
+#, kde-format
+msgid "all pages in selected range"
+msgstr "vse strani v izbranem obsegu"
+
+#: qml/Dialogs/SelectPagesDialog.qml:105
+#, kde-format
+msgid "every %1 page"
+msgstr "vsaka %1 stran"
+
+#: qml/Dialogs/SelectPagesDialog.qml:118
+#, kde-format
+msgid "all pages out of range"
+msgstr "vse strani izven obsega"
+
+#: qml/Main.qml:24
+#, kde-format
+msgid "Simple PDF editor"
+msgstr "Preprosti urejevalnik PDF"
+
+#: qml/Main.qml:52
+#, kde-format
+msgid "Quit"
+msgstr "Zapusti"
+
+#: qml/MainPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Save As..."
+msgctxt "@action:inmenu"
+msgid "Save As..."
+msgstr "Shrani kot..."
+
+#: qml/MainPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:inmenu"
+msgid "Save"
+msgstr "Shrani"
+
+#: qml/MainPage.qml:38
+#, fuzzy, kde-format
+#| msgid "file"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "datoteka"
+msgstr[1] "datoteka"
+msgstr[2] "datoteka"
+msgstr[3] "datoteka"
+
+#: qml/MainPage.qml:55
+#, kde-format
+msgid "PDF Options"
+msgstr "Možnosti PDF"
+
+#: qml/MainPage.qml:223
+#, fuzzy, kde-format
+#| msgctxt "app.cpp:247"
+#| msgid "Set password"
+msgid "Set password"
+msgstr "Nastavite geslo"
+
+#: qml/MainPage.qml:223
+#, kde-format
+msgid "Protect PDF file with password."
+msgstr "Zaščiti datoteko PDF z geslom."
+
+#: qml/MainToolbar.qml:21 qml/MainToolbar.qml:82
+#, kde-format
+msgid "Select pages to delete"
+msgstr "Izberite strani za brisanje"
+
+#: qml/MainToolbar.qml:29 qml/MainToolbar.qml:94
+#, kde-format
+msgid "Select pages to rotate"
+msgstr "Izberite strani za sukanje"
+
+#: qml/MainToolbar.qml:37 qml/MainToolbar.qml:122
+#, kde-format
+msgid "Select pages to move"
+msgstr "Izberite strani za premikanje"
+
+#: qml/MainToolbar.qml:46
+#, kde-format
+msgid "Show page labels"
+msgstr "Pokaži oznake strani"
+
+#: qml/MainToolbar.qml:52
+#, kde-format
+msgid "Zoom Out"
+msgstr "Pomanjšaj"
+
+#: qml/MainToolbar.qml:58
+#, kde-format
+msgid "Zoom In"
+msgstr "Povečaj"
+
+#: qml/MainToolbar.qml:67
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "Stran %1 od %2"
+
+#: qml/MainToolbar.qml:83
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgctxt "@action:button"
+msgid "Delete"
+msgstr "Izbriši"
+
+#: qml/MainToolbar.qml:95
+#, fuzzy, kde-format
+#| msgid "Rotate"
+msgctxt "@action:button"
+msgid "Rotate"
+msgstr "Zasukaj"
+
+#: qml/MainToolbar.qml:104
+#, kde-format
+msgid "Angle"
+msgstr "Kot"
+
+#: qml/Messages/InitialInfo.qml:20
+#, kde-format
+msgid "Select one or more PDF files."
+msgstr "Izberite eno ali več datotek PDF."
+
+#: qml/Messages/InitialInfo.qml:22
+#, kde-format
+msgid ""
+"When more files is selected - order them first.\n"
+"Then arrange all pages: reorder, rotate, remove.\n"
+"At the end save new PDF with selected options."
+msgstr ""
+"Ko je izbranih več datotek - jih najprej razvrstite. Nato rzporedite vse "
+"strani: preuredite, zasukajte, odstranite. Na koncu shranite novi PDF z "
+"izbranimi možnostmi."
+
+#: qml/Messages/ProgressDialog.qml:14
+#, kde-format
+msgid "Generating PDF file"
+msgstr "Generiranje datoteke PDF"
+
+#: qml/Settings/General.qml:19
+#, kde-format
+msgid "Open file dialog at"
+msgstr "Odpri pogovorno okno datoteke na"
+
+#: qml/Settings/General.qml:23
+#, kde-format
+msgid "Last opened directory"
+msgstr "Zadnji odprti imenik"
+
+#: qml/Settings/General.qml:29
+#, kde-format
+msgid "Fixed path"
+msgstr "Fiksna pot"
+
+#: qml/Settings/General.qml:44
+#, kde-format
+msgid "Default name for output PDF"
+msgstr "Privzeto ime za izhodni PDF"
+
+#: qml/Settings/General.qml:48
+#, kde-format
+msgid "Always ask for file name"
+msgstr "Vedno vprašaj za ime datoteke"
+
+#: qml/Settings/General.qml:54
+#, kde-format
+msgid "Combine with input file name"
+msgstr "Kombiniraj z imenom vhodne datoteke"
+
+#: qml/Settings/General.qml:64
+#, kde-format
+msgid "Append"
+msgstr "Pripni na konec"
+
+#: qml/Settings/General.qml:64
+#, kde-format
+msgid "Prepend"
+msgstr "Pripni na začetek"
+
+#: qml/Settings/General.qml:77
+#, kde-format
+msgid "It will produce: <b>%1filename%2.pdf</b>"
+msgstr "Ustvaril bo: <b>%1filename%2.pdf</b>"
+
+#: qml/Settings/PdfTools.qml:12
+#, kde-format
+msgid "PDF Tools"
+msgstr "Orodja PDF"
+
+#: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
+#, kde-format
+msgid "not found"
+msgstr "ni najden"
+
+#: qml/Settings/PdfTools.qml:18
+#, kde-format
+msgid "Allows PDF page arrangements."
+msgstr "Omogoča razvrščanje strani PDF."
+
+#: qml/Settings/PdfTools.qml:31
+#, kde-format
+msgid "Manage size and quality of output PDF file."
+msgstr "Upravljaj velikost in kakovost izhodne datoteke PDF."
+
+#: qml/Settings/SettingsPage.qml:11
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@action:button Category in settings"
+msgid "General"
+msgstr "Splošno"
+
+#: qml/Settings/SettingsPage.qml:17
+#, fuzzy, kde-format
+#| msgid "PDF tools"
+msgctxt "@action:button Category in settings"
+msgid "PDF tools"
+msgstr "Orodja PDF"
+
+#: qml/Settings/SettingsPage.qml:23
+#, fuzzy, kde-format
+#| msgid "About Karp"
+msgctxt "@action:button"
+msgid "About Karp"
+msgstr "O Karpu"
+
+#: qml/Settings/SettingsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "About KDE"
+msgctxt "@action:button"
+msgid "About KDE"
+msgstr "O KDE"
+
+#~ msgid "files"
+#~ msgstr "datoteke"
+
+#~ msgctxt "qml/MainPage.qml:215"
+#~ msgid "Set password"
+#~ msgstr "Nastavi geslo"

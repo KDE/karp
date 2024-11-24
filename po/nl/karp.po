@@ -1,0 +1,505 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the karp package.
+#
+# SPDX-FileCopyrightText: 2024 Freek de Kruijf <freekdekruijf@kde.nl>
+msgid ""
+msgstr ""
+"Project-Id-Version: karp\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-24 00:39+0000\n"
+"PO-Revision-Date: 2024-11-23 12:32+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.08.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf - 2024"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: app.cpp:56 pdfeditmodel.cpp:419
+#, kde-format
+msgid "PDF file to edit"
+msgstr "Te bewerken PDF-bestand"
+
+#: app.cpp:86 pdfsorganizer.cpp:186
+#, kde-format
+msgid "Select PDF files"
+msgstr "PDF-bestanden selecteren"
+
+#: app.cpp:176
+#, kde-format
+msgid "QPDF is missing."
+msgstr "QPDF ontbreekt."
+
+#: app.cpp:180
+#, kde-format
+msgid "Ghostscript is missing."
+msgstr "Ghostscript ontbreekt."
+
+#: app.cpp:183
+#, kde-format
+msgid ""
+"Install programs mentioned above, otherwise not all functions will be "
+"available."
+msgstr ""
+"Bovengenoemde programma's installeren, anders zullen niet alle functies "
+"beschikbaar zijn."
+
+#: app.cpp:205
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add PDF files"
+msgstr "PDF-bestanden toevoegen"
+
+#: app.cpp:215
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Clear all files"
+msgstr "Alle bestanden wissen"
+
+#: app.cpp:229
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "PDF optimaliseren"
+
+#: app.cpp:238
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Reduce size"
+msgstr "Grootte verminderen"
+
+#: app.cpp:247
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Set password"
+msgstr "Wachtwoord instellen"
+
+#: app.cpp:256
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF matadata"
+msgctxt "@action:inmenu"
+msgid "PDF metadata"
+msgstr "PDF-metagegevens"
+
+#: main.cpp:74
+#, kde-format
+msgctxt "@title"
+msgid "Karp"
+msgstr "Karp"
+
+#: main.cpp:78
+#, kde-format
+msgid "KDE arranger for PDFs"
+msgstr "KDE arrangeur voor PDF's"
+
+#: main.cpp:82
+#, kde-format
+msgid "(c) 2024 Tomasz Bojczuk"
+msgstr "(c) 2024 Tomasz Bojczuk"
+
+#: main.cpp:83
+#, kde-format
+msgctxt "@info:credit"
+msgid "Tomasz Bojczuk"
+msgstr "Tomasz Bojczuk"
+
+#: main.cpp:84
+#, kde-format
+msgctxt "@info:credit"
+msgid "Maintainer"
+msgstr "Onderhouder"
+
+#: pdfeditmodel.cpp:371
+msgid "Title"
+msgstr "Titel"
+
+#: pdfeditmodel.cpp:372
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: pdfeditmodel.cpp:373
+msgid "Author"
+msgstr "Auteur"
+
+#: pdfeditmodel.cpp:374
+msgid "Keyword"
+msgstr "Trefwoord"
+
+#: pdfeditmodel.cpp:375
+msgid "Producer"
+msgstr "Producent"
+
+#: pdfeditmodel.cpp:376
+msgid "Creator"
+msgstr "Maker"
+
+#: pdfeditmodel.cpp:377
+msgid "Creation Date"
+msgstr "Aanmaakdatum"
+
+#: pdfeditmodel.cpp:378
+msgid "Modification Date"
+msgstr "Wijzigingsdatum"
+
+#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#, kde-format
+msgid "Page range"
+msgstr "Paginareeks"
+
+#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#, kde-format
+msgid "from"
+msgstr "van"
+
+#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#, kde-format
+msgid "to"
+msgstr "tot"
+
+#: qml/Dialogs/MovePagesDialog.qml:75
+#, kde-format
+msgid "Move to"
+msgstr "Verplaatsen naar"
+
+#: qml/Dialogs/MovePagesDialog.qml:93
+#, kde-format
+msgctxt "@combobox:before/after"
+msgid "before"
+msgstr "voor"
+
+#: qml/Dialogs/MovePagesDialog.qml:93
+#, kde-format
+msgctxt "@combobox:before/after"
+msgid "after"
+msgstr "na"
+
+#: qml/Dialogs/MovePagesDialog.qml:133
+#, kde-format
+msgctxt "Move page range after/before (number)"
+msgid "page"
+msgstr "pagina"
+
+#: qml/Dialogs/MovePagesDialog.qml:148
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Verplaatsen"
+
+#: qml/Dialogs/PdfFileDelegate.qml:86
+#, kde-format
+msgid "%1 pages"
+msgstr "%1 pagina's"
+
+#: qml/Dialogs/PdfFileDelegate.qml:95
+#, kde-format
+msgid "Add all pages"
+msgstr "Alle pagina's toevoegen"
+
+#: qml/Dialogs/PdfFileDelegate.qml:103
+#, kde-format
+msgid "Add selected pages"
+msgstr "Geselecteerde pagina's toevoegen"
+
+#: qml/Dialogs/PdfFileDelegate.qml:112
+#, kde-format
+msgid "Remove from list"
+msgstr "Verwijder uit de lijst"
+
+#: qml/Dialogs/PdfFileDelegate.qml:126
+#, kde-format
+msgid "Select pages to add"
+msgstr "Selecteer toe te voegen pagina's"
+
+#: qml/Dialogs/PdfFilesDialog.qml:17
+#, kde-format
+msgid "Add and arrange PDF files"
+msgstr "PDF-bestanden toevoegen en arrangeren"
+
+#: qml/Dialogs/PdfFilesDialog.qml:41
+#, kde-format
+msgid "Total pages"
+msgstr "Totaal aantal pagina's"
+
+#: qml/Dialogs/PdfFilesDialog.qml:54
+#, kde-format
+msgid "add PDF files"
+msgstr "PDF-bestanden toevoegen"
+
+#: qml/Dialogs/PdfFilesDialog.qml:59
+#, kde-format
+msgid "show PDF path"
+msgstr "pad van PDF tonen"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:18
+#, kde-format
+msgid "PDF properties"
+msgstr "PDF-eigenschappen"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:52
+#, kde-format
+msgid "Output PDF"
+msgstr "Uitvoer PDF"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:128
+#, kde-format
+msgid "Copy all metadata keys to output file"
+msgstr "Alle sleutels van metagegevens naar uitvoerbestand kopiëren"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:154
+#, kde-format
+msgid "Double click to copy metadata into output PDF file."
+msgstr "Dubbelklikken om metagegevens in PDF-uitvoerbestand kopiëren."
+
+#: qml/Dialogs/PdfPassDialog.qml:19
+#, kde-format
+msgid "Password required"
+msgstr "Wachtwoord vereist"
+
+#: qml/Dialogs/PdfPassDialog.qml:31
+#, kde-format
+msgid "Provide password to open file %1"
+msgstr "Lever wachtwoord om bestand %1 te openen"
+
+#: qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "eerste"
+
+#: qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "laatste"
+
+#: qml/Dialogs/SelectPagesDialog.qml:97
+#, kde-format
+msgid "all pages in selected range"
+msgstr "alle pagina's in de geselecteerde reeks"
+
+#: qml/Dialogs/SelectPagesDialog.qml:105
+#, kde-format
+msgid "every %1 page"
+msgstr "elke %1 pagina"
+
+#: qml/Dialogs/SelectPagesDialog.qml:118
+#, kde-format
+msgid "all pages out of range"
+msgstr "alle pagina's buiten de reeks"
+
+#: qml/Main.qml:24
+#, kde-format
+msgid "Simple PDF editor"
+msgstr "Eenvoudige PDF-bewerker"
+
+#: qml/Main.qml:52
+#, kde-format
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: qml/MainPage.qml:33
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Save As..."
+msgstr "Opslaan als..."
+
+#: qml/MainPage.qml:33
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Save"
+msgstr "Opslaan"
+
+#: qml/MainPage.qml:38
+#, kde-format
+msgid "file"
+msgid_plural "files"
+msgstr[0] "bestand"
+msgstr[1] "bestanden"
+
+#: qml/MainPage.qml:55
+#, kde-format
+msgid "PDF Options"
+msgstr "PDF-opties"
+
+#: qml/MainPage.qml:223
+#, kde-format
+msgid "Set password"
+msgstr "Wachtwoord instellen"
+
+#: qml/MainPage.qml:223
+#, kde-format
+msgid "Protect PDF file with password."
+msgstr "PDF-bestand beschermen met wachtwoord."
+
+#: qml/MainToolbar.qml:21 qml/MainToolbar.qml:82
+#, kde-format
+msgid "Select pages to delete"
+msgstr "Selecteer te verwijderen pagina's"
+
+#: qml/MainToolbar.qml:29 qml/MainToolbar.qml:94
+#, kde-format
+msgid "Select pages to rotate"
+msgstr "Selecteer te draaien pagina's"
+
+#: qml/MainToolbar.qml:37 qml/MainToolbar.qml:122
+#, kde-format
+msgid "Select pages to move"
+msgstr "Selecteer te verplaatsen pagina's"
+
+#: qml/MainToolbar.qml:46
+#, kde-format
+msgid "Show page labels"
+msgstr "Paginalabels tonen"
+
+#: qml/MainToolbar.qml:52
+#, kde-format
+msgid "Zoom Out"
+msgstr "Uitzoomen"
+
+#: qml/MainToolbar.qml:58
+#, kde-format
+msgid "Zoom In"
+msgstr "Inzoomen"
+
+#: qml/MainToolbar.qml:67
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "Pagina %1 van %2"
+
+#: qml/MainToolbar.qml:83
+#, kde-format
+msgctxt "@action:button"
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: qml/MainToolbar.qml:95
+#, kde-format
+msgctxt "@action:button"
+msgid "Rotate"
+msgstr "Draaien"
+
+#: qml/MainToolbar.qml:104
+#, kde-format
+msgid "Angle"
+msgstr "Hoek"
+
+#: qml/Messages/InitialInfo.qml:20
+#, kde-format
+msgid "Select one or more PDF files."
+msgstr "Selecteer een of meer PDF-bestanden."
+
+#: qml/Messages/InitialInfo.qml:22
+#, kde-format
+msgid ""
+"When more files is selected - order them first.\n"
+"Then arrange all pages: reorder, rotate, remove.\n"
+"At the end save new PDF with selected options."
+msgstr ""
+"Wanneer meer bestanden zijn geselecteerd - order ze eerst.\n"
+"Arrangeer alle pagina's: opnieuw ordenen, draaien, verwijderen.\n"
+"Aan het eind sla de nieuwe PDF op met geselecteerde opties."
+
+#: qml/Messages/ProgressDialog.qml:14
+#, kde-format
+msgid "Generating PDF file"
+msgstr "PDF-bestand wordt gegenereerd"
+
+#: qml/Settings/General.qml:19
+#, kde-format
+msgid "Open file dialog at"
+msgstr "Open bestandsdialoog bij"
+
+#: qml/Settings/General.qml:23
+#, kde-format
+msgid "Last opened directory"
+msgstr "Laatst geopende map"
+
+#: qml/Settings/General.qml:29
+#, kde-format
+msgid "Fixed path"
+msgstr "Vast pad"
+
+#: qml/Settings/General.qml:44
+#, kde-format
+msgid "Default name for output PDF"
+msgstr "Standaard naam voor uitvoer PDF"
+
+#: qml/Settings/General.qml:48
+#, kde-format
+msgid "Always ask for file name"
+msgstr "Altijd om bestandsnaam vragen"
+
+#: qml/Settings/General.qml:54
+#, kde-format
+msgid "Combine with input file name"
+msgstr "Combineer met invoerbestandsnaam"
+
+#: qml/Settings/General.qml:64
+#, kde-format
+msgid "Append"
+msgstr "Achteraan voegen"
+
+#: qml/Settings/General.qml:64
+#, kde-format
+msgid "Prepend"
+msgstr "Vooraan toevoegen"
+
+#: qml/Settings/General.qml:77
+#, kde-format
+msgid "It will produce: <b>%1filename%2.pdf</b>"
+msgstr "Het zal produceren: <b>%1filename%2.pdf</b>"
+
+#: qml/Settings/PdfTools.qml:12
+#, kde-format
+msgid "PDF Tools"
+msgstr "PDF-hulpmiddelen"
+
+#: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
+#, kde-format
+msgid "not found"
+msgstr "niet gevonden"
+
+#: qml/Settings/PdfTools.qml:18
+#, kde-format
+msgid "Allows PDF page arrangements."
+msgstr "Staat arrangeren van PDF-pagina's toe."
+
+#: qml/Settings/PdfTools.qml:31
+#, kde-format
+msgid "Manage size and quality of output PDF file."
+msgstr "Beheer grootte en kwaliteit van PDF-uitvoerbestand."
+
+#: qml/Settings/SettingsPage.qml:11
+#, kde-format
+msgctxt "@action:button Category in settings"
+msgid "General"
+msgstr "Algemeen"
+
+#: qml/Settings/SettingsPage.qml:17
+#, kde-format
+msgctxt "@action:button Category in settings"
+msgid "PDF tools"
+msgstr "PDF-hulpmiddelen"
+
+#: qml/Settings/SettingsPage.qml:23
+#, kde-format
+msgctxt "@action:button"
+msgid "About Karp"
+msgstr "Info over Karp"
+
+#: qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "About KDE"
+msgstr "Info over KDE"
