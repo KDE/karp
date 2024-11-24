@@ -3,6 +3,7 @@
 [Desktop Entry]
 Name=karp
 Name[ca]=Karp
+Name[ca@valencia]=Karp
 Name[es]=karp
 Name[eu]=karp
 Name[nl]=karp
@@ -12,6 +13,7 @@ Name[uk]=karp
 Name[x-test]=xxkarpxx
 Comment=Karp - KDE arranger for PDFs
 Comment[ca]=Karp - Arranjador de PDF de KDE
+Comment[ca@valencia]=Karp - Arranjador de PDF de KDE
 Comment[es]=Karp - Organizador PDF de KDE
 Comment[eu]=Karp - KDEren PDF moldatzailea
 Comment[nl]=Karp - KDE arrangeur voor PDF's
