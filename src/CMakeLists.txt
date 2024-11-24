@@ -19,6 +19,7 @@ qt_add_qml_module(karp
         qml/Dialogs/PdfFilesDialog.qml
         qml/Dialogs/PdfPassDialog.qml
         qml/Dialogs/PdfFileDelegate.qml
+        qml/Dialogs/PdfVersionDialog.qml
 
         qml/Settings/SettingsPage.qml
         qml/Settings/PdfTools.qml
