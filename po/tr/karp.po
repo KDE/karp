@@ -1,54 +1,51 @@
-# Translation of karp.po to Catalan
-# Copyright (C) 2024 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024 Antoni Bella Pérez <antonibella5@yahoo.com>
-# Josep M. Ferrer <txemaq@gmail.com>, 2024.
+# SPDX-FileCopyrightText: 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:38+0000\n"
-"PO-Revision-Date: 2024-11-24 09:20+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca\n"
+"PO-Revision-Date: 2024-11-24 20:25+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Josep M. Ferrer"
+msgstr "Emir SARI"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "txemaq@gmail.com"
+msgstr "emir_sari@icloud.com"
 
 #: app.cpp:56 pdfeditmodel.cpp:437
 #, kde-format
 msgid "PDF file to edit"
-msgstr "Fitxer PDF a editar"
+msgstr "Düzenlenecek PDF dosyası"
 
 #: app.cpp:86 pdfsorganizer.cpp:186
 #, kde-format
 msgid "Select PDF files"
-msgstr "Selecció dels fitxers PDF"
+msgstr "PDF Dosyaları Seç"
 
 #: app.cpp:176
 #, kde-format
 msgid "QPDF is missing."
-msgstr "Manca el QPDF."
+msgstr "QPDF eksik."
 
 #: app.cpp:180
 #, kde-format
 msgid "Ghostscript is missing."
-msgstr "Manca el Ghostscript."
+msgstr "Ghostcript eksik."
 
 #: app.cpp:183
 #, kde-format
@@ -56,51 +53,51 @@ msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr ""
-"Instal·leu els programes esmentats anteriorment, en cas contrari no totes "
-"les funcions estaran disponibles."
+"Yukarıda belirtilen programları kurun; aksi takdirde tüm işlevler "
+"kullanılabilir olmayacaktır."
 
 #: app.cpp:205
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
-msgstr "Afegeix fitxers PDF"
+msgstr "PDF Dosyaları Ekle"
 
 #: app.cpp:215
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr "Neteja tots els fitxers"
+msgstr "Tüm Dosyaları Temizle"
 
 #: app.cpp:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
-msgstr "Optimitza el PDF"
+msgstr "PDF Eniyile"
 
 #: app.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
-msgstr "Redueix la mida"
+msgstr "Boyut Azalt"
 
 #: app.cpp:247
 #, fuzzy, kde-format
 #| msgid "Select PDF files"
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
-msgstr "Selecció dels fitxers PDF"
+msgstr "PDF Dosyaları Seç"
 
 #: app.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
-msgstr "Estableix la contrasenya"
+msgstr "Parola Ayarla"
 
 #: app.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
-msgstr "Metadades del PDF"
+msgstr "PDF Üst Verisi"
 
 #: main.cpp:73
 #, kde-format
@@ -111,12 +108,12 @@ msgstr "Karp"
 #: main.cpp:77
 #, kde-format
 msgid "KDE arranger for PDFs"
-msgstr "Arranjador de PDF de KDE"
+msgstr "PDF Düzenleyicisi"
 
 #: main.cpp:81
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
-msgstr "(c) 2024 Tomasz Bojczuk"
+msgstr "© 2024 Tomasz Bojczuk"
 
 #: main.cpp:82
 #, kde-format
@@ -128,164 +125,164 @@ msgstr "Tomasz Bojczuk"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "Mantenidor"
+msgstr "Bakımcı"
 
 #: pdfeditmodel.cpp:389
 msgid "Title"
-msgstr "Títol"
+msgstr "Başlık"
 
 #: pdfeditmodel.cpp:390
 msgid "Subject"
-msgstr "Assumpte"
+msgstr "Konu"
 
 #: pdfeditmodel.cpp:391
 msgid "Author"
-msgstr "Autor"
+msgstr "Yazar"
 
 #: pdfeditmodel.cpp:392
 msgid "Keyword"
-msgstr "Paraula clau"
+msgstr "Anahtar Sözcük"
 
 #: pdfeditmodel.cpp:393
 msgid "Producer"
-msgstr "Productor"
+msgstr "Üretici"
 
 #: pdfeditmodel.cpp:394
 msgid "Creator"
-msgstr "Creador"
+msgstr "Oluşturucu"
 
 #: pdfeditmodel.cpp:395
 msgid "Creation Date"
-msgstr "Data de creació"
+msgstr "Oluşturulma Tarihi"
 
 #: pdfeditmodel.cpp:396
 msgid "Modification Date"
-msgstr "Data de modificació"
+msgstr "Değiştirilme Tarihi"
 
 #: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
-msgstr "Interval de pàgines"
+msgstr "Sayfa erimi"
 
 #: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
-msgstr "des de"
+msgstr "şuradan:"
 
 #: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
-msgstr "a"
+msgstr "şuraya:"
 
 #: qml/Dialogs/MovePagesDialog.qml:75
 #, kde-format
 msgid "Move to"
-msgstr "Mou a"
+msgstr "Şuraya taşı"
 
 #: qml/Dialogs/MovePagesDialog.qml:93
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
-msgstr "abans"
+msgstr "öncesi"
 
 #: qml/Dialogs/MovePagesDialog.qml:93
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
-msgstr "després"
+msgstr "sonrası"
 
 #: qml/Dialogs/MovePagesDialog.qml:133
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
-msgstr "pàgina"
+msgstr "sayfa"
 
 #: qml/Dialogs/MovePagesDialog.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr "Mou"
+msgstr "Taşı"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
 msgid "%1 pages"
-msgstr "%1 pàgines"
+msgstr "%1 sayfa"
 
 #: qml/Dialogs/PdfFileDelegate.qml:95
 #, kde-format
 msgid "Add all pages"
-msgstr "Afegeix totes les pàgines"
+msgstr "Tüm Sayfaları Ekle"
 
 #: qml/Dialogs/PdfFileDelegate.qml:103
 #, kde-format
 msgid "Add selected pages"
-msgstr "Afegeix les pàgines seleccionades"
+msgstr "Seçili Sayfaları Ekle"
 
 #: qml/Dialogs/PdfFileDelegate.qml:112
 #, kde-format
 msgid "Remove from list"
-msgstr "Elimina de la llista"
+msgstr "Listeden Kaldır"
 
 #: qml/Dialogs/PdfFileDelegate.qml:126
 #, kde-format
 msgid "Select pages to add"
-msgstr "Seleccioneu les pàgines a afegir"
+msgstr "Eklenecek Sayfalar Seç"
 
 #: qml/Dialogs/PdfFilesDialog.qml:17
 #, kde-format
 msgid "Add and arrange PDF files"
-msgstr "Afegeix i arranja fitxers PDF"
+msgstr "PDF Dosyaları Ekle ve Yerleştir"
 
 #: qml/Dialogs/PdfFilesDialog.qml:41
 #, kde-format
 msgid "Total pages"
-msgstr "Total de pàgines"
+msgstr "Toplam sayfa"
 
 #: qml/Dialogs/PdfFilesDialog.qml:54
 #, kde-format
 msgid "add PDF files"
-msgstr "afegeix fitxers PDF"
+msgstr "PDF Dosyaları Ekle"
 
 #: qml/Dialogs/PdfFilesDialog.qml:59
 #, kde-format
 msgid "show PDF path"
-msgstr "mostra el camí del PDF"
+msgstr "PDF Yolunu Göster"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
-msgstr "Propietats del PDF"
+msgstr "PDF Özellikleri"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:53
 #, kde-format
 msgid "Output PDF"
-msgstr "Sortida PDF"
+msgstr "PDF Çıktıla"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:129
 #, kde-format
 msgid "Copy all metadata keys to output file"
-msgstr "Copia totes les claus de les metadades al fitxer de sortida"
+msgstr "Tüm üst veri anahtarlarını çıktı dosyasına kopyala"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:155
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
-msgstr "Doble clic per a copiar les metadades al fitxer PDF de sortida."
+msgstr "Üst veriyi çıktı PDF dosyasına kopyalamak için çift tıklayın."
 
 #: qml/Dialogs/PdfPassDialog.qml:19
 #, kde-format
 msgid "Password required"
-msgstr "Cal la contrasenya"
+msgstr "Parola Gerekli"
 
 #: qml/Dialogs/PdfPassDialog.qml:31
 #, kde-format
 msgid "Provide password to open file %1"
-msgstr "Proporcioneu la contrasenya per a obrir el fitxer %1"
+msgstr "%1 dosyasını açmak için parolayı sağlayın"
 
 #: qml/Dialogs/PdfVersionDialog.qml:17
 #, fuzzy, kde-format
 #| msgid "Select PDF files"
 msgid "Set PDF version"
-msgstr "Selecció dels fitxers PDF"
+msgstr "PDF Dosyaları Seç"
 
 #: qml/Dialogs/PdfVersionDialog.qml:32
 #, kde-format
@@ -296,128 +293,128 @@ msgstr ""
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
 msgid "first"
-msgstr "primera"
+msgstr "ilk"
 
 #: qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
 msgid "last"
-msgstr "darrera"
+msgstr "son"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
 msgid "all pages in selected range"
-msgstr "totes les pàgines de l'interval seleccionat"
+msgstr "seçili erimdeki tüm sayfalar"
 
 #: qml/Dialogs/SelectPagesDialog.qml:105
 #, kde-format
 msgid "every %1 page"
-msgstr "cada %1 pàgina/es"
+msgstr "her %1 sayfa"
 
 #: qml/Dialogs/SelectPagesDialog.qml:118
 #, kde-format
 msgid "all pages out of range"
-msgstr "totes les pàgines fora de l'interval"
+msgstr "erim dışındaki tüm sayfalar"
 
 #: qml/Main.qml:24
 #, kde-format
 msgid "Simple PDF editor"
-msgstr "Editor senzill de PDF"
+msgstr "Basit PDF Düzenleyicisi"
 
 #: qml/Main.qml:52
 #, kde-format
 msgid "Quit"
-msgstr "Surt"
+msgstr "Çık"
 
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "Desa com a..."
+msgstr "Farklı Kaydet…"
 
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
-msgstr "Desa"
+msgstr "Kaydet"
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] "fitxer"
-msgstr[1] "fitxers"
+msgstr[0] "dosya"
+msgstr[1] "dosya"
 
 #: qml/MainPage.qml:55
 #, kde-format
 msgid "PDF Options"
-msgstr "Opcions del PDF"
+msgstr "PDF Seçenekleri"
 
 #: qml/MainPage.qml:235
 #, kde-format
 msgid "Set password"
-msgstr "Estableix la contrasenya"
+msgstr "Parola Ayarla"
 
 #: qml/MainPage.qml:235
 #, kde-format
 msgid "Protect PDF file with password."
-msgstr "Protegeix el fitxer PDF amb una contrasenya."
+msgstr "PDF dosyalarını parola ile koruyun."
 
 #: qml/MainToolbar.qml:21 qml/MainToolbar.qml:82
 #, kde-format
 msgid "Select pages to delete"
-msgstr "Pàgines seleccionades a suprimir"
+msgstr "Silinecek Sayfaları Seç"
 
 #: qml/MainToolbar.qml:29 qml/MainToolbar.qml:94
 #, kde-format
 msgid "Select pages to rotate"
-msgstr "Pàgines seleccionades a girar"
+msgstr "Döndürülecek Sayfaları Seç"
 
 #: qml/MainToolbar.qml:37 qml/MainToolbar.qml:122
 #, kde-format
 msgid "Select pages to move"
-msgstr "Pàgines seleccionades a moure"
+msgstr "Taşınacak Sayfaları Seç"
 
 #: qml/MainToolbar.qml:46
 #, kde-format
 msgid "Show page labels"
-msgstr "Mostra les etiquetes de la pàgina"
+msgstr "Sayfa Etiketlerini Göster"
 
 #: qml/MainToolbar.qml:52
 #, kde-format
 msgid "Zoom Out"
-msgstr "Allunya"
+msgstr "Uzaklaştır"
 
 #: qml/MainToolbar.qml:58
 #, kde-format
 msgid "Zoom In"
-msgstr "Apropa"
+msgstr "Yakınlaştır"
 
 #: qml/MainToolbar.qml:67
 #, kde-format
 msgid "Page %1 of %2"
-msgstr "Pàgina %1 de %2"
+msgstr "Sayfa %1/%2"
 
 #: qml/MainToolbar.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr "Suprimeix"
+msgstr "Sil"
 
 #: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
-msgstr "Gira"
+msgstr "Döndür"
 
 #: qml/MainToolbar.qml:104
 #, kde-format
 msgid "Angle"
-msgstr "Angle"
+msgstr "Açı"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format
 msgid "Select one or more PDF files."
-msgstr "Seleccioneu un o més fitxers PDF."
+msgstr "Bir veya daha çok PDF dosyası seçin."
 
 #: qml/Messages/InitialInfo.qml:22
 #, kde-format
@@ -426,100 +423,100 @@ msgid ""
 "Then arrange all pages: reorder, rotate, remove.\n"
 "At the end save new PDF with selected options."
 msgstr ""
-"Quan se seleccionen més fitxers, ordeneu-los abans.\n"
-"Després organitzeu totes les pàgines: reordeneu, gireu, elimineu.\n"
-"Al final deseu un PDF nou amb les opcions seleccionades."
+"Daha fazla dosya seçildiğinde onları önce sıralayın.\n"
+"Sonrasında tüm sayfaları düzenleyin: Yeniden sıralayın, döndürün, kaldırın.\n"
+"En sonda yeni PDF’yi seçili seçeneklerle kaydedin."
 
 #: qml/Messages/ProgressDialog.qml:14
 #, kde-format
 msgid "Generating PDF file"
-msgstr "S'està generant el fitxer PDF"
+msgstr "PDF dosyası üretiliyor…"
 
 #: qml/Settings/General.qml:19
 #, kde-format
 msgid "Open file dialog at"
-msgstr "Obre el diàleg de fitxers a"
+msgstr "Dosya İletişim Kutusu Aç"
 
 #: qml/Settings/General.qml:23
 #, kde-format
 msgid "Last opened directory"
-msgstr "Darrer directori obert"
+msgstr "Son açılan dizin"
 
 #: qml/Settings/General.qml:29
 #, kde-format
 msgid "Fixed path"
-msgstr "Camí fix"
+msgstr "Sabit yol"
 
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr "Nom predeterminat del PDF de sortida"
+msgstr "Çıktı PDF’si için öntanımlı ad"
 
 #: qml/Settings/General.qml:48
 #, kde-format
 msgid "Always ask for file name"
-msgstr "Pregunta sempre el nom del fitxer"
+msgstr "Her zaman dosya adı sor"
 
 #: qml/Settings/General.qml:54
 #, kde-format
 msgid "Combine with input file name"
-msgstr "Combina amb el nom del fitxer d'entrada"
+msgstr "Girdi dosyası adıyla kombine et"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Append"
-msgstr "Afegeix al final"
+msgstr "Sonuna iliştir"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Prepend"
-msgstr "Preposa"
+msgstr "Önüne iliştir"
 
 #: qml/Settings/General.qml:77
 #, kde-format
 msgid "It will produce: <b>%1filename%2.pdf</b>"
-msgstr "Produirà: <b>%1filename%2.pdf</b>"
+msgstr "Üretilecek ad: <b>%1dosyaadı%2.pdf</b>"
 
 #: qml/Settings/PdfTools.qml:12
 #, kde-format
 msgid "PDF Tools"
-msgstr "Eines PDF"
+msgstr "PDF Araçları"
 
 #: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
 #, kde-format
 msgid "not found"
-msgstr "no s'ha trobat"
+msgstr "bulunamadı"
 
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
-msgstr "Permet els arranjaments de pàgina de PDF."
+msgstr "PDF sayfalarının düzenlenmesine izin verir."
 
 #: qml/Settings/PdfTools.qml:31
 #, kde-format
 msgid "Manage size and quality of output PDF file."
-msgstr "Gestiona la mida i la qualitat del fitxer PDF de sortida."
+msgstr "Çıktı PDF dosyasının boyutunu ve kalitesini yönetin."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "General"
-msgstr "General"
+msgstr "Genel"
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "PDF tools"
-msgstr "Eines PDF"
+msgstr "PDF Araçları"
 
 #: qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
-msgstr "Quant al Karp"
+msgstr "Karp Hakkında"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr "Quant a KDE"
+msgstr "KDE Hakkında"

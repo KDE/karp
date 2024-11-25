@@ -3,31 +3,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-24 00:39+0000\n"
-"PO-Revision-Date: 2024-11-23 07:52+0100\n"
+"POT-Creation-Date: 2024-11-25 00:38+0000\n"
+"PO-Revision-Date: 2024-11-24 08:01+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.3\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
+"X-Generator: Poedit 3.5\n"
 
-#, fuzzy, kde-format
-#| msgid "Your names"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Matjaž Jeran"
 
-#, fuzzy, kde-format
-#| msgid "Your emails"
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
-#: app.cpp:56 pdfeditmodel.cpp:419
+#: app.cpp:56 pdfeditmodel.cpp:437
 #, kde-format
 msgid "PDF file to edit"
 msgstr "PDF datoteka za urejanje"
@@ -56,108 +54,105 @@ msgstr ""
 "Namestite zgoraj omenjene programe, sicer ne bodo na voljo vse funkcije."
 
 #: app.cpp:205
-#, fuzzy, kde-format
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Dodaj datoteke PDF"
 
 #: app.cpp:215
-#, fuzzy, kde-format
-#| msgid "Clear all files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Počisti vse datoteke"
 
 #: app.cpp:229
-#, fuzzy, kde-format
-#| msgid "Optimize PDF"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimiziraj PDF"
 
 #: app.cpp:238
-#, fuzzy, kde-format
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Zmanjšaj velikost"
 
 #: app.cpp:247
 #, fuzzy, kde-format
-#| msgctxt "app.cpp:247"
-#| msgid "Set password"
+#| msgid "Select PDF files"
 msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Nastavite geslo"
+msgid "Set PDF version"
+msgstr "Izberite datoteke PDF"
 
 #: app.cpp:256
-#, fuzzy, kde-format
-#| msgid "PDF matadata"
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Set password"
+msgstr "Nastavi geslo"
+
+#: app.cpp:265
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Metapodatki PDF"
 
-#: main.cpp:74
-#, fuzzy, kde-format
-#| msgid "Karp"
+#: main.cpp:73
+#, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDE razvrščevalnik za PDFe"
 
-#: main.cpp:82
+#: main.cpp:81
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:83
-#, fuzzy, kde-format
-#| msgid "Tomasz Bojczuk"
+#: main.cpp:82
+#, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:84
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#: main.cpp:83
+#, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: pdfeditmodel.cpp:371
+#: pdfeditmodel.cpp:389
 msgid "Title"
 msgstr "Naslov"
 
-#: pdfeditmodel.cpp:372
+#: pdfeditmodel.cpp:390
 msgid "Subject"
 msgstr "Predmet"
 
-#: pdfeditmodel.cpp:373
+#: pdfeditmodel.cpp:391
 msgid "Author"
 msgstr "Avtor"
 
-#: pdfeditmodel.cpp:374
+#: pdfeditmodel.cpp:392
 msgid "Keyword"
 msgstr "Ključna beseda"
 
-#: pdfeditmodel.cpp:375
+#: pdfeditmodel.cpp:393
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:376
+#: pdfeditmodel.cpp:394
 msgid "Creator"
 msgstr "Ustvarjalec"
 
-#: pdfeditmodel.cpp:377
+#: pdfeditmodel.cpp:395
 msgid "Creation Date"
 msgstr "Datum nastanka"
 
-#: pdfeditmodel.cpp:378
+#: pdfeditmodel.cpp:396
 msgid "Modification Date"
 msgstr "Datum spremembe"
 
@@ -182,29 +177,25 @@ msgid "Move to"
 msgstr "Premakni na"
 
 #: qml/Dialogs/MovePagesDialog.qml:93
-#, fuzzy, kde-format
-#| msgid "before"
+#, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
 msgstr "pred"
 
 #: qml/Dialogs/MovePagesDialog.qml:93
-#, fuzzy, kde-format
-#| msgid "after"
+#, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
 msgstr "po"
 
 #: qml/Dialogs/MovePagesDialog.qml:133
-#, fuzzy, kde-format
-#| msgid "page"
+#, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "stran"
 
 #: qml/Dialogs/MovePagesDialog.qml:148
-#, fuzzy, kde-format
-#| msgid "Move"
+#, kde-format
 msgctxt "@action:button"
 msgid "Move"
 msgstr "Premakni"
@@ -259,17 +250,17 @@ msgstr "pokaži pot PDF"
 msgid "PDF properties"
 msgstr "Lastnosti PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:52
+#: qml/Dialogs/PdfMetadataDialog.qml:53
 #, kde-format
 msgid "Output PDF"
 msgstr "Output PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:128
+#: qml/Dialogs/PdfMetadataDialog.qml:129
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Kopiraj vse metapodatkovne ključe v izhodno datoteko"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:154
+#: qml/Dialogs/PdfMetadataDialog.qml:155
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Dvokliknite za kopiranje metapodatkov v izhodno datoteko PDF."
@@ -283,6 +274,18 @@ msgstr "Zahtevano je geslo"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "Vnesite geslo za odpiranje datoteke %1"
+
+#: qml/Dialogs/PdfVersionDialog.qml:17
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgid "Set PDF version"
+msgstr "Izberite datoteke PDF"
+
+#: qml/Dialogs/PdfVersionDialog.qml:32
+#, kde-format
+msgctxt "like default PDF version"
+msgid "default"
+msgstr ""
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -320,22 +323,19 @@ msgid "Quit"
 msgstr "Zapusti"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "Shrani kot..."
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Shrani"
 
 #: qml/MainPage.qml:38
-#, fuzzy, kde-format
-#| msgid "file"
+#, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "datoteka"
@@ -348,14 +348,12 @@ msgstr[3] "datoteka"
 msgid "PDF Options"
 msgstr "Možnosti PDF"
 
-#: qml/MainPage.qml:223
-#, fuzzy, kde-format
-#| msgctxt "app.cpp:247"
-#| msgid "Set password"
+#: qml/MainPage.qml:235
+#, kde-format
 msgid "Set password"
-msgstr "Nastavite geslo"
+msgstr "Nastavi geslo"
 
-#: qml/MainPage.qml:223
+#: qml/MainPage.qml:235
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Zaščiti datoteko PDF z geslom."
@@ -396,15 +394,13 @@ msgid "Page %1 of %2"
 msgstr "Stran %1 od %2"
 
 #: qml/MainToolbar.qml:83
-#, fuzzy, kde-format
-#| msgid "Delete"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Izbriši"
 
 #: qml/MainToolbar.qml:95
-#, fuzzy, kde-format
-#| msgid "Rotate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Zasukaj"
@@ -501,29 +497,25 @@ msgid "Manage size and quality of output PDF file."
 msgstr "Upravljaj velikost in kakovost izhodne datoteke PDF."
 
 #: qml/Settings/SettingsPage.qml:11
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@action:button Category in settings"
 msgid "General"
 msgstr "Splošno"
 
 #: qml/Settings/SettingsPage.qml:17
-#, fuzzy, kde-format
-#| msgid "PDF tools"
+#, kde-format
 msgctxt "@action:button Category in settings"
 msgid "PDF tools"
 msgstr "Orodja PDF"
 
 #: qml/Settings/SettingsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "About Karp"
+#, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
 msgstr "O Karpu"
 
 #: qml/Settings/SettingsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O KDE"

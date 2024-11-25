@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-24 00:39+0000\n"
-"PO-Revision-Date: 2024-11-23 09:47+0200\n"
+"POT-Creation-Date: 2024-11-25 00:38+0000\n"
+"PO-Revision-Date: 2024-11-24 08:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: app.cpp:56 pdfeditmodel.cpp:419
+#: app.cpp:56 pdfeditmodel.cpp:437
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Файл PDF для редагування"
@@ -82,76 +82,81 @@ msgid "Reduce size"
 msgstr "Зменшити розмір"
 
 #: app.cpp:247
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@action:inmenu"
+msgid "Set PDF version"
+msgstr "Виберіть файли PDF"
+
+#: app.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Встановити пароль"
 
-#: app.cpp:256
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF matadata"
+#: app.cpp:265
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Метадані PDF"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "Впорядкувальник PDF від KDE"
 
-#: main.cpp:82
+#: main.cpp:81
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "© Томаш Бойчук, 2024"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Томаш Бойчук"
 
-#: main.cpp:84
+#: main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: pdfeditmodel.cpp:371
+#: pdfeditmodel.cpp:389
 msgid "Title"
 msgstr "Заголовок"
 
-#: pdfeditmodel.cpp:372
+#: pdfeditmodel.cpp:390
 msgid "Subject"
 msgstr "Тема"
 
-#: pdfeditmodel.cpp:373
+#: pdfeditmodel.cpp:391
 msgid "Author"
 msgstr "Автор"
 
-#: pdfeditmodel.cpp:374
+#: pdfeditmodel.cpp:392
 msgid "Keyword"
 msgstr "Ключове слово"
 
-#: pdfeditmodel.cpp:375
+#: pdfeditmodel.cpp:393
 msgid "Producer"
 msgstr "Підсистема створення"
 
-#: pdfeditmodel.cpp:376
+#: pdfeditmodel.cpp:394
 msgid "Creator"
 msgstr "Створено у"
 
-#: pdfeditmodel.cpp:377
+#: pdfeditmodel.cpp:395
 msgid "Creation Date"
 msgstr "Дата створення"
 
-#: pdfeditmodel.cpp:378
+#: pdfeditmodel.cpp:396
 msgid "Modification Date"
 msgstr "Дата внесення змін"
 
@@ -249,17 +254,17 @@ msgstr "показати шлях до PDF"
 msgid "PDF properties"
 msgstr "Властивості PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:52
+#: qml/Dialogs/PdfMetadataDialog.qml:53
 #, kde-format
 msgid "Output PDF"
 msgstr "PDF-результат"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:128
+#: qml/Dialogs/PdfMetadataDialog.qml:129
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Копіювати усі ключі метаданих до файла результатів"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:154
+#: qml/Dialogs/PdfMetadataDialog.qml:155
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Двічі клацніть, щоб скопіювати метадані до файла PDF результатів."
@@ -273,6 +278,18 @@ msgstr "Потрібен пароль"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "Надайте пароль для відкриття файла %1"
+
+#: qml/Dialogs/PdfVersionDialog.qml:17
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgid "Set PDF version"
+msgstr "Виберіть файли PDF"
+
+#: qml/Dialogs/PdfVersionDialog.qml:32
+#, kde-format
+msgctxt "like default PDF version"
+msgid "default"
+msgstr ""
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -334,12 +351,12 @@ msgstr[2] "файлів"
 msgid "PDF Options"
 msgstr "Параметри PDF"
 
-#: qml/MainPage.qml:223
+#: qml/MainPage.qml:235
 #, kde-format
 msgid "Set password"
 msgstr "Встановити пароль"
 
-#: qml/MainPage.qml:223
+#: qml/MainPage.qml:235
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Захистити файл PDF паролем."

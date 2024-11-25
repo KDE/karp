@@ -1,54 +1,53 @@
-# Translation of karp.po to Catalan
-# Copyright (C) 2024 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the karp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# SPDX-FileCopyrightText: 2024 Antoni Bella Pérez <antonibella5@yahoo.com>
-# Josep M. Ferrer <txemaq@gmail.com>, 2024.
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:38+0000\n"
-"PO-Revision-Date: 2024-11-24 09:20+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca\n"
+"PO-Revision-Date: 2024-11-24 05:48+0100\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Josep M. Ferrer"
+msgstr "Temuri Doghonadze"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "txemaq@gmail.com"
+msgstr "temuri.doghonadze@gmail.com"
 
 #: app.cpp:56 pdfeditmodel.cpp:437
 #, kde-format
 msgid "PDF file to edit"
-msgstr "Fitxer PDF a editar"
+msgstr "PDF ფაილი ჩასასწორებლად"
 
 #: app.cpp:86 pdfsorganizer.cpp:186
 #, kde-format
 msgid "Select PDF files"
-msgstr "Selecció dels fitxers PDF"
+msgstr "აირჩიეთ PDF ფაილები"
 
 #: app.cpp:176
 #, kde-format
 msgid "QPDF is missing."
-msgstr "Manca el QPDF."
+msgstr "QPDF აღმოჩენილი არაა."
 
 #: app.cpp:180
 #, kde-format
 msgid "Ghostscript is missing."
-msgstr "Manca el Ghostscript."
+msgstr "Ghostscript აღმოჩენილი არაა."
 
 #: app.cpp:183
 #, kde-format
@@ -56,51 +55,51 @@ msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr ""
-"Instal·leu els programes esmentats anteriorment, en cas contrari no totes "
-"les funcions estaran disponibles."
+"დააყენეთ ზემოთ მოხსენიებული პროგრამა. წინააღმდეგ შემთხვევაში ყველა ფუნქცია "
+"არ იმუშავებს."
 
 #: app.cpp:205
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
-msgstr "Afegeix fitxers PDF"
+msgstr "PDF ფაილების დამატება"
 
 #: app.cpp:215
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr "Neteja tots els fitxers"
+msgstr "ყველა ფაილის გასუფთავება"
 
 #: app.cpp:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
-msgstr "Optimitza el PDF"
+msgstr "PDF-ის ოპტიმიზაცია"
 
 #: app.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
-msgstr "Redueix la mida"
+msgstr "ზომის შემცირება"
 
 #: app.cpp:247
 #, fuzzy, kde-format
 #| msgid "Select PDF files"
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
-msgstr "Selecció dels fitxers PDF"
+msgstr "აირჩიეთ PDF ფაილები"
 
 #: app.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
-msgstr "Estableix la contrasenya"
+msgstr "პაროლის დაყენება"
 
 #: app.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
-msgstr "Metadades del PDF"
+msgstr "PDF მეტამონაცემები"
 
 #: main.cpp:73
 #, kde-format
@@ -111,181 +110,181 @@ msgstr "Karp"
 #: main.cpp:77
 #, kde-format
 msgid "KDE arranger for PDFs"
-msgstr "Arranjador de PDF de KDE"
+msgstr "PDF-ების დამლაგებელი PDF-ებისთვის"
 
 #: main.cpp:81
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
-msgstr "(c) 2024 Tomasz Bojczuk"
+msgstr "(c) 2024 ტომაშ ბოიჩუკი"
 
 #: main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
-msgstr "Tomasz Bojczuk"
+msgstr "ტომაშ ბოიჩუკი"
 
 #: main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "Mantenidor"
+msgstr "წამყვანი პროგრამისტი"
 
 #: pdfeditmodel.cpp:389
 msgid "Title"
-msgstr "Títol"
+msgstr "სათაური"
 
 #: pdfeditmodel.cpp:390
 msgid "Subject"
-msgstr "Assumpte"
+msgstr "შინაარსი"
 
 #: pdfeditmodel.cpp:391
 msgid "Author"
-msgstr "Autor"
+msgstr "ავტორი"
 
 #: pdfeditmodel.cpp:392
 msgid "Keyword"
-msgstr "Paraula clau"
+msgstr "საკვანძო სიტყვა"
 
 #: pdfeditmodel.cpp:393
 msgid "Producer"
-msgstr "Productor"
+msgstr "პროდიუსერი"
 
 #: pdfeditmodel.cpp:394
 msgid "Creator"
-msgstr "Creador"
+msgstr "შემქმნელი"
 
 #: pdfeditmodel.cpp:395
 msgid "Creation Date"
-msgstr "Data de creació"
+msgstr "შეცვლის თარიღის მიხედვით"
 
 #: pdfeditmodel.cpp:396
 msgid "Modification Date"
-msgstr "Data de modificació"
+msgstr "ცვლილების თარიღი"
 
 #: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
-msgstr "Interval de pàgines"
+msgstr "გვერდების შუალედი"
 
 #: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
-msgstr "des de"
+msgstr "ვისგან"
 
 #: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
-msgstr "a"
+msgstr "სადამდე"
 
 #: qml/Dialogs/MovePagesDialog.qml:75
 #, kde-format
 msgid "Move to"
-msgstr "Mou a"
+msgstr "გადაადგილება"
 
 #: qml/Dialogs/MovePagesDialog.qml:93
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
-msgstr "abans"
+msgstr "მითითებულ დრომდე"
 
 #: qml/Dialogs/MovePagesDialog.qml:93
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
-msgstr "després"
+msgstr "მითითებულ დროის შემდეგ"
 
 #: qml/Dialogs/MovePagesDialog.qml:133
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
-msgstr "pàgina"
+msgstr "პანელი"
 
 #: qml/Dialogs/MovePagesDialog.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr "Mou"
+msgstr "გადატანა"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
 msgid "%1 pages"
-msgstr "%1 pàgines"
+msgstr "%1 გვერდი"
 
 #: qml/Dialogs/PdfFileDelegate.qml:95
 #, kde-format
 msgid "Add all pages"
-msgstr "Afegeix totes les pàgines"
+msgstr "ყველა გვერდის დამატება"
 
 #: qml/Dialogs/PdfFileDelegate.qml:103
 #, kde-format
 msgid "Add selected pages"
-msgstr "Afegeix les pàgines seleccionades"
+msgstr "მონიშნული გვერდების დამატება"
 
 #: qml/Dialogs/PdfFileDelegate.qml:112
 #, kde-format
 msgid "Remove from list"
-msgstr "Elimina de la llista"
+msgstr "სიიდან წაშლა"
 
 #: qml/Dialogs/PdfFileDelegate.qml:126
 #, kde-format
 msgid "Select pages to add"
-msgstr "Seleccioneu les pàgines a afegir"
+msgstr "აირჩიეთ გვერდები დასამატებლად"
 
 #: qml/Dialogs/PdfFilesDialog.qml:17
 #, kde-format
 msgid "Add and arrange PDF files"
-msgstr "Afegeix i arranja fitxers PDF"
+msgstr "PDF ფაილების დამატება და დალაგება"
 
 #: qml/Dialogs/PdfFilesDialog.qml:41
 #, kde-format
 msgid "Total pages"
-msgstr "Total de pàgines"
+msgstr "სულ გვერდები"
 
 #: qml/Dialogs/PdfFilesDialog.qml:54
 #, kde-format
 msgid "add PDF files"
-msgstr "afegeix fitxers PDF"
+msgstr "PDF ფაილების დამატება"
 
 #: qml/Dialogs/PdfFilesDialog.qml:59
 #, kde-format
 msgid "show PDF path"
-msgstr "mostra el camí del PDF"
+msgstr "PDF ბილიკის ჩვენება"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
-msgstr "Propietats del PDF"
+msgstr "PDF თვისებები"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:53
 #, kde-format
 msgid "Output PDF"
-msgstr "Sortida PDF"
+msgstr "გამომავალი PDF"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:129
 #, kde-format
 msgid "Copy all metadata keys to output file"
-msgstr "Copia totes les claus de les metadades al fitxer de sortida"
+msgstr "ყველა მეტამონაცემის გასაღების კოპირება გამოტანის ფაილში"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:155
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
-msgstr "Doble clic per a copiar les metadades al fitxer PDF de sortida."
+msgstr "ორმაგი წკაპი მეტამონაცემების დასაკოპირებლად გამოტანის PDF ფაილში."
 
 #: qml/Dialogs/PdfPassDialog.qml:19
 #, kde-format
 msgid "Password required"
-msgstr "Cal la contrasenya"
+msgstr "პაროლი აუცილებელია"
 
 #: qml/Dialogs/PdfPassDialog.qml:31
 #, kde-format
 msgid "Provide password to open file %1"
-msgstr "Proporcioneu la contrasenya per a obrir el fitxer %1"
+msgstr "შეიყვანეთ პაროლი, რომ გახსნათ ფაილი %1"
 
 #: qml/Dialogs/PdfVersionDialog.qml:17
 #, fuzzy, kde-format
 #| msgid "Select PDF files"
 msgid "Set PDF version"
-msgstr "Selecció dels fitxers PDF"
+msgstr "აირჩიეთ PDF ფაილები"
 
 #: qml/Dialogs/PdfVersionDialog.qml:32
 #, kde-format
@@ -296,128 +295,128 @@ msgstr ""
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
 msgid "first"
-msgstr "primera"
+msgstr "პირველი"
 
 #: qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
 msgid "last"
-msgstr "darrera"
+msgstr "ბოლო"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
 msgid "all pages in selected range"
-msgstr "totes les pàgines de l'interval seleccionat"
+msgstr "ყველა გვერდი შერჩეულ შუალედში"
 
 #: qml/Dialogs/SelectPagesDialog.qml:105
 #, kde-format
 msgid "every %1 page"
-msgstr "cada %1 pàgina/es"
+msgstr "ყოველ %1 გვერდში"
 
 #: qml/Dialogs/SelectPagesDialog.qml:118
 #, kde-format
 msgid "all pages out of range"
-msgstr "totes les pàgines fora de l'interval"
+msgstr "ყველა გვერდები შუალედს გარეთ"
 
 #: qml/Main.qml:24
 #, kde-format
 msgid "Simple PDF editor"
-msgstr "Editor senzill de PDF"
+msgstr "მარტივი PDF რედაქტორი"
 
 #: qml/Main.qml:52
 #, kde-format
 msgid "Quit"
-msgstr "Surt"
+msgstr "გასვლა"
 
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "Desa com a..."
+msgstr "შეინახვა &როგორც..."
 
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
-msgstr "Desa"
+msgstr "შენახვა"
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] "fitxer"
-msgstr[1] "fitxers"
+msgstr[0] "ფაილი"
+msgstr[1] "ფაილები"
 
 #: qml/MainPage.qml:55
 #, kde-format
 msgid "PDF Options"
-msgstr "Opcions del PDF"
+msgstr "PDF პარამეტრები"
 
 #: qml/MainPage.qml:235
 #, kde-format
 msgid "Set password"
-msgstr "Estableix la contrasenya"
+msgstr "პაროლის დაყენება"
 
 #: qml/MainPage.qml:235
 #, kde-format
 msgid "Protect PDF file with password."
-msgstr "Protegeix el fitxer PDF amb una contrasenya."
+msgstr "დაიცავით PDF ფაილი პაროლით."
 
 #: qml/MainToolbar.qml:21 qml/MainToolbar.qml:82
 #, kde-format
 msgid "Select pages to delete"
-msgstr "Pàgines seleccionades a suprimir"
+msgstr "აირჩიეთ გვერდები წასაშლელად"
 
 #: qml/MainToolbar.qml:29 qml/MainToolbar.qml:94
 #, kde-format
 msgid "Select pages to rotate"
-msgstr "Pàgines seleccionades a girar"
+msgstr "აირჩიეთ გვერდები შესაბრუნებლად"
 
 #: qml/MainToolbar.qml:37 qml/MainToolbar.qml:122
 #, kde-format
 msgid "Select pages to move"
-msgstr "Pàgines seleccionades a moure"
+msgstr "აირჩიეთ გვერდები გადასაადგილებლად"
 
 #: qml/MainToolbar.qml:46
 #, kde-format
 msgid "Show page labels"
-msgstr "Mostra les etiquetes de la pàgina"
+msgstr "გვერდის ჭდეების ჩვენება"
 
 #: qml/MainToolbar.qml:52
 #, kde-format
 msgid "Zoom Out"
-msgstr "Allunya"
+msgstr "დაპატარავება"
 
 #: qml/MainToolbar.qml:58
 #, kde-format
 msgid "Zoom In"
-msgstr "Apropa"
+msgstr "გადიდება"
 
 #: qml/MainToolbar.qml:67
 #, kde-format
 msgid "Page %1 of %2"
-msgstr "Pàgina %1 de %2"
+msgstr "გვერდი %1 %2-დან"
 
 #: qml/MainToolbar.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr "Suprimeix"
+msgstr "წაშლა"
 
 #: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
-msgstr "Gira"
+msgstr "დატრიალება"
 
 #: qml/MainToolbar.qml:104
 #, kde-format
 msgid "Angle"
-msgstr "Angle"
+msgstr "კუთხე"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format
 msgid "Select one or more PDF files."
-msgstr "Seleccioneu un o més fitxers PDF."
+msgstr "აირჩიეთ ერთი ან მეტი PDF ფაილი."
 
 #: qml/Messages/InitialInfo.qml:22
 #, kde-format
@@ -426,100 +425,100 @@ msgid ""
 "Then arrange all pages: reorder, rotate, remove.\n"
 "At the end save new PDF with selected options."
 msgstr ""
-"Quan se seleccionen més fitxers, ordeneu-los abans.\n"
-"Després organitzeu totes les pàgines: reordeneu, gireu, elimineu.\n"
-"Al final deseu un PDF nou amb les opcions seleccionades."
+"როცა მეტი ფაილია მონიშნული - ჯერ დაალაგეთ ისინი.\n"
+"შემდეგ დაალაგეთ ყველა გვერდი, გადაალაგეთ, შეაბრუნეთ და წაშალეთ ისინი.\n"
+"ბოლოს კი შეინახეთ ახალი PDF არჩეული პარამეტრებით."
 
 #: qml/Messages/ProgressDialog.qml:14
 #, kde-format
 msgid "Generating PDF file"
-msgstr "S'està generant el fitxer PDF"
+msgstr "PDF ფაილის გენერაცია"
 
 #: qml/Settings/General.qml:19
 #, kde-format
 msgid "Open file dialog at"
-msgstr "Obre el diàleg de fitxers a"
+msgstr "ფაილის გახსნის დიალოგი მისამართზე"
 
 #: qml/Settings/General.qml:23
 #, kde-format
 msgid "Last opened directory"
-msgstr "Darrer directori obert"
+msgstr "ბოლოს გახსნილი საქაღალდე"
 
 #: qml/Settings/General.qml:29
 #, kde-format
 msgid "Fixed path"
-msgstr "Camí fix"
+msgstr "ფიქსირებული ბილიკი"
 
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr "Nom predeterminat del PDF de sortida"
+msgstr "ნაგულისხმები სახელი გამომავალი PDF-სთვის"
 
 #: qml/Settings/General.qml:48
 #, kde-format
 msgid "Always ask for file name"
-msgstr "Pregunta sempre el nom del fitxer"
+msgstr "ფაილის სახელის ყოველთვის კითხვა"
 
 #: qml/Settings/General.qml:54
 #, kde-format
 msgid "Combine with input file name"
-msgstr "Combina amb el nom del fitxer d'entrada"
+msgstr "შეთავსება შეყვანილი ფაილის სახელთან"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Append"
-msgstr "Afegeix al final"
+msgstr "ბოლოში მიწერა"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Prepend"
-msgstr "Preposa"
+msgstr "თავში მიწერა"
 
 #: qml/Settings/General.qml:77
 #, kde-format
 msgid "It will produce: <b>%1filename%2.pdf</b>"
-msgstr "Produirà: <b>%1filename%2.pdf</b>"
+msgstr "ის გამოიმუშავებს: <b>%1filename%2.pdf</b>"
 
 #: qml/Settings/PdfTools.qml:12
 #, kde-format
 msgid "PDF Tools"
-msgstr "Eines PDF"
+msgstr "PDF-ის ხელსაწყოები"
 
 #: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
 #, kde-format
 msgid "not found"
-msgstr "no s'ha trobat"
+msgstr "ვერ მოიძებნა"
 
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
-msgstr "Permet els arranjaments de pàgina de PDF."
+msgstr "იძლევა PDF-ის გვერდების გადალაგების საშუალებას."
 
 #: qml/Settings/PdfTools.qml:31
 #, kde-format
 msgid "Manage size and quality of output PDF file."
-msgstr "Gestiona la mida i la qualitat del fitxer PDF de sortida."
+msgstr "გამოტანილი PDF ფაილის ზომისა და ხარისხის მართვა."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "General"
-msgstr "General"
+msgstr "ზოგადი"
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "PDF tools"
-msgstr "Eines PDF"
+msgstr "PDF-ის ხელსაწყოები"
 
 #: qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
-msgstr "Quant al Karp"
+msgstr "Karp-ის შესახებ"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr "Quant a KDE"
+msgstr "KDE-ის შესახებ"

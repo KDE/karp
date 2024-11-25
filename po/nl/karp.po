@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-24 00:39+0000\n"
-"PO-Revision-Date: 2024-11-23 12:32+0100\n"
+"POT-Creation-Date: 2024-11-25 00:38+0000\n"
+"PO-Revision-Date: 2024-11-24 14:38+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: app.cpp:56 pdfeditmodel.cpp:419
+#: app.cpp:56 pdfeditmodel.cpp:437
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Te bewerken PDF-bestand"
@@ -81,76 +81,81 @@ msgid "Reduce size"
 msgstr "Grootte verminderen"
 
 #: app.cpp:247
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@action:inmenu"
+msgid "Set PDF version"
+msgstr "PDF-bestanden selecteren"
+
+#: app.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Wachtwoord instellen"
 
-#: app.cpp:256
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF matadata"
+#: app.cpp:265
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "PDF-metagegevens"
 
-#: main.cpp:74
+#: main.cpp:73
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:78
+#: main.cpp:77
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDE arrangeur voor PDF's"
 
-#: main.cpp:82
+#: main.cpp:81
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:83
+#: main.cpp:82
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:84
+#: main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: pdfeditmodel.cpp:371
+#: pdfeditmodel.cpp:389
 msgid "Title"
 msgstr "Titel"
 
-#: pdfeditmodel.cpp:372
+#: pdfeditmodel.cpp:390
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: pdfeditmodel.cpp:373
+#: pdfeditmodel.cpp:391
 msgid "Author"
 msgstr "Auteur"
 
-#: pdfeditmodel.cpp:374
+#: pdfeditmodel.cpp:392
 msgid "Keyword"
 msgstr "Trefwoord"
 
-#: pdfeditmodel.cpp:375
+#: pdfeditmodel.cpp:393
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:376
+#: pdfeditmodel.cpp:394
 msgid "Creator"
 msgstr "Maker"
 
-#: pdfeditmodel.cpp:377
+#: pdfeditmodel.cpp:395
 msgid "Creation Date"
 msgstr "Aanmaakdatum"
 
-#: pdfeditmodel.cpp:378
+#: pdfeditmodel.cpp:396
 msgid "Modification Date"
 msgstr "Wijzigingsdatum"
 
@@ -248,17 +253,17 @@ msgstr "pad van PDF tonen"
 msgid "PDF properties"
 msgstr "PDF-eigenschappen"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:52
+#: qml/Dialogs/PdfMetadataDialog.qml:53
 #, kde-format
 msgid "Output PDF"
 msgstr "Uitvoer PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:128
+#: qml/Dialogs/PdfMetadataDialog.qml:129
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Alle sleutels van metagegevens naar uitvoerbestand kopiëren"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:154
+#: qml/Dialogs/PdfMetadataDialog.qml:155
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Dubbelklikken om metagegevens in PDF-uitvoerbestand kopiëren."
@@ -272,6 +277,18 @@ msgstr "Wachtwoord vereist"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "Lever wachtwoord om bestand %1 te openen"
+
+#: qml/Dialogs/PdfVersionDialog.qml:17
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgid "Set PDF version"
+msgstr "PDF-bestanden selecteren"
+
+#: qml/Dialogs/PdfVersionDialog.qml:32
+#, kde-format
+msgctxt "like default PDF version"
+msgid "default"
+msgstr ""
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -332,12 +349,12 @@ msgstr[1] "bestanden"
 msgid "PDF Options"
 msgstr "PDF-opties"
 
-#: qml/MainPage.qml:223
+#: qml/MainPage.qml:235
 #, kde-format
 msgid "Set password"
 msgstr "Wachtwoord instellen"
 
-#: qml/MainPage.qml:223
+#: qml/MainPage.qml:235
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "PDF-bestand beschermen met wachtwoord."
