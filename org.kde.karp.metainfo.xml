@@ -10,21 +10,29 @@
   <name xml:lang="ca-valencia">Karp</name>
   <name xml:lang="es">Karp</name>
   <name xml:lang="eu">Karp</name>
+  <name xml:lang="fr">Karp</name>
+  <name xml:lang="he">Karp</name>
+  <name xml:lang="ka">Karp</name>
   <name xml:lang="nl">Karp</name>
   <name xml:lang="sl">Karp</name>
   <name xml:lang="tr">Karp</name>
   <name xml:lang="uk">Karp</name>
   <name xml:lang="x-test">xxKarpxx</name>
+  <name xml:lang="zh-CN">Karp PDF 编辑器</name>
   <summary>KDE arranger for PDFs</summary>
   <summary xml:lang="ca">Arranjador de PDF de KDE</summary>
   <summary xml:lang="ca-valencia">Arranjador de PDF de KDE</summary>
   <summary xml:lang="es">Organizador PDF de KDE</summary>
   <summary xml:lang="eu">KDEren PDF moldatzailea</summary>
+  <summary xml:lang="fr">Karp - Outil d'arrangement de fichiers « PDF » de KDE</summary>
+  <summary xml:lang="he">מסדר קובצי PDF מבית KDE</summary>
+  <summary xml:lang="ka">PDF-ების დამლაგებელი PDF-ებისთვის</summary>
   <summary xml:lang="nl">KDE arrangeur voor PDF's</summary>
   <summary xml:lang="sl">KDE razvrščevalnik za PDF-e</summary>
   <summary xml:lang="tr">PDF Düzenleyicisi</summary>
   <summary xml:lang="uk">Впорядкувальник PDF від KDE</summary>
   <summary xml:lang="x-test">xxKDE arranger for PDFsxx</summary>
+  <summary xml:lang="zh-CN">KDE 的 PDF 编辑器</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <content_rating type="oars-1.1"/>
@@ -37,72 +45,100 @@
     <p xml:lang="ca-valencia">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
     <p xml:lang="es">Karp proporciona una interfaz sencilla para modificar archivos PDF. Con unos clics de ratón puede:</p>
     <p xml:lang="eu">Karp - PDF fitxategiak aldatzeko EI sinple bat ematen du. Saguaren trazu gutxi batzuekin erabiltzaileak ondokoak egin ditzake:</p>
+    <p xml:lang="fr">Karp - Il vous propose une interface utilisateur simple pour la modification de fichiers « PDF ». En quelques déplacements de souris, l'utilisateur peut :</p>
+    <p xml:lang="he">Karp - מספק ממשק משתמש פשוט לשינויים בקובצי PDF. במספר לחיצות עכבר אפשר:</p>
+    <p xml:lang="ka">Karp - მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
     <p xml:lang="nl">Karp - geeft een eenvoudige UI voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
     <p xml:lang="sl">Karp - ponuja preprost uporabniški vmesnik za spreminjanje datotek PDF. Z nekaj potezami miškeuporabnik lahko:</p>
     <p xml:lang="tr">Karp, PDF dosyalarında değişiklik yapmak üzere yalın bir arayüz sunar. Birkaç fare hareketiyle kullanıcılar:</p>
     <p xml:lang="uk">Karp — простий інтерфейс для внесення змін до файлів PDF. За декілька клацань кнопками миші користувач може:</p>
     <p xml:lang="x-test">xxKarp - gives simple UI for PDF files modification. With a few mouse strokes user can:xx</p>
+    <p xml:lang="zh-CN">Karp 是一款界面简单易用的 PDF 编辑应用，只需点击几次鼠标即可进行以下操作：</p>
     <ul>
       <li>Append more PDF files and merge</li>
       <li xml:lang="ca">Afegir més fitxers PDF i fusionar-los</li>
       <li xml:lang="ca-valencia">Afegir més fitxers PDF i fusionar-los</li>
       <li xml:lang="es">Añadir más archivos PDF y fusionarlos</li>
       <li xml:lang="eu">PDF fitxategi gehiago erantsi eta elkartu</li>
+      <li xml:lang="fr">Ajouter plus de fichiers PDF et les fusionner</li>
+      <li xml:lang="he">להוסיף עוד קובצי PDF ולמזג</li>
+      <li xml:lang="ka">მიაწეროს ბოლოში PDF ფაილები ერთმანეთს და მათი შერწყმა</li>
       <li xml:lang="nl">Meer PDF bestanden achter voegen en mengen</li>
       <li xml:lang="sl">Doda več datotek PDF in jih združi</li>
       <li xml:lang="tr">Ek PDF dosyalarını iliştirebilir ve birleştirebilir</li>
       <li xml:lang="uk">Додавати файли PDF і об'єднувати їх</li>
       <li xml:lang="x-test">xxAppend more PDF files and mergexx</li>
+      <li xml:lang="zh-CN">追加更多 PDF 文件进行合并</li>
       <li>Delete, rotate and reorder pages</li>
       <li xml:lang="ca">Suprimir, girar o reordenar pàgines</li>
       <li xml:lang="ca-valencia">Suprimir, girar o reordenar pàgines</li>
       <li xml:lang="es">Borrar, rotar y reordenar las páginas</li>
       <li xml:lang="eu">Orrialdeak ezabatu, biratu eta berrantolatu</li>
+      <li xml:lang="fr">Supprimer, faire pivoter et réorganiser les pages</li>
+      <li xml:lang="he">למחוק, לסובב ולסדר עמודים מחדש</li>
+      <li xml:lang="ka">გვერდების წაშლა, შებრუნება და გადალაგება</li>
       <li xml:lang="nl">Pagina's verwijderen, draaien en opnieuw ordenen</li>
       <li xml:lang="sl">Briše, obrača in preureja strani</li>
       <li xml:lang="tr">Sayfaları silebilir, döndürebilir ve yeniden sıralayabilir</li>
       <li xml:lang="uk">Вилучати, обертати та перевпорядковувати сторінки</li>
       <li xml:lang="x-test">xxDelete, rotate and reorder pagesxx</li>
+      <li xml:lang="zh-CN">删除、旋转和重新排序页面</li>
       <li>Reduce PDF file size</li>
       <li xml:lang="ca">Reduir la mida de fitxers PDF</li>
       <li xml:lang="ca-valencia">Reduir la mida de fitxers PDF</li>
       <li xml:lang="es">Reducir el tamaño del archivo PDF</li>
       <li xml:lang="eu">PDF fitxategiaren neurria murriztu</li>
+      <li xml:lang="fr">Réduire la taille des fichiers</li>
+      <li xml:lang="he">לצמצם גודל קובצי PDF</li>
+      <li xml:lang="ka">PDF ფაილის ზომის შემცირება</li>
       <li xml:lang="nl">Bestandsgrootte van PDF bestand verminderen</li>
       <li xml:lang="sl">Zmanjša velikost datoteke PDF</li>
       <li xml:lang="tr">PDF dosyalarının boyutunu azaltabilir</li>
       <li xml:lang="uk">Зменшувати розмір файлів PDF</li>
       <li xml:lang="x-test">xxReduce PDF file sizexx</li>
+      <li xml:lang="zh-CN">压缩 PDF 文件体积</li>
       <li>Optimize images</li>
       <li xml:lang="ca">Optimitzar les imatges</li>
       <li xml:lang="ca-valencia">Optimitzar les imatges</li>
       <li xml:lang="es">Optimizar imágenes</li>
       <li xml:lang="eu">Irudiak optimizatu</li>
+      <li xml:lang="fr">Optimiser les images</li>
+      <li xml:lang="he">למטב תמונות</li>
+      <li xml:lang="ka">სურათების ოპტიმიზაცია</li>
       <li xml:lang="nl">Afbeeldingen optimaliseren</li>
       <li xml:lang="sl">Optimizira slike</li>
       <li xml:lang="tr">Görselleri eniyileyebilir</li>
       <li xml:lang="uk">Оптимізувати зображення</li>
       <li xml:lang="x-test">xxOptimize imagesxx</li>
+      <li xml:lang="zh-CN">对图像进行压缩优化</li>
       <li>View and modify PDF properties</li>
       <li xml:lang="ca">Veure i modificar les propietats del PDF</li>
       <li xml:lang="ca-valencia">Veure i modificar les propietats de PDF</li>
       <li xml:lang="es">Ver y modificar las propiedades del PDF</li>
       <li xml:lang="eu">PDF propietateak ikusi eta aldatu</li>
+      <li xml:lang="fr">Afficher et modifier les propriétés « PDF »</li>
+      <li xml:lang="he">להציג ולשנות מאפיינים של PDF</li>
+      <li xml:lang="ka">PDF თვისებების ნახვა და შეცვლა</li>
       <li xml:lang="nl">PDF eigenschappen bekijken en wijzigen</li>
       <li xml:lang="sl">Ogleduje in spreminja lastnosti PDF</li>
       <li xml:lang="tr">PDF özelliklerini görüntüleyebilir ve üzerinde değişiklik yapabilir</li>
       <li xml:lang="uk">Переглядати властивості PDF і вносити до них зміни</li>
       <li xml:lang="x-test">xxView and modify PDF propertiesxx</li>
+      <li xml:lang="zh-CN">查看和修改 PDF 文件属性</li>
       <li>Protect PDF with password</li>
       <li xml:lang="ca">Protegir el PDF amb una contrasenya</li>
       <li xml:lang="ca-valencia">Protegir PDF amb una contrasenya</li>
       <li xml:lang="es">Proteger el PDF con contraseña</li>
       <li xml:lang="eu">PDFak pasahitz bidez babestu</li>
+      <li xml:lang="fr">Protéger le fichier « PDF » avec un mot de passe</li>
+      <li xml:lang="he">להגן על PDF בסיסמה</li>
+      <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
       <li xml:lang="nl">PDF met een wachtwoord beschermen</li>
       <li xml:lang="sl">Zaščiti PDF z geslom</li>
       <li xml:lang="tr">PDF’leri parola ile koruyabilir</li>
       <li xml:lang="uk">Захищати PDF паролем</li>
       <li xml:lang="x-test">xxProtect PDF with passwordxx</li>
+      <li xml:lang="zh-CN">使用密码保护 PDF 文件。</li>
     </ul>
   </description>
   <provides>
