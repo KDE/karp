@@ -66,7 +66,7 @@ Kirigami.Page {
             Kirigami.Action {
                 id: pdfVerAct
                 fromQAction: APP.action("pdf_version")
-                checked: pdfModel.reduceSize
+                checked: pdfModel.pdfVersion > 0
             }
             Kirigami.Action {
                 fromQAction: APP.action("set_password")
@@ -225,10 +225,7 @@ Kirigami.Page {
         }
         function onWantPdfVersion() : void {
             let verDlg = Qt.createComponent("org.kde.karp", "PdfVersionDialog").createObject(page, { pdfVersion: pdfModel.pdfVersion })
-            verDlg.accepted.connect(function(){ 
-                pdfModel.pdfVersion = verDlg.pdfVersion
-                pdfVerAct.checked = pdfModel.pdfVersion > 0 
-            })
+            verDlg.accepted.connect(function(){ pdfModel.pdfVersion = verDlg.pdfVersion })
         }
         function onWantSetPassword() : void {
             let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page,
