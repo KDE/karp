@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-25 00:38+0000\n"
+"POT-Creation-Date: 2024-11-26 00:38+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -79,11 +79,10 @@ msgid "Reduce size"
 msgstr "压缩体积"
 
 #: app.cpp:247
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
-msgstr "选择 PDF 文件"
+msgstr ""
 
 #: app.cpp:256
 #, kde-format
@@ -95,7 +94,7 @@ msgstr "设置密码"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
-msgstr ""
+msgstr "PDF 元数据"
 
 #: main.cpp:73
 #, kde-format
@@ -277,10 +276,9 @@ msgid "Provide password to open file %1"
 msgstr "请输入密码以打开文件 %1"
 
 #: qml/Dialogs/PdfVersionDialog.qml:17
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgid "Set PDF version"
-msgstr "选择 PDF 文件"
+msgstr ""
 
 #: qml/Dialogs/PdfVersionDialog.qml:32
 #, kde-format
@@ -346,12 +344,12 @@ msgstr[0] "文件"
 msgid "PDF Options"
 msgstr "PDF 选项"
 
-#: qml/MainPage.qml:235
+#: qml/MainPage.qml:232
 #, kde-format
 msgid "Set password"
 msgstr "设置密码"
 
-#: qml/MainPage.qml:235
+#: qml/MainPage.qml:232
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "使用密码保护 PDF 文件。"

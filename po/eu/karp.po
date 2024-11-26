@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-25 00:38+0000\n"
+"POT-Creation-Date: 2024-11-26 00:38+0000\n"
 "PO-Revision-Date: 2024-11-24 06:53+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -352,12 +352,12 @@ msgstr[1] "fitxategiak"
 msgid "PDF Options"
 msgstr "PDF aukerak"
 
-#: qml/MainPage.qml:235
+#: qml/MainPage.qml:232
 #, kde-format
 msgid "Set password"
 msgstr "Ezarri pasahitza"
 
-#: qml/MainPage.qml:235
+#: qml/MainPage.qml:232
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Babestu PDF fitxategia pasahitz bidez."

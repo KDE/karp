@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-25 00:38+0000\n"
-"PO-Revision-Date: 2024-11-24 22:18+0100\n"
+"POT-Creation-Date: 2024-11-26 00:38+0000\n"
+"PO-Revision-Date: 2024-11-25 20:14+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -80,11 +80,10 @@ msgid "Reduce size"
 msgstr "Reducir tamaño"
 
 #: app.cpp:247
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
-msgstr "Seleccionar archivos PDF"
+msgstr "Definir versión de PDF"
 
 #: app.cpp:256
 #, kde-format
@@ -278,16 +277,15 @@ msgid "Provide password to open file %1"
 msgstr "Proporcione la contraseña para abrir el archivo %1"
 
 #: qml/Dialogs/PdfVersionDialog.qml:17
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgid "Set PDF version"
-msgstr "Seleccionar archivos PDF"
+msgstr "Definir versión de PDF"
 
 #: qml/Dialogs/PdfVersionDialog.qml:32
 #, kde-format
 msgctxt "like default PDF version"
 msgid "default"
-msgstr ""
+msgstr "predeterminada"
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -348,12 +346,12 @@ msgstr[1] "archivos"
 msgid "PDF Options"
 msgstr "Opciones PDF"
 
-#: qml/MainPage.qml:235
+#: qml/MainPage.qml:232
 #, kde-format
 msgid "Set password"
 msgstr "Definir contraseña"
 
-#: qml/MainPage.qml:235
+#: qml/MainPage.qml:232
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Proteger el archivo PDF con contraseña."
