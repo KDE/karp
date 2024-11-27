@@ -21,6 +21,7 @@
   <name xml:lang="uk">Karp</name>
   <name xml:lang="x-test">xxKarpxx</name>
   <name xml:lang="zh-CN">Karp PDF 编辑器</name>
+  <name xml:lang="zh-TW">Karp</name>
   <summary>KDE arranger for PDFs</summary>
   <summary xml:lang="ca">Arranjador de PDF de KDE</summary>
   <summary xml:lang="ca-valencia">Arranjador de PDF de KDE</summary>
@@ -37,6 +38,7 @@
   <summary xml:lang="uk">Впорядкувальник PDF від KDE</summary>
   <summary xml:lang="x-test">xxKDE arranger for PDFsxx</summary>
   <summary xml:lang="zh-CN">KDE 的 PDF 编辑器</summary>
+  <summary xml:lang="zh-TW">KDE 的 PDF 排列工具</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <content_rating type="oars-1.1"/>
@@ -60,6 +62,7 @@
     <p xml:lang="uk">Karp — простий інтерфейс для внесення змін до файлів PDF. За декілька клацань кнопками миші користувач може:</p>
     <p xml:lang="x-test">xxKarp - gives simple UI for PDF files modification. With a few mouse strokes user can:xx</p>
     <p xml:lang="zh-CN">Karp 是一款界面简单易用的 PDF 编辑应用，只需点击几次鼠标即可进行以下操作：</p>
+    <p xml:lang="zh-TW">Karp - 提供修改 PDF 檔案用的簡單介面。只要滑鼠點幾下就能：</p>
     <ul>
       <li>Append more PDF files and merge</li>
       <li xml:lang="ca">Afegir més fitxers PDF i fusionar-los</li>
@@ -77,6 +80,7 @@
       <li xml:lang="uk">Додавати файли PDF і об'єднувати їх</li>
       <li xml:lang="x-test">xxAppend more PDF files and mergexx</li>
       <li xml:lang="zh-CN">追加更多 PDF 文件进行合并</li>
+      <li xml:lang="zh-TW">合併多個 PDF 檔案、把 PDF 檔案加到後方</li>
       <li>Delete, rotate and reorder pages</li>
       <li xml:lang="ca">Suprimir, girar o reordenar pàgines</li>
       <li xml:lang="ca-valencia">Suprimir, girar o reordenar pàgines</li>
@@ -93,6 +97,7 @@
       <li xml:lang="uk">Вилучати, обертати та перевпорядковувати сторінки</li>
       <li xml:lang="x-test">xxDelete, rotate and reorder pagesxx</li>
       <li xml:lang="zh-CN">删除、旋转和重新排序页面</li>
+      <li xml:lang="zh-TW">刪除、旋轉或改變頁面順序</li>
       <li>Reduce PDF file size</li>
       <li xml:lang="ca">Reduir la mida de fitxers PDF</li>
       <li xml:lang="ca-valencia">Reduir la mida de fitxers PDF</li>
@@ -109,6 +114,7 @@
       <li xml:lang="uk">Зменшувати розмір файлів PDF</li>
       <li xml:lang="x-test">xxReduce PDF file sizexx</li>
       <li xml:lang="zh-CN">压缩 PDF 文件体积</li>
+      <li xml:lang="zh-TW">降低 PDF 檔案大小</li>
       <li>Optimize images</li>
       <li xml:lang="ca">Optimitzar les imatges</li>
       <li xml:lang="ca-valencia">Optimitzar les imatges</li>
@@ -125,6 +131,7 @@
       <li xml:lang="uk">Оптимізувати зображення</li>
       <li xml:lang="x-test">xxOptimize imagesxx</li>
       <li xml:lang="zh-CN">对图像进行压缩优化</li>
+      <li xml:lang="zh-TW">最佳化影像</li>
       <li>View and modify PDF properties</li>
       <li xml:lang="ca">Veure i modificar les propietats del PDF</li>
       <li xml:lang="ca-valencia">Veure i modificar les propietats de PDF</li>
@@ -141,6 +148,7 @@
       <li xml:lang="uk">Переглядати властивості PDF і вносити до них зміни</li>
       <li xml:lang="x-test">xxView and modify PDF propertiesxx</li>
       <li xml:lang="zh-CN">查看和修改 PDF 文件属性</li>
+      <li xml:lang="zh-TW">檢視或修改 PDF 屬性</li>
       <li>Protect PDF with password</li>
       <li xml:lang="ca">Protegir el PDF amb una contrasenya</li>
       <li xml:lang="ca-valencia">Protegir PDF amb una contrasenya</li>
@@ -157,6 +165,7 @@
       <li xml:lang="uk">Захищати PDF паролем</li>
       <li xml:lang="x-test">xxProtect PDF with passwordxx</li>
       <li xml:lang="zh-CN">使用密码保护 PDF 文件。</li>
+      <li xml:lang="zh-TW">用密碼來保護 PDF 檔</li>
     </ul>
   </description>
   <provides>
