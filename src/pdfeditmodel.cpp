@@ -430,14 +430,19 @@ void PdfEditModel::generate()
         return;
     // TODO but allow gs if available
     setProgress(0.05);
-    QString out;
     auto pdf = m_pdfList[m_pageList.first()->referenceFile()];
     if (conf->askForOutFile()) {
         QFileInfo inInfo(pdf->filePath());
-        out = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
+        m_outFile = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
     } else {
-        out = pdf->filePath();
-        out.insert(out.length() - 4, conf->outFileXfix());
+        m_outFile = pdf->filePath();
+        // takes first file name and adds prefix/suffix
+        if (conf->appendXfix())
+            m_outFile.insert(m_outFile.length() - 4, conf->outFileXfix());
+        else {
+            int sepPos = m_outFile.lastIndexOf(QDir::separator());
+            m_outFile.insert(sepPos + 1, conf->outFileXfix());
+        }
     }
 
     QProcess p;
@@ -507,7 +512,7 @@ void PdfEditModel::generate()
         args << getPagesForRotation(180, r180);
     if (!r270.isEmpty())
         args << getPagesForRotation(270, r270);
-    args << out;
+    args << m_outFile;
 
     if (m_pdfVersion > 0.0) {
         args << dash + "force-version="_L1 + QString::number(m_pdfVersion);
@@ -524,12 +529,12 @@ void PdfEditModel::generate()
     auto tools = ToolsThread::self();
     if (m_reduceSize) {
         connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
-        tools->resizeByGs(out, m_pages);
+        tools->resizeByGs(m_outFile, m_pages);
         // TODO: after gs manipulations output PDF has no password
         return;
     } else
         toolProgressSlot(1.0);
-    tools->applyMetadata(out, m_metaData);
+    tools->applyMetadata(m_outFile, m_metaData);
 }
 
 void PdfEditModel::cancel()
@@ -590,6 +595,11 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     } else {
         insertPdfPages(pdf);
     }
+}
+
+QString PdfEditModel::outFile() const
+{
+    return m_outFile;
 }
 
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const

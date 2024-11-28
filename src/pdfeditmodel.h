@@ -119,6 +119,8 @@ public:
 
     Q_INVOKABLE void setPdfPassword(int fileId, const QString &pass);
 
+    QString outFile() const;
+
     PdfPage *page(int p)
     {
         return m_pageList[p];
@@ -197,6 +199,7 @@ private:
     qreal m_spacing = 1.0;
     int m_prefPageWidth = 200;
     // PDF modifications
+    QString m_outFile;
     quint16 m_rotatedCount = 0;
     QVector<PdfPage *> m_deletedList;
     bool m_wasMoved = false;
