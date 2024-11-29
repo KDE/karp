@@ -50,18 +50,45 @@ void QpdfProxy::threadSlot()
         }
         chunks.last() << nextPage->origPage();
     }
-    // auto ranges = getPageRanges(chunks);
-    // qDebug() << ranges;
+
+    // Rotation of pages - aggregate angles
+    // NOTICE: page number (r) refers to number in m_pageList not orig page number in PDF file
+    QVector<quint16> r90, r180, r270;
+    for (int r = 0; r < m_pdfModel->pageCount(); ++r) {
+        auto page = m_pdfModel->page(r);
+        if (page->rotated() == 90)
+            r90 << r;
+        else if (page->rotated() == 180)
+            r180 << r;
+        else if (page->rotated() == 270)
+            r270 << r;
+    }
 
     try {
         QPDFJob qpdfJob;
         auto jobConf = qpdfJob.config();
         jobConf->inputFile(firstPdf->filePath().toStdString())->outputFile(m_pdfModel->outFile().toStdString());
+        // --pages
         auto qpdfPages = jobConf->pages();
         for (int c = 0; c < chunks.count(); ++c) {
             appendRangeToJob(chunks[c], qpdfPages.get(), c == 0);
         }
         qpdfPages->endPages();
+        // optimizations TODO
+        if (m_pdfModel->optimizeImages()) {
+            jobConf->recompressFlate();
+        }
+        // --rotate
+        if (!r90.isEmpty())
+            jobConf->rotate(getPagesForRotation(90, r90));
+        if (!r180.isEmpty())
+            jobConf->rotate(getPagesForRotation(180, r180));
+        if (!r270.isEmpty())
+            jobConf->rotate(getPagesForRotation(270, r270));
+
+        if (m_pdfModel->pdfVersion() > 0.0) {
+            jobConf->forceVersion(std::to_string(m_pdfModel->pdfVersion()));
+        }
         if (!m_pdfModel->passKey().isEmpty()) {
             jobConf
                 ->encrypt(256, m_pdfModel->passKey().toStdString(), m_pdfModel->passKey().toStdString())
@@ -84,7 +111,7 @@ void QpdfProxy::threadSlot()
 void QpdfProxy::appendRangeToJob(const QVector<quint16> &range, QPDFJob::PagesConfig *qpdfPages, bool isFirst)
 {
     PdfFile *pdf = nullptr;
-    QString pageRange;
+    QString pRange;
     std::string file, pass;
     if (isFirst) {
         // qpdfPages->file("."); // pnly above qpdf 10.9.0 version
@@ -97,28 +124,46 @@ void QpdfProxy::appendRangeToJob(const QVector<quint16> &range, QPDFJob::PagesCo
     }
     int fromPage = range[1];
     int toPage = fromPage + 1;
-    pageRange.append(QString::number(fromPage + 1));
+    pRange.append(QString::number(fromPage + 1));
     for (int p = 2; p < range.count(); ++p) {
         if (range[p] == toPage) {
             if (p == range.count() - 1) {
                 int span = toPage - fromPage;
                 if (span > 0)
-                    pageRange.append(QString(u"-%1"_s).arg(fromPage + span + 1));
+                    pRange.append(QString(u"-%1"_s).arg(fromPage + span + 1));
             }
             toPage++;
         } else {
             int span = toPage - fromPage - 1;
             if (span > 0)
-                pageRange.append(QString(u"-%1"_s).arg(fromPage + span + 1));
+                pRange.append(QString(u"-%1"_s).arg(fromPage + span + 1));
             fromPage = range[p];
             toPage = fromPage + 1;
-            pageRange.append(u","_s);
-            pageRange.append(QString::number(fromPage + 1));
+            pRange.append(u","_s);
+            pRange.append(QString::number(fromPage + 1));
         }
     }
     // qpdfPages->range(pageRange.toStdString());
     if (!pdf->password().isEmpty())
         pass = pdf->password().toStdString();
     // qpdfPages->password(pdf->password().toStdString());
-    qpdfPages->pageSpec(file, pageRange.toStdString(), pass.data());
+    qpdfPages->pageSpec(file, pRange.toStdString(), pass.data());
+}
+
+std::string QpdfProxy::getPagesForRotation(int angle, const QVector<quint16> &pageList)
+{
+    std::string pRange;
+    if (!pageList.isEmpty()) {
+        pRange = std::to_string(angle) + ":" + std::to_string(pageList[0] + 1); // .append(QString(u"--"_s + u"rotate=+%1:"_s).arg(angle));
+        // pRange.append(QString::number(pageList[0] + 1));
+    }
+    int p = 1;
+    while (p < pageList.count()) {
+        if (!pRange.empty())
+            pRange += ",";
+        pRange += std::to_string(pageList[p] + 1); //.append(QString::number(pageList[p] + 1));
+        p++;
+    }
+    qDebug() << pRange;
+    return pRange;
 }
