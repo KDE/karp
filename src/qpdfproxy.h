@@ -3,14 +3,6 @@
 
 #pragma once
 
-/**
- * Below definition is for qpdf library.
- * @see https://qpdf.readthedocs.io/en/stable/design.html#smart-pointers
- *
- * For now there is not much use of it in Karp case
- */
-#define POINTERHOLDER_TRANSITION 0
-
 #include <QObject>
 #include <QThread>
 #include <qpdf/QPDFJob.hh>

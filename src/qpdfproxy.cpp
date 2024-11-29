@@ -4,7 +4,9 @@
 #include "qpdfproxy.h"
 #include "pdfeditmodel.h"
 #include "pdffile.h"
+#include "pdfmetadata.h"
 #include <QDebug>
+#include <QSet>
 #include <qpdf/QPDFUsage.hh>
 
 using namespace Qt::Literals::StringLiterals;
@@ -96,8 +98,20 @@ void QpdfProxy::threadSlot()
                 ->endEncrypt();
         }
         // ->objectStreams("generate")
-        jobConf->checkConfiguration();
-        qpdfJob.run();
+        // jobConf->checkConfiguration();
+
+        // Meta data aka info
+        auto qpdfSP = qpdfJob.createQPDF();
+        auto &qpdf = *qpdfSP;
+        auto trailer = qpdf.getTrailer();
+        // TODO: handle case when metadata has to be flushed
+        auto info = trailer.getKey("/Info");
+        auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
+        auto metaData = m_pdfModel->metaData();
+        metaData->setAllInfoKeys(infoObj);
+
+        qpdfJob.writeQPDF(qpdf);
+        // qpdfJob.run();
     } catch (QPDFUsage &e) {
         qDebug() << "[QpdfProxy]" << "configuration error: " << e.what();
         return;
@@ -154,8 +168,7 @@ std::string QpdfProxy::getPagesForRotation(int angle, const QVector<quint16> &pa
 {
     std::string pRange;
     if (!pageList.isEmpty()) {
-        pRange = std::to_string(angle) + ":" + std::to_string(pageList[0] + 1); // .append(QString(u"--"_s + u"rotate=+%1:"_s).arg(angle));
-        // pRange.append(QString::number(pageList[0] + 1));
+        pRange = std::to_string(angle) + ":" + std::to_string(pageList[0] + 1);
     }
     int p = 1;
     while (p < pageList.count()) {
@@ -164,6 +177,5 @@ std::string QpdfProxy::getPagesForRotation(int angle, const QVector<quint16> &pa
         pRange += std::to_string(pageList[p] + 1); //.append(QString::number(pageList[p] + 1));
         p++;
     }
-    qDebug() << pRange;
     return pRange;
 }
