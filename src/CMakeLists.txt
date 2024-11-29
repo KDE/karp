@@ -33,6 +33,12 @@ qt_add_qml_module(karp
         qml/Messages/InitialInfo.qml
 )
 
+
+# Below definition is for qpdf library.
+# @see https://qpdf.readthedocs.io/en/stable/design.html#smart-pointers
+# For now there is not much use of it in Karp case
+target_compile_definitions(karp PRIVATE POINTERHOLDER_TRANSITION=0)
+
 target_sources(karp PUBLIC
     main.cpp
     app.cpp
