@@ -103,15 +103,21 @@ void QpdfProxy::threadSlot()
         // Meta data aka info
         auto qpdfSP = qpdfJob.createQPDF();
         auto &qpdf = *qpdfSP;
-        auto trailer = qpdf.getTrailer();
-        // TODO: handle case when metadata has to be flushed
-        auto info = trailer.getKey("/Info");
-        auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
+        // TODO: handle case when metadata has to be removed
         auto metaData = m_pdfModel->metaData();
-        metaData->setAllInfoKeys(infoObj);
+        auto trailer = qpdf.getTrailer();
+        auto info = trailer.getKey("/Info");
+        if (info.isNull()) {
+            auto newDict = QPDFObjectHandle::newDictionary();
+            trailer.replaceKey("/Info", newDict);
+            metaData->setAllInfoKeys(newDict);
+        } else {
+            auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
+            metaData->setAllInfoKeys(infoObj);
+        }
 
         qpdfJob.writeQPDF(qpdf);
-        // qpdfJob.run();
+
     } catch (QPDFUsage &e) {
         qDebug() << "[QpdfProxy]" << "configuration error: " << e.what();
         return;
