@@ -6,6 +6,7 @@
 #include "pagerange.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
+#include "qpdfproxy.h"
 #include "toolsthread.h"
 #include <KLazyLocalizedString>
 #include <QDebug>
@@ -420,15 +421,17 @@ void PdfEditModel::setTargetMetaData(const QVariant &metaList)
     Q_EMIT editedChanged();
 }
 
+PdfMetaData *PdfEditModel::metaData()
+{
+    return m_metaData;
+}
+
 void PdfEditModel::generate()
 {
     if (m_pdfList.isEmpty() || m_pageList.isEmpty())
         return;
 
     auto conf = karpConfig::self();
-    if (conf->qpdfPath().isEmpty())
-        return;
-    // TODO but allow gs if available
     setProgress(0.05);
     auto pdf = m_pdfList[m_pageList.first()->referenceFile()];
     if (conf->askForOutFile()) {
@@ -445,96 +448,23 @@ void PdfEditModel::generate()
         }
     }
 
-    QProcess p;
-    p.setProcessChannelMode(QProcess::MergedChannels);
-    p.setProgram(conf->qpdfPath());
-
-    QString dash = u"--"_s;
-    QStringList args;
-    args << pdf->filePath();
-    if (!pdf->password().isEmpty())
-        args << dash + u"password="_s + pdf->password();
-    args << dash + u"pages"_s << u"."_s;
-
-    QVector<QVector<quint16>> chunks;
-    auto &firstPage = m_pageList.first();
-    int fromPage = firstPage->origPage();
-    int fileId = firstPage->referenceFile();
-    chunks << (QVector<quint16>() << fileId << fromPage);
-    for (int p = 1; p < m_pages; ++p) {
-        auto nextPage = m_pageList[p];
-        if (nextPage->referenceFile() != fileId) {
-            fileId = nextPage->referenceFile();
-            fromPage = nextPage->origPage();
-            chunks << (QVector<quint16>() << fileId << fromPage);
-            continue;
-        }
-        chunks.last() << nextPage->origPage();
-    }
-
-    args << getQPDFargs(chunks);
-    args << dash;
-    // images optimization
-    if (m_optimizeImages) {
-        args << dash + u"recompress-flate"_s; // << dash + u"compression-level=9"_s << dash + u"compress-streams=y"_s << dash + u"object-streams=generate"_s;
-        // args << dash + u"optimize-images"_s;
-    }
-
-    if (m_passKey.isEmpty() || m_reduceSize) { // TODO suppress password if reducing size - for now
-        // if password is not set for output file, find if component file(s) have
-        // and set --decrypt flag to reset any of their password(s)
-        bool hasPass = false;
-        for (auto &pf : m_pdfList) {
-            if (!pf->password().isEmpty()) {
-                hasPass = true;
-                break;
-            }
-        }
-        if (hasPass)
-            args << dash + u"decrypt"_s;
-    } else {
-        args << dash + u"encrypt"_s << m_passKey << m_passKey << u"256"_s << dash;
-    }
-    // Rotation of pages - aggregate angles
-    // NOTICE: page number (r) refers to number in m_pageList not orig page number in PDF file
-    QVector<quint16> r90, r180, r270;
-    for (int r = 0; r < m_pages; ++r) {
-        if (m_pageList[r]->rotated() == 90)
-            r90 << r;
-        else if (m_pageList[r]->rotated() == 180)
-            r180 << r;
-        else if (m_pageList[r]->rotated() == 270)
-            r270 << r;
-    }
-    if (!r90.isEmpty())
-        args << getPagesForRotation(90, r90);
-    if (!r180.isEmpty())
-        args << getPagesForRotation(180, r180);
-    if (!r270.isEmpty())
-        args << getPagesForRotation(270, r270);
-    args << m_outFile;
-
-    if (m_pdfVersion > 0.0) {
-        args << dash + "force-version="_L1 + QString::number(m_pdfVersion);
-    }
-
-    // perform qpdf process
-    qDebug().noquote() << "qpdf" << args.join(u" "_s);
-    p.setArguments(args);
-    p.start();
-    p.waitForFinished();
-    qDebug().noquote().nospace() << p.readAll();
-    p.close();
-
-    auto tools = ToolsThread::self();
-    if (m_reduceSize) {
-        connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
-        tools->resizeByGs(m_outFile, m_pages);
-        // TODO: after gs manipulations output PDF has no password
-        return;
-    } else
+    auto qpdf = new QpdfProxy(this);
+    connect(qpdf, &QpdfProxy::finished, this, [=] {
+        qpdf->deleteLater();
         toolProgressSlot(1.0);
-    tools->applyMetadata(m_outFile, m_metaData);
+    });
+    qpdf->doJob();
+    return;
+
+    // auto tools = ToolsThread::self();
+    // if (m_reduceSize) {
+    //     connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
+    //     tools->resizeByGs(m_outFile, m_pages);
+    //     // TODO: after gs manipulations output PDF has no password
+    //     return;
+    // } else
+    //     toolProgressSlot(1.0);
+    // tools->applyMetadata(m_outFile, m_metaData);
 }
 
 void PdfEditModel::cancel()
@@ -671,23 +601,6 @@ Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
     return Qt::NoItemFlags;
 }
 
-QString PdfEditModel::getPagesForRotation(int angle, const QVector<quint16> &pageList)
-{
-    QString pRange;
-    if (!pageList.isEmpty()) {
-        pRange.append(QString(u"--"_s + u"rotate=+%1:"_s).arg(angle));
-        pRange.append(QString::number(pageList[0] + 1));
-    }
-    int p = 1;
-    while (p < pageList.count()) {
-        if (!pRange.isEmpty())
-            pRange.append(u","_s);
-        pRange.append(QString::number(pageList[p] + 1));
-        p++;
-    }
-    return pRange;
-}
-
 void PdfEditModel::changeColumnCount(int colCnt)
 {
     if (colCnt < 1 || colCnt == m_columns)
@@ -748,44 +661,6 @@ void PdfEditModel::insertPdfPages(PdfFile *pdf)
     }
     Q_EMIT pageCountChanged();
     Q_EMIT pdfCountChanged();
-}
-
-QStringList PdfEditModel::getQPDFargs(const QVector<QVector<quint16>> &chunks)
-{
-    QStringList args;
-    QString rangeArgs;
-    for (int c = 0; c < chunks.count(); ++c) {
-        auto &fileChunk = chunks[c];
-        if (c > 0) {
-            auto pdf = m_pdfList[fileChunk[0]];
-            args << pdf->filePath();
-            if (!pdf->password().isEmpty())
-                args << u"--"_s + u"password="_s + pdf->password();
-        }
-        int fromPage = fileChunk[1];
-        int toPage = fromPage + 1;
-        rangeArgs = QString::number(fromPage + 1);
-        for (int p = 2; p < fileChunk.count(); ++p) {
-            if (fileChunk[p] == toPage) {
-                if (p == fileChunk.count() - 1) {
-                    int span = toPage - fromPage;
-                    if (span > 0)
-                        rangeArgs.append(QString(u"-%1"_s).arg(fromPage + span + 1));
-                }
-                toPage++;
-            } else {
-                int span = toPage - fromPage - 1;
-                if (span > 0)
-                    rangeArgs.append(QString(u"-%1"_s).arg(fromPage + span + 1));
-                fromPage = fileChunk[p];
-                toPage = fromPage + 1;
-                rangeArgs.append(u","_s);
-                rangeArgs.append(QString::number(fromPage + 1));
-            }
-        }
-        args << rangeArgs;
-    }
-    return args;
 }
 
 void PdfEditModel::toolProgressSlot(qreal prog)

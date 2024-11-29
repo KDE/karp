@@ -106,6 +106,7 @@ public:
     Q_INVOKABLE QStringList getMetaDataModel(int fileId) const;
     Q_INVOKABLE QStringList getTargetMetaData() const;
     Q_INVOKABLE void setTargetMetaData(const QVariant &metaList);
+    PdfMetaData *metaData();
 
     Q_INVOKABLE void generate();
     Q_INVOKABLE void cancel();
@@ -165,7 +166,6 @@ Q_SIGNALS:
     void passwordRequired(const QString &, int);
 
 protected:
-    QString getPagesForRotation(int angle, const QVector<quint16> &pageList);
     void changeColumnCount(int colCnt);
 
     /**
@@ -177,8 +177,6 @@ protected:
 
     void addPdfFileToModel(PdfFile *pdf);
     void insertPdfPages(PdfFile *pdf);
-
-    QStringList getQPDFargs(const QVector<QVector<quint16>> &chunks);
 
     void toolProgressSlot(qreal prog);
 
