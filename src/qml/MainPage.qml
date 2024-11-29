@@ -117,7 +117,7 @@ Kirigami.Page {
             required property int origPage
             required property real pageRatio
             required property var pageImg
-            required property bool rotated
+            required property int rotated
             // required property bool selected // TODO - multiple selection
             required property bool current
             visible: pageNr < pdfModel.pageCount
