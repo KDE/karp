@@ -54,7 +54,8 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"
 )
-# find_package(qpdf REQUIRED)
+
+find_package(qpdf REQUIRED)
 
 qt_policy(SET QTP0001 NEW)
 

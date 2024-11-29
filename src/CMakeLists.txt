@@ -59,7 +59,7 @@ target_link_libraries(karp
     KF6::ConfigGui
     KF6::Kirigami
     KirigamiAddonsStatefulApp
-    # qpdf::libqpdf
+    qpdf::libqpdf
 )
 target_include_directories(karp PUBLIC ${CMAKE_BINARY_DIR})
 
