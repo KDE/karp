@@ -3,6 +3,7 @@
 
 #include "pdfmetadata.h"
 #include "version-karp.h"
+#include <qpdf/QPDFObjectHandle.hh>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -145,6 +146,43 @@ void PdfMetaData::setData(const QStringList &mData)
     m_modified = true;
 }
 
+void PdfMetaData::setAllInfoKeys(QPDFObjectHandle &qpdfHandle)
+{
+    if (!m_title.isEmpty()) {
+        auto titleObj = QPDFObjectHandle::newString(m_title.toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Title), titleObj);
+    }
+    if (!m_subject.isEmpty()) {
+        auto subjectObj = QPDFObjectHandle::newString(m_subject.toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Subject), subjectObj);
+    }
+    if (!m_author.isEmpty()) {
+        auto authorObj = QPDFObjectHandle::newString(m_author.toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Author), authorObj);
+    }
+    if (!m_keyword.isEmpty()) {
+        auto keywordsObj = QPDFObjectHandle::newString(m_keyword.toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Keywords), keywordsObj);
+    }
+    if (!m_producer.isEmpty()) {
+        auto producerObj = QPDFObjectHandle::newString(m_producer.toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Producer), producerObj);
+    }
+    if (!m_creator.isEmpty()) {
+        auto creatorObj = QPDFObjectHandle::newString(m_creator.toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Creator), creatorObj);
+    }
+    // TODO: deal with time zone (+00), common format string
+    if (m_creationDate.isValid()) {
+        auto dateObj = QPDFObjectHandle::newString(m_creationDate.toString(u"D:yyyyMMddhhmmss+00''00''"_s).toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::CreationDate), dateObj);
+    }
+    if (m_modDate.isValid()) {
+        auto dateObj = QPDFObjectHandle::newString(m_modDate.toString(u"D:yyyyMMddhhmmss+00''00''"_s).toStdString());
+        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::ModificationDate), dateObj);
+    }
+}
+
 QByteArrayList PdfMetaData::tags()
 {
     return m_tags;
@@ -191,4 +229,9 @@ QLatin1String PdfMetaData::jsonTag(QPdfDocument::MetaDataField tagId)
 QString PdfMetaData::jsonString(const QString &s)
 {
     return QLatin1String("u:") + s;
+}
+
+std::string PdfMetaData::infoTag(QPdfDocument::MetaDataField tagId)
+{
+    return "/" + tag(tagId).toStdString();
 }

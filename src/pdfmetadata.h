@@ -9,6 +9,8 @@
 
 #define PDF_METADATA_TAGS_COUNT (8)
 
+class QPDFObjectHandle;
+
 /**
  * @brief PdfMetaData class handles available info of PDF file.
  */
@@ -46,6 +48,8 @@ public:
     QStringList model() const;
     void setData(const QStringList &mData);
 
+    void setAllInfoKeys(QPDFObjectHandle &qpdfHandle);
+
     /**
      * List of tags used in PDF metadata ordered according to
      * @p QPdfDocument::MetaDataField:
@@ -68,6 +72,8 @@ public:
     static QLatin1String jsonTag(QPdfDocument::MetaDataField tagId);
 
     static QString jsonString(const QString &s);
+
+    std::string infoTag(QPdfDocument::MetaDataField tagId);
 
 private:
     static QByteArrayList m_tags;
