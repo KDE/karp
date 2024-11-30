@@ -8,6 +8,7 @@
 #include <qpdf/QPDFJob.hh>
 
 class PdfEditModel;
+class PdfMetaData;
 
 /**
  * @brief QPDFwrapper handler libqpdf in separate thread
@@ -24,6 +25,8 @@ public:
      * Invokes @p QPDFJob with transformations from @p PdfEditModel
      */
     void doJob();
+
+    static void addMetaToJob(QPDF &qpdf, PdfMetaData *metaData);
 
 Q_SIGNALS:
     void finished();

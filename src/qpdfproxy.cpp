@@ -32,6 +32,21 @@ void QpdfProxy::doJob()
     m_thread->start();
 }
 
+void QpdfProxy::addMetaToJob(QPDF &qpdf, PdfMetaData *metaData)
+{
+    // TODO: handle case when metadata has to be removed
+    auto trailer = qpdf.getTrailer();
+    auto info = trailer.getKey("/Info");
+    if (info.isNull()) {
+        auto newDict = QPDFObjectHandle::newDictionary();
+        trailer.replaceKey("/Info", newDict);
+        metaData->setAllInfoKeys(newDict);
+    } else {
+        auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
+        metaData->setAllInfoKeys(infoObj);
+    }
+}
+
 void QpdfProxy::threadSlot()
 {
     auto &pdfs = m_pdfModel->pdfs();
@@ -87,36 +102,29 @@ void QpdfProxy::threadSlot()
             jobConf->rotate(getPagesForRotation(180, r180));
         if (!r270.isEmpty())
             jobConf->rotate(getPagesForRotation(270, r270));
-
-        if (m_pdfModel->pdfVersion() > 0.0) {
-            jobConf->forceVersion(std::to_string(m_pdfModel->pdfVersion()));
+        // PDF version (if not reduce size)
+        if (m_pdfModel->pdfVersion() > 0.0 && !m_pdfModel->reduceSize()) {
+            jobConf->forceVersion("1." + std::to_string(static_cast<int>(m_pdfModel->pdfVersion() * 10.0 - 10.0)));
         }
-        if (!m_pdfModel->passKey().isEmpty()) {
+        // PDF password (if not reduce size)
+        if (!m_pdfModel->passKey().isEmpty() && !m_pdfModel->reduceSize()) {
             jobConf
                 ->encrypt(256, m_pdfModel->passKey().toStdString(), m_pdfModel->passKey().toStdString())
                 // ->print("low")
                 ->endEncrypt();
         }
         // ->objectStreams("generate")
-        // jobConf->checkConfiguration();
+        jobConf->checkConfiguration();
 
         // Meta data aka info
-        auto qpdfSP = qpdfJob.createQPDF();
-        auto &qpdf = *qpdfSP;
-        // TODO: handle case when metadata has to be removed
-        auto metaData = m_pdfModel->metaData();
-        auto trailer = qpdf.getTrailer();
-        auto info = trailer.getKey("/Info");
-        if (info.isNull()) {
-            auto newDict = QPDFObjectHandle::newDictionary();
-            trailer.replaceKey("/Info", newDict);
-            metaData->setAllInfoKeys(newDict);
+        if (!m_pdfModel->reduceSize()) {
+            auto qpdfSP = qpdfJob.createQPDF();
+            auto &qpdf = *qpdfSP;
+            addMetaToJob(qpdf, m_pdfModel->metaData());
+            qpdfJob.writeQPDF(qpdf);
         } else {
-            auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
-            metaData->setAllInfoKeys(infoObj);
+            qpdfJob.run();
         }
-
-        qpdfJob.writeQPDF(qpdf);
 
     } catch (QPDFUsage &e) {
         qDebug() << "[QpdfProxy]" << "configuration error: " << e.what();
