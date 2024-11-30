@@ -19,7 +19,6 @@ public:
     }
 
     void lookForTools();
-    void lookForQPDF(const QString &outFile);
     void lookForGS(const QString &gsPath);
 
     /**
@@ -47,7 +46,6 @@ protected:
     enum ToolsMode : quint8 {
         ToolsIdle = 0,
         ToolsFindAll,
-        ToolsFindQPDF,
         ToolsFindGS,
         ToolsResizeByGs,
     };
@@ -55,14 +53,12 @@ protected:
     void run() override;
 
     void findPdfTools();
-    QString findQpdf(const QString &qpdfPath = QString());
     QString findGhostScript(const QString &gsfPath = QString());
     bool resizeByGsThread();
 
 private:
     static ToolsThread *m_self;
     ToolsMode m_mode = ToolsIdle;
-    QString m_qpdfVersion;
     QString m_gsVersion;
     QString m_pathArg;
     int m_pageCountArg = 0;

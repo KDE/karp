@@ -34,13 +34,6 @@ void ToolsThread::lookForTools()
     start();
 }
 
-void ToolsThread::lookForQPDF(const QString &qpdfPath)
-{
-    m_pathArg = qpdfPath;
-    m_mode = ToolsFindQPDF;
-    start();
-}
-
 void ToolsThread::lookForGS(const QString &gsPath)
 {
     m_pathArg = gsPath;
@@ -65,7 +58,7 @@ void ToolsThread::cancel()
 
 QString ToolsThread::qpdfVersion() const
 {
-    return m_qpdfVersion;
+    return QString::fromStdString(QPDF::QPDFVersion());
 }
 
 QString ToolsThread::gsVersion() const
@@ -77,11 +70,7 @@ void ToolsThread::run()
 {
     if (m_mode == ToolsFindAll)
         findPdfTools();
-    else if (m_mode == ToolsFindQPDF) {
-        findQpdf(m_pathArg);
-        m_mode = ToolsIdle;
-        Q_EMIT lookingDone();
-    } else if (m_mode == ToolsFindGS) {
+    else if (m_mode == ToolsFindGS) {
         findGhostScript(m_pathArg);
         m_mode = ToolsIdle;
         Q_EMIT lookingDone();
@@ -96,50 +85,10 @@ void ToolsThread::run()
 void ToolsThread::findPdfTools()
 {
     auto conf = karpConfig::self();
-    conf->setQpdfPath(findQpdf());
     conf->setGsPath(findGhostScript());
 
     m_mode = ToolsIdle;
     Q_EMIT lookingDone();
-}
-
-QString ToolsThread::findQpdf(const QString &qpdfPath)
-{
-    QProcess p;
-    p.setProgram(qpdfPath.isEmpty() ? u"qpdf"_s : qpdfPath);
-    p.setArguments(QStringList() << u"--version"_s);
-    p.start();
-    p.waitForFinished();
-    m_qpdfVersion.clear();
-    auto versionLine = p.readLine().split(' ');
-    // qpdf --version prints version with executable name given in command line
-    // so if executable name is different than qpdf it will be first text.
-    // To find out is it qpdf or not:
-    // we just checking is 2nd string in 1st line 'version'
-    if (!versionLine.isEmpty() && versionLine.size() >= 3) {
-        if (versionLine[1].compare("version", Qt::CaseInsensitive) == 0) {
-            m_qpdfVersion = QString::fromLocal8Bit(versionLine[2]);
-            m_qpdfVersion.replace(u"\n"_s, QString());
-        }
-    }
-    p.close();
-    if (m_qpdfVersion.isEmpty()) {
-        qDebug() << "[ToolsThread]" << "qpdf not found";
-        return QString();
-    } else {
-#if defined(Q_OS_UNIX)
-        p.setProgram(u"whereis"_s);
-        p.setArguments(QStringList() << u"qpdf"_s);
-        p.start();
-        p.waitForFinished();
-        auto paths = p.readAll().split(' ');
-        if (paths.size() > 1)
-            return QString::fromLocal8Bit(paths[1]);
-#else
-        return p.program();
-#endif
-    }
-    return QString();
 }
 
 QString ToolsThread::findGhostScript(const QString &gsfPath)

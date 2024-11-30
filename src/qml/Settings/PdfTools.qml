@@ -14,14 +14,16 @@ FormCard.FormCardPage {
     FormCard.FormHeader { title: "QPDF" }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            text: "QPDF " + (APP.qpdfVersion === "" ? i18n("not found") : APP.qpdfVersion)
+            text: "QPDF " + APP.qpdfVersion
             description: i18n("Allows PDF page arrangements.")
         }
-        FormPathDelegate {
-            icon.name: "system-run"
-            path: KarpConf.qpdfPath
-            labelVisible: false
-            onAccepted: APP.checkQPDF(text)
+        FormCard.FormComboBoxDelegate {
+            enabled: false
+            text: i18n("Force PDF version of generated file")
+            description: i18n("When set to default, PDF version of input file will be used.")
+            model: [ i18n("default"), "1.4", "1.5", "1.6", "1.7" ]
+            currentIndex: 0
+            onActivated: console.log(currentText)
         }
     }
     FormCard.FormHeader { title: "Ghostscript" }

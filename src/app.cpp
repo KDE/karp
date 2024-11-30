@@ -97,11 +97,6 @@ QString App::getOpenDIr() const
         return conf->fixedLastDir();
 }
 
-void App::checkQPDF(const QString &qpdfPath)
-{
-    m_tools->lookForQPDF(qpdfPath);
-}
-
 void App::checkGS(const QString &gsPath)
 {
     m_tools->lookForGS(gsPath);
