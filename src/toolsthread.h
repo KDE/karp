@@ -5,8 +5,6 @@
 
 #include <QThread>
 
-class PdfMetaData;
-
 class ToolsThread : public QThread
 {
     Q_OBJECT

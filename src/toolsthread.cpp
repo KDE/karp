@@ -3,13 +3,16 @@
 
 #include "toolsthread.h"
 #include "karpconfig.h"
+#include "pdfeditmodel.h"
 #include "pdffile.h"
-#include "pdfmetadata.h"
+#include "qpdfproxy.h"
 #include "version-karp.h"
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QProcess>
+#include <qpdf/QPDFJob.hh>
+#include <qpdf/QPDFUsage.hh>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -182,9 +185,9 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
 
 bool ToolsThread::resizeByGsThread()
 {
-    qDebug() << "resizeByGsThread" << m_pageCountArg << m_pathArg;
     if (m_pageCountArg < 1 || m_pathArg.isEmpty())
         return false;
+
     QProcess p;
     QStringList args;
     auto conf = karpConfig::self();
@@ -224,22 +227,43 @@ bool ToolsThread::resizeByGsThread()
         Q_EMIT progressChanged((i + 1) / static_cast<qreal>(m_pageCountArg + 2));
     }
 
-    if (!m_doCancel) {
-        p.setProgram(conf->qpdfPath());
-        args << u"--empty"_s << u"--pages"_s << pages << u"--"_s << tmpPath + outInfo.fileName();
-        p.setArguments(args);
-        qDebug().noquote() << p.program() << p.arguments();
-        p.start();
-        p.waitForFinished();
-        qDebug() << p.readAll();
-        p.close();
+    auto pdfModel = PdfEditModel::self();
+    if (!m_doCancel && pdfModel) {
         outInfo.setFile(tmpPath + outInfo.fileName());
+        try {
+            QPDFJob qpdfJob;
+            auto jobConf = qpdfJob.config();
+            jobConf->emptyInput()->outputFile(outInfo.filePath().toStdString());
+            auto qpdfPages = jobConf->pages();
+            for (auto &p : pages) {
+                qpdfPages->pageSpec(p.toStdString(), "");
+            }
+            qpdfPages->endPages();
+            if (pdfModel->pdfVersion() > 0.0) {
+                jobConf->forceVersion("1." + std::to_string(static_cast<int>(pdfModel->pdfVersion() * 10.0 - 10.0)));
+            }
+            if (!pdfModel->passKey().isEmpty()) {
+                jobConf
+                    ->encrypt(256, pdfModel->passKey().toStdString(), pdfModel->passKey().toStdString())
+                    // ->print("low")
+                    ->endEncrypt();
+            }
+            jobConf->checkConfiguration();
+            auto qpdfSP = qpdfJob.createQPDF();
+            auto &qpdf = *qpdfSP;
+            QpdfProxy::addMetaToJob(qpdf, pdfModel->metaData());
+            qpdfJob.writeQPDF(qpdf);
+        } catch (QPDFUsage &e) {
+            qDebug() << "[ToolsThread]" << "configuration error: " << e.what();
+        } catch (std::exception &e) {
+            qDebug() << "[ToolsThread]" << "other error: " << e.what();
+        }
         qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
         if (outInfo.size() < outFileSize) {
             // override out file with new size, but delete existing file first
             if (QFile::exists(m_pathArg))
                 QFile::remove(m_pathArg);
-            qDebug() << "[PdfEditModel]" << "PDF file size successfully reduced." << outInfo.filePath();
+            qDebug() << "[ToolsThread]" << "PDF file size successfully reduced." << outInfo.filePath();
             QFile::copy(outInfo.filePath(), m_pathArg);
         }
         QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
