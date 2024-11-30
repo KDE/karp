@@ -240,13 +240,10 @@ bool ToolsThread::resizeByGsThread()
             }
             qpdfPages->endPages();
             if (pdfModel->pdfVersion() > 0.0) {
-                jobConf->forceVersion("1." + std::to_string(static_cast<int>(pdfModel->pdfVersion() * 10.0 - 10.0)));
+                QpdfProxy::forcePdfVersion(jobConf.get(), pdfModel->pdfVersion());
             }
             if (!pdfModel->passKey().isEmpty()) {
-                jobConf
-                    ->encrypt(256, pdfModel->passKey().toStdString(), pdfModel->passKey().toStdString())
-                    // ->print("low")
-                    ->endEncrypt();
+                QpdfProxy::setPdfPassword(jobConf.get(), pdfModel->passKey().toStdString());
             }
             jobConf->checkConfiguration();
             auto qpdfSP = qpdfJob.createQPDF();
@@ -254,9 +251,9 @@ bool ToolsThread::resizeByGsThread()
             QpdfProxy::addMetaToJob(qpdf, pdfModel->metaData());
             qpdfJob.writeQPDF(qpdf);
         } catch (QPDFUsage &e) {
-            qDebug() << "[ToolsThread]" << "configuration error: " << e.what();
+            qDebug() << "[ToolsThread]" << "QPDF configuration error: " << e.what();
         } catch (std::exception &e) {
-            qDebug() << "[ToolsThread]" << "other error: " << e.what();
+            qDebug() << "[ToolsThread]" << "QPDF error:" << e.what();
         }
         qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
         if (outInfo.size() < outFileSize) {

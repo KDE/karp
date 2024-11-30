@@ -26,6 +26,8 @@ public:
      */
     void doJob();
 
+    static void forcePdfVersion(QPDFJob::Config *jobConf, qreal ver);
+    static void setPdfPassword(QPDFJob::Config *jobConf, const std::string &pass);
     static void addMetaToJob(QPDF &qpdf, PdfMetaData *metaData);
 
 Q_SIGNALS:

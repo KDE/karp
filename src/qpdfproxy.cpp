@@ -47,6 +47,19 @@ void QpdfProxy::addMetaToJob(QPDF &qpdf, PdfMetaData *metaData)
     }
 }
 
+void QpdfProxy::forcePdfVersion(QPDFJob::Config *jobConf, qreal ver)
+{
+    jobConf->forceVersion("1." + std::to_string(static_cast<int>(ver * 10.0 - 10.0)));
+}
+
+void QpdfProxy::setPdfPassword(QPDFJob::Config *jobConf, const std::string &pass)
+{
+    jobConf
+        ->encrypt(256, pass, pass)
+        // ->print("low")
+        ->endEncrypt();
+}
+
 void QpdfProxy::threadSlot()
 {
     auto &pdfs = m_pdfModel->pdfs();
@@ -104,14 +117,11 @@ void QpdfProxy::threadSlot()
             jobConf->rotate(getPagesForRotation(270, r270));
         // PDF version (if not reduce size)
         if (m_pdfModel->pdfVersion() > 0.0 && !m_pdfModel->reduceSize()) {
-            jobConf->forceVersion("1." + std::to_string(static_cast<int>(m_pdfModel->pdfVersion() * 10.0 - 10.0)));
+            forcePdfVersion(jobConf.get(), m_pdfModel->pdfVersion());
         }
         // PDF password (if not reduce size)
         if (!m_pdfModel->passKey().isEmpty() && !m_pdfModel->reduceSize()) {
-            jobConf
-                ->encrypt(256, m_pdfModel->passKey().toStdString(), m_pdfModel->passKey().toStdString())
-                // ->print("low")
-                ->endEncrypt();
+            setPdfPassword(jobConf.get(), m_pdfModel->passKey().toStdString());
         }
         // ->objectStreams("generate")
         jobConf->checkConfiguration();
