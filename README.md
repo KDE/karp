@@ -6,9 +6,8 @@ Simple PDF editor which can select, delete, rearrange pages, merge PDF files and
 
 Karp uses [Kirigami framework](https://invent.kde.org/frameworks/kirigami)
 
-For now it operates on command line programs:
- * [QPDF](https://qpdf.sourceforge.io)
- * [GPL Ghostscript](https://www.ghostscript.com)
+For arranging PDF files [libqpdf](https://qpdf.sourceforge.io) is used.  
+To reduce PDF size Karp calls [GPL Ghostscript](https://www.ghostscript.com)  
 
 #### Supported features
  * Merging PDF files, reordering
@@ -17,14 +16,13 @@ For now it operates on command line programs:
  * Rotating pages
  * Reducing PDF file size
  * Optimizing images (if possible)
- * Viewing PDF properties
+ * Viewing, editing PDF properties (metadata)
  * Protect PDF file with password
 
 <img src="extras/reorder.gif"/>
 
 #### Planned features
  * Editing bookmarks
- * Modifying PDF metadata
  * Merging 2 PDFs: one for even pages and another one for odd pages
  * Resizing pages
  * Extracting images
