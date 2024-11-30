@@ -38,8 +38,6 @@ public:
 
     void cancel();
 
-    void applyMetadata(const QString &pdfPath, PdfMetaData *metadata);
-
     QString qpdfVersion() const;
     QString gsVersion() const;
 
@@ -54,7 +52,6 @@ protected:
         ToolsFindQPDF,
         ToolsFindGS,
         ToolsResizeByGs,
-        ToolsMetadata,
     };
 
     void run() override;
@@ -63,7 +60,6 @@ protected:
     QString findQpdf(const QString &qpdfPath = QString());
     QString findGhostScript(const QString &gsfPath = QString());
     bool resizeByGsThread();
-    void doMetadata();
 
 private:
     static ToolsThread *m_self;
@@ -72,6 +68,5 @@ private:
     QString m_gsVersion;
     QString m_pathArg;
     int m_pageCountArg = 0;
-    PdfMetaData *m_metadataArg = nullptr;
     bool m_doCancel = false;
 };

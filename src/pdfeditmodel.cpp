@@ -454,17 +454,14 @@ void PdfEditModel::generate()
         toolProgressSlot(1.0);
     });
     qpdf->doJob();
-    return;
 
-    // auto tools = ToolsThread::self();
     // if (m_reduceSize) {
+    //     auto tools = ToolsThread::self();
     //     connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
     //     tools->resizeByGs(m_outFile, m_pages);
-    //     // TODO: after gs manipulations output PDF has no password
     //     return;
     // } else
     //     toolProgressSlot(1.0);
-    // tools->applyMetadata(m_outFile, m_metaData);
 }
 
 void PdfEditModel::cancel()
@@ -668,7 +665,6 @@ void PdfEditModel::toolProgressSlot(qreal prog)
     setProgress(0.1 + 0.9 * prog);
     if (prog >= 1.0) {
         disconnect(ToolsThread::self(), &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
-        ToolsThread::self()->applyMetadata(QString(), m_metaData);
         setProgress(1.0);
         QTimer::singleShot(300, this, [=] {
             Q_EMIT pdfGenerated();

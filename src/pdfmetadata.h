@@ -57,21 +57,7 @@ public:
      */
     static QByteArrayList tags();
 
-    /**
-     * Returns JSON object with tags of all existing metadata
-     */
-    QJsonObject toJSON();
-
     static QByteArray tag(QPdfDocument::MetaDataField tagId);
-
-    /**
-     * Returns Metadata JSON tag, i.e. '/Author'.
-     * It is @p tag() with prepend '/'
-     * Use @p QPdfDocument::MetaDataField enumerator
-     */
-    static QLatin1String jsonTag(QPdfDocument::MetaDataField tagId);
-
-    static QString jsonString(const QString &s);
 
     std::string infoTag(QPdfDocument::MetaDataField tagId);
 

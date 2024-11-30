@@ -188,47 +188,12 @@ QByteArrayList PdfMetaData::tags()
     return m_tags;
 }
 
-QJsonObject PdfMetaData::toJSON()
-{
-    QJsonObject tagsJSON;
-    if (!m_title.isEmpty())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::Title), QJsonValue::fromVariant(jsonString(m_title)));
-    if (!m_subject.isEmpty())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::Subject), QJsonValue::fromVariant(jsonString(m_subject)));
-    if (!m_author.isEmpty())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::Author), QJsonValue::fromVariant(jsonString(m_author)));
-    if (!m_keyword.isEmpty())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::Keywords), QJsonValue::fromVariant(jsonString(m_keyword)));
-    if (!m_producer.isEmpty())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::Producer), QJsonValue::fromVariant(jsonString(m_producer)));
-    if (!m_creator.isEmpty())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::Creator), QJsonValue::fromVariant(jsonString(m_creator)));
-    // TODO: deal with time zone (+00)
-    if (m_creationDate.isValid())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::CreationDate), QJsonValue::fromVariant(m_creationDate.toString(u"u:D:yyyyMMddhhmmss+00''00''"_s)));
-    if (m_modDate.isValid())
-        tagsJSON.insert(jsonTag(QPdfDocument::MetaDataField::ModificationDate), QJsonValue::fromVariant(m_modDate.toString(u"u:D:yyyyMMddhhmmss+00''00''"_s)));
-    QJsonObject valueJSON;
-    valueJSON.insert(u"value"_s, tagsJSON);
-    return valueJSON;
-}
-
 QByteArray PdfMetaData::tag(QPdfDocument::MetaDataField tagId)
 {
     int id = static_cast<int>(tagId);
     if (id < 0 || id >= PDF_METADATA_TAGS_COUNT)
         return QByteArray();
     return m_tags[id];
-}
-
-QLatin1String PdfMetaData::jsonTag(QPdfDocument::MetaDataField tagId)
-{
-    return QLatin1String("/" + tag(tagId));
-}
-
-QString PdfMetaData::jsonString(const QString &s)
-{
-    return QLatin1String("u:") + s;
 }
 
 std::string PdfMetaData::infoTag(QPdfDocument::MetaDataField tagId)
