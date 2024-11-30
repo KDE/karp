@@ -37,6 +37,11 @@ public:
     explicit PdfEditModel(QObject *parent = nullptr);
     ~PdfEditModel() override;
 
+    static PdfEditModel *self()
+    {
+        return m_self;
+    }
+
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
     void addPdfs(QVector<PdfFile *> &pdfList);
@@ -187,6 +192,7 @@ Q_SIGNALS:
     void wantRenderPage(int, PdfPage *) const;
 
 private:
+    static PdfEditModel *m_self;
     QVector<PdfFile *> m_pdfList;
     QVector<PdfPage *> m_pageList;
     int m_pages = 0;

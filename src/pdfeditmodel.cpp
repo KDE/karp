@@ -32,9 +32,12 @@ QColor alpha(const QColor &c)
     return QColor(c.red(), c.green(), c.blue(), 0x80);
 }
 
+PdfEditModel *PdfEditModel::m_self = nullptr;
+
 PdfEditModel::PdfEditModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
+    m_self = this;
     m_metaData = new PdfMetaData();
     m_prefPageWidth = qApp->screens().first()->size().width() / 4;
     m_columns = INIT_COLUMN_COUNT;
@@ -47,6 +50,7 @@ PdfEditModel::~PdfEditModel()
     qDeleteAll(m_deletedList);
     qDeleteAll(m_pdfList);
     delete m_metaData;
+    m_self = nullptr;
 }
 
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
@@ -428,8 +432,11 @@ PdfMetaData *PdfEditModel::metaData()
 
 void PdfEditModel::generate()
 {
-    if (m_pdfList.isEmpty() || m_pageList.isEmpty())
+    if (m_pdfList.isEmpty() || m_pageList.isEmpty()) {
+        setProgress(1.0);
+        Q_EMIT pdfGenerated();
         return;
+    }
 
     auto conf = karpConfig::self();
     setProgress(0.05);
@@ -451,17 +458,17 @@ void PdfEditModel::generate()
     auto qpdf = new QpdfProxy(this);
     connect(qpdf, &QpdfProxy::finished, this, [=] {
         qpdf->deleteLater();
-        toolProgressSlot(1.0);
+        if (m_reduceSize) {
+            setProgress(0.1);
+            auto tools = ToolsThread::self();
+            connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
+            tools->resizeByGs(m_outFile, m_pages);
+        } else {
+            setProgress(1.0);
+            Q_EMIT pdfGenerated();
+        }
     });
     qpdf->doJob();
-
-    // if (m_reduceSize) {
-    //     auto tools = ToolsThread::self();
-    //     connect(tools, &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
-    //     tools->resizeByGs(m_outFile, m_pages);
-    //     return;
-    // } else
-    //     toolProgressSlot(1.0);
 }
 
 void PdfEditModel::cancel()
