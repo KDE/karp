@@ -39,7 +39,10 @@ Kirigami.Dialog {
         Layout.fillWidth: true
         spacing: Kirigami.Units.largeSpacing
 
-        QQC2.Label { text: i18n("Page range") }
+        QQC2.Label {
+            Layout.alignment: Qt.AlignHCenter
+            text: i18n("Page range")
+        }
         Kirigami.AbstractCard {
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
@@ -72,7 +75,7 @@ Kirigami.Dialog {
 
         QQC2.Label {
             Layout.alignment: Qt.AlignHCenter
-            text: i18n("Move to")
+            text: i18nc("@action:button", "Move")
         }
         Kirigami.AbstractCard {
             id: targetCard
