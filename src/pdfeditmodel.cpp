@@ -682,7 +682,8 @@ void PdfEditModel::toolProgressSlot(qreal prog)
         QTimer::singleShot(300, this, [=] {
             Q_EMIT pdfGenerated();
         });
-    }
+    } else if (prog == GS_REDUCE_NOT_WORKED)
+        Q_EMIT reductionNotWorked();
 }
 
 bool PdfEditModel::rangeIsInvalid(const PageRange &range)

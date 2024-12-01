@@ -14,6 +14,14 @@ class PageRange;
 class PdfMetaData;
 
 /**
+ * This value of 0.98765 is reduce-size operation progress state.
+ * When @p ToolThred emits such a progress it means that
+ * PDF resize didn't produce smaller file, so
+ * @p PdfEditModel::reductionNotWorked() is emitted then.
+ */
+#define GS_REDUCE_NOT_WORKED (0.98765)
+
+/**
  * @brief @p PdfEditModel handles pages from PDF document
  */
 class PdfEditModel : public QAbstractTableModel
@@ -163,6 +171,7 @@ Q_SIGNALS:
     void passKeyChanged();
     void progressChanged();
     void pdfGenerated();
+    void reductionNotWorked();
 
     /**
      * Emitted when PDF file requires password to open.
