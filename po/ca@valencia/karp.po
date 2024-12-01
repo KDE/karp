@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-26 00:38+0000\n"
+"POT-Creation-Date: 2024-12-01 00:39+0000\n"
 "PO-Revision-Date: 2024-11-25 09:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:437
+#: app.cpp:56 pdfeditmodel.cpp:446
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Fitxer PDF que s'ha d'editar"
@@ -40,17 +40,17 @@ msgstr "Fitxer PDF que s'ha d'editar"
 msgid "Select PDF files"
 msgstr "Seleccioneu els fitxers PDF"
 
-#: app.cpp:176
+#: app.cpp:171
 #, kde-format
 msgid "QPDF is missing."
 msgstr "Falta QPDF."
 
-#: app.cpp:180
+#: app.cpp:175
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Falta Ghostscript."
 
-#: app.cpp:183
+#: app.cpp:178
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -59,43 +59,43 @@ msgstr ""
 "Instal·leu els programes esmentats anteriorment, en cas contrari no totes "
 "les funcions estaran disponibles."
 
-#: app.cpp:205
+#: app.cpp:200
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Afig fitxers PDF"
 
-#: app.cpp:215
+#: app.cpp:210
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Neteja tots els fitxers"
 
-#: app.cpp:229
+#: app.cpp:224
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimitza PDF"
 
-#: app.cpp:238
+#: app.cpp:233
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Reduïx la mida"
 
-#: app.cpp:247
+#: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
 msgstr "Establix la versió de PDF"
 
-#: app.cpp:256
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Establix la contrasenya"
 
-#: app.cpp:265
+#: app.cpp:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -129,35 +129,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Mantenidor"
 
-#: pdfeditmodel.cpp:389
+#: pdfeditmodel.cpp:394
 msgid "Title"
 msgstr "Títol"
 
-#: pdfeditmodel.cpp:390
+#: pdfeditmodel.cpp:395
 msgid "Subject"
 msgstr "Assumpte"
 
-#: pdfeditmodel.cpp:391
+#: pdfeditmodel.cpp:396
 msgid "Author"
 msgstr "Autoria"
 
-#: pdfeditmodel.cpp:392
+#: pdfeditmodel.cpp:397
 msgid "Keyword"
 msgstr "Paraula clau"
 
-#: pdfeditmodel.cpp:393
+#: pdfeditmodel.cpp:398
 msgid "Producer"
 msgstr "Productor"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:399
 msgid "Creator"
 msgstr "Creador"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:400
 msgid "Creation Date"
 msgstr "Data de creació"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:401
 msgid "Modification Date"
 msgstr "Data de modificació"
 
@@ -321,7 +321,7 @@ msgstr "totes les pàgines fora de l'interval"
 msgid "Simple PDF editor"
 msgstr "Editor senzill de PDF"
 
-#: qml/Main.qml:52
+#: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
@@ -483,17 +483,34 @@ msgstr "Produirà: <b>%1filename%2.pdf</b>"
 msgid "PDF Tools"
 msgstr "Eines PDF"
 
-#: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
-#, kde-format
-msgid "not found"
-msgstr "no s'ha trobat"
-
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "Permet les configuracions de pàgina de PDF."
 
-#: qml/Settings/PdfTools.qml:31
+#: qml/Settings/PdfTools.qml:22
+#, kde-format
+msgid "Force PDF version of generated file"
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:23
+#, kde-format
+msgid "When set to default, PDF version of input file will be used."
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:24
+#, fuzzy, kde-format
+#| msgctxt "like default PDF version"
+#| msgid "default"
+msgid "default"
+msgstr "predeterminada"
+
+#: qml/Settings/PdfTools.qml:32
+#, kde-format
+msgid "not found"
+msgstr "no s'ha trobat"
+
+#: qml/Settings/PdfTools.qml:33
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "Gestiona la mida i la qualitat del fitxer PDF d'eixida."

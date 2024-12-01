@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-26 00:38+0000\n"
+"POT-Creation-Date: 2024-12-01 00:39+0000\n"
 "PO-Revision-Date: 2024-11-28 08:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "omats@vivaldi.net"
 
-#: app.cpp:56 pdfeditmodel.cpp:437
+#: app.cpp:56 pdfeditmodel.cpp:446
 #, kde-format
 msgid "PDF file to edit"
 msgstr "ملف بي دي اف للتحرير"
@@ -38,60 +38,60 @@ msgstr "ملف بي دي اف للتحرير"
 msgid "Select PDF files"
 msgstr "حدد ملفات بي دي اف"
 
-#: app.cpp:176
+#: app.cpp:171
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF مفقود."
 
-#: app.cpp:180
+#: app.cpp:175
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript مفقود."
 
-#: app.cpp:183
+#: app.cpp:178
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "ثبّت البرامج المذكورة أعلاه، وإلا فلن تكون كافة الوظائف متاحة."
 
-#: app.cpp:205
+#: app.cpp:200
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "أضف ملفات بي دي اف"
 
-#: app.cpp:215
+#: app.cpp:210
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "امسح جميع الملفات"
 
-#: app.cpp:229
+#: app.cpp:224
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "حسّن بي دي اف"
 
-#: app.cpp:238
+#: app.cpp:233
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "قلّل الحجم"
 
-#: app.cpp:247
+#: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
 msgstr "عيّن نسخة بي دي اف"
 
-#: app.cpp:256
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "عيّن كلمة مرور"
 
-#: app.cpp:265
+#: app.cpp:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -125,35 +125,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "الصائن"
 
-#: pdfeditmodel.cpp:389
+#: pdfeditmodel.cpp:394
 msgid "Title"
 msgstr "العنوان"
 
-#: pdfeditmodel.cpp:390
+#: pdfeditmodel.cpp:395
 msgid "Subject"
 msgstr "الموضوع"
 
-#: pdfeditmodel.cpp:391
+#: pdfeditmodel.cpp:396
 msgid "Author"
 msgstr "المؤلف"
 
-#: pdfeditmodel.cpp:392
+#: pdfeditmodel.cpp:397
 msgid "Keyword"
 msgstr "الكلمات المفتاحيّة"
 
-#: pdfeditmodel.cpp:393
+#: pdfeditmodel.cpp:398
 msgid "Producer"
 msgstr "المنتج"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:399
 msgid "Creator"
 msgstr "المُنشئ"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:400
 msgid "Creation Date"
 msgstr "تاريخ الإنشاء"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:401
 msgid "Modification Date"
 msgstr "تاريخ التعديل"
 
@@ -317,7 +317,7 @@ msgstr "جميع الصفحات خارج النطاق"
 msgid "Simple PDF editor"
 msgstr "محرر بي دي اف بسيط"
 
-#: qml/Main.qml:52
+#: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
 msgstr "اخرج"
@@ -483,17 +483,34 @@ msgstr "سيُنتج: <b>%1filename%2.pdf</b>"
 msgid "PDF Tools"
 msgstr "أدوات بي دي اف"
 
-#: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
-#, kde-format
-msgid "not found"
-msgstr "لم يُعثر عليه"
-
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "يسمح بترتيبات صفحات بي دي اف."
 
-#: qml/Settings/PdfTools.qml:31
+#: qml/Settings/PdfTools.qml:22
+#, kde-format
+msgid "Force PDF version of generated file"
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:23
+#, kde-format
+msgid "When set to default, PDF version of input file will be used."
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:24
+#, fuzzy, kde-format
+#| msgctxt "like default PDF version"
+#| msgid "default"
+msgid "default"
+msgstr "المبدئيّ"
+
+#: qml/Settings/PdfTools.qml:32
+#, kde-format
+msgid "not found"
+msgstr "لم يُعثر عليه"
+
+#: qml/Settings/PdfTools.qml:33
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "أدر حجم وجودة ملف بي دي اف الناتج."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-26 00:38+0000\n"
+"POT-Creation-Date: 2024-12-01 00:39+0000\n"
 "PO-Revision-Date: 2024-11-25 22:09+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "luigi.toscano@tiscali.it"
 
-#: app.cpp:56 pdfeditmodel.cpp:437
+#: app.cpp:56 pdfeditmodel.cpp:446
 #, kde-format
 msgid "PDF file to edit"
 msgstr "File PDF da modificare"
@@ -37,17 +37,17 @@ msgstr "File PDF da modificare"
 msgid "Select PDF files"
 msgstr "Seleziona file PDF"
 
-#: app.cpp:176
+#: app.cpp:171
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF non è presente."
 
-#: app.cpp:180
+#: app.cpp:175
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript non è presente."
 
-#: app.cpp:183
+#: app.cpp:178
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -56,43 +56,43 @@ msgstr ""
 "Installa i programmi succitati, altrimenti alcune funzioni non saranno "
 "disponibili."
 
-#: app.cpp:205
+#: app.cpp:200
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Aggiungi file PDF"
 
-#: app.cpp:215
+#: app.cpp:210
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Pulisci tutti i file"
 
-#: app.cpp:229
+#: app.cpp:224
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Ottimizza PDF"
 
-#: app.cpp:238
+#: app.cpp:233
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Riduci la dimensione"
 
-#: app.cpp:247
+#: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
 msgstr "Imposta la versione di PDF"
 
-#: app.cpp:256
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Imposta password"
 
-#: app.cpp:265
+#: app.cpp:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -126,35 +126,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Responsabile"
 
-#: pdfeditmodel.cpp:389
+#: pdfeditmodel.cpp:394
 msgid "Title"
 msgstr "Titolo"
 
-#: pdfeditmodel.cpp:390
+#: pdfeditmodel.cpp:395
 msgid "Subject"
 msgstr "Oggetto"
 
-#: pdfeditmodel.cpp:391
+#: pdfeditmodel.cpp:396
 msgid "Author"
 msgstr "Autore"
 
-#: pdfeditmodel.cpp:392
+#: pdfeditmodel.cpp:397
 msgid "Keyword"
 msgstr "Parola chiave"
 
-#: pdfeditmodel.cpp:393
+#: pdfeditmodel.cpp:398
 msgid "Producer"
 msgstr "Produttore"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:399
 msgid "Creator"
 msgstr "Creatore"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:400
 msgid "Creation Date"
 msgstr "Data di creazione"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:401
 msgid "Modification Date"
 msgstr "Data di modifica"
 
@@ -318,7 +318,7 @@ msgstr "tutte le pagine fuori dall'intervallo"
 msgid "Simple PDF editor"
 msgstr "Semplice editor PDF"
 
-#: qml/Main.qml:52
+#: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
 msgstr "Esci"
@@ -480,17 +480,34 @@ msgstr "Genererà: <b>%1nomefile%2.pdf</b>"
 msgid "PDF Tools"
 msgstr "Strumenti PDF"
 
-#: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
-#, kde-format
-msgid "not found"
-msgstr "non trovato"
-
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "Permette disposizioni di pagine PDF."
 
-#: qml/Settings/PdfTools.qml:31
+#: qml/Settings/PdfTools.qml:22
+#, kde-format
+msgid "Force PDF version of generated file"
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:23
+#, kde-format
+msgid "When set to default, PDF version of input file will be used."
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:24
+#, fuzzy, kde-format
+#| msgctxt "like default PDF version"
+#| msgid "default"
+msgid "default"
+msgstr "predefinita"
+
+#: qml/Settings/PdfTools.qml:32
+#, kde-format
+msgid "not found"
+msgstr "non trovato"
+
+#: qml/Settings/PdfTools.qml:33
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "Gestisce la dimensione e la qualità dei file PDF di uscita."

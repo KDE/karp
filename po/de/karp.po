@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-26 00:38+0000\n"
+"POT-Creation-Date: 2024-12-01 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 11:30+0100\n"
 "Last-Translator: Simulacrum\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -22,7 +22,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: app.cpp:56 pdfeditmodel.cpp:437
+#: app.cpp:56 pdfeditmodel.cpp:446
 #, kde-format
 msgid "PDF file to edit"
 msgstr ""
@@ -32,60 +32,60 @@ msgstr ""
 msgid "Select PDF files"
 msgstr ""
 
-#: app.cpp:176
+#: app.cpp:171
 #, kde-format
 msgid "QPDF is missing."
 msgstr ""
 
-#: app.cpp:180
+#: app.cpp:175
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr ""
 
-#: app.cpp:183
+#: app.cpp:178
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr ""
 
-#: app.cpp:205
+#: app.cpp:200
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr ""
 
-#: app.cpp:215
+#: app.cpp:210
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr ""
 
-#: app.cpp:229
+#: app.cpp:224
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr ""
 
-#: app.cpp:238
+#: app.cpp:233
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr ""
 
-#: app.cpp:247
+#: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
 msgstr ""
 
-#: app.cpp:256
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr ""
 
-#: app.cpp:265
+#: app.cpp:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -119,35 +119,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr ""
 
-#: pdfeditmodel.cpp:389
+#: pdfeditmodel.cpp:394
 msgid "Title"
 msgstr ""
 
-#: pdfeditmodel.cpp:390
+#: pdfeditmodel.cpp:395
 msgid "Subject"
 msgstr ""
 
-#: pdfeditmodel.cpp:391
+#: pdfeditmodel.cpp:396
 msgid "Author"
 msgstr ""
 
-#: pdfeditmodel.cpp:392
+#: pdfeditmodel.cpp:397
 msgid "Keyword"
 msgstr ""
 
-#: pdfeditmodel.cpp:393
+#: pdfeditmodel.cpp:398
 msgid "Producer"
 msgstr ""
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:399
 msgid "Creator"
 msgstr ""
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:400
 msgid "Creation Date"
 msgstr ""
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:401
 msgid "Modification Date"
 msgstr ""
 
@@ -311,7 +311,7 @@ msgstr ""
 msgid "Simple PDF editor"
 msgstr ""
 
-#: qml/Main.qml:52
+#: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
 msgstr ""
@@ -470,17 +470,32 @@ msgstr ""
 msgid "PDF Tools"
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
-#, kde-format
-msgid "not found"
-msgstr ""
-
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:31
+#: qml/Settings/PdfTools.qml:22
+#, kde-format
+msgid "Force PDF version of generated file"
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:23
+#, kde-format
+msgid "When set to default, PDF version of input file will be used."
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:24
+#, kde-format
+msgid "default"
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:32
+#, kde-format
+msgid "not found"
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:33
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr ""

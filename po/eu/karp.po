@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-26 00:38+0000\n"
+"POT-Creation-Date: 2024-12-01 00:39+0000\n"
 "PO-Revision-Date: 2024-11-28 22:10+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: app.cpp:56 pdfeditmodel.cpp:437
+#: app.cpp:56 pdfeditmodel.cpp:446
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Editatu beharreko PDF fitxategia"
@@ -40,17 +40,17 @@ msgstr "Editatu beharreko PDF fitxategia"
 msgid "Select PDF files"
 msgstr "Hautatu PDF fitxategiak"
 
-#: app.cpp:176
+#: app.cpp:171
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF falta da."
 
-#: app.cpp:180
+#: app.cpp:175
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript falta da."
 
-#: app.cpp:183
+#: app.cpp:178
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -59,43 +59,43 @@ msgstr ""
 "Instalatu gorago aipatutako programak, bestela funtzio guztiak ez dira "
 "ibiliko."
 
-#: app.cpp:205
+#: app.cpp:200
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Gehitu PDF fitxategiak"
 
-#: app.cpp:215
+#: app.cpp:210
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Garbitu fitxategi guztiak"
 
-#: app.cpp:229
+#: app.cpp:224
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimizatu PDF"
 
-#: app.cpp:238
+#: app.cpp:233
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Txikiagotu neurria"
 
-#: app.cpp:247
+#: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set PDF version"
 msgstr "Ezarri PDF bertsioa"
 
-#: app.cpp:256
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Ezarri pasahitza"
 
-#: app.cpp:265
+#: app.cpp:260
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -129,35 +129,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Mantentzailea"
 
-#: pdfeditmodel.cpp:389
+#: pdfeditmodel.cpp:394
 msgid "Title"
 msgstr "Titulua"
 
-#: pdfeditmodel.cpp:390
+#: pdfeditmodel.cpp:395
 msgid "Subject"
 msgstr "Gaia"
 
-#: pdfeditmodel.cpp:391
+#: pdfeditmodel.cpp:396
 msgid "Author"
 msgstr "Egilea"
 
-#: pdfeditmodel.cpp:392
+#: pdfeditmodel.cpp:397
 msgid "Keyword"
 msgstr "Gako-hitza"
 
-#: pdfeditmodel.cpp:393
+#: pdfeditmodel.cpp:398
 msgid "Producer"
 msgstr "Ekoizlea"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:399
 msgid "Creator"
 msgstr "Sortzailea"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:400
 msgid "Creation Date"
 msgstr "Sorrera-data"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:401
 msgid "Modification Date"
 msgstr "Aldatze-data"
 
@@ -321,7 +321,7 @@ msgstr "barrutitik kanpoko orrialde guztiak"
 msgid "Simple PDF editor"
 msgstr "PDF editore erraza"
 
-#: qml/Main.qml:52
+#: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
@@ -483,17 +483,34 @@ msgstr "Sortuko du: <b>%1fitxategiizena%2.pdf</b>"
 msgid "PDF Tools"
 msgstr "PDF tresnak"
 
-#: qml/Settings/PdfTools.qml:17 qml/Settings/PdfTools.qml:30
-#, kde-format
-msgid "not found"
-msgstr "ez du aurkitu"
-
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "PDF orrialdeak antolatzeko aukera ematen du."
 
-#: qml/Settings/PdfTools.qml:31
+#: qml/Settings/PdfTools.qml:22
+#, kde-format
+msgid "Force PDF version of generated file"
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:23
+#, kde-format
+msgid "When set to default, PDF version of input file will be used."
+msgstr ""
+
+#: qml/Settings/PdfTools.qml:24
+#, fuzzy, kde-format
+#| msgctxt "like default PDF version"
+#| msgid "default"
+msgid "default"
+msgstr "lehenetsia"
+
+#: qml/Settings/PdfTools.qml:32
+#, kde-format
+msgid "not found"
+msgstr "ez du aurkitu"
+
+#: qml/Settings/PdfTools.qml:33
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "Irteerako PDF fitxategiaren neurria eta kalitatea kudeatzen du."
