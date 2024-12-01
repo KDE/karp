@@ -50,7 +50,7 @@ Kirigami.Page {
             text: ""
         },
         Kirigami.Action {
-            // visible: pdfModel.pageCount
+            enabled: pdfModel.pageCount
             icon.name: "settings-configure"
             text: i18n("PDF Options")
             Kirigami.Action {
@@ -60,6 +60,7 @@ Kirigami.Page {
             }
             Kirigami.Action {
                 id: redSizeAct
+                enabled: APP.gsVersion !== ""
                 fromQAction: APP.action("reduce_size")
                 checked: pdfModel.reduceSize
             }
