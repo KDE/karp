@@ -204,14 +204,13 @@ bool ToolsThread::resizeByGsThread()
         } catch (std::exception &e) {
             qDebug() << "[ToolsThread]" << "QPDF error:" << e.what();
         }
-        qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
-        if (outInfo.size() < outFileSize) {
-            // override out file with new size, but delete existing file first
-            if (QFile::exists(m_pathArg))
-                QFile::remove(m_pathArg);
-            qDebug() << "[ToolsThread]" << "PDF file size successfully reduced." << outInfo.filePath();
-            QFile::copy(outInfo.filePath(), m_pathArg);
-        }
+        // qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
+        if (outInfo.size() > outFileSize)
+            Q_EMIT progressChanged(GS_REDUCE_NOT_WORKED);
+        // override out file with new size, but delete existing file first
+        if (QFile::exists(m_pathArg))
+            QFile::remove(m_pathArg);
+        QFile::copy(outInfo.filePath(), m_pathArg);
         QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
     }
     for (auto &tp : pages)
