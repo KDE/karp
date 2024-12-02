@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:39+0000\n"
+"POT-Creation-Date: 2024-12-02 00:39+0000\n"
 "PO-Revision-Date: 2024-11-25 21:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:446
+#: app.cpp:56 pdfeditmodel.cpp:452
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Düzenlenecek PDF dosyası"
@@ -126,81 +126,76 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Bakımcı"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:400
 msgid "Title"
 msgstr "Başlık"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:401
 msgid "Subject"
 msgstr "Konu"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:402
 msgid "Author"
 msgstr "Yazar"
 
-#: pdfeditmodel.cpp:397
+#: pdfeditmodel.cpp:403
 msgid "Keyword"
 msgstr "Anahtar Sözcük"
 
-#: pdfeditmodel.cpp:398
+#: pdfeditmodel.cpp:404
 msgid "Producer"
 msgstr "Üretici"
 
-#: pdfeditmodel.cpp:399
+#: pdfeditmodel.cpp:405
 msgid "Creator"
 msgstr "Oluşturucu"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:406
 msgid "Creation Date"
 msgstr "Oluşturulma Tarihi"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:407
 msgid "Modification Date"
 msgstr "Değiştirilme Tarihi"
 
-#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
 msgstr "Sayfa erimi"
 
-#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
 msgstr "şuradan:"
 
-#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
 msgstr "şuraya:"
 
-#: qml/Dialogs/MovePagesDialog.qml:75
+#: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
-msgid "Move to"
-msgstr "Şuraya taşı"
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Taşı"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
 msgstr "öncesi"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
 msgstr "sonrası"
 
-#: qml/Dialogs/MovePagesDialog.qml:133
+#: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "sayfa"
-
-#: qml/Dialogs/MovePagesDialog.qml:148
-#, kde-format
-msgctxt "@action:button"
-msgid "Move"
-msgstr "Taşı"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
@@ -347,12 +342,12 @@ msgstr[1] "dosya"
 msgid "PDF Options"
 msgstr "PDF Seçenekleri"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Set password"
 msgstr "Parola Ayarla"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "PDF dosyalarını parola ile koruyun."
@@ -425,10 +420,15 @@ msgstr ""
 "Sonrasında tüm sayfaları düzenleyin: Yeniden sıralayın, döndürün, kaldırın.\n"
 "En sonda yeni PDF’yi seçili seçeneklerle kaydedin."
 
-#: qml/Messages/ProgressDialog.qml:14
+#: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
 msgstr "PDF dosyası üretiliyor…"
+
+#: qml/Messages/ProgressDialog.qml:51
+#, kde-format
+msgid "Reducing PDF file size did not produce expected results!"
+msgstr ""
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -535,3 +535,6 @@ msgstr "Karp Hakkında"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE Hakkında"
+
+#~ msgid "Move to"
+#~ msgstr "Şuraya taşı"

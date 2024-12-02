@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:39+0000\n"
+"POT-Creation-Date: 2024-12-02 00:39+0000\n"
 "PO-Revision-Date: 2024-11-27 09:53+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -25,7 +25,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@kde.org"
 
-#: app.cpp:56 pdfeditmodel.cpp:446
+#: app.cpp:56 pdfeditmodel.cpp:452
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Fichier « PDF » à modifier"
@@ -124,81 +124,76 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:400
 msgid "Title"
 msgstr "Titre"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:401
 msgid "Subject"
 msgstr "Objet"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:402
 msgid "Author"
 msgstr "Auteur"
 
-#: pdfeditmodel.cpp:397
+#: pdfeditmodel.cpp:403
 msgid "Keyword"
 msgstr "Mot clé"
 
-#: pdfeditmodel.cpp:398
+#: pdfeditmodel.cpp:404
 msgid "Producer"
 msgstr "Producteur"
 
-#: pdfeditmodel.cpp:399
+#: pdfeditmodel.cpp:405
 msgid "Creator"
 msgstr "Créateur"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:406
 msgid "Creation Date"
 msgstr "Date de création"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:407
 msgid "Modification Date"
 msgstr "Date de modification"
 
-#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
 msgstr "Intervalle de pages"
 
-#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
 msgstr "de"
 
-#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
 msgstr "à"
 
-#: qml/Dialogs/MovePagesDialog.qml:75
+#: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
-msgid "Move to"
-msgstr "Déplacer vers"
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Déplacer"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
 msgstr "avant"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
 msgstr "après"
 
-#: qml/Dialogs/MovePagesDialog.qml:133
+#: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "page"
-
-#: qml/Dialogs/MovePagesDialog.qml:148
-#, kde-format
-msgctxt "@action:button"
-msgid "Move"
-msgstr "Déplacer"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
@@ -346,12 +341,12 @@ msgstr[1] "fichiers"
 msgid "PDF Options"
 msgstr "Options « PDF »"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Set password"
 msgstr "Définir un mot de passe"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Protéger le fichier au format « PDF » avec un mot de passe."
@@ -426,10 +421,15 @@ msgstr ""
 "À la fin, veuillez enregistrer un nouveau fichier « PDF » avec les options "
 "sélectionnées."
 
-#: qml/Messages/ProgressDialog.qml:14
+#: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
 msgstr "Génération d'un fichier « PDF » en cours"
+
+#: qml/Messages/ProgressDialog.qml:51
+#, kde-format
+msgid "Reducing PDF file size did not produce expected results!"
+msgstr ""
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -536,3 +536,6 @@ msgstr "À propos de Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "À propos de KDE"
+
+#~ msgid "Move to"
+#~ msgstr "Déplacer vers"

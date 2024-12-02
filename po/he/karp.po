@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:39+0000\n"
-"PO-Revision-Date: 2024-11-25 06:55+0200\n"
+"POT-Creation-Date: 2024-12-02 00:39+0000\n"
+"PO-Revision-Date: 2024-12-01 08:47+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
-#: app.cpp:56 pdfeditmodel.cpp:446
+#: app.cpp:56 pdfeditmodel.cpp:452
 #, kde-format
 msgid "PDF file to edit"
 msgstr "קובץ PDF לעריכה"
@@ -125,81 +125,76 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "מתחזק"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:400
 msgid "Title"
 msgstr "כותרת"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:401
 msgid "Subject"
 msgstr "נושא"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:402
 msgid "Author"
 msgstr "כותב/ת"
 
-#: pdfeditmodel.cpp:397
+#: pdfeditmodel.cpp:403
 msgid "Keyword"
 msgstr "מילת מפתח"
 
-#: pdfeditmodel.cpp:398
+#: pdfeditmodel.cpp:404
 msgid "Producer"
 msgstr "מפיק/ה"
 
-#: pdfeditmodel.cpp:399
+#: pdfeditmodel.cpp:405
 msgid "Creator"
 msgstr "יוצר/ת"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:406
 msgid "Creation Date"
 msgstr "תאריך יצירה"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:407
 msgid "Modification Date"
 msgstr "תאריך שינוי"
 
-#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
 msgstr "טווח עמודים"
 
-#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
 msgstr "מ־"
 
-#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
 msgstr "עד"
 
-#: qml/Dialogs/MovePagesDialog.qml:75
+#: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
-msgid "Move to"
-msgstr "העברה אל"
+msgctxt "@action:button"
+msgid "Move"
+msgstr "העברה"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
 msgstr "לפני"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
 msgstr "אחרי"
 
-#: qml/Dialogs/MovePagesDialog.qml:133
+#: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "עמוד"
-
-#: qml/Dialogs/MovePagesDialog.qml:148
-#, kde-format
-msgctxt "@action:button"
-msgid "Move"
-msgstr "העברה"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
@@ -348,12 +343,12 @@ msgstr[3] "קבצים"
 msgid "PDF Options"
 msgstr "אפשרויות PDF"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Set password"
 msgstr "הגדרת סיסמה"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "הגנה על קובצי PDF בסיסמה."
@@ -426,10 +421,15 @@ msgstr ""
 "לאחר מכן לסדר את כל העמודים: לסדר מחדש, לסובב, להסיר.\n"
 "בסוף לשמור את ה־PDF החדש עם האפשרויות שנבחרו."
 
-#: qml/Messages/ProgressDialog.qml:14
+#: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
 msgstr "נוצר קובץ PDF"
+
+#: qml/Messages/ProgressDialog.qml:51
+#, kde-format
+msgid "Reducing PDF file size did not produce expected results!"
+msgstr ""
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -489,17 +489,15 @@ msgstr "מאפשר סידור עמודי PDF מחדש."
 #: qml/Settings/PdfTools.qml:22
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr ""
+msgstr "אילוץ גרסת PDF של הקובץ שנוצר"
 
 #: qml/Settings/PdfTools.qml:23
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
-msgstr ""
+msgstr "כשמוגדר לברירת מחדל, ייעשה שימוש בגרסת ה־PDF מהפלט."
 
 #: qml/Settings/PdfTools.qml:24
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgid "default"
 msgstr "ברירת מחדל"
 
@@ -536,3 +534,6 @@ msgstr "על Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "על KDE"
+
+#~ msgid "Move to"
+#~ msgstr "העברה אל"

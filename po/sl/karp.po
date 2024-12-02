@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:39+0000\n"
-"PO-Revision-Date: 2024-11-25 07:02+0100\n"
+"POT-Creation-Date: 2024-12-02 00:39+0000\n"
+"PO-Revision-Date: 2024-12-01 07:41+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -25,7 +25,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
-#: app.cpp:56 pdfeditmodel.cpp:446
+#: app.cpp:56 pdfeditmodel.cpp:452
 #, kde-format
 msgid "PDF file to edit"
 msgstr "PDF datoteka za urejanje"
@@ -123,81 +123,76 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:400
 msgid "Title"
 msgstr "Naslov"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:401
 msgid "Subject"
 msgstr "Predmet"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:402
 msgid "Author"
 msgstr "Avtor"
 
-#: pdfeditmodel.cpp:397
+#: pdfeditmodel.cpp:403
 msgid "Keyword"
 msgstr "Ključna beseda"
 
-#: pdfeditmodel.cpp:398
+#: pdfeditmodel.cpp:404
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:399
+#: pdfeditmodel.cpp:405
 msgid "Creator"
 msgstr "Ustvarjalec"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:406
 msgid "Creation Date"
 msgstr "Datum nastanka"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:407
 msgid "Modification Date"
 msgstr "Datum spremembe"
 
-#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
 msgstr "Obseg strani"
 
-#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
 msgstr "od"
 
-#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
 msgstr "do"
 
-#: qml/Dialogs/MovePagesDialog.qml:75
+#: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
-msgid "Move to"
-msgstr "Premakni na"
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Premakni"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
 msgstr "pred"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
 msgstr "po"
 
-#: qml/Dialogs/MovePagesDialog.qml:133
+#: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "stran"
-
-#: qml/Dialogs/MovePagesDialog.qml:148
-#, kde-format
-msgctxt "@action:button"
-msgid "Move"
-msgstr "Premakni"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
@@ -346,12 +341,12 @@ msgstr[3] "datoteka"
 msgid "PDF Options"
 msgstr "Možnosti PDF"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Set password"
 msgstr "Nastavi geslo"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Zaščiti datoteko PDF z geslom."
@@ -424,10 +419,15 @@ msgstr ""
 "strani: preuredite, zasukajte, odstranite. Na koncu shranite novi PDF z "
 "izbranimi možnostmi."
 
-#: qml/Messages/ProgressDialog.qml:14
+#: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
 msgstr "Generiranje datoteke PDF"
+
+#: qml/Messages/ProgressDialog.qml:51
+#, kde-format
+msgid "Reducing PDF file size did not produce expected results!"
+msgstr ""
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -487,17 +487,16 @@ msgstr "Omogoča razvrščanje strani PDF."
 #: qml/Settings/PdfTools.qml:22
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr ""
+msgstr "Prisili različico PDF generirane datoteke"
 
 #: qml/Settings/PdfTools.qml:23
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
+"Kadar je nastavljena privzeta, bo uporabljena različica PDF vhodne datoteke"
 
 #: qml/Settings/PdfTools.qml:24
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgid "default"
 msgstr "privzeta"
 
@@ -534,6 +533,9 @@ msgstr "O Karpu"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O KDE"
+
+#~ msgid "Move to"
+#~ msgstr "Premakni na"
 
 #~ msgid "files"
 #~ msgstr "datoteke"

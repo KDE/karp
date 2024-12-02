@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:39+0000\n"
+"POT-Creation-Date: 2024-12-02 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tds00@qq.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:446
+#: app.cpp:56 pdfeditmodel.cpp:452
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要编辑的 PDF 文件"
@@ -124,81 +124,76 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "维护者"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:400
 msgid "Title"
 msgstr "标题"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:401
 msgid "Subject"
 msgstr "主题"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:402
 msgid "Author"
 msgstr "作者"
 
-#: pdfeditmodel.cpp:397
+#: pdfeditmodel.cpp:403
 msgid "Keyword"
 msgstr "关键词"
 
-#: pdfeditmodel.cpp:398
+#: pdfeditmodel.cpp:404
 msgid "Producer"
 msgstr "转换程序"
 
-#: pdfeditmodel.cpp:399
+#: pdfeditmodel.cpp:405
 msgid "Creator"
 msgstr "创建程序"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:406
 msgid "Creation Date"
 msgstr "创建日期"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:407
 msgid "Modification Date"
 msgstr "修改日期"
 
-#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
 msgstr "页码范围"
 
-#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
 msgstr "从"
 
-#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
 msgstr "到"
 
-#: qml/Dialogs/MovePagesDialog.qml:75
+#: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
-msgid "Move to"
-msgstr "移动到"
+msgctxt "@action:button"
+msgid "Move"
+msgstr "移动"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
 msgstr "之前"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
 msgstr "之后"
 
-#: qml/Dialogs/MovePagesDialog.qml:133
+#: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "页面"
-
-#: qml/Dialogs/MovePagesDialog.qml:148
-#, kde-format
-msgctxt "@action:button"
-msgid "Move"
-msgstr "移动"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
@@ -344,12 +339,12 @@ msgstr[0] "文件"
 msgid "PDF Options"
 msgstr "PDF 选项"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Set password"
 msgstr "设置密码"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "使用密码保护 PDF 文件。"
@@ -422,10 +417,15 @@ msgstr ""
 "然后编辑所有页面：重新排序、旋转、删除。\n"
 "最后，使用选定的选项保存为新的 PDF 文件。"
 
-#: qml/Messages/ProgressDialog.qml:14
+#: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
 msgstr "正在生成 PDF 文件"
+
+#: qml/Messages/ProgressDialog.qml:51
+#, kde-format
+msgid "Reducing PDF file size did not produce expected results!"
+msgstr ""
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -493,11 +493,9 @@ msgid "When set to default, PDF version of input file will be used."
 msgstr ""
 
 #: qml/Settings/PdfTools.qml:24
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgid "default"
-msgstr "默认"
+msgstr ""
 
 #: qml/Settings/PdfTools.qml:32
 #, kde-format
@@ -532,3 +530,6 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
+
+#~ msgid "Move to"
+#~ msgstr "移动到"

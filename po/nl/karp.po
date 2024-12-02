@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-01 00:39+0000\n"
-"PO-Revision-Date: 2024-11-25 11:12+0100\n"
+"POT-Creation-Date: 2024-12-02 00:39+0000\n"
+"PO-Revision-Date: 2024-12-01 13:37+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: app.cpp:56 pdfeditmodel.cpp:446
+#: app.cpp:56 pdfeditmodel.cpp:452
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Te bewerken PDF-bestand"
@@ -126,81 +126,76 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: pdfeditmodel.cpp:394
+#: pdfeditmodel.cpp:400
 msgid "Title"
 msgstr "Titel"
 
-#: pdfeditmodel.cpp:395
+#: pdfeditmodel.cpp:401
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: pdfeditmodel.cpp:396
+#: pdfeditmodel.cpp:402
 msgid "Author"
 msgstr "Auteur"
 
-#: pdfeditmodel.cpp:397
+#: pdfeditmodel.cpp:403
 msgid "Keyword"
 msgstr "Trefwoord"
 
-#: pdfeditmodel.cpp:398
+#: pdfeditmodel.cpp:404
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:399
+#: pdfeditmodel.cpp:405
 msgid "Creator"
 msgstr "Maker"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:406
 msgid "Creation Date"
 msgstr "Aanmaakdatum"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:407
 msgid "Modification Date"
 msgstr "Wijzigingsdatum"
 
-#: qml/Dialogs/MovePagesDialog.qml:42 qml/Dialogs/SelectPagesDialog.qml:65
+#: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
 msgstr "Paginareeks"
 
-#: qml/Dialogs/MovePagesDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:74
+#: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
 msgstr "van"
 
-#: qml/Dialogs/MovePagesDialog.qml:58 qml/Dialogs/SelectPagesDialog.qml:80
+#: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
 msgstr "tot"
 
-#: qml/Dialogs/MovePagesDialog.qml:75
+#: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
-msgid "Move to"
-msgstr "Verplaatsen naar"
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Verplaatsen"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
 msgstr "voor"
 
-#: qml/Dialogs/MovePagesDialog.qml:93
+#: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
 msgstr "na"
 
-#: qml/Dialogs/MovePagesDialog.qml:133
+#: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "pagina"
-
-#: qml/Dialogs/MovePagesDialog.qml:148
-#, kde-format
-msgctxt "@action:button"
-msgid "Move"
-msgstr "Verplaatsen"
 
 #: qml/Dialogs/PdfFileDelegate.qml:86
 #, kde-format
@@ -347,12 +342,12 @@ msgstr[1] "bestanden"
 msgid "PDF Options"
 msgstr "PDF-opties"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Set password"
 msgstr "Wachtwoord instellen"
 
-#: qml/MainPage.qml:232
+#: qml/MainPage.qml:233
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "PDF-bestand beschermen met wachtwoord."
@@ -425,10 +420,15 @@ msgstr ""
 "Arrangeer alle pagina's: opnieuw ordenen, draaien, verwijderen.\n"
 "Aan het eind sla de nieuwe PDF op met geselecteerde opties."
 
-#: qml/Messages/ProgressDialog.qml:14
+#: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
 msgstr "PDF-bestand wordt gegenereerd"
+
+#: qml/Messages/ProgressDialog.qml:51
+#, kde-format
+msgid "Reducing PDF file size did not produce expected results!"
+msgstr ""
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -488,17 +488,17 @@ msgstr "Staat arrangeren van PDF-pagina's toe."
 #: qml/Settings/PdfTools.qml:22
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr ""
+msgstr "PDF-versie van gegenereerd bestand afdwingen"
 
 #: qml/Settings/PdfTools.qml:23
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
+"Indien op standaard gezet zal de PDF-versie van het invoerbestand gebruikt "
+"worden."
 
 #: qml/Settings/PdfTools.qml:24
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgid "default"
 msgstr "standaard"
 
@@ -535,3 +535,6 @@ msgstr "Info over Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Info over KDE"
+
+#~ msgid "Move to"
+#~ msgstr "Verplaatsen naar"
