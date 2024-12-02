@@ -48,7 +48,7 @@ if (QT_KNOWN_POLICY_QTP0004)
     qt_policy(SET QTP0004 NEW)
 endif ()
 
-find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Kirigami CoreAddons Config I18n)
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Kirigami CoreAddons Config I18n Crash)
 find_package(KF6KirigamiAddons ${KIRIGAMI_ADDONS_MIN_VERSION})
 set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED

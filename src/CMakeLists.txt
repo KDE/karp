@@ -67,6 +67,7 @@ target_link_libraries(karp
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::Kirigami
+    KF6::Crash
     KirigamiAddonsStatefulApp
     qpdf::libqpdf
 )

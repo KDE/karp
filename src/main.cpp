@@ -18,6 +18,7 @@
 
 #include "version-karp.h"
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -86,6 +87,8 @@ int main(int argc, char *argv[])
     // aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.karp"_s));
+
+    KCrash::initialize();
 
     QQmlApplicationEngine engine;
 
