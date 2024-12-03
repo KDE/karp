@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-02 00:39+0000\n"
-"PO-Revision-Date: 2024-11-25 22:09+0100\n"
+"POT-Creation-Date: 2024-12-03 00:39+0000\n"
+"PO-Revision-Date: 2024-12-02 14:07+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -98,29 +98,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Metadati PDF"
 
-#: main.cpp:73
+#: main.cpp:74
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:77
+#: main.cpp:78
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "Organizzatore KDE di PDF"
 
-#: main.cpp:81
+#: main.cpp:82
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:82
+#: main.cpp:83
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:83
+#: main.cpp:84
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
@@ -429,6 +429,8 @@ msgstr "Generazione del file PDF"
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
 msgstr ""
+"La riduzione della dimensione del file PDF non ha prodotto i risultati "
+"previsti!"
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -488,17 +490,17 @@ msgstr "Permette disposizioni di pagine PDF."
 #: qml/Settings/PdfTools.qml:22
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr ""
+msgstr "Forza la versione PDF del file generato"
 
 #: qml/Settings/PdfTools.qml:23
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
+"Quando impostato a «predefinita», verrà usata la versione PDF del file in "
+"ingresso."
 
 #: qml/Settings/PdfTools.qml:24
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgid "default"
 msgstr "predefinita"
 
