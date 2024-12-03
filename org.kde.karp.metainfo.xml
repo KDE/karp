@@ -16,6 +16,7 @@
   <name xml:lang="it">Karp</name>
   <name xml:lang="ka">Karp</name>
   <name xml:lang="nl">Karp</name>
+  <name xml:lang="pl">Karp</name>
   <name xml:lang="sl">Karp</name>
   <name xml:lang="sv">Karp</name>
   <name xml:lang="tr">Karp</name>
@@ -34,6 +35,7 @@
   <summary xml:lang="it">Organizzatore KDE di PDF</summary>
   <summary xml:lang="ka">PDF-ების დამლაგებელი PDF-ებისთვის</summary>
   <summary xml:lang="nl">KDE arrangeur voor PDF's</summary>
+  <summary xml:lang="pl">Aranżer PDF-ów dla KDE</summary>
   <summary xml:lang="sl">KDE razvrščevalnik za PDF-e</summary>
   <summary xml:lang="sv">KDE-arrangör för PDF:er</summary>
   <summary xml:lang="tr">PDF Düzenleyicisi</summary>
@@ -49,7 +51,7 @@
   </developer>
   <description>
     <p>Karp - gives simple UI for PDF files modification. With a few mouse strokes user can:</p>
-    <p xml:lang="ar">كارب - يوفر واجهة مستخدم بسيطة لتعديل ملفات بي دي اف PDF. من خلال بضع نقرات بالفأرة، يمكن للمستخدم:</p>
+    <p xml:lang="ar">كارب - يوفّر واجهة مستخدم بسيطة لتعديل ملفات بي دي اف PDF. من خلال بضع نقرات بالفأرة، يمكن للمستخدم:</p>
     <p xml:lang="ca">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
     <p xml:lang="ca-valencia">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
     <p xml:lang="es">Karp proporciona una interfaz sencilla para modificar archivos PDF. Con unos clics de ratón puede:</p>
@@ -59,6 +61,7 @@
     <p xml:lang="it">Karp - fornisce una semplice interfaccia per la modifica di file PDF. Con pochi movimenti di mouse l'utente può:</p>
     <p xml:lang="ka">Karp - მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
     <p xml:lang="nl">Karp - geeft een eenvoudige UI voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
+    <p xml:lang="pl">Karp — program z prostym interfejsem pozwalającym na modyfikację plików PDF.Kilkoma kliknięciami myszy użytkownik może:</p>
     <p xml:lang="sl">Karp - ponuja preprost uporabniški vmesnik za spreminjanje datotek PDF. Z nekaj potezami miškeuporabnik lahko:</p>
     <p xml:lang="sv">Karp  - ger ett enkelt användargränssnitt för ändring av PDF-filer. Med några få förflyttningar av musen kan användare:</p>
     <p xml:lang="tr">Karp, PDF dosyalarında değişiklik yapmak üzere yalın bir arayüz sunar. Birkaç fare hareketiyle kullanıcılar:</p>
@@ -68,7 +71,7 @@
     <p xml:lang="zh-TW">Karp - 提供修改 PDF 檔案用的簡單介面。只要滑鼠點幾下就能：</p>
     <ul>
       <li>Append more PDF files and merge</li>
-      <li xml:lang="ar">أضف المزيد من ملفات PDF وادمجها</li>
+      <li xml:lang="ar">إضافة المزيد من ملفات PDF ودمجها</li>
       <li xml:lang="ca">Afegir més fitxers PDF i fusionar-los</li>
       <li xml:lang="ca-valencia">Afegir més fitxers PDF i fusionar-los</li>
       <li xml:lang="es">Añadir más archivos PDF y fusionarlos</li>
@@ -78,6 +81,7 @@
       <li xml:lang="it">Appendere più file PDF e fonderli</li>
       <li xml:lang="ka">მიაწეროს ბოლოში PDF ფაილები ერთმანეთს და მათი შერწყმა</li>
       <li xml:lang="nl">Meer PDF bestanden achter voegen en mengen</li>
+      <li xml:lang="pl">Dodawać pliki PDF i scalać je</li>
       <li xml:lang="sl">Doda več datotek PDF in jih združi</li>
       <li xml:lang="sv">Lägga till fler PDF-filer och sammanfoga</li>
       <li xml:lang="tr">Ek PDF dosyalarını iliştirebilir ve birleştirebilir</li>
@@ -86,7 +90,7 @@
       <li xml:lang="zh-CN">追加更多 PDF 文件进行合并</li>
       <li xml:lang="zh-TW">合併多個 PDF 檔案、把 PDF 檔案加到後方</li>
       <li>Delete, rotate and reorder pages</li>
-      <li xml:lang="ar">احذف ودوّر وأعد ترتيب الصفحات</li>
+      <li xml:lang="ar">حذف وتدوير وإعادة ترتيب الصفحات</li>
       <li xml:lang="ca">Suprimir, girar o reordenar pàgines</li>
       <li xml:lang="ca-valencia">Suprimir, girar o reordenar pàgines</li>
       <li xml:lang="es">Borrar, rotar y reordenar las páginas</li>
@@ -96,6 +100,7 @@
       <li xml:lang="it">Eliminare, ruotare e riordinare pagine</li>
       <li xml:lang="ka">გვერდების წაშლა, შებრუნება და გადალაგება</li>
       <li xml:lang="nl">Pagina's verwijderen, draaien en opnieuw ordenen</li>
+      <li xml:lang="pl">Usuwać, obracać i zmieniać kolejność stron</li>
       <li xml:lang="sl">Briše, obrača in preureja strani</li>
       <li xml:lang="sv">Ta bort, rotera och ordna om sidor</li>
       <li xml:lang="tr">Sayfaları silebilir, döndürebilir ve yeniden sıralayabilir</li>
@@ -104,7 +109,7 @@
       <li xml:lang="zh-CN">删除、旋转和重新排序页面</li>
       <li xml:lang="zh-TW">刪除、旋轉或改變頁面順序</li>
       <li>Reduce PDF file size</li>
-      <li xml:lang="ar">قلّل حجم ملف PDF</li>
+      <li xml:lang="ar">تقليل حجم ملف PDF</li>
       <li xml:lang="ca">Reduir la mida de fitxers PDF</li>
       <li xml:lang="ca-valencia">Reduir la mida de fitxers PDF</li>
       <li xml:lang="es">Reducir el tamaño del archivo PDF</li>
@@ -114,6 +119,7 @@
       <li xml:lang="it">Ridurre la dimensione dei file PDF</li>
       <li xml:lang="ka">PDF ფაილის ზომის შემცირება</li>
       <li xml:lang="nl">Bestandsgrootte van PDF bestand verminderen</li>
+      <li xml:lang="pl">Redukować rozmiar plików PDF</li>
       <li xml:lang="sl">Zmanjša velikost datoteke PDF</li>
       <li xml:lang="sv">Reducera PDF-filstorlek</li>
       <li xml:lang="tr">PDF dosyalarının boyutunu azaltabilir</li>
@@ -122,7 +128,7 @@
       <li xml:lang="zh-CN">压缩 PDF 文件体积</li>
       <li xml:lang="zh-TW">降低 PDF 檔案大小</li>
       <li>Optimize images</li>
-      <li xml:lang="ar">حسّن الصور</li>
+      <li xml:lang="ar">تحسين الصور</li>
       <li xml:lang="ca">Optimitzar les imatges</li>
       <li xml:lang="ca-valencia">Optimitzar les imatges</li>
       <li xml:lang="es">Optimizar imágenes</li>
@@ -132,6 +138,7 @@
       <li xml:lang="it">Ottimizzare le immagini</li>
       <li xml:lang="ka">სურათების ოპტიმიზაცია</li>
       <li xml:lang="nl">Afbeeldingen optimaliseren</li>
+      <li xml:lang="pl">Optymizować obrazki</li>
       <li xml:lang="sl">Optimizira slike</li>
       <li xml:lang="sv">Optimera bilder</li>
       <li xml:lang="tr">Görselleri eniyileyebilir</li>
@@ -140,7 +147,7 @@
       <li xml:lang="zh-CN">对图像进行压缩优化</li>
       <li xml:lang="zh-TW">最佳化影像</li>
       <li>View and modify PDF properties</li>
-      <li xml:lang="ar">اعرض وعدّل خصائص PDF</li>
+      <li xml:lang="ar">عرض وتعديل خصائص PDF</li>
       <li xml:lang="ca">Veure i modificar les propietats del PDF</li>
       <li xml:lang="ca-valencia">Veure i modificar les propietats de PDF</li>
       <li xml:lang="es">Ver y modificar las propiedades del PDF</li>
@@ -150,6 +157,7 @@
       <li xml:lang="it">Visualizzzare e modificare le proprietà dei PDF</li>
       <li xml:lang="ka">PDF თვისებების ნახვა და შეცვლა</li>
       <li xml:lang="nl">PDF eigenschappen bekijken en wijzigen</li>
+      <li xml:lang="pl">Przeglądać i modyfikować metadane PDF-ów</li>
       <li xml:lang="sl">Ogleduje in spreminja lastnosti PDF</li>
       <li xml:lang="sv">Visa och ändra PDF-egenskaper</li>
       <li xml:lang="tr">PDF özelliklerini görüntüleyebilir ve üzerinde değişiklik yapabilir</li>
@@ -158,7 +166,7 @@
       <li xml:lang="zh-CN">查看和修改 PDF 文件属性</li>
       <li xml:lang="zh-TW">檢視或修改 PDF 屬性</li>
       <li>Protect PDF with password</li>
-      <li xml:lang="ar">احم ملف PDF بكلمة سر</li>
+      <li xml:lang="ar">حماية ملف PDF بكلمة مرور</li>
       <li xml:lang="ca">Protegir el PDF amb una contrasenya</li>
       <li xml:lang="ca-valencia">Protegir PDF amb una contrasenya</li>
       <li xml:lang="es">Proteger el PDF con contraseña</li>
@@ -168,6 +176,7 @@
       <li xml:lang="it">Proteggere i PDF con una password</li>
       <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
       <li xml:lang="nl">PDF met een wachtwoord beschermen</li>
+      <li xml:lang="pl">Zabezpieczać PDF-y hasłem</li>
       <li xml:lang="sl">Zaščiti PDF z geslom</li>
       <li xml:lang="sv">Skydda PDF:er med lösenord</li>
       <li xml:lang="tr">PDF’leri parola ile koruyabilir</li>
