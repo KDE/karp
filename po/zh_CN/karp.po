@@ -425,7 +425,7 @@ msgstr "正在生成 PDF 文件"
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
-msgstr ""
+msgstr "PDF 文件体积压缩操作没有得到预期的结果。"
 
 #: qml/Settings/General.qml:19
 #, kde-format

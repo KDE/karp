@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# Tomasz Bojczuk <seelook@gmail.com>, 2024.
+# SPDX-FileCopyrightText: 2024 Tomasz Bojczuk <seelook@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tomasz Bojczuk <seelook@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-03 00:39+0000\n"
-"PO-Revision-Date: 2024-12-01 17:21+0100\n"
+"PO-Revision-Date: 2024-12-03 11:51+0100\n"
 "Last-Translator: Tomasz Bojczuk <seelook@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -222,7 +222,7 @@ msgstr "Usuń z listy"
 #: qml/Dialogs/PdfFileDelegate.qml:126
 #, kde-format
 msgid "Select pages to add"
-msgstr "Wybierz strony do dodania "
+msgstr "Wybierz strony do dodania"
 
 #: qml/Dialogs/PdfFilesDialog.qml:17
 #, kde-format
@@ -252,7 +252,7 @@ msgstr "Parametry PDF"
 #: qml/Dialogs/PdfMetadataDialog.qml:53
 #, kde-format
 msgid "Output PDF"
-msgstr "wyjściowy PDF"
+msgstr "Docelowy PDF"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:129
 #, kde-format
@@ -432,7 +432,7 @@ msgstr "Tworzenie pliku PDF"
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
-msgstr ""
+msgstr "Zmiana rozmiaru pliku PDF nie przyniosła spodziewanych rezultatów!"
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -442,12 +442,12 @@ msgstr "Otwórz okno wyboru pliku na"
 #: qml/Settings/General.qml:23
 #, kde-format
 msgid "Last opened directory"
-msgstr "ostatnio otwieranym katalogu"
+msgstr "Ostatnio otwieranym katalogu"
 
 #: qml/Settings/General.qml:29
 #, kde-format
 msgid "Fixed path"
-msgstr "ustalonym katalogu"
+msgstr "Ustalonym katalogu"
 
 #: qml/Settings/General.qml:44
 #, kde-format

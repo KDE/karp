@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-03 00:39+0000\n"
-"PO-Revision-Date: 2024-11-25 19:05+0100\n"
+"PO-Revision-Date: 2024-12-03 20:37+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -428,7 +428,7 @@ msgstr "Genererar PDF-fil"
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
-msgstr ""
+msgstr "Att reducera PDF-filens storlek resulterade inte i förväntat resultat."
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -488,17 +488,15 @@ msgstr "Tillåter att PDF-sidor arrangeras."
 #: qml/Settings/PdfTools.qml:22
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr ""
+msgstr "Bestäm den genererade filens PDF-version"
 
 #: qml/Settings/PdfTools.qml:23
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
-msgstr ""
+msgstr "När inställningen är standardvärde används indatafilens PDF-version."
 
 #: qml/Settings/PdfTools.qml:24
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgid "default"
 msgstr "standardvärde"
 
