@@ -236,15 +236,6 @@ void App::setupActions()
         mainCollection()->addAction(action->objectName(), action);
     }
 
-    actionName = "pdf_version"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantPdfVersion);
-        action->setText(i18nc("@action:inmenu", "Set PDF version"));
-        action->setIcon(QIcon::fromTheme(u"application-pdf"_s));
-        action->setCheckable(true);
-        mainCollection()->addAction(action->objectName(), action);
-    }
-
     actionName = "set_password"_L1;
     if (KAuthorized::authorizeAction(actionName)) {
         auto action = mainCollection()->addAction(actionName, this, &App::wantSetPassword);

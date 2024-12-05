@@ -76,7 +76,6 @@ Q_SIGNALS:
     // PDF options
     void wantOptimize();
     void wantReduceSize();
-    void wantPdfVersion();
     void wantSetPassword();
     void wantPdfMeta();
 

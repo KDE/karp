@@ -66,9 +66,45 @@ Kirigami.Page {
             }
             Kirigami.Action {
                 id: pdfVerAct
-                fromQAction: APP.action("pdf_version")
-                checked: pdfModel.pdfVersion > 0
+
+                text: i18nc("@action:inmenu", "PDF Version")
+                icon.name: 'application-pdf-symbolic'
+
+                component VersionAction : Kirigami.Action {
+                    id: versionAction
+
+                    required property real version
+
+                    text: version === 0 ? i18nc("like default PDF version", "Default") : i18nc("PDF version", "Version %1", version)
+                    onTriggered: pdfModel.pdfVersion = version;
+                    checkable: true
+
+                    readonly property Binding binding: Binding {
+                        versionAction.checked: pdfModel.pdfVersion === version
+                    }
+                }
+
+                VersionAction {
+                    version: 0.0
+                }
+
+                VersionAction {
+                    version: 1.4
+                }
+
+                VersionAction {
+                    version: 1.5
+                }
+
+                VersionAction {
+                    version: 1.6
+                }
+
+                VersionAction {
+                    version: 1.7
+                }
             }
+
             Kirigami.Action {
                 fromQAction: APP.action("set_password")
                 checked: pdfModel.passKey !== ""
@@ -223,10 +259,6 @@ Kirigami.Page {
         }
         function onWantReduceSize() : void {
             pdfModel.reduceSize = redSizeAct.checked
-        }
-        function onWantPdfVersion() : void {
-            let verDlg = Qt.createComponent("org.kde.karp", "PdfVersionDialog").createObject(page, { pdfVersion: pdfModel.pdfVersion })
-            verDlg.accepted.connect(function(){ pdfModel.pdfVersion = verDlg.pdfVersion })
         }
         function onWantSetPassword() : void {
             let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page,
