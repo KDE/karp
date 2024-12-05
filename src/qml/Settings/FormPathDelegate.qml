@@ -182,7 +182,7 @@ FormCard.AbstractFormDelegate {
 
     Component.onCompleted: { // keep background on mobile to visualize tap
         if (!Kirigami.Settings.isMobile)
-            background.destroy()
+            background = null;
     }
 
     contentItem: ColumnLayout {
