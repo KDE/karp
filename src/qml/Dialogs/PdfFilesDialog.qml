@@ -14,20 +14,24 @@ FormCard.FormCardDialog {
     property alias pdfEdit: pdfOrg.editModel
     property alias initFiles: pdfOrg.initFiles
 
-    title: i18n("Add and arrange PDF files")
     visible: true
+    title: i18nc("@title:dialog", "Add and Arrange PDF files")
     width: Kirigami.ApplicationWindow.window.width - Kirigami.Units.gridUnit * 2
     height: Kirigami.ApplicationWindow.window.height - Kirigami.Units.gridUnit * 2
-    // popupType: FormCard.FormCardDialog.Native
 
     standardButtons: QQC2.DialogButtonBox.Cancel | QQC2.DialogButtonBox.Apply
+
+    // HACK: we should be using Binding here
+    readonly property bool hasPdfs: fileView.count > 0
+    onHasPdfsChanged: standardButton(QQC2.DialogButtonBox.Apply).enabled = hasPdfs
+    Component.onCompleted: standardButton(QQC2.DialogButtonBox.Apply).enabled = hasPdfs
 
     PdfsOrganizer {
         id: pdfOrg
         onPasswordRequired: (fName, fId) => {
             let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(pdfsDialog, { fileName: fName, fileId: fId })
-            passDlg.accepted.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, passDlg.passKey) })
-            passDlg.rejected.connect(function(){ pdfOrg.setPdfPassword(passDlg.fileId, "") })
+            passDlg.accepted.connect(() => pdfOrg.setPdfPassword(passDlg.fileId, passDlg.passKey))
+            passDlg.rejected.connect(() => pdfOrg.setPdfPassword(passDlg.fileId, ""))
         }
     }
 
@@ -35,45 +39,62 @@ FormCard.FormCardDialog {
     QQC2.Label {
         visible: pdfOrg.totalPages
         parent: footer
-        x: Kirigami.Units.gridUnit * 2
+        x: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
         anchors.verticalCenter: parent.verticalCenter
         font.bold: true
-        text: i18n("Total pages") + ": " + pdfOrg.totalPages
+        text: i18nc("@info", "Total pages: %1", pdfOrg.totalPages)
     }
 
     contentItem: ColumnLayout {
-        Layout.margins: Kirigami.Units.gridUnit
-        Layout.fillHeight: true
-        Layout.fillWidth: true
+        spacing: Kirigami.Units.smallSpacing
 
-        Kirigami.ActionToolBar {
-            id: toolBar
-            actions: [
-                Kirigami.Action {
-                    icon.name: "application-pdf"
-                    text: i18n("add PDF files")
-                    onTriggered: pdfOrg.addMorePDFs()
-                },
-                Kirigami.Action {
-                    id: showPathAction
-                    text: i18n("show PDF path")
-                    checkable: true
-                    checked: false
-                }
-            ]
+        RowLayout {
+            spacing: Kirigami.Units.mediumSpacing
+
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+
+            QQC2.ToolButton {
+                icon.name: "list-add-symbolic"
+                text: i18nc("@action:button", "Add PDF…")
+                onClicked: pdfOrg.addMorePDFs()
+            }
+
+            QQC2.CheckBox {
+                id: showPathAction
+                text: i18nc("@option:check", "Show PDF File Path")
+                checkable: true
+                checked: false
+
+                Layout.alignment: Qt.AlignRight
+            }
         }
 
         Kirigami.CardsListView {
             id: fileView
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            clip: true
-            spacing: Kirigami.Units.smallSpacing
-            model: pdfOrg.fileModel
 
             property int dragTargetIndex: -1
 
+            clip: true
+            spacing: Kirigami.Units.smallSpacing
+            model: pdfOrg.fileModel
             delegate: PdfFileDelegate {}
+
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            Kirigami.PlaceholderMessage {
+                anchors.centerIn: parent
+                width: parent.width - (Kirigami.Units.largeSpacing * 4)
+                visible: fileView.count === 0
+                text: i18nc("@info:placeholder", "Add one or more PDF file to proceed")
+                helpfulAction: Kirigami.Action {
+                    icon.name: "list-add-symbolic"
+                    text: i18nc("@action:button", "Add PDF...")
+                    onTriggered: pdfOrg.addMorePDFs()
+                }
+            }
         }
     }
 

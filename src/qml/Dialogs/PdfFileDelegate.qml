@@ -69,19 +69,27 @@ Kirigami.AbstractCard {
                         }
                     }
                 }
-                QQC2.Label {
-                    visible: showPathAction.checked
-                    text: path
-                    elide: Text.ElideLeft
-                    Layout.fillWidth: true
-                }
-                QQC2.Label {
-                    text: fileName
-                    font.bold: true
-                    elide: Text.ElideMiddle
+                ColumnLayout {
+                    spacing: 0
+
                     Layout.fillWidth: true
                     Layout.horizontalStretchFactor: 1
+
+                    QQC2.Label {
+                        text: fileName
+                        font.bold: true
+                        elide: Text.ElideMiddle
+                        Layout.fillWidth: true
+                    }
+
+                    QQC2.Label {
+                        visible: showPathAction.checked
+                        text: path
+                        elide: Text.ElideLeft
+                        Layout.fillWidth: true
+                    }
                 }
+
                 QQC2.Label {
                     text: i18n("%1 pages", pageCount)
                     Layout.alignment: Qt.AlignRight

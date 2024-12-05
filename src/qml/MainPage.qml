@@ -264,7 +264,12 @@ Kirigami.Page {
             page.generate()
         }
         function onWantOpenPdf() : void {
-            Qt.createComponent("org.kde.karp", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel })
+            const component = Qt.createComponent("org.kde.karp", "PdfFilesDialog");
+            if (component.status !== Component.Ready) {
+                console.error(component.errorString());
+                return;
+            }
+            component.createObject(page, { pdfEdit: pdfModel })
         }
         function onWantClearAll() : void {
             page.clearAll()
