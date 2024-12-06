@@ -203,6 +203,16 @@
     <category>Office</category>
     <category>KDE</category>
   </categories>
+  <screenshots>
+      <screenshot type="default">
+          <caption>Karp main window with pages of PDF file</caption>
+          <image>https://cdn.kde.org/screenshots/karp/karp_mainwindow.png</image>
+      </screenshot>
+      <screenshot type="default">
+          <caption>Appending password protected PDF file</caption>
+          <image>https://cdn.kde.org/screenshots/karp/karp_add_pdf_with_password.png</image>
+      </screenshot>
+  </screenshots>
   <launchable type="desktop-id">org.kde.karp.desktop</launchable>
   <url type="homepage">https://invent.kde.org/tomaszbojczuk/karp</url>
 </component>
