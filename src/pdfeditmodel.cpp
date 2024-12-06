@@ -628,7 +628,7 @@ void PdfEditModel::updateMaxPageWidth()
     if (m_columns == 0)
         return;
     qreal oldMax = m_maxPageWidth;
-    m_maxPageWidth = (m_viewWidth - ((m_columns + 5) * m_spacing)) / static_cast<qreal>(m_columns);
+    m_maxPageWidth = (m_viewWidth - ((m_columns + 1) * m_spacing)) / static_cast<qreal>(m_columns);
     if (oldMax != m_maxPageWidth)
         Q_EMIT maxPageWidthChanged();
 }
