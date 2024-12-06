@@ -132,12 +132,12 @@ Kirigami.Page {
     }
 
     contentItem: QQC2.ScrollView {
-        visible: pdfModel.pageCount
 
         TableView {
             id: pdfView
 
-            clip: true
+            // clip: true // clipped by ScrollView
+            visible: pdfModel.pageCount
             columnSpacing: Kirigami.Units.largeSpacing
             rowSpacing: Kirigami.Units.largeSpacing
             model: pdfModel
