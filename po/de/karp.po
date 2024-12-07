@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:39+0000\n"
+"POT-Creation-Date: 2024-12-07 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 11:30+0100\n"
 "Last-Translator: Simulacrum\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -76,16 +76,10 @@ msgstr ""
 #: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Set PDF version"
-msgstr ""
-
-#: app.cpp:251
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr ""
 
-#: app.cpp:260
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -190,49 +184,65 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:86
+#: qml/Dialogs/PdfFileDelegate.qml:94
 #, kde-format
 msgid "%1 pages"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:95
+#: qml/Dialogs/PdfFileDelegate.qml:103
 #, kde-format
 msgid "Add all pages"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:111
 #, kde-format
 msgid "Add selected pages"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:112
+#: qml/Dialogs/PdfFileDelegate.qml:120
 #, kde-format
 msgid "Remove from list"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:126
+#: qml/Dialogs/PdfFileDelegate.qml:134
 #, kde-format
 msgid "Select pages to add"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:17
+#: qml/Dialogs/PdfFilesDialog.qml:18
 #, kde-format
-msgid "Add and arrange PDF files"
+msgctxt "@title:dialog"
+msgid "Add and Arrange PDF files"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:41
+#: qml/Dialogs/PdfFilesDialog.qml:45
 #, kde-format
-msgid "Total pages"
+msgctxt "@info"
+msgid "Total pages: %1"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:54
+#: qml/Dialogs/PdfFilesDialog.qml:60
 #, kde-format
-msgid "add PDF files"
+msgctxt "@action:button"
+msgid "Add PDF…"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:59
+#: qml/Dialogs/PdfFilesDialog.qml:66
 #, kde-format
-msgid "show PDF path"
+msgctxt "@option:check"
+msgid "Show PDF File Path"
+msgstr ""
+
+#: qml/Dialogs/PdfFilesDialog.qml:91
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Add one or more PDF file to proceed"
+msgstr ""
+
+#: qml/Dialogs/PdfFilesDialog.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Add PDF..."
 msgstr ""
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
@@ -263,17 +273,6 @@ msgstr ""
 #: qml/Dialogs/PdfPassDialog.qml:31
 #, kde-format
 msgid "Provide password to open file %1"
-msgstr ""
-
-#: qml/Dialogs/PdfVersionDialog.qml:17
-#, kde-format
-msgid "Set PDF version"
-msgstr ""
-
-#: qml/Dialogs/PdfVersionDialog.qml:32
-#, kde-format
-msgctxt "like default PDF version"
-msgid "default"
 msgstr ""
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
@@ -335,64 +334,82 @@ msgstr[1] ""
 msgid "PDF Options"
 msgstr ""
 
-#: qml/MainPage.qml:233
+#: qml/MainPage.qml:70
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr ""
+
+#: qml/MainPage.qml:78
+#, kde-format
+msgctxt "like default PDF version"
+msgid "Default"
+msgstr ""
+
+#: qml/MainPage.qml:78
+#, kde-format
+msgctxt "PDF version"
+msgid "Version %1"
+msgstr ""
+
+#: qml/MainPage.qml:285
 #, kde-format
 msgid "Set password"
 msgstr ""
 
-#: qml/MainPage.qml:233
+#: qml/MainPage.qml:285
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr ""
 
-#: qml/MainToolbar.qml:21 qml/MainToolbar.qml:82
+#: qml/MainToolbar.qml:25 qml/MainToolbar.qml:86
 #, kde-format
 msgid "Select pages to delete"
 msgstr ""
 
-#: qml/MainToolbar.qml:29 qml/MainToolbar.qml:94
+#: qml/MainToolbar.qml:33 qml/MainToolbar.qml:98
 #, kde-format
 msgid "Select pages to rotate"
 msgstr ""
 
-#: qml/MainToolbar.qml:37 qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:41 qml/MainToolbar.qml:126
 #, kde-format
 msgid "Select pages to move"
 msgstr ""
 
-#: qml/MainToolbar.qml:46
+#: qml/MainToolbar.qml:50
 #, kde-format
 msgid "Show page labels"
 msgstr ""
 
-#: qml/MainToolbar.qml:52
+#: qml/MainToolbar.qml:56
 #, kde-format
 msgid "Zoom Out"
 msgstr ""
 
-#: qml/MainToolbar.qml:58
+#: qml/MainToolbar.qml:62
 #, kde-format
 msgid "Zoom In"
 msgstr ""
 
-#: qml/MainToolbar.qml:67
+#: qml/MainToolbar.qml:71
 #, kde-format
 msgid "Page %1 of %2"
 msgstr ""
 
-#: qml/MainToolbar.qml:83
+#: qml/MainToolbar.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
-#: qml/MainToolbar.qml:95
+#: qml/MainToolbar.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr ""
 
-#: qml/MainToolbar.qml:104
+#: qml/MainToolbar.qml:108
 #, kde-format
 msgid "Angle"
 msgstr ""

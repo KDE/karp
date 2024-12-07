@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:39+0000\n"
+"POT-Creation-Date: 2024-12-07 00:39+0000\n"
 "PO-Revision-Date: 2024-12-02 22:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -86,16 +86,10 @@ msgstr "Txikiagotu neurria"
 #: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Set PDF version"
-msgstr "Ezarri PDF bertsioa"
-
-#: app.cpp:251
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Ezarri pasahitza"
 
-#: app.cpp:260
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -200,50 +194,74 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "orrialdea"
 
-#: qml/Dialogs/PdfFileDelegate.qml:86
+#: qml/Dialogs/PdfFileDelegate.qml:94
 #, kde-format
 msgid "%1 pages"
 msgstr "%1 orrialde"
 
-#: qml/Dialogs/PdfFileDelegate.qml:95
+#: qml/Dialogs/PdfFileDelegate.qml:103
 #, kde-format
 msgid "Add all pages"
 msgstr "Gehitu orrialde guztiak"
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:111
 #, kde-format
 msgid "Add selected pages"
 msgstr "Gehitu hautatutako orrialdeak"
 
-#: qml/Dialogs/PdfFileDelegate.qml:112
+#: qml/Dialogs/PdfFileDelegate.qml:120
 #, kde-format
 msgid "Remove from list"
 msgstr "Kendu zerrendatik"
 
-#: qml/Dialogs/PdfFileDelegate.qml:126
+#: qml/Dialogs/PdfFileDelegate.qml:134
 #, kde-format
 msgid "Select pages to add"
 msgstr "Hautatu gehitu beharreko orrialdeak"
 
-#: qml/Dialogs/PdfFilesDialog.qml:17
-#, kde-format
-msgid "Add and arrange PDF files"
+#: qml/Dialogs/PdfFilesDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Add and arrange PDF files"
+msgctxt "@title:dialog"
+msgid "Add and Arrange PDF files"
 msgstr "PDF fitxategiak gehitu eta antolatu"
 
-#: qml/Dialogs/PdfFilesDialog.qml:41
-#, kde-format
-msgid "Total pages"
+#: qml/Dialogs/PdfFilesDialog.qml:45
+#, fuzzy, kde-format
+#| msgid "Total pages"
+msgctxt "@info"
+msgid "Total pages: %1"
 msgstr "Orrialde guztira"
 
-#: qml/Dialogs/PdfFilesDialog.qml:54
-#, kde-format
-msgid "add PDF files"
-msgstr "gehitu PDF fitxategiak"
+#: qml/Dialogs/PdfFilesDialog.qml:60
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:button"
+msgid "Add PDF…"
+msgstr "Gehitu PDF fitxategiak"
 
-#: qml/Dialogs/PdfFilesDialog.qml:59
-#, kde-format
-msgid "show PDF path"
+#: qml/Dialogs/PdfFilesDialog.qml:66
+#, fuzzy, kde-format
+#| msgid "show PDF path"
+msgctxt "@option:check"
+msgid "Show PDF File Path"
 msgstr "erakutsi PDF bide-izena"
+
+#: qml/Dialogs/PdfFilesDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Select one or more PDF files."
+msgctxt "@info:placeholder"
+msgid "Add one or more PDF file to proceed"
+msgstr "Hautatu PDF fitxategi bat edo gehiago."
+
+#: qml/Dialogs/PdfFilesDialog.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:button"
+msgid "Add PDF..."
+msgstr "Gehitu PDF fitxategiak"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
@@ -274,17 +292,6 @@ msgstr "Pasahitza beharrezkoa da"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "Eman %1 fitxategia irekitzeko pasahitza"
-
-#: qml/Dialogs/PdfVersionDialog.qml:17
-#, kde-format
-msgid "Set PDF version"
-msgstr "Ezarri PDF bertsioa"
-
-#: qml/Dialogs/PdfVersionDialog.qml:32
-#, kde-format
-msgctxt "like default PDF version"
-msgid "default"
-msgstr "lehenetsia"
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -345,64 +352,86 @@ msgstr[1] "fitxategiak"
 msgid "PDF Options"
 msgstr "PDF aukerak"
 
-#: qml/MainPage.qml:233
+#: qml/MainPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set PDF version"
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "Ezarri PDF bertsioa"
+
+#: qml/MainPage.qml:78
+#, fuzzy, kde-format
+#| msgctxt "like default PDF version"
+#| msgid "default"
+msgctxt "like default PDF version"
+msgid "Default"
+msgstr "lehenetsia"
+
+#: qml/MainPage.qml:78
+#, kde-format
+msgctxt "PDF version"
+msgid "Version %1"
+msgstr ""
+
+#: qml/MainPage.qml:285
 #, kde-format
 msgid "Set password"
 msgstr "Ezarri pasahitza"
 
-#: qml/MainPage.qml:233
+#: qml/MainPage.qml:285
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Babestu PDF fitxategia pasahitz bidez."
 
-#: qml/MainToolbar.qml:21 qml/MainToolbar.qml:82
+#: qml/MainToolbar.qml:25 qml/MainToolbar.qml:86
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Hautatu ezabatu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:29 qml/MainToolbar.qml:94
+#: qml/MainToolbar.qml:33 qml/MainToolbar.qml:98
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Hautatu biratu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:37 qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:41 qml/MainToolbar.qml:126
 #, kde-format
 msgid "Select pages to move"
 msgstr "Hautatu mugitu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:46
+#: qml/MainToolbar.qml:50
 #, kde-format
 msgid "Show page labels"
 msgstr "Erakutsi orrialde-etiketak"
 
-#: qml/MainToolbar.qml:52
+#: qml/MainToolbar.qml:56
 #, kde-format
 msgid "Zoom Out"
 msgstr "Zooma urrundu"
 
-#: qml/MainToolbar.qml:58
+#: qml/MainToolbar.qml:62
 #, kde-format
 msgid "Zoom In"
 msgstr "Zooma gerturatu"
 
-#: qml/MainToolbar.qml:67
+#: qml/MainToolbar.qml:71
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Orrialdea %1 / %2"
 
-#: qml/MainToolbar.qml:83
+#: qml/MainToolbar.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: qml/MainToolbar.qml:95
+#: qml/MainToolbar.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Biratu"
 
-#: qml/MainToolbar.qml:104
+#: qml/MainToolbar.qml:108
 #, kde-format
 msgid "Angle"
 msgstr "Angelua"
@@ -536,6 +565,12 @@ msgstr "Karp-eri buruz"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDEri buruz"
+
+#~ msgid "add PDF files"
+#~ msgstr "gehitu PDF fitxategiak"
+
+#~ msgid "Set PDF version"
+#~ msgstr "Ezarri PDF bertsioa"
 
 #~ msgid "Move to"
 #~ msgstr "Nora mugitu"

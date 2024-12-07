@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:39+0000\n"
+"POT-Creation-Date: 2024-12-07 00:39+0000\n"
 "PO-Revision-Date: 2024-12-02 04:41+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -84,16 +84,10 @@ msgstr "ზომის შემცირება"
 #: app.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Set PDF version"
-msgstr "PDF-ის ვერსიის დაყენება"
-
-#: app.cpp:251
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "პაროლის დაყენება"
 
-#: app.cpp:260
+#: app.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -198,50 +192,74 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "პანელი"
 
-#: qml/Dialogs/PdfFileDelegate.qml:86
+#: qml/Dialogs/PdfFileDelegate.qml:94
 #, kde-format
 msgid "%1 pages"
 msgstr "%1 გვერდი"
 
-#: qml/Dialogs/PdfFileDelegate.qml:95
+#: qml/Dialogs/PdfFileDelegate.qml:103
 #, kde-format
 msgid "Add all pages"
 msgstr "ყველა გვერდის დამატება"
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:111
 #, kde-format
 msgid "Add selected pages"
 msgstr "მონიშნული გვერდების დამატება"
 
-#: qml/Dialogs/PdfFileDelegate.qml:112
+#: qml/Dialogs/PdfFileDelegate.qml:120
 #, kde-format
 msgid "Remove from list"
 msgstr "სიიდან წაშლა"
 
-#: qml/Dialogs/PdfFileDelegate.qml:126
+#: qml/Dialogs/PdfFileDelegate.qml:134
 #, kde-format
 msgid "Select pages to add"
 msgstr "აირჩიეთ გვერდები დასამატებლად"
 
-#: qml/Dialogs/PdfFilesDialog.qml:17
-#, kde-format
-msgid "Add and arrange PDF files"
+#: qml/Dialogs/PdfFilesDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Add and arrange PDF files"
+msgctxt "@title:dialog"
+msgid "Add and Arrange PDF files"
 msgstr "PDF ფაილების დამატება და დალაგება"
 
-#: qml/Dialogs/PdfFilesDialog.qml:41
-#, kde-format
-msgid "Total pages"
+#: qml/Dialogs/PdfFilesDialog.qml:45
+#, fuzzy, kde-format
+#| msgid "Total pages"
+msgctxt "@info"
+msgid "Total pages: %1"
 msgstr "სულ გვერდები"
 
-#: qml/Dialogs/PdfFilesDialog.qml:54
-#, kde-format
-msgid "add PDF files"
+#: qml/Dialogs/PdfFilesDialog.qml:60
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:button"
+msgid "Add PDF…"
 msgstr "PDF ფაილების დამატება"
 
-#: qml/Dialogs/PdfFilesDialog.qml:59
-#, kde-format
-msgid "show PDF path"
+#: qml/Dialogs/PdfFilesDialog.qml:66
+#, fuzzy, kde-format
+#| msgid "show PDF path"
+msgctxt "@option:check"
+msgid "Show PDF File Path"
 msgstr "PDF ბილიკის ჩვენება"
+
+#: qml/Dialogs/PdfFilesDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Select one or more PDF files."
+msgctxt "@info:placeholder"
+msgid "Add one or more PDF file to proceed"
+msgstr "აირჩიეთ ერთი ან მეტი PDF ფაილი."
+
+#: qml/Dialogs/PdfFilesDialog.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:button"
+msgid "Add PDF..."
+msgstr "PDF ფაილების დამატება"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
@@ -272,17 +290,6 @@ msgstr "პაროლი აუცილებელია"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "შეიყვანეთ პაროლი, რომ გახსნათ ფაილი %1"
-
-#: qml/Dialogs/PdfVersionDialog.qml:17
-#, kde-format
-msgid "Set PDF version"
-msgstr "PDF-ის ვერსიის დაყენება"
-
-#: qml/Dialogs/PdfVersionDialog.qml:32
-#, kde-format
-msgctxt "like default PDF version"
-msgid "default"
-msgstr "ნაგულისხმევი"
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -343,64 +350,86 @@ msgstr[1] "ფაილები"
 msgid "PDF Options"
 msgstr "PDF პარამეტრები"
 
-#: qml/MainPage.qml:233
+#: qml/MainPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set PDF version"
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF-ის ვერსიის დაყენება"
+
+#: qml/MainPage.qml:78
+#, fuzzy, kde-format
+#| msgctxt "like default PDF version"
+#| msgid "default"
+msgctxt "like default PDF version"
+msgid "Default"
+msgstr "ნაგულისხმევი"
+
+#: qml/MainPage.qml:78
+#, kde-format
+msgctxt "PDF version"
+msgid "Version %1"
+msgstr ""
+
+#: qml/MainPage.qml:285
 #, kde-format
 msgid "Set password"
 msgstr "პაროლის დაყენება"
 
-#: qml/MainPage.qml:233
+#: qml/MainPage.qml:285
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "დაიცავით PDF ფაილი პაროლით."
 
-#: qml/MainToolbar.qml:21 qml/MainToolbar.qml:82
+#: qml/MainToolbar.qml:25 qml/MainToolbar.qml:86
 #, kde-format
 msgid "Select pages to delete"
 msgstr "აირჩიეთ გვერდები წასაშლელად"
 
-#: qml/MainToolbar.qml:29 qml/MainToolbar.qml:94
+#: qml/MainToolbar.qml:33 qml/MainToolbar.qml:98
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "აირჩიეთ გვერდები შესაბრუნებლად"
 
-#: qml/MainToolbar.qml:37 qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:41 qml/MainToolbar.qml:126
 #, kde-format
 msgid "Select pages to move"
 msgstr "აირჩიეთ გვერდები გადასაადგილებლად"
 
-#: qml/MainToolbar.qml:46
+#: qml/MainToolbar.qml:50
 #, kde-format
 msgid "Show page labels"
 msgstr "გვერდის ჭდეების ჩვენება"
 
-#: qml/MainToolbar.qml:52
+#: qml/MainToolbar.qml:56
 #, kde-format
 msgid "Zoom Out"
 msgstr "დაპატარავება"
 
-#: qml/MainToolbar.qml:58
+#: qml/MainToolbar.qml:62
 #, kde-format
 msgid "Zoom In"
 msgstr "გადიდება"
 
-#: qml/MainToolbar.qml:67
+#: qml/MainToolbar.qml:71
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "გვერდი %1 %2-დან"
 
-#: qml/MainToolbar.qml:83
+#: qml/MainToolbar.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "წაშლა"
 
-#: qml/MainToolbar.qml:95
+#: qml/MainToolbar.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "დატრიალება"
 
-#: qml/MainToolbar.qml:104
+#: qml/MainToolbar.qml:108
 #, kde-format
 msgid "Angle"
 msgstr "კუთხე"
@@ -536,6 +565,12 @@ msgstr "Karp-ის შესახებ"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE-ის შესახებ"
+
+#~ msgid "add PDF files"
+#~ msgstr "PDF ფაილების დამატება"
+
+#~ msgid "Set PDF version"
+#~ msgstr "PDF-ის ვერსიის დაყენება"
 
 #~ msgid "Move to"
 #~ msgstr "გადაადგილება"
