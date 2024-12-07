@@ -14,70 +14,105 @@ Components.FloatingToolBar {
     required property PdfEditModel pdfModel
     property alias labelsVisible: labelsAction.checked
 
-    contentItem: Kirigami.ActionToolBar {
+    contentItem: RowLayout {
+        spacing: Kirigami.Units.smallSpacing
 
-        alignment: Qt.AlignHCenter
-
-        actions: [
-            Kirigami.Action {
-                icon.name: "edit-delete"
-                icon.color: "red"
-                tooltip: i18n("Select pages to delete")
-                onTriggered: {
-                    let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
-                    delDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
-                }
-            },
-            Kirigami.Action {
-                icon.name: "object-rotate-right"
-                tooltip: i18n("Select pages to rotate")
-                onTriggered: {
-                    let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
-                    rotDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
-                }
-            },
-            Kirigami.Action {
-                icon.name: "transform-move"
-                tooltip: i18n("Select pages to move")
-                onTriggered: {
-                    let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
-                    mvDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
-                }
-            },
-            Kirigami.Action {
-                id: labelsAction
-                icon.name: "label"
-                tooltip: i18n("Show page labels")
-                checkable: true
-                checked: true
-            },
-            Kirigami.Action {
-                icon.name: "zoom-out"
-                tooltip: i18n("Zoom Out")
-                onTriggered: pdfModel.zoomOut()
-                enabled: pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
-            },
-            Kirigami.Action {
-                icon.name: "zoom-in"
-                tooltip: i18n("Zoom In")
-                onTriggered: pdfModel.zoomIn()
-                enabled: pdfView.columns > 1
-            },
-            Kirigami.Action {
-                displayComponent: QQC2.SpinBox {
-                    id: pageSpin
-                    from: 1; to: pdfModel.pageCount
-                    textFromValue: function(value) {
-                        return i18n("Page %1 of %2", value, to)
-                    }
-                    onValueModified: pdfView.positionViewAtRow((value - 1) / pdfView.columns, TableView.AlignTop)
-                    Binding {
-                        pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
-                        delayed: true
-                    }
-                }
+        QQC2.ToolButton {
+            text: i18nc("@action:intoolbar", "Select pages to delete")
+            display: QQC2.ToolButton.IconOnly
+            icon {
+                name: "edit-delete"
+                color: "red"
             }
-        ]
+
+            onClicked: {
+                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                delDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            icon.name: "object-rotate-right"
+            text: i18nc("@action:intoolbar", "Select pages to rotate")
+            display: QQC2.ToolButton.IconOnly
+            onClicked: {
+                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                rotDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            text: i18nc("@action:intoolbar", "Select pages to move")
+            display: QQC2.ToolButton.IconOnly
+            icon.name: "transform-move"
+            onClicked: {
+                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                mvDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            id: labelsAction
+
+            text: i18nc("@action:intoolbar", "Show page labels")
+            display: QQC2.ToolButton.IconOnly
+            icon.name: "label"
+            checkable: true
+            checked: true
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            text: i18nc("@action:intoolbar", "Zoom Out")
+            icon.name: "zoom-out"
+            display: QQC2.ToolButton.IconOnly
+            onClicked: pdfModel.zoomOut()
+            enabled: pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            text: i18nc("@action:intoolbar", "Zoom In")
+            icon.name: "zoom-in"
+            onClicked: pdfModel.zoomIn()
+            enabled: pdfView.columns > 1
+            display: QQC2.ToolButton.IconOnly
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.SpinBox {
+            id: pageSpin
+            from: 1; to: pdfModel.pageCount
+            textFromValue: function(value) {
+                return i18n("Page %1 of %2", value, to)
+            }
+            onValueModified: pdfView.positionViewAtRow((value - 1) / pdfView.columns, TableView.AlignTop)
+            Binding {
+                pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
+                delayed: true
+            }
+        }
 
         Component {
             id: delDlgComp
