@@ -20,9 +20,6 @@ PdfListModel::PdfListModel(QObject *parent)
 {
 }
 
-/**
- * TODO: consider to move this to separate thread
- */
 int PdfListModel::appendFile(const QString &pdfFile)
 {
     auto newPdf = new PdfFile(pdfFile, m_rows);
@@ -82,8 +79,6 @@ void PdfListModel::move(int fromId, int toId)
     m_pdfFiles.move(fromId, toId);
     int startId = qMin(fromId, toId);
     int endId = qMax(fromId, toId);
-    for (int f = startId; f <= endId; ++f)
-        m_pdfFiles[f]->setReferenceId(f);
     Q_EMIT dataChanged(index(startId, 0), index(endId, 0));
 }
 
@@ -190,15 +185,26 @@ bool PdfsOrganizer::addMorePDFs()
 
 void PdfsOrganizer::applyNewFiles()
 {
-    QVector<PdfFile *> newFiles;
+    int idOfFirstLoaded = -1;
+    for (int p = 0; p < m_fileModel->rows(); ++p) {
+        if (m_fileModel->getPdfFile(p)->state() == PdfFile::PdfLoaded) {
+            idOfFirstLoaded = p;
+            break;
+        }
+    }
+
+    QVector<PdfFile *> filesToAppend, filesToPrepend;
     for (int p = 0; p < m_fileModel->rows(); ++p) {
         auto pdf = m_fileModel->getPdfFile(p);
-        if (pdf->state() == PdfFile::PdfNotAdded)
-            newFiles << pdf;
+        if (pdf->state() == PdfFile::PdfNotAdded) {
+            if (p < idOfFirstLoaded)
+                filesToPrepend << pdf;
+            else
+                filesToAppend << pdf;
+        }
     }
-    if (newFiles.isEmpty())
-        return;
-    m_editModel->addPdfs(newFiles);
+    m_editModel->prependPdfs(filesToPrepend);
+    m_editModel->appendPdfs(filesToAppend);
 }
 
 void PdfsOrganizer::setPdfPassword(int fileId, const QString &pass)
@@ -219,6 +225,9 @@ void PdfsOrganizer::setPdfPassword(int fileId, const QString &pass)
 
 void PdfsOrganizer::addPdfList(const QStringList &pdfList)
 {
+    if (pdfList.isEmpty())
+        return;
+
     for (auto &pdfFile : pdfList) {
         m_totalPages += m_fileModel->appendFile(pdfFile);
         auto pdf = m_fileModel->lastPdf();
@@ -233,6 +242,5 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
             }
         }
     }
-    if (!pdfList.isEmpty())
-        Q_EMIT totalPagesChanged();
+    Q_EMIT totalPagesChanged();
 }

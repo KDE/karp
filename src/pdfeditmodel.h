@@ -52,7 +52,8 @@ public:
 
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
-    void addPdfs(QVector<PdfFile *> &pdfList);
+    void prependPdfs(QVector<PdfFile *> &pdfList);
+    void appendPdfs(QVector<PdfFile *> &pdfList);
 
     int pageCount() const;
 
@@ -189,8 +190,13 @@ protected:
 
     void pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage);
 
-    void addPdfFileToModel(PdfFile *pdf);
-    void insertPdfPages(PdfFile *pdf);
+    void appendPdfFileToModel(PdfFile *pdf);
+    void appendPdfPages(PdfFile *pdf);
+
+    void prependPdfFileToModel(PdfFile *pdf);
+    void prependPdfPages(PdfFile *pdf);
+
+    void addPagesToModel(int pagesToAdd);
 
     void toolProgressSlot(qreal prog);
 

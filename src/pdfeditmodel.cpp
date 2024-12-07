@@ -61,14 +61,26 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
         newPdf->deleteLater();
         return;
     }
-    addPdfFileToModel(newPdf);
+    appendPdfFileToModel(newPdf);
     karpConfig::self()->setLastDir(m_pdfList.last()->dir());
 }
 
-void PdfEditModel::addPdfs(QVector<PdfFile *> &pdfList)
+void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
 {
+    if (pdfList.isEmpty())
+        return;
+    for (int p = pdfList.count() - 1; p >= 0; --p) {
+        prependPdfFileToModel(pdfList[p]);
+    }
+    karpConfig::self()->setLastDir(pdfList.last()->dir());
+}
+
+void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
+{
+    if (pdfList.isEmpty())
+        return;
     for (auto &pdf : pdfList) {
-        addPdfFileToModel(pdf);
+        appendPdfFileToModel(pdf);
     }
     karpConfig::self()->setLastDir(pdfList.last()->dir());
 }
@@ -343,7 +355,7 @@ void PdfEditModel::deletePages(const PageRange &range)
 }
 
 /**
- * Returns -1 if move can't be performed or target page number.
+ * Returns target page number or -1 if move can't be performed.
  */
 int PdfEditModel::movePage(int pageNr, int toPage)
 {
@@ -533,7 +545,7 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
         m_pdfList.remove(fileId);
         pdf->deleteLater();
     } else {
-        insertPdfPages(pdf);
+        appendPdfPages(pdf);
     }
 }
 
@@ -551,15 +563,13 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     PdfPage *page = nullptr;
     if (pageNr < m_pages) {
         page = m_pageList.at(pageNr);
-        if (role == RoleImage || role == RolePageRatio || role == RoleFileId) {
-            int refFileId = page->referenceFile();
-            if (refFileId < pdfCount())
-                pdf = m_pdfList[refFileId];
-        }
+        int refFileId = page->referenceFile();
+        if (refFileId < pdfCount())
+            pdf = m_pdfList[refFileId];
     }
     switch (role) {
     case RoleImage: {
-        if (pageNr >= m_pages)
+        if (!pdf || !page)
             return QVariant::fromValue(QImage());
         if (page->nullImage() && pdf) {
             // TODO: find current screen
@@ -567,27 +577,23 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
             qreal pageRatio = pSize.height() / pSize.width();
             pdf->requestPage(page, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
         }
-        return QVariant::fromValue(m_pageList[pageNr]->image());
+        return QVariant::fromValue(page->image());
     }
     case RoleRotated: {
-        if (pageNr >= m_pages)
-            return 0;
-        return page->rotated();
+        return page ? page->rotated() : 0;
     }
     case RoleOrigNr:
-        if (pageNr >= m_pages)
-            return 0;
-        return page->origPage();
+        return page ? page->origPage() : 0;
     case RolePageNr:
         return pageNr;
     case RolePageRatio: {
-        if (pageNr >= m_pages)
+        if (!pdf || !page)
             return 1;
         auto pageSize = pdf->pagePointSize(page->origPage());
         return pageSize.height() / pageSize.width();
     }
     case RoleFileId:
-        return pdf ? pdf->referenceFileId() : 0;
+        return page ? page->referenceFile() : 0;
     default:
         return QVariant();
     }
@@ -641,8 +647,9 @@ void PdfEditModel::pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage)
     Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleImage);
 }
 
-void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
+void PdfEditModel::appendPdfFileToModel(PdfFile *pdf)
 {
+    pdf->setReferenceId(pdfCount());
     m_pdfList << pdf;
     pdf->setState(PdfFile::PdfLoaded); // TODO = handle other states
     connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
@@ -651,15 +658,38 @@ void PdfEditModel::addPdfFileToModel(PdfFile *pdf)
         Q_EMIT passwordRequired(pdf->name(), pdfCount() - 1);
         return;
     }
-    insertPdfPages(pdf);
+    appendPdfPages(pdf);
 }
 
-void PdfEditModel::insertPdfPages(PdfFile *pdf)
+void PdfEditModel::appendPdfPages(PdfFile *pdf)
 {
     int pagesToAdd = pdf->pageCount();
     for (int i = 0; i < pagesToAdd; ++i) {
         m_pageList << new PdfPage(i, pdf->referenceFileId());
     }
+    addPagesToModel(pagesToAdd);
+}
+
+void PdfEditModel::prependPdfFileToModel(PdfFile *pdf)
+{
+    pdf->setReferenceId(pdfCount());
+    m_pdfList.append(pdf);
+    pdf->setState(PdfFile::PdfLoaded);
+    connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
+    prependPdfPages(pdf);
+}
+
+void PdfEditModel::prependPdfPages(PdfFile *pdf)
+{
+    int pagesToAdd = pdf->pageCount();
+    for (int i = pagesToAdd - 1; i >= 0; --i) {
+        m_pageList.prepend(new PdfPage(i, pdf->referenceFileId()));
+    }
+    addPagesToModel(pagesToAdd);
+}
+
+void PdfEditModel::addPagesToModel(int pagesToAdd)
+{
     m_pages += pagesToAdd;
     int newRowCount = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
     beginInsertRows(QModelIndex(), m_rows, newRowCount - 1);
