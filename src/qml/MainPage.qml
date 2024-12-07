@@ -218,6 +218,7 @@ Kirigami.Page {
         id: bottomBar
 
         pdfModel: pdfModel
+        width: Math.min(optimalWidth, page.width - Kirigami.Units.gridUnit * 3)
         visible: pdfModel.pageCount
         z: 600000
         parent: page.overlay

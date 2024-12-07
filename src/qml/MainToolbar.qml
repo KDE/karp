@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
@@ -13,8 +15,10 @@ Components.FloatingToolBar {
 
     required property PdfEditModel pdfModel
     property alias labelsVisible: labelsAction.checked
+    property int optimalWidth: 0
 
     contentItem: Kirigami.ActionToolBar {
+        id: actToolBar
 
         alignment: Qt.AlignHCenter
 
@@ -75,6 +79,7 @@ Components.FloatingToolBar {
                         pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
                         delayed: true
                     }
+                    onWidthChanged: root.optimalWidth = pageSpin.width + Kirigami.Units.iconSizes.medium * (actToolBar.actions.length + 1)
                 }
             }
         ]
