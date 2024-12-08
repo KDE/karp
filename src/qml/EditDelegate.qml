@@ -5,6 +5,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
 
 Item {
     id: editDelg
@@ -49,7 +50,7 @@ Item {
     }
     QQC2.Button {
         z: 1
-        anchors { bottom: parent.bottom; left: parent.left }
+        anchors { bottom: parent.bottom; left: parent.left; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "edit-delete"
         icon.color: "red"
         onClicked: pdfModel.deletePage(pageNr)
@@ -78,7 +79,7 @@ Item {
     QQC2.Button {
         visible: pageNr < pdfModel.pageCount - pdfView.columns
         z: 1
-        anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
+        anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "arrow-down"
         onClicked: movePage(pageNr, pageNr + pdfView.columns)
     }
