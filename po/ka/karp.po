@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-07 00:39+0000\n"
-"PO-Revision-Date: 2024-12-02 04:41+0100\n"
+"POT-Creation-Date: 2024-12-08 00:39+0000\n"
+"PO-Revision-Date: 2024-12-07 05:37+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -28,12 +28,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "temuri.doghonadze@gmail.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:452
+#: app.cpp:56 pdfeditmodel.cpp:464
 #, kde-format
 msgid "PDF file to edit"
 msgstr "PDF ფაილი ჩასასწორებლად"
 
-#: app.cpp:86 pdfsorganizer.cpp:186
+#: app.cpp:86 pdfsorganizer.cpp:181
 #, kde-format
 msgid "Select PDF files"
 msgstr "აირჩიეთ PDF ფაილები"
@@ -121,35 +121,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "წამყვანი პროგრამისტი"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:412
 msgid "Title"
 msgstr "სათაური"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:413
 msgid "Subject"
 msgstr "შინაარსი"
 
-#: pdfeditmodel.cpp:402
+#: pdfeditmodel.cpp:414
 msgid "Author"
 msgstr "ავტორი"
 
-#: pdfeditmodel.cpp:403
+#: pdfeditmodel.cpp:415
 msgid "Keyword"
 msgstr "საკვანძო სიტყვა"
 
-#: pdfeditmodel.cpp:404
+#: pdfeditmodel.cpp:416
 msgid "Producer"
 msgstr "პროდიუსერი"
 
-#: pdfeditmodel.cpp:405
+#: pdfeditmodel.cpp:417
 msgid "Creator"
 msgstr "შემქმნელი"
 
-#: pdfeditmodel.cpp:406
+#: pdfeditmodel.cpp:418
 msgid "Creation Date"
 msgstr "შეცვლის თარიღის მიხედვით"
 
-#: pdfeditmodel.cpp:407
+#: pdfeditmodel.cpp:419
 msgid "Modification Date"
 msgstr "ცვლილების თარიღი"
 
@@ -218,48 +218,40 @@ msgid "Select pages to add"
 msgstr "აირჩიეთ გვერდები დასამატებლად"
 
 #: qml/Dialogs/PdfFilesDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Add and arrange PDF files"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "PDF ფაილების დამატება და დალაგება"
 
 #: qml/Dialogs/PdfFilesDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Total pages"
+#, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr "სულ გვერდები"
+msgstr "სულ გვერდები: %1"
 
 #: qml/Dialogs/PdfFilesDialog.qml:60
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
-msgstr "PDF ფაილების დამატება"
+msgstr "PDF-ის დამატება…"
 
 #: qml/Dialogs/PdfFilesDialog.qml:66
-#, fuzzy, kde-format
-#| msgid "show PDF path"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
-msgstr "PDF ბილიკის ჩვენება"
+msgstr "PDF ფაილის ბილიკის ჩვენება"
 
 #: qml/Dialogs/PdfFilesDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Select one or more PDF files."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr "აირჩიეთ ერთი ან მეტი PDF ფაილი."
+msgstr "გასაგრძელებლად დაამატეთ ერთი ან მეტი PDF ფაილი"
 
 #: qml/Dialogs/PdfFilesDialog.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."
-msgstr "PDF ფაილების დამატება"
+msgstr "PDF-ის დამატება..."
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
@@ -351,17 +343,13 @@ msgid "PDF Options"
 msgstr "PDF პარამეტრები"
 
 #: qml/MainPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set PDF version"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr "PDF-ის ვერსიის დაყენება"
+msgstr "PDF-ის ვერსია"
 
 #: qml/MainPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "ნაგულისხმევი"
@@ -370,7 +358,7 @@ msgstr "ნაგულისხმევი"
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "ვერსია %1"
 
 #: qml/MainPage.qml:285
 #, kde-format
@@ -382,57 +370,84 @@ msgstr "პაროლის დაყენება"
 msgid "Protect PDF file with password."
 msgstr "დაიცავით PDF ფაილი პაროლით."
 
-#: qml/MainToolbar.qml:25 qml/MainToolbar.qml:86
-#, kde-format
+#: qml/MainToolbar.qml:21
+#, fuzzy, kde-format
+#| msgid "Select pages to delete"
+msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "აირჩიეთ გვერდები წასაშლელად"
 
-#: qml/MainToolbar.qml:33 qml/MainToolbar.qml:98
-#, kde-format
+#: qml/MainToolbar.qml:40
+#, fuzzy, kde-format
+#| msgid "Select pages to rotate"
+msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "აირჩიეთ გვერდები შესაბრუნებლად"
 
-#: qml/MainToolbar.qml:41 qml/MainToolbar.qml:126
-#, kde-format
+#: qml/MainToolbar.qml:53
+#, fuzzy, kde-format
+#| msgid "Select pages to move"
+msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "აირჩიეთ გვერდები გადასაადგილებლად"
 
-#: qml/MainToolbar.qml:50
-#, kde-format
+#: qml/MainToolbar.qml:69
+#, fuzzy, kde-format
+#| msgid "Show page labels"
+msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "გვერდის ჭდეების ჩვენება"
 
-#: qml/MainToolbar.qml:56
-#, kde-format
+#: qml/MainToolbar.qml:81
+#, fuzzy, kde-format
+#| msgid "Zoom Out"
+msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "დაპატარავება"
 
-#: qml/MainToolbar.qml:62
-#, kde-format
+#: qml/MainToolbar.qml:93
+#, fuzzy, kde-format
+#| msgid "Zoom In"
+msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "გადიდება"
 
-#: qml/MainToolbar.qml:71
+#: qml/MainToolbar.qml:108
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "გვერდი %1 %2-დან"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:121
+#, kde-format
+msgid "Select pages to delete"
+msgstr "აირჩიეთ გვერდები წასაშლელად"
+
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "წაშლა"
 
-#: qml/MainToolbar.qml:99
+#: qml/MainToolbar.qml:133
+#, kde-format
+msgid "Select pages to rotate"
+msgstr "აირჩიეთ გვერდები შესაბრუნებლად"
+
+#: qml/MainToolbar.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "დატრიალება"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:143
 #, kde-format
 msgid "Angle"
 msgstr "კუთხე"
+
+#: qml/MainToolbar.qml:161
+#, kde-format
+msgid "Select pages to move"
+msgstr "აირჩიეთ გვერდები გადასაადგილებლად"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format

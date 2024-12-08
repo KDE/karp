@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-07 00:39+0000\n"
-"PO-Revision-Date: 2024-12-02 13:29+0100\n"
+"POT-Creation-Date: 2024-12-08 00:39+0000\n"
+"PO-Revision-Date: 2024-12-07 11:58+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: app.cpp:56 pdfeditmodel.cpp:452
+#: app.cpp:56 pdfeditmodel.cpp:464
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Te bewerken PDF-bestand"
 
-#: app.cpp:86 pdfsorganizer.cpp:186
+#: app.cpp:86 pdfsorganizer.cpp:181
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF-bestanden selecteren"
@@ -120,35 +120,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:412
 msgid "Title"
 msgstr "Titel"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:413
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: pdfeditmodel.cpp:402
+#: pdfeditmodel.cpp:414
 msgid "Author"
 msgstr "Auteur"
 
-#: pdfeditmodel.cpp:403
+#: pdfeditmodel.cpp:415
 msgid "Keyword"
 msgstr "Trefwoord"
 
-#: pdfeditmodel.cpp:404
+#: pdfeditmodel.cpp:416
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:405
+#: pdfeditmodel.cpp:417
 msgid "Creator"
 msgstr "Maker"
 
-#: pdfeditmodel.cpp:406
+#: pdfeditmodel.cpp:418
 msgid "Creation Date"
 msgstr "Aanmaakdatum"
 
-#: pdfeditmodel.cpp:407
+#: pdfeditmodel.cpp:419
 msgid "Modification Date"
 msgstr "Wijzigingsdatum"
 
@@ -217,48 +217,40 @@ msgid "Select pages to add"
 msgstr "Selecteer toe te voegen pagina's"
 
 #: qml/Dialogs/PdfFilesDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Add and arrange PDF files"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "PDF-bestanden toevoegen en arrangeren"
 
 #: qml/Dialogs/PdfFilesDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Total pages"
+#, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr "Totaal aantal pagina's"
+msgstr "Totaal aantal pagina's: %1"
 
 #: qml/Dialogs/PdfFilesDialog.qml:60
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
-msgstr "PDF-bestanden toevoegen"
+msgstr "Voeg toe PDF…"
 
 #: qml/Dialogs/PdfFilesDialog.qml:66
-#, fuzzy, kde-format
-#| msgid "show PDF path"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
-msgstr "pad van PDF tonen"
+msgstr "Pad van PDF-bestand tonen"
 
 #: qml/Dialogs/PdfFilesDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Select one or more PDF files."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr "Selecteer een of meer PDF-bestanden."
+msgstr "Voeg een of meer PDF-bestanden toe en ga door"
 
 #: qml/Dialogs/PdfFilesDialog.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."
-msgstr "PDF-bestanden toevoegen"
+msgstr "Voeg toe PDF..."
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
@@ -350,26 +342,22 @@ msgid "PDF Options"
 msgstr "PDF-opties"
 
 #: qml/MainPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set PDF version"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr "PDF-versie instellen"
+msgstr "PDF-versie"
 
 #: qml/MainPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
-msgstr "standaard"
+msgstr "Standaard"
 
 #: qml/MainPage.qml:78
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "Versie %1"
 
 #: qml/MainPage.qml:285
 #, kde-format
@@ -381,57 +369,84 @@ msgstr "Wachtwoord instellen"
 msgid "Protect PDF file with password."
 msgstr "PDF-bestand beschermen met wachtwoord."
 
-#: qml/MainToolbar.qml:25 qml/MainToolbar.qml:86
-#, kde-format
+#: qml/MainToolbar.qml:21
+#, fuzzy, kde-format
+#| msgid "Select pages to delete"
+msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Selecteer te verwijderen pagina's"
 
-#: qml/MainToolbar.qml:33 qml/MainToolbar.qml:98
-#, kde-format
+#: qml/MainToolbar.qml:40
+#, fuzzy, kde-format
+#| msgid "Select pages to rotate"
+msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Selecteer te draaien pagina's"
 
-#: qml/MainToolbar.qml:41 qml/MainToolbar.qml:126
-#, kde-format
+#: qml/MainToolbar.qml:53
+#, fuzzy, kde-format
+#| msgid "Select pages to move"
+msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Selecteer te verplaatsen pagina's"
 
-#: qml/MainToolbar.qml:50
-#, kde-format
+#: qml/MainToolbar.qml:69
+#, fuzzy, kde-format
+#| msgid "Show page labels"
+msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Paginalabels tonen"
 
-#: qml/MainToolbar.qml:56
-#, kde-format
+#: qml/MainToolbar.qml:81
+#, fuzzy, kde-format
+#| msgid "Zoom Out"
+msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Uitzoomen"
 
-#: qml/MainToolbar.qml:62
-#, kde-format
+#: qml/MainToolbar.qml:93
+#, fuzzy, kde-format
+#| msgid "Zoom In"
+msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Inzoomen"
 
-#: qml/MainToolbar.qml:71
+#: qml/MainToolbar.qml:108
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Pagina %1 van %2"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:121
+#, kde-format
+msgid "Select pages to delete"
+msgstr "Selecteer te verwijderen pagina's"
+
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: qml/MainToolbar.qml:99
+#: qml/MainToolbar.qml:133
+#, kde-format
+msgid "Select pages to rotate"
+msgstr "Selecteer te draaien pagina's"
+
+#: qml/MainToolbar.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Draaien"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:143
 #, kde-format
 msgid "Angle"
 msgstr "Hoek"
+
+#: qml/MainToolbar.qml:161
+#, kde-format
+msgid "Select pages to move"
+msgstr "Selecteer te verplaatsen pagina's"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format

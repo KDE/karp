@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-07 00:39+0000\n"
-"PO-Revision-Date: 2024-12-02 22:07+0200\n"
+"POT-Creation-Date: 2024-12-08 00:39+0000\n"
+"PO-Revision-Date: 2024-12-07 19:29+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -28,12 +28,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: app.cpp:56 pdfeditmodel.cpp:452
+#: app.cpp:56 pdfeditmodel.cpp:464
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Файл PDF для редагування"
 
-#: app.cpp:86 pdfsorganizer.cpp:186
+#: app.cpp:86 pdfsorganizer.cpp:181
 #, kde-format
 msgid "Select PDF files"
 msgstr "Виберіть файли PDF"
@@ -121,35 +121,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:412
 msgid "Title"
 msgstr "Заголовок"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:413
 msgid "Subject"
 msgstr "Тема"
 
-#: pdfeditmodel.cpp:402
+#: pdfeditmodel.cpp:414
 msgid "Author"
 msgstr "Автор"
 
-#: pdfeditmodel.cpp:403
+#: pdfeditmodel.cpp:415
 msgid "Keyword"
 msgstr "Ключове слово"
 
-#: pdfeditmodel.cpp:404
+#: pdfeditmodel.cpp:416
 msgid "Producer"
 msgstr "Підсистема створення"
 
-#: pdfeditmodel.cpp:405
+#: pdfeditmodel.cpp:417
 msgid "Creator"
 msgstr "Створено у"
 
-#: pdfeditmodel.cpp:406
+#: pdfeditmodel.cpp:418
 msgid "Creation Date"
 msgstr "Дата створення"
 
-#: pdfeditmodel.cpp:407
+#: pdfeditmodel.cpp:419
 msgid "Modification Date"
 msgstr "Дата внесення змін"
 
@@ -218,48 +218,40 @@ msgid "Select pages to add"
 msgstr "Виберіть сторінки для додавання"
 
 #: qml/Dialogs/PdfFilesDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Add and arrange PDF files"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "Додати або впорядкувати файли PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Total pages"
+#, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr "Загалом сторінок"
+msgstr "Загалом сторінок: %1"
 
 #: qml/Dialogs/PdfFilesDialog.qml:60
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
-msgstr "Додати файли PDF"
+msgstr "Додати PDF…"
 
 #: qml/Dialogs/PdfFilesDialog.qml:66
-#, fuzzy, kde-format
-#| msgid "show PDF path"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
-msgstr "показати шлях до PDF"
+msgstr "Показувати шлях до файла PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Select one or more PDF files."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr "Виберіть один або декілька файлів PDF."
+msgstr "Додайте один або декілька файлів PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."
-msgstr "Додати файли PDF"
+msgstr "Додати PDF…"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
@@ -353,17 +345,13 @@ msgid "PDF Options"
 msgstr "Параметри PDF"
 
 #: qml/MainPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set PDF version"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr "Встановити версію PDF"
+msgstr "Версія PDF"
 
 #: qml/MainPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "типова"
@@ -372,7 +360,7 @@ msgstr "типова"
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "Версія %1"
 
 #: qml/MainPage.qml:285
 #, kde-format
@@ -384,57 +372,84 @@ msgstr "Встановити пароль"
 msgid "Protect PDF file with password."
 msgstr "Захистити файл PDF паролем."
 
-#: qml/MainToolbar.qml:25 qml/MainToolbar.qml:86
-#, kde-format
+#: qml/MainToolbar.qml:21
+#, fuzzy, kde-format
+#| msgid "Select pages to delete"
+msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Вибрати сторінки для вилучення"
 
-#: qml/MainToolbar.qml:33 qml/MainToolbar.qml:98
-#, kde-format
+#: qml/MainToolbar.qml:40
+#, fuzzy, kde-format
+#| msgid "Select pages to rotate"
+msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Вибрати сторінки для обертання"
 
-#: qml/MainToolbar.qml:41 qml/MainToolbar.qml:126
-#, kde-format
+#: qml/MainToolbar.qml:53
+#, fuzzy, kde-format
+#| msgid "Select pages to move"
+msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Вибрати сторінки для пересування"
 
-#: qml/MainToolbar.qml:50
-#, kde-format
+#: qml/MainToolbar.qml:69
+#, fuzzy, kde-format
+#| msgid "Show page labels"
+msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Показувати мітки сторінок"
 
-#: qml/MainToolbar.qml:56
-#, kde-format
+#: qml/MainToolbar.qml:81
+#, fuzzy, kde-format
+#| msgid "Zoom Out"
+msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Зменшити"
 
-#: qml/MainToolbar.qml:62
-#, kde-format
+#: qml/MainToolbar.qml:93
+#, fuzzy, kde-format
+#| msgid "Zoom In"
+msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Збільшити"
 
-#: qml/MainToolbar.qml:71
+#: qml/MainToolbar.qml:108
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Сторінка %1 з %2"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:121
+#, kde-format
+msgid "Select pages to delete"
+msgstr "Вибрати сторінки для вилучення"
+
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Вилучити"
 
-#: qml/MainToolbar.qml:99
+#: qml/MainToolbar.qml:133
+#, kde-format
+msgid "Select pages to rotate"
+msgstr "Вибрати сторінки для обертання"
+
+#: qml/MainToolbar.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Обертати"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:143
 #, kde-format
 msgid "Angle"
 msgstr "Кут"
+
+#: qml/MainToolbar.qml:161
+#, kde-format
+msgid "Select pages to move"
+msgstr "Вибрати сторінки для пересування"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format

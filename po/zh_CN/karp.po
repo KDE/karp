@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-07 00:39+0000\n"
+"POT-Creation-Date: 2024-12-08 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tds00@qq.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:452
+#: app.cpp:56 pdfeditmodel.cpp:464
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要编辑的 PDF 文件"
 
-#: app.cpp:86 pdfsorganizer.cpp:186
+#: app.cpp:86 pdfsorganizer.cpp:181
 #, kde-format
 msgid "Select PDF files"
 msgstr "选择 PDF 文件"
@@ -118,35 +118,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "维护者"
 
-#: pdfeditmodel.cpp:400
+#: pdfeditmodel.cpp:412
 msgid "Title"
 msgstr "标题"
 
-#: pdfeditmodel.cpp:401
+#: pdfeditmodel.cpp:413
 msgid "Subject"
 msgstr "主题"
 
-#: pdfeditmodel.cpp:402
+#: pdfeditmodel.cpp:414
 msgid "Author"
 msgstr "作者"
 
-#: pdfeditmodel.cpp:403
+#: pdfeditmodel.cpp:415
 msgid "Keyword"
 msgstr "关键词"
 
-#: pdfeditmodel.cpp:404
+#: pdfeditmodel.cpp:416
 msgid "Producer"
 msgstr "转换程序"
 
-#: pdfeditmodel.cpp:405
+#: pdfeditmodel.cpp:417
 msgid "Creator"
 msgstr "创建程序"
 
-#: pdfeditmodel.cpp:406
+#: pdfeditmodel.cpp:418
 msgid "Creation Date"
 msgstr "创建日期"
 
-#: pdfeditmodel.cpp:407
+#: pdfeditmodel.cpp:419
 msgid "Modification Date"
 msgstr "修改日期"
 
@@ -215,48 +215,40 @@ msgid "Select pages to add"
 msgstr "选择要添加的页面"
 
 #: qml/Dialogs/PdfFilesDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Add and arrange PDF files"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
-msgstr "添加并编辑 PDF 文件"
+msgstr ""
 
 #: qml/Dialogs/PdfFilesDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Total pages"
+#, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr "总页数"
+msgstr ""
 
 #: qml/Dialogs/PdfFilesDialog.qml:60
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
-msgstr "添加 PDF 文件"
+msgstr ""
 
 #: qml/Dialogs/PdfFilesDialog.qml:66
-#, fuzzy, kde-format
-#| msgid "show PDF path"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
-msgstr "显示 PDF 路径"
+msgstr ""
 
 #: qml/Dialogs/PdfFilesDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Select one or more PDF files."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr "选择一个或多个 PDF 文件。"
+msgstr ""
 
 #: qml/Dialogs/PdfFilesDialog.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."
-msgstr "添加 PDF 文件"
+msgstr ""
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
@@ -347,20 +339,16 @@ msgid "PDF Options"
 msgstr "PDF 选项"
 
 #: qml/MainPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set PDF version"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr "设置 PDF 版本"
+msgstr ""
 
 #: qml/MainPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
-msgstr "默认"
+msgstr ""
 
 #: qml/MainPage.qml:78
 #, kde-format
@@ -378,57 +366,84 @@ msgstr "设置密码"
 msgid "Protect PDF file with password."
 msgstr "使用密码保护 PDF 文件。"
 
-#: qml/MainToolbar.qml:25 qml/MainToolbar.qml:86
-#, kde-format
+#: qml/MainToolbar.qml:21
+#, fuzzy, kde-format
+#| msgid "Select pages to delete"
+msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "选择要删除的页面"
 
-#: qml/MainToolbar.qml:33 qml/MainToolbar.qml:98
-#, kde-format
+#: qml/MainToolbar.qml:40
+#, fuzzy, kde-format
+#| msgid "Select pages to rotate"
+msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "选择要旋转的页面"
 
-#: qml/MainToolbar.qml:41 qml/MainToolbar.qml:126
-#, kde-format
+#: qml/MainToolbar.qml:53
+#, fuzzy, kde-format
+#| msgid "Select pages to move"
+msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "选择要移动的页面"
 
-#: qml/MainToolbar.qml:50
-#, kde-format
+#: qml/MainToolbar.qml:69
+#, fuzzy, kde-format
+#| msgid "Show page labels"
+msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "显示页面标签"
 
-#: qml/MainToolbar.qml:56
-#, kde-format
+#: qml/MainToolbar.qml:81
+#, fuzzy, kde-format
+#| msgid "Zoom Out"
+msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "缩小"
 
-#: qml/MainToolbar.qml:62
-#, kde-format
+#: qml/MainToolbar.qml:93
+#, fuzzy, kde-format
+#| msgid "Zoom In"
+msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "放大"
 
-#: qml/MainToolbar.qml:71
+#: qml/MainToolbar.qml:108
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "第 %1 页，共 %2 页"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:121
+#, kde-format
+msgid "Select pages to delete"
+msgstr "选择要删除的页面"
+
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "删除"
 
-#: qml/MainToolbar.qml:99
+#: qml/MainToolbar.qml:133
+#, kde-format
+msgid "Select pages to rotate"
+msgstr "选择要旋转的页面"
+
+#: qml/MainToolbar.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "旋转"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:143
 #, kde-format
 msgid "Angle"
 msgstr "角度"
+
+#: qml/MainToolbar.qml:161
+#, kde-format
+msgid "Select pages to move"
+msgstr "选择要移动的页面"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format
@@ -559,9 +574,3 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#~ msgid "add PDF files"
-#~ msgstr "添加 PDF 文件"
-
-#~ msgid "Set PDF version"
-#~ msgstr "设置 PDF 版本"
