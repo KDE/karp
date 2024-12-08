@@ -13,7 +13,6 @@ Kirigami.AbstractCard {
     id: fileDelegate
 
     property alias dragActive: dragHandler.active
-    property ListView lv: ListView.view
 
     contentItem: Item {
         implicitWidth: rowLay.implicitWidth
@@ -88,7 +87,7 @@ Kirigami.AbstractCard {
                     Kirigami.Action {
                         text: i18n("Remove from list")
                         icon.name: "user-trash"
-                        onTriggered: lv.model.remove(index)
+                        onTriggered: lv.pdfModel.remove(index)
                     }
                 ]
             }

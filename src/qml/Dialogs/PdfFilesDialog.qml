@@ -75,6 +75,8 @@ FormCard.FormCardDialog {
         Kirigami.CardsListView {
             id: fileView
 
+            property alias pdfModel: visualModel.model
+
             Layout.fillHeight: true
             Layout.fillWidth: true
 
@@ -95,12 +97,11 @@ FormCard.FormCardDialog {
                     required property int pageCount
                     required property bool locked
                     required property bool selectAll
-
-                    // enabled: !locked
-                    width: ListView.view.width - Kirigami.Units.gridUnit * 2
-                    height: pdfDelegate.height
-
                     property int visualIndex: DelegateModel.itemsIndex
+                    property ListView lv: ListView.view
+
+                    width: lv.width - Kirigami.Units.gridUnit * 2
+                    height: pdfDelegate.height
 
                     PdfFileDelegate {
                         id: pdfDelegate
@@ -129,7 +130,7 @@ FormCard.FormCardDialog {
                         // previously loaded PDF-s are locked and we don't allow it move new files between them
                         // so replacing with index bigger than 0 is ignored
                         if (locked) {
-                            if (to > 0)
+                            if (to > 0 && to < lv.count - 1)
                                 return
                         }
                         visualModel.items.move(from, to)
