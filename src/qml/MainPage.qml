@@ -136,7 +136,7 @@ Kirigami.Page {
         TableView {
             id: pdfView
 
-            // clip: true // clipped by ScrollView
+            clip: true
             visible: pdfModel.pageCount
             columnSpacing: Kirigami.Units.largeSpacing
             rowSpacing: Kirigami.Units.largeSpacing
