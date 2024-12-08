@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 import QtQuick
+import QtQml.Models
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -74,15 +75,75 @@ FormCard.FormCardDialog {
         Kirigami.CardsListView {
             id: fileView
 
-            property int dragTargetIndex: -1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
 
             clip: true
             spacing: Kirigami.Units.smallSpacing
-            model: pdfOrg.fileModel
-            delegate: PdfFileDelegate {}
 
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            model: DelegateModel {
+                id: visualModel
+
+                model: pdfOrg.fileModel
+
+                delegate: DropArea {
+                    id: delegate
+
+                    required property int index
+                    required property string path
+                    required property string fileName
+                    required property int pageCount
+                    required property bool locked
+                    required property bool selectAll
+
+                    // enabled: !locked
+                    width: ListView.view.width - Kirigami.Units.gridUnit * 2
+                    height: pdfDelegate.height
+
+                    property int visualIndex: DelegateModel.itemsIndex
+
+                    PdfFileDelegate {
+                        id: pdfDelegate
+
+                        property int visualIndex: delegate.visualIndex
+
+                        z: dragActive ? 5 : 1
+                        width: parent.width
+                        Drag.active: dragActive
+                        Drag.source: pdfDelegate
+                        Drag.hotSpot.y: height / 2
+
+                        states: [
+                            State {
+                                when: pdfDelegate.dragActive
+                                ParentChange {
+                                    target: pdfDelegate
+                                    parent: fileView.contentItem
+                                }
+                            }
+                        ]
+                    }
+                    onEntered: function(drag) {
+                        let from = (drag.source as PdfFileDelegate).visualIndex
+                        let to = pdfDelegate.visualIndex
+                        // previously loaded PDF-s are locked and we don't allow it move new files between them
+                        // so replacing with index bigger than 0 is ignored
+                        if (locked) {
+                            if (to > 0)
+                                return
+                        }
+                        visualModel.items.move(from, to)
+                        pdfOrg.fileModel.move(from, to)
+                    }
+                }
+            }
+
+            displaced: Transition {
+                NumberAnimation {
+                    property: "y"
+                    easing.type: Easing.OutQuad
+                }
+            }
 
             Kirigami.PlaceholderMessage {
                 anchors.centerIn: parent
