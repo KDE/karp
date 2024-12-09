@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:39+0000\n"
-"PO-Revision-Date: 2024-12-07 11:58+0100\n"
+"POT-Creation-Date: 2024-12-09 00:39+0000\n"
+"PO-Revision-Date: 2024-12-08 14:42+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -32,7 +32,7 @@ msgstr "freekdekruijf@kde.nl"
 msgid "PDF file to edit"
 msgstr "Te bewerken PDF-bestand"
 
-#: app.cpp:86 pdfsorganizer.cpp:181
+#: app.cpp:86 pdfsorganizer.cpp:178
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF-bestanden selecteren"
@@ -191,62 +191,65 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "pagina"
 
-#: qml/Dialogs/PdfFileDelegate.qml:94
-#, kde-format
-msgid "%1 pages"
-msgstr "%1 pagina's"
+#: qml/Dialogs/PdfFileDelegate.qml:62
+#, fuzzy, kde-format
+#| msgid "%1 pages"
+msgid "%1 page"
+msgid_plural "%1 pages"
+msgstr[0] "%1 pagina's"
+msgstr[1] "%1 pagina's"
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:71
 #, kde-format
 msgid "Add all pages"
 msgstr "Alle pagina's toevoegen"
 
-#: qml/Dialogs/PdfFileDelegate.qml:111
+#: qml/Dialogs/PdfFileDelegate.qml:79
 #, kde-format
 msgid "Add selected pages"
 msgstr "Geselecteerde pagina's toevoegen"
 
-#: qml/Dialogs/PdfFileDelegate.qml:120
+#: qml/Dialogs/PdfFileDelegate.qml:88
 #, kde-format
 msgid "Remove from list"
 msgstr "Verwijder uit de lijst"
 
-#: qml/Dialogs/PdfFileDelegate.qml:134
+#: qml/Dialogs/PdfFileDelegate.qml:101
 #, kde-format
 msgid "Select pages to add"
 msgstr "Selecteer toe te voegen pagina's"
 
-#: qml/Dialogs/PdfFilesDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "PDF-bestanden toevoegen en arrangeren"
 
-#: qml/Dialogs/PdfFilesDialog.qml:45
+#: qml/Dialogs/PdfFilesDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Totaal aantal pagina's: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:60
+#: qml/Dialogs/PdfFilesDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
 msgstr "Voeg toe PDF…"
 
-#: qml/Dialogs/PdfFilesDialog.qml:66
+#: qml/Dialogs/PdfFilesDialog.qml:67
 #, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
 msgstr "Pad van PDF-bestand tonen"
 
-#: qml/Dialogs/PdfFilesDialog.qml:91
+#: qml/Dialogs/PdfFilesDialog.qml:153
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Voeg een of meer PDF-bestanden toe en ga door"
 
-#: qml/Dialogs/PdfFilesDialog.qml:94
+#: qml/Dialogs/PdfFilesDialog.qml:156
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."
@@ -370,43 +373,37 @@ msgid "Protect PDF file with password."
 msgstr "PDF-bestand beschermen met wachtwoord."
 
 #: qml/MainToolbar.qml:21
-#, fuzzy, kde-format
-#| msgid "Select pages to delete"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Selecteer te verwijderen pagina's"
 
 #: qml/MainToolbar.qml:40
-#, fuzzy, kde-format
-#| msgid "Select pages to rotate"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Selecteer te draaien pagina's"
 
 #: qml/MainToolbar.qml:53
-#, fuzzy, kde-format
-#| msgid "Select pages to move"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Selecteer te verplaatsen pagina's"
 
 #: qml/MainToolbar.qml:69
-#, fuzzy, kde-format
-#| msgid "Show page labels"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Paginalabels tonen"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgid "Zoom Out"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Uitzoomen"
 
 #: qml/MainToolbar.qml:93
-#, fuzzy, kde-format
-#| msgid "Zoom In"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Inzoomen"

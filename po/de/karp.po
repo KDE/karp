@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:39+0000\n"
+"POT-Creation-Date: 2024-12-09 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 11:30+0100\n"
 "Last-Translator: Simulacrum\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "PDF file to edit"
 msgstr ""
 
-#: app.cpp:86 pdfsorganizer.cpp:181
+#: app.cpp:86 pdfsorganizer.cpp:178
 #, kde-format
 msgid "Select PDF files"
 msgstr ""
@@ -184,62 +184,64 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:94
+#: qml/Dialogs/PdfFileDelegate.qml:62
 #, kde-format
-msgid "%1 pages"
-msgstr ""
+msgid "%1 page"
+msgid_plural "%1 pages"
+msgstr[0] ""
+msgstr[1] ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:71
 #, kde-format
 msgid "Add all pages"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:111
+#: qml/Dialogs/PdfFileDelegate.qml:79
 #, kde-format
 msgid "Add selected pages"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:120
+#: qml/Dialogs/PdfFileDelegate.qml:88
 #, kde-format
 msgid "Remove from list"
 msgstr ""
 
-#: qml/Dialogs/PdfFileDelegate.qml:134
+#: qml/Dialogs/PdfFileDelegate.qml:101
 #, kde-format
 msgid "Select pages to add"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:45
+#: qml/Dialogs/PdfFilesDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:60
+#: qml/Dialogs/PdfFilesDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:66
+#: qml/Dialogs/PdfFilesDialog.qml:67
 #, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:91
+#: qml/Dialogs/PdfFilesDialog.qml:153
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:94
+#: qml/Dialogs/PdfFilesDialog.qml:156
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."

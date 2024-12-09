@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:39+0000\n"
+"POT-Creation-Date: 2024-12-09 00:39+0000\n"
 "PO-Revision-Date: 2024-12-07 09:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -35,7 +35,7 @@ msgstr "txemaq@gmail.com"
 msgid "PDF file to edit"
 msgstr "Fitxer PDF que s'ha d'editar"
 
-#: app.cpp:86 pdfsorganizer.cpp:181
+#: app.cpp:86 pdfsorganizer.cpp:178
 #, kde-format
 msgid "Select PDF files"
 msgstr "Seleccioneu els fitxers PDF"
@@ -194,62 +194,65 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "pàgina"
 
-#: qml/Dialogs/PdfFileDelegate.qml:94
-#, kde-format
-msgid "%1 pages"
-msgstr "%1 pàgines"
+#: qml/Dialogs/PdfFileDelegate.qml:62
+#, fuzzy, kde-format
+#| msgid "%1 pages"
+msgid "%1 page"
+msgid_plural "%1 pages"
+msgstr[0] "%1 pàgines"
+msgstr[1] "%1 pàgines"
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:71
 #, kde-format
 msgid "Add all pages"
 msgstr "Afig totes les pàgines"
 
-#: qml/Dialogs/PdfFileDelegate.qml:111
+#: qml/Dialogs/PdfFileDelegate.qml:79
 #, kde-format
 msgid "Add selected pages"
 msgstr "Afig les pàgines seleccionades"
 
-#: qml/Dialogs/PdfFileDelegate.qml:120
+#: qml/Dialogs/PdfFileDelegate.qml:88
 #, kde-format
 msgid "Remove from list"
 msgstr "Elimina de la llista"
 
-#: qml/Dialogs/PdfFileDelegate.qml:134
+#: qml/Dialogs/PdfFileDelegate.qml:101
 #, kde-format
 msgid "Select pages to add"
 msgstr "Seleccioneu les pàgines que s'han d'afegir"
 
-#: qml/Dialogs/PdfFilesDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "Afig i arranja fitxers PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:45
+#: qml/Dialogs/PdfFilesDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Total de pàgines: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:60
+#: qml/Dialogs/PdfFilesDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
 msgstr "Afig PDF…"
 
-#: qml/Dialogs/PdfFilesDialog.qml:66
+#: qml/Dialogs/PdfFilesDialog.qml:67
 #, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
 msgstr "Mostra el camí del fitxer PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:91
+#: qml/Dialogs/PdfFilesDialog.qml:153
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Afegiu un o més fitxers PDF per a continuar"
 
-#: qml/Dialogs/PdfFilesDialog.qml:94
+#: qml/Dialogs/PdfFilesDialog.qml:156
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."

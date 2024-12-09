@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:39+0000\n"
+"POT-Creation-Date: 2024-12-09 00:39+0000\n"
 "PO-Revision-Date: 2024-11-26 21:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -32,7 +32,7 @@ msgstr "mail@kisaragi-hiu.com"
 msgid "PDF file to edit"
 msgstr "要編輯的 PDF 檔案"
 
-#: app.cpp:86 pdfsorganizer.cpp:181
+#: app.cpp:86 pdfsorganizer.cpp:178
 #, kde-format
 msgid "Select PDF files"
 msgstr "選擇 PDF 檔案"
@@ -189,46 +189,48 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "頁"
 
-#: qml/Dialogs/PdfFileDelegate.qml:94
-#, kde-format
-msgid "%1 pages"
-msgstr "%1 頁"
+#: qml/Dialogs/PdfFileDelegate.qml:62
+#, fuzzy, kde-format
+#| msgid "%1 pages"
+msgid "%1 page"
+msgid_plural "%1 pages"
+msgstr[0] "%1 頁"
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:71
 #, kde-format
 msgid "Add all pages"
 msgstr "加入所有頁面"
 
-#: qml/Dialogs/PdfFileDelegate.qml:111
+#: qml/Dialogs/PdfFileDelegate.qml:79
 #, kde-format
 msgid "Add selected pages"
 msgstr "加入所選頁面"
 
-#: qml/Dialogs/PdfFileDelegate.qml:120
+#: qml/Dialogs/PdfFileDelegate.qml:88
 #, kde-format
 msgid "Remove from list"
 msgstr "從清單中移除"
 
-#: qml/Dialogs/PdfFileDelegate.qml:134
+#: qml/Dialogs/PdfFileDelegate.qml:101
 #, kde-format
 msgid "Select pages to add"
 msgstr "選擇要加入的頁面"
 
-#: qml/Dialogs/PdfFilesDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:19
 #, fuzzy, kde-format
 #| msgid "Add and arrange PDF files"
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "加入並排列 PDF 檔案"
 
-#: qml/Dialogs/PdfFilesDialog.qml:45
+#: qml/Dialogs/PdfFilesDialog.qml:46
 #, fuzzy, kde-format
 #| msgid "Total pages"
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "總頁數"
 
-#: qml/Dialogs/PdfFilesDialog.qml:60
+#: qml/Dialogs/PdfFilesDialog.qml:61
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -236,21 +238,21 @@ msgctxt "@action:button"
 msgid "Add PDF…"
 msgstr "加入 PDF 檔案"
 
-#: qml/Dialogs/PdfFilesDialog.qml:66
+#: qml/Dialogs/PdfFilesDialog.qml:67
 #, fuzzy, kde-format
 #| msgid "show PDF path"
 msgctxt "@option:check"
 msgid "Show PDF File Path"
 msgstr "顯示 PDF 路徑"
 
-#: qml/Dialogs/PdfFilesDialog.qml:91
+#: qml/Dialogs/PdfFilesDialog.qml:153
 #, fuzzy, kde-format
 #| msgid "Select one or more PDF files."
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "請選擇至少一個 PDF 檔案。"
 
-#: qml/Dialogs/PdfFilesDialog.qml:94
+#: qml/Dialogs/PdfFilesDialog.qml:156
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"

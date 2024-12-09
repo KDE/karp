@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:39+0000\n"
-"PO-Revision-Date: 2024-12-07 13:48+0300\n"
+"POT-Creation-Date: 2024-12-09 00:39+0000\n"
+"PO-Revision-Date: 2024-12-08 19:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -32,7 +32,7 @@ msgstr "emir_sari@icloud.com"
 msgid "PDF file to edit"
 msgstr "Düzenlenecek PDF dosyası"
 
-#: app.cpp:86 pdfsorganizer.cpp:181
+#: app.cpp:86 pdfsorganizer.cpp:178
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF Dosyaları Seç"
@@ -191,62 +191,65 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "sayfa"
 
-#: qml/Dialogs/PdfFileDelegate.qml:94
-#, kde-format
-msgid "%1 pages"
-msgstr "%1 sayfa"
+#: qml/Dialogs/PdfFileDelegate.qml:62
+#, fuzzy, kde-format
+#| msgid "%1 pages"
+msgid "%1 page"
+msgid_plural "%1 pages"
+msgstr[0] "%1 sayfa"
+msgstr[1] "%1 sayfa"
 
-#: qml/Dialogs/PdfFileDelegate.qml:103
+#: qml/Dialogs/PdfFileDelegate.qml:71
 #, kde-format
 msgid "Add all pages"
 msgstr "Tüm Sayfaları Ekle"
 
-#: qml/Dialogs/PdfFileDelegate.qml:111
+#: qml/Dialogs/PdfFileDelegate.qml:79
 #, kde-format
 msgid "Add selected pages"
 msgstr "Seçili Sayfaları Ekle"
 
-#: qml/Dialogs/PdfFileDelegate.qml:120
+#: qml/Dialogs/PdfFileDelegate.qml:88
 #, kde-format
 msgid "Remove from list"
 msgstr "Listeden Kaldır"
 
-#: qml/Dialogs/PdfFileDelegate.qml:134
+#: qml/Dialogs/PdfFileDelegate.qml:101
 #, kde-format
 msgid "Select pages to add"
 msgstr "Eklenecek Sayfalar Seç"
 
-#: qml/Dialogs/PdfFilesDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "PDF Dosyaları Ekle ve Yerleştir"
 
-#: qml/Dialogs/PdfFilesDialog.qml:45
+#: qml/Dialogs/PdfFilesDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Toplam sayfa: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:60
+#: qml/Dialogs/PdfFilesDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF…"
 msgstr "PDF Ekle…"
 
-#: qml/Dialogs/PdfFilesDialog.qml:66
+#: qml/Dialogs/PdfFilesDialog.qml:67
 #, kde-format
 msgctxt "@option:check"
 msgid "Show PDF File Path"
 msgstr "PDF dosyası yolunu göster"
 
-#: qml/Dialogs/PdfFilesDialog.qml:91
+#: qml/Dialogs/PdfFilesDialog.qml:153
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Sürdürmek için bir veya daha çok PDF dosyası ekleyin"
 
-#: qml/Dialogs/PdfFilesDialog.qml:94
+#: qml/Dialogs/PdfFilesDialog.qml:156
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF..."
@@ -370,43 +373,37 @@ msgid "Protect PDF file with password."
 msgstr "PDF dosyalarını parola ile koruyun."
 
 #: qml/MainToolbar.qml:21
-#, fuzzy, kde-format
-#| msgid "Select pages to delete"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
-msgstr "Silinecek Sayfaları Seç"
+msgstr "Silinecek sayfaları seç"
 
 #: qml/MainToolbar.qml:40
-#, fuzzy, kde-format
-#| msgid "Select pages to rotate"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
-msgstr "Döndürülecek Sayfaları Seç"
+msgstr "Döndürülecek sayfaları seç"
 
 #: qml/MainToolbar.qml:53
-#, fuzzy, kde-format
-#| msgid "Select pages to move"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
-msgstr "Taşınacak Sayfaları Seç"
+msgstr "Taşınacak sayfaları seç"
 
 #: qml/MainToolbar.qml:69
-#, fuzzy, kde-format
-#| msgid "Show page labels"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
-msgstr "Sayfa Etiketlerini Göster"
+msgstr "Sayfa etiketlerini göster"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgid "Zoom Out"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Uzaklaştır"
 
 #: qml/MainToolbar.qml:93
-#, fuzzy, kde-format
-#| msgid "Zoom In"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Yakınlaştır"
