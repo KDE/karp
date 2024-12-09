@@ -210,14 +210,17 @@
       <caption xml:lang="ca-valencia">Finestra principal de Karp amb pàgines d'un fitxer PDF</caption>
       <caption xml:lang="es">Ventana principal de Karp con páginas de un archivo PDF</caption>
       <caption xml:lang="eu">Karp-en leiho nagusia PDF fitxategien orrialdeekin</caption>
+      <caption xml:lang="fr">Fenêtre principale de Karp avec des pages de fichier « PDF »</caption>
       <caption xml:lang="gl">A xanela principal de Karp con páxinas dun ficheiro PDF.</caption>
       <caption xml:lang="he">החלון הראשי של Karp עם עמודים של קובץ PDF</caption>
       <caption xml:lang="ka">Karp-ის მთავარი ფანჯარა PDF ფაილის გვერდებით</caption>
       <caption xml:lang="nl">Hoofdvenster van Karp met pagina's van PDF-bestand</caption>
+      <caption xml:lang="pl">Główne okno aplikacji ze stronami PDF-a</caption>
       <caption xml:lang="sl">Glavno okno Karp s stranmi datoteke PDF</caption>
       <caption xml:lang="tr">PDF dosyasının sayfalarını gösteren Karp ana sayfası</caption>
       <caption xml:lang="uk">Головне вікно Karp зі сторінками файла PDF</caption>
       <caption xml:lang="x-test">xxKarp main window with pages of PDF filexx</caption>
+      <caption xml:lang="zh-CN">Karp 的主窗口正在显示 PDF 页面</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_mainwindow.png</image>
     </screenshot>
     <screenshot type="default">
@@ -226,14 +229,17 @@
       <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit per contrasenya</caption>
       <caption xml:lang="es">Añadir un archivo PDF protegido con contraseña</caption>
       <caption xml:lang="eu">Pasahitz bidez babestutako PDF fitxategia eranstea</caption>
+      <caption xml:lang="fr">Ajout d'un fichier « PDF » protégé par un mot de passe</caption>
       <caption xml:lang="gl">Inclusión dun ficheiro PDF protexido por contrasinal.</caption>
       <caption xml:lang="he">הוספת קובץ PDF מוגן בסיסמה</caption>
       <caption xml:lang="ka">პაროლით დაცული PDF ფაილის ბოლოში მიწერა</caption>
       <caption xml:lang="nl">PDF-bestand, beveiligd met wachtwoord, wordt achter gevoegd</caption>
+      <caption xml:lang="pl">Dodawanie pliku PDF chronionego hasłem</caption>
       <caption xml:lang="sl">Dodajanje datoteke PDF zaščitene z geslom</caption>
       <caption xml:lang="tr">Parola korumalı PDF dosyasına iliştiriliyor</caption>
       <caption xml:lang="uk">Додавання захищеного паролем файла PDF</caption>
       <caption xml:lang="x-test">xxAppending password protected PDF filexx</caption>
+      <caption xml:lang="zh-CN">附加密码保护的 PDF 文件</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_add_pdf_with_password.png</image>
     </screenshot>
   </screenshots>
