@@ -117,9 +117,10 @@ public:
      */
     Q_INVOKABLE void movePages(const PageRange &range, int targetPage);
 
-    Q_INVOKABLE QStringList getMetaDataModel(int fileId) const;
-    Q_INVOKABLE QStringList getTargetMetaData() const;
-    Q_INVOKABLE void setTargetMetaData(const QVariant &metaList);
+    Q_INVOKABLE QString getMetaDataKey(int keyId);
+    Q_INVOKABLE QVariantList getMetaDataModel(int fileId) const;
+    Q_INVOKABLE QVariantList getTargetMetaData() const;
+    Q_INVOKABLE void setTargetMetaData(const QVariantList &metaList);
     PdfMetaData *metaData();
 
     Q_INVOKABLE void generate();

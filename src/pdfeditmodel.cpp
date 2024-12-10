@@ -404,11 +404,8 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     Q_EMIT dataChanged(index(startPage / m_columns, 0), index(endPage / m_columns, m_columns - 1));
 }
 
-QStringList PdfEditModel::getMetaDataModel(int fileId) const
+QString PdfEditModel::getMetaDataKey(int keyId)
 {
-    QStringList mdm;
-    if (m_pdfList.isEmpty() || fileId >= pdfCount() || fileId < 0)
-        return mdm;
     static const KLazyLocalizedString fNames[]{kli18n("Title"),
                                                kli18n("Subject"),
                                                kli18n("Author"),
@@ -418,28 +415,33 @@ QStringList PdfEditModel::getMetaDataModel(int fileId) const
                                                kli18n("Creation Date"),
                                                kli18n("Modification Date")};
 
+    if (keyId < 0 || keyId > 7)
+        return QString();
+    return KLocalizedString(fNames[keyId]).toString();
+}
+
+QVariantList PdfEditModel::getMetaDataModel(int fileId) const
+{
+    QVariantList mdm;
+    if (m_pdfList.isEmpty() || fileId >= pdfCount() || fileId < 0)
+        return mdm;
+
     auto pdf = m_pdfList[fileId];
     for (int i = 0; i <= static_cast<int>(QPdfDocument::MetaDataField::ModificationDate); ++i) {
-        QString value;
         auto fieldType = static_cast<QPdfDocument::MetaDataField>(i);
-        if (fieldType == QPdfDocument::MetaDataField::ModificationDate || fieldType == QPdfDocument::MetaDataField::CreationDate) {
-            value = pdf->metaData(fieldType).toDateTime().toString(u"yyyy.MM.dd hh:mm:ss"_s);
-        } else {
-            value = pdf->metaData(fieldType).toString();
-        }
-        mdm << KLocalizedString(fNames[i]).toString() + u"|"_s + value;
+        mdm << pdf->metaData(fieldType);
     }
     return mdm;
 }
 
-QStringList PdfEditModel::getTargetMetaData() const
+QVariantList PdfEditModel::getTargetMetaData() const
 {
     return m_metaData->model();
 }
 
-void PdfEditModel::setTargetMetaData(const QVariant &metaList)
+void PdfEditModel::setTargetMetaData(const QVariantList &metaList)
 {
-    m_metaData->setData(metaList.toStringList());
+    m_metaData->setData(metaList);
     Q_EMIT editedChanged();
 }
 
