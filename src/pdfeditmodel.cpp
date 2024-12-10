@@ -62,6 +62,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
         return;
     }
     appendPdfFileToModel(newPdf);
+    updateCreationTimeInMetadata(newPdf);
     karpConfig::self()->setLastDir(m_pdfList.last()->dir());
 }
 
@@ -70,7 +71,9 @@ void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
     if (pdfList.isEmpty())
         return;
     for (int p = pdfList.count() - 1; p >= 0; --p) {
-        prependPdfFileToModel(pdfList[p]);
+        auto pdf = pdfList[p];
+        prependPdfFileToModel(pdf);
+        updateCreationTimeInMetadata(pdf);
     }
     karpConfig::self()->setLastDir(pdfList.last()->dir());
 }
@@ -81,6 +84,7 @@ void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
         return;
     for (auto &pdf : pdfList) {
         appendPdfFileToModel(pdf);
+        updateCreationTimeInMetadata(pdf);
     }
     karpConfig::self()->setLastDir(pdfList.last()->dir());
 }
@@ -725,6 +729,13 @@ bool PdfEditModel::rangeIsInvalid(const PageRange &range)
         return true;
     }
     return false;
+}
+
+void PdfEditModel::updateCreationTimeInMetadata(PdfFile *pdf)
+{
+    auto newDateTime = pdf->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
+    if (newDateTime.toSecsSinceEpoch() < m_metaData->creationDate().toSecsSinceEpoch())
+        m_metaData->setCreationDate(newDateTime);
 }
 
 #include "moc_pdfeditmodel.cpp"

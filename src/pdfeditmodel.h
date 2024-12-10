@@ -203,6 +203,12 @@ protected:
 
     bool rangeIsInvalid(const PageRange &range);
 
+    /**
+     * Checks creation time of added PDF and sets it
+     * if it is older than metadata @p PdfMetaData has set
+     */
+    void updateCreationTimeInMetadata(PdfFile *pdf);
+
 Q_SIGNALS:
     void wantRenderImage(int) const;
     void wantRenderPage(int, PdfPage *) const;
