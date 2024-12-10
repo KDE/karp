@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-09 00:39+0000\n"
-"PO-Revision-Date: 2024-12-08 09:53+0100\n"
+"PO-Revision-Date: 2024-12-09 07:09+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -189,12 +189,11 @@ msgid "page"
 msgstr "stran"
 
 #: qml/Dialogs/PdfFileDelegate.qml:62
-#, fuzzy, kde-format
-#| msgid "%1 pages"
+#, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
 msgstr[0] "%1 strani"
-msgstr[1] "%1 strani"
+msgstr[1] "%1 stran"
 msgstr[2] "%1 strani"
 msgstr[3] "%1 strani"
 

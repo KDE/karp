@@ -190,11 +190,10 @@ msgid "page"
 msgstr "页面"
 
 #: qml/Dialogs/PdfFileDelegate.qml:62
-#, fuzzy, kde-format
-#| msgid "%1 pages"
+#, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] "%1 页"
+msgstr[0] ""
 
 #: qml/Dialogs/PdfFileDelegate.qml:71
 #, kde-format
@@ -372,37 +371,37 @@ msgstr "使用密码保护 PDF 文件。"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
-msgstr ""
+msgstr "选择要删除的页面"
 
 #: qml/MainToolbar.qml:40
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
-msgstr ""
+msgstr "选择要旋转的页面"
 
 #: qml/MainToolbar.qml:53
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
-msgstr ""
+msgstr "选择要移动的页面"
 
 #: qml/MainToolbar.qml:69
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
-msgstr ""
+msgstr "显示页面标签"
 
 #: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
-msgstr ""
+msgstr "缩小"
 
 #: qml/MainToolbar.qml:93
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
-msgstr ""
+msgstr "放大"
 
 #: qml/MainToolbar.qml:108
 #, kde-format

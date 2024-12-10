@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-09 00:39+0000\n"
-"PO-Revision-Date: 2024-12-08 07:13+0100\n"
+"PO-Revision-Date: 2024-12-09 18:33+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -195,11 +195,10 @@ msgid "page"
 msgstr "orrialdea"
 
 #: qml/Dialogs/PdfFileDelegate.qml:62
-#, fuzzy, kde-format
-#| msgid "%1 pages"
+#, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] "%1 orrialde"
+msgstr[0] "orrialde %1"
 msgstr[1] "%1 orrialde"
 
 #: qml/Dialogs/PdfFileDelegate.qml:71

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-09 00:39+0000\n"
-"PO-Revision-Date: 2024-12-08 07:42+0100\n"
+"PO-Revision-Date: 2024-12-09 09:13+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -195,11 +195,10 @@ msgid "page"
 msgstr "pàgina"
 
 #: qml/Dialogs/PdfFileDelegate.qml:62
-#, fuzzy, kde-format
-#| msgid "%1 pages"
+#, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] "%1 pàgines"
+msgstr[0] "%1 pàgina"
 msgstr[1] "%1 pàgines"
 
 #: qml/Dialogs/PdfFileDelegate.qml:71
