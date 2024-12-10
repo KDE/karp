@@ -4,6 +4,7 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
+import Qt.labs.qmlmodels
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
@@ -58,6 +59,28 @@ FormCard.FormCardDialog {
         }
 
         Kirigami.CardsListView {
+            id: targetView
+            visible: outChip.checked
+            property var metaArr: pdfModel.getTargetMetaData()
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            clip: true
+            cacheBuffer: Kirigami.Units.gridUnit * 40
+            model: metaArr
+            delegate: DelegateChooser {
+                DelegateChoice { index: 0; delegate: formFieldComp }
+                DelegateChoice { index: 1; delegate: formFieldComp }
+                DelegateChoice { index: 2; delegate: formFieldComp }
+                DelegateChoice { index: 3; delegate: formFieldComp }
+                DelegateChoice { index: 4; delegate: formFieldComp }
+                DelegateChoice { index: 5; delegate: formFieldComp }
+                DelegateChoice { index: 6; delegate: formDateComp }
+                DelegateChoice { index: 7; delegate: formDateComp }
+            }
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+        }
+
+        Kirigami.CardsListView {
             id: metaView
             visible: !outChip.checked
             Layout.fillWidth: true
@@ -67,23 +90,25 @@ FormCard.FormCardDialog {
             delegate: FormCard.FormCard {
                 required property string modelData
                 required property int index
-                property var metaData: modelData.split("|")
-                visible: metaData[1] !== ""
+                visible: modelData !== ""
                 width: metaView.contentItem.width
                 FormCard.FormSectionText {
+                    id: sectionText
                     visible: parent.visible
-                    text: metaData[0]
+                    text: pdfModel.getMetaDataKey(index)
                 }
                 FormCard.FormButtonDelegate {
                     visible: parent.visible
-                    text: metaData[1]
+                    text: index < 6 ? modelData : Qt.formatDateTime(modelData, "yyyy-MM-dd hh:mm:ss") // TODO: use more localized format
                     onClicked: singleClickNotification()
                     onDoubleClicked: {
                         copyAnim.start()
-                        targetView.itemAtIndex(index).text = text
+                        targetView.itemAtIndex(index).modelData = modelData
                     }
                 }
-                Component.onCompleted: copyAllButton.enabled |= visible
+                Component.onCompleted: {
+                    copyAllButton.enabled |= visible
+                }
             }
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
             onModelChanged: {
@@ -95,29 +120,6 @@ FormCard.FormCardDialog {
                     copyAllButton.enabled |= metaView.itemAtIndex(m).visible
                 }
             }
-        }
-
-        Kirigami.CardsListView {
-            id: targetView
-            visible: outChip.checked
-            property var metaArr: pdfModel.getTargetMetaData()
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            clip: true
-            cacheBuffer: Kirigami.Units.gridUnit * 40
-            model: pdfModel.getMetaDataModel(0)
-            delegate: FormCard.FormCard {
-                width: parent?.width
-                required property string modelData
-                required property int index
-                property alias text: metaField.text
-                FormCard.FormTextFieldDelegate {
-                    id: metaField
-                    label: modelData.split("|")[0]
-                    text: targetView.metaArr[index]
-                }
-            }
-            QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
 
         FormCard.FormCard {
@@ -161,9 +163,43 @@ FormCard.FormCardDialog {
         chipsRep.itemAt(0).checked = true
     }
 
+    Component {
+        id: formDateComp
+        FormCard.FormCard {
+            required property var modelData
+            required property int index
+            property alias dateTime: dtForm.value
+            width: targetView.contentItem.width
+            FormCard.FormSectionText {
+                text: pdfModel.getMetaDataKey(index)
+            }
+            FormCard.FormDateTimeDelegate {
+                id: dtForm
+                value: modelData
+            }
+        }
+    }
+    Component {
+        id: formFieldComp
+        FormCard.FormCard {
+            width: parent?.width
+            required property string modelData
+            required property int index
+            property alias text: metaField.text
+            FormCard.FormTextFieldDelegate {
+                id: metaField
+                label: pdfModel.getMetaDataKey(index)
+                text: targetView.metaArr[index]
+            }
+        }
+    }
+
     onAccepted: {
         for (let i = 0; i < targetView.count; ++i)
-            targetView.metaArr[i] = targetView.itemAtIndex(i).text
+            if (i < 6)
+                targetView.metaArr[i] = targetView.itemAtIndex(i).text
+            else
+                targetView.metaArr[i] = targetView.itemAtIndex(i).dateTime
         pdfModel.setTargetMetaData(targetView.metaArr)
     }
     onClosed: destroy()
