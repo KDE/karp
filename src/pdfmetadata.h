@@ -45,15 +45,15 @@ public:
     QDateTime modDate() const;
     void setModDate(const QDateTime &modDate);
 
-    QStringList model() const;
-    void setData(const QStringList &mData);
+    QVariantList model() const;
+    void setData(const QVariantList &mData);
 
     void setAllInfoKeys(QPDFObjectHandle &qpdfHandle);
 
     /**
      * List of tags used in PDF metadata ordered according to
      * @p QPdfDocument::MetaDataField:
-     * Title, Subject, Author, Keyword, Creator, Producer, CreationDate, ModDate
+     * Title, Subject, Author, Keywords, Creator, Producer, CreationDate, ModDate
      */
     static QByteArrayList tags();
 

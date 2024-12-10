@@ -12,7 +12,7 @@ QByteArrayList PdfMetaData::m_tags = QByteArrayList() << "Title"_ba << "Subject"
 
 PdfMetaData::PdfMetaData()
 {
-    m_creator = "Karp "_L1 + "(https://karp.kde.org)"_L1;
+    m_creator = "Karp "_L1 + "(https://apps.kde.org/karp)"_L1;
     m_producer = "Karp "_L1 + QLatin1String(KARP_VERSION_STRING) + " - KDE arranger for PDFs "_L1;
     m_modDate = QDateTime::currentDateTime();
     m_creationDate = m_modDate;
@@ -111,38 +111,32 @@ void PdfMetaData::setKeyword(const QString &keyword)
     m_keyword = keyword;
 }
 
-/**
- * kli18n("Title"), kli18n("Subject"), kli18n("Author"), kli18n("Keyword"), kli18n("Producer"), kli18n("Creator"),
- * kli18n("Creation Date"), kli18n("Modification Date")
- */
-QStringList PdfMetaData::model() const
+QVariantList PdfMetaData::model() const
 {
-    QStringList m;
-    m << m_title << m_subject << m_author << m_keyword << m_producer << m_creator << m_creationDate.toString(u"yyyy.MM.dd hh:mm:ss"_s)
-      << m_modDate.toString(u"yyyy.MM.dd hh:mm:ss"_s);
+    QVariantList m;
+    m << m_title << m_subject << m_author << m_keyword << m_producer << m_creator << m_creationDate << m_modDate;
     return m;
 }
 
-void PdfMetaData::setData(const QStringList &mData)
+void PdfMetaData::setData(const QVariantList &mData)
 {
     int dataCount = qMin(PDF_METADATA_TAGS_COUNT, mData.size());
     if (dataCount > 0)
-        m_title = mData[0];
+        m_title = mData[0].toString();
     if (dataCount > 1)
-        m_subject = mData[1];
+        m_subject = mData[1].toString();
     if (dataCount > 2)
-        m_author = mData[2];
+        m_author = mData[2].toString();
     if (dataCount > 3)
-        m_keyword = mData[3];
+        m_keyword = mData[3].toString();
     if (dataCount > 4)
-        m_producer = mData[4];
+        m_producer = mData[4].toString();
     if (dataCount > 5)
-        m_creator = mData[5];
-    // TODO what about dates?
-    // if (dataCount > 6)
-    //     m_creationDate = mData[6];
-    // if (dataCount > 7)
-    //     m_modDate = mData[7];
+        m_creator = mData[5].toString();
+    if (dataCount > 6)
+        m_creationDate = mData[6].toDateTime();
+    if (dataCount > 7)
+        m_modDate = mData[7].toDateTime();
     m_modified = true;
 }
 
