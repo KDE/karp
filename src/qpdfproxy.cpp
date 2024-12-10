@@ -97,7 +97,15 @@ void QpdfProxy::threadSlot()
     try {
         QPDFJob qpdfJob;
         auto jobConf = qpdfJob.config();
-        jobConf->inputFile(firstPdf->filePath().toStdString())->outputFile(m_pdfModel->outFile().toStdString());
+        jobConf->inputFile(firstPdf->filePath().toStdString());
+#if defined(Q_OS_WIN)
+        if (firstPdf->filePath().compare(m_pdfModel->outFile(), Qt::CaseInsensitive) == 0)
+#else
+        if (firstPdf->filePath().compare(m_pdfModel->outFile()) == 0)
+#endif
+            jobConf->replaceInput();
+        else
+            jobConf->outputFile(m_pdfModel->outFile().toStdString());
         // --pages
         auto qpdfPages = jobConf->pages();
         for (int c = 0; c < chunks.count(); ++c) {
