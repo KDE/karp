@@ -30,7 +30,7 @@ Kirigami.Page {
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
             fromQAction: APP.action("save_pdf")
-            text: KarpConf.askForOutFile ? i18nc("@action:inmenu", "Save As...") : i18nc("@action:inmenu", "Save")
+            text: KarpConf.askForOutFile ? i18nc("@action:inmenu", "Save As") : i18nc("@action:inmenu", "Save")
         },
         Kirigami.Action {
             visible: pdfModel.pdfCount > 0

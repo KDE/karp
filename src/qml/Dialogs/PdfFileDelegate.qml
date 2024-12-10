@@ -51,7 +51,6 @@ Kirigami.AbstractCard {
                 }
 
                 QQC2.Label {
-                    visible: showPathAction.checked
                     text: path
                     elide: Text.ElideLeft
                     Layout.fillWidth: true

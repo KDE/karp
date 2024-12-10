@@ -20,58 +20,20 @@ FormCard.FormCardDialog {
     width: Kirigami.ApplicationWindow.window.width - Kirigami.Units.gridUnit * 2
     height: Kirigami.ApplicationWindow.window.height - Kirigami.Units.gridUnit * 2
 
-    standardButtons: QQC2.DialogButtonBox.Cancel | QQC2.DialogButtonBox.Apply
-
-    // HACK: we should be using Binding here
-    readonly property bool hasPdfs: fileView.count > 0
-    onHasPdfsChanged: standardButton(QQC2.DialogButtonBox.Apply).enabled = hasPdfs
-    Component.onCompleted: standardButton(QQC2.DialogButtonBox.Apply).enabled = hasPdfs
-
     PdfsOrganizer {
         id: pdfOrg
         onPasswordRequired: (fName, fId) => {
-            let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(pdfsDialog, { fileName: fName, fileId: fId })
-            passDlg.accepted.connect(() => pdfOrg.setPdfPassword(passDlg.fileId, passDlg.passKey))
-            passDlg.rejected.connect(() => pdfOrg.setPdfPassword(passDlg.fileId, ""))
+            let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(pdfsDialog, {
+                fileName: fName,
+                fileId: fId
+            });
+            passDlg.accepted.connect(() => pdfOrg.setPdfPassword(passDlg.fileId, passDlg.passKey));
+            passDlg.rejected.connect(() => pdfOrg.setPdfPassword(passDlg.fileId, ""));
         }
-    }
-
-    // place this information atop of footer - on the left. There is plenty of space
-    QQC2.Label {
-        visible: pdfOrg.totalPages
-        parent: footer
-        x: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-        anchors.verticalCenter: parent.verticalCenter
-        font.bold: true
-        text: i18nc("@info", "Total pages: %1", pdfOrg.totalPages)
     }
 
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
-
-        RowLayout {
-            spacing: Kirigami.Units.mediumSpacing
-
-            Layout.topMargin: Kirigami.Units.largeSpacing
-            Layout.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-            Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-
-            QQC2.ToolButton {
-                icon.name: "list-add-symbolic"
-                text: i18nc("@action:button", "Add PDF…")
-                onClicked: pdfOrg.addMorePDFs()
-            }
-
-            QQC2.CheckBox {
-                id: showPathAction
-                text: i18nc("@option:check", "Show PDF File Path")
-                checkable: true
-                checked: false
-
-                Layout.alignment: Qt.AlignRight
-            }
-        }
-
         Kirigami.CardsListView {
             id: fileView
 
@@ -124,17 +86,17 @@ FormCard.FormCardDialog {
                             }
                         ]
                     }
-                    onEntered: function(drag) {
-                        let from = (drag.source as PdfFileDelegate).visualIndex
-                        let to = pdfDelegate.visualIndex
+                    onEntered: function (drag) {
+                        let from = (drag.source as PdfFileDelegate).visualIndex;
+                        let to = pdfDelegate.visualIndex;
                         // previously loaded PDF-s are locked and we don't allow it move new files between them
                         // so replacing with index bigger than 0 is ignored
                         if (locked) {
                             if (to > 0 && to < lv.count - 1)
-                                return
+                                return;
                         }
-                        visualModel.items.move(from, to)
-                        pdfOrg.fileModel.move(from, to)
+                        visualModel.items.move(from, to);
+                        pdfOrg.fileModel.move(from, to);
                     }
                 }
             }
@@ -153,16 +115,43 @@ FormCard.FormCardDialog {
                 text: i18nc("@info:placeholder", "Add one or more PDF file to proceed")
                 helpfulAction: Kirigami.Action {
                     icon.name: "list-add-symbolic"
-                    text: i18nc("@action:button", "Add PDF...")
+                    text: i18nc("@action:button", "Add PDF")
                     onTriggered: pdfOrg.addMorePDFs()
                 }
             }
         }
     }
 
-    onApplied: {
-        pdfOrg.applyNewFiles()
-        close()
+    footer: QQC2.DialogButtonBox {
+        // place this information atop of footer - on the left. There is plenty of space
+        Kirigami.SelectableLabel {
+            visible: pdfOrg.totalPages
+            parent: footer
+            x: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+            anchors.verticalCenter: parent.verticalCenter
+            font.bold: true
+            text: i18nc("@info", "Total pages: %1", pdfOrg.totalPages)
+        }
+        QQC2.Button {
+            id: addPdfs
+            icon.name: "list-add-symbolic"
+            text: i18nc("@action:button", "Add PDF")
+            visible: fileView.count !== 0
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ActionRole
+            onClicked: pdfOrg.addMorePDFs()
+        }
+        QQC2.Button {
+            text: i18nc("@action:button", "Apply")
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ApplyRole
+            enabled: fileView.count !== 0
+        }
+        QQC2.Button {
+            text: i18nc("@action:button", "Cancel")
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
+        }
     }
-    onClosed: destroy()
+    onApplied: {
+        pdfOrg.applyNewFiles();
+        close();
+    }
 }
