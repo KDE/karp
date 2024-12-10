@@ -76,6 +76,8 @@ void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
         updateCreationTimeInMetadata(pdf);
     }
     karpConfig::self()->setLastDir(pdfList.last()->dir());
+    if (pdfCount() > 1)
+        Q_EMIT editedChanged();
 }
 
 void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
@@ -87,6 +89,8 @@ void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
         updateCreationTimeInMetadata(pdf);
     }
     karpConfig::self()->setLastDir(pdfList.last()->dir());
+    if (pdfCount() > 1)
+        Q_EMIT editedChanged();
 }
 
 int PdfEditModel::pageCount() const
@@ -146,7 +150,7 @@ void PdfEditModel::setSpacing(qreal sp)
 bool PdfEditModel::edited() const
 {
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
-        || m_metaData->modified() || m_pdfVersion > 0.0;
+        || m_metaData->modified() || m_pdfVersion > 0.0 || pdfCount() > 1;
 }
 
 bool PdfEditModel::optimizeImages() const
