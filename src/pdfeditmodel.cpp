@@ -468,6 +468,12 @@ void PdfEditModel::generate()
     if (conf->askForOutFile()) {
         QFileInfo inInfo(pdf->filePath());
         m_outFile = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
+        if (m_outFile.isEmpty()) {
+            qDebug() << "[PdfEditModel]" << "Output file not provided!";
+            setProgress(1.0);
+            Q_EMIT pdfGenerated();
+            return;
+        }
     } else {
         m_outFile = pdf->filePath();
         // takes first file name and adds prefix/suffix
