@@ -63,6 +63,11 @@ Kirigami.AbstractCard {
             }
             // Action bar is shrunk by Layout so it shows only '⋮' which is exactly what we want
             Kirigami.ActionToolBar {
+                // TODO: Are we going to allow removing previously added file(s)
+                // Their pages can be intertwined already.
+                // Still it is possible and not that much difficult, bu is this really necessary?
+                // For now it is disabled
+                enabled: !locked
                 actions: [
                     Kirigami.Action {
                         enabled: !locked

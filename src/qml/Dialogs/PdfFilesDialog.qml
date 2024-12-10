@@ -89,8 +89,8 @@ FormCard.FormCardDialog {
                     onEntered: function (drag) {
                         let from = (drag.source as PdfFileDelegate).visualIndex;
                         let to = pdfDelegate.visualIndex;
-                        // previously loaded PDF-s are locked and we don't allow it move new files between them
-                        // so replacing with index bigger than 0 is ignored
+                        // Previously loaded PDF-s are locked and we don't allow to move new files between them.
+                        // Item (new file) can be moved before or after already loaded PDF-s
                         if (locked) {
                             if (to > 0 && to < lv.count - 1)
                                 return;
