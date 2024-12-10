@@ -6,7 +6,9 @@
 #include "pdffile.h"
 #include "pdfmetadata.h"
 #include <QDebug>
+#include <QDir>
 #include <QSet>
+#include <QStandardPaths>
 #include <qpdf/QPDFUsage.hh>
 
 using namespace Qt::Literals::StringLiterals;
@@ -94,18 +96,11 @@ void QpdfProxy::threadSlot()
             r270 << r;
     }
 
+    QString tempOut = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator() + "karp_out.pdf"_L1;
     try {
         QPDFJob qpdfJob;
         auto jobConf = qpdfJob.config();
-        jobConf->inputFile(firstPdf->filePath().toStdString());
-#if defined(Q_OS_WIN)
-        if (firstPdf->filePath().compare(m_pdfModel->outFile(), Qt::CaseInsensitive) == 0)
-#else
-        if (firstPdf->filePath().compare(m_pdfModel->outFile()) == 0)
-#endif
-            jobConf->replaceInput();
-        else
-            jobConf->outputFile(m_pdfModel->outFile().toStdString());
+        jobConf->inputFile(firstPdf->filePath().toStdString())->outputFile(tempOut.toStdString());
         // --pages
         auto qpdfPages = jobConf->pages();
         for (int c = 0; c < chunks.count(); ++c) {
@@ -150,6 +145,12 @@ void QpdfProxy::threadSlot()
     } catch (std::exception &e) {
         qDebug() << "[QpdfProxy]" << "other error: " << e.what();
         return;
+    }
+    if (QFile::exists(tempOut)) {
+        if (QFile::exists(m_pdfModel->outFile()))
+            QFile::remove(m_pdfModel->outFile());
+        QFile::copy(tempOut, m_pdfModel->outFile());
+        QFile::remove(tempOut);
     }
     m_thread->quit();
 }
