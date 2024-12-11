@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+version = 1
+SPDX-PackageName = "Deaf Ed"
+SPDX-PackageSupplier = "Tomasz Bojczuk <seelook@gmail.com>"
+
+[[annotations]]
+path = ["README.md", "src/karpconfig.kcfgc"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Tomasz Bojczuk <seelook@gmail.com>"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "android/res/drawable/splash.xml"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Tomasz Bojczuk <seelook@gmail.com>"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
+path = ["org.kde.karp.svg", "android/res/drawable/karp.png", "logo.png", "extras/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Tomasz Bojczuk <seelook@gmail.com>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
