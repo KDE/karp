@@ -32,6 +32,10 @@
 Q_DECL_EXPORT
 #endif
 
+#if KI18N_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+#include <KLocalizedQmlContext>
+#endif
+
 using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
@@ -96,7 +100,11 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonInstance("org.kde.karp.config", 1, 0, "KarpConf", config);
 
+#if KI18N_VERSION < QT_VERSION_CHECK(6, 8, 0)
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+#else
+    engine.rootContext()->setContextObject(new KLocalizedQmlContext(&engine));
+#endif
     engine.loadFromModule("org.kde.karp", u"Main"_s);
 
     if (engine.rootObjects().isEmpty()) {

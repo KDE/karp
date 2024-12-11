@@ -70,6 +70,12 @@ target_link_libraries(karp
     KirigamiAddonsStatefulApp
     qpdf::libqpdf
 )
+
+if(TARGET KF6::I18nQml)
+target_link_libraries(karp PUBLIC
+        KF6::I18nQml
+)
+endif()
 target_include_directories(karp PUBLIC ${CMAKE_BINARY_DIR})
 
 if (ANDROID)
