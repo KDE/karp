@@ -5,7 +5,6 @@
 #include "pdfeditmodel.h"
 #include "pdfpage.h"
 #include <QDebug>
-#include <QPdfDocument>
 
 // #################################################################################################
 // ###################        class RenderThread       ############################################

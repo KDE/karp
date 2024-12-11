@@ -3,7 +3,6 @@
     SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 */
 
-#include <QtGlobal>
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
 #else
@@ -14,7 +13,6 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include <QUrl>
 
 #include "version-karp.h"
 #include <KAboutData>

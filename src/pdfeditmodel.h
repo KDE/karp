@@ -7,8 +7,6 @@
 #include <QAbstractTableModel>
 #include <QQmlEngine>
 
-class QPdfDocument;
-class QPdfPageRenderer;
 class PdfFile;
 class PageRange;
 class PdfMetaData;

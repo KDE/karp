@@ -10,7 +10,6 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
-#include <QDebug>
 #include <QFileDialog>
 #include <QQuickWindow>
 

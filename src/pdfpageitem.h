@@ -4,7 +4,6 @@
 #pragma once
 
 #include <QImage>
-#include <QQmlEngine>
 #include <QQuickPaintedItem>
 
 class QPainter;

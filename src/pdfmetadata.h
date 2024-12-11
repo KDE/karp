@@ -4,7 +4,6 @@
 #pragma once
 
 #include <QDateTime>
-#include <QJsonObject>
 #include <QPdfDocument>
 
 #define PDF_METADATA_TAGS_COUNT (8)

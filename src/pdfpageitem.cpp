@@ -2,7 +2,6 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfpageitem.h"
-#include <QDebug>
 #include <QPainter>
 
 PdfPageItem::PdfPageItem(QQuickItem *parent)

@@ -13,8 +13,6 @@
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QPdfDocument>
-#include <QPdfPageRenderer>
-#include <QProcess>
 #include <QScreen>
 #include <QStandardPaths>
 #include <QTimer>
