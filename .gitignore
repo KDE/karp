@@ -82,3 +82,6 @@ compile_commands.json
 # VS code
 .vscode*
 .cache*
+
+
+/build*/
