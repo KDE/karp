@@ -50,6 +50,17 @@ target_sources(karp PUBLIC
     toolsthread.cpp
     pagerange.cpp
     qpdfproxy.cpp
+
+    app.h
+    pdfpage.h
+    pdffile.h
+    pdfmetadata.h
+    pdfeditmodel.h
+    pdfpageitem.h
+    pdfsorganizer.h
+    toolsthread.h
+    pagerange.h
+    qpdfproxy.h
 )
 
 target_link_libraries(karp
