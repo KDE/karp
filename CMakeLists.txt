@@ -71,6 +71,8 @@ if (ANDROID)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
 endif()
 
+add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
+
 add_subdirectory(src)
 
 install(FILES org.kde.karp.desktop DESTINATION ${KDE_INSTALL_APPDIR})
