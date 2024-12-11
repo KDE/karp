@@ -264,12 +264,16 @@ Kirigami.Page {
             page.generate()
         }
         function onWantOpenPdf() : void {
-            const component = Qt.createComponent("org.kde.karp", "PdfFilesDialog");
-            if (component.status !== Component.Ready) {
-                console.error(component.errorString());
+            const fileDlgComp = Qt.createComponent("org.kde.karp", "PdfFilesDialog");
+            if (fileDlgComp.status !== Component.Ready) {
+                console.error(fileDlgComp.errorString());
                 return;
             }
-            component.createObject(page, { pdfEdit: pdfModel })
+            pdfView.selectionModel.clearCurrentIndex()
+            // Workaround to avoid stilling drag by pdfView during PDF reorder
+            contentItem.enabled = false
+            let fileDlgObj = fileDlgComp.createObject(page, { pdfEdit: pdfModel })
+            fileDlgObj.closed.connect(() => contentItem.enabled = true)
         }
         function onWantClearAll() : void {
             page.clearAll()
