@@ -18,6 +18,7 @@ FormCard.FormCardDialog {
 
     title: i18n("PDF properties")
     visible: true
+    closePolicy: Kirigami.PromptDialog.NoAutoClose
     standardButtons: QQC2.DialogButtonBox.Close | QQC2.DialogButtonBox.Save
 
     property var mainWin: Kirigami.ApplicationWindow.window

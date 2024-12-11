@@ -19,6 +19,7 @@ FormCard.FormCardDialog {
     title: i18nc("@title:dialog", "Add and Arrange PDF files")
     width: Kirigami.ApplicationWindow.window.width - Kirigami.Units.gridUnit * 2
     height: Kirigami.ApplicationWindow.window.height - Kirigami.Units.gridUnit * 2
+    closePolicy: Kirigami.PromptDialog.NoAutoClose
 
     PdfsOrganizer {
         id: pdfOrg
@@ -86,7 +87,7 @@ FormCard.FormCardDialog {
                             }
                         ]
                     }
-                    onEntered: function (drag) {
+                    onEntered: drag => {
                         let from = (drag.source as PdfFileDelegate).visualIndex;
                         let to = pdfDelegate.visualIndex;
                         // Previously loaded PDF-s are locked and we don't allow to move new files between them.
@@ -154,4 +155,5 @@ FormCard.FormCardDialog {
         pdfOrg.applyNewFiles();
         close();
     }
+    onClosed: destroy()
 }
