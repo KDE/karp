@@ -27,6 +27,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMSetupVersion)
 include(ECMFindQmlModule)
+include(ECMDeprecationSettings)
 if (NOT ANDROID)
     include(KDEGitCommitHooks)
     include(KDEClangFormat)
@@ -53,6 +54,10 @@ find_package(KF6KirigamiAddons ${KIRIGAMI_ADDONS_MIN_VERSION})
 set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"
+)
+
+ecm_set_disabled_deprecation_versions(QT 6.8
+    KF 6.9.0
 )
 
 find_package(qpdf REQUIRED)
