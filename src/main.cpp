@@ -21,6 +21,10 @@
 #include <KLocalizedString>
 
 #include "karpconfig.h"
+#define HAVE_STYLE_MANAGER __has_include(<KStyleManager>)
+#if HAVE_STYLE_MANAGER
+#include <KStyleManager>
+#endif
 
 #ifdef Q_OS_WINDOWS
 #include <windows.h>
@@ -43,6 +47,21 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
     QApplication app(argc, argv);
+
+#if HAVE_STYLE_MANAGER
+    /**
+     * trigger initialisation of proper application style
+     */
+    KStyleManager::initStyle();
+#else
+    /**
+     * For Windows and macOS: use Breeze if available
+     * Of all tested styles that works the best for us
+     */
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+#endif
 
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
