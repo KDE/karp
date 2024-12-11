@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:39+0000\n"
+"POT-Creation-Date: 2024-12-11 00:38+0000\n"
 "PO-Revision-Date: 2024-12-03 20:37+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:464
+#: app.cpp:56 pdfeditmodel.cpp:474
 #, kde-format
 msgid "PDF file to edit"
 msgstr "PDF-fil att redigera"
@@ -120,35 +120,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Underhåll"
 
-#: pdfeditmodel.cpp:412
+#: pdfeditmodel.cpp:417
 msgid "Title"
 msgstr "Titel"
 
-#: pdfeditmodel.cpp:413
+#: pdfeditmodel.cpp:418
 msgid "Subject"
 msgstr "Rubrik"
 
-#: pdfeditmodel.cpp:414
+#: pdfeditmodel.cpp:419
 msgid "Author"
 msgstr "Författare"
 
-#: pdfeditmodel.cpp:415
+#: pdfeditmodel.cpp:420
 msgid "Keyword"
 msgstr "Nyckelord"
 
-#: pdfeditmodel.cpp:416
+#: pdfeditmodel.cpp:421
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:422
 msgid "Creator"
 msgstr "Skapare"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:423
 msgid "Creation Date"
 msgstr "Skapad datum"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:424
 msgid "Modification Date"
 msgstr "Ändringsdatum"
 
@@ -191,7 +191,7 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "sida"
 
-#: qml/Dialogs/PdfFileDelegate.qml:62
+#: qml/Dialogs/PdfFileDelegate.qml:61
 #, fuzzy, kde-format
 #| msgid "%1 pages"
 msgid "%1 page"
@@ -199,22 +199,22 @@ msgid_plural "%1 pages"
 msgstr[0] "%1 sidor"
 msgstr[1] "%1 sidor"
 
-#: qml/Dialogs/PdfFileDelegate.qml:71
+#: qml/Dialogs/PdfFileDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
 msgstr "Lägg till alla sidor"
 
-#: qml/Dialogs/PdfFileDelegate.qml:79
+#: qml/Dialogs/PdfFileDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
 msgstr "Lägg till markerade sidor"
 
-#: qml/Dialogs/PdfFileDelegate.qml:88
+#: qml/Dialogs/PdfFileDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
 msgstr "Ta bort från lista"
 
-#: qml/Dialogs/PdfFileDelegate.qml:101
+#: qml/Dialogs/PdfFileDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
 msgstr "Markera sidor att lägga till"
@@ -226,59 +226,56 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "Lägg till och arrangera PDF-filer"
 
-#: qml/Dialogs/PdfFilesDialog.qml:46
-#, fuzzy, kde-format
-#| msgid "Total pages"
-msgctxt "@info"
-msgid "Total pages: %1"
-msgstr "Totalt antal sidor"
-
-#: qml/Dialogs/PdfFilesDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
-msgctxt "@action:button"
-msgid "Add PDF…"
-msgstr "Lägg till PDF-filer"
-
-#: qml/Dialogs/PdfFilesDialog.qml:67
-#, fuzzy, kde-format
-#| msgid "show PDF path"
-msgctxt "@option:check"
-msgid "Show PDF File Path"
-msgstr "Visa PDF-sökväg"
-
-#: qml/Dialogs/PdfFilesDialog.qml:153
+#: qml/Dialogs/PdfFilesDialog.qml:115
 #, fuzzy, kde-format
 #| msgid "Select one or more PDF files."
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Markera en eller flera PDF-filer."
 
-#: qml/Dialogs/PdfFilesDialog.qml:156
+#: qml/Dialogs/PdfFilesDialog.qml:118 qml/Dialogs/PdfFilesDialog.qml:138
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
 msgctxt "@action:button"
-msgid "Add PDF..."
+msgid "Add PDF"
 msgstr "Lägg till PDF-filer"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:133
+#, fuzzy, kde-format
+#| msgid "Total pages"
+msgctxt "@info"
+msgid "Total pages: %1"
+msgstr "Totalt antal sidor"
+
+#: qml/Dialogs/PdfFilesDialog.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Apply"
+msgstr ""
+
+#: qml/Dialogs/PdfFilesDialog.qml:149
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
 msgstr "PDF-egenskaper"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:53
+#: qml/Dialogs/PdfMetadataDialog.qml:54
 #, kde-format
 msgid "Output PDF"
 msgstr "Utdata-PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:129
+#: qml/Dialogs/PdfMetadataDialog.qml:131
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Kopiera alla metadatanycklar till utdatafilen"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:155
+#: qml/Dialogs/PdfMetadataDialog.qml:157
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Dubbelklicka för att kopiera metadata till PDF-utdatafilen."
@@ -329,9 +326,11 @@ msgid "Quit"
 msgstr "Avsluta"
 
 #: qml/MainPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As"
 msgstr "Spara som..."
 
 #: qml/MainPage.qml:33
@@ -592,6 +591,19 @@ msgstr "Om Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Om KDE"
+
+#, fuzzy
+#~| msgid "show PDF path"
+#~ msgctxt "@option:check"
+#~ msgid "Show PDF File Path"
+#~ msgstr "Visa PDF-sökväg"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Add PDF files"
+#~ msgctxt "@action:button"
+#~ msgid "Add PDF..."
+#~ msgstr "Lägg till PDF-filer"
 
 #~ msgid "add PDF files"
 #~ msgstr "lägg till PDF-filer"

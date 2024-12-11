@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:39+0000\n"
+"POT-Creation-Date: 2024-12-11 00:38+0000\n"
 "PO-Revision-Date: 2024-12-02 20:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "omats@vivaldi.net"
 
-#: app.cpp:56 pdfeditmodel.cpp:464
+#: app.cpp:56 pdfeditmodel.cpp:474
 #, kde-format
 msgid "PDF file to edit"
 msgstr "ملف بي دي اف للتحرير"
@@ -119,35 +119,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "الصائن"
 
-#: pdfeditmodel.cpp:412
+#: pdfeditmodel.cpp:417
 msgid "Title"
 msgstr "العنوان"
 
-#: pdfeditmodel.cpp:413
+#: pdfeditmodel.cpp:418
 msgid "Subject"
 msgstr "الموضوع"
 
-#: pdfeditmodel.cpp:414
+#: pdfeditmodel.cpp:419
 msgid "Author"
 msgstr "المؤلف"
 
-#: pdfeditmodel.cpp:415
+#: pdfeditmodel.cpp:420
 msgid "Keyword"
 msgstr "الكلمات المفتاحيّة"
 
-#: pdfeditmodel.cpp:416
+#: pdfeditmodel.cpp:421
 msgid "Producer"
 msgstr "المنتج"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:422
 msgid "Creator"
 msgstr "المُنشئ"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:423
 msgid "Creation Date"
 msgstr "تاريخ الإنشاء"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:424
 msgid "Modification Date"
 msgstr "تاريخ التعديل"
 
@@ -190,7 +190,7 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "صفحة"
 
-#: qml/Dialogs/PdfFileDelegate.qml:62
+#: qml/Dialogs/PdfFileDelegate.qml:61
 #, fuzzy, kde-format
 #| msgid "%1 pages"
 msgid "%1 page"
@@ -202,22 +202,22 @@ msgstr[3] "%1 صفحة"
 msgstr[4] "%1 صفحة"
 msgstr[5] "%1 صفحة"
 
-#: qml/Dialogs/PdfFileDelegate.qml:71
+#: qml/Dialogs/PdfFileDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
 msgstr "أضف جميع الصفحات"
 
-#: qml/Dialogs/PdfFileDelegate.qml:79
+#: qml/Dialogs/PdfFileDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
 msgstr "أضف الصفحات المحددة"
 
-#: qml/Dialogs/PdfFileDelegate.qml:88
+#: qml/Dialogs/PdfFileDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
 msgstr "احذف من القائمة"
 
-#: qml/Dialogs/PdfFileDelegate.qml:101
+#: qml/Dialogs/PdfFileDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
 msgstr "حدد صفحات للإضافة"
@@ -229,59 +229,56 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "أضف ورتّب ملفات بي دي اف"
 
-#: qml/Dialogs/PdfFilesDialog.qml:46
-#, fuzzy, kde-format
-#| msgid "Total pages"
-msgctxt "@info"
-msgid "Total pages: %1"
-msgstr "مجموع الصفحات"
-
-#: qml/Dialogs/PdfFilesDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
-msgctxt "@action:button"
-msgid "Add PDF…"
-msgstr "أضف ملفات بي دي اف"
-
-#: qml/Dialogs/PdfFilesDialog.qml:67
-#, fuzzy, kde-format
-#| msgid "show PDF path"
-msgctxt "@option:check"
-msgid "Show PDF File Path"
-msgstr "أظهر مسار بي دي اف"
-
-#: qml/Dialogs/PdfFilesDialog.qml:153
+#: qml/Dialogs/PdfFilesDialog.qml:115
 #, fuzzy, kde-format
 #| msgid "Select one or more PDF files."
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "حدد ملف بي دي اف واحدًا أو أكثر."
 
-#: qml/Dialogs/PdfFilesDialog.qml:156
+#: qml/Dialogs/PdfFilesDialog.qml:118 qml/Dialogs/PdfFilesDialog.qml:138
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
 msgctxt "@action:button"
-msgid "Add PDF..."
+msgid "Add PDF"
 msgstr "أضف ملفات بي دي اف"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:133
+#, fuzzy, kde-format
+#| msgid "Total pages"
+msgctxt "@info"
+msgid "Total pages: %1"
+msgstr "مجموع الصفحات"
+
+#: qml/Dialogs/PdfFilesDialog.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Apply"
+msgstr ""
+
+#: qml/Dialogs/PdfFilesDialog.qml:149
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
 msgstr "خصائص بي دي اف"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:53
+#: qml/Dialogs/PdfMetadataDialog.qml:54
 #, kde-format
 msgid "Output PDF"
 msgstr "مخرَج ملف بي دي اف"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:129
+#: qml/Dialogs/PdfMetadataDialog.qml:131
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "انسخ كافة مفاتيح البيانات الوصفية إلى ملف الإخراج"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:155
+#: qml/Dialogs/PdfMetadataDialog.qml:157
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "انقر نقرًا مزدوجًا لنسخ البيانات الوصفية إلى ملف بي دي اف الناتج."
@@ -332,9 +329,11 @@ msgid "Quit"
 msgstr "اخرج"
 
 #: qml/MainPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As"
 msgstr "احفظ كـ..."
 
 #: qml/MainPage.qml:33
@@ -599,6 +598,19 @@ msgstr "حول كارب"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "حول كيدي"
+
+#, fuzzy
+#~| msgid "show PDF path"
+#~ msgctxt "@option:check"
+#~ msgid "Show PDF File Path"
+#~ msgstr "أظهر مسار بي دي اف"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Add PDF files"
+#~ msgctxt "@action:button"
+#~ msgid "Add PDF..."
+#~ msgstr "أضف ملفات بي دي اف"
 
 #~ msgid "add PDF files"
 #~ msgstr "أضف ملفات بي دي اف"

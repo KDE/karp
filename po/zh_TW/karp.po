@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:39+0000\n"
+"POT-Creation-Date: 2024-12-11 00:38+0000\n"
 "PO-Revision-Date: 2024-11-26 21:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:464
+#: app.cpp:56 pdfeditmodel.cpp:474
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要編輯的 PDF 檔案"
@@ -118,35 +118,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "維護者"
 
-#: pdfeditmodel.cpp:412
+#: pdfeditmodel.cpp:417
 msgid "Title"
 msgstr "標題"
 
-#: pdfeditmodel.cpp:413
+#: pdfeditmodel.cpp:418
 msgid "Subject"
 msgstr "主旨"
 
-#: pdfeditmodel.cpp:414
+#: pdfeditmodel.cpp:419
 msgid "Author"
 msgstr "作者"
 
-#: pdfeditmodel.cpp:415
+#: pdfeditmodel.cpp:420
 msgid "Keyword"
 msgstr "關鍵字"
 
-#: pdfeditmodel.cpp:416
+#: pdfeditmodel.cpp:421
 msgid "Producer"
 msgstr "產生者"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:422
 msgid "Creator"
 msgstr "建立者"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:423
 msgid "Creation Date"
 msgstr "建立日期"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:424
 msgid "Modification Date"
 msgstr "修改日期"
 
@@ -189,29 +189,29 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "頁"
 
-#: qml/Dialogs/PdfFileDelegate.qml:62
+#: qml/Dialogs/PdfFileDelegate.qml:61
 #, fuzzy, kde-format
 #| msgid "%1 pages"
 msgid "%1 page"
 msgid_plural "%1 pages"
 msgstr[0] "%1 頁"
 
-#: qml/Dialogs/PdfFileDelegate.qml:71
+#: qml/Dialogs/PdfFileDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
 msgstr "加入所有頁面"
 
-#: qml/Dialogs/PdfFileDelegate.qml:79
+#: qml/Dialogs/PdfFileDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
 msgstr "加入所選頁面"
 
-#: qml/Dialogs/PdfFileDelegate.qml:88
+#: qml/Dialogs/PdfFileDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
 msgstr "從清單中移除"
 
-#: qml/Dialogs/PdfFileDelegate.qml:101
+#: qml/Dialogs/PdfFileDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
 msgstr "選擇要加入的頁面"
@@ -223,59 +223,56 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "加入並排列 PDF 檔案"
 
-#: qml/Dialogs/PdfFilesDialog.qml:46
-#, fuzzy, kde-format
-#| msgid "Total pages"
-msgctxt "@info"
-msgid "Total pages: %1"
-msgstr "總頁數"
-
-#: qml/Dialogs/PdfFilesDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
-msgctxt "@action:button"
-msgid "Add PDF…"
-msgstr "加入 PDF 檔案"
-
-#: qml/Dialogs/PdfFilesDialog.qml:67
-#, fuzzy, kde-format
-#| msgid "show PDF path"
-msgctxt "@option:check"
-msgid "Show PDF File Path"
-msgstr "顯示 PDF 路徑"
-
-#: qml/Dialogs/PdfFilesDialog.qml:153
+#: qml/Dialogs/PdfFilesDialog.qml:115
 #, fuzzy, kde-format
 #| msgid "Select one or more PDF files."
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "請選擇至少一個 PDF 檔案。"
 
-#: qml/Dialogs/PdfFilesDialog.qml:156
+#: qml/Dialogs/PdfFilesDialog.qml:118 qml/Dialogs/PdfFilesDialog.qml:138
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
 msgctxt "@action:button"
-msgid "Add PDF..."
+msgid "Add PDF"
 msgstr "加入 PDF 檔案"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:18
+#: qml/Dialogs/PdfFilesDialog.qml:133
+#, fuzzy, kde-format
+#| msgid "Total pages"
+msgctxt "@info"
+msgid "Total pages: %1"
+msgstr "總頁數"
+
+#: qml/Dialogs/PdfFilesDialog.qml:144
+#, kde-format
+msgctxt "@action:button"
+msgid "Apply"
+msgstr ""
+
+#: qml/Dialogs/PdfFilesDialog.qml:149
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
 msgstr "PDF 屬性"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:53
+#: qml/Dialogs/PdfMetadataDialog.qml:54
 #, kde-format
 msgid "Output PDF"
 msgstr "輸出 PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:129
+#: qml/Dialogs/PdfMetadataDialog.qml:131
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "將所有中繼資料複製到輸出檔"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:155
+#: qml/Dialogs/PdfMetadataDialog.qml:157
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "雙擊來複製中繼資料到輸出 PDF 檔案中。"
@@ -326,9 +323,11 @@ msgid "Quit"
 msgstr "離開"
 
 #: qml/MainPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As"
 msgstr "另存為…"
 
 #: qml/MainPage.qml:33
@@ -590,6 +589,19 @@ msgstr "關於 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "關於 KDE"
+
+#, fuzzy
+#~| msgid "show PDF path"
+#~ msgctxt "@option:check"
+#~ msgid "Show PDF File Path"
+#~ msgstr "顯示 PDF 路徑"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Add PDF files"
+#~ msgctxt "@action:button"
+#~ msgid "Add PDF..."
+#~ msgstr "加入 PDF 檔案"
 
 #~ msgid "add PDF files"
 #~ msgstr "加入 PDF 檔案"
