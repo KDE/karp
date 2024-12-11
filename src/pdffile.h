@@ -6,7 +6,6 @@
 #include "pagerange.h"
 #include <QPdfDocument>
 
-class QPdfDocument;
 class QPdfPageRenderer;
 class PdfPage;
 
