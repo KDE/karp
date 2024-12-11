@@ -86,5 +86,5 @@ private:
     bool m_pdfLoaded = false;
     QString m_name;
     QString m_path;
-    ToolsThread *m_tools;
+    ToolsThread *m_tools = nullptr;
 };
