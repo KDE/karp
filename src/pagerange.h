@@ -34,7 +34,11 @@ public:
      * @p from() @p to() pages.
      * When @p EveryNPage is set - @p step() is also used
      */
-    enum RangeType : quint8 { AllInRange = 0, EveryNPage, AllOutOfRange };
+    enum RangeType : quint8 {
+        AllInRange = 0,
+        EveryNPage,
+        AllOutOfRange
+    };
     Q_ENUM(RangeType)
 
     int from() const;
