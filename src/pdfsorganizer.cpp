@@ -69,7 +69,11 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfListModel::roleNames() const
 {
-    return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}, {RoleLocked, "locked"}, {RoleAllPages, "selectAll"}};
+    return {{RoleDirName, QByteArrayLiteral("path")},
+            {RoleFileName, QByteArrayLiteral("fileName")},
+            {RolePageCount, QByteArrayLiteral("pageCount")},
+            {RoleLocked, QByteArrayLiteral("locked")},
+            {RoleAllPages, QByteArrayLiteral("selectAll")}};
 }
 
 void PdfListModel::move(int fromId, int toId)
