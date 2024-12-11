@@ -119,7 +119,7 @@ QString App::name() const
     return m_name;
 }
 
-void App::setName(QString pdfName)
+void App::setName(const QString &pdfName)
 {
     if (pdfName == m_name)
         return;
@@ -132,7 +132,7 @@ QString App::path() const
     return m_path;
 }
 
-void App::setPath(QString pdfPath)
+void App::setPath(const QString &pdfPath)
 {
     if (pdfPath == m_path)
         return;

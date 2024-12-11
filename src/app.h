@@ -46,10 +46,10 @@ public:
     void setPdfLoaded(bool isLoaded);
 
     QString name() const;
-    void setName(QString pdfName);
+    void setName(const QString &pdfName);
 
     QString path() const;
-    void setPath(QString pdfPath);
+    void setPath(const QString &pdfPath);
 
     QString qpdfVersion() const;
     QString gsVersion() const;
