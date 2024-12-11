@@ -2,8 +2,8 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdffile.h"
+#include "karp_debug.h"
 #include "pdfpage.h"
-#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QPdfPageRenderer>
@@ -48,7 +48,7 @@ void PdfFile::requestPageSlot(int pageNumber, QSize imageSize, const QImage &img
     Q_UNUSED(imageSize);
     auto renderedPage = m_pagesToRender.takeFirst();
     if (pageNumber != renderedPage.pdfPage->origPage())
-        qDebug() << "[PdfFile]" << "Wrong page rendered! FIXME!";
+        qCDebug(KARP_LOG) << "[PdfFile]" << "Wrong page rendered! FIXME!";
     renderedPage.pdfPage->setImage(img);
     if (!m_pagesToRender.isEmpty()) {
         auto &pageToRender = m_pagesToRender.first();

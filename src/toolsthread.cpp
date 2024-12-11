@@ -2,12 +2,12 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "toolsthread.h"
+#include "karp_debug.h"
 #include "karpconfig.h"
 #include "pdfeditmodel.h"
 #include "pdffile.h"
 #include "qpdfproxy.h"
 #include "version-karp.h"
-#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QProcess>
@@ -52,7 +52,7 @@ void ToolsThread::resizeByGs(const QString &filePath, int pages)
 void ToolsThread::cancel()
 {
     if (!isRunning())
-        qDebug() << "[ToolsThread]" << "is not running";
+        qCDebug(KARP_LOG) << "[ToolsThread]" << "is not running";
     m_doCancel = true;
 }
 
@@ -115,7 +115,7 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
     p.close();
     QString gsPath;
     if (m_gsVersion.isEmpty()) {
-        qDebug() << "[ToolsThread]" << "Ghostscript not found";
+        qCDebug(KARP_LOG) << "[ToolsThread]" << "Ghostscript not found";
     } else {
 #if defined(Q_OS_UNIX)
         p.setProgram(u"whereis"_s);
@@ -200,11 +200,11 @@ bool ToolsThread::resizeByGsThread()
             QpdfProxy::addMetaToJob(qpdf, pdfModel->metaData());
             qpdfJob.writeQPDF(qpdf);
         } catch (QPDFUsage &e) {
-            qDebug() << "[ToolsThread]" << "QPDF configuration error: " << e.what();
+            qCDebug(KARP_LOG) << "[ToolsThread]" << "QPDF configuration error: " << e.what();
         } catch (std::exception &e) {
-            qDebug() << "[ToolsThread]" << "QPDF error:" << e.what();
+            qCDebug(KARP_LOG) << "[ToolsThread]" << "QPDF error:" << e.what();
         }
-        // qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
+        // qCDebug(KARP_LOG) << outFileSize / 1024 << outInfo.size() / 1024;
         if (outInfo.size() > outFileSize)
             Q_EMIT progressChanged(GS_REDUCE_NOT_WORKED);
         // override out file with new size, but delete existing file first

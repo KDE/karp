@@ -2,9 +2,9 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfsorganizer.h"
+#include "karp_debug.h"
 #include "pdfeditmodel.h"
 #include <KLocalizedString>
-#include <QDebug>
 #include <QFileDialog>
 #include <QPdfDocument>
 #include <QStandardPaths>
@@ -140,12 +140,12 @@ void PdfsOrganizer::setInitFiles(const QVariant &filesVar)
 void PdfsOrganizer::setEditModel(const QVariant &edMod)
 {
     if (m_editModel) {
-        qDebug() << "[PdfsOrganizer]" << "Edit model already set!";
+        qCDebug(KARP_LOG) << "[PdfsOrganizer]" << "Edit model already set!";
         return;
     }
     m_editModel = qvariant_cast<PdfEditModel *>(edMod);
     if (m_editModel == nullptr) {
-        qDebug() << "[PdfsOrganizer]" << "Wrong PDF Edit model! FIXME";
+        qCDebug(KARP_LOG) << "[PdfsOrganizer]" << "Wrong PDF Edit model! FIXME";
         return;
     }
     Q_EMIT editModelChanged();
@@ -212,7 +212,7 @@ void PdfsOrganizer::setPdfPassword(int fileId, const QString &pass)
         Q_EMIT totalPagesChanged();
         auto passFileId = m_passFiles.takeFirst();
         if (passFileId != fileId)
-            qDebug() << "[PdfsOrganizer]" << "Password Ids don't match. FIXME!" << fileId << passFileId;
+            qCDebug(KARP_LOG) << "[PdfsOrganizer]" << "Password Ids don't match. FIXME!" << fileId << passFileId;
         if (!m_passFiles.isEmpty()) {
             int nextFileId = m_passFiles.first();
             Q_EMIT passwordRequired(m_fileModel->getPdfFile(nextFileId)->name(), nextFileId);

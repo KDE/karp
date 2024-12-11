@@ -5,6 +5,9 @@ set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fexceptions")
 
 add_executable(karp)
 
+ecm_qt_declare_logging_category(karp HEADER karp_debug.h IDENTIFIER KARP_LOG
+	CATEGORY_NAME org.kde.karp DESCRIPTION "karp" EXPORT KARP)
+
 qt_add_qml_module(karp
     URI org.kde.karp
     VERSION 1.0

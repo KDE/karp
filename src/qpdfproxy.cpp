@@ -2,10 +2,10 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "qpdfproxy.h"
+#include "karp_debug.h"
 #include "pdfeditmodel.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
-#include <QDebug>
 #include <QDir>
 #include <QSet>
 #include <QStandardPaths>
@@ -140,10 +140,10 @@ void QpdfProxy::threadSlot()
         }
 
     } catch (QPDFUsage &e) {
-        qDebug() << "[QpdfProxy]" << "configuration error: " << e.what();
+        qCDebug(KARP_LOG) << "[QpdfProxy]" << "configuration error: " << e.what();
         return;
     } catch (std::exception &e) {
-        qDebug() << "[QpdfProxy]" << "other error: " << e.what();
+        qCDebug(KARP_LOG) << "[QpdfProxy]" << "other error: " << e.what();
         return;
     }
     if (QFile::exists(tempOut)) {

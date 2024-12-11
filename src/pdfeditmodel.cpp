@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfeditmodel.h"
+#include "karp_debug.h"
 #include "karpconfig.h"
 #include "pagerange.h"
 #include "pdffile.h"
@@ -9,7 +10,6 @@
 #include "qpdfproxy.h"
 #include "toolsthread.h"
 #include <KLazyLocalizedString>
-#include <QDebug>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QPdfDocument>
@@ -55,7 +55,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
 {
     auto newPdf = new PdfFile(pdfFile, pdfCount());
     if (!(newPdf->error() == QPdfDocument::Error::None || newPdf->error() == QPdfDocument::Error::IncorrectPassword)) {
-        qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile << newPdf->error();
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile << newPdf->error();
         newPdf->deleteLater();
         return;
     }
@@ -332,7 +332,7 @@ void PdfEditModel::deletePages(const PageRange &range)
     if (rangeIsInvalid(range))
         return;
 
-    // qDebug() << range.from() << range.to() << range.type() << range.n();
+    // qCDebug(KARP_LOG) << range.from() << range.to() << range.type() << range.n();
     int from, to;
     int step = range.everyN() ? range.n() : 1;
     beginResetModel();
@@ -398,7 +398,7 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     if (targetPage < 0)
         targetNr--;
     if (targetNr < 0) {
-        qDebug() << "PdfEditModel" << "Wrong target page:" << targetNr << "FIXME!";
+        qCDebug(KARP_LOG) << "PdfEditModel" << "Wrong target page:" << targetNr << "FIXME!";
         return;
     }
     // 2. Insert selected pages after or before target page
@@ -471,7 +471,7 @@ void PdfEditModel::generate()
         QFileInfo inInfo(pdf->filePath());
         m_outFile = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
         if (m_outFile.isEmpty()) {
-            qDebug() << "[PdfEditModel]" << "Output file not provided!";
+            qCDebug(KARP_LOG) << "[PdfEditModel]" << "Output file not provided!";
             setProgress(1.0);
             Q_EMIT pdfGenerated();
             return;
@@ -555,7 +555,7 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     pdf->setPassword(pass);
     pdf->setFile(pdf->filePath());
     if (pdf->error() != QPdfDocument::Error::None) {
-        qDebug() << "[PdfEditModel] Wrong password!" << pdf->error();
+        qCDebug(KARP_LOG) << "[PdfEditModel] Wrong password!" << pdf->error();
         m_pdfList.remove(fileId);
         pdf->deleteLater();
     } else {
@@ -733,7 +733,7 @@ void PdfEditModel::toolProgressSlot(qreal prog)
 bool PdfEditModel::rangeIsInvalid(const PageRange &range)
 {
     if (range.from() < 1 || range.from() > m_pages || range.to() < 1 || range.to() > m_pages) {
-        qDebug() << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n();
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n();
         return true;
     }
     return false;

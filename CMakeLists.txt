@@ -28,6 +28,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMSetupVersion)
 include(ECMFindQmlModule)
 include(ECMDeprecationSettings)
+include(ECMQtDeclareLoggingCategory)
 if (NOT ANDROID)
     include(KDEGitCommitHooks)
     include(KDEClangFormat)
@@ -76,6 +77,12 @@ install(FILES org.kde.karp.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.karp.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES org.kde.karp.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 ki18n_install(po)
+
+ecm_qt_install_logging_categories(
+	EXPORT KARP
+    FILE karp.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
