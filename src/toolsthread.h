@@ -11,7 +11,7 @@ class ToolsThread : public QThread
 
 public:
     explicit ToolsThread();
-    ~ToolsThread();
+    ~ToolsThread() override;
 
     static ToolsThread *self()
     {

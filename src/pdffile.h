@@ -30,7 +30,7 @@ public:
     };
 
     PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s = PdfNotAdded);
-    ~PdfFile();
+    ~PdfFile() override;
 
     void setFile(const QString &fileName);
 
