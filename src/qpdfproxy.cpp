@@ -212,3 +212,5 @@ std::string QpdfProxy::getPagesForRotation(int angle, const QVector<quint16> &pa
     }
     return pRange;
 }
+
+#include "moc_qpdfproxy.cpp"

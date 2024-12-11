@@ -62,3 +62,5 @@ bool PageRange::allOutOfRange() const
 {
     return m_type == AllOutOfRange;
 }
+
+#include "moc_pagerange.cpp"

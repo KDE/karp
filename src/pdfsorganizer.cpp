@@ -241,3 +241,5 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
     }
     Q_EMIT totalPagesChanged();
 }
+
+#include "moc_pdfsorganizer.cpp"

@@ -129,3 +129,5 @@ void PagesRenderer::pageReadySlot(int pageNr)
         renderer->render(nextPage.first, nextPage.second);
     }
 }
+
+#include "moc_pagesrenderer.cpp"

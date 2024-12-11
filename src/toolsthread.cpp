@@ -218,3 +218,5 @@ bool ToolsThread::resizeByGsThread()
 
     return true;
 }
+
+#include "moc_toolsthread.cpp"

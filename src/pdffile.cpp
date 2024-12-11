@@ -56,3 +56,5 @@ void PdfFile::requestPageSlot(int pageNumber, QSize imageSize, const QImage &img
     }
     Q_EMIT pageRendered(renderedPage.pageId, renderedPage.pdfPage);
 }
+
+#include "moc_pdffile.cpp"
