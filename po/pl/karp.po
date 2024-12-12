@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:38+0000\n"
+"POT-Creation-Date: 2024-12-12 00:39+0000\n"
 "PO-Revision-Date: 2024-12-08 12:20+0100\n"
 "Last-Translator: Tomasz Bojczuk <seelook@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -29,27 +29,27 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "seelook@gmail.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:474
+#: app.cpp:55 pdfeditmodel.cpp:472
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Plik PDF do edycji"
 
-#: app.cpp:86 pdfsorganizer.cpp:178
+#: app.cpp:85 pdfsorganizer.cpp:182
 #, kde-format
 msgid "Select PDF files"
 msgstr "Wybierz pliki PDF"
 
-#: app.cpp:171
+#: app.cpp:170
 #, kde-format
 msgid "QPDF is missing."
 msgstr "Nie znaleziono QPDF."
 
-#: app.cpp:175
+#: app.cpp:174
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Nie znaleziono Ghostscript."
 
-#: app.cpp:178
+#: app.cpp:177
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -58,99 +58,99 @@ msgstr ""
 "Zainstaluj wyżej wymienione programy, bo bez nich nie wszystkie funkcje będą "
 "dostępne."
 
-#: app.cpp:200
+#: app.cpp:199
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Dodaj pliki PDF"
 
-#: app.cpp:210
+#: app.cpp:209
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Wyczyść wszystkie pliki"
 
-#: app.cpp:224
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optymizuj PDF"
 
-#: app.cpp:233
+#: app.cpp:232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Zmniejsz rozmiar"
 
-#: app.cpp:242
+#: app.cpp:241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Ustaw hasło"
 
-#: app.cpp:251
+#: app.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Metadane PDF"
 
-#: main.cpp:74
+#: main.cpp:95
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:78
+#: main.cpp:99
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "Aranżer PDF-ów dla KDE"
 
-#: main.cpp:82
+#: main.cpp:103
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "© Tomasz Bojczuk, 2024"
 
-#: main.cpp:83
+#: main.cpp:104
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:84
+#: main.cpp:105
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Opiekun"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:415
 msgid "Title"
 msgstr "Tytuł"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:416
 msgid "Subject"
 msgstr "Temat"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:417
 msgid "Author"
 msgstr "Autor"
 
-#: pdfeditmodel.cpp:420
+#: pdfeditmodel.cpp:418
 msgid "Keyword"
 msgstr "Kluczowe słowa"
 
-#: pdfeditmodel.cpp:421
+#: pdfeditmodel.cpp:419
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:422
+#: pdfeditmodel.cpp:420
 msgid "Creator"
 msgstr "Utworzone w"
 
-#: pdfeditmodel.cpp:423
+#: pdfeditmodel.cpp:421
 msgid "Creation Date"
 msgstr "Data utworzenia"
 
-#: pdfeditmodel.cpp:424
+#: pdfeditmodel.cpp:422
 msgid "Modification Date"
 msgstr "Data modyfikacji"
 
@@ -228,13 +228,13 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "Dodaj i ułóż pliki PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:115
+#: qml/Dialogs/PdfFilesDialog.qml:116
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Wybierz jeden lub kilka plików PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:118 qml/Dialogs/PdfFilesDialog.qml:138
+#: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add PDF…"
@@ -242,19 +242,19 @@ msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "Dodaj PDF…"
 
-#: qml/Dialogs/PdfFilesDialog.qml:133
+#: qml/Dialogs/PdfFilesDialog.qml:134
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Wszystkich stron: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:144
+#: qml/Dialogs/PdfFilesDialog.qml:145
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:149
+#: qml/Dialogs/PdfFilesDialog.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -265,17 +265,17 @@ msgstr ""
 msgid "PDF properties"
 msgstr "Parametry PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:54
+#: qml/Dialogs/PdfMetadataDialog.qml:55
 #, kde-format
 msgid "Output PDF"
 msgstr "Docelowy PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:131
+#: qml/Dialogs/PdfMetadataDialog.qml:132
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Skopiuj wszystkie klucze metadanych do pliku wyjściowego"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:157
+#: qml/Dialogs/PdfMetadataDialog.qml:158
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr ""
@@ -371,12 +371,12 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Wersja %1"
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:289
 #, kde-format
 msgid "Set password"
 msgstr "Ustaw hasło"
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:289
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Chroń plik PDF hasłem."

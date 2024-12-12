@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:38+0000\n"
+"POT-Creation-Date: 2024-12-12 00:39+0000\n"
 "PO-Revision-Date: 2024-11-26 21:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -27,126 +27,126 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:474
+#: app.cpp:55 pdfeditmodel.cpp:472
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要編輯的 PDF 檔案"
 
-#: app.cpp:86 pdfsorganizer.cpp:178
+#: app.cpp:85 pdfsorganizer.cpp:182
 #, kde-format
 msgid "Select PDF files"
 msgstr "選擇 PDF 檔案"
 
-#: app.cpp:171
+#: app.cpp:170
 #, kde-format
 msgid "QPDF is missing."
 msgstr "缺乏 QPDF。"
 
-#: app.cpp:175
+#: app.cpp:174
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "缺乏 Ghostscript。"
 
-#: app.cpp:178
+#: app.cpp:177
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "請安裝以上提到的程式，否則某些功能會無法使用。"
 
-#: app.cpp:200
+#: app.cpp:199
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "加入 PDF 檔案"
 
-#: app.cpp:210
+#: app.cpp:209
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "清除所有檔案"
 
-#: app.cpp:224
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "最佳化 PDF"
 
-#: app.cpp:233
+#: app.cpp:232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "降低大小"
 
-#: app.cpp:242
+#: app.cpp:241
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "設定密碼"
 
-#: app.cpp:251
+#: app.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "PDF 中繼資料"
 
-#: main.cpp:74
+#: main.cpp:95
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:78
+#: main.cpp:99
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDE 的 PDF 排列工具"
 
-#: main.cpp:82
+#: main.cpp:103
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:83
+#: main.cpp:104
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:84
+#: main.cpp:105
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "維護者"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:415
 msgid "Title"
 msgstr "標題"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:416
 msgid "Subject"
 msgstr "主旨"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:417
 msgid "Author"
 msgstr "作者"
 
-#: pdfeditmodel.cpp:420
+#: pdfeditmodel.cpp:418
 msgid "Keyword"
 msgstr "關鍵字"
 
-#: pdfeditmodel.cpp:421
+#: pdfeditmodel.cpp:419
 msgid "Producer"
 msgstr "產生者"
 
-#: pdfeditmodel.cpp:422
+#: pdfeditmodel.cpp:420
 msgid "Creator"
 msgstr "建立者"
 
-#: pdfeditmodel.cpp:423
+#: pdfeditmodel.cpp:421
 msgid "Creation Date"
 msgstr "建立日期"
 
-#: pdfeditmodel.cpp:424
+#: pdfeditmodel.cpp:422
 msgid "Modification Date"
 msgstr "修改日期"
 
@@ -223,14 +223,14 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "加入並排列 PDF 檔案"
 
-#: qml/Dialogs/PdfFilesDialog.qml:115
+#: qml/Dialogs/PdfFilesDialog.qml:116
 #, fuzzy, kde-format
 #| msgid "Select one or more PDF files."
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "請選擇至少一個 PDF 檔案。"
 
-#: qml/Dialogs/PdfFilesDialog.qml:118 qml/Dialogs/PdfFilesDialog.qml:138
+#: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -238,20 +238,20 @@ msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "加入 PDF 檔案"
 
-#: qml/Dialogs/PdfFilesDialog.qml:133
+#: qml/Dialogs/PdfFilesDialog.qml:134
 #, fuzzy, kde-format
 #| msgid "Total pages"
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "總頁數"
 
-#: qml/Dialogs/PdfFilesDialog.qml:144
+#: qml/Dialogs/PdfFilesDialog.qml:145
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:149
+#: qml/Dialogs/PdfFilesDialog.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -262,17 +262,17 @@ msgstr ""
 msgid "PDF properties"
 msgstr "PDF 屬性"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:54
+#: qml/Dialogs/PdfMetadataDialog.qml:55
 #, kde-format
 msgid "Output PDF"
 msgstr "輸出 PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:131
+#: qml/Dialogs/PdfMetadataDialog.qml:132
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "將所有中繼資料複製到輸出檔"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:157
+#: qml/Dialogs/PdfMetadataDialog.qml:158
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "雙擊來複製中繼資料到輸出 PDF 檔案中。"
@@ -369,12 +369,12 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr ""
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:289
 #, kde-format
 msgid "Set password"
 msgstr "設定密碼"
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:289
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "用密碼來保護 PDF 檔。"
