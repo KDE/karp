@@ -246,5 +246,5 @@
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">org.kde.karp.desktop</launchable>
-  <url type="homepage">https://invent.kde.org/tomaszbojczuk/karp</url>
+  <url type="homepage">https://invent.kde.org/graphics/karp</url>
 </component>
