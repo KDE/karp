@@ -120,7 +120,7 @@ QVariantList PdfMetaData::model() const
 
 void PdfMetaData::setData(const QVariantList &mData)
 {
-    int dataCount = qMin(PDF_METADATA_TAGS_COUNT, mData.size());
+    const int dataCount = qMin(PDF_METADATA_TAGS_COUNT, mData.size());
     if (dataCount > 0)
         m_title = mData[0].toString();
     if (dataCount > 1)
@@ -184,7 +184,7 @@ QByteArrayList PdfMetaData::tags()
 
 QByteArray PdfMetaData::tag(QPdfDocument::MetaDataField tagId)
 {
-    int id = static_cast<int>(tagId);
+    const int id = static_cast<int>(tagId);
     if (id < 0 || id >= PDF_METADATA_TAGS_COUNT)
         return QByteArray();
     return m_tags[id];
