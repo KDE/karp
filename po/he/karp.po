@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-12 00:39+0000\n"
-"PO-Revision-Date: 2024-12-09 08:00+0200\n"
+"PO-Revision-Date: 2024-12-11 09:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -232,12 +232,10 @@ msgid "Add one or more PDF file to proceed"
 msgstr "נא להוסיף קובץ PDF אחד או יותר כדי להמשיך"
 
 #: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "הוספת PDF…"
+msgstr "הוספת PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:134
 #, kde-format
@@ -249,13 +247,13 @@ msgstr "סך כל העמודים: %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "החלה"
 
 #: qml/Dialogs/PdfFilesDialog.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
@@ -323,12 +321,10 @@ msgid "Quit"
 msgstr "יציאה"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "שמירה בשם…"
+msgstr "שמירה בשם"
 
 #: qml/MainPage.qml:33
 #, kde-format
