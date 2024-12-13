@@ -5,45 +5,35 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
 
-Item {
+Rectangle {
     id: editDelg
     anchors.fill: parent
 
-    visible: current
+    property int pageNr: pdfView.currentItem ? pdfView.currentIndex : 0
 
-    /**
-     * Calculates page number from given @p mouse position
-     */
-    function pageAtMouse(mouse) : void {
-        var pos = dragButt.mapToItem(pdfView.contentItem, mouse.x, mouse.y)
-        var cellPos = pdfView.cellAtPosition(pos.x, pos.y, true)
-        return cellPos.y * pdfView.columns + cellPos.x
+    visible: pdfView.currentItem !== null
+    parent: pdfView.currentItem ? pdfView.currentItem.pdfPage : null
+    color: APP.alpha(Kirigami.Theme.highlightColor, dragHandler.active ? 32 : 0)
+    border {
+        width: pdfView.currentIndex === pageNr ? 5 : 0
+        color: Kirigami.Theme.highlightColor
     }
+    z: 2
 
     QQC2.Button {
         id: dragButt
         z: 1
         anchors.centerIn: parent
         icon.name: "transform-move"
-        MouseArea {
-            anchors.fill: parent
-            drag.target: img
-            drag.axis: Drag.XAndYAxis
-            onPressed: img.opacity = 0.3
-            onPositionChanged: (mouse) => {
-                var targetPage = pageAtMouse(mouse)
-                pdfView.dragTargetPage = targetPage === pageNr ? -1 : targetPage
-            }
-            onReleased: (mouse) => {
-                img.enableAnimation = true
-                img.x = (editDelg.width - img.width) / 2
-                img.y = (editDelg.height - img.height) / 2
-                img.opacity = 1
-                pdfView.dragTargetPage = -1
-                var targetPage = pageAtMouse(mouse)
-                if (targetPage !== pageNr)
-                    movePage(pageNr, targetPage)
+        DragHandler {
+            id: dragHandler
+            target: editDelg.parent
+            cursorShape: Qt.DragMoveCursor
+            onActiveChanged: {
+                if (pdfView.currentItem)
+                    pdfView.currentItem.pdfPage.dragActive = active
             }
         }
     }
@@ -58,29 +48,29 @@ Item {
         z: 1
         anchors { top: parent.top; left: parent.left }
         icon.name: "object-rotate-left"
-        onClicked: pdfModel.rotatePage(pageNr, img.rotation > -270 ? img.rotation - 90 : 0)
+        onClicked: pdfModel.rotatePage(pageNr, pdfView.currentItem.img.rotation > -270 ? pdfView.currentItem.img.rotation - 90 : 0)
     }
     QQC2.Button {
         z: 1
         anchors { top: parent.top; right: parent.right }
         icon.name: "object-rotate-right"
-        onClicked: pdfModel.rotatePage(pageNr, img.rotation < 270 ? img.rotation + 90 : 0)
+        onClicked: pdfModel.rotatePage(pageNr, pdfView.currentItem.img.rotation < 270 ? pdfView.currentItem.img.rotation + 90 : 0)
     }
     // move at upper row
     QQC2.Button {
-        visible: pageNr > pdfView.columns
+        visible: pageNr >= pdfModel.columns
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
         icon.name: "arrow-up"
-        onClicked: movePage(pageNr, pageNr - pdfView.columns - 1)
+        onClicked: movePage(pageNr, pageNr - pdfModel.columns)
     }
     // move at lower row
     QQC2.Button {
-        visible: pageNr < pdfModel.pageCount - pdfView.columns
+        visible: pageNr < pdfModel.pageCount - pdfModel.columns
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
         icon.name: "arrow-down"
-        onClicked: movePage(pageNr, pageNr + pdfView.columns)
+        onClicked: movePage(pageNr, pageNr + pdfModel.columns)
     }
     // move at next column
     QQC2.Button {
@@ -97,22 +87,5 @@ Item {
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
         icon.name: "arrow-left"
         onClicked: movePage(pageNr, pageNr - 1)
-    }
-
-    /**
-     * This Mouse gives possibility to clear current index and hide EditDelegate
-     * When current index is cleared, it changes parent to delegate item directly
-     * to be clickable and allow revert current index on this cell
-     */
-    MouseArea {
-        id: ma
-        anchors.fill: parent
-        onClicked: {
-            if (current)
-                pdfView.selectionModel.clearCurrentIndex()
-            else
-                pdfView.selectionModel.setCurrentIndex(pdfView.index(pageNr / pdfView.columns, pageNr % pdfView.columns), ItemSelectionModel.Current)
-            ma.parent = current ? editDelg : editDelg.parent
-        }
     }
 }

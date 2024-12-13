@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import QtQuick.Layouts
 import org.kde.karp
 import org.kde.karp.config
 
@@ -128,90 +129,21 @@ Kirigami.Page {
     PdfEditModel {
         id: pdfModel
         viewWidth: pdfView.width
-        spacing: pdfView.columnSpacing
+        spacing: Kirigami.Units.largeSpacing
     }
 
-    contentItem: QQC2.ScrollView {
+    contentItem: PdfView {
+        id: pdfView
 
-        TableView {
-            id: pdfView
+        width: mainWin.contentItem.width
+        height: mainWin.contentItem.height
 
-            clip: true
-            visible: pdfModel.pageCount
-            columnSpacing: Kirigami.Units.largeSpacing
-            rowSpacing: Kirigami.Units.largeSpacing
-            model: pdfModel
-            editTriggers: TableView.SingleTapped | TableView.AnyKeyPressed
+        cellWidth: pdfModel.maxPageWidth + pdfModel.spacing
+        cellHeight: pdfModel.maxPageHeight + pdfModel.spacing
 
-            leftMargin: Kirigami.Units.largeSpacing
-            rightMargin: Kirigami.Units.largeSpacing
-            topMargin: Kirigami.Units.largeSpacing
-            bottomMargin: Kirigami.Units.largeSpacing + bottomBar.height
+        visible: pdfModel.pageCount
 
-            property int dragTargetPage: -1
-
-            selectionModel: ItemSelectionModel { id: selModel }
-
-            delegate: Rectangle {
-                id: delegateRect
-                required property int pageNr
-                required property int fileId
-                required property int origPage
-                required property real pageRatio
-                required property var pageImg
-                required property int rotated
-                // required property bool selected // TODO - multiple selection
-                required property bool current
-                visible: pageNr < pdfModel.pageCount
-                implicitWidth: pdfModel.maxPageWidth; implicitHeight: pdfModel.maxPageWidth * pageRatio
-                color: "transparent"
-                border {
-                    width: current ? 5 : 0
-                    color: Kirigami.Theme.highlightColor
-                }
-                PdfPageItem {
-                    id: img
-                    property bool enableAnimation: false
-                    z: -1
-                    x: (parent.width - width) / 2
-                    y: (parent.height - height) / 2
-                    image: pageImg
-                    scale: parent.width / (rotated === 90 || rotated === 270 ? height : width)
-                    Behavior on x { enabled: img.enableAnimation; NumberAnimation {} }
-                    Behavior on y { enabled: img.enableAnimation; NumberAnimation {} }
-                    rotation: rotated
-                }
-                Rectangle {
-                    visible: bottomBar.labelsVisible
-                    anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
-                    height: Kirigami.Units.gridUnit * 2
-                    width: height * 3
-                    color: pdfModel.labelColor(fileId)
-                    Text {
-                        x: Kirigami.Units.smallSpacing
-                        width: parent.width - x * 2; height: parent.height
-                        horizontalAlignment: Text.AlignRight
-                        verticalAlignment: Text.AlignVCenter
-                        color: "#fff"
-                        fontSizeMode: Text.Fit
-                        minimumPixelSize: 6
-                        font { pixelSize: parent.height * 0.8; bold: true }
-                        text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + (pdfModel.pdfCount > 1 ? "/" + (fileId + 1) : "") + ")</font>"
-                    }
-                }
-                TableView.editDelegate: EditDelegate {}
-                Loader {
-                    active: pdfView.dragTargetPage === pageNr
-                    z: 5
-                    sourceComponent: Rectangle {
-                        x: delegateRect.width * 0.9 + Kirigami.Units.smallSpacing
-                        y: delegateRect.height * 0.05
-                        width: delegateRect.width * 0.1; height: delegateRect.height * 0.9
-                        color: Kirigami.Theme.highlightColor
-                    }
-                }
-            } // delegate
-        } // ListView
+        pdfModel: pdfModel
     }
 
     MainToolbar {
@@ -226,14 +158,6 @@ Kirigami.Page {
             bottom: parent.bottom
             margins: Kirigami.Units.largeSpacing
             horizontalCenter: parent.horizontalCenter
-        }
-    }
-
-    function movePage(from: int, to: int) : void {
-        var pageNr = pdfModel.movePage(from, to)
-        if (pageNr > -1) {
-            selModel.setCurrentIndex(pdfView.index(pageNr / pdfView.columns, pageNr % pdfView.columns), ItemSelectionModel.Current)
-            pdfView.edit(selModel.currentIndex)
         }
     }
 
@@ -269,7 +193,7 @@ Kirigami.Page {
                 console.error(fileDlgComp.errorString());
                 return;
             }
-            pdfView.selectionModel.clearCurrentIndex()
+            // pdfView.selectionModel.clearCurrentIndex()
             // Workaround to avoid stilling drag by pdfView during PDF reorder
             contentItem.enabled = false
             let fileDlgObj = fileDlgComp.createObject(page, { pdfEdit: pdfModel })

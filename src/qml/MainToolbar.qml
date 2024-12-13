@@ -26,7 +26,7 @@ Components.FloatingToolBar {
             }
 
             onClicked: {
-                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                let pageNr = pdfView.currentIndex > -1 ? pdfView.currentIndex + 1 : 1
                 delDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
             }
 
@@ -40,7 +40,7 @@ Components.FloatingToolBar {
             text: i18nc("@action:intoolbar", "Select pages to rotate")
             display: QQC2.ToolButton.IconOnly
             onClicked: {
-                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                let pageNr = pdfView.currentIndex > -1 ? pdfView.currentIndex + 1 : 1
                 rotDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
             }
 
@@ -54,7 +54,7 @@ Components.FloatingToolBar {
             display: QQC2.ToolButton.IconOnly
             icon.name: "transform-move"
             onClicked: {
-                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
+                let pageNr = pdfView.currentIndex > -1 ? pdfView.currentIndex + 1 : 1
                 mvDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
             }
 
@@ -93,7 +93,7 @@ Components.FloatingToolBar {
             text: i18nc("@action:intoolbar", "Zoom In")
             icon.name: "zoom-in"
             onClicked: pdfModel.zoomIn()
-            enabled: pdfView.columns > 1
+            enabled: pdfModel.columns > 1
             display: QQC2.ToolButton.IconOnly
 
             QQC2.ToolTip.text: text
@@ -107,9 +107,9 @@ Components.FloatingToolBar {
             textFromValue: function(value) {
                 return i18n("Page %1 of %2", value, to)
             }
-            onValueModified: pdfView.positionViewAtRow((value - 1) / pdfView.columns, TableView.AlignTop)
+            onValueModified: pdfView.positionViewAtIndex(value - 1, GridView.Center)
             Binding {
-                pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
+                pageSpin.value: pdfView.indexAt(10, pdfView.contentY)
                 delayed: true
             }
         }

@@ -22,6 +22,7 @@ qt_add_qml_module(karp
         qml/MainPage.qml
         qml/MainToolbar.qml
         qml/EditDelegate.qml
+        qml/PdfView.qml
 
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/MovePagesDialog.qml
