@@ -228,12 +228,10 @@ msgid "Add one or more PDF file to proceed"
 msgstr "添加一个或以上 PDF 文件以继续"
 
 #: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "添加 PDF…"
+msgstr "添加 PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:134
 #, kde-format
@@ -245,13 +243,13 @@ msgstr "总页数：%1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "应用"
 
 #: qml/Dialogs/PdfFilesDialog.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
@@ -319,12 +317,10 @@ msgid "Quit"
 msgstr "退出"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "另存为..."
+msgstr "另存为"
 
 #: qml/MainPage.qml:33
 #, kde-format
@@ -573,11 +569,3 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#~ msgctxt "@option:check"
-#~ msgid "Show PDF File Path"
-#~ msgstr "显示 PDF 文件路径"
-
-#~ msgctxt "@action:button"
-#~ msgid "Add PDF..."
-#~ msgstr "添加 PDF..."

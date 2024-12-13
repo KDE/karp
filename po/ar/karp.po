@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-12 00:39+0000\n"
-"PO-Revision-Date: 2024-12-02 20:24+0400\n"
+"PO-Revision-Date: 2024-12-12 07:39+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -191,14 +191,13 @@ msgid "page"
 msgstr "صفحة"
 
 #: qml/Dialogs/PdfFileDelegate.qml:61
-#, fuzzy, kde-format
-#| msgid "%1 pages"
+#, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] "%1 صفحة"
-msgstr[1] "%1 صفحة"
-msgstr[2] "%1 صفحة"
-msgstr[3] "%1 صفحة"
+msgstr[0] "لا يوجد أي صفحة"
+msgstr[1] "صفحة واحدة"
+msgstr[2] "صفحتين"
+msgstr[3] "%1 صفحات"
 msgstr[4] "%1 صفحة"
 msgstr[5] "%1 صفحة"
 
@@ -223,45 +222,40 @@ msgid "Select pages to add"
 msgstr "حدد صفحات للإضافة"
 
 #: qml/Dialogs/PdfFilesDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Add and arrange PDF files"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "أضف ورتّب ملفات بي دي اف"
 
 #: qml/Dialogs/PdfFilesDialog.qml:116
-#, fuzzy, kde-format
-#| msgid "Select one or more PDF files."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr "حدد ملف بي دي اف واحدًا أو أكثر."
+msgstr "أضف ملف بي دي اف واحدًا أو أكثر."
 
 #: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "أضف ملفات بي دي اف"
+msgstr "أضف بي دي اف"
 
 #: qml/Dialogs/PdfFilesDialog.qml:134
-#, fuzzy, kde-format
-#| msgid "Total pages"
+#, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr "مجموع الصفحات"
+msgstr "مجموع الصفحات: %1"
 
 #: qml/Dialogs/PdfFilesDialog.qml:145
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "طبّق"
 
 #: qml/Dialogs/PdfFilesDialog.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "ألغِ"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
@@ -329,12 +323,10 @@ msgid "Quit"
 msgstr "اخرج"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "احفظ كـ..."
+msgstr "احفظ باسم"
 
 #: qml/MainPage.qml:33
 #, kde-format
@@ -359,17 +351,13 @@ msgid "PDF Options"
 msgstr "خيارات بي دي اف"
 
 #: qml/MainPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set PDF version"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr "عيّن نسخة بي دي اف"
+msgstr "نسخة بي دي اف"
 
 #: qml/MainPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "المبدئيّ"
@@ -378,7 +366,7 @@ msgstr "المبدئيّ"
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "الإصدار %1"
 
 #: qml/MainPage.qml:289
 #, kde-format
@@ -391,43 +379,37 @@ msgid "Protect PDF file with password."
 msgstr "احم ملف بي دي اف بكلمة مرور."
 
 #: qml/MainToolbar.qml:21
-#, fuzzy, kde-format
-#| msgid "Select pages to delete"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "حدد صفحات للحذف"
 
 #: qml/MainToolbar.qml:40
-#, fuzzy, kde-format
-#| msgid "Select pages to rotate"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "حدد صفحات للتدوير"
 
 #: qml/MainToolbar.qml:53
-#, fuzzy, kde-format
-#| msgid "Select pages to move"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "حدد صفحات للنقل"
 
 #: qml/MainToolbar.qml:69
-#, fuzzy, kde-format
-#| msgid "Show page labels"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "أظهر تسميات الصفحة"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgid "Zoom Out"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "صغّر"
 
 #: qml/MainToolbar.qml:93
-#, fuzzy, kde-format
-#| msgid "Zoom In"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "كبّر"

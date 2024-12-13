@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-12 00:39+0000\n"
-"PO-Revision-Date: 2024-12-09 18:33+0100\n"
+"PO-Revision-Date: 2024-12-12 19:27+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -234,12 +234,10 @@ msgid "Add one or more PDF file to proceed"
 msgstr "Gehitu PDF fitxategi bat edo gehiago jarraitzeko"
 
 #: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "Gehitu PDF..."
+msgstr "Gehitu PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:134
 #, kde-format
@@ -251,13 +249,13 @@ msgstr "Orrialde guztira: %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Aplikatu"
 
 #: qml/Dialogs/PdfFilesDialog.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
@@ -325,12 +323,10 @@ msgid "Quit"
 msgstr "Irten"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "Gorde honela..."
+msgstr "Gorde honela"
 
 #: qml/MainPage.qml:33
 #, kde-format

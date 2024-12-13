@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-12 00:39+0000\n"
-"PO-Revision-Date: 2024-12-09 12:37+0100\n"
+"PO-Revision-Date: 2024-12-11 11:14+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -231,12 +231,10 @@ msgid "Add one or more PDF file to proceed"
 msgstr "Voeg een of meer PDF-bestanden toe en ga door"
 
 #: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "Voeg toe PDF…"
+msgstr "Voeg toe PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:134
 #, kde-format
@@ -248,13 +246,13 @@ msgstr "Totaal aantal pagina's: %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Toepassen"
 
 #: qml/Dialogs/PdfFilesDialog.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
@@ -322,12 +320,10 @@ msgid "Quit"
 msgstr "Afsluiten"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "Opslaan als..."
+msgstr "Opslaan als"
 
 #: qml/MainPage.qml:33
 #, kde-format
