@@ -615,12 +615,12 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{RoleImage, "pageImg"},
-            {RoleRotated, "rotated"},
-            {RoleOrigNr, "origPage"},
-            {RolePageNr, "pageNr"},
-            {RolePageRatio, "pageRatio"},
-            {RoleFileId, "fileId"}};
+    return {{RoleImage, QByteArrayLiteral("pageImg")},
+            {RoleRotated, QByteArrayLiteral("rotated")},
+            {RoleOrigNr, QByteArrayLiteral("origPage")},
+            {RolePageNr, QByteArrayLiteral("pageNr")},
+            {RolePageRatio, QByteArrayLiteral("pageRatio")},
+            {RoleFileId, QByteArrayLiteral("fileId")}};
 }
 
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
