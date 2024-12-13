@@ -237,7 +237,7 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
             m_passFiles << m_fileModel->rows() - 1;
             if (askForPass) {
                 // ask for password with some delay to instantiate all QML stuff
-                QTimer::singleShot(200, this, [=] {
+                QTimer::singleShot(200, this, [this, pdf] {
                     Q_EMIT passwordRequired(pdf->name(), m_passFiles.first());
                 });
             }
