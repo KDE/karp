@@ -229,7 +229,7 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
     if (pdfList.isEmpty())
         return;
 
-    for (auto &pdfFile : pdfList) {
+    for (const auto &pdfFile : pdfList) {
         m_totalPages += m_fileModel->appendFile(pdfFile);
         auto pdf = m_fileModel->lastPdf();
         if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
