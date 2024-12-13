@@ -206,6 +206,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Karp main window with pages of PDF file</caption>
+      <caption xml:lang="ar">نافذة كارب الرئيسة مع صفحات ملف بي دي اف</caption>
       <caption xml:lang="ca">Finestra principal del Karp amb pàgines d'un fitxer PDF</caption>
       <caption xml:lang="ca-valencia">Finestra principal de Karp amb pàgines d'un fitxer PDF</caption>
       <caption xml:lang="es">Ventana principal de Karp con páginas de un archivo PDF</caption>
@@ -225,6 +226,7 @@
     </screenshot>
     <screenshot type="default">
       <caption>Appending password protected PDF file</caption>
+      <caption xml:lang="ar">تعديل ملفات بي دي اف محميّة بكلمة سر</caption>
       <caption xml:lang="ca">S'afegeix un fitxer PDF protegit per contrasenya</caption>
       <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit per contrasenya</caption>
       <caption xml:lang="es">Añadir un archivo PDF protegido con contraseña</caption>
