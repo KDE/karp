@@ -10,10 +10,12 @@
 #endif
 
 #include <QIcon>
+#include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
 
+#include "karp_debug.h"
 #include "version-karp.h"
 #include <KAboutData>
 #include <KCrash>
@@ -47,6 +49,11 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
     QApplication app(argc, argv);
+
+#ifndef NDEBUG
+    QLoggingCategory::setFilterRules("org.kde.karp*=true"_L1);
+    qCDebug(KARP_LOG()) << "Debug build";
+#endif
 
 #if HAVE_STYLE_MANAGER
     /**

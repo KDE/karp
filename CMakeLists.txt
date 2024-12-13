@@ -81,7 +81,7 @@ install(FILES org.kde.karp.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/s
 ki18n_install(po)
 
 ecm_qt_install_logging_categories(
-	EXPORT KARP
+    EXPORT KARP
     FILE karp.categories
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
