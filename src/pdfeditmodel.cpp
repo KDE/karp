@@ -33,7 +33,7 @@ QColor alpha(const QColor &c)
 PdfEditModel *PdfEditModel::m_self = nullptr;
 
 PdfEditModel::PdfEditModel(QObject *parent)
-    : QAbstractTableModel(parent)
+    : QAbstractListModel(parent)
 {
     m_self = this;
     m_metaData = new PdfMetaData();
@@ -91,11 +91,6 @@ void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
         Q_EMIT editedChanged();
 }
 
-int PdfEditModel::pageCount() const
-{
-    return m_pages;
-}
-
 QVector<PdfFile *> &PdfEditModel::pdfs()
 {
     return m_pdfList;
@@ -120,12 +115,20 @@ void PdfEditModel::setViewWidth(qreal vw)
         return;
     updateMaxPageWidth();
     Q_EMIT viewWidthChanged();
-    Q_EMIT dataChanged(index(0, 0), index(m_rows - 1, m_columns - 1), QList<int>() << RoleImage);
+    Q_EMIT dataChanged(index(0, 0), index(m_pages - 1, 0), QList<int>() << RoleImage);
 }
 
 qreal PdfEditModel::maxPageWidth() const
 {
     return m_maxPageWidth;
+}
+
+qreal PdfEditModel::maxPageHeight() const
+{
+    if (m_pdfList.isEmpty())
+        return 1.0;
+    auto pageSize = m_pdfList.first()->pagePointSize(0);
+    return m_maxPageWidth * (pageSize.height() / pageSize.width());
 }
 
 qreal PdfEditModel::spacing() const
@@ -142,7 +145,7 @@ void PdfEditModel::setSpacing(qreal sp)
         return;
     updateMaxPageWidth();
     Q_EMIT spacingChanged();
-    Q_EMIT dataChanged(index(0, 0), index(m_rows - 1, m_columns - 1), QList<int>() << RoleImage);
+    Q_EMIT dataChanged(index(0, 0), index(m_pages - 1, 0), QList<int>() << RoleImage);
 }
 
 bool PdfEditModel::edited() const
@@ -318,7 +321,6 @@ void PdfEditModel::deletePage(int pageId)
     beginResetModel();
     m_deletedList << m_pageList.takeAt(pageId);
     m_pages--;
-    m_rows = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
     endResetModel();
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
@@ -363,20 +365,22 @@ void PdfEditModel::deletePages(const PageRange &range)
 /**
  * Returns target page number or -1 if move can't be performed.
  */
-int PdfEditModel::movePage(int pageNr, int toPage)
+int PdfEditModel::movePage(int fromPage, int toPage)
 {
-    if (pageNr < 0 || pageNr >= m_pages || toPage < 0 || toPage >= m_pages)
+    if (fromPage < 0 || fromPage >= m_pages || toPage < 0 || toPage >= m_pages)
         return -1;
 
     m_wasMoved = true;
-    if (toPage / m_columns < pageNr / m_columns) // QVector::workaround for 'move' method when moving backward from other row
-        toPage++;
-    m_pageList.move(pageNr, toPage);
+    // if (toPage < pageNr) // QVector::workaround for 'move' method when moving backward from other row
+    // toPage++;
+    // if (toPage / m_columns > fromPage / m_columns)
+    //     toPage--;
+    m_pageList.move(fromPage, toPage);
     Q_EMIT editedChanged();
-    int startPage = qMin(pageNr, toPage);
-    int endPage = qMax(pageNr, toPage);
+    // int startPage = qMin(fromPage, toPage);
+    // int endPage = qMax(fromPage, toPage);
     // update all cells in affected rows
-    Q_EMIT dataChanged(index(startPage / m_columns, 0), index(endPage / m_columns, m_columns - 1));
+    // Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
     return toPage;
 }
 
@@ -517,7 +521,6 @@ void PdfEditModel::clearAll()
     m_deletedList.clear();
     qDeleteAll(m_pdfList);
     m_pdfList.clear();
-    m_rows = 0;
     m_columns = INIT_COLUMN_COUNT;
     m_pages = 0;
     m_rotatedCount = 0;
@@ -533,13 +536,7 @@ void PdfEditModel::clearAll()
 int PdfEditModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return m_rows;
-}
-
-int PdfEditModel::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent)
-    return m_columns;
+    return m_pages;
 }
 
 QColor PdfEditModel::labelColor(int fileId)
@@ -570,9 +567,9 @@ QString PdfEditModel::outFile() const
 
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= m_rows || index.column() < 0 || index.column() >= m_columns)
+    if (index.row() < 0 || index.row() >= m_pages)
         return QVariant();
-    int pageNr = index.row() * m_columns + index.column();
+    int pageNr = index.row();
     PdfFile *pdf = nullptr;
     PdfPage *page = nullptr;
     if (pageNr < m_pages) {
@@ -639,8 +636,8 @@ void PdfEditModel::changeColumnCount(int colCnt)
     beginResetModel();
     m_columns = colCnt;
     updateMaxPageWidth();
-    m_rows = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
     endResetModel();
+    Q_EMIT columnsChanged();
 }
 
 void PdfEditModel::updateMaxPageWidth()
@@ -648,7 +645,7 @@ void PdfEditModel::updateMaxPageWidth()
     if (m_columns == 0)
         return;
     qreal oldMax = m_maxPageWidth;
-    m_maxPageWidth = (m_viewWidth - ((m_columns + 1) * m_spacing)) / static_cast<qreal>(m_columns);
+    m_maxPageWidth = (m_viewWidth - ((m_columns + 3) * m_spacing)) / static_cast<qreal>(m_columns);
     if (oldMax != m_maxPageWidth)
         Q_EMIT maxPageWidthChanged();
 }
@@ -656,9 +653,9 @@ void PdfEditModel::updateMaxPageWidth()
 void PdfEditModel::pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage)
 {
     Q_UNUSED(pdfPage)
-    int r = pageNr / m_columns;
-    int c = pageNr % m_columns;
-    Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleImage);
+    Q_EMIT dataChanged(index(pageNr, 0), index(pageNr, 0), QList<int>() << RoleImage);
+    if (pageNr == 0)
+        Q_EMIT maxPageWidthChanged();
 }
 
 void PdfEditModel::appendPdfFileToModel(PdfFile *pdf)
@@ -704,10 +701,8 @@ void PdfEditModel::prependPdfPages(PdfFile *pdf)
 
 void PdfEditModel::addPagesToModel(int pagesToAdd)
 {
+    beginInsertRows(QModelIndex(), m_pages, m_pages + pagesToAdd);
     m_pages += pagesToAdd;
-    int newRowCount = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
-    beginInsertRows(QModelIndex(), m_rows, newRowCount - 1);
-    m_rows = newRowCount;
     endInsertRows();
     if (m_columns < 1) {
         beginInsertColumns(QModelIndex(), 0, m_columns - 1);

@@ -4,7 +4,7 @@
 #pragma once
 
 #include "pdfpage.h"
-#include <QAbstractTableModel>
+#include <QAbstractListModel>
 #include <QQmlEngine>
 
 class PdfFile;
@@ -22,15 +22,17 @@ class PdfMetaData;
 /**
  * @brief @p PdfEditModel handles pages from PDF document
  */
-class PdfEditModel : public QAbstractTableModel
+class PdfEditModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
 
     Q_PROPERTY(int pageCount READ pageCount NOTIFY pageCountChanged)
     Q_PROPERTY(int pdfCount READ pdfCount NOTIFY pdfCountChanged)
+    Q_PROPERTY(int columns READ columns NOTIFY columnsChanged)
     Q_PROPERTY(qreal viewWidth READ viewWidth WRITE setViewWidth NOTIFY viewWidthChanged)
     Q_PROPERTY(qreal maxPageWidth READ maxPageWidth NOTIFY maxPageWidthChanged)
+    Q_PROPERTY(qreal maxPageHeight READ maxPageHeight NOTIFY maxPageWidthChanged)
     Q_PROPERTY(qreal spacing READ spacing WRITE setSpacing NOTIFY spacingChanged)
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
     Q_PROPERTY(bool optimizeImages READ optimizeImages WRITE setOptimizeImages NOTIFY optimizeImagesChanged)
@@ -53,7 +55,10 @@ public:
     void prependPdfs(QVector<PdfFile *> &pdfList);
     void appendPdfs(QVector<PdfFile *> &pdfList);
 
-    int pageCount() const;
+    int pageCount() const
+    {
+        return m_pages;
+    }
 
     QVector<PdfFile *> &pdfs();
     int pdfCount() const
@@ -62,10 +67,16 @@ public:
     }
     Q_INVOKABLE QString getPdfName(int fileId);
 
+    int columns() const
+    {
+        return m_columns;
+    }
+
     qreal viewWidth() const;
     void setViewWidth(qreal vw);
 
     qreal maxPageWidth() const;
+    qreal maxPageHeight() const;
 
     qreal spacing() const;
     void setSpacing(qreal sp);
@@ -141,7 +152,6 @@ public:
     }
 
     int rowCount(const QModelIndex &parent) const override;
-    int columnCount(const QModelIndex &parent) const override;
 
     enum PdfEditRoles {
         RoleImage = Qt::UserRole,
@@ -161,6 +171,7 @@ public:
 Q_SIGNALS:
     void pageCountChanged();
     void pdfCountChanged();
+    void columnsChanged();
     void viewWidthChanged();
     void maxPageWidthChanged();
     void spacingChanged();
@@ -216,7 +227,6 @@ private:
     QVector<PdfFile *> m_pdfList;
     QVector<PdfPage *> m_pageList;
     int m_pages = 0;
-    int m_rows = 0;
     int m_columns = 0;
     qreal m_maxPageWidth = 100.0;
     qreal m_viewWidth = 1.0;
