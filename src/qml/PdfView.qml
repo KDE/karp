@@ -82,8 +82,8 @@ GridView {
                 image: pageImg
                 scale: parent.width / (rotated === 90 || rotated === 270 ? height : width)
                 rotation: rotated
-                onRotationChanged: console.log(rotation)
                 opacity: pdfPage.dragActive ? 0.5 : 1
+                Behavior on rotation { NumberAnimation { easing.type: Easing.OutQuad } }
             }
             Rectangle {
                 visible: bottomBar.labelsVisible

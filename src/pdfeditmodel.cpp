@@ -260,9 +260,7 @@ void PdfEditModel::rotatePage(int pageId, int angle)
     else
         m_rotatedCount--;
     m_pageList[pageId]->setRotated(angle);
-    int r = pageId / m_columns;
-    int c = pageId % m_columns;
-    Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+    Q_EMIT dataChanged(index(pageId, 0), index(pageId, 0), QList<int>() << RoleRotated);
     Q_EMIT editedChanged();
 }
 
@@ -285,9 +283,7 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
         if (a > 270)
             a = a - 360;
         m_pageList[p]->setRotated(a);
-        int r = p / m_columns;
-        int c = p % m_columns;
-        Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+        Q_EMIT dataChanged(index(p, 0), index(p, 0), QList<int>() << RoleRotated);
         if (a)
             m_rotatedCount++;
         else
@@ -301,9 +297,7 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
             if (a > 270)
                 a = a - 360;
             m_pageList[p]->setRotated(a);
-            int r = p / m_columns;
-            int c = p % m_columns;
-            Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+            Q_EMIT dataChanged(index(p, 0), index(p, 0), QList<int>() << RoleRotated);
             if (a)
                 m_rotatedCount++;
             else
