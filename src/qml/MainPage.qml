@@ -135,15 +135,16 @@ Kirigami.Page {
     contentItem: PdfView {
         id: pdfView
 
+        visible: pdfModel.pageCount
         width: mainWin.contentItem.width
         height: mainWin.contentItem.height
 
         cellWidth: pdfModel.maxPageWidth + pdfModel.spacing
         cellHeight: pdfModel.maxPageHeight + pdfModel.spacing
 
-        visible: pdfModel.pageCount
-
         model: pdfModel
+
+        QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
     }
 
     MainToolbar {
