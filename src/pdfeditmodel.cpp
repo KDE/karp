@@ -369,19 +369,23 @@ int PdfEditModel::movePage(int fromPage, int toPage)
 {
     if (fromPage < 0 || fromPage >= m_pages || toPage < 0 || toPage >= m_pages)
         return -1;
-
-    m_wasMoved = true;
-    // if (toPage < pageNr) // QVector::workaround for 'move' method when moving backward from other row
-    // toPage++;
-    // if (toPage / m_columns > fromPage / m_columns)
-    //     toPage--;
+    if (fromPage == toPage)
+        return -1;
+    int off = 0;
+    const int pageDiff = toPage - fromPage;
+    if (pageDiff >= 1)
+        off = 1;
+    if (!beginMoveRows(QModelIndex{}, fromPage, fromPage, QModelIndex{}, toPage + off))
+        return -1;
     m_pageList.move(fromPage, toPage);
+    endMoveRows();
+    const int startPage = qMin(fromPage, toPage);
+    const int endPage = qMax(fromPage, toPage);
+    // update all affected pages
+    Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
+    m_wasMoved = true;
     Q_EMIT editedChanged();
-    // int startPage = qMin(fromPage, toPage);
-    // int endPage = qMax(fromPage, toPage);
-    // update all cells in affected rows
-    // Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
-    return toPage;
+    return toPage + off;
 }
 
 void PdfEditModel::movePages(const PageRange &range, int targetPage)
