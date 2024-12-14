@@ -48,6 +48,7 @@ GridView {
         property alias pdfPage: pdfPage
         property alias img: img
 
+        visible: index < pdfModel.pageCount
         width: GridView.view.cellWidth
         height: GridView.view.cellHeight
 
