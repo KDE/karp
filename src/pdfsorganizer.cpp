@@ -80,7 +80,15 @@ void PdfListModel::move(int fromId, int toId)
 {
     if (fromId < 0 || fromId >= m_rows || toId < 0 || toId >= m_rows)
         return;
+    if (fromId == toId)
+        return;
+    int off = 0;
+    if (toId - fromId == 1)
+        off = 1;
+    if (!beginMoveRows(QModelIndex{}, fromId, fromId, QModelIndex{}, toId + off))
+        return;
     m_pdfFiles.move(fromId, toId);
+    endMoveRows();
 }
 
 void PdfListModel::remove(int fileId)
