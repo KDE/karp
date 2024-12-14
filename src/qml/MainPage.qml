@@ -143,7 +143,7 @@ Kirigami.Page {
 
         visible: pdfModel.pageCount
 
-        pdfModel: pdfModel
+        model: pdfModel
     }
 
     MainToolbar {
