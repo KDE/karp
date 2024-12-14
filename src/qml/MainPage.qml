@@ -6,7 +6,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
-import QtQuick.Layouts
 import org.kde.karp
 import org.kde.karp.config
 
@@ -122,6 +121,8 @@ Kirigami.Page {
     bottomPadding: 0
 
     InitialInfo {
+        z: 600000
+        parent: page.overlay
         visible: !pdfModel.pageCount
         onClicked: openPDFs(APP.getPdfFiles())
     }
