@@ -317,11 +317,13 @@ void PdfEditModel::deletePage(int pageId)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
+    beginRemoveRows(QModelIndex(), pageId, pageId);
     m_pageList[pageId]->setDeleted(true);
-    beginResetModel();
     m_deletedList << m_pageList.takeAt(pageId);
     m_pages--;
-    endResetModel();
+    endRemoveRows();
+    if (pageId < m_pages)
+        Q_EMIT dataChanged(index(pageId, 0), index(m_pages - 1, 0));
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
 }
@@ -337,15 +339,16 @@ void PdfEditModel::deletePages(const PageRange &range)
     // qCDebug(KARP_LOG) << range.from() << range.to() << range.type() << range.n();
     int from, to;
     int step = range.everyN() ? range.n() : 1;
-    beginResetModel();
     if (range.allOutOfRange()) {
         // At first, delete what is after the range to preserve numbering at the beginning
         from = range.to();
         to = m_pages;
+        beginRemoveRows(QModelIndex(), from, to - 1);
         for (int p = from; p < to; ++p) {
             m_deletedList << m_pageList.takeAt(from);
             m_pages--;
         }
+        endRemoveRows();
     }
     from = range.allOutOfRange() ? 0 : range.from() - 1;
     to = range.allOutOfRange() ? range.from() - 2 : range.to() - 1;
@@ -354,10 +357,13 @@ void PdfEditModel::deletePages(const PageRange &range)
         toTakeList << p;
     }
     while (!toTakeList.empty()) {
-        m_deletedList << m_pageList.takeAt(toTakeList.takeLast());
+        const int pageToRemove = toTakeList.takeLast();
+        beginRemoveRows(QModelIndex(), pageToRemove, pageToRemove);
+        m_deletedList << m_pageList.takeAt(pageToRemove);
         m_pages--;
+        endRemoveRows();
     }
-    endResetModel();
+    Q_EMIT dataChanged(index(0, 0), index(m_pages - 1, 0));
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
 }
@@ -393,14 +399,9 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     if (rangeIsInvalid(range))
         return;
 
-    int from = range.from() - 1;
-    int to = range.to() - 1;
+    const int from = range.from() - 1;
+    const int to = range.to() - 1;
     int targetNr = qAbs(targetPage);
-    // 1. take pages which are going to be moved
-    QVector<PdfPage *> pagesToMove;
-    for (int p = from; p <= to; ++p) {
-        pagesToMove << m_pageList.takeAt(from);
-    }
     if (targetNr > from)
         targetNr = targetNr - (to - from) - 1;
     if (targetPage < 0)
@@ -409,13 +410,27 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
         qCDebug(KARP_LOG) << "PdfEditModel" << "Wrong target page:" << targetNr << "FIXME!";
         return;
     }
+    int rowTarget = qAbs(targetPage);
+    if (targetPage < 0)
+        rowTarget = qMax(rowTarget - 1, 0);
+    qDebug() << from << to << rowTarget;
+    if (!beginMoveRows(QModelIndex{}, from, to, QModelIndex{}, rowTarget)) {
+        qCDebug(KARP_LOG) << "PdfEditModel" << "Cannot start begin move:" << from << to << rowTarget << "FIXME!";
+        return;
+    }
+    // 1. take pages which are going to be moved
+    QVector<PdfPage *> pagesToMove;
+    for (int p = from; p <= to; ++p) {
+        pagesToMove << m_pageList.takeAt(from);
+    }
     // 2. Insert selected pages after or before target page
     for (int p = from; p <= to; ++p) {
         m_pageList.insert(targetNr + (p - from), pagesToMove.takeFirst());
     }
-    int startPage = qMin(from, targetNr);
-    int endPage = qMax(to, targetNr + (to - from));
-    Q_EMIT dataChanged(index(startPage / m_columns, 0), index(endPage / m_columns, m_columns - 1));
+    endMoveRows();
+    const int startPage = qMin(from, targetNr);
+    const int endPage = qMax(to, targetNr + (to - from));
+    Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
 }
 
 QString PdfEditModel::getMetaDataKey(int keyId)
