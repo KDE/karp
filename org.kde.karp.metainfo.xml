@@ -18,6 +18,7 @@
   <name xml:lang="ka">Karp</name>
   <name xml:lang="nl">Karp</name>
   <name xml:lang="pl">Karp</name>
+  <name xml:lang="sa">कर्प्</name>
   <name xml:lang="sl">Karp</name>
   <name xml:lang="sv">Karp</name>
   <name xml:lang="tr">Karp</name>
@@ -38,6 +39,7 @@
   <summary xml:lang="ka">PDF-ების დამლაგებელი PDF-ებისთვის</summary>
   <summary xml:lang="nl">KDE arrangeur voor PDF's</summary>
   <summary xml:lang="pl">Aranżer PDF-ów dla KDE</summary>
+  <summary xml:lang="sa">PDFs कृते KDE व्यवस्थापकः</summary>
   <summary xml:lang="sl">KDE razvrščevalnik za PDF-e</summary>
   <summary xml:lang="sv">KDE-arrangör för PDF:er</summary>
   <summary xml:lang="tr">PDF Düzenleyicisi</summary>
@@ -65,6 +67,7 @@
     <p xml:lang="ka">Karp - მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
     <p xml:lang="nl">Karp - geeft een eenvoudige UI voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
     <p xml:lang="pl">Karp — program z prostym interfejsem pozwalającym na modyfikację plików PDF.Kilkoma kliknięciami myszy użytkownik może:</p>
+    <p xml:lang="sa">Karp - PDF सञ्चिकासंशोधनार्थं सरलं UI ददाति । कतिपयैः मूषकप्रहारैः उपयोक्ता कर्तुं शक्नोति:</p>
     <p xml:lang="sl">Karp - ponuja preprost uporabniški vmesnik za spreminjanje datotek PDF. Z nekaj potezami miškeuporabnik lahko:</p>
     <p xml:lang="sv">Karp  - ger ett enkelt användargränssnitt för ändring av PDF-filer. Med några få förflyttningar av musen kan användare:</p>
     <p xml:lang="tr">Karp, PDF dosyalarında değişiklik yapmak üzere yalın bir arayüz sunar. Birkaç fare hareketiyle kullanıcılar:</p>
@@ -86,6 +89,7 @@
       <li xml:lang="ka">მიაწეროს ბოლოში PDF ფაილები ერთმანეთს და მათი შერწყმა</li>
       <li xml:lang="nl">Meer PDF bestanden achter voegen en mengen</li>
       <li xml:lang="pl">Dodawać pliki PDF i scalać je</li>
+      <li xml:lang="sa">अधिकानि PDF सञ्चिकाः योजयित्वा विलीनं कुर्वन्तु</li>
       <li xml:lang="sl">Doda več datotek PDF in jih združi</li>
       <li xml:lang="sv">Lägga till fler PDF-filer och sammanfoga</li>
       <li xml:lang="tr">Ek PDF dosyalarını iliştirebilir ve birleştirebilir</li>
@@ -106,6 +110,7 @@
       <li xml:lang="ka">გვერდების წაშლა, შებრუნება და გადალაგება</li>
       <li xml:lang="nl">Pagina's verwijderen, draaien en opnieuw ordenen</li>
       <li xml:lang="pl">Usuwać, obracać i zmieniać kolejność stron</li>
+      <li xml:lang="sa">पृष्ठानि विलोपयन्तु, परिभ्रमन्तु, पुनः क्रमयन्तु च</li>
       <li xml:lang="sl">Briše, obrača in preureja strani</li>
       <li xml:lang="sv">Ta bort, rotera och ordna om sidor</li>
       <li xml:lang="tr">Sayfaları silebilir, döndürebilir ve yeniden sıralayabilir</li>
@@ -126,6 +131,7 @@
       <li xml:lang="ka">PDF ფაილის ზომის შემცირება</li>
       <li xml:lang="nl">Bestandsgrootte van PDF bestand verminderen</li>
       <li xml:lang="pl">Redukować rozmiar plików PDF</li>
+      <li xml:lang="sa">PDF सञ्चिकायाः आकारं न्यूनीकरोतु</li>
       <li xml:lang="sl">Zmanjša velikost datoteke PDF</li>
       <li xml:lang="sv">Reducera PDF-filstorlek</li>
       <li xml:lang="tr">PDF dosyalarının boyutunu azaltabilir</li>
@@ -146,6 +152,7 @@
       <li xml:lang="ka">სურათების ოპტიმიზაცია</li>
       <li xml:lang="nl">Afbeeldingen optimaliseren</li>
       <li xml:lang="pl">Optymizować obrazki</li>
+      <li xml:lang="sa">चित्राणि अनुकूलितं कुर्वन्तु</li>
       <li xml:lang="sl">Optimizira slike</li>
       <li xml:lang="sv">Optimera bilder</li>
       <li xml:lang="tr">Görselleri eniyileyebilir</li>
@@ -162,10 +169,11 @@
       <li xml:lang="fr">Afficher et modifier les propriétés « PDF »</li>
       <li xml:lang="gl">Ver e modificar as propiedades dun PDF.</li>
       <li xml:lang="he">להציג ולשנות מאפיינים של PDF</li>
-      <li xml:lang="it">Visualizzzare e modificare le proprietà dei PDF</li>
+      <li xml:lang="it">Visualizzare e modificare le proprietà dei PDF</li>
       <li xml:lang="ka">PDF თვისებების ნახვა და შეცვლა</li>
       <li xml:lang="nl">PDF eigenschappen bekijken en wijzigen</li>
       <li xml:lang="pl">Przeglądać i modyfikować metadane PDF-ów</li>
+      <li xml:lang="sa">PDF गुणाः पश्यन्तु परिवर्तनं च कुर्वन्तु</li>
       <li xml:lang="sl">Ogleduje in spreminja lastnosti PDF</li>
       <li xml:lang="sv">Visa och ändra PDF-egenskaper</li>
       <li xml:lang="tr">PDF özelliklerini görüntüleyebilir ve üzerinde değişiklik yapabilir</li>
@@ -186,6 +194,7 @@
       <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
       <li xml:lang="nl">PDF met een wachtwoord beschermen</li>
       <li xml:lang="pl">Zabezpieczać PDF-y hasłem</li>
+      <li xml:lang="sa">गुप्तशब्देन PDF रक्षन्तु</li>
       <li xml:lang="sl">Zaščiti PDF z geslom</li>
       <li xml:lang="sv">Skydda PDF:er med lösenord</li>
       <li xml:lang="tr">PDF’leri parola ile koruyabilir</li>
@@ -214,9 +223,11 @@
       <caption xml:lang="fr">Fenêtre principale de Karp avec des pages de fichier « PDF »</caption>
       <caption xml:lang="gl">A xanela principal de Karp con páxinas dun ficheiro PDF.</caption>
       <caption xml:lang="he">החלון הראשי של Karp עם עמודים של קובץ PDF</caption>
+      <caption xml:lang="it">La finestra principale di Karp con pagine di un file PDF</caption>
       <caption xml:lang="ka">Karp-ის მთავარი ფანჯარა PDF ფაილის გვერდებით</caption>
       <caption xml:lang="nl">Hoofdvenster van Karp met pagina's van PDF-bestand</caption>
       <caption xml:lang="pl">Główne okno aplikacji ze stronami PDF-a</caption>
+      <caption xml:lang="sa">PDF सञ्चिकायाः पृष्ठैः सह Karp मुख्यविण्डो</caption>
       <caption xml:lang="sl">Glavno okno Karp s stranmi datoteke PDF</caption>
       <caption xml:lang="tr">PDF dosyasının sayfalarını gösteren Karp ana sayfası</caption>
       <caption xml:lang="uk">Головне вікно Karp зі сторінками файла PDF</caption>
@@ -234,9 +245,11 @@
       <caption xml:lang="fr">Ajout d'un fichier « PDF » protégé par un mot de passe</caption>
       <caption xml:lang="gl">Inclusión dun ficheiro PDF protexido por contrasinal.</caption>
       <caption xml:lang="he">הוספת קובץ PDF מוגן בסיסמה</caption>
+      <caption xml:lang="it">Aggiunta di un file PDF protetto da password</caption>
       <caption xml:lang="ka">პაროლით დაცული PDF ფაილის ბოლოში მიწერა</caption>
       <caption xml:lang="nl">PDF-bestand, beveiligd met wachtwoord, wordt achter gevoegd</caption>
       <caption xml:lang="pl">Dodawanie pliku PDF chronionego hasłem</caption>
+      <caption xml:lang="sa">गुप्तशब्दसंरक्षितं PDF सञ्चिकां योजयन्</caption>
       <caption xml:lang="sl">Dodajanje datoteke PDF zaščitene z geslom</caption>
       <caption xml:lang="tr">Parola korumalı PDF dosyasına iliştiriliyor</caption>
       <caption xml:lang="uk">Додавання захищеного паролем файла PDF</caption>
