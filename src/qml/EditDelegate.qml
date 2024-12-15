@@ -39,7 +39,7 @@ Rectangle {
     }
     QQC2.Button {
         z: 1
-        anchors { bottom: parent.bottom; left: parent.left }
+        anchors { bottom: parent.bottom; left: parent.left; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "edit-delete"
         icon.color: "red"
         onClicked: pdfModel.deletePage(pageNr)
@@ -68,7 +68,7 @@ Rectangle {
     QQC2.Button {
         visible: pageNr < pdfModel.pageCount - pdfModel.columns
         z: 1
-        anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom }
+        anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "arrow-down"
         onClicked: movePage(pageNr, pageNr + pdfModel.columns)
     }

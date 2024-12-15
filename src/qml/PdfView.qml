@@ -87,20 +87,46 @@ GridView {
             }
             Rectangle {
                 visible: bottomBar.labelsVisible
-                anchors { bottom: parent.bottom; right: parent.right; margins: 2 }
+                anchors.bottom: parent.bottom
                 height: Kirigami.Units.gridUnit * 2
-                width: height * 3
-                color: pdfModel.labelColor(fileId)
+                width: pdfPage.width
+                color: pdfModel.labelColor(fileId) // pdfModel.labelColor(0)
+                // Rectangle {
+                //     width: parent.width; height: Kirigami.Units.smallSpacing
+                //     y: -Kirigami.Units.smallSpacing
+                //     color: pdfModel.labelColor(fileId)
+                // }
+                Column {
+                    anchors { left: parent.left; leftMargin: Kirigami.Units.smallSpacing }
+                    spacing: -Kirigami.Units.smallSpacing
+                    Text {
+                        height: Kirigami.Units.gridUnit
+                        width: pdfPage.width - (Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing) * 3
+                        horizontalAlignment: Text.AlignLeft; verticalAlignment: Text.AlignVCenter
+                        color: "#fff"
+                        fontSizeMode: Text.Fit
+                        minimumPixelSize: 9
+                        elide: Text.ElideRight
+                        font { pixelSize: height }
+                        text: pdfModel.getPdfName(fileId)
+                    }
+                    Text {
+                        height: Kirigami.Units.gridUnit
+                        anchors.left: parent.left
+                        color: "#fff"
+                        font { pixelSize: height * 0.9; bold: true }
+                        text: origPage + 1
+                    }
+                }
                 Text {
-                    x: Kirigami.Units.smallSpacing
-                    width: parent.width - x * 2; height: parent.height
-                    horizontalAlignment: Text.AlignRight
-                    verticalAlignment: Text.AlignVCenter
+                    width: Kirigami.Units.gridUnit * 3; height: Kirigami.Units.gridUnit * 2
+                    anchors { right: parent.right; rightMargin: Kirigami.Units.smallSpacing }
+                    horizontalAlignment: Text.AlignRight; verticalAlignment: Text.AlignVCenter
                     color: "#fff"
                     fontSizeMode: Text.Fit
                     minimumPixelSize: 6
-                    font { pixelSize: parent.height * 0.8; bold: true }
-                    text: (pageNr + 1) + " <font size=\"1\">(" + (origPage + 1) + (pdfModel.pdfCount > 1 ? "/" + (fileId + 1) : "") + ")</font>"
+                    font { pixelSize: height * 0.9; bold: true }
+                    text: (pageNr + 1)
                 }
             }
 
