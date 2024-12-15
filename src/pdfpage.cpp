@@ -35,6 +35,14 @@ void PdfPage::setRotated(int r)
     // in any other case it is 0
 }
 
+void PdfPage::setSelected(bool isSel)
+{
+    if (isSel)
+        m_flags |= PageSelected;
+    else
+        m_flags &= ~PageSelected;
+}
+
 qreal PdfPage::ratio() const
 {
     if (m_image.isNull())

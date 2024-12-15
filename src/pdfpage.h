@@ -66,6 +66,12 @@ public:
     }
     void setDeleted(bool isDel);
 
+    bool selected() const
+    {
+        return m_flags & PageSelected;
+    }
+    void setSelected(bool isSel);
+
     qreal ratio() const;
 
     /**
@@ -77,6 +83,7 @@ public:
         PageRotated180 = 2,
         PageRotated270 = 3,
         PageDeleted = 4,
+        PageSelected = 16,
     };
 
 private:
