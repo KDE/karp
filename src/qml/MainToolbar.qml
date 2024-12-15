@@ -103,14 +103,15 @@ Components.FloatingToolBar {
 
         QQC2.SpinBox {
             id: pageSpin
+            property bool canIndexAtY: true
             from: 1; to: pdfModel.pageCount
-            textFromValue: function(value) {
+            textFromValue: (value) => {
                 return i18n("Page %1 of %2", value, to)
             }
-            onValueModified: pdfView.positionViewAtIndex(value - 1, GridView.Center)
-            Binding {
-                pageSpin.value: pdfView.indexAt(10, pdfView.contentY)
-                delayed: true
+            onValueModified: {
+                canIndexAtY = false
+                pdfView.positionViewAtIndex(value - 1, GridView.Center)
+                canIndexAtY = true
             }
         }
 
@@ -162,6 +163,14 @@ Components.FloatingToolBar {
                 pageCount: pdfModel.pageCount
                 onAccepted: pdfModel.movePages(range, targetPage)
             }
+        }
+    }
+
+    Connections {
+        target: pdfView
+        function onContentYChanged() : void {
+            if (pageSpin.canIndexAtY)
+                pageSpin.value = pdfView.indexAt(10, pdfView.contentY + Math.min(pdfView.cellHeight, pdfView.height / 2)) + 1
         }
     }
 }
