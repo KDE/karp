@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:44+0000\n"
+"POT-Creation-Date: 2024-12-15 00:39+0000\n"
 "PO-Revision-Date: 2024-12-03 20:37+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "stefan.asserhall@gmail.com"
 msgid "PDF file to edit"
 msgstr "PDF-fil att redigera"
 
-#: app.cpp:85 pdfsorganizer.cpp:182
+#: app.cpp:85 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "Välj PDF-filer"
@@ -226,14 +226,14 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "Lägg till och arrangera PDF-filer"
 
-#: qml/Dialogs/PdfFilesDialog.qml:116
+#: qml/Dialogs/PdfFilesDialog.qml:109
 #, fuzzy, kde-format
 #| msgid "Select one or more PDF files."
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Markera en eller flera PDF-filer."
 
-#: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -241,20 +241,20 @@ msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "Lägg till PDF-filer"
 
-#: qml/Dialogs/PdfFilesDialog.qml:134
+#: qml/Dialogs/PdfFilesDialog.qml:127
 #, fuzzy, kde-format
 #| msgid "Total pages"
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Totalt antal sidor"
 
-#: qml/Dialogs/PdfFilesDialog.qml:145
+#: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:150
+#: qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"

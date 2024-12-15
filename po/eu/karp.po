@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-12 00:39+0000\n"
+"POT-Creation-Date: 2024-12-15 00:39+0000\n"
 "PO-Revision-Date: 2024-12-12 19:27+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -35,7 +35,7 @@ msgstr "xalba@ni.eus"
 msgid "PDF file to edit"
 msgstr "Editatu beharreko PDF fitxategia"
 
-#: app.cpp:85 pdfsorganizer.cpp:182
+#: app.cpp:85 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "Hautatu PDF fitxategiak"
@@ -95,29 +95,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "PDF meta-datuak"
 
-#: main.cpp:95
+#: main.cpp:102
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:99
+#: main.cpp:106
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDEren PDF moldatzailea"
 
-#: main.cpp:103
+#: main.cpp:110
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:104
+#: main.cpp:111
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:105
+#: main.cpp:112
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
@@ -227,31 +227,31 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "PDF fitxategiak gehitu eta antolatu"
 
-#: qml/Dialogs/PdfFilesDialog.qml:116
+#: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Gehitu PDF fitxategi bat edo gehiago jarraitzeko"
 
-#: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "Gehitu PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:134
+#: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Orrialde guztira: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:145
+#: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "Aplikatu"
 
-#: qml/Dialogs/PdfFilesDialog.qml:150
+#: qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:44+0000\n"
+"POT-Creation-Date: 2024-12-15 00:39+0000\n"
 "PO-Revision-Date: 2024-12-11 20:13+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -32,7 +32,7 @@ msgstr "adrian@chaves.io"
 msgid "PDF file to edit"
 msgstr "Ficheiro PDF para editar"
 
-#: app.cpp:85 pdfsorganizer.cpp:182
+#: app.cpp:85 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "Seleccionar ficheiros PDF"
@@ -223,31 +223,31 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "Engadir e organizar ficheiros PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:116
+#: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Engada un ou máis ficheiros PDF para continuar."
 
-#: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "Engadir un PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:134
+#: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Páxinas totais: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:145
+#: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "Aplicar"
 
-#: qml/Dialogs/PdfFilesDialog.qml:150
+#: qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"

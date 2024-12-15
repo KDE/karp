@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:44+0000\n"
+"POT-Creation-Date: 2024-12-15 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 11:30+0100\n"
 "Last-Translator: Simulacrum\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "PDF file to edit"
 msgstr ""
 
-#: app.cpp:85 pdfsorganizer.cpp:182
+#: app.cpp:85 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr ""
@@ -217,31 +217,31 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:116
+#: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:134
+#: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:145
+#: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr ""
 
-#: qml/Dialogs/PdfFilesDialog.qml:150
+#: qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"

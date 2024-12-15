@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-14 00:44+0000\n"
+"POT-Creation-Date: 2024-12-15 00:39+0000\n"
 "PO-Revision-Date: 2024-12-13 19:09+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit\n"
@@ -20,19 +20,19 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: app.cpp:55 pdfeditmodel.cpp:472
 #, kde-format
 msgid "PDF file to edit"
 msgstr "सम्पादनार्थं PDF सञ्चिका"
 
-#: app.cpp:85 pdfsorganizer.cpp:182
+#: app.cpp:85 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF सञ्चिकाः चिनोतु"
@@ -58,25 +58,25 @@ msgstr "उपरि उल्लिखितानि कार्यक्र�
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
-msgstr ""
+msgstr "PDF सञ्चिकाः योजयन्तु"
 
 #: app.cpp:209
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr ""
+msgstr "सर्वाणि सञ्चिकाः स्वच्छं कुर्वन्तु"
 
 #: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
-msgstr ""
+msgstr "PDF अनुकूलितं कुर्वन्तु"
 
 #: app.cpp:232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
-msgstr ""
+msgstr "आकारं न्यूनीकरोतु"
 
 #: app.cpp:241
 #, kde-format
@@ -88,13 +88,13 @@ msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
-msgstr ""
+msgstr "पीडीएफ मेटाडाटा"
 
 #: main.cpp:102
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
-msgstr ""
+msgstr "कर्प्"
 
 #: main.cpp:106
 #, kde-format
@@ -110,13 +110,13 @@ msgstr "(ग) 2024 Tomasz Bojczuk"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
-msgstr ""
+msgstr "तोमास्ज बोजचुक"
 
 #: main.cpp:112
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr ""
+msgstr "परिपालकः"
 
 #: pdfeditmodel.cpp:415
 msgid "Title"
@@ -169,32 +169,32 @@ msgstr "इत्यस्मै"
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr ""
+msgstr "चलनम्"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
-msgstr ""
+msgstr "पूर्वम्‌"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
-msgstr ""
+msgstr "अनन्तरम्‌"
 
 #: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
-msgstr ""
+msgstr "पृष्ठ"
 
 #: qml/Dialogs/PdfFileDelegate.qml:61
 #, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 पृष्ठम्"
+msgstr[1] "%1 पृष्ठानि"
 
 #: qml/Dialogs/PdfFileDelegate.qml:75
 #, kde-format
@@ -220,37 +220,37 @@ msgstr "योजयितुं पृष्ठानि चिनोतु"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
-msgstr ""
+msgstr "PDF सञ्चिकाः योजयित्वा व्यवस्थापयन्तु"
 
-#: qml/Dialogs/PdfFilesDialog.qml:116
+#: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr ""
+msgstr "अग्रे गन्तुं एकां वा अधिकं PDF सञ्चिकां योजयन्तु"
 
-#: qml/Dialogs/PdfFilesDialog.qml:119 qml/Dialogs/PdfFilesDialog.qml:139
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr ""
+msgstr "PDF योजयतु"
 
-#: qml/Dialogs/PdfFilesDialog.qml:134
+#: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr ""
+msgstr "कुलपृष्ठानि : %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:145
+#: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "आचरतु"
 
-#: qml/Dialogs/PdfFilesDialog.qml:150
+#: qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "निरसयतु"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
@@ -321,20 +321,20 @@ msgstr "परिजहातु"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr ""
+msgstr "यथा रक्षतु"
 
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
-msgstr ""
+msgstr "रक्ष्"
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "संचिका"
+msgstr[1] "सञ्चिकाः"
 
 #: qml/MainPage.qml:55
 #, kde-format
@@ -345,19 +345,19 @@ msgstr "PDF विकल्पाः"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr ""
+msgstr "PDF संस्करणम्"
 
 #: qml/MainPage.qml:78
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
-msgstr ""
+msgstr "मूलभूतम्‌"
 
 #: qml/MainPage.qml:78
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "संस्करणम् %1"
 
 #: qml/MainPage.qml:289
 #, kde-format
@@ -391,19 +391,19 @@ msgstr "स्थानान्तरणार्थं पृष्ठान�
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
-msgstr ""
+msgstr "पृष्ठस्य लेबल् दर्शयतु"
 
 #: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
-msgstr ""
+msgstr "Zoom Out इति"
 
 #: qml/MainToolbar.qml:93
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
-msgstr ""
+msgstr "Zoom In इति"
 
 #: qml/MainToolbar.qml:108
 #, kde-format
@@ -419,7 +419,7 @@ msgstr "विलोपनार्थं पृष्ठानि चिनो�
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr ""
+msgstr "लुप्"
 
 #: qml/MainToolbar.qml:133
 #, kde-format
@@ -430,7 +430,7 @@ msgstr "परिभ्रमितुं पृष्ठानि चिनो�
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
-msgstr ""
+msgstr "परिभ्रमतु"
 
 #: qml/MainToolbar.qml:143
 #, kde-format
@@ -552,22 +552,22 @@ msgstr "आउटपुट् PDF सञ्चिकायाः आकारं
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "PDF tools"
-msgstr ""
+msgstr "PDF उपकरणानि"
 
 #: qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
-msgstr ""
+msgstr "कार्पस्य विषये"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr ""
+msgstr "KDE विषये"
