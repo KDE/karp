@@ -709,7 +709,12 @@ void PdfEditModel::prependPdfPages(PdfFile *pdf)
     for (int i = pagesToAdd - 1; i >= 0; --i) {
         m_pageList.prepend(new PdfPage(i, pdf->referenceFileId()));
     }
-    addPagesToModel(pagesToAdd);
+    beginInsertRows(QModelIndex(), 0, pagesToAdd - 1);
+    m_pages += pagesToAdd;
+    endInsertRows();
+    Q_EMIT pageCountChanged();
+    Q_EMIT pdfCountChanged();
+    Q_EMIT dataChanged(index(pagesToAdd, 0), index(m_pages - 1, 0));
 }
 
 void PdfEditModel::addPagesToModel(int pagesToAdd)
@@ -717,10 +722,6 @@ void PdfEditModel::addPagesToModel(int pagesToAdd)
     beginInsertRows(QModelIndex(), m_pages, m_pages + pagesToAdd);
     m_pages += pagesToAdd;
     endInsertRows();
-    if (m_columns < 1) {
-        beginInsertColumns(QModelIndex(), 0, m_columns - 1);
-        endInsertColumns();
-    }
     Q_EMIT pageCountChanged();
     Q_EMIT pdfCountChanged();
 }
