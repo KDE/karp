@@ -91,7 +91,7 @@ Kirigami.AbstractCard {
                     Kirigami.Action {
                         text: i18n("Remove from list")
                         icon.name: "user-trash"
-                        onTriggered: lv.pdfModel.remove(index)
+                        onTriggered: lv.model.remove(index)
                     }
                 ]
             }
