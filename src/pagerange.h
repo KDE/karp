@@ -47,6 +47,28 @@ public:
     int to() const;
     void setTo(int t);
 
+    void setRange(int f, int t, int s = 1);
+
+    /**
+     * Returns number of pages in this range.
+     * NOTICE: Due to @p from() and @p to() are included
+     * i.e: range of [1-5] contains 5 pages.
+     */
+    int pageCount() const
+    {
+        return m_to - m_from + 1;
+    }
+
+    bool isValid() const
+    {
+        return m_from > 0 && m_to > 0;
+    }
+
+    /**
+     * Resets to 0 and makes page range invalid.
+     */
+    void reset();
+
     int n() const;
     void setN(int nn);
 

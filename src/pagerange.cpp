@@ -18,9 +18,22 @@ int PageRange::to() const
     return m_to;
 }
 
+void PageRange::setRange(int f, int t, int s)
+{
+    m_from = f;
+    m_to = t;
+    m_n = s;
+}
+
 void PageRange::setTo(int t)
 {
     m_to = t;
+}
+
+void PageRange::reset()
+{
+    m_from = 0;
+    m_to = 0;
 }
 
 int PageRange::n() const
