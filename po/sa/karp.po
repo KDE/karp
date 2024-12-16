@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:39+0000\n"
+"POT-Creation-Date: 2024-12-16 00:39+0000\n"
 "PO-Revision-Date: 2024-12-13 19:09+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "भवतः ईमेलपत्राणि"
 
-#: app.cpp:55 pdfeditmodel.cpp:472
+#: app.cpp:55 pdfeditmodel.cpp:489
 #, kde-format
 msgid "PDF file to edit"
 msgstr "सम्पादनार्थं PDF सञ्चिका"
@@ -118,35 +118,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "परिपालकः"
 
-#: pdfeditmodel.cpp:415
+#: pdfeditmodel.cpp:432
 msgid "Title"
 msgstr "शीर्षक"
 
-#: pdfeditmodel.cpp:416
+#: pdfeditmodel.cpp:433
 msgid "Subject"
 msgstr "विषयः"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:434
 msgid "Author"
 msgstr "लेखकः"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:435
 msgid "Keyword"
 msgstr "कीवर्ड"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:436
 msgid "Producer"
 msgstr "निर्माता"
 
-#: pdfeditmodel.cpp:420
+#: pdfeditmodel.cpp:437
 msgid "Creator"
 msgstr "प्रजापति"
 
-#: pdfeditmodel.cpp:421
+#: pdfeditmodel.cpp:438
 msgid "Creation Date"
 msgstr "सृष्टि तिथि"
 
-#: pdfeditmodel.cpp:422
+#: pdfeditmodel.cpp:439
 msgid "Modification Date"
 msgstr "परिवर्तन तिथि"
 
@@ -359,12 +359,12 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "संस्करणम् %1"
 
-#: qml/MainPage.qml:289
+#: qml/MainPage.qml:215
 #, kde-format
 msgid "Set password"
 msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
 
-#: qml/MainPage.qml:289
+#: qml/MainPage.qml:215
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "गुप्तशब्देन PDF सञ्चिकां रक्षन्तु।"
@@ -405,39 +405,39 @@ msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Zoom In इति"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:109
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "पृष्ठ %1 के %2"
 
-#: qml/MainToolbar.qml:121
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgid "Select pages to delete"
 msgstr "विलोपनार्थं पृष्ठानि चिनोतु"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "लुप्"
 
-#: qml/MainToolbar.qml:133
+#: qml/MainToolbar.qml:134
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "परिभ्रमितुं पृष्ठानि चिनोतु"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "परिभ्रमतु"
 
-#: qml/MainToolbar.qml:143
+#: qml/MainToolbar.qml:144
 #, kde-format
 msgid "Angle"
 msgstr "कोण"
 
-#: qml/MainToolbar.qml:161
+#: qml/MainToolbar.qml:162
 #, kde-format
 msgid "Select pages to move"
 msgstr "स्थानान्तरणार्थं पृष्ठानि चिनोतु"

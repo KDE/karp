@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-15 00:39+0000\n"
+"POT-Creation-Date: 2024-12-16 00:39+0000\n"
 "PO-Revision-Date: 2024-12-11 11:14+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: app.cpp:55 pdfeditmodel.cpp:472
+#: app.cpp:55 pdfeditmodel.cpp:489
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Te bewerken PDF-bestand"
@@ -120,35 +120,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: pdfeditmodel.cpp:415
+#: pdfeditmodel.cpp:432
 msgid "Title"
 msgstr "Titel"
 
-#: pdfeditmodel.cpp:416
+#: pdfeditmodel.cpp:433
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:434
 msgid "Author"
 msgstr "Auteur"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:435
 msgid "Keyword"
 msgstr "Trefwoord"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:436
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:420
+#: pdfeditmodel.cpp:437
 msgid "Creator"
 msgstr "Maker"
 
-#: pdfeditmodel.cpp:421
+#: pdfeditmodel.cpp:438
 msgid "Creation Date"
 msgstr "Aanmaakdatum"
 
-#: pdfeditmodel.cpp:422
+#: pdfeditmodel.cpp:439
 msgid "Modification Date"
 msgstr "Wijzigingsdatum"
 
@@ -361,12 +361,12 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Versie %1"
 
-#: qml/MainPage.qml:289
+#: qml/MainPage.qml:215
 #, kde-format
 msgid "Set password"
 msgstr "Wachtwoord instellen"
 
-#: qml/MainPage.qml:289
+#: qml/MainPage.qml:215
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "PDF-bestand beschermen met wachtwoord."
@@ -407,39 +407,39 @@ msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Inzoomen"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:109
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Pagina %1 van %2"
 
-#: qml/MainToolbar.qml:121
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Selecteer te verwijderen pagina's"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: qml/MainToolbar.qml:133
+#: qml/MainToolbar.qml:134
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Selecteer te draaien pagina's"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Draaien"
 
-#: qml/MainToolbar.qml:143
+#: qml/MainToolbar.qml:144
 #, kde-format
 msgid "Angle"
 msgstr "Hoek"
 
-#: qml/MainToolbar.qml:161
+#: qml/MainToolbar.qml:162
 #, kde-format
 msgid "Select pages to move"
 msgstr "Selecteer te verplaatsen pagina's"
