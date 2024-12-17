@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:39+0000\n"
-"PO-Revision-Date: 2024-12-08 12:20+0100\n"
+"PO-Revision-Date: 2024-12-16 10:45+0100\n"
 "Last-Translator: Tomasz Bojczuk <seelook@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -194,12 +194,11 @@ msgid "page"
 msgstr "stronę"
 
 #: qml/Dialogs/PdfFileDelegate.qml:61
-#, fuzzy, kde-format
-#| msgid "%1 pages"
+#, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] "%1 stron"
-msgstr[1] "%1 stron"
+msgstr[0] "%1 strona"
+msgstr[1] "%1 strony"
 msgstr[2] "%1 stron"
 
 #: qml/Dialogs/PdfFileDelegate.qml:75
@@ -235,12 +234,10 @@ msgid "Add one or more PDF file to proceed"
 msgstr "Wybierz jeden lub kilka plików PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "Dodaj PDF…"
+msgstr "Dodaj PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
@@ -252,13 +249,13 @@ msgstr "Wszystkich stron: %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Zastosuj"
 
 #: qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
@@ -327,12 +324,10 @@ msgid "Quit"
 msgstr "Wyjdź"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "Zapisz jako…"
+msgstr "Zapisz jako"
 
 #: qml/MainPage.qml:33
 #, kde-format
