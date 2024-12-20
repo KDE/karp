@@ -49,6 +49,8 @@ public:
 
     void setRange(int f, int t, int s = 1);
 
+    bool inRange(int pageNr) const;
+
     /**
      * Returns number of pages in this range.
      * NOTICE: Due to @p from() and @p to() are included
