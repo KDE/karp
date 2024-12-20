@@ -12,6 +12,7 @@ Rectangle {
     anchors.fill: parent
 
     property int pageNr: pdfView.currentItem ? pdfView.currentIndex : 0
+    property bool selected: pdfView.currentItem ? pdfView.currentItem.selected : false
 
     visible: pdfView.currentItem !== null
     parent: pdfView.currentItem ? pdfView.currentItem.pdfPage : null
@@ -32,8 +33,12 @@ Rectangle {
             target: editDelg.parent
             cursorShape: Qt.DragMoveCursor
             onActiveChanged: {
+                pdfView.pageIsDragged = active
                 if (pdfView.currentItem)
                     pdfView.currentItem.pdfPage.dragActive = active
+            }
+            onCentroidChanged: {
+                pdfView.dragPos = Qt.point(centroid.scenePosition.x - centroid.scenePressPosition.x, centroid.scenePosition.y - centroid.scenePressPosition.y)
             }
         }
     }
@@ -51,6 +56,7 @@ Rectangle {
         onClicked: pdfModel.rotatePage(pageNr, pdfView.currentItem.img.rotation > -270 ? pdfView.currentItem.img.rotation - 90 : 0)
     }
     QQC2.Button {
+        id: rotLeftButt
         z: 1
         anchors { top: parent.top; right: parent.right }
         icon.name: "object-rotate-right"
@@ -58,34 +64,34 @@ Rectangle {
     }
     // move at upper row
     QQC2.Button {
-        visible: pageNr >= pdfModel.columns
+        visible: pageNr >= pdfModel.columns && pageNr - pdfModel.columns < pdfModel.firstSelected - 1
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
         icon.name: "arrow-up"
-        onClicked: movePage(pageNr, pageNr - pdfModel.columns)
+        onClicked: pdfModel.moveSelected(pageNr - pdfModel.columns)
     }
     // move at lower row
     QQC2.Button {
-        visible: pageNr < pdfModel.pageCount - pdfModel.columns
+        visible: pageNr < pdfModel.pageCount - pdfModel.columns && pageNr + pdfModel.columns > pdfModel.lastSelected + 1
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "arrow-down"
-        onClicked: movePage(pageNr, pageNr + pdfModel.columns)
+        onClicked: pdfModel.moveSelected(pageNr + pdfModel.columns)
     }
     // move at next column
     QQC2.Button {
-        visible: pageNr < pdfModel.pageCount - 1
+        visible: pageNr < pdfModel.pageCount - 1 && pageNr + 1 > pdfModel.lastSelected - 1
         z: 1
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
         icon.name: "arrow-right"
-        onClicked: movePage(pageNr, pageNr + 1)
+        onClicked: pdfModel.moveSelected(pageNr + 2)
     }
     // move at previous column
     QQC2.Button {
-        visible: pageNr > 0
+        visible: pageNr > 0 && pageNr - 1 < pdfModel.firstSelected - 1
         z: 1
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
         icon.name: "arrow-left"
-        onClicked: movePage(pageNr, pageNr - 1)
+        onClicked: pdfModel.moveSelected(pageNr - 1)
     }
 }
