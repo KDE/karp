@@ -430,8 +430,7 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
 void PdfEditModel::moveSelected(int targetPage)
 {
     if (targetPage >= m_pageRange.from() && targetPage <= m_pageRange.to()) {
-        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot move selection!";
-        qDebug() << targetPage << m_pageRange.from() << m_pageRange.to();
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot move selection!" << targetPage << m_pageRange.from() << m_pageRange.to();
         return;
     }
     movePages(m_pageRange, targetPage);
@@ -819,7 +818,7 @@ void PdfEditModel::setSelection(int from, int to)
         qCDebug(KARP_LOG) << "{PdfEditModel}" << "Wrong page range!" << "from" << from << "to" << to << "pages" << m_pages;
         return;
     }
-    qDebug() << "SET SELECTION" << "from" << from << "to" << to << "pages" << m_pages;
+    // qDebug() << "SET SELECTION" << "from" << from << "to" << to << "pages" << m_pages;
     int updateFrom = 0, updateTo = 0;
     // deselect previously selected pages
     if (m_pageRange.isValid()) {
@@ -841,6 +840,7 @@ void PdfEditModel::setSelection(int from, int to)
         m_pageList[p]->setSelected(true);
     }
     Q_EMIT dataChanged(index(updateFrom, 0), index(updateTo, 0), QList<int>() << RoleSelected);
+    Q_EMIT selectionChanged();
 }
 
 #include "moc_pdfeditmodel.cpp"

@@ -40,6 +40,8 @@ class PdfEditModel : public QAbstractListModel
     Q_PROPERTY(qreal pdfVersion READ pdfVersion WRITE setPdfVersion NOTIFY pdfVersionChanged)
     Q_PROPERTY(QString passKey READ passKey WRITE setPassKey NOTIFY passKeyChanged)
     Q_PROPERTY(qreal progress READ progress NOTIFY progressChanged)
+    Q_PROPERTY(int firstSelected READ firstSelected NOTIFY selectionChanged)
+    Q_PROPERTY(int lastSelected READ lastSelected NOTIFY selectionChanged)
 
 public:
     explicit PdfEditModel(QObject *parent = nullptr);
@@ -97,6 +99,16 @@ public:
 
     qreal progress() const;
     void setProgress(qreal prog);
+
+    int firstSelected() const
+    {
+        return m_pageRange.from();
+    }
+
+    int lastSelected() const
+    {
+        return m_pageRange.to();
+    }
 
     /**
      * In fact @p zoomIn() and @p zoomOut() change columns number
@@ -186,6 +198,7 @@ Q_SIGNALS:
     void progressChanged();
     void pdfGenerated();
     void reductionNotWorked();
+    void selectionChanged();
 
     /**
      * Emitted when PDF file requires password to open.
