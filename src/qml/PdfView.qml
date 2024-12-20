@@ -19,6 +19,9 @@ GridView {
     topMargin: Kirigami.Units.largeSpacing
     bottomMargin: Kirigami.Units.largeSpacing + bottomBar.height
 
+    property var dragPos: Qt.point(0, 0)
+    property bool pageIsDragged: false
+
     displaced: Transition {
         NumberAnimation {
             properties: "x,y"
@@ -45,6 +48,7 @@ GridView {
         required property real pageRatio
         required property var pageImg
         required property int rotated
+        required property bool selected
         property alias pdfPage: pdfPage
         property alias img: img
 
@@ -53,11 +57,13 @@ GridView {
         height: GridView.view.cellHeight
 
         onEntered: drag => {
+            if (selected)
+                return
             let from = drag.source.pageIndex
             let to = dropDelegate.delegateIndex
             if (from === to)
                 return
-            pdfView.movePage(from, to)
+            pdfModel.moveSelected(to)
         }
 
         QQC2.AbstractButton {
@@ -65,9 +71,13 @@ GridView {
 
             property int pageIndex: dropDelegate.delegateIndex
             property bool dragActive: false
+            property int xOffset: (index % pdfModel.columns) * dropDelegate.width
+            property int yOffset: Math.floor(index / pdfModel.columns) * dropDelegate.height
 
             width: pdfModel.maxPageWidth
             height: pdfModel.maxPageWidth * pageRatio
+            x: parent === pdfView.contentItem ? pdfView.dragPos.x + xOffset : 0
+            y: parent === pdfView.contentItem ? pdfView.dragPos.y + yOffset : 0
             z: dragActive ? 5 : 1
 
             Drag.active: dragActive
@@ -84,6 +94,10 @@ GridView {
                 rotation: rotated
                 opacity: pdfPage.dragActive ? 0.5 : 1
                 Behavior on rotation { NumberAnimation { easing.type: Easing.OutQuad } }
+                Rectangle {
+                    anchors.fill: parent
+                    color: selected ? APP.alpha(Kirigami.Theme.highlightColor, 32) : "transparent"
+                }
             }
             Rectangle {
                 visible: bottomBar.labelsVisible
@@ -130,13 +144,27 @@ GridView {
                 }
             }
 
+            QQC2.Button {
+                id: selectButt
+                visible: bottomBar.multiSelect
+                z: 6
+                anchors { top: parent.top; right: parent.right; rightMargin: Kirigami.Units.iconSizes.medium }
+                checkable: true
+                checked: selected
+                icon.name: checked ? "checkmark" : "box"
+                onClicked: {
+                    pdfModel.selectPage(index, checked, true)
+                }
+            }
+
             onClicked: {
+                pdfModel.selectPage(index, pdfView.currentIndex !== index, bottomBar.multiSelect)
                 pdfView.currentIndex = pdfView.currentIndex === index ? -1 : index
             }
 
             states: [
                 State {
-                    when: pdfPage.dragActive
+                    when: pdfView.pageIsDragged && bottomBar.multiSelect && selected
                     ParentChange {
                         target: pdfPage
                         parent: pdfView.contentItem
@@ -147,8 +175,4 @@ GridView {
     }
 
     highlight: EditDelegate {}
-
-    function movePage(from: int, to: int) : void {
-        const targetPage = pdfModel.movePage(from, to)
-    }
 }
