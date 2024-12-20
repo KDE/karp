@@ -13,6 +13,7 @@ Components.FloatingToolBar {
 
     required property PdfEditModel pdfModel
     property alias labelsVisible: labelsAction.checked
+    property alias multiSelect: selectAction.checked
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -57,6 +58,21 @@ Components.FloatingToolBar {
                 let pageNr = pdfView.currentIndex > -1 ? pdfView.currentIndex + 1 : 1
                 mvDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
             }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            id: selectAction
+
+            text: i18nc("@action:intoolbar", "Multiple pages selection")
+            display: QQC2.ToolButton.IconOnly
+            icon.name: "view-pages-overview"
+            icon.color: checked ? Kirigami.Theme.highlightColor : undefined
+            checkable: true
+            checked: false
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
