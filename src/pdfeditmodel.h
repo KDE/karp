@@ -3,12 +3,12 @@
 
 #pragma once
 
+#include "pagerange.h"
 #include "pdfpage.h"
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
 class PdfFile;
-class PageRange;
 class PdfMetaData;
 
 /**
@@ -125,6 +125,8 @@ public:
      * If @p targetPage is negative range is inserted before this page.
      */
     Q_INVOKABLE void movePages(const PageRange &range, int targetPage);
+    Q_INVOKABLE void moveSelected(int targetPage);
+    Q_INVOKABLE void selectPage(int pageNr, bool selected, bool append = false);
 
     Q_INVOKABLE QString getMetaDataKey(int keyId);
     Q_INVOKABLE QVariantList getMetaDataModel(int fileId) const;
@@ -160,6 +162,7 @@ public:
         RolePageNr,
         RolePageRatio,
         RoleFileId,
+        RoleSelected,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -218,6 +221,12 @@ protected:
      */
     void updateCreationTimeInMetadata(PdfFile *pdf);
 
+    /**
+     * Set selected page range @p from @p to and update pages with @p RoleSelected.
+     * When given range is [0 - 0] selection is reset.
+     */
+    void setSelection(int from, int to);
+
 Q_SIGNALS:
     void wantRenderImage(int) const;
     void wantRenderPage(int, PdfPage *) const;
@@ -244,4 +253,5 @@ private:
     PdfMetaData *m_metaData = nullptr;
     qreal m_pdfVersion = 0.0; /**< 0.0 for default version from input file */
     qreal m_progress = 0.0;
+    PageRange m_pageRange;
 };

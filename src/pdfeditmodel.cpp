@@ -4,7 +4,6 @@
 #include "pdfeditmodel.h"
 #include "karp_debug.h"
 #include "karpconfig.h"
-#include "pagerange.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
 #include "qpdfproxy.h"
@@ -40,6 +39,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
     m_prefPageWidth = qApp->screens().first()->size().width() / 4;
     m_columns = INIT_COLUMN_COUNT;
     m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
+    m_pageRange.reset();
 }
 
 PdfEditModel::~PdfEditModel()
@@ -427,6 +427,57 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
 }
 
+void PdfEditModel::moveSelected(int targetPage)
+{
+    if (targetPage >= m_pageRange.from() && targetPage <= m_pageRange.to()) {
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot move selection!";
+        qDebug() << targetPage << m_pageRange.from() << m_pageRange.to();
+        return;
+    }
+    movePages(m_pageRange, targetPage);
+    // update selected page numbers
+    const int targetNr = targetPage + 1;
+    const int selectedPageCount = m_pageRange.pageCount();
+    if (targetNr < m_pageRange.from())
+        setSelection(targetNr, targetNr + selectedPageCount - 1);
+    else
+        setSelection(targetNr - selectedPageCount, targetNr - 1);
+}
+
+/**
+ * WARNING: be careful with page numbers!
+ * Range starts from 1, @p m_pageList starts from 0
+ */
+void PdfEditModel::selectPage(int pageNr, bool selected, bool append)
+{
+    if (pageNr < 0 || pageNr >= m_pages)
+        return;
+    const int pageToSelect = pageNr + 1;
+    if (append) { // multi-page mode
+        if (selected) {
+            const int from = m_pageRange.isValid() ? qMin(pageToSelect, m_pageRange.from()) : pageToSelect;
+            setSelection(from, qMax(m_pageRange.to(), pageToSelect));
+        } else { // deselect
+            if (pageToSelect == m_pageRange.from()) {
+                if (pageToSelect == m_pageRange.to())
+                    setSelection(0, 0);
+                else
+                    setSelection(pageToSelect + 1, m_pageRange.to());
+            } else {
+                if (pageToSelect == m_pageRange.to())
+                    setSelection(m_pageRange.from(), pageToSelect - 1);
+                else
+                    setSelection(pageToSelect, m_pageRange.to());
+            }
+        }
+    } else { // single page
+        if (selected)
+            setSelection(pageToSelect, pageToSelect);
+        else
+            setSelection(0, 0);
+    }
+}
+
 QString PdfEditModel::getMetaDataKey(int keyId)
 {
     static const KLazyLocalizedString fNames[]{kli18n("Title"),
@@ -538,6 +589,7 @@ void PdfEditModel::clearAll()
     m_pages = 0;
     m_rotatedCount = 0;
     m_wasMoved = false;
+    m_pageRange.reset();
     endResetModel();
     Q_EMIT pageCountChanged();
     Q_EMIT pdfCountChanged();
@@ -618,6 +670,8 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     }
     case RoleFileId:
         return page ? page->referenceFile() : 0;
+    case RoleSelected:
+        return page ? page->selected() : false;
     default:
         return QVariant();
     }
@@ -625,12 +679,13 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{RoleImage, QByteArrayLiteral("pageImg")},
-            {RoleRotated, QByteArrayLiteral("rotated")},
-            {RoleOrigNr, QByteArrayLiteral("origPage")},
-            {RolePageNr, QByteArrayLiteral("pageNr")},
-            {RolePageRatio, QByteArrayLiteral("pageRatio")},
-            {RoleFileId, QByteArrayLiteral("fileId")}};
+    return {{RoleImage, "pageImg"_ba},
+            {RoleRotated, "rotated"_ba},
+            {RoleOrigNr, "origPage"_ba},
+            {RolePageNr, "pageNr"_ba},
+            {RolePageRatio, "pageRatio"_ba},
+            {RoleFileId, "fileId"_ba},
+            {RoleSelected, "selected"_ba}};
 }
 
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
@@ -742,7 +797,7 @@ void PdfEditModel::toolProgressSlot(qreal prog)
 bool PdfEditModel::rangeIsInvalid(const PageRange &range)
 {
     if (range.from() < 1 || range.from() > m_pages || range.to() < 1 || range.to() > m_pages) {
-        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n();
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n() << "pages:" << m_pages;
         return true;
     }
     return false;
@@ -753,6 +808,39 @@ void PdfEditModel::updateCreationTimeInMetadata(PdfFile *pdf)
     auto newDateTime = pdf->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
     if (newDateTime.toSecsSinceEpoch() < m_metaData->creationDate().toSecsSinceEpoch())
         m_metaData->setCreationDate(newDateTime);
+}
+
+void PdfEditModel::setSelection(int from, int to)
+{
+    if (from == 0 && to == 0) { // reset
+        if (!m_pageRange.isValid())
+            return; // nothing to do
+    } else if (from < 1 || to > m_pages || from > m_pages || to < 1 || from > to) {
+        qCDebug(KARP_LOG) << "{PdfEditModel}" << "Wrong page range!" << "from" << from << "to" << to << "pages" << m_pages;
+        return;
+    }
+    qDebug() << "SET SELECTION" << "from" << from << "to" << to << "pages" << m_pages;
+    int updateFrom = 0, updateTo = 0;
+    // deselect previously selected pages
+    if (m_pageRange.isValid()) {
+        updateFrom = m_pageRange.from() - 1;
+        updateTo = m_pageRange.to() - 1;
+        for (int p = updateFrom; p <= updateTo; ++p) {
+            m_pageList[p]->setSelected(false);
+        }
+        Q_EMIT dataChanged(index(updateFrom, 0), index(updateTo, 0), QList<int>() << RoleSelected);
+    }
+    if (from == 0 && to == 0) {
+        m_pageRange.reset();
+        return;
+    }
+    m_pageRange.setRange(from, to);
+    updateFrom = from - 1;
+    updateTo = to - 1;
+    for (int p = updateFrom; p <= updateTo; ++p) {
+        m_pageList[p]->setSelected(true);
+    }
+    Q_EMIT dataChanged(index(updateFrom, 0), index(updateTo, 0), QList<int>() << RoleSelected);
 }
 
 #include "moc_pdfeditmodel.cpp"
