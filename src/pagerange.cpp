@@ -25,6 +25,11 @@ void PageRange::setRange(int f, int t, int s)
     m_n = s;
 }
 
+bool PageRange::inRange(int pageNr) const
+{
+    return pageNr >= m_from && pageNr <= m_to;
+}
+
 void PageRange::setTo(int t)
 {
     m_to = t;
