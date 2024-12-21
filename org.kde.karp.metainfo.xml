@@ -15,6 +15,7 @@
   <name xml:lang="gl">Karp</name>
   <name xml:lang="he">Karp</name>
   <name xml:lang="hi">कार्प</name>
+  <name xml:lang="ia">Karp</name>
   <name xml:lang="it">Karp</name>
   <name xml:lang="ka">Karp</name>
   <name xml:lang="nl">Karp</name>
@@ -37,6 +38,7 @@
   <summary xml:lang="gl">Organizador de PDF de KDE</summary>
   <summary xml:lang="he">מסדר קובצי PDF מבית KDE</summary>
   <summary xml:lang="hi">पीडीएफ़ के लिए केडीई अरेंजर</summary>
+  <summary xml:lang="ia">Compositor de KDE per PDFs</summary>
   <summary xml:lang="it">Organizzatore KDE di PDF</summary>
   <summary xml:lang="ka">PDF-ების დამლაგებელი PDF-ებისთვის</summary>
   <summary xml:lang="nl">KDE arrangeur voor PDF's</summary>
@@ -133,6 +135,7 @@
       <li xml:lang="gl">Reducir o tamaño dun ficheiro PDF.</li>
       <li xml:lang="he">לצמצם גודל קובצי PDF</li>
       <li xml:lang="hi">पीडीएफ फ़ाइल का आकार कम करें</li>
+      <li xml:lang="ia">Reduce grandor de file PDF</li>
       <li xml:lang="it">Ridurre la dimensione dei file PDF</li>
       <li xml:lang="ka">PDF ფაილის ზომის შემცირება</li>
       <li xml:lang="nl">Bestandsgrootte van PDF bestand verminderen</li>
@@ -199,6 +202,7 @@
       <li xml:lang="gl">Protexer un PDF cun contrasinal.</li>
       <li xml:lang="he">להגן על PDF בסיסמה</li>
       <li xml:lang="hi">पीडीएफ को पासवर्ड से सुरक्षित रखें</li>
+      <li xml:lang="ia">Protege PDF con contrasigno</li>
       <li xml:lang="it">Proteggere i PDF con una password</li>
       <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
       <li xml:lang="nl">PDF met een wachtwoord beschermen</li>
