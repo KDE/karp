@@ -72,7 +72,14 @@ Components.FloatingToolBar {
             icon.name: "view-pages-overview"
             icon.color: checked ? Kirigami.Theme.highlightColor : undefined
             checkable: true
-            checked: false
+            checked: APP.ctrlPressed
+
+            onClicked: {
+                if (checked)
+                    checked = true
+                else
+                    checked = Qt.binding(() => APP.ctrlPressed)
+            }
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
