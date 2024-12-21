@@ -407,7 +407,6 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     int rowTarget = qAbs(targetPage);
     if (targetPage < 0)
         rowTarget = qMax(rowTarget - 1, 0);
-    qDebug() << from << to << rowTarget;
     if (!beginMoveRows(QModelIndex{}, from, to, QModelIndex{}, rowTarget)) {
         qCDebug(KARP_LOG) << "PdfEditModel" << "Cannot start begin move:" << from << to << rowTarget << "FIXME!";
         return;
