@@ -75,10 +75,14 @@ Components.FloatingToolBar {
             checked: APP.ctrlPressed
 
             onClicked: {
-                if (checked)
+                if (checked) {
                     checked = true
-                else
+                } else {
+                    let currPage = pdfView.currentIndex > -1 ? pdfView.currentIndex : 0
+                    console.log("deselect", currPage)
+                    pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false)
                     checked = Qt.binding(() => APP.ctrlPressed)
+                }
             }
 
             QQC2.ToolTip.text: text
