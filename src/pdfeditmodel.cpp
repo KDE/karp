@@ -429,7 +429,7 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
 void PdfEditModel::moveSelected(int targetPage)
 {
     if (targetPage >= m_pageRange.from() && targetPage <= m_pageRange.to()) {
-        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot move selection!" << targetPage << m_pageRange.from() << m_pageRange.to();
+        // qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot move selection!" << targetPage << m_pageRange.from() << m_pageRange.to();
         return;
     }
     movePages(m_pageRange, targetPage);
@@ -450,6 +450,9 @@ void PdfEditModel::selectPage(int pageNr, bool selected, bool append)
 {
     if (pageNr < 0 || pageNr >= m_pages)
         return;
+    if (m_pageList[pageNr]->selected() == selected)
+        return;
+
     const int pageToSelect = pageNr + 1;
     if (append) { // multi-page mode
         if (selected) {
