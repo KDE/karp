@@ -71,14 +71,11 @@ GridView {
 
             property int pageIndex: dropDelegate.delegateIndex
             property bool dragActive: false
-            property int xOffset: (index % pdfModel.columns) * dropDelegate.width
-            property int yOffset: Math.floor(index / pdfModel.columns) * dropDelegate.height
 
             width: pdfModel.maxPageWidth
             height: pdfModel.maxPageWidth * pageRatio
-            x: parent === pdfView.contentItem ? pdfView.dragPos.x + xOffset : 0
-            y: parent === pdfView.contentItem ? pdfView.dragPos.y + yOffset : 0
             z: dragActive ? 5 : 1
+            visible: !pdfView.pageIsDragged || !selected || index === pdfView.currentIndex
 
             Drag.active: dragActive
             Drag.source: pdfPage
@@ -92,7 +89,7 @@ GridView {
                 image: pageImg
                 scale: parent.width / (rotated === 90 || rotated === 270 ? height : width)
                 rotation: rotated
-                opacity: pdfPage.dragActive ? 0.5 : 1
+                opacity: pdfView.pageIsDragged && selected ? 0.5 : 1
                 Behavior on rotation { NumberAnimation { easing.type: Easing.OutQuad } }
                 Rectangle {
                     anchors.fill: parent
@@ -104,12 +101,7 @@ GridView {
                 anchors.bottom: parent.bottom
                 height: Kirigami.Units.gridUnit * 2
                 width: pdfPage.width
-                color: pdfModel.labelColor(fileId) // pdfModel.labelColor(0)
-                // Rectangle {
-                //     width: parent.width; height: Kirigami.Units.smallSpacing
-                //     y: -Kirigami.Units.smallSpacing
-                //     color: pdfModel.labelColor(fileId)
-                // }
+                color: pdfModel.labelColor(fileId)
                 Column {
                     anchors { left: parent.left; leftMargin: Kirigami.Units.smallSpacing }
                     spacing: -Kirigami.Units.smallSpacing
@@ -144,19 +136,6 @@ GridView {
                 }
             }
 
-            QQC2.Button {
-                id: selectButt
-                visible: bottomBar.multiSelect
-                z: 6
-                anchors { top: parent.top; right: parent.right; rightMargin: Kirigami.Units.iconSizes.medium }
-                checkable: true
-                checked: selected
-                icon.name: checked ? "checkmark" : "box"
-                onClicked: {
-                    pdfModel.selectPage(index, checked, true)
-                }
-            }
-
             onClicked: {
                 pdfModel.selectPage(index, pdfView.currentIndex !== index, bottomBar.multiSelect)
                 pdfView.currentIndex = pdfView.currentIndex === index ? -1 : index
@@ -164,7 +143,7 @@ GridView {
 
             states: [
                 State {
-                    when: pdfView.pageIsDragged && bottomBar.multiSelect && selected
+                    when: (!bottomBar.multiSelect && pdfPage.dragActive) || (pdfView.pageIsDragged && bottomBar.multiSelect && selected)
                     ParentChange {
                         target: pdfPage
                         parent: pdfView.contentItem
