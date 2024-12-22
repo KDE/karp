@@ -28,6 +28,7 @@ Rectangle {
         z: 1
         anchors.centerIn: parent
         icon.name: "transform-move"
+        scale: dragHandler.active ? 1.5 : 1
         DragHandler {
             id: dragHandler
             target: editDelg.parent
@@ -43,6 +44,7 @@ Rectangle {
         }
     }
     QQC2.Button {
+        visible: !dragHandler.active
         z: 1
         anchors { bottom: parent.bottom; left: parent.left; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "edit-delete"
@@ -50,6 +52,7 @@ Rectangle {
         onClicked: pdfModel.deletePage(pageNr)
     }
     QQC2.Button {
+        visible: !dragHandler.active
         z: 1
         anchors { top: parent.top; left: parent.left }
         icon.name: "object-rotate-left"
@@ -57,6 +60,7 @@ Rectangle {
     }
     QQC2.Button {
         id: rotLeftButt
+        visible: !dragHandler.active
         z: 1
         anchors { top: parent.top; right: parent.right }
         icon.name: "object-rotate-right"
@@ -64,7 +68,7 @@ Rectangle {
     }
     // move at upper row
     QQC2.Button {
-        visible: pageNr >= pdfModel.columns && pageNr - pdfModel.columns < pdfModel.firstSelected - 1
+        visible: !dragHandler.active && pageNr >= pdfModel.columns && pageNr - pdfModel.columns < pdfModel.firstSelected - 1
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
         icon.name: "arrow-up"
@@ -72,7 +76,7 @@ Rectangle {
     }
     // move at lower row
     QQC2.Button {
-        visible: pageNr < pdfModel.pageCount - pdfModel.columns && pageNr + pdfModel.columns > pdfModel.lastSelected + 1
+        visible: !dragHandler.active && pageNr < pdfModel.pageCount - pdfModel.columns && pageNr + pdfModel.columns > pdfModel.lastSelected + 1
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "arrow-down"
@@ -80,7 +84,7 @@ Rectangle {
     }
     // move at next column
     QQC2.Button {
-        visible: pageNr < pdfModel.pageCount - 1 && pageNr + 1 > pdfModel.lastSelected - 1
+        visible: !dragHandler.active && pageNr < pdfModel.pageCount - 1 && pageNr + 1 > pdfModel.lastSelected - 1
         z: 1
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
         icon.name: "arrow-right"
@@ -88,7 +92,7 @@ Rectangle {
     }
     // move at previous column
     QQC2.Button {
-        visible: pageNr > 0 && pageNr - 1 < pdfModel.firstSelected - 1
+        visible: !dragHandler.active && pageNr > 0 && pageNr - 1 < pdfModel.firstSelected - 1
         z: 1
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
         icon.name: "arrow-left"
