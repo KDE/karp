@@ -450,8 +450,6 @@ void PdfEditModel::selectPage(int pageNr, bool selected, bool append)
 {
     if (pageNr < 0 || pageNr >= m_pages)
         return;
-    if (m_pageList[pageNr]->selected() == selected)
-        return;
 
     const int pageToSelect = pageNr + 1;
     if (append) { // multi-page mode
@@ -833,6 +831,7 @@ void PdfEditModel::setSelection(int from, int to)
     }
     if (from == 0 && to == 0) {
         m_pageRange.reset();
+        Q_EMIT selectionChanged();
         return;
     }
     m_pageRange.setRange(from, to);
