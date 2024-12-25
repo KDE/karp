@@ -49,7 +49,10 @@ Rectangle {
         anchors { bottom: parent.bottom; left: parent.left; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "edit-delete"
         icon.color: "red"
-        onClicked: pdfModel.deletePage(pageNr)
+        onClicked: {
+            pdfModel.deletePage(pageNr)
+            pdfView.currentIndex = -1
+        }
     }
     QQC2.Button {
         visible: !dragHandler.active
