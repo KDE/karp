@@ -433,6 +433,8 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
         setSelection(moveTarget, moveTarget + selectedPageCount - 1);
     else
         setSelection(moveTarget - selectedPageCount, moveTarget - 1);
+    m_wasMoved = true;
+    Q_EMIT editedChanged();
 }
 
 void PdfEditModel::moveSelected(int targetPage)
