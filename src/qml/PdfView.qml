@@ -19,7 +19,6 @@ GridView {
     topMargin: Kirigami.Units.largeSpacing
     bottomMargin: Kirigami.Units.largeSpacing + bottomBar.height
 
-    property var dragPos: Qt.point(0, 0)
     property bool pageIsDragged: false
     property int dragOverlay: 0
 

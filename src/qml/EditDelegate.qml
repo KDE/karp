@@ -38,9 +38,6 @@ Rectangle {
                 if (pdfView.currentItem)
                     pdfView.currentItem.pdfPage.dragActive = active
             }
-            onCentroidChanged: {
-                pdfView.dragPos = Qt.point(centroid.scenePosition.x - centroid.scenePressPosition.x, centroid.scenePosition.y - centroid.scenePressPosition.y)
-            }
             onActiveTranslationChanged: {
                 let posY = mapToItem(pdfView, dragButt.x, dragButt.y).y
                 if (posY < Kirigami.Units.gridUnit * 2 && !pdfView.atYBeginning)
