@@ -320,6 +320,7 @@ void PdfEditModel::deletePage(int pageId)
         Q_EMIT dataChanged(index(pageId, 0), index(m_pages - 1, 0));
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
+    setSelection(0, 0);
 }
 
 /**
@@ -360,6 +361,7 @@ void PdfEditModel::deletePages(const PageRange &range)
     Q_EMIT dataChanged(index(0, 0), index(m_pages - 1, 0));
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
+    setSelection(0, 0);
 }
 
 /**
@@ -424,6 +426,13 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     const int startPage = qMin(from, targetNr);
     const int endPage = qMax(to, targetNr + (to - from));
     Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
+    // update selected page numbers
+    const int moveTarget = rowTarget + 1;
+    const int selectedPageCount = m_pageRange.pageCount();
+    if (moveTarget < m_pageRange.from())
+        setSelection(moveTarget, moveTarget + selectedPageCount - 1);
+    else
+        setSelection(moveTarget - selectedPageCount, moveTarget - 1);
 }
 
 void PdfEditModel::moveSelected(int targetPage)
@@ -433,13 +442,6 @@ void PdfEditModel::moveSelected(int targetPage)
         return;
     }
     movePages(m_pageRange, targetPage);
-    // update selected page numbers
-    const int targetNr = targetPage + 1;
-    const int selectedPageCount = m_pageRange.pageCount();
-    if (targetNr < m_pageRange.from())
-        setSelection(targetNr, targetNr + selectedPageCount - 1);
-    else
-        setSelection(targetNr - selectedPageCount, targetNr - 1);
 }
 
 /**
