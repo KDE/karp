@@ -41,6 +41,15 @@ Rectangle {
             onCentroidChanged: {
                 pdfView.dragPos = Qt.point(centroid.scenePosition.x - centroid.scenePressPosition.x, centroid.scenePosition.y - centroid.scenePressPosition.y)
             }
+            onActiveTranslationChanged: {
+                let posY = mapToItem(pdfView, dragButt.x, dragButt.y).y
+                if (posY < Kirigami.Units.gridUnit * 2 && !pdfView.atYBeginning)
+                    pdfView.dragOverlay = posY - Kirigami.Units.gridUnit * 2
+                else if (posY > pdfView.height - Kirigami.Units.gridUnit * 4 && !pdfView.atYEnd)
+                    pdfView.dragOverlay = posY - (pdfView.height - Kirigami.Units.gridUnit * 4)
+                else
+                    pdfView.dragOverlay = 0
+            }
         }
     }
     QQC2.Button {

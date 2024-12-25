@@ -21,6 +21,7 @@ GridView {
 
     property var dragPos: Qt.point(0, 0)
     property bool pageIsDragged: false
+    property int dragOverlay: 0
 
     displaced: Transition {
         NumberAnimation {
@@ -154,4 +155,11 @@ GridView {
     }
 
     highlight: EditDelegate {}
+
+    Timer {
+        running: pdfView.pageIsDragged && dragOverlay !== 0
+        interval: 50
+        repeat: true
+        onTriggered: pdfView.contentY += Math.ceil(pdfView.dragOverlay / 3)
+    }
 }
