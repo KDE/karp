@@ -39,6 +39,11 @@ void PdfFile::setFile(const QString &fileName)
 
 void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId)
 {
+    // if a page is in the queue already - skip render request
+    for (auto &p : m_pagesToRender) {
+        if (pdfPage == p.pdfPage)
+            return;
+    }
     m_pagesToRender << PageToRender(pdfPage, pageId, pageSize);
     m_renderer->requestPage(pdfPage->origPage(), pageSize);
 }
@@ -48,7 +53,7 @@ void PdfFile::requestPageSlot(int pageNumber, QSize imageSize, const QImage &img
     Q_UNUSED(imageSize);
     auto renderedPage = m_pagesToRender.takeFirst();
     if (pageNumber != renderedPage.pdfPage->origPage())
-        qCDebug(KARP_LOG) << "[PdfFile]" << "Wrong page rendered! FIXME!";
+        qCDebug(KARP_LOG) << "[PdfFile]" << "Wrong page rendered! FIXME!" << pageNumber << renderedPage.pdfPage->origPage();
     renderedPage.pdfPage->setImage(img);
     if (!m_pagesToRender.isEmpty()) {
         auto &pageToRender = m_pagesToRender.first();
