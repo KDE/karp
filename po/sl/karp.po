@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:39+0000\n"
+"POT-Creation-Date: 2024-12-26 00:39+0000\n"
 "PO-Revision-Date: 2024-12-11 07:30+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -25,27 +25,27 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
-#: app.cpp:55 pdfeditmodel.cpp:489
+#: app.cpp:56 pdfeditmodel.cpp:543
 #, kde-format
 msgid "PDF file to edit"
 msgstr "PDF datoteka za urejanje"
 
-#: app.cpp:85 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "Izberite datoteke PDF"
 
-#: app.cpp:170
+#: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF manjka."
 
-#: app.cpp:174
+#: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript manjka."
 
-#: app.cpp:177
+#: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -53,37 +53,37 @@ msgid ""
 msgstr ""
 "Namestite zgoraj omenjene programe, sicer ne bodo na voljo vse funkcije."
 
-#: app.cpp:199
+#: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Dodaj datoteke PDF"
 
-#: app.cpp:209
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Počisti vse datoteke"
 
-#: app.cpp:223
+#: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimiziraj PDF"
 
-#: app.cpp:232
+#: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Zmanjšaj velikost"
 
-#: app.cpp:241
+#: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Nastavi geslo"
 
-#: app.cpp:250
+#: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -117,35 +117,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: pdfeditmodel.cpp:432
+#: pdfeditmodel.cpp:486
 msgid "Title"
 msgstr "Naslov"
 
-#: pdfeditmodel.cpp:433
+#: pdfeditmodel.cpp:487
 msgid "Subject"
 msgstr "Predmet"
 
-#: pdfeditmodel.cpp:434
+#: pdfeditmodel.cpp:488
 msgid "Author"
 msgstr "Avtor"
 
-#: pdfeditmodel.cpp:435
+#: pdfeditmodel.cpp:489
 msgid "Keyword"
 msgstr "Ključna beseda"
 
-#: pdfeditmodel.cpp:436
+#: pdfeditmodel.cpp:490
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:437
+#: pdfeditmodel.cpp:491
 msgid "Creator"
 msgstr "Ustvarjalec"
 
-#: pdfeditmodel.cpp:438
+#: pdfeditmodel.cpp:492
 msgid "Creation Date"
 msgstr "Datum nastanka"
 
-#: pdfeditmodel.cpp:439
+#: pdfeditmodel.cpp:493
 msgid "Modification Date"
 msgstr "Datum spremembe"
 
@@ -372,75 +372,82 @@ msgstr "Nastavi geslo"
 msgid "Protect PDF file with password."
 msgstr "Zaščiti datoteko PDF z geslom."
 
-#: qml/MainToolbar.qml:21
+#: qml/MainToolbar.qml:22
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Izberite strani za brisanje"
 
-#: qml/MainToolbar.qml:40
+#: qml/MainToolbar.qml:42
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Izberite strani za sukanje"
 
-#: qml/MainToolbar.qml:53
+#: qml/MainToolbar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Izberite strani za premikanje"
 
-#: qml/MainToolbar.qml:69
+#: qml/MainToolbar.qml:73
+#, fuzzy, kde-format
+#| msgid "all pages in selected range"
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "vse strani v izbranem obsegu"
+
+#: qml/MainToolbar.qml:98
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Pokaži oznake strani"
 
-#: qml/MainToolbar.qml:81
+#: qml/MainToolbar.qml:110
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Pomanjšaj"
 
-#: qml/MainToolbar.qml:93
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Povečaj"
 
-#: qml/MainToolbar.qml:109
+#: qml/MainToolbar.qml:138
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Stran %1 od %2"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:151
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Izberite strani za brisanje"
 
-#: qml/MainToolbar.qml:123
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Izberite strani za sukanje"
 
-#: qml/MainToolbar.qml:135
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Zasukaj"
 
-#: qml/MainToolbar.qml:144
+#: qml/MainToolbar.qml:176
 #, kde-format
 msgid "Angle"
 msgstr "Kot"
 
-#: qml/MainToolbar.qml:162
+#: qml/MainToolbar.qml:194
 #, kde-format
 msgid "Select pages to move"
 msgstr "Izberite strani za premikanje"

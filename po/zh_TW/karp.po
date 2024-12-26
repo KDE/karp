@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:39+0000\n"
+"POT-Creation-Date: 2024-12-26 00:39+0000\n"
 "PO-Revision-Date: 2024-11-26 21:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -27,64 +27,64 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: app.cpp:55 pdfeditmodel.cpp:489
+#: app.cpp:56 pdfeditmodel.cpp:543
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要編輯的 PDF 檔案"
 
-#: app.cpp:85 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "選擇 PDF 檔案"
 
-#: app.cpp:170
+#: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
 msgstr "缺乏 QPDF。"
 
-#: app.cpp:174
+#: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "缺乏 Ghostscript。"
 
-#: app.cpp:177
+#: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "請安裝以上提到的程式，否則某些功能會無法使用。"
 
-#: app.cpp:199
+#: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "加入 PDF 檔案"
 
-#: app.cpp:209
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "清除所有檔案"
 
-#: app.cpp:223
+#: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "最佳化 PDF"
 
-#: app.cpp:232
+#: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "降低大小"
 
-#: app.cpp:241
+#: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "設定密碼"
 
-#: app.cpp:250
+#: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -118,35 +118,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "維護者"
 
-#: pdfeditmodel.cpp:432
+#: pdfeditmodel.cpp:486
 msgid "Title"
 msgstr "標題"
 
-#: pdfeditmodel.cpp:433
+#: pdfeditmodel.cpp:487
 msgid "Subject"
 msgstr "主旨"
 
-#: pdfeditmodel.cpp:434
+#: pdfeditmodel.cpp:488
 msgid "Author"
 msgstr "作者"
 
-#: pdfeditmodel.cpp:435
+#: pdfeditmodel.cpp:489
 msgid "Keyword"
 msgstr "關鍵字"
 
-#: pdfeditmodel.cpp:436
+#: pdfeditmodel.cpp:490
 msgid "Producer"
 msgstr "產生者"
 
-#: pdfeditmodel.cpp:437
+#: pdfeditmodel.cpp:491
 msgid "Creator"
 msgstr "建立者"
 
-#: pdfeditmodel.cpp:438
+#: pdfeditmodel.cpp:492
 msgid "Creation Date"
 msgstr "建立日期"
 
-#: pdfeditmodel.cpp:439
+#: pdfeditmodel.cpp:493
 msgid "Modification Date"
 msgstr "修改日期"
 
@@ -379,81 +379,88 @@ msgstr "設定密碼"
 msgid "Protect PDF file with password."
 msgstr "用密碼來保護 PDF 檔。"
 
-#: qml/MainToolbar.qml:21
+#: qml/MainToolbar.qml:22
 #, fuzzy, kde-format
 #| msgid "Select pages to delete"
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "選擇要刪除的頁面"
 
-#: qml/MainToolbar.qml:40
+#: qml/MainToolbar.qml:42
 #, fuzzy, kde-format
 #| msgid "Select pages to rotate"
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "選擇要旋轉的頁面"
 
-#: qml/MainToolbar.qml:53
+#: qml/MainToolbar.qml:56
 #, fuzzy, kde-format
 #| msgid "Select pages to move"
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "選擇要移動的頁面"
 
-#: qml/MainToolbar.qml:69
+#: qml/MainToolbar.qml:73
+#, fuzzy, kde-format
+#| msgid "all pages in selected range"
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "選取範圍內所有頁面"
+
+#: qml/MainToolbar.qml:98
 #, fuzzy, kde-format
 #| msgid "Show page labels"
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "顯示頁面標記"
 
-#: qml/MainToolbar.qml:81
+#: qml/MainToolbar.qml:110
 #, fuzzy, kde-format
 #| msgid "Zoom Out"
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "縮小"
 
-#: qml/MainToolbar.qml:93
+#: qml/MainToolbar.qml:122
 #, fuzzy, kde-format
 #| msgid "Zoom In"
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "放大"
 
-#: qml/MainToolbar.qml:109
+#: qml/MainToolbar.qml:138
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "第 %1 頁，共 %2 頁"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:151
 #, kde-format
 msgid "Select pages to delete"
 msgstr "選擇要刪除的頁面"
 
-#: qml/MainToolbar.qml:123
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "刪除"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "選擇要旋轉的頁面"
 
-#: qml/MainToolbar.qml:135
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "旋轉"
 
-#: qml/MainToolbar.qml:144
+#: qml/MainToolbar.qml:176
 #, kde-format
 msgid "Angle"
 msgstr "角度"
 
-#: qml/MainToolbar.qml:162
+#: qml/MainToolbar.qml:194
 #, kde-format
 msgid "Select pages to move"
 msgstr "選擇要移動的頁面"

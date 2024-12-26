@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:39+0000\n"
+"POT-Creation-Date: 2024-12-26 00:39+0000\n"
 "PO-Revision-Date: 2024-12-11 09:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,27 +30,27 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: app.cpp:55 pdfeditmodel.cpp:489
+#: app.cpp:56 pdfeditmodel.cpp:543
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Fitxer PDF a editar"
 
-#: app.cpp:85 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "Selecció dels fitxers PDF"
 
-#: app.cpp:170
+#: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
 msgstr "Manca el QPDF."
 
-#: app.cpp:174
+#: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Manca el Ghostscript."
 
-#: app.cpp:177
+#: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -59,37 +59,37 @@ msgstr ""
 "Instal·leu els programes esmentats anteriorment, en cas contrari no totes "
 "les funcions estaran disponibles."
 
-#: app.cpp:199
+#: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Afegeix fitxers PDF"
 
-#: app.cpp:209
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Neteja tots els fitxers"
 
-#: app.cpp:223
+#: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimitza el PDF"
 
-#: app.cpp:232
+#: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Redueix la mida"
 
-#: app.cpp:241
+#: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Estableix la contrasenya"
 
-#: app.cpp:250
+#: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -123,35 +123,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Mantenidor"
 
-#: pdfeditmodel.cpp:432
+#: pdfeditmodel.cpp:486
 msgid "Title"
 msgstr "Títol"
 
-#: pdfeditmodel.cpp:433
+#: pdfeditmodel.cpp:487
 msgid "Subject"
 msgstr "Assumpte"
 
-#: pdfeditmodel.cpp:434
+#: pdfeditmodel.cpp:488
 msgid "Author"
 msgstr "Autor"
 
-#: pdfeditmodel.cpp:435
+#: pdfeditmodel.cpp:489
 msgid "Keyword"
 msgstr "Paraula clau"
 
-#: pdfeditmodel.cpp:436
+#: pdfeditmodel.cpp:490
 msgid "Producer"
 msgstr "Productor"
 
-#: pdfeditmodel.cpp:437
+#: pdfeditmodel.cpp:491
 msgid "Creator"
 msgstr "Creador"
 
-#: pdfeditmodel.cpp:438
+#: pdfeditmodel.cpp:492
 msgid "Creation Date"
 msgstr "Data de creació"
 
-#: pdfeditmodel.cpp:439
+#: pdfeditmodel.cpp:493
 msgid "Modification Date"
 msgstr "Data de modificació"
 
@@ -374,75 +374,82 @@ msgstr "Estableix la contrasenya"
 msgid "Protect PDF file with password."
 msgstr "Protegeix el fitxer PDF amb una contrasenya."
 
-#: qml/MainToolbar.qml:21
+#: qml/MainToolbar.qml:22
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Seleccioneu les pàgines a suprimir"
 
-#: qml/MainToolbar.qml:40
+#: qml/MainToolbar.qml:42
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Seleccioneu les pàgines a girar"
 
-#: qml/MainToolbar.qml:53
+#: qml/MainToolbar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Seleccioneu les pàgines a moure"
 
-#: qml/MainToolbar.qml:69
+#: qml/MainToolbar.qml:73
+#, fuzzy, kde-format
+#| msgid "all pages in selected range"
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "totes les pàgines de l'interval seleccionat"
+
+#: qml/MainToolbar.qml:98
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Mostra les etiquetes de les pàgines"
 
-#: qml/MainToolbar.qml:81
+#: qml/MainToolbar.qml:110
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Redueix"
 
-#: qml/MainToolbar.qml:93
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Amplia"
 
-#: qml/MainToolbar.qml:109
+#: qml/MainToolbar.qml:138
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Pàgina %1 de %2"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:151
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Pàgines seleccionades a suprimir"
 
-#: qml/MainToolbar.qml:123
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Suprimeix"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Pàgines seleccionades a girar"
 
-#: qml/MainToolbar.qml:135
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Gira"
 
-#: qml/MainToolbar.qml:144
+#: qml/MainToolbar.qml:176
 #, kde-format
 msgid "Angle"
 msgstr "Angle"
 
-#: qml/MainToolbar.qml:162
+#: qml/MainToolbar.qml:194
 #, kde-format
 msgid "Select pages to move"
 msgstr "Pàgines seleccionades a moure"

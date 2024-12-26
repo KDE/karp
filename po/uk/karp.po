@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:39+0000\n"
+"POT-Creation-Date: 2024-12-26 00:39+0000\n"
 "PO-Revision-Date: 2024-12-11 10:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -28,27 +28,27 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: app.cpp:55 pdfeditmodel.cpp:489
+#: app.cpp:56 pdfeditmodel.cpp:543
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Файл PDF для редагування"
 
-#: app.cpp:85 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "Виберіть файли PDF"
 
-#: app.cpp:170
+#: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
 msgstr "Не вистачає QPDF."
 
-#: app.cpp:174
+#: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Не вистачає Ghostscript."
 
-#: app.cpp:177
+#: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -57,37 +57,37 @@ msgstr ""
 "Встановіть згадані вище програми, щоб мати доступ до усіх можливостей "
 "програми."
 
-#: app.cpp:199
+#: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Додати файли PDF"
 
-#: app.cpp:209
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Вилучити усі файли"
 
-#: app.cpp:223
+#: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Оптимізувати PDF"
 
-#: app.cpp:232
+#: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Зменшити розмір"
 
-#: app.cpp:241
+#: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Встановити пароль"
 
-#: app.cpp:250
+#: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -121,35 +121,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: pdfeditmodel.cpp:432
+#: pdfeditmodel.cpp:486
 msgid "Title"
 msgstr "Заголовок"
 
-#: pdfeditmodel.cpp:433
+#: pdfeditmodel.cpp:487
 msgid "Subject"
 msgstr "Тема"
 
-#: pdfeditmodel.cpp:434
+#: pdfeditmodel.cpp:488
 msgid "Author"
 msgstr "Автор"
 
-#: pdfeditmodel.cpp:435
+#: pdfeditmodel.cpp:489
 msgid "Keyword"
 msgstr "Ключове слово"
 
-#: pdfeditmodel.cpp:436
+#: pdfeditmodel.cpp:490
 msgid "Producer"
 msgstr "Підсистема створення"
 
-#: pdfeditmodel.cpp:437
+#: pdfeditmodel.cpp:491
 msgid "Creator"
 msgstr "Створено у"
 
-#: pdfeditmodel.cpp:438
+#: pdfeditmodel.cpp:492
 msgid "Creation Date"
 msgstr "Дата створення"
 
-#: pdfeditmodel.cpp:439
+#: pdfeditmodel.cpp:493
 msgid "Modification Date"
 msgstr "Дата внесення змін"
 
@@ -376,75 +376,82 @@ msgstr "Встановити пароль"
 msgid "Protect PDF file with password."
 msgstr "Захистити файл PDF паролем."
 
-#: qml/MainToolbar.qml:21
+#: qml/MainToolbar.qml:22
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Вибрати сторінки для вилучення"
 
-#: qml/MainToolbar.qml:40
+#: qml/MainToolbar.qml:42
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Вибрати сторінки для обертання"
 
-#: qml/MainToolbar.qml:53
+#: qml/MainToolbar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Вибрати сторінки для пересування"
 
-#: qml/MainToolbar.qml:69
+#: qml/MainToolbar.qml:73
+#, fuzzy, kde-format
+#| msgid "all pages in selected range"
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "усі сторінки у вибраному діапазоні"
+
+#: qml/MainToolbar.qml:98
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Показувати мітки сторінок"
 
-#: qml/MainToolbar.qml:81
+#: qml/MainToolbar.qml:110
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Зменшити"
 
-#: qml/MainToolbar.qml:93
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Збільшити"
 
-#: qml/MainToolbar.qml:109
+#: qml/MainToolbar.qml:138
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Сторінка %1 з %2"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:151
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Вибрати сторінки для вилучення"
 
-#: qml/MainToolbar.qml:123
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Вилучити"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Вибрати сторінки для обертання"
 
-#: qml/MainToolbar.qml:135
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Обертати"
 
-#: qml/MainToolbar.qml:144
+#: qml/MainToolbar.qml:176
 #, kde-format
 msgid "Angle"
 msgstr "Кут"
 
-#: qml/MainToolbar.qml:162
+#: qml/MainToolbar.qml:194
 #, kde-format
 msgid "Select pages to move"
 msgstr "Вибрати сторінки для пересування"

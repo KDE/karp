@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:39+0000\n"
-"PO-Revision-Date: 2024-12-24 20:39+0530\n"
+"POT-Creation-Date: 2024-12-26 00:39+0000\n"
+"PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -29,64 +29,64 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: app.cpp:55 pdfeditmodel.cpp:489
+#: app.cpp:56 pdfeditmodel.cpp:543
 #, kde-format
 msgid "PDF file to edit"
 msgstr "सम्पादनार्थं PDF सञ्चिका"
 
-#: app.cpp:85 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF सञ्चिकाः चिनोतु"
 
-#: app.cpp:170
+#: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF अनुपलब्धम् अस्ति।"
 
-#: app.cpp:174
+#: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "भूतस्क्रिप्ट् लुप्तम् अस्ति।"
 
-#: app.cpp:177
+#: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "उपरि उल्लिखितानि कार्यक्रमाणि संस्थापयन्तु, अन्यथा सर्वाणि कार्याणि न उपलभ्यन्ते ।"
 
-#: app.cpp:199
+#: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "PDF सञ्चिकाः योजयन्तु"
 
-#: app.cpp:209
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "सर्वाणि सञ्चिकाः स्वच्छं कुर्वन्तु"
 
-#: app.cpp:223
+#: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "PDF अनुकूलितं कुर्वन्तु"
 
-#: app.cpp:232
+#: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "आकारं न्यूनीकरोतु"
 
-#: app.cpp:241
+#: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
 
-#: app.cpp:250
+#: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -120,35 +120,35 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "परिपालकः"
 
-#: pdfeditmodel.cpp:432
+#: pdfeditmodel.cpp:486
 msgid "Title"
 msgstr "शीर्षक"
 
-#: pdfeditmodel.cpp:433
+#: pdfeditmodel.cpp:487
 msgid "Subject"
 msgstr "विषयः"
 
-#: pdfeditmodel.cpp:434
+#: pdfeditmodel.cpp:488
 msgid "Author"
 msgstr "लेखकः"
 
-#: pdfeditmodel.cpp:435
+#: pdfeditmodel.cpp:489
 msgid "Keyword"
 msgstr "कीवर्ड"
 
-#: pdfeditmodel.cpp:436
+#: pdfeditmodel.cpp:490
 msgid "Producer"
 msgstr "निर्माता"
 
-#: pdfeditmodel.cpp:437
+#: pdfeditmodel.cpp:491
 msgid "Creator"
 msgstr "प्रजापति"
 
-#: pdfeditmodel.cpp:438
+#: pdfeditmodel.cpp:492
 msgid "Creation Date"
 msgstr "सृष्टि तिथि"
 
-#: pdfeditmodel.cpp:439
+#: pdfeditmodel.cpp:493
 msgid "Modification Date"
 msgstr "परिवर्तन तिथि"
 
@@ -335,7 +335,7 @@ msgstr "रक्ष्"
 #, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] "संचिका"
+msgstr[0] "सञ्चिका"
 msgstr[1] "सञ्चिकाः"
 
 #: qml/MainPage.qml:55
@@ -371,75 +371,82 @@ msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
 msgid "Protect PDF file with password."
 msgstr "गुप्तशब्देन PDF सञ्चिकां रक्षन्तु।"
 
-#: qml/MainToolbar.qml:21
+#: qml/MainToolbar.qml:22
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "विलोपनार्थं पृष्ठानि चिनोतु"
 
-#: qml/MainToolbar.qml:40
+#: qml/MainToolbar.qml:42
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "परिभ्रमितुं पृष्ठानि चिनोतु"
 
-#: qml/MainToolbar.qml:53
+#: qml/MainToolbar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "स्थानान्तरणार्थं पृष्ठानि चिनोतु"
 
-#: qml/MainToolbar.qml:69
+#: qml/MainToolbar.qml:73
+#, fuzzy, kde-format
+#| msgid "all pages in selected range"
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "चयनितपरिधिषु सर्वाणि पृष्ठानि"
+
+#: qml/MainToolbar.qml:98
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "पृष्ठस्य लेबल् दर्शयतु"
 
-#: qml/MainToolbar.qml:81
+#: qml/MainToolbar.qml:110
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Zoom Out इति"
 
-#: qml/MainToolbar.qml:93
+#: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Zoom In इति"
 
-#: qml/MainToolbar.qml:109
+#: qml/MainToolbar.qml:138
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "पृष्ठ %1 के %2"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:151
 #, kde-format
 msgid "Select pages to delete"
 msgstr "विलोपनार्थं पृष्ठानि चिनोतु"
 
-#: qml/MainToolbar.qml:123
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "लुप्"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "परिभ्रमितुं पृष्ठानि चिनोतु"
 
-#: qml/MainToolbar.qml:135
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "परिभ्रमतु"
 
-#: qml/MainToolbar.qml:144
+#: qml/MainToolbar.qml:176
 #, kde-format
 msgid "Angle"
 msgstr "कोण"
 
-#: qml/MainToolbar.qml:162
+#: qml/MainToolbar.qml:194
 #, kde-format
 msgid "Select pages to move"
 msgstr "स्थानान्तरणार्थं पृष्ठानि चिनोतु"
