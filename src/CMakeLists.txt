@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fexceptions")
+kde_enable_exceptions()
 
 add_executable(karp)
 
