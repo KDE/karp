@@ -86,7 +86,6 @@ target_link_libraries(karp
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::Kirigami
-    KF6::Crash
     KirigamiAddonsStatefulApp
     qpdf::libqpdf
 )
@@ -96,6 +95,10 @@ if (TARGET KF6::I18nQml)
         KF6::I18nQml
     )
 endif()
+if (TARGET KF6::Crash)
+    target_link_libraries(karp PUBLIC KF6::Crash)
+endif()
+
 target_include_directories(karp PUBLIC ${CMAKE_BINARY_DIR})
 
 if (ANDROID)
