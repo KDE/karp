@@ -12,6 +12,7 @@
 #include <qpdf/QPDFUsage.hh>
 
 using namespace Qt::Literals::StringLiterals;
+using namespace std::string_literals;
 
 QpdfProxy::QpdfProxy(PdfEditModel *pdfModel, QObject *parent)
     : QObject(parent)
@@ -38,10 +39,10 @@ void QpdfProxy::addMetaToJob(QPDF &qpdf, PdfMetaData *metaData)
 {
     // TODO: handle case when metadata has to be removed
     auto trailer = qpdf.getTrailer();
-    auto info = trailer.getKey("/Info");
+    auto info = trailer.getKey("/Info"s);
     if (info.isNull()) {
         auto newDict = QPDFObjectHandle::newDictionary();
-        trailer.replaceKey("/Info", newDict);
+        trailer.replaceKey("/Info"s, newDict);
         metaData->setAllInfoKeys(newDict);
     } else {
         auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
@@ -51,7 +52,7 @@ void QpdfProxy::addMetaToJob(QPDF &qpdf, PdfMetaData *metaData)
 
 void QpdfProxy::forcePdfVersion(QPDFJob::Config *jobConf, qreal ver)
 {
-    jobConf->forceVersion("1." + std::to_string(static_cast<int>(ver * 10.0 - 10.0)));
+    jobConf->forceVersion("1."s + std::to_string(static_cast<int>(ver * 10.0 - 10.0)));
 }
 
 void QpdfProxy::setPdfPassword(QPDFJob::Config *jobConf, const std::string &pass)
@@ -161,7 +162,7 @@ void QpdfProxy::appendRangeToJob(const QVector<quint16> &range, QPDFJob::PagesCo
     QString pRange;
     std::string file, pass;
     if (isFirst) {
-        // qpdfPages->file("."); // pnly above qpdf 10.9.0 version
+        // qpdfPages->file("."); // only above qpdf 10.9.0 version
         file = "."; // for first file we referring to input file of QPDFJob "."
         pdf = m_pdfModel->pdfs()[m_pdfModel->page(0)->referenceFile()];
     } else {
@@ -201,12 +202,12 @@ std::string QpdfProxy::getPagesForRotation(int angle, const QVector<quint16> &pa
 {
     std::string pRange;
     if (!pageList.isEmpty()) {
-        pRange = std::to_string(angle) + ":" + std::to_string(pageList[0] + 1);
+        pRange = std::to_string(angle) + ":"s + std::to_string(pageList[0] + 1);
     }
     int p = 1;
     while (p < pageList.count()) {
         if (!pRange.empty())
-            pRange += ",";
+            pRange += ","s;
         pRange += std::to_string(pageList[p] + 1); //.append(QString::number(pageList[p] + 1));
         p++;
     }
