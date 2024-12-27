@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-26 00:39+0000\n"
-"PO-Revision-Date: 2024-12-11 11:40+0100\n"
+"PO-Revision-Date: 2024-12-26 20:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -389,11 +389,10 @@ msgid "Select pages to move"
 msgstr "Seleccione las páginas que se van a mover"
 
 #: qml/MainToolbar.qml:73
-#, fuzzy, kde-format
-#| msgid "all pages in selected range"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr "todas las páginas del intervalo seleccionado"
+msgstr "Selección de múltiples páginas"
 
 #: qml/MainToolbar.qml:98
 #, kde-format
