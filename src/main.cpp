@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 
 #ifndef NDEBUG
     QLoggingCategory::setFilterRules("org.kde.karp*=true"_L1);
-    qCDebug(KARP_LOG()) << "Debug build";
+    qCDebug(KARP_LOG) << "Debug build";
 #endif
 
 #if HAVE_STYLE_MANAGER
