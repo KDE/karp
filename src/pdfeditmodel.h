@@ -10,6 +10,7 @@
 
 class PdfFile;
 class PdfMetaData;
+class BookmarkModel;
 
 /**
  * This value of 0.98765 is reduce-size operation progress state.
@@ -158,6 +159,8 @@ public:
 
     Q_INVOKABLE void setPdfPassword(int fileId, const QString &pass);
 
+    Q_INVOKABLE QAbstractItemModel *getBookmarkModel();
+
     QString outFile() const;
 
     PdfPage *page(int p)
@@ -267,4 +270,5 @@ private:
     qreal m_pdfVersion = 0.0; /**< 0.0 for default version from input file */
     qreal m_progress = 0.0;
     PageRange m_pageRange;
+    BookmarkModel *m_bookmarks = nullptr;
 };
