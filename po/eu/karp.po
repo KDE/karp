@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-26 00:39+0000\n"
+"POT-Creation-Date: 2024-12-28 00:39+0000\n"
 "PO-Revision-Date: 2024-12-26 20:13+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -95,29 +95,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "PDF meta-datuak"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:106
+#: main.cpp:108
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDEren PDF moldatzailea"
 
-#: main.cpp:110
+#: main.cpp:112
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:111
+#: main.cpp:113
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:112
+#: main.cpp:114
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"

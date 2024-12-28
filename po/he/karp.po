@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-26 00:39+0000\n"
-"PO-Revision-Date: 2024-12-11 09:25+0200\n"
+"POT-Creation-Date: 2024-12-28 00:39+0000\n"
+"PO-Revision-Date: 2024-12-27 08:33+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -91,29 +91,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "נתוני על של PDF"
 
-#: main.cpp:102
+#: main.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:106
+#: main.cpp:108
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "מסדר קובצי PDF מבית KDE"
 
-#: main.cpp:110
+#: main.cpp:112
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 תומאס בויצ׳וק"
 
-#: main.cpp:111
+#: main.cpp:113
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "תומאס בויצ׳וק"
 
-#: main.cpp:112
+#: main.cpp:114
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
@@ -393,11 +393,10 @@ msgid "Select pages to move"
 msgstr "נא לבחור עמודים להעברה"
 
 #: qml/MainToolbar.qml:73
-#, fuzzy, kde-format
-#| msgid "all pages in selected range"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr "כל העמודים בטווח הנבחר"
+msgstr "בחירה מרובת עמודים"
 
 #: qml/MainToolbar.qml:98
 #, kde-format
