@@ -14,6 +14,7 @@ Components.FloatingToolBar {
     required property PdfEditModel pdfModel
     property alias labelsVisible: labelsAction.checked
     property alias multiSelect: selectAction.checked
+    property alias showBookmarks: bookmarkAction.checked
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -61,6 +62,19 @@ Components.FloatingToolBar {
                 let to = pdfModel.lastSelected ? pdfModel.lastSelected : 1
                 mvDlgComp.createObject(null, { range: APP.range(from, to) })
             }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            id: bookmarkAction
+            text: i18nc("@action:intoolbar", "Bookmarks (Table of Content)")
+            display: QQC2.ToolButton.IconOnly
+            icon.name: "bookmark-toolbar"
+            checkable: true
+            onClicked: showBookmarks = checked // override default binding to prefer user want to see bookmark pane
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered

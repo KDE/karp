@@ -52,6 +52,7 @@ ColumnLayout {
                 QQC2.Label {
                     text: treeDelegate.page
                     Layout.alignment: Qt.AlignRight
+                    rightPadding: Kirigami.Units.smallSpacing
                 }
             }
         }
