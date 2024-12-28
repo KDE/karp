@@ -52,4 +52,6 @@ protected:
 private:
     QScopedPointer<BookmarkNode> m_rootNode;
     QHash<int, QByteArray> m_roleNames;
+    int m_pageOffset = 0;
+    int m_pagesCount = 0;
 };
