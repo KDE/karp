@@ -16,6 +16,8 @@ ColumnLayout {
     property alias model: treeView.model
     property alias rows: treeView.rows
 
+    signal bookmarkSelected(var pageNr)
+
     Kirigami.SearchField {
         visible: !globalDrawer.collapsed
         Layout.fillWidth: true
@@ -55,6 +57,8 @@ ColumnLayout {
                     rightPadding: Kirigami.Units.smallSpacing
                 }
             }
+
+            onClicked: bookPane.bookmarkSelected(page)
         }
     }
 }
