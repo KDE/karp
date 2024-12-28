@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfeditmodel.h"
+#include "bookmarkmodel.h"
 #include "karp_debug.h"
 #include "karpconfig.h"
 #include "pdffile.h"
@@ -40,6 +41,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
     m_columns = INIT_COLUMN_COUNT;
     m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
     m_pageRange.reset();
+    m_bookmarks = new BookmarkModel(this);
 }
 
 PdfEditModel::~PdfEditModel()
@@ -62,6 +64,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
     appendPdfFileToModel(newPdf);
     updateCreationTimeInMetadata(newPdf);
     karpConfig::self()->setLastDir(m_pdfList.last()->dir());
+    m_bookmarks->appendPdf(newPdf);
 }
 
 void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
@@ -89,6 +92,9 @@ void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
+    for (auto &pdf : pdfList) {
+        m_bookmarks->appendPdf(pdf);
+    }
 }
 
 QVector<PdfFile *> &PdfEditModel::pdfs()
@@ -626,6 +632,11 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     } else {
         appendPdfPages(pdf);
     }
+}
+
+QAbstractItemModel *PdfEditModel::getBookmarkModel()
+{
+    return m_bookmarks;
 }
 
 QString PdfEditModel::outFile() const
