@@ -133,19 +133,46 @@ Kirigami.Page {
         spacing: Kirigami.Units.largeSpacing
     }
 
-    contentItem: PdfView {
-        id: pdfView
+    contentItem: QQC2.SplitView {
+        id: splitView
 
-        visible: pdfModel.pageCount
-        width: mainWin.contentItem.width
-        height: mainWin.contentItem.height
+        anchors.fill: parent
+        orientation: Qt.Horizontal
 
-        cellWidth: pdfModel.maxPageWidth + pdfModel.spacing
-        cellHeight: pdfModel.maxPageHeight + pdfModel.spacing
+        handle: Item {
+            implicitWidth: Kirigami.Units.smallSpacing
+            Kirigami.Separator {
+                // HACK: only way to add space between bookmark list and splitter handle
+                anchors.right: parent.right
+                height: parent.height
+            }
+        }
 
-        model: pdfModel
+        BookmarksPane {
+            id: bookmarks
 
-        QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+            visible: rows > 0
+            QQC2.SplitView.fillHeight: true
+            QQC2.SplitView.preferredWidth: Kirigami.Units.gridUnit * 15
+            QQC2.SplitView.minimumWidth: Kirigami.Units.gridUnit * 5
+            QQC2.SplitView.maximumWidth: mainWin.contentItem.width / 3
+        }
+
+        PdfView {
+            id: pdfView
+
+            visible: pdfModel.pageCount
+            QQC2.SplitView.fillWidth: true
+            QQC2.SplitView.minimumWidth: splitView.width / 2
+            QQC2.SplitView.fillHeight: true
+
+            cellWidth: pdfModel.maxPageWidth + pdfModel.spacing
+            cellHeight: pdfModel.maxPageHeight + pdfModel.spacing
+
+            model: pdfModel
+
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+        }
     }
 
     MainToolbar {
@@ -153,13 +180,13 @@ Kirigami.Page {
 
         pdfModel: pdfModel
         visible: pdfModel.pageCount
+        x: pdfView.x + (pdfView.width - width) / 2
         z: 600000
         parent: page.overlay
 
         anchors {
             bottom: parent.bottom
             margins: Kirigami.Units.largeSpacing
-            horizontalCenter: parent.horizontalCenter
         }
     }
 
@@ -235,5 +262,6 @@ Kirigami.Page {
             pdfModel.loadPdfFile(pdfFiles[0])
         else if (pdfFiles.length > 1)
             Qt.createComponent("org.kde.karp", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel, initFiles: pdfFiles })
+        bookmarks.model = pdfModel.getBookmarkModel()
     }
 }
