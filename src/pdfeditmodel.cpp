@@ -600,6 +600,7 @@ void PdfEditModel::clearAll()
     m_wasMoved = false;
     m_pageRange.reset();
     endResetModel();
+    m_bookmarks->clear();
     Q_EMIT pageCountChanged();
     Q_EMIT pdfCountChanged();
     Q_EMIT editedChanged();

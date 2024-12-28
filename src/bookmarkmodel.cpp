@@ -147,27 +147,7 @@ BookmarkModel::BookmarkModel(QObject *parent)
         m_roleNames.insert(r, QByteArray(rolesMetaEnum.valueToKey(r)).toLower());
 }
 
-void BookmarkModel::findBookmark(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark)
-{
-    BookmarkNode *childBookmark = nullptr;
-    if (index.isValid()) {
-        childBookmark = new BookmarkNode(parentBookmark);
-        if (parentBookmark)
-            parentBookmark->appendChild(childBookmark);
-        childBookmark->grabDataFromIndex(index, m_pageOffset);
-    } else {
-        childBookmark = parentBookmark;
-    }
-    if ((index.flags() & Qt::ItemNeverHasChildren) || !model->hasChildren(index))
-        return;
-    const auto rows = model->rowCount(index);
-    const auto cols = model->columnCount(index);
-    for (int i = 0; i < rows; ++i) {
-        for (int j = 0; j < cols; ++j) {
-            findBookmark(model->index(i, j, index), model, childBookmark);
-        }
-    }
-}
+BookmarkModel::~BookmarkModel() = default;
 
 void BookmarkModel::appendPdf(QPdfDocument *pdf)
 {
@@ -179,6 +159,14 @@ void BookmarkModel::appendPdf(QPdfDocument *pdf)
     endResetModel();
     m_pageOffset = 0;
     m_pagesCount += pdf->pageCount();
+}
+
+void BookmarkModel::clear()
+{
+    beginResetModel();
+    m_rootNode->clear();
+    m_pagesCount = 0;
+    endResetModel();
 }
 
 int BookmarkModel::rowCount(const QModelIndex &parent) const
@@ -262,6 +250,28 @@ QVariant BookmarkModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> BookmarkModel::roleNames() const
 {
     return m_roleNames;
+}
+
+void BookmarkModel::findBookmark(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark)
+{
+    BookmarkNode *childBookmark = nullptr;
+    if (index.isValid()) {
+        childBookmark = new BookmarkNode(parentBookmark);
+        if (parentBookmark)
+            parentBookmark->appendChild(childBookmark);
+        childBookmark->grabDataFromIndex(index, m_pageOffset);
+    } else {
+        childBookmark = parentBookmark;
+    }
+    if ((index.flags() & Qt::ItemNeverHasChildren) || !model->hasChildren(index))
+        return;
+    const auto rows = model->rowCount(index);
+    const auto cols = model->columnCount(index);
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            findBookmark(model->index(i, j, index), model, childBookmark);
+        }
+    }
 }
 
 #include "moc_bookmarkmodel.cpp"

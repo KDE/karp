@@ -29,11 +29,17 @@ public:
     Q_ENUM(Role)
 
     explicit BookmarkModel(QObject *parent = nullptr);
+    ~BookmarkModel() override;
 
     /**
      * Appends bookmarks (if any) from @p pdf document to the model
      */
     void appendPdf(QPdfDocument *pdf);
+
+    /**
+     * Removes all bookmarks/data from the model
+     */
+    void clear();
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &) const override;
