@@ -62,13 +62,13 @@ public:
         return m_parentNode;
     }
 
-    void grabDataFromIndex(const QModelIndex &index)
+    void grabDataFromIndex(const QModelIndex &index, int pageOffset)
     {
         if (!index.isValid())
             return;
         m_title = index.data(static_cast<int>(QPdfBookmarkModel::Role::Title)).toString();
         m_level = index.data(static_cast<int>(QPdfBookmarkModel::Role::Level)).toInt();
-        m_pageNumber = index.data(static_cast<int>(QPdfBookmarkModel::Role::Page)).toInt();
+        m_pageNumber = index.data(static_cast<int>(QPdfBookmarkModel::Role::Page)).toInt() + pageOffset;
         m_location = index.data(static_cast<int>(QPdfBookmarkModel::Role::Location)).toPointF();
         m_zoom = index.data(static_cast<int>(QPdfBookmarkModel::Role::Zoom)).toReal();
     }
@@ -154,7 +154,7 @@ void BookmarkModel::findBookmark(const QModelIndex &index, const QAbstractItemMo
         childBookmark = new BookmarkNode(parentBookmark);
         if (parentBookmark)
             parentBookmark->appendChild(childBookmark);
-        childBookmark->grabDataFromIndex(index);
+        childBookmark->grabDataFromIndex(index, m_pageOffset);
     } else {
         childBookmark = parentBookmark;
     }
@@ -173,9 +173,12 @@ void BookmarkModel::appendPdf(QPdfDocument *pdf)
 {
     QPdfBookmarkModel model;
     model.setDocument(pdf);
+    m_pageOffset = m_pagesCount;
     beginResetModel();
     findBookmark(QModelIndex(), &model, m_rootNode.data());
     endResetModel();
+    m_pageOffset = 0;
+    m_pagesCount += pdf->pageCount();
 }
 
 int BookmarkModel::rowCount(const QModelIndex &parent) const
