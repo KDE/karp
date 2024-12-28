@@ -151,7 +151,7 @@ Kirigami.Page {
         BookmarksPane {
             id: bookmarks
 
-            visible: rows > 0
+            visible: bottomBar.showBookmarks
             QQC2.SplitView.fillHeight: true
             QQC2.SplitView.preferredWidth: Kirigami.Units.gridUnit * 15
             QQC2.SplitView.minimumWidth: Kirigami.Units.gridUnit * 5
@@ -183,6 +183,7 @@ Kirigami.Page {
         x: pdfView.x + (pdfView.width - width) / 2
         z: 600000
         parent: page.overlay
+        showBookmarks: bookmarks.rows > 0
 
         anchors {
             bottom: parent.bottom
