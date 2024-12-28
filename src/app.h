@@ -69,7 +69,6 @@ Q_SIGNALS:
     void pathChanged();
     void toolsVersionChanged();
     void toolIsMissing(const QString &);
-    void toolCheckMessage(const QString &);
     void ctrlPressedChanged();
     // Main Actions
     void wantClearAll();
