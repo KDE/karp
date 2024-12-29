@@ -2,14 +2,18 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "bookmarkmodel.h"
+#include "karp_debug.h"
 #include <QDebug>
 #include <QMetaEnum>
 #include <QPdfBookmarkModel>
 #include <QPdfDocument>
+#include <qpdf/QPDFPageDocumentHelper.hh>
+#include <qpdf/QPDFUsage.hh>
 
 #include <QElapsedTimer>
 
 using namespace Qt::Literals::StringLiterals;
+using namespace std::string_literals;
 
 /**
  * This class is borrowed from @p QPdfBookmarkModel implementation.
@@ -151,6 +155,10 @@ BookmarkModel::~BookmarkModel() = default;
 
 void BookmarkModel::appendPdf(QPdfDocument *pdf)
 {
+    if (m_pagesCount == 0)
+        m_status = Status::Unchanged;
+    else
+        m_status = Status::Modified;
     QPdfBookmarkModel model;
     model.setDocument(pdf);
     m_pageOffset = m_pagesCount;
@@ -167,6 +175,18 @@ void BookmarkModel::clear()
     m_rootNode->clear();
     m_pagesCount = 0;
     endResetModel();
+    m_status = Status::NoBookmarks;
+}
+
+void BookmarkModel::saveBookmarks(QPDF &qpdf)
+{
+    if (m_status == Status::Removed) {
+        auto qpdfRoot = qpdf.getRoot();
+        if (qpdfRoot.hasKey("/Outlines"s)) {
+            qpdfRoot.replaceKey("/Outlines"s, QPDFObjectHandle::newDictionary());
+        }
+    } else if (m_status == Status::Modified)
+        qCDebug(KARP_LOG) << "{BookmarkModel}" << "Storing modified bookmarks is not implemented yet!";
 }
 
 int BookmarkModel::rowCount(const QModelIndex &parent) const

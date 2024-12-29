@@ -8,6 +8,7 @@
 class BookmarkNode;
 class QPdfDocument;
 class QPdfBookmarkModel;
+class QPDF;
 
 /**
  * @brief BookmarkModel class is based on @p QPdfBookmarkModel
@@ -28,6 +29,16 @@ public:
     };
     Q_ENUM(Role)
 
+    /**
+     * Describes status of bookmarks - how they will be stored
+     */
+    enum class Status : quint8 {
+        NoBookmarks = 0, /**< Any added file had no bookmarks */
+        Unchanged, /**< Single file and none operation changed bookmarks structure */
+        Removed, /**< There were bookmarks but all were removed */
+        Modified, /**< bookmarks were modified or merged and have to be saved */
+    };
+
     explicit BookmarkModel(QObject *parent = nullptr);
     ~BookmarkModel() override;
 
@@ -40,6 +51,8 @@ public:
      * Removes all bookmarks/data from the model
      */
     void clear();
+
+    void saveBookmarks(QPDF &qpdf);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &) const override;
@@ -60,4 +73,5 @@ private:
     QHash<int, QByteArray> m_roleNames;
     int m_pageOffset = 0;
     int m_pagesCount = 0;
+    Status m_status = Status::NoBookmarks;
 };
