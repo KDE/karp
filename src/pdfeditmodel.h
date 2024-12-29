@@ -11,6 +11,7 @@
 class PdfFile;
 class PdfMetaData;
 class BookmarkModel;
+class QPDF;
 
 /**
  * This value of 0.98765 is reduce-size operation progress state.
@@ -162,6 +163,8 @@ public:
     Q_INVOKABLE QAbstractItemModel *getBookmarkModel();
 
     QString outFile() const;
+
+    void saveBookmarks(QPDF &qpdf);
 
     PdfPage *page(int p)
     {
