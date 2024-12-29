@@ -645,6 +645,11 @@ QString PdfEditModel::outFile() const
     return m_outFile;
 }
 
+void PdfEditModel::saveBookmarks(QPDF &qpdf)
+{
+    m_bookmarks->saveBookmarks(qpdf);
+}
+
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= m_pages)

@@ -135,6 +135,7 @@ void QpdfProxy::threadSlot()
             auto qpdfSP = qpdfJob.createQPDF();
             auto &qpdf = *qpdfSP;
             addMetaToJob(qpdf, m_pdfModel->metaData());
+            m_pdfModel->saveBookmarks(qpdf);
             qpdfJob.writeQPDF(qpdf);
         } else {
             qpdfJob.run();
