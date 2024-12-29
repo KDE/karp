@@ -386,11 +386,10 @@ msgid "Select pages to move"
 msgstr "选择要移动的页面"
 
 #: qml/MainToolbar.qml:73
-#, fuzzy, kde-format
-#| msgid "all pages in selected range"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr "所选范围内的所有页面"
+msgstr ""
 
 #: qml/MainToolbar.qml:98
 #, kde-format
