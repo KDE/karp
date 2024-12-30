@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-28 00:39+0000\n"
-"PO-Revision-Date: 2024-12-25 19:37+0530\n"
+"PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -390,11 +390,10 @@ msgid "Select pages to move"
 msgstr "स्थानान्तरणार्थं पृष्ठानि चिनोतु"
 
 #: qml/MainToolbar.qml:73
-#, fuzzy, kde-format
-#| msgid "all pages in selected range"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr "चयनितपरिधिषु सर्वाणि पृष्ठानि"
+msgstr "बहुपृष्ठचयनम्"
 
 #: qml/MainToolbar.qml:98
 #, kde-format

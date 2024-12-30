@@ -389,7 +389,7 @@ msgstr "选择要移动的页面"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr ""
+msgstr "多页选择"
 
 #: qml/MainToolbar.qml:98
 #, kde-format
