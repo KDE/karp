@@ -121,7 +121,7 @@ protected:
 
 private:
     PdfEditModel *m_editModel = nullptr;
-    PdfListModel *m_fileModel;
+    PdfListModel *const m_fileModel;
     int m_totalPages = 0;
     QList<int> m_passFiles;
 };

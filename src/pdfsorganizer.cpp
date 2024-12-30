@@ -123,8 +123,8 @@ int PdfListModel::setPdfPassword(int fileId, const QString &pass)
 // #################################################################################################
 PdfsOrganizer::PdfsOrganizer(QObject *parent)
     : QObject(parent)
+    , m_fileModel(new PdfListModel(this))
 {
-    m_fileModel = new PdfListModel(this);
 }
 
 QVariant PdfsOrganizer::editModel()
