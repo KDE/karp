@@ -829,7 +829,9 @@ void PdfEditModel::setSelection(int from, int to)
         updateFrom = m_pageRange.from() - 1;
         updateTo = m_pageRange.to() - 1;
         for (int p = updateFrom; p <= updateTo; ++p) {
-            m_pageList[p]->setSelected(false);
+            if (p < m_pageList.count()) {
+                m_pageList[p]->setSelected(false);
+            }
         }
         Q_EMIT dataChanged(index(updateFrom, 0), index(updateTo, 0), QList<int>() << RoleSelected);
     }
