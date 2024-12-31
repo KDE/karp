@@ -7,7 +7,6 @@
 #include "pdffile.h"
 #include "pdfmetadata.h"
 #include <QDir>
-#include <QSet>
 #include <QStandardPaths>
 #include <qpdf/QPDFUsage.hh>
 

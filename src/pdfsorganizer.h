@@ -6,7 +6,6 @@
 #include "pdffile.h"
 #include <QAbstractListModel>
 #include <QObject>
-#include <QQmlEngine>
 
 class PdfEditModel;
 class PdfFile;
