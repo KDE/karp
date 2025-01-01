@@ -1,466 +1,459 @@
-# Copyright (C) 2024 This file is copyright:
+# translation of karp.pot to Esperanto
+# Copyright (C) 2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the karp package.
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-28 00:39+0000\n"
-"PO-Revision-Date: 2024-12-31 20:12+0400\n"
-"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: ar\n"
-"Language: ar\n"
+"PO-Revision-Date: 2024-12-31 11:42+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
+"Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "عمر أبو محمد Omar TS"
+msgstr "Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "omats@vivaldi.net"
+msgstr "olivermkellogg@gmail.com"
 
 #: app.cpp:56 pdfeditmodel.cpp:543
 #, kde-format
 msgid "PDF file to edit"
-msgstr "ملف بي دي اف للتحرير"
+msgstr "PDF-dosiero por redakti"
 
 #: app.cpp:86 pdfsorganizer.cpp:190
 #, kde-format
 msgid "Select PDF files"
-msgstr "حدد ملفات بي دي اف"
+msgstr "Elektu PDF-dosierojn"
 
 #: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
-msgstr "QPDF مفقود."
+msgstr "QPDF mankas."
 
 #: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
-msgstr "Ghostscript مفقود."
+msgstr "Ghostscript mankas."
 
 #: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
-msgstr "ثبّت البرامج المذكورة أعلاه، وإلا فلن تكون كافة الوظائف متاحة."
+msgstr ""
+"Instalu programojn menciitajn supre, alie ne ĉiuj funkcioj estos disponeblaj."
 
 #: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
-msgstr "أضف ملفات بي دي اف"
+msgstr "Aldoni PDF-dosierojn"
 
 #: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr "امسح جميع الملفات"
+msgstr "Forigi ĉiujn dosierojn"
 
 #: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
-msgstr "حسّن بي دي اف"
+msgstr "Optimumigi PDF"
 
 #: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
-msgstr "قلّل الحجم"
+msgstr "Redukti grandecon"
 
 #: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
-msgstr "عيّن كلمة مرور"
+msgstr "Agordi pasvorton"
 
 #: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
-msgstr "بيانات تعريفية لملف بي دي اف"
+msgstr "PDF-metadatenoj"
 
 #: main.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
-msgstr "كارب"
+msgstr "Karp"
 
 #: main.cpp:108
 #, kde-format
 msgid "KDE arranger for PDFs"
-msgstr "منظم كيدي لملفات بي دي اف"
+msgstr "KDE-aranĝanto por PDF-oj"
 
 #: main.cpp:112
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
-msgstr "(c) 2024 توماس بوجشوك"
+msgstr "(c) 2024 Tomasz Bojczuk"
 
 #: main.cpp:113
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
-msgstr "توماس بوجشوك"
+msgstr "Tomasz Bojczuk"
 
 #: main.cpp:114
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "الصائن"
+msgstr "Prizorganto"
 
 #: pdfeditmodel.cpp:486
 msgid "Title"
-msgstr "العنوان"
+msgstr "Titolo"
 
 #: pdfeditmodel.cpp:487
 msgid "Subject"
-msgstr "الموضوع"
+msgstr "Temo"
 
 #: pdfeditmodel.cpp:488
 msgid "Author"
-msgstr "المؤلف"
+msgstr "Aŭtoro"
 
 #: pdfeditmodel.cpp:489
 msgid "Keyword"
-msgstr "الكلمة المفتاحيّة"
+msgstr "Ŝlosilvorto"
 
 #: pdfeditmodel.cpp:490
 msgid "Producer"
-msgstr "المنتج"
+msgstr "Faristo"
 
 #: pdfeditmodel.cpp:491
 msgid "Creator"
-msgstr "المبتكر"
+msgstr "Kreinto"
 
 #: pdfeditmodel.cpp:492
 msgid "Creation Date"
-msgstr "تاريخ الإنشاء"
+msgstr "Dato de Kreo"
 
 #: pdfeditmodel.cpp:493
 msgid "Modification Date"
-msgstr "تاريخ التعديل"
+msgstr "Dato de modifo"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
-msgstr "نطاق الصفحات"
+msgstr "Paĝa gamo"
 
 #: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
-msgstr "مِن"
+msgstr "de"
 
 #: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
-msgstr "إلى"
+msgstr "al"
 
 #: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr "انقل"
+msgstr "Movi"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
-msgstr "قبل"
+msgstr "antaŭe"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
-msgstr "بعد"
+msgstr "post"
 
 #: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
-msgstr "صفحة"
+msgstr "paĝo"
 
 #: qml/Dialogs/PdfFileDelegate.qml:61
 #, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] "لا يوجد أي صفحة"
-msgstr[1] "صفحة واحدة"
-msgstr[2] "صفحتين"
-msgstr[3] "%1 صفحات"
-msgstr[4] "%1 صفحة"
-msgstr[5] "%1 صفحة"
+msgstr[0] "%1 paĝo"
+msgstr[1] "%1 paĝoj"
 
 #: qml/Dialogs/PdfFileDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
-msgstr "أضف جميع الصفحات"
+msgstr "Aldoni ĉiujn paĝojn"
 
 #: qml/Dialogs/PdfFileDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
-msgstr "أضف الصفحات المحددة"
+msgstr "Aldoni elektitajn paĝojn"
 
 #: qml/Dialogs/PdfFileDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
-msgstr "احذف من القائمة"
+msgstr "Forigi el listo"
 
 #: qml/Dialogs/PdfFileDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
-msgstr "حدد صفحات للإضافة"
+msgstr "Elekti paĝojn por aldoni"
 
 #: qml/Dialogs/PdfFilesDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
-msgstr "أضف ورتّب ملفات بي دي اف"
+msgstr "Aldoni kaj Aranĝi PDF-dosierojn"
 
 #: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr "أضف ملف بي دي اف واحدًا أو أكثر."
+msgstr "Aldoni unu aŭ pli PDF-dosieron por daŭrigi"
 
 #: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "أضف بي دي اف"
+msgstr "Aldoni PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr "مجموع الصفحات: %1"
+msgstr "Sumaj paĝoj: %1"
 
 #: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr "طبّق"
+msgstr "Apliki"
 
 #: qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "ألغِ"
+msgstr "Nuligi"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
-msgstr "خصائص بي دي اف"
+msgstr "PDF-proprecoj"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:55
 #, kde-format
 msgid "Output PDF"
-msgstr "مخرَج ملف بي دي اف"
+msgstr "Eligi PDF"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:132
 #, kde-format
 msgid "Copy all metadata keys to output file"
-msgstr "انسخ كافة مفاتيح البيانات الوصفية إلى ملف الإخراج"
+msgstr "Kopii ĉiujn metadatumajn ŝlosilojn al eligodosiero"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:158
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
-msgstr "انقر نقرًا مزدوجًا لنسخ البيانات الوصفية إلى ملف بي دي اف الناتج."
+msgstr "Duoble alklaku por kopii metadatumojn en eligan PDF-dosieron."
 
 #: qml/Dialogs/PdfPassDialog.qml:19
 #, kde-format
 msgid "Password required"
-msgstr "مطلوب كلمة السر"
+msgstr "Pasvorto bezonata"
 
 #: qml/Dialogs/PdfPassDialog.qml:31
 #, kde-format
 msgid "Provide password to open file %1"
-msgstr "أدخل كلمة السر لفتح الملف %1"
+msgstr "Provizi pasvorton por malfermi dosieron %1"
 
 #: qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
 msgid "first"
-msgstr "الأول"
+msgstr "unue"
 
 #: qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
 msgid "last"
-msgstr "الأخير"
+msgstr "laste"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
 msgid "all pages in selected range"
-msgstr "جميع الصفحات في النطاق المحدد"
+msgstr "ĉiuj paĝoj en elektita gamo"
 
 #: qml/Dialogs/SelectPagesDialog.qml:105
 #, kde-format
 msgid "every %1 page"
-msgstr "كل %1 صفحة"
+msgstr "ĉiu %1 paĝo"
 
 #: qml/Dialogs/SelectPagesDialog.qml:118
 #, kde-format
 msgid "all pages out of range"
-msgstr "جميع الصفحات خارج النطاق"
+msgstr "ĉiuj paĝoj ekster intervalo"
 
 #: qml/Main.qml:24
 #, kde-format
 msgid "Simple PDF editor"
-msgstr "محرر بي دي اف بسيط"
+msgstr "Simpla PDF-redaktilo"
 
 #: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
-msgstr "اخرج"
+msgstr "Forlasi"
 
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "احفظ باسم"
+msgstr "Konservi kiel"
 
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
-msgstr "احفظ"
+msgstr "Konservi"
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] "ملف"
-msgstr[1] "ملف واحد"
-msgstr[2] "ملفان"
-msgstr[3] "ملفات"
-msgstr[4] "ملفًا"
-msgstr[5] "ملف"
+msgstr[0] "dosiero"
+msgstr[1] "dosieroj"
 
 #: qml/MainPage.qml:55
 #, kde-format
 msgid "PDF Options"
-msgstr "خيارات بي دي اف"
+msgstr "PDF opcioj"
 
 #: qml/MainPage.qml:70
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr "نسخة بي دي اف"
+msgstr "PDF-Versio"
 
 #: qml/MainPage.qml:78
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
-msgstr "المبدئيّ"
+msgstr "Defaŭlta"
 
 #: qml/MainPage.qml:78
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr "الإصدار %1"
+msgstr "Versio %1"
 
 #: qml/MainPage.qml:215
 #, kde-format
 msgid "Set password"
-msgstr "عيّن كلمة سر"
+msgstr "Agordi pasvorton"
 
 #: qml/MainPage.qml:215
 #, kde-format
 msgid "Protect PDF file with password."
-msgstr "احم ملف بي دي اف بكلمة مرور."
+msgstr "Protektu PDF-dosieron per pasvorto."
 
 #: qml/MainToolbar.qml:22
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
-msgstr "حدد صفحات للحذف"
+msgstr "Elekti paĝojn por forigi"
 
 #: qml/MainToolbar.qml:42
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
-msgstr "حدد صفحات للتدوير"
+msgstr "Elekti paĝojn por rotacii"
 
 #: qml/MainToolbar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
-msgstr "حدد صفحات للنقل"
+msgstr "Elekti paĝojn por movi"
 
 #: qml/MainToolbar.qml:73
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr "تحديد متعدّد الصفحات"
+msgstr "Elekto de pluraj paĝoj"
 
 #: qml/MainToolbar.qml:98
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
-msgstr "أظهر تسميات الصفحة"
+msgstr "Montri paĝajn etikedojn"
 
 #: qml/MainToolbar.qml:110
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
-msgstr "صغّر"
+msgstr "Malzomi"
 
 #: qml/MainToolbar.qml:122
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
-msgstr "كبّر"
+msgstr "Zomi"
 
 #: qml/MainToolbar.qml:138
 #, kde-format
 msgid "Page %1 of %2"
-msgstr "الصفحة %1 من %2"
+msgstr "Paĝo %1 el %2"
 
 #: qml/MainToolbar.qml:151
 #, kde-format
 msgid "Select pages to delete"
-msgstr "حدد صفحات للحذف"
+msgstr "Elekti paĝojn por forigi"
 
 #: qml/MainToolbar.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr "احذف"
+msgstr "Forigi"
 
 #: qml/MainToolbar.qml:166
 #, kde-format
 msgid "Select pages to rotate"
-msgstr "حدد صفحات للتدوير"
+msgstr "Elekti paĝojn por rotacii"
 
 #: qml/MainToolbar.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
-msgstr "دوّر"
+msgstr "Rotacii"
 
 #: qml/MainToolbar.qml:176
 #, kde-format
 msgid "Angle"
-msgstr "زاوية"
+msgstr "Angulo"
 
 #: qml/MainToolbar.qml:194
 #, kde-format
 msgid "Select pages to move"
-msgstr "حدد صفحات للنقل"
+msgstr "Elektu paĝojn por movi"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format
 msgid "Select one or more PDF files."
-msgstr "حدد ملف بي دي اف واحدًا أو أكثر."
+msgstr "Elektu unu aŭ plurajn PDF-dosierojn."
 
 #: qml/Messages/InitialInfo.qml:22
 #, kde-format
@@ -469,142 +462,120 @@ msgid ""
 "Then arrange all pages: reorder, rotate, remove.\n"
 "At the end save new PDF with selected options."
 msgstr ""
-"عند تحديد المزيد من الملفات - رتبها أولاً.\n"
-"ثم رتب جميع الصفحات: أعد الترتيب، دوِّر، وأزِل.\n"
-"وفي النهاية، احفظ ملف بي دي اف الجديد بالخيارات المحددة."
+"Kiam pli da dosieroj estas elektitaj - ordigu ilin unue.\n"
+"Tiam aranĝu ĉiujn paĝojn: reordigu, turnu, forigu.\n"
+"Fine konservu novan PDF kun elektitaj opcioj."
 
 #: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
-msgstr "أنشئ ملف بي دي اف"
+msgstr "Generante PDF-dosieron"
 
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
-msgstr "لم يؤدي تقليل حجم ملف بي دي اف إلى النتائج المتوقعة!"
+msgstr "Redukti PDF-dosiergrandecon ne produktis atendatajn rezultojn!"
 
 #: qml/Settings/General.qml:19
 #, kde-format
 msgid "Open file dialog at"
-msgstr "افتح مربع حوار الملف في"
+msgstr "Malfermi dosierdialogon ĉe"
 
 #: qml/Settings/General.qml:23
 #, kde-format
 msgid "Last opened directory"
-msgstr "آخر مجلد فُتِح"
+msgstr "Laste malfermita dosierujo"
 
 #: qml/Settings/General.qml:29
 #, kde-format
 msgid "Fixed path"
-msgstr "المسار الثابت"
+msgstr "Fiksa vojo"
 
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr "الاسم المبدئي لملف بي دي اف الناتج"
+msgstr "Defaŭlta nomo por eligo PDF"
 
 #: qml/Settings/General.qml:48
 #, kde-format
 msgid "Always ask for file name"
-msgstr "اسأل دائمًا عن اسم الملف"
+msgstr "Ĉiam demandi dosiernomon"
 
 #: qml/Settings/General.qml:54
 #, kde-format
 msgid "Combine with input file name"
-msgstr "أدمج مع اسم ملف الإدخال"
+msgstr "Kombini kun eniga dosiernomo"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Append"
-msgstr "ألحق"
+msgstr "Aldoni"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Prepend"
-msgstr "قدّم"
+msgstr "Antaŭmeti"
 
 #: qml/Settings/General.qml:77
 #, kde-format
 msgid "It will produce: <b>%1filename%2.pdf</b>"
-msgstr "سيُنتج: <b>%1filename%2.pdf</b>"
+msgstr "Ĝi produktos: <b>%1dosiernomo%2.pdf</b>"
 
 #: qml/Settings/PdfTools.qml:12
 #, kde-format
 msgid "PDF Tools"
-msgstr "أدوات بي دي اف"
+msgstr "PDF Iloj"
 
 #: qml/Settings/PdfTools.qml:18
 #, kde-format
 msgid "Allows PDF page arrangements."
-msgstr "يسمح بترتيبات صفحات بي دي اف."
+msgstr "Permesas PDF-paĝajn aranĝojn."
 
 #: qml/Settings/PdfTools.qml:22
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr "افرض إصدار PDF للملف الناتج"
+msgstr "Devigi PDF-version de generita dosiero"
 
 #: qml/Settings/PdfTools.qml:23
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
-msgstr "عند ضبطه على الوضع المبدئي؛ يستخدم إصدار بي دي اف من ملف الإدخال."
+msgstr "Kiam agordita kiel defaŭlta, PDF-versio de eniga dosiero estos uzata."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "default"
-msgstr "المبدئيّ"
+msgstr "norma"
 
 #: qml/Settings/PdfTools.qml:32
 #, kde-format
 msgid "not found"
-msgstr "لم يُعثر عليه"
+msgstr "ne trovita"
 
 #: qml/Settings/PdfTools.qml:33
 #, kde-format
 msgid "Manage size and quality of output PDF file."
-msgstr "أدر حجم وجودة ملف بي دي اف الناتج."
+msgstr "Administri grandecon kaj kvaliton de eliga PDF-dosiero."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "General"
-msgstr "عامّ"
+msgstr "Ĝenerala"
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "PDF tools"
-msgstr "أدوات بي دي اف"
+msgstr "PDF-iloj"
 
 #: qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
-msgstr "حول كارب"
+msgstr "Pri Karp"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr "حول كيدي"
-
-#, fuzzy
-#~| msgid "show PDF path"
-#~ msgctxt "@option:check"
-#~ msgid "Show PDF File Path"
-#~ msgstr "أظهر مسار بي دي اف"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu"
-#~| msgid "Add PDF files"
-#~ msgctxt "@action:button"
-#~ msgid "Add PDF..."
-#~ msgstr "أضف ملفات بي دي اف"
-
-#~ msgid "add PDF files"
-#~ msgstr "أضف ملفات بي دي اف"
-
-#~ msgid "Set PDF version"
-#~ msgstr "عيّن نسخة بي دي اف"
-
-#~ msgid "Move to"
-#~ msgstr "انقل إلى"
+msgstr "Pri KDE"
