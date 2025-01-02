@@ -40,9 +40,11 @@ void QpdfProxy::addMetaToJob(QPDF &qpdf, PdfMetaData *metaData)
     auto trailer = qpdf.getTrailer();
     auto info = trailer.getKey("/Info"s);
     if (info.isNull()) {
+        auto newStream = qpdf.newStream();
         auto newDict = QPDFObjectHandle::newDictionary();
-        trailer.replaceKey("/Info"s, newDict);
         metaData->setAllInfoKeys(newDict);
+        qpdf.replaceObject(newStream.getObjectID(), newStream.getGeneration(), newDict);
+        trailer.replaceKey("/Info"s, newDict);
     } else {
         auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
         metaData->setAllInfoKeys(infoObj);
