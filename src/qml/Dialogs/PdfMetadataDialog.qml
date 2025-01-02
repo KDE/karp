@@ -104,7 +104,10 @@ FormCard.FormCardDialog {
                     onClicked: singleClickNotification()
                     onDoubleClicked: {
                         copyAnim.start()
-                        targetView.itemAtIndex(index).modelData = modelData
+                        if (index < 6)
+                            targetView.itemAtIndex(index).text = modelData
+                        else
+                            targetView.itemAtIndex(index).dateTime = modelData
                     }
                 }
                 Component.onCompleted: {
