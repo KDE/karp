@@ -9,6 +9,7 @@ class BookmarkNode;
 class QPdfDocument;
 class QPdfBookmarkModel;
 class QPDF;
+class QPDFObjectHandle;
 
 /**
  * @brief BookmarkModel class is based on @p QPdfBookmarkModel
@@ -17,6 +18,8 @@ class QPDF;
 class BookmarkModel : public QAbstractItemModel
 {
     Q_OBJECT
+
+    friend class BookmarkNode;
 
 public:
     enum class Role : int {
@@ -54,6 +57,8 @@ public:
 
     void saveBookmarks(QPDF &qpdf);
 
+    int bokmarksCount() const;
+
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &) const override;
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
@@ -62,14 +67,25 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
 protected:
+    static BookmarkModel *self()
+    {
+        return m_self;
+    }
+
     /**
      * This method recursively searches @p QPdfBookmarkModel
      * and adds bookmark data to this model
      */
     void findBookmark(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark);
 
+    void iterate(const QModelIndex &index, const std::function<void(const QModelIndex &)> &funct);
+
+    void addNode(BookmarkNode *node);
+
 private:
+    static BookmarkModel *m_self;
     QScopedPointer<BookmarkNode> m_rootNode;
+    QVector<BookmarkNode *> m_nodes;
     QHash<int, QByteArray> m_roleNames;
     int m_pageOffset = 0;
     int m_pagesCount = 0;
