@@ -46,6 +46,16 @@ public:
         m_childNodes.append(child);
     }
 
+    void prependChild(BookmarkNode *child)
+    {
+        m_childNodes.prepend(child);
+    }
+
+    void insertChild(int index, BookmarkNode *child)
+    {
+        m_childNodes.insert(index, child);
+    }
+
     BookmarkNode *child(int row) const
     {
         return m_childNodes.at(row);
@@ -189,9 +199,29 @@ void BookmarkModel::appendPdf(QPdfDocument *pdf)
     // }
     m_pageOffset = (m_pagesCount > 0 ? m_pagesCount - 1 : 0);
     beginResetModel();
-    findBookmark(QModelIndex(), &model, m_rootNode.data());
+    addBookmarksFromModel(QModelIndex(), &model, m_rootNode.data());
     endResetModel();
     m_pageOffset = 0;
+    m_pagesCount += pdf->pageCount();
+}
+
+void BookmarkModel::prependPdf(QPdfDocument *pdf)
+{
+    m_status = Status::Modified;
+    QPdfBookmarkModel model;
+    model.setDocument(pdf);
+    m_pageOffset = 0;
+    beginResetModel();
+    if (rowCount(QModelIndex()) > 0) {
+        // increase all page numbers by page number of adding PDF
+        iterate(QModelIndex(), [&](const QModelIndex &idx) {
+            const auto n = static_cast<BookmarkNode *>(idx.internalPointer());
+            if (n)
+                n->setPageNumber(n->pageNumber() + pdf->pageCount());
+        });
+    }
+    addBookmarksFromModel(QModelIndex(), &model, m_rootNode.data(), true);
+    endResetModel();
     m_pagesCount += pdf->pageCount();
 }
 
@@ -227,14 +257,11 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
     }
 
     QHash<const BookmarkNode *, QPoint> nodeIds;
-    const BookmarkNode *lastNode = nullptr, *firstNode = nullptr;
     iterate(QModelIndex(), [&](const QModelIndex &idx) {
         const BookmarkNode *n = static_cast<BookmarkNode *>(idx.internalPointer());
         if (!n->parentNode())
             return;
 
-        if (!firstNode)
-            firstNode = n;
         auto nodeStream = qpdf.newStream();
         auto nodeDict = QPDFObjectHandle::newDictionary();
         nodeDict.replaceKey("/Count"s, QPDFObjectHandle::newInteger(n->childCount()));
@@ -253,7 +280,6 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
         nodeDict.replaceKey("/Dest"s, destArr);
         qpdf.replaceObject(nodeStream.getObjectID(), nodeStream.getGeneration(), nodeDict);
         nodeIds.insert(n, QPoint(nodeStream.getObjectID(), nodeStream.getGeneration()));
-        lastNode = n;
     });
 
     auto rNode = m_rootNode.data();
@@ -401,14 +427,22 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
     return m_roleNames;
 }
 
-void BookmarkModel::findBookmark(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark)
+void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark, bool doPrepend)
 {
     BookmarkNode *childBookmark = nullptr;
     if (index.isValid()) {
         childBookmark = new BookmarkNode(parentBookmark);
-        if (parentBookmark)
-            parentBookmark->appendChild(childBookmark);
         childBookmark->grabDataFromIndex(index, m_pageOffset);
+        if (parentBookmark) {
+            if (doPrepend) {
+                if (childBookmark->level() == 0) {
+                    qDebug() << "Prepend" << index.row() << childBookmark->title();
+                    parentBookmark->insertChild(index.row(), childBookmark);
+                } else
+                    parentBookmark->appendChild(childBookmark);
+            } else
+                parentBookmark->appendChild(childBookmark);
+        }
     } else {
         childBookmark = parentBookmark;
     }
@@ -418,7 +452,7 @@ void BookmarkModel::findBookmark(const QModelIndex &index, const QAbstractItemMo
     const auto cols = model->columnCount(index);
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
-            findBookmark(model->index(i, j, index), model, childBookmark);
+            addBookmarksFromModel(model->index(i, j, index), model, childBookmark, doPrepend);
         }
     }
 }

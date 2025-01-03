@@ -49,6 +49,7 @@ public:
      * Appends bookmarks (if any) from @p pdf document to the model
      */
     void appendPdf(QPdfDocument *pdf);
+    void prependPdf(QPdfDocument *pdf);
 
     /**
      * Removes all bookmarks/data from the model
@@ -76,7 +77,7 @@ protected:
      * This method recursively searches @p QPdfBookmarkModel
      * and adds bookmark data to this model
      */
-    void findBookmark(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark);
+    void addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark, bool doPrepend = false);
 
     void iterate(const QModelIndex &index, const std::function<void(const QModelIndex &)> &funct);
 
