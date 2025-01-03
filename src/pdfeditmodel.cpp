@@ -79,6 +79,9 @@ void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
+    for (auto &pdf : pdfList) {
+        m_bookmarks->prependPdf(pdf);
+    }
 }
 
 void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
