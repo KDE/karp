@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-28 00:39+0000\n"
+"POT-Creation-Date: 2025-01-03 00:40+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -264,12 +264,12 @@ msgstr "PDF गुणाः"
 msgid "Output PDF"
 msgstr "आउटपुट पीडीएफ"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:132
+#: qml/Dialogs/PdfMetadataDialog.qml:135
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "सर्वाणि मेटाडाटा कीलानि आउटपुट् सञ्चिकायां प्रतिलिख्यताम्"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:158
+#: qml/Dialogs/PdfMetadataDialog.qml:161
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "मेटाडाटा इत्यस्य प्रतिलिपिं आउटपुट् PDF सञ्चिकायां कर्तुं डबल क्लिक् कुर्वन्तु ।"

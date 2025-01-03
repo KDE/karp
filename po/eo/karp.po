@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-28 00:39+0000\n"
+"POT-Creation-Date: 2025-01-03 00:40+0000\n"
 "PO-Revision-Date: 2024-12-31 11:42+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -264,12 +264,12 @@ msgstr "PDF-proprecoj"
 msgid "Output PDF"
 msgstr "Eligi PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:132
+#: qml/Dialogs/PdfMetadataDialog.qml:135
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Kopii ĉiujn metadatumajn ŝlosilojn al eligodosiero"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:158
+#: qml/Dialogs/PdfMetadataDialog.qml:161
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Duoble alklaku por kopii metadatumojn en eligan PDF-dosieron."

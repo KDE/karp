@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-28 00:39+0000\n"
+"POT-Creation-Date: 2025-01-03 00:40+0000\n"
 "PO-Revision-Date: 2024-11-26 21:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -267,12 +267,12 @@ msgstr "PDF 屬性"
 msgid "Output PDF"
 msgstr "輸出 PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:132
+#: qml/Dialogs/PdfMetadataDialog.qml:135
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "將所有中繼資料複製到輸出檔"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:158
+#: qml/Dialogs/PdfMetadataDialog.qml:161
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "雙擊來複製中繼資料到輸出 PDF 檔案中。"

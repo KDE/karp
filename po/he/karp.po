@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-28 00:39+0000\n"
+"POT-Creation-Date: 2025-01-03 00:40+0000\n"
 "PO-Revision-Date: 2024-12-27 08:33+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -265,12 +265,12 @@ msgstr "מאפייני PDF"
 msgid "Output PDF"
 msgstr "פלט PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:132
+#: qml/Dialogs/PdfMetadataDialog.qml:135
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "העתקת כל מפתחות נתוני העל לקובץ הפלט"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:158
+#: qml/Dialogs/PdfMetadataDialog.qml:161
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "לחיצה כפולה תעתיק את נתוני העל לקובץ פלט ה־PDF."
