@@ -198,6 +198,7 @@ bool ToolsThread::resizeByGsThread()
             auto qpdfSP = qpdfJob.createQPDF();
             auto &qpdf = *qpdfSP;
             QpdfProxy::addMetaToJob(qpdf, pdfModel->metaData());
+            pdfModel->saveBookmarks(qpdf);
             qpdfJob.writeQPDF(qpdf);
         } catch (QPDFUsage &e) {
             qCDebug(KARP_LOG) << "[ToolsThread]" << "QPDF configuration error: " << e.what();
