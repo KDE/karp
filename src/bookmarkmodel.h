@@ -6,7 +6,7 @@
 #include <QAbstractItemModel>
 #include <QQmlEngine>
 
-class BookmarkNode;
+class Outline;
 class QPdfDocument;
 class QPdfBookmarkModel;
 class QPDF;
@@ -14,7 +14,10 @@ class QPDFObjectHandle;
 
 /**
  * @brief BookmarkModel class is based on @p QPdfBookmarkModel
- * but it is able to merge bookmarks from many PDF files
+ * but it is able to merge bookmarks from many PDF files.
+ *
+ * It implements saving bookmarks/outlines to QPDF class @p saveBookmarks()
+ * and allows to insert and edit bookmarks.
  */
 class BookmarkModel : public QAbstractItemModel
 {
@@ -23,7 +26,7 @@ class BookmarkModel : public QAbstractItemModel
 
     Q_PROPERTY(int pageCount READ pageCount NOTIFY pageCountChanged)
 
-    friend class BookmarkNode;
+    friend class Outline;
 
 public:
     enum class Role : int {
@@ -101,15 +104,19 @@ protected:
      * This method recursively searches @p QPdfBookmarkModel
      * and adds bookmark data to this model
      */
-    void addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark, bool doPrepend = false);
+    void addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, Outline *parentBookmark, bool doPrepend = false);
 
+    /**
+     * Iterates through all outlines in this model
+     * and calls @p funct for every @p QModelIndex in the model.
+     */
     void iterate(const QModelIndex &index, const std::function<void(const QModelIndex &)> &funct);
 
-    void addNode(BookmarkNode *node);
+    void addNode(Outline *node);
 
 private:
     static BookmarkModel *m_self;
-    QScopedPointer<BookmarkNode> m_rootNode;
+    QScopedPointer<Outline> m_rootNode;
     quint32 m_counter = 0;
     QHash<int, QByteArray> m_roleNames;
     int m_pageOffset = 0;

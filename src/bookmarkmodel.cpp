@@ -15,14 +15,20 @@
 using namespace Qt::Literals::StringLiterals;
 using namespace std::string_literals;
 
+// #################################################################################################
+// ###################         class Outline            ############################################
+// #################################################################################################
+
 /**
- * This class is borrowed from @p QPdfBookmarkModel implementation.
- * It is container for PDF bookmark/outline data
+ * @brief Outline class describes PDF outline/bookmark/chapter.
+ * It is also node for Tree View model displaying bookmarks.
+ *
+ * This class is based from @p QPdfBookmarkModel implementation.
  */
-class BookmarkNode
+class Outline
 {
 public:
-    explicit BookmarkNode(BookmarkNode *parentNode = nullptr)
+    explicit Outline(Outline *parentNode = nullptr)
         : m_parentNode(parentNode)
     {
         // register all nodes except root one which is empty
@@ -30,7 +36,7 @@ public:
             BookmarkModel::self()->addNode(this);
     }
 
-    ~BookmarkNode()
+    ~Outline()
     {
         clear();
     }
@@ -41,22 +47,22 @@ public:
         m_childNodes.clear();
     }
 
-    void appendChild(BookmarkNode *child)
+    void appendChild(Outline *child)
     {
         m_childNodes.append(child);
     }
 
-    void prependChild(BookmarkNode *child)
+    void prependChild(Outline *child)
     {
         m_childNodes.prepend(child);
     }
 
-    void insertChild(int index, BookmarkNode *child)
+    void insertChild(int index, Outline *child)
     {
         m_childNodes.insert(index, child);
     }
 
-    BookmarkNode *child(int row) const
+    Outline *child(int row) const
     {
         return m_childNodes.at(row);
     }
@@ -69,12 +75,12 @@ public:
     int row() const
     {
         if (m_parentNode)
-            return m_parentNode->m_childNodes.indexOf(const_cast<BookmarkNode *>(this));
+            return m_parentNode->m_childNodes.indexOf(const_cast<Outline *>(this));
 
         return 0;
     }
 
-    BookmarkNode *parentNode() const
+    Outline *parentNode() const
     {
         return m_parentNode;
     }
@@ -110,6 +116,10 @@ public:
         m_level = level;
     }
 
+    /**
+     * NOTICE
+     * Page numbering in PDF starts from 0 in contrary to QPDF where it starts from 1
+     */
     int pageNumber() const
     {
         return m_pageNumber;
@@ -141,8 +151,8 @@ public:
     }
 
 private:
-    QVector<BookmarkNode *> m_childNodes;
-    BookmarkNode *m_parentNode;
+    QVector<Outline *> m_childNodes;
+    Outline *m_parentNode;
 
     QString m_title;
     int m_level = 0;
@@ -159,7 +169,7 @@ BookmarkModel *BookmarkModel::m_self = nullptr;
 
 BookmarkModel::BookmarkModel(QObject *parent)
     : QAbstractItemModel(parent)
-    , m_rootNode(new BookmarkNode(nullptr))
+    , m_rootNode(new Outline(nullptr))
 {
     m_self = this;
     m_roleNames = QAbstractItemModel::roleNames();
@@ -194,22 +204,6 @@ void BookmarkModel::appendPdf(QPdfDocument *pdf)
         m_status = Status::Modified;
     QPdfBookmarkModel model;
     model.setDocument(pdf);
-    // if (!model.rowCount()) {
-    //     auto r = m_rootNode.data();
-    //     auto b1 = new BookmarkNode(r);
-    //     b1->setTitle(u"One"_s);
-    //     b1->setPageNumber(1);
-    //     auto b11 = new BookmarkNode(b1);
-    //     b11->setTitle(u"Inside One"_s);
-    //     b11->setLevel(1);
-    //     b11->setPageNumber(2);
-    //     b1->appendChild(b11);
-    //     r->appendChild(b1);
-    //     auto b2 = new BookmarkNode(r);
-    //     b2->setTitle(u"Two"_s);
-    //     b2->setPageNumber(3);
-    //     r->appendChild(b2);
-    // }
     m_pageOffset = (m_pageCount > 0 ? m_pageCount - 1 : 0);
     beginResetModel();
     addBookmarksFromModel(QModelIndex(), &model, m_rootNode.data());
@@ -228,7 +222,7 @@ void BookmarkModel::prependPdf(QPdfDocument *pdf)
     if (rowCount(QModelIndex()) > 0) {
         // increase all page numbers by page number of adding PDF
         iterate(QModelIndex(), [&](const QModelIndex &idx) {
-            const auto n = static_cast<BookmarkNode *>(idx.internalPointer());
+            const auto n = static_cast<Outline *>(idx.internalPointer());
             if (n)
                 n->setPageNumber(n->pageNumber() + pdf->pageCount());
         });
@@ -248,9 +242,13 @@ void BookmarkModel::clear()
     m_status = Status::NoBookmarks;
 }
 
+/**
+ * As for now QPDF doesn't provide methods to manipulate and store bookmarks.
+ * We have to manipulate QPDF streams and dictionaries to achieve that.
+ */
 void BookmarkModel::saveBookmarks(QPDF &qpdf)
 {
-    if (m_status == Status::NoBookmarks)
+    if (m_status == Status::NoBookmarks || m_status == Status::Unchanged)
         return;
 
     auto qpdfRoot = qpdf.getRoot();
@@ -260,6 +258,8 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
         }
         return;
     }
+
+    // Replace /Outlines key with new stream with our new outlines/bookmarks
     auto outlines = QPDFObjectHandle::newDictionary();
     auto outStream = qpdf.newStream();
     qpdfRoot.replaceKey("/Outlines"s, outStream);
@@ -269,14 +269,18 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
     outlines.replaceKey("/Count"s, QPDFObjectHandle::newInteger(bookmarksCount()));
     outlines.replaceKey("/Type"s, QPDFObjectHandle::newName("/Outlines"s));
 
-    QVector<QPoint> pageRefs;
+    // Store references to all PDF pages in QPDF
+    QVector<QPoint> pageRefs; /**< x is object ID y is generation  */
     for (auto &page : qpdf.getAllPages()) {
         pageRefs << QPoint(page.getObjectID(), page.getGeneration());
     }
 
-    QHash<const BookmarkNode *, QPoint> nodeIds;
+    QHash<const Outline *, QPoint> nodeIds;
+    // Create objects for every outline and set part of its data:
+    // the part which doesn't depend on other outlines.
+    // Store references to every outline object connected with Outline node classes in QHash list.
     iterate(QModelIndex(), [&](const QModelIndex &idx) {
-        const BookmarkNode *n = static_cast<BookmarkNode *>(idx.internalPointer());
+        const Outline *n = static_cast<Outline *>(idx.internalPointer());
         if (!n->parentNode())
             return;
 
@@ -300,6 +304,7 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
         nodeIds.insert(n, QPoint(nodeStream.getObjectID(), nodeStream.getGeneration()));
     });
 
+    // Set /Firs and /Last references for main outlines (in root node)
     auto rNode = m_rootNode.data();
     const auto posOfFirst = nodeIds.value(rNode->child(0));
     outlines.replaceKey("/First", qpdf.getObject(posOfFirst.x(), posOfFirst.y()));
@@ -307,8 +312,10 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
     outlines.replaceKey("/Last", qpdf.getObject(posOfLast.x(), posOfLast.y()));
     QPoint posOfPrev;
 
+    // Set keys depend on sibling or parenting outlines: /Prev, /Next, /First, /Last
+    // and /Parent for nested bookmarks
     iterate(QModelIndex(), [&](const QModelIndex &idx) {
-        const BookmarkNode *n = static_cast<BookmarkNode *>(idx.internalPointer());
+        const Outline *n = static_cast<Outline *>(idx.internalPointer());
         if (!n->parentNode())
             return;
         auto nodePos = nodeIds.value(n);
@@ -363,21 +370,21 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
         const int rowNr = rowCount(idx);
         beginInsertRows(idx, rowNr, rowNr);
         auto r = m_rootNode.data();
-        auto b = new BookmarkNode(r);
+        auto b = new Outline(r);
         r->appendChild(b);
         b->setTitle(title);
         b->setPageNumber(page);
-        // level/
+        // level of top nodes is set to 0 by default
         endInsertRows();
         return;
     }
-    auto b = static_cast<BookmarkNode *>(idx.internalPointer());
+    auto b = static_cast<Outline *>(idx.internalPointer());
     if (!b) {
         qCDebug(KARP_LOG) << "[BookmarkModel]" << "Cannot get node from index!";
         return;
     }
     if (w == Insert::Below || w == Insert::Above) {
-        auto newB = new BookmarkNode(b->parentNode());
+        auto newB = new Outline(b->parentNode());
         newB->setTitle(title);
         newB->setPageNumber(page);
         newB->setLevel(b->level());
@@ -388,7 +395,7 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
     } else if (w == Insert::Inside) {
         if (b->childCount())
             qCDebug(KARP_LOG) << "[BookmarkModel]" << "There is sub-chapter already!";
-        auto newB = new BookmarkNode(b);
+        auto newB = new Outline(b);
         newB->setTitle(title);
         newB->setPageNumber(page);
         newB->setLevel(b->level() + 1);
@@ -408,12 +415,12 @@ int BookmarkModel::rowCount(const QModelIndex &parent) const
     if (parent.column() > 0)
         return 0;
 
-    BookmarkNode *parentNode = nullptr;
+    Outline *parentNode = nullptr;
 
     if (!parent.isValid())
         parentNode = m_rootNode.data();
     else
-        parentNode = static_cast<BookmarkNode *>(parent.internalPointer());
+        parentNode = static_cast<Outline *>(parent.internalPointer());
 
     return parentNode->childCount();
 }
@@ -428,12 +435,12 @@ QModelIndex BookmarkModel::index(int row, int column, const QModelIndex &parent)
     if (!hasIndex(row, column, parent))
         return QModelIndex();
 
-    BookmarkNode *parentNode;
+    Outline *parentNode;
 
     if (!parent.isValid())
         parentNode = m_rootNode.data();
     else
-        parentNode = static_cast<BookmarkNode *>(parent.internalPointer());
+        parentNode = static_cast<Outline *>(parent.internalPointer());
 
     auto childNode = parentNode->child(row);
     if (childNode)
@@ -447,8 +454,8 @@ QModelIndex BookmarkModel::parent(const QModelIndex &index) const
     if (!index.isValid())
         return QModelIndex();
 
-    const BookmarkNode *childNode = static_cast<BookmarkNode *>(index.internalPointer());
-    BookmarkNode *parentNode = childNode->parentNode();
+    const Outline *childNode = static_cast<Outline *>(index.internalPointer());
+    Outline *parentNode = childNode->parentNode();
 
     if (parentNode == m_rootNode.data())
         return QModelIndex();
@@ -461,7 +468,7 @@ QVariant BookmarkModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
-    const BookmarkNode *node = static_cast<BookmarkNode *>(index.internalPointer());
+    const Outline *node = static_cast<Outline *>(index.internalPointer());
     switch (static_cast<Role>(role)) {
     case Role::Title:
         return node->title();
@@ -486,11 +493,11 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
     return m_roleNames;
 }
 
-void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, BookmarkNode *parentBookmark, bool doPrepend)
+void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, Outline *parentBookmark, bool doPrepend)
 {
-    BookmarkNode *childBookmark = nullptr;
+    Outline *childBookmark = nullptr;
     if (index.isValid()) {
-        childBookmark = new BookmarkNode(parentBookmark);
+        childBookmark = new Outline(parentBookmark);
         childBookmark->grabDataFromIndex(index, m_pageOffset);
         if (parentBookmark) {
             if (doPrepend) {
@@ -516,7 +523,7 @@ void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstr
     }
 }
 
-void BookmarkModel::addNode(BookmarkNode *node)
+void BookmarkModel::addNode(Outline *node)
 {
     Q_UNUSED(node)
     m_counter++;
