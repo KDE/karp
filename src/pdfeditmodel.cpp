@@ -42,6 +42,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
     m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
     m_pageRange.reset();
     m_bookmarks = new BookmarkModel(this);
+    connect(m_bookmarks, &BookmarkModel::statusChanged, this, &PdfEditModel::editedChanged);
 }
 
 PdfEditModel::~PdfEditModel()
@@ -160,7 +161,8 @@ void PdfEditModel::setSpacing(qreal sp)
 bool PdfEditModel::edited() const
 {
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
-        || m_metaData->modified() || m_pdfVersion > 0.0 || pdfCount() > 1;
+        || m_metaData->modified() || m_pdfVersion > 0.0 || pdfCount() > 1 || m_bookmarks->status() == BookmarkModel::Status::Modified
+        || m_bookmarks->status() == BookmarkModel::Status::Removed;
 }
 
 bool PdfEditModel::optimizeImages() const
