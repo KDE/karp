@@ -141,8 +141,9 @@ ColumnLayout {
             icon.name: "bookmark-edit"
             onTriggered: {
                 bookDlg.title = text
+                bookDlg.whereToAdd = BookmarkModel.Insert.Edit
                 bookDlg.bookmarkTitle = bookDlg.sender.title
-                bookDlg.targetPage = bookDlg.sender.page
+                bookDlg.targetPage = bookDlg.sender.page + 1
                 bookDlg.open()
             }
         }

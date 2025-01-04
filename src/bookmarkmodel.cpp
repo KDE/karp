@@ -252,10 +252,15 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
 {
     if (m_status == Status::NoBookmarks)
         return;
-    // TODO Unchanged
 
-    auto outlines = QPDFObjectHandle::newDictionary();
     auto qpdfRoot = qpdf.getRoot();
+    if (m_status == Status::Removed) {
+        if (qpdfRoot.hasKey("/Outlines"s)) {
+            qpdfRoot.removeKey("/Outlines"s);
+        }
+        return;
+    }
+    auto outlines = QPDFObjectHandle::newDictionary();
     auto outStream = qpdf.newStream();
     qpdfRoot.replaceKey("/Outlines"s, outStream);
     auto outKey = qpdfRoot.getKey("/Outlines"s);
@@ -344,12 +349,6 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
             }
         }
     });
-
-    if (m_status == Status::Removed) {
-        if (qpdfRoot.hasKey("/Outlines"s)) {
-            qpdfRoot.removeKey("/Outlines"s);
-        }
-    }
 }
 
 int BookmarkModel::bookmarksCount() const
@@ -396,7 +395,12 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
         beginInsertRows(idx, 0, 0);
         b->appendChild(newB);
         endInsertRows();
+    } else if (w == Insert::Edit) {
+        b->setTitle(title);
+        b->setPageNumber(page);
+        Q_EMIT dataChanged(idx, idx);
     }
+    m_status = Status::Modified;
 }
 
 int BookmarkModel::rowCount(const QModelIndex &parent) const

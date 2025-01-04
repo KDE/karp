@@ -36,11 +36,15 @@ public:
     };
     Q_ENUM(Role)
 
+    /**
+     * Possible insert actions for @p insertBookmark()
+     */
     enum class Insert : int {
-        AtEnd = 0,
+        Edit = 0, /**< Just edits existing bookmark  */
+        AtEnd, /**< Appends at the end of root level */
         Above,
         Below,
-        Inside,
+        Inside, /**< Creates new subsection */
     };
     Q_ENUM(Insert)
 
