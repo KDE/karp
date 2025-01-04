@@ -65,7 +65,8 @@ public:
     ~BookmarkModel() override;
 
     int pageCount() const;
-    void setPageCount(int pgCnt);
+
+    Status status() const;
 
     /**
      * Appends bookmarks (if any) from @p pdf document to the model
@@ -93,12 +94,17 @@ public:
 
 Q_SIGNALS:
     void pageCountChanged();
+    void statusChanged();
 
 protected:
     static BookmarkModel *self()
     {
         return m_self;
     }
+
+    void setPageCount(int pgCnt);
+
+    void setStatus(Status st);
 
     /**
      * This method recursively searches @p QPdfBookmarkModel

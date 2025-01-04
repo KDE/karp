@@ -196,12 +196,25 @@ void BookmarkModel::setPageCount(int pgCnt)
     Q_EMIT pageCountChanged();
 }
 
+BookmarkModel::Status BookmarkModel::status() const
+{
+    return m_status;
+}
+
+void BookmarkModel::setStatus(Status st)
+{
+    if (m_status == st)
+        return;
+    m_status = st;
+    Q_EMIT statusChanged();
+}
+
 void BookmarkModel::appendPdf(QPdfDocument *pdf)
 {
     if (m_pageCount == 0)
-        m_status = Status::Unchanged;
+        setStatus(Status::Unchanged);
     else
-        m_status = Status::Modified;
+        setStatus(Status::Modified);
     QPdfBookmarkModel model;
     model.setDocument(pdf);
     m_pageOffset = (m_pageCount > 0 ? m_pageCount - 1 : 0);
@@ -214,7 +227,7 @@ void BookmarkModel::appendPdf(QPdfDocument *pdf)
 
 void BookmarkModel::prependPdf(QPdfDocument *pdf)
 {
-    m_status = Status::Modified;
+    setStatus(Status::Modified);
     QPdfBookmarkModel model;
     model.setDocument(pdf);
     m_pageOffset = 0;
@@ -239,7 +252,7 @@ void BookmarkModel::clear()
     m_pageCount = 0;
     endResetModel();
     m_counter = 0;
-    m_status = Status::NoBookmarks;
+    setStatus(Status::NoBookmarks);
 }
 
 /**
@@ -407,7 +420,7 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
         b->setPageNumber(page);
         Q_EMIT dataChanged(idx, idx);
     }
-    m_status = Status::Modified;
+    setStatus(Status::Modified);
 }
 
 int BookmarkModel::rowCount(const QModelIndex &parent) const
