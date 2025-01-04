@@ -24,6 +24,7 @@ qt_add_qml_module(karp
         qml/EditDelegate.qml
         qml/PdfView.qml
         qml/BookmarksPane.qml
+        qml/BookmarkDialog.qml
 
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/MovePagesDialog.qml
