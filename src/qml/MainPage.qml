@@ -158,7 +158,7 @@ Kirigami.Page {
             QQC2.SplitView.maximumWidth: mainWin.contentItem.width / 3
 
             onBookmarkSelected: (pageNr) => {
-                pdfView.positionViewAtIndex(pageNr, GridView.Center)
+                pdfView.positionViewAtIndex(pageNr - 1, GridView.Center)
             }
         }
 
