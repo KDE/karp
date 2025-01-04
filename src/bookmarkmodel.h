@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QAbstractItemModel>
+#include <QQmlEngine>
 
 class BookmarkNode;
 class QPdfDocument;
@@ -18,6 +19,9 @@ class QPDFObjectHandle;
 class BookmarkModel : public QAbstractItemModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
+    Q_PROPERTY(int pageCount READ pageCount NOTIFY pageCountChanged)
 
     friend class BookmarkNode;
 
@@ -32,6 +36,14 @@ public:
     };
     Q_ENUM(Role)
 
+    enum class Insert : int {
+        AtEnd = 0,
+        Above,
+        Below,
+        Inside,
+    };
+    Q_ENUM(Insert)
+
     /**
      * Describes status of bookmarks - how they will be stored
      */
@@ -44,6 +56,9 @@ public:
 
     explicit BookmarkModel(QObject *parent = nullptr);
     ~BookmarkModel() override;
+
+    int pageCount() const;
+    void setPageCount(int pgCnt);
 
     /**
      * Appends bookmarks (if any) from @p pdf document to the model
@@ -58,7 +73,9 @@ public:
 
     void saveBookmarks(QPDF &qpdf);
 
-    int bokmarksCount() const;
+    int bookmarksCount() const;
+
+    Q_INVOKABLE void insertBookmark(const QModelIndex &idx, int where, const QString &title, int page);
 
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &) const override;
@@ -66,6 +83,9 @@ public:
     QModelIndex parent(const QModelIndex &index) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
+
+Q_SIGNALS:
+    void pageCountChanged();
 
 protected:
     static BookmarkModel *self()
@@ -86,9 +106,9 @@ protected:
 private:
     static BookmarkModel *m_self;
     QScopedPointer<BookmarkNode> m_rootNode;
-    QVector<BookmarkNode *> m_nodes;
+    quint32 m_counter = 0;
     QHash<int, QByteArray> m_roleNames;
     int m_pageOffset = 0;
-    int m_pagesCount = 0;
+    int m_pageCount = 0;
     Status m_status = Status::NoBookmarks;
 };
