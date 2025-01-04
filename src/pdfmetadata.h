@@ -39,7 +39,7 @@ public:
     void setKeyword(const QString &keyword);
 
     QDateTime creationDate() const;
-    void setCreationDate(const QDateTime &creationDate);
+    void setCreationDate(const QDateTime &creationDate, bool makeModified = true);
 
     QDateTime modDate() const;
     void setModDate(const QDateTime &modDate);

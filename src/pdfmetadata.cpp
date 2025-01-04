@@ -83,9 +83,10 @@ QDateTime PdfMetaData::creationDate() const
     return m_creationDate;
 }
 
-void PdfMetaData::setCreationDate(const QDateTime &creationDate)
+void PdfMetaData::setCreationDate(const QDateTime &creationDate, bool makeModified)
 {
-    m_modified = true;
+    if (makeModified)
+        m_modified = true;
     m_creationDate = creationDate;
 }
 

@@ -832,7 +832,7 @@ void PdfEditModel::updateCreationTimeInMetadata(PdfFile *pdf)
 {
     auto newDateTime = pdf->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
     if (newDateTime.toSecsSinceEpoch() < m_metaData->creationDate().toSecsSinceEpoch())
-        m_metaData->setCreationDate(newDateTime);
+        m_metaData->setCreationDate(newDateTime, false);
 }
 
 void PdfEditModel::setSelection(int from, int to)
