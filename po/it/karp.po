@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-03 00:40+0000\n"
-"PO-Revision-Date: 2024-12-11 13:11+0100\n"
+"PO-Revision-Date: 2024-12-28 15:33+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -390,11 +390,10 @@ msgid "Select pages to move"
 msgstr "Seleziona le pagine da spostare"
 
 #: qml/MainToolbar.qml:73
-#, fuzzy, kde-format
-#| msgid "all pages in selected range"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr "tutte le pagine nell'intervallo selezionato"
+msgstr "Selezione di pagine multiple"
 
 #: qml/MainToolbar.qml:98
 #, kde-format
