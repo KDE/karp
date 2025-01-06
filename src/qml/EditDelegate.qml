@@ -13,6 +13,7 @@ Rectangle {
 
     property int pageNr: pdfView.currentItem ? pdfView.currentIndex : 0
     property bool selected: pdfView.currentItem ? pdfView.currentItem.selected : false
+    property bool hasOutline: pdfView.currentItem ? pdfView.currentItem.hasOutline : false
 
     visible: pdfView.currentItem !== null
     parent: pdfView.currentItem ? pdfView.currentItem.pdfPage : null
@@ -75,6 +76,17 @@ Rectangle {
         icon.name: "object-rotate-right"
         onClicked: pdfModel.rotatePage(pageNr, pdfView.currentItem.img.rotation < 270 ? pdfView.currentItem.img.rotation + 90 : 0)
     }
+    QQC2.Button {
+        id: outlineButt
+        visible: hasOutline && !dragHandler.active
+        z: 1
+        anchors { top: rotLeftButt.bottom; left: parent.left }
+        icon.name: hasOutline ? "bookmarks-bookmarked" : "bookmarks"
+        onClicked: {
+            let menu = outlineComp.createObject(outlineButt, { model: pdfModel.getPageOutlines(pageNr) })
+            menu.popup()
+        }
+    }
     // move at upper row
     QQC2.Button {
         visible: !dragHandler.active && pageNr >= pdfModel.columns && pageNr - pdfModel.columns < pdfModel.firstSelected - 1
@@ -106,5 +118,27 @@ Rectangle {
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
         icon.name: "arrow-left"
         onClicked: pdfModel.moveSelected(pageNr - 1)
+    }
+
+    Component {
+        id: outlineComp
+        // TODO: adjust for mobile
+        QQC2.Menu {
+            id: outlineMenu
+            property var model: null
+            width: Math.min(Kirigami.Units.gridUnit * 20, implicitWidth)
+            Component.onCompleted: {
+                for (let o = 0; o < model.length; ++o) {
+                    let newAct = actionComp.createObject(outlineMenu)
+                    newAct.text = model[o]
+                    outlineMenu.addAction(newAct)
+                }
+            }
+            onClosed: destroy()
+        }
+    }
+    Component {
+        id: actionComp
+        Kirigami.Action {}
     }
 }
