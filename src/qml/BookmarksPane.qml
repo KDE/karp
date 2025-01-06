@@ -105,11 +105,17 @@ ColumnLayout {
 
         Kirigami.Action {
             id: titleAction
-            enabled: false
-            icon.name: "bookmark-toolbar"
+            icon.name: "bookmark-edit"
+            onTriggered: {
+                bookDlg.title = text
+                bookDlg.whereToAdd = BookmarkModel.Insert.Edit
+                bookDlg.bookmarkTitle = bookDlg.sender.title
+                bookDlg.targetPage = bookDlg.sender.page + 1
+                bookDlg.open()
+            }
         }
         Kirigami.Action {
-            text: i18nc("@action", "Insert Chapter Above")
+            text: i18nc("@action:inmenu", "Insert Above")
             icon.name: "go-up"
             onTriggered: {
                 bookDlg.title = text
@@ -118,7 +124,7 @@ ColumnLayout {
             }
         }
         Kirigami.Action {
-            text: i18nc("@action", "Insert Chapter Below")
+            text: i18nc("@action:inmenu", "Insert Below")
             icon.name: "go-down"
             onTriggered: {
                 bookDlg.title = text
@@ -128,22 +134,11 @@ ColumnLayout {
         }
         Kirigami.Action {
             id: addSubAction
-            text: i18nc("@action", "Add Subsection")
-            icon.name: "arrow-right"
+            text: i18nc("@action:inmenu", "Add Subsection")
+            icon.name: "bookmark-new"
             onTriggered: {
                 bookDlg.title = text
                 bookDlg.whereToAdd = BookmarkModel.Insert.Inside
-                bookDlg.open()
-            }
-        }
-        Kirigami.Action {
-            text: i18nc("@action", "Edit Chapter")
-            icon.name: "bookmark-edit"
-            onTriggered: {
-                bookDlg.title = text
-                bookDlg.whereToAdd = BookmarkModel.Insert.Edit
-                bookDlg.bookmarkTitle = bookDlg.sender.title
-                bookDlg.targetPage = bookDlg.sender.page + 1
                 bookDlg.open()
             }
         }
