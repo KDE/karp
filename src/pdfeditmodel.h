@@ -12,6 +12,7 @@ class PdfFile;
 class PdfMetaData;
 class BookmarkModel;
 class QPDF;
+class Outline;
 
 /**
  * This value of 0.98765 is reduce-size operation progress state.
@@ -162,6 +163,8 @@ public:
 
     Q_INVOKABLE QAbstractItemModel *getBookmarkModel();
 
+    Q_INVOKABLE QStringList getPageOutlines(int p);
+
     QString outFile() const;
 
     void saveBookmarks(QPDF &qpdf);
@@ -181,6 +184,7 @@ public:
         RolePageRatio,
         RoleFileId,
         RoleSelected,
+        RoleOutline,
     };
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -245,6 +249,8 @@ protected:
      * When given range is [0 - 0] selection is reset.
      */
     void setSelection(int from, int to);
+
+    void newOutlineSlot(Outline *o);
 
 Q_SIGNALS:
     void wantRenderImage(int) const;

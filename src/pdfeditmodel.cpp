@@ -5,6 +5,7 @@
 #include "bookmarkmodel.h"
 #include "karp_debug.h"
 #include "karpconfig.h"
+#include "outline.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
 #include "qpdfproxy.h"
@@ -43,6 +44,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
     m_pageRange.reset();
     m_bookmarks = new BookmarkModel(this);
     connect(m_bookmarks, &BookmarkModel::statusChanged, this, &PdfEditModel::editedChanged);
+    connect(m_bookmarks, &BookmarkModel::outlineAdded, this, &PdfEditModel::newOutlineSlot);
 }
 
 PdfEditModel::~PdfEditModel()
@@ -645,6 +647,13 @@ QAbstractItemModel *PdfEditModel::getBookmarkModel()
     return m_bookmarks;
 }
 
+QStringList PdfEditModel::getPageOutlines(int p)
+{
+    if (p < 0 || p >= m_pageList.size())
+        return QStringList();
+    return m_pageList[p]->outlineModel();
+}
+
 QString PdfEditModel::outFile() const
 {
     return m_outFile;
@@ -697,6 +706,8 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
         return page ? page->referenceFile() : 0;
     case RoleSelected:
         return page ? page->selected() : false;
+    case RoleOutline:
+        return page ? page->hasOutline() : false;
     default:
         return QVariant();
     }
@@ -710,7 +721,8 @@ QHash<int, QByteArray> PdfEditModel::roleNames() const
             {RolePageNr, "pageNr"_ba},
             {RolePageRatio, "pageRatio"_ba},
             {RoleFileId, "fileId"_ba},
-            {RoleSelected, "selected"_ba}};
+            {RoleSelected, "selected"_ba},
+            {RoleOutline, "hasOutline"_ba}};
 }
 
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
@@ -870,6 +882,13 @@ void PdfEditModel::setSelection(int from, int to)
     }
     Q_EMIT dataChanged(index(updateFrom, 0), index(updateTo, 0), QList<int>() << RoleSelected);
     Q_EMIT selectionChanged();
+}
+
+void PdfEditModel::newOutlineSlot(Outline *o)
+{
+    if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
+        return;
+    m_pageList[o->pageNumber()]->addOutline(o);
 }
 
 #include "moc_pdfeditmodel.cpp"

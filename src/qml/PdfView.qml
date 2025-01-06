@@ -49,6 +49,7 @@ GridView {
         required property var pageImg
         required property int rotated
         required property bool selected
+        required property bool hasOutline
         property alias pdfPage: pdfPage
         property alias img: img
 
