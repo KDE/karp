@@ -62,6 +62,7 @@ target_sources(karp PUBLIC
     pagerange.cpp
     qpdfproxy.cpp
     bookmarkmodel.cpp
+    outline.cpp
 
     app.h
     pdfpage.h
@@ -74,6 +75,7 @@ target_sources(karp PUBLIC
     pagerange.h
     qpdfproxy.h
     bookmarkmodel.h
+    outline.h
 )
 
 target_link_libraries(karp
