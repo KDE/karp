@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfpage.h"
+#include "outline.h"
 
 PdfPage::PdfPage(const QImage &image, quint16 origPage, quint16 refFile)
     : m_image(image)
@@ -49,4 +50,24 @@ qreal PdfPage::ratio() const
         return 1.0;
     else
         return static_cast<qreal>(m_image.height()) / static_cast<qreal>(m_image.width());
+}
+
+void PdfPage::addOutline(Outline *o)
+{
+    m_outlines << o;
+}
+
+void PdfPage::removeOutline(Outline *o)
+{
+    m_outlines.removeOne(o);
+}
+
+QStringList PdfPage::outlineModel() const
+{
+    if (m_outlines.isEmpty())
+        return QStringList();
+    QStringList oList;
+    for (const auto &o : m_outlines)
+        oList << o->title();
+    return oList;
 }

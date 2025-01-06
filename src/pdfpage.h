@@ -5,6 +5,8 @@
 
 #include <QImage>
 
+class Outline;
+
 /**
  * @brief PdfPage is container class with information about PDF page.
  */
@@ -74,6 +76,16 @@ public:
 
     qreal ratio() const;
 
+    bool hasOutline() const
+    {
+        return !m_outlines.isEmpty();
+    }
+
+    void addOutline(Outline *o);
+    void removeOutline(Outline *o);
+
+    QStringList outlineModel() const;
+
     /**
      * Page state kept into @p m_flags
      */
@@ -91,4 +103,5 @@ private:
     quint16 m_origPage = 0;
     quint16 m_refFile = 0;
     quint8 m_flags = 0;
+    QVector<Outline *> m_outlines;
 };
