@@ -3,6 +3,7 @@
 
 #include "bookmarkmodel.h"
 #include "karp_debug.h"
+#include "outline.h"
 #include <QDebug>
 #include <QMetaEnum>
 #include <QPdfBookmarkModel>
@@ -15,161 +16,11 @@
 using namespace Qt::Literals::StringLiterals;
 using namespace std::string_literals;
 
-// #################################################################################################
-// ###################         class Outline            ############################################
-// #################################################################################################
-
-/**
- * @brief Outline class describes PDF outline/bookmark/chapter.
- * It is also node for Tree View model displaying bookmarks.
- *
- * This class is based from @p QPdfBookmarkModel implementation.
- */
-class Outline
-{
-public:
-    explicit Outline(Outline *parentNode = nullptr)
-        : m_parentNode(parentNode)
-    {
-        // register all nodes except root one which is empty
-        if (parentNode)
-            BookmarkModel::self()->addNode(this);
-    }
-
-    ~Outline()
-    {
-        clear();
-    }
-
-    void clear()
-    {
-        qDeleteAll(m_childNodes);
-        m_childNodes.clear();
-    }
-
-    void appendChild(Outline *child)
-    {
-        m_childNodes.append(child);
-    }
-
-    void prependChild(Outline *child)
-    {
-        m_childNodes.prepend(child);
-    }
-
-    void insertChild(int index, Outline *child)
-    {
-        m_childNodes.insert(index, child);
-    }
-
-    Outline *child(int row) const
-    {
-        return m_childNodes.at(row);
-    }
-
-    int childCount() const
-    {
-        return m_childNodes.size();
-    }
-
-    int row() const
-    {
-        if (m_parentNode)
-            return m_parentNode->m_childNodes.indexOf(const_cast<Outline *>(this));
-
-        return 0;
-    }
-
-    Outline *parentNode() const
-    {
-        return m_parentNode;
-    }
-
-    void grabDataFromIndex(const QModelIndex &index, int pageOffset)
-    {
-        if (!index.isValid())
-            return;
-        m_title = index.data(static_cast<int>(QPdfBookmarkModel::Role::Title)).toString();
-        m_level = index.data(static_cast<int>(QPdfBookmarkModel::Role::Level)).toInt();
-        m_pageNumber = index.data(static_cast<int>(QPdfBookmarkModel::Role::Page)).toInt() + pageOffset;
-        m_location = index.data(static_cast<int>(QPdfBookmarkModel::Role::Location)).toPointF();
-        m_zoom = index.data(static_cast<int>(QPdfBookmarkModel::Role::Zoom)).toReal();
-    }
-
-    QString title() const
-    {
-        return m_title;
-    }
-
-    void setTitle(const QString &title)
-    {
-        m_title = title;
-    }
-
-    int level() const
-    {
-        return m_level;
-    }
-
-    void setLevel(int level)
-    {
-        m_level = level;
-    }
-
-    /**
-     * NOTICE
-     * Page numbering in PDF starts from 0 in contrary to QPDF where it starts from 1
-     */
-    int pageNumber() const
-    {
-        return m_pageNumber;
-    }
-
-    void setPageNumber(int pageNumber)
-    {
-        m_pageNumber = pageNumber;
-    }
-
-    QPointF location() const
-    {
-        return m_location;
-    }
-
-    void setLocation(const QPointF &p)
-    {
-        m_location = p;
-    }
-
-    qreal zoom() const
-    {
-        return m_zoom;
-    }
-
-    void setZoom(qreal zoom)
-    {
-        m_zoom = zoom;
-    }
-
-private:
-    QVector<Outline *> m_childNodes;
-    Outline *m_parentNode;
-
-    QString m_title;
-    int m_level = 0;
-    int m_pageNumber = 0;
-    QPointF m_location;
-    qreal m_zoom = 0.0;
-};
-
-// #################################################################################################
-// ###################      class BookmarkModel         ############################################
-// #################################################################################################
-
 BookmarkModel *BookmarkModel::m_self = nullptr;
 
 BookmarkModel::BookmarkModel(QObject *parent)
     : QAbstractItemModel(parent)
-    , m_rootNode(new Outline(nullptr))
+    , m_rootNode(new Outline(-1, nullptr))
 {
     m_self = this;
     m_roleNames = QAbstractItemModel::roleNames();
@@ -383,10 +234,9 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
         const int rowNr = rowCount(idx);
         beginInsertRows(idx, rowNr, rowNr);
         auto r = m_rootNode.data();
-        auto b = new Outline(r);
+        auto b = new Outline(page, r);
         r->appendChild(b);
         b->setTitle(title);
-        b->setPageNumber(page);
         // level of top nodes is set to 0 by default
         endInsertRows();
         return;
@@ -397,9 +247,8 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
         return;
     }
     if (w == Insert::Below || w == Insert::Above) {
-        auto newB = new Outline(b->parentNode());
+        auto newB = new Outline(page, b->parentNode());
         newB->setTitle(title);
-        newB->setPageNumber(page);
         newB->setLevel(b->level());
         const int rowNr = b->row() + (w == Insert::Below ? 1 : 0);
         beginInsertRows(idx.parent(), rowNr, rowNr);
@@ -408,9 +257,8 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
     } else if (w == Insert::Inside) {
         if (b->childCount())
             qCDebug(KARP_LOG) << "[BookmarkModel]" << "There is sub-chapter already!";
-        auto newB = new Outline(b);
+        auto newB = new Outline(page, b);
         newB->setTitle(title);
-        newB->setPageNumber(page);
         newB->setLevel(b->level() + 1);
         beginInsertRows(idx, 0, 0);
         b->appendChild(newB);
@@ -510,12 +358,11 @@ void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstr
 {
     Outline *childBookmark = nullptr;
     if (index.isValid()) {
-        childBookmark = new Outline(parentBookmark);
+        childBookmark = new Outline(index.data(static_cast<int>(QPdfBookmarkModel::Role::Page)).toInt() + m_pageOffset, parentBookmark);
         childBookmark->grabDataFromIndex(index, m_pageOffset);
         if (parentBookmark) {
             if (doPrepend) {
                 if (childBookmark->level() == 0) {
-                    qDebug() << "Prepend" << index.row() << childBookmark->title();
                     parentBookmark->insertChild(index.row(), childBookmark);
                 } else
                     parentBookmark->appendChild(childBookmark);
@@ -538,8 +385,8 @@ void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstr
 
 void BookmarkModel::addNode(Outline *node)
 {
-    Q_UNUSED(node)
     m_counter++;
+    Q_EMIT outlineAdded(node);
 }
 
 void BookmarkModel::iterate(const QModelIndex &parentIndex, const std::function<void(const QModelIndex &)> &funct)

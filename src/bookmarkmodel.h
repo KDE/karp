@@ -95,6 +95,7 @@ public:
 Q_SIGNALS:
     void pageCountChanged();
     void statusChanged();
+    void outlineAdded(Outline *);
 
 protected:
     static BookmarkModel *self()
