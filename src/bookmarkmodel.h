@@ -85,6 +85,8 @@ public:
 
     Q_INVOKABLE void insertBookmark(const QModelIndex &idx, int where, const QString &title, int page);
 
+    QModelIndex indexFromOutline(Outline *o);
+
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &) const override;
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
@@ -116,8 +118,10 @@ protected:
     /**
      * Iterates through all outlines in this model
      * and calls @p funct for every @p QModelIndex in the model.
+     * if @p funct returns @p false iteration is continued
+     * retuning @p true means terminate.
      */
-    void iterate(const QModelIndex &index, const std::function<void(const QModelIndex &)> &funct);
+    void iterate(const QModelIndex &index, const std::function<bool(const QModelIndex &)> &funct);
 
     void addNode(Outline *node);
 

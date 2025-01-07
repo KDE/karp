@@ -85,10 +85,11 @@ void BookmarkModel::prependPdf(QPdfDocument *pdf)
     beginResetModel();
     if (rowCount(QModelIndex()) > 0) {
         // increase all page numbers by page number of adding PDF
-        iterate(QModelIndex(), [&](const QModelIndex &idx) {
+        iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
             const auto n = static_cast<Outline *>(idx.internalPointer());
             if (n)
                 n->setPageNumber(n->pageNumber() + pdf->pageCount());
+            return false;
         });
     }
     addBookmarksFromModel(QModelIndex(), &model, m_rootNode.data(), true);
@@ -143,10 +144,10 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
     // Create objects for every outline and set part of its data:
     // the part which doesn't depend on other outlines.
     // Store references to every outline object connected with Outline node classes in QHash list.
-    iterate(QModelIndex(), [&](const QModelIndex &idx) {
+    iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
         const Outline *n = static_cast<Outline *>(idx.internalPointer());
         if (!n->parentNode())
-            return;
+            return true;
 
         auto nodeStream = qpdf.newStream();
         auto nodeDict = QPDFObjectHandle::newDictionary();
@@ -166,6 +167,7 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
         nodeDict.replaceKey("/Dest"s, destArr);
         qpdf.replaceObject(nodeStream.getObjectID(), nodeStream.getGeneration(), nodeDict);
         nodeIds.insert(n, QPoint(nodeStream.getObjectID(), nodeStream.getGeneration()));
+        return false;
     });
 
     // Set /Firs and /Last references for main outlines (in root node)
@@ -178,10 +180,10 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
 
     // Set keys depend on sibling or parenting outlines: /Prev, /Next, /First, /Last
     // and /Parent for nested bookmarks
-    iterate(QModelIndex(), [&](const QModelIndex &idx) {
+    iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
         const Outline *n = static_cast<Outline *>(idx.internalPointer());
         if (!n->parentNode())
-            return;
+            return true;
         auto nodePos = nodeIds.value(n);
         auto nodeObj = qpdf.getObject(nodePos.x(), nodePos.y());
         auto parentNode = n->parentNode();
@@ -219,6 +221,7 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
                 prevChildPos = bPos;
             }
         }
+        return false;
     });
 }
 
@@ -269,6 +272,20 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
         Q_EMIT dataChanged(idx, idx);
     }
     setStatus(Status::Modified);
+}
+
+QModelIndex BookmarkModel::indexFromOutline(Outline *o)
+{
+    QModelIndex outlineIndex;
+    iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
+        const Outline *n = static_cast<Outline *>(idx.internalPointer());
+        if (n == o) {
+            outlineIndex = idx;
+            return true;
+        }
+        return false;
+    });
+    return outlineIndex;
 }
 
 int BookmarkModel::rowCount(const QModelIndex &parent) const
@@ -389,10 +406,13 @@ void BookmarkModel::addNode(Outline *node)
     Q_EMIT outlineAdded(node);
 }
 
-void BookmarkModel::iterate(const QModelIndex &parentIndex, const std::function<void(const QModelIndex &)> &funct)
+void BookmarkModel::iterate(const QModelIndex &parentIndex, const std::function<bool(const QModelIndex &)> &funct)
 {
-    if (parentIndex.isValid())
-        funct(parentIndex);
+    if (parentIndex.isValid()) {
+        bool doTerminate = funct(parentIndex);
+        if (doTerminate)
+            return;
+    }
     if ((parentIndex.flags() & Qt::ItemNeverHasChildren) || !hasChildren(parentIndex))
         return;
     const auto rows = rowCount(parentIndex);
