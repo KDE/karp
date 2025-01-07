@@ -8,17 +8,21 @@ import QtQuick.Layouts
 import org.kde.karp
 
 Kirigami.Dialog {
-    id: bookDlg
+    id: outlineDlg
 
-    property int pageCount: 1
+    required property int pageCount
     property var modelIndex: null
     property alias targetPage: targetSpin.value
     property alias bookmarkTitle: titleField.text
     property int whereToAdd: BookmarkModel.Insert.AtEnd
 
-    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+    signal removed()
+
+    title: i18n("Edit Chapter")
+    visible: true
+    standardButtons: Kirigami.Dialog.NoButton
     implicitWidth: Kirigami.Units.gridUnit * 30
-    implicitHeight: Kirigami.Units.gridUnit * 17
+    implicitHeight: Kirigami.Units.gridUnit * 15
     padding: Kirigami.Units.gridUnit
 
     ColumnLayout {
@@ -48,18 +52,40 @@ Kirigami.Dialog {
                     onClicked: targetSpin.value = 1
                 }
                 Item { height: 1; Layout.fillWidth: true }
-                QQC2.Label { text: i18nc("Edited bookmark points to page", "points to page") }
+                QQC2.Label { text: i18nc("Edited bookmark/chapter points to page", "points to page") }
                 QQC2.SpinBox {
                     id: targetSpin
                     from: 1
-                    to: bookDlg.pageCount
+                    to: outlineDlg.pageCount
                 }
                 Item { height: 1; Layout.fillWidth: true }
                 QQC2.Button {
                     text: i18n("last")
-                    onClicked: targetSpin.value = bookDlg.pageCount
+                    onClicked: targetSpin.value = outlineDlg.pageCount
                 }
             }
         }
     }
+
+    customFooterActions: [
+        Kirigami.Action {
+            visible: whereToAdd === BookmarkModel.Insert.Edit
+            text: i18nc("@action:button", "Remove")
+            icon.name: "bookmark-remove"
+            onTriggered: outlineDlg.removed()
+        },
+        Kirigami.Action {
+            enabled: titleField.length > 0
+            text: whereToAdd === BookmarkModel.Insert.Edit ? i18nc("@action:button", "Save") : i18nc("@action:button", "Add")
+            icon.name: whereToAdd === BookmarkModel.Insert.Edit ? "bookmark-edit" : "bookmark-new"
+            onTriggered: outlineDlg.accept()
+        },
+        Kirigami.Action {
+            text: i18nc("@action:button", "Cancel")
+            icon.name: "dialog-cancel"
+            onTriggered: outlineDlg.reject()
+        }
+    ]
+
+    onClosed: destroy()
 }
