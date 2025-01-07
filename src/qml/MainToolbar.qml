@@ -70,7 +70,7 @@ Components.FloatingToolBar {
 
         QQC2.ToolButton {
             id: bookmarkAction
-            text: i18nc("@action:intoolbar", "Bookmarks (Table of Content)")
+            text: i18nc("@action:intoolbar", "Table of Content (Bookmarks)")
             display: QQC2.ToolButton.IconOnly
             icon.name: "bookmark-toolbar"
             checkable: true

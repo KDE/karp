@@ -148,8 +148,8 @@ Kirigami.Page {
             }
         }
 
-        BookmarksPane {
-            id: bookmarks
+        TOCView {
+            id: outlines
 
             visible: bottomBar.showBookmarks
             QQC2.SplitView.fillHeight: true
@@ -187,7 +187,7 @@ Kirigami.Page {
         x: pdfView.x + (pdfView.width - width) / 2
         z: 600000
         parent: page.overlay
-        showBookmarks: bookmarks.rows > 0
+        showBookmarks: outlines.rows > 0
 
         anchors {
             bottom: parent.bottom
@@ -267,6 +267,6 @@ Kirigami.Page {
             pdfModel.loadPdfFile(pdfFiles[0])
         else if (pdfFiles.length > 1)
             Qt.createComponent("org.kde.karp", "PdfFilesDialog").createObject(page, { pdfEdit: pdfModel, initFiles: pdfFiles })
-        bookmarks.model = pdfModel.getBookmarkModel()
+        outlines.model = pdfModel.getBookmarkModel()
     }
 }

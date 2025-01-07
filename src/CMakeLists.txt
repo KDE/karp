@@ -23,8 +23,6 @@ qt_add_qml_module(karp
         qml/MainToolbar.qml
         qml/EditDelegate.qml
         qml/PdfView.qml
-        qml/BookmarksPane.qml
-        qml/BookmarkDialog.qml
 
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/MovePagesDialog.qml
@@ -41,6 +39,9 @@ qt_add_qml_module(karp
         qml/Messages/MissingPdfTool.qml
         qml/Messages/ProgressDialog.qml
         qml/Messages/InitialInfo.qml
+
+        qml/Bookmarks/TOCView.qml
+        qml/Bookmarks/OutlineDialog.qml
 )
 
 

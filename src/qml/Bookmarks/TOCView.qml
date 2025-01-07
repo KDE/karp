@@ -73,8 +73,8 @@ ColumnLayout {
                         hoverEnabled: true
                         anchors.fill: parent
                         onClicked: {
-                            bookDlg.sender = treeDelegate
-                            bookDlg.modelIndex = treeView.index(row, column)
+                            outlineDlg.sender = treeDelegate
+                            outlineDlg.modelIndex = treeView.index(row, column)
                             titleAction.text = title
                             addSubAction.enabled = !hasChildren
                             menu.popup()
@@ -93,10 +93,10 @@ ColumnLayout {
         icon.source: "bookmark-new"
         text: i18n("Add Chapter")
         onClicked: {
-            bookDlg.modelIndex = tView.rootIndex // Requires Qt 6.6
-            bookDlg.whereToAdd = BookmarkModel.Insert.AtEnd
-            bookDlg.title = text
-            bookDlg.open()
+            outlineDlg.modelIndex = tView.rootIndex // Requires Qt 6.6
+            outlineDlg.whereToAdd = BookmarkModel.Insert.AtEnd
+            outlineDlg.title = text
+            outlineDlg.open()
         }
     }
 
@@ -107,29 +107,29 @@ ColumnLayout {
             id: titleAction
             icon.name: "bookmark-edit"
             onTriggered: {
-                bookDlg.title = text
-                bookDlg.whereToAdd = BookmarkModel.Insert.Edit
-                bookDlg.bookmarkTitle = bookDlg.sender.title
-                bookDlg.targetPage = bookDlg.sender.page + 1
-                bookDlg.open()
+                outlineDlg.title = text
+                outlineDlg.whereToAdd = BookmarkModel.Insert.Edit
+                outlineDlg.bookmarkTitle = outlineDlg.sender.title
+                outlineDlg.targetPage = outlineDlg.sender.page + 1
+                outlineDlg.open()
             }
         }
         Kirigami.Action {
             text: i18nc("@action:inmenu", "Insert Above")
             icon.name: "go-up"
             onTriggered: {
-                bookDlg.title = text
-                bookDlg.whereToAdd = BookmarkModel.Insert.Above
-                bookDlg.open()
+                outlineDlg.title = text
+                outlineDlg.whereToAdd = BookmarkModel.Insert.Above
+                outlineDlg.open()
             }
         }
         Kirigami.Action {
             text: i18nc("@action:inmenu", "Insert Below")
             icon.name: "go-down"
             onTriggered: {
-                bookDlg.title = text
-                bookDlg.whereToAdd = BookmarkModel.Insert.Below
-                bookDlg.open()
+                outlineDlg.title = text
+                outlineDlg.whereToAdd = BookmarkModel.Insert.Below
+                outlineDlg.open()
             }
         }
         Kirigami.Action {
@@ -137,15 +137,15 @@ ColumnLayout {
             text: i18nc("@action:inmenu", "Add Subsection")
             icon.name: "bookmark-new"
             onTriggered: {
-                bookDlg.title = text
-                bookDlg.whereToAdd = BookmarkModel.Insert.Inside
-                bookDlg.open()
+                outlineDlg.title = text
+                outlineDlg.whereToAdd = BookmarkModel.Insert.Inside
+                outlineDlg.open()
             }
         }
     }
 
-    BookmarkDialog {
-        id: bookDlg
+    OutlineDialog {
+        id: outlineDlg
         property var sender: null
         pageCount: bookPane.model.pageCount
         onAccepted: {
