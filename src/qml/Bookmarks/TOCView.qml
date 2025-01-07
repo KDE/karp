@@ -31,10 +31,6 @@ ColumnLayout {
 
         clip: true
 
-        // selectionModel: ItemSelectionModel {
-        //     id: selMod
-        // }
-
         delegate: QQC2.TreeViewDelegate {
             id: treeDelegate
 
@@ -73,8 +69,8 @@ ColumnLayout {
                         hoverEnabled: true
                         anchors.fill: parent
                         onClicked: {
-                            outlineDlg.sender = treeDelegate
-                            outlineDlg.modelIndex = treeView.index(row, column)
+                            menu.sender = treeDelegate
+                            menu.modelIndex = treeView.index(row, column)
                             titleAction.text = title
                             addSubAction.enabled = !hasChildren
                             menu.popup()
@@ -93,43 +89,38 @@ ColumnLayout {
         icon.source: "bookmark-new"
         text: i18n("Add Chapter")
         onClicked: {
-            outlineDlg.modelIndex = tView.rootIndex // Requires Qt 6.6
-            outlineDlg.whereToAdd = BookmarkModel.Insert.AtEnd
-            outlineDlg.title = text
-            outlineDlg.open()
+            menu.modelIndex = tView.rootIndex
+            openOutlineDialog(BookmarkModel.Insert.AtEnd, "", 1, text)
         }
     }
 
     QQC2.Menu {
         id: menu
 
+        property var sender: null
+        property var modelIndex: null
+
         Kirigami.Action {
             id: titleAction
             icon.name: "bookmark-edit"
             onTriggered: {
-                outlineDlg.title = text
-                outlineDlg.whereToAdd = BookmarkModel.Insert.Edit
-                outlineDlg.bookmarkTitle = outlineDlg.sender.title
-                outlineDlg.targetPage = outlineDlg.sender.page + 1
-                outlineDlg.open()
+                openOutlineDialog(BookmarkModel.Insert.Edit, menu.sender.title, menu.sender.page, text)
+
             }
         }
         Kirigami.Action {
             text: i18nc("@action:inmenu", "Insert Above")
             icon.name: "go-up"
             onTriggered: {
-                outlineDlg.title = text
-                outlineDlg.whereToAdd = BookmarkModel.Insert.Above
-                outlineDlg.open()
+                openOutlineDialog(BookmarkModel.Insert.Above, "", menu.sender.page, text)
+
             }
         }
         Kirigami.Action {
             text: i18nc("@action:inmenu", "Insert Below")
             icon.name: "go-down"
             onTriggered: {
-                outlineDlg.title = text
-                outlineDlg.whereToAdd = BookmarkModel.Insert.Below
-                outlineDlg.open()
+                openOutlineDialog(BookmarkModel.Insert.Below, "", menu.sender.page, text)
             }
         }
         Kirigami.Action {
@@ -137,23 +128,27 @@ ColumnLayout {
             text: i18nc("@action:inmenu", "Add Subsection")
             icon.name: "bookmark-new"
             onTriggered: {
-                outlineDlg.title = text
-                outlineDlg.whereToAdd = BookmarkModel.Insert.Inside
-                outlineDlg.open()
+                openOutlineDialog(BookmarkModel.Insert.Inside, "", menu.sender.page, text)
             }
         }
     }
 
-    OutlineDialog {
-        id: outlineDlg
-        property var sender: null
-        pageCount: bookPane.model.pageCount
-        onAccepted: {
-            bookPane.model.insertBookmark(modelIndex, whereToAdd, bookmarkTitle, targetPage - 1)
-            if (whereToAdd === BookmarkModel.Insert.Inside && sender)
-                tView.expand(sender.row)
-            sender = null
-            bookmarkTitle = ""
-        }
+    function openOutlineDialog(whereToAdd: var, outlineTitle: string, pageNr: int, dialogTitle: string): void {
+        outlineDlg = Qt.createComponent("org.kde.karp", "OutlineDialog").createObject(bookPane,
+                                                                                      {
+                                                                                          pageCount: bookPane.model.pageCount,
+                                                                                          whereToAdd: whereToAdd,
+                                                                                          bookmarkTitle: outlineTitle,
+                                                                                          targetPage: pageNr + 1,
+                                                                                          title: dialogTitle
+                                                                                    })
+        outlineDlg.accepted.connect(() => {
+            bookPane.model.insertBookmark(menu.modelIndex, outlineDlg.whereToAdd, outlineDlg.bookmarkTitle, outlineDlg.targetPage - 1)
+            if (outlineDlg.whereToAdd === BookmarkModel.Insert.Inside && menu.sender)
+                tView.expand(menu.sender.row)
+                menu.sender = null
+        })
     }
+
+    property var outlineDlg
 }

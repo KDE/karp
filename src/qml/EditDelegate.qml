@@ -84,6 +84,17 @@ Rectangle {
         icon.name: hasOutline ? "bookmarks-bookmarked" : "bookmarks"
         onClicked: {
             let menu = outlineComp.createObject(outlineButt, { model: pdfModel.getPageOutlines(pageNr) })
+            menu.selected.connect((index) => {
+                var idx = pdfModel.indexFromOutline(pageNr, index)
+                let outlineDlg = Qt.createComponent("org.kde.karp", "OutlineDialog").createObject(editDelg,
+                                                                                                  {
+                                                                                                      whereToAdd: BookmarkModel.Insert.Edit,
+                                                                                                      bookmarkTitle: pdfModel.outlineTitle(idx),
+                                                                                                      targetPage: pdfModel.outlinePage(idx) + 1,
+                                                                                                      pageCount: pdfModel.pageCount
+                                                                                                })
+                outlineDlg.accepted.connect(() => pdfModel.insertBookmark(idx, BookmarkModel.Insert.Edit, outlineDlg.bookmarkTitle, outlineDlg.targetPage - 1))
+            })
             menu.popup()
         }
     }
@@ -126,11 +137,14 @@ Rectangle {
         QQC2.Menu {
             id: outlineMenu
             property var model: null
+            signal selected(var index)
             width: Math.min(Kirigami.Units.gridUnit * 20, implicitWidth)
             Component.onCompleted: {
                 for (let o = 0; o < model.length; ++o) {
                     let newAct = actionComp.createObject(outlineMenu)
                     newAct.text = model[o]
+                    newAct.index = o
+                    newAct.triggered.connect(() => outlineMenu.selected(newAct.index))
                     outlineMenu.addAction(newAct)
                 }
             }
@@ -139,6 +153,8 @@ Rectangle {
     }
     Component {
         id: actionComp
-        Kirigami.Action {}
+        Kirigami.Action {
+            property int index: -1
+        }
     }
 }
