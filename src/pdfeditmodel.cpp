@@ -654,6 +654,33 @@ QStringList PdfEditModel::getPageOutlines(int p)
     return m_pageList[p]->outlineModel();
 }
 
+QModelIndex PdfEditModel::indexFromOutline(int pageNr, int outlineId)
+{
+    if (pageNr < 0 || pageNr >= m_pageList.size())
+        return QModelIndex();
+    auto outline = m_pageList[pageNr]->getOutline(outlineId);
+    if (!outline)
+        return QModelIndex();
+    return m_bookmarks->indexFromOutline(outline);
+}
+
+QString PdfEditModel::outlineTitle(const QModelIndex &bookmarkModelIndex)
+{
+    const Outline *o = static_cast<Outline *>(bookmarkModelIndex.internalPointer());
+    return o ? o->title() : QString();
+}
+
+int PdfEditModel::outlinePage(const QModelIndex &bookmarkModelIndex)
+{
+    const Outline *o = static_cast<Outline *>(bookmarkModelIndex.internalPointer());
+    return o ? o->pageNumber() : -1;
+}
+
+void PdfEditModel::insertBookmark(const QModelIndex &idx, int where, const QString &title, int page)
+{
+    m_bookmarks->insertBookmark(idx, where, title, page);
+}
+
 QString PdfEditModel::outFile() const
 {
     return m_outFile;

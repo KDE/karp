@@ -84,6 +84,8 @@ public:
     void addOutline(Outline *o);
     void removeOutline(Outline *o);
 
+    Outline *getOutline(int id);
+
     QStringList outlineModel() const;
 
     /**

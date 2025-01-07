@@ -165,6 +165,15 @@ public:
 
     Q_INVOKABLE QStringList getPageOutlines(int p);
 
+    /**
+     * Returns @p index of QModelIndex in @p BookmarkModel of given
+     * @p pageNr and @p outlineId in the outline list the page has.
+     */
+    Q_INVOKABLE QModelIndex indexFromOutline(int pageNr, int outlineId);
+    Q_INVOKABLE QString outlineTitle(const QModelIndex &bookmarkModelIndex);
+    Q_INVOKABLE int outlinePage(const QModelIndex &bookmarkModelIndex);
+    Q_INVOKABLE void insertBookmark(const QModelIndex &idx, int where, const QString &title, int page);
+
     QString outFile() const;
 
     void saveBookmarks(QPDF &qpdf);

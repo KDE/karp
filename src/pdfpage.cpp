@@ -62,6 +62,13 @@ void PdfPage::removeOutline(Outline *o)
     m_outlines.removeOne(o);
 }
 
+Outline *PdfPage::getOutline(int id)
+{
+    if (id < 0 || id >= m_outlines.size())
+        return nullptr;
+    return m_outlines[id];
+}
+
 QStringList PdfPage::outlineModel() const
 {
     if (m_outlines.isEmpty())
