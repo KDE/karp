@@ -244,31 +244,32 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
         endInsertRows();
         return;
     }
-    auto b = static_cast<Outline *>(idx.internalPointer());
-    if (!b) {
-        qCDebug(KARP_LOG) << "[BookmarkModel]" << "Cannot get node from index!";
+    auto node = static_cast<Outline *>(idx.internalPointer());
+    if (!node) {
+        qCDebug(KARP_LOG) << "[BookmarkModel]" << "Cannot get node from index!" << idx;
         return;
     }
     if (w == Insert::Below || w == Insert::Above) {
-        auto newB = new Outline(page, b->parentNode());
+        auto newB = new Outline(page, node->parentNode());
         newB->setTitle(title);
-        newB->setLevel(b->level());
-        const int rowNr = b->row() + (w == Insert::Below ? 1 : 0);
+        newB->setLevel(node->level());
+        const int rowNr = node->row() + (w == Insert::Below ? 1 : 0);
         beginInsertRows(idx.parent(), rowNr, rowNr);
-        b->parentNode()->insertChild(rowNr, newB);
+        node->parentNode()->insertChild(rowNr, newB);
         endInsertRows();
     } else if (w == Insert::Inside) {
-        if (b->childCount())
+        if (node->childCount())
             qCDebug(KARP_LOG) << "[BookmarkModel]" << "There is sub-chapter already!";
-        auto newB = new Outline(page, b);
+        auto newB = new Outline(page, node);
         newB->setTitle(title);
-        newB->setLevel(b->level() + 1);
+        newB->setLevel(node->level() + 1);
         beginInsertRows(idx, 0, 0);
-        b->appendChild(newB);
+        node->appendChild(newB);
         endInsertRows();
     } else if (w == Insert::Edit) {
-        b->setTitle(title);
-        b->setPageNumber(page);
+        Q_EMIT aboutToChange(node, title, page);
+        node->setTitle(title);
+        node->setPageNumber(page);
         Q_EMIT dataChanged(idx, idx);
     }
     setStatus(Status::Modified);

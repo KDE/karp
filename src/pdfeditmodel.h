@@ -262,6 +262,7 @@ protected:
 
     void newOutlineSlot(Outline *o);
     void removeOutlineSlot(Outline *o);
+    void changeOutlineSlot(Outline *o, const QString &, int newPage); /**< For now we don't use new title */
 
 Q_SIGNALS:
     void wantRenderImage(int) const;

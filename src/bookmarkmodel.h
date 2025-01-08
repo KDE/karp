@@ -103,6 +103,11 @@ Q_SIGNALS:
     void outlineAdded(Outline *);
     void aboutToRemove(Outline *);
 
+    /**
+     * Emitted when outline is edited - it will receive new title and/or page
+     */
+    void aboutToChange(Outline *, const QString &, int);
+
 protected:
     static BookmarkModel *self()
     {

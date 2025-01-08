@@ -46,6 +46,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
     connect(m_bookmarks, &BookmarkModel::statusChanged, this, &PdfEditModel::editedChanged);
     connect(m_bookmarks, &BookmarkModel::outlineAdded, this, &PdfEditModel::newOutlineSlot);
     connect(m_bookmarks, &BookmarkModel::aboutToRemove, this, &PdfEditModel::removeOutlineSlot);
+    connect(m_bookmarks, &BookmarkModel::aboutToChange, this, &PdfEditModel::changeOutlineSlot);
 }
 
 PdfEditModel::~PdfEditModel()
@@ -936,6 +937,21 @@ void PdfEditModel::removeOutlineSlot(Outline *o)
         int pageNr = outline->pageNumber();
         m_pageList[pageNr]->removeOutline(outline);
         Q_EMIT dataChanged(index(pageNr, 0), index(pageNr, 0), QList<int>() << RoleOutline);
+    }
+}
+
+void PdfEditModel::changeOutlineSlot(Outline *o, const QString &, int newPage)
+{
+    if (!o || o->pageNumber() == newPage)
+        return;
+    if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
+        return;
+    if (newPage < 0 || newPage >= m_pageList.size())
+        return;
+    if (m_pageList[o->pageNumber()]->removeOutline(o)) {
+        Q_EMIT dataChanged(index(o->pageNumber(), 0), index(o->pageNumber(), 0), QList<int>() << RoleOutline);
+        m_pageList[newPage]->addOutline(o);
+        Q_EMIT dataChanged(index(newPage, 0), index(newPage, 0), QList<int>() << RoleOutline);
     }
 }
 
