@@ -1,0 +1,60 @@
+{
+    "id": "org.kde.karp",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "6.8",
+    "base-version": "6.8",    
+    "base": "io.qt.qtwebengine.BaseApp",    
+    "sdk": "org.kde.Sdk",
+    "command": "karp",
+    "tags": ["nightly"],
+    "desktop-file-name-suffix": " (Nightly)",
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--socket=pulseaudio",
+        "--share=network"
+    ],
+    "separate-locales": false,
+    "modules": [
+        {
+            "name": "qpdf",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/qpdf/qpdf/archive/refs/tags/v11.9.1.tar.gz",
+                    "sha256": "98d509e29def377d90ff4a34e48e8e20865600342006bff53e489f689bbbb15d"
+                }
+            ],
+	    "builddir": true,
+            "config-opts": [
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DLIB_INSTALL_DIR=/app/lib",
+                "-DMAINTAINER_MODE=OFF"
+            ]
+        },
+        {
+            "name": "kirigamiaddons",
+            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "buildsystem": "cmake-ninja",
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kirigami-addons.git", "branch": "master" } ]
+        },
+        {
+            "name": "karp",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": ".",
+                    "skip": [
+                        ".git"
+                    ]
+                }
+            ]
+        }	    
+    ]
+}
