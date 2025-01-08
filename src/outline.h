@@ -36,6 +36,8 @@ public:
         m_childNodes.insert(index, child);
     }
 
+    void removeChild(int row);
+
     Outline *child(int row) const
     {
         return m_childNodes.at(row);
@@ -46,13 +48,7 @@ public:
         return m_childNodes.size();
     }
 
-    int row() const
-    {
-        if (m_parentNode)
-            return m_parentNode->m_childNodes.indexOf(const_cast<Outline *>(this));
-
-        return 0;
-    }
+    int row() const;
 
     Outline *parentNode() const
     {

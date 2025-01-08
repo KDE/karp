@@ -3,6 +3,7 @@
 
 #include "outline.h"
 #include "bookmarkmodel.h"
+#include "karp_debug.h"
 #include <QPdfBookmarkModel>
 
 Outline::Outline(int page, Outline *parentNode)
@@ -34,4 +35,23 @@ void Outline::clear()
 {
     qDeleteAll(m_childNodes);
     m_childNodes.clear();
+}
+
+int Outline::row() const
+{
+    if (m_parentNode)
+        return m_parentNode->m_childNodes.indexOf(const_cast<Outline *>(this));
+
+    return 0;
+}
+
+void Outline::removeChild(int row)
+{
+    if (row < 0 || row >= childCount()) {
+        qCDebug(KARP_LOG) << "[Outline]" << "Cannot remove row" << row << "which doesn't exist!";
+        return;
+    }
+    auto nodeToRemove = m_childNodes.takeAt(row);
+    nodeToRemove->clear();
+    delete nodeToRemove;
 }
