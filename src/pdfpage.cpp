@@ -57,9 +57,9 @@ void PdfPage::addOutline(Outline *o)
     m_outlines << o;
 }
 
-void PdfPage::removeOutline(Outline *o)
+bool PdfPage::removeOutline(Outline *o)
 {
-    m_outlines.removeOne(o);
+    return m_outlines.removeOne(o);
 }
 
 Outline *PdfPage::getOutline(int id)

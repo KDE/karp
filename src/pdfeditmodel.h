@@ -260,6 +260,7 @@ protected:
     void setSelection(int from, int to);
 
     void newOutlineSlot(Outline *o);
+    void removeOutlineSlot(Outline *o);
 
 Q_SIGNALS:
     void wantRenderImage(int) const;

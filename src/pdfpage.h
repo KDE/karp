@@ -82,7 +82,7 @@ public:
     }
 
     void addOutline(Outline *o);
-    void removeOutline(Outline *o);
+    bool removeOutline(Outline *o);
 
     Outline *getOutline(int id);
 

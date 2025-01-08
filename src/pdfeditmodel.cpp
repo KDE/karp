@@ -45,6 +45,7 @@ PdfEditModel::PdfEditModel(QObject *parent)
     m_bookmarks = new BookmarkModel(this);
     connect(m_bookmarks, &BookmarkModel::statusChanged, this, &PdfEditModel::editedChanged);
     connect(m_bookmarks, &BookmarkModel::outlineAdded, this, &PdfEditModel::newOutlineSlot);
+    connect(m_bookmarks, &BookmarkModel::aboutToRemove, this, &PdfEditModel::removeOutlineSlot);
 }
 
 PdfEditModel::~PdfEditModel()
@@ -916,6 +917,21 @@ void PdfEditModel::newOutlineSlot(Outline *o)
     if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
         return;
     m_pageList[o->pageNumber()]->addOutline(o);
+}
+
+void PdfEditModel::removeOutlineSlot(Outline *o)
+{
+    if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
+        return;
+    QVector<Outline *> toRemoveList;
+    m_bookmarks->walkThrough(o, [&](Outline *node) {
+        toRemoveList << node;
+    });
+    for (auto &outline : toRemoveList) {
+        int pageNr = outline->pageNumber();
+        m_pageList[pageNr]->removeOutline(outline);
+        Q_EMIT dataChanged(index(pageNr, 0), index(pageNr, 0), QList<int>() << RoleOutline);
+    }
 }
 
 #include "moc_pdfeditmodel.cpp"
