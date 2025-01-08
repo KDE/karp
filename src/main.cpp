@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
     QApplication app(argc, argv);
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("karp")));
 
 #ifndef NDEBUG
     QLoggingCategory::setFilterRules("org.kde.karp*=true"_L1);
