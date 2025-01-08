@@ -94,6 +94,7 @@ Rectangle {
                                                                                                       pageCount: pdfModel.pageCount
                                                                                                 })
                 outlineDlg.accepted.connect(() => pdfModel.insertBookmark(idx, BookmarkModel.Insert.Edit, outlineDlg.bookmarkTitle, outlineDlg.targetPage - 1))
+                outlineDlg.removed.connect(() => pdfModel.removeOutline(idx))
             })
             menu.popup()
         }

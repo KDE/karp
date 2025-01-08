@@ -11,7 +11,7 @@ import QtQuick.Layouts
 import org.kde.karp
 
 ColumnLayout {
-    id: bookPane
+    id: tocView
 
     property alias model: tView.model
     property alias rows: tView.rows
@@ -79,12 +79,12 @@ ColumnLayout {
                 }
             }
 
-            onClicked: bookPane.bookmarkSelected(page)
+            onClicked: tocView.bookmarkSelected(page)
         }
     }
 
     QQC2.Button {
-        visible: bookPane.rows < 1
+        visible: tocView.rows < 1
         Layout.alignment: Qt.AlignCenter
         icon.source: "bookmark-new"
         text: i18n("Add Chapter")
@@ -134,20 +134,21 @@ ColumnLayout {
     }
 
     function openOutlineDialog(whereToAdd: var, outlineTitle: string, pageNr: int, dialogTitle: string): void {
-        outlineDlg = Qt.createComponent("org.kde.karp", "OutlineDialog").createObject(bookPane,
+        outlineDlg = Qt.createComponent("org.kde.karp", "OutlineDialog").createObject(tocView,
                                                                                       {
-                                                                                          pageCount: bookPane.model.pageCount,
+                                                                                          pageCount: tocView.model.pageCount,
                                                                                           whereToAdd: whereToAdd,
                                                                                           bookmarkTitle: outlineTitle,
                                                                                           targetPage: pageNr + 1,
                                                                                           title: dialogTitle
                                                                                     })
         outlineDlg.accepted.connect(() => {
-            bookPane.model.insertBookmark(menu.modelIndex, outlineDlg.whereToAdd, outlineDlg.bookmarkTitle, outlineDlg.targetPage - 1)
+            tocView.model.insertBookmark(menu.modelIndex, outlineDlg.whereToAdd, outlineDlg.bookmarkTitle, outlineDlg.targetPage - 1)
             if (outlineDlg.whereToAdd === BookmarkModel.Insert.Inside && menu.sender)
                 tView.expand(menu.sender.row)
                 menu.sender = null
         })
+        outlineDlg.removed.connect(() => tocView.model.removeOutline(menu.modelIndex))
     }
 
     property var outlineDlg

@@ -72,7 +72,10 @@ Kirigami.Dialog {
             visible: whereToAdd === BookmarkModel.Insert.Edit
             text: i18nc("@action:button", "Remove")
             icon.name: "bookmark-remove"
-            onTriggered: outlineDlg.removed()
+            onTriggered: {
+                outlineDlg.removed()
+                close()
+            }
         },
         Kirigami.Action {
             enabled: titleField.length > 0

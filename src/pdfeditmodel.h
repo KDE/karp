@@ -173,6 +173,7 @@ public:
     Q_INVOKABLE QString outlineTitle(const QModelIndex &bookmarkModelIndex);
     Q_INVOKABLE int outlinePage(const QModelIndex &bookmarkModelIndex);
     Q_INVOKABLE void insertBookmark(const QModelIndex &idx, int where, const QString &title, int page);
+    Q_INVOKABLE void removeOutline(const QModelIndex &bookmarkModelIndex);
 
     QString outFile() const;
 

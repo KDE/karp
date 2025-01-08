@@ -682,6 +682,11 @@ void PdfEditModel::insertBookmark(const QModelIndex &idx, int where, const QStri
     m_bookmarks->insertBookmark(idx, where, title, page);
 }
 
+void PdfEditModel::removeOutline(const QModelIndex &bookmarkModelIndex)
+{
+    m_bookmarks->removeOutline(bookmarkModelIndex);
+}
+
 QString PdfEditModel::outFile() const
 {
     return m_outFile;
