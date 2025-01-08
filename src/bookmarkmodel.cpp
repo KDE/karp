@@ -274,6 +274,18 @@ void BookmarkModel::insertBookmark(const QModelIndex &idx, int where, const QStr
     setStatus(Status::Modified);
 }
 
+void BookmarkModel::removeOutline(const QModelIndex &idx)
+{
+    auto node = static_cast<Outline *>(idx.internalPointer());
+    if (!node)
+        return;
+    aboutToRemove(node);
+    const int rowToRemove = node->row();
+    beginRemoveRows(idx.parent(), rowToRemove, rowToRemove);
+    node->parentNode()->removeChild(rowToRemove);
+    endRemoveRows();
+}
+
 QModelIndex BookmarkModel::indexFromOutline(Outline *o)
 {
     QModelIndex outlineIndex;
@@ -369,6 +381,17 @@ QVariant BookmarkModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> BookmarkModel::roleNames() const
 {
     return m_roleNames;
+}
+
+void BookmarkModel::walkThrough(Outline *parentNode, const std::function<void(Outline *)> &funct)
+{
+    if (parentNode)
+        funct(parentNode);
+
+    const auto rows = parentNode->childCount();
+    for (int i = 0; i < rows; ++i) {
+        walkThrough(parentNode->child(i), funct);
+    }
 }
 
 void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, Outline *parentBookmark, bool doPrepend)

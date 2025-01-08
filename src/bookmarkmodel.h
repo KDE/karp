@@ -84,6 +84,7 @@ public:
     int bookmarksCount() const;
 
     Q_INVOKABLE void insertBookmark(const QModelIndex &idx, int where, const QString &title, int page);
+    Q_INVOKABLE void removeOutline(const QModelIndex &idx);
 
     QModelIndex indexFromOutline(Outline *o);
 
@@ -94,10 +95,13 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
 
+    void walkThrough(Outline *parentNode, const std::function<void(Outline *)> &funct);
+
 Q_SIGNALS:
     void pageCountChanged();
     void statusChanged();
     void outlineAdded(Outline *);
+    void aboutToRemove(Outline *);
 
 protected:
     static BookmarkModel *self()
