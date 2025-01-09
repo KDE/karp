@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:40+0000\n"
+"POT-Creation-Date: 2025-01-09 00:39+0000\n"
 "PO-Revision-Date: 2024-12-26 22:12+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -93,29 +93,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Метадані PDF"
 
-#: main.cpp:104
+#: main.cpp:101
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:108
+#: main.cpp:105
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "Впорядкувальник PDF від KDE"
 
-#: main.cpp:112
+#: main.cpp:109
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "© Томаш Бойчук, 2024"
 
-#: main.cpp:113
+#: main.cpp:110
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Томаш Бойчук"
 
-#: main.cpp:114
+#: main.cpp:111
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
