@@ -64,7 +64,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
     karpConfig::self()->setLastDir(m_pdfList.last()->dir());
 }
 
-void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
+void PdfEditModel::prependPdfs(const QVector<PdfFile *> &pdfList)
 {
     if (pdfList.isEmpty())
         return;
@@ -78,7 +78,7 @@ void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
         Q_EMIT editedChanged();
 }
 
-void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
+void PdfEditModel::appendPdfs(const QVector<PdfFile *> &pdfList)
 {
     if (pdfList.isEmpty())
         return;
@@ -151,7 +151,7 @@ void PdfEditModel::setSpacing(qreal sp)
 bool PdfEditModel::edited() const
 {
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
-        || m_metaData->modified() || m_pdfVersion > 0.0 || pdfCount() > 1;
+        || m_metaData->modified() || m_pdfVersion > 0.0;
 }
 
 bool PdfEditModel::optimizeImages() const
@@ -198,7 +198,7 @@ void PdfEditModel::setPdfVersion(qreal pV)
     Q_EMIT editedChanged();
 }
 
-QString PdfEditModel::passKey() const
+const QString &PdfEditModel::passKey() const
 {
     return m_passKey;
 }
@@ -537,7 +537,7 @@ void PdfEditModel::generate()
 
     auto conf = karpConfig::self();
     setProgress(0.05);
-    auto pdf = m_pdfList[m_pageList.first()->referenceFile()];
+    const auto pdf = m_pdfList[m_pageList.first()->referenceFile()];
     if (conf->askForOutFile()) {
         QFileInfo inInfo(pdf->filePath());
         m_outFile = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
@@ -628,7 +628,7 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     }
 }
 
-QString PdfEditModel::outFile() const
+const QString &PdfEditModel::outFile() const
 {
     return m_outFile;
 }
@@ -639,42 +639,40 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
         return QVariant();
     int pageNr = index.row();
     PdfFile *pdf = nullptr;
-    PdfPage *page = nullptr;
-    if (pageNr < m_pages) {
-        page = m_pageList.at(pageNr);
-        int refFileId = page->referenceFile();
-        if (refFileId < pdfCount())
-            pdf = m_pdfList[refFileId];
-    }
+    PdfPage *pPage = nullptr;
+    pPage = m_pageList.at(pageNr);
+    int refFileId = pPage->referenceFile();
+    if (refFileId < pdfCount())
+        pdf = m_pdfList[refFileId];
     switch (role) {
     case RoleImage: {
-        if (!pdf || !page)
+        if (!pdf || !pPage)
             return QVariant::fromValue(QImage());
-        if (page->nullImage() && pdf) {
+        if (pPage->nullImage()) {
             // TODO: find current screen
-            QSizeF pSize = pdf->pagePointSize(page->origPage());
+            QSizeF pSize = pdf->pagePointSize(pPage->origPage());
             qreal pageRatio = pSize.height() / pSize.width();
-            pdf->requestPage(page, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
+            pdf->requestPage(pPage, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
         }
-        return QVariant::fromValue(page->image());
+        return QVariant::fromValue(pPage->image());
     }
     case RoleRotated: {
-        return page ? page->rotated() : 0;
+        return pPage ? pPage->rotated() : 0;
     }
     case RoleOrigNr:
-        return page ? page->origPage() : 0;
+        return pPage ? pPage->origPage() : 0;
     case RolePageNr:
         return pageNr;
     case RolePageRatio: {
-        if (!pdf || !page)
+        if (!pdf || !pPage)
             return 1;
-        auto pageSize = pdf->pagePointSize(page->origPage());
+        auto pageSize = pdf->pagePointSize(pPage->origPage());
         return pageSize.height() / pageSize.width();
     }
     case RoleFileId:
-        return page ? page->referenceFile() : 0;
+        return pPage ? pPage->referenceFile() : 0;
     case RoleSelected:
-        return page ? page->selected() : false;
+        return pPage ? pPage->selected() : false;
     default:
         return QVariant();
     }

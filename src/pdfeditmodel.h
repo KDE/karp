@@ -54,8 +54,8 @@ public:
 
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
-    void prependPdfs(QVector<PdfFile *> &pdfList);
-    void appendPdfs(QVector<PdfFile *> &pdfList);
+    void prependPdfs(const QVector<PdfFile *> &pdfList);
+    void appendPdfs(const QVector<PdfFile *> &pdfList);
 
     int pageCount() const
     {
@@ -94,7 +94,7 @@ public:
     qreal pdfVersion() const;
     void setPdfVersion(qreal pV);
 
-    QString passKey() const;
+    const QString &passKey() const;
     void setPassKey(const QString &pass);
 
     qreal progress() const;
@@ -158,7 +158,7 @@ public:
 
     Q_INVOKABLE void setPdfPassword(int fileId, const QString &pass);
 
-    QString outFile() const;
+    const QString &outFile() const;
 
     PdfPage *page(int p)
     {

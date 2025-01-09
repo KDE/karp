@@ -11,10 +11,10 @@ QByteArrayList PdfMetaData::m_tags = QByteArrayList() << "Title"_ba << "Subject"
                                                       << "CreationDate"_ba << "ModDate"_ba;
 
 PdfMetaData::PdfMetaData()
+    : m_creator("Karp "_L1 + "(https://apps.kde.org/karp)"_L1)
+    , m_producer("Karp "_L1 + QLatin1String(KARP_VERSION_STRING) + " - KDE arranger for PDFs "_L1)
+    , m_modDate(QDateTime::currentDateTime())
 {
-    m_creator = "Karp "_L1 + "(https://apps.kde.org/karp)"_L1;
-    m_producer = "Karp "_L1 + QLatin1String(KARP_VERSION_STRING) + " - KDE arranger for PDFs "_L1;
-    m_modDate = QDateTime::currentDateTime();
     m_creationDate = m_modDate;
 }
 
@@ -23,7 +23,7 @@ bool PdfMetaData::modified() const
     return m_modified;
 }
 
-QString PdfMetaData::title() const
+const QString &PdfMetaData::title() const
 {
     return m_title;
 }
@@ -34,7 +34,7 @@ void PdfMetaData::setTitle(const QString &title)
     m_title = title;
 }
 
-QString PdfMetaData::subject() const
+const QString &PdfMetaData::subject() const
 {
     return m_subject;
 }
@@ -45,7 +45,7 @@ void PdfMetaData::setSubject(const QString &subject)
     m_subject = subject;
 }
 
-QString PdfMetaData::author() const
+const QString &PdfMetaData::author() const
 {
     return m_author;
 }
@@ -56,7 +56,7 @@ void PdfMetaData::setAuthor(const QString &author)
     m_author = author;
 }
 
-QString PdfMetaData::creator() const
+const QString &PdfMetaData::creator() const
 {
     return m_creator;
 }
@@ -67,7 +67,7 @@ void PdfMetaData::setCreator(const QString &creator)
     m_creator = creator;
 }
 
-QString PdfMetaData::producer() const
+const QString &PdfMetaData::producer() const
 {
     return m_producer;
 }
@@ -100,7 +100,7 @@ void PdfMetaData::setModDate(const QDateTime &modDate)
     m_modDate = modDate;
 }
 
-QString PdfMetaData::keyword() const
+const QString &PdfMetaData::keyword() const
 {
     return m_keyword;
 }

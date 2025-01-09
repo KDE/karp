@@ -57,7 +57,7 @@ public:
     /**
      * PDF file path (without name)
      */
-    QString dir() const
+    const QString &dir() const
     {
         return m_dir;
     }
@@ -65,7 +65,7 @@ public:
     /**
      * PDF File name with .pdf extension
      */
-    QString name() const
+    const QString &name() const
     {
         return m_name;
     }

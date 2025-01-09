@@ -7,6 +7,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QPdfPageRenderer>
+#include <algorithm>
 
 PdfFile::PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s)
     : QPdfDocument()
@@ -40,10 +41,10 @@ void PdfFile::setFile(const QString &fileName)
 void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId)
 {
     // if a page is in the queue already - skip render request
-    for (auto &p : m_pagesToRender) {
-        if (pdfPage == p.pdfPage)
-            return;
-    }
+    if (std::any_of(m_pagesToRender.cbegin(), m_pagesToRender.cend(), [&](const PdfFile::PageToRender &PageToRend) {
+            return pdfPage == PageToRend.pdfPage;
+        }))
+        return;
     m_pagesToRender << PageToRender(pdfPage, pageId, pageSize);
     m_renderer->requestPage(pdfPage->origPage(), pageSize);
 }
