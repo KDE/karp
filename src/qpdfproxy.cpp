@@ -75,7 +75,7 @@ void QpdfProxy::threadSlot()
     int fileId = firstPage->referenceFile();
     chunks << (QVector<quint16>() << fileId << fromPage);
     for (int p = 1; p < m_pdfModel->pageCount(); ++p) {
-        auto nextPage = m_pdfModel->page(p);
+        const auto *const nextPage = m_pdfModel->page(p);
         if (nextPage->referenceFile() != fileId) {
             fileId = nextPage->referenceFile();
             fromPage = nextPage->origPage();
@@ -89,7 +89,7 @@ void QpdfProxy::threadSlot()
     // NOTICE: page number (r) refers to number in m_pageList not orig page number in PDF file
     QVector<quint16> r90, r180, r270;
     for (int r = 0; r < m_pdfModel->pageCount(); ++r) {
-        auto page = m_pdfModel->page(r);
+        const auto *const page = m_pdfModel->page(r);
         if (page->rotated() == 90)
             r90 << r;
         else if (page->rotated() == 180)

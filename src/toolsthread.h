@@ -36,7 +36,7 @@ public:
     void cancel();
 
     QString qpdfVersion() const;
-    QString gsVersion() const;
+    const QString &gsVersion() const;
 
 Q_SIGNALS:
     void lookingDone();

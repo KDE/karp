@@ -57,8 +57,8 @@ public:
 
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
-    void prependPdfs(QVector<PdfFile *> &pdfList);
-    void appendPdfs(QVector<PdfFile *> &pdfList);
+    void prependPdfs(const QVector<PdfFile *> &pdfList);
+    void appendPdfs(const QVector<PdfFile *> &pdfList);
 
     int pageCount() const
     {
@@ -97,7 +97,7 @@ public:
     qreal pdfVersion() const;
     void setPdfVersion(qreal pV);
 
-    QString passKey() const;
+    const QString &passKey() const;
     void setPassKey(const QString &pass);
 
     qreal progress() const;
@@ -175,7 +175,7 @@ public:
     Q_INVOKABLE void insertBookmark(const QModelIndex &idx, int where, const QString &title, int page);
     Q_INVOKABLE void removeOutline(const QModelIndex &bookmarkModelIndex);
 
-    QString outFile() const;
+    const QString &outFile() const;
 
     void saveBookmarks(QPDF &qpdf);
 

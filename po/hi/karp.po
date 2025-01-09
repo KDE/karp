@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:40+0000\n"
+"POT-Creation-Date: 2025-01-09 00:39+0000\n"
 "PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -90,29 +90,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "पीडीएफ मेटाडेटा"
 
-#: main.cpp:104
+#: main.cpp:101
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "कार्प"
 
-#: main.cpp:108
+#: main.cpp:105
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "पीडीएफ़ के लिए केडीई अरेंजर"
 
-#: main.cpp:112
+#: main.cpp:109
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(सी) 2024 टोमाज़ बोज्ज़ुक"
 
-#: main.cpp:113
+#: main.cpp:110
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "टोमाज़ बोज्ज़ुक"
 
-#: main.cpp:114
+#: main.cpp:111
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"

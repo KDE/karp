@@ -13,9 +13,9 @@ class Outline;
 class PdfPage
 {
 public:
-    PdfPage(const QImage &image, quint16 origPage, quint16 refFile = 0);
+    explicit PdfPage(const QImage &image, quint16 origPage, quint16 refFile = 0);
 
-    PdfPage(quint16 origPage, quint16 refFile = 0)
+    explicit PdfPage(quint16 origPage, quint16 refFile = 0)
         : m_origPage(origPage)
         , m_refFile(refFile)
     {

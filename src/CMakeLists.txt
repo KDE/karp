@@ -120,6 +120,18 @@ else()
     target_link_libraries(karp PUBLIC Qt::Widgets)
 endif()
 
+
+if(APPLE)
+    set_target_properties(karp PROPERTIES
+        MACOSX_BUNDLE_DISPLAY_NAME "Karp"
+        MACOSX_BUNDLE_BUNDLE_NAME "Karp"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "Karp ${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.karp"
+	MACOSX_BUNDLE_COPYRIGHT "2024-2025 The Karp Developers")
+endif()
+
 kconfig_add_kcfg_files(karp GENERATE_MOC karpconfig.kcfgc)
 
 install(TARGETS karp ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

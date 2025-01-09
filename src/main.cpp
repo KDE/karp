@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
     QApplication app(argc, argv);
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("karp")));
 
 #ifndef NDEBUG
     QLoggingCategory::setFilterRules("org.kde.karp*=true"_L1);
@@ -79,11 +80,13 @@ int main(int argc, char *argv[])
 #endif
 
 #ifdef Q_OS_WINDOWS
+    FILE *outFile = nullptr;
+    FILE *errFile = nullptr;
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        FILE *outFile = freopen("CONOUT$", "w", stdout);
+        outFile = freopen("CONOUT$", "w", stdout);
         if (!outFile)
             qWarning() << "Failed to reopen stdout";
-        FILE *errFile = freopen("CONOUT$", "w", stderr);
+        errFile = freopen("CONOUT$", "w", stderr);
         if (!errFile)
             qWarning() << "Failed to reopen stderr";
     }
@@ -138,5 +141,14 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    return app.exec();
+    int execCode = app.exec();
+
+#ifdef Q_OS_WINDOWS
+    if (outFile)
+        delete outFile;
+    if (errFile)
+        delete errFile;
+#endif
+
+    return execCode;
 }

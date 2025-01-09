@@ -9,6 +9,7 @@
 #include <QPdfDocument>
 #include <QStandardPaths>
 #include <QTimer>
+#include <numeric>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -162,9 +163,9 @@ void PdfsOrganizer::setEditModel(const QVariant &edMod)
     }
     Q_EMIT editModelChanged();
 
-    for (auto &pdfFile : m_editModel->pdfs()) {
-        m_totalPages += m_fileModel->appendPdfFile(pdfFile);
-    }
+    m_totalPages += std::accumulate(m_editModel->pdfs().cbegin(), m_editModel->pdfs().cend(), 0, [&](int tp, PdfFile *pdfFile) {
+        return tp + m_fileModel->appendPdfFile(pdfFile);
+    });
     Q_EMIT fileModelChanged();
     Q_EMIT totalPagesChanged();
 }

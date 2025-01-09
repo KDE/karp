@@ -61,7 +61,7 @@ QString ToolsThread::qpdfVersion() const
     return QString::fromStdString(QPDF::QPDFVersion());
 }
 
-QString ToolsThread::gsVersion() const
+const QString &ToolsThread::gsVersion() const
 {
     return m_gsVersion;
 }
@@ -184,8 +184,8 @@ bool ToolsThread::resizeByGsThread()
             auto jobConf = qpdfJob.config();
             jobConf->emptyInput()->outputFile(outInfo.filePath().toStdString());
             auto qpdfPages = jobConf->pages();
-            for (auto &p : pages) {
-                qpdfPages->pageSpec(p.toStdString(), "");
+            for (const auto &pg : pages) {
+                qpdfPages->pageSpec(pg.toStdString(), "");
             }
             qpdfPages->endPages();
             if (pdfModel->pdfVersion() > 0.0) {
@@ -214,7 +214,7 @@ bool ToolsThread::resizeByGsThread()
         QFile::copy(outInfo.filePath(), m_pathArg);
         QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
     }
-    for (auto &tp : pages)
+    for (const auto &tp : pages)
         QFile::remove(tp);
 
     return true;
