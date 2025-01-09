@@ -285,20 +285,47 @@ void BookmarkModel::removeOutline(const QModelIndex &idx)
     beginRemoveRows(idx.parent(), rowToRemove, rowToRemove);
     node->parentNode()->removeChild(rowToRemove);
     endRemoveRows();
+    setStatus(Status::Modified);
 }
 
 QModelIndex BookmarkModel::indexFromOutline(Outline *o)
 {
     QModelIndex outlineIndex;
     iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
-        const Outline *n = static_cast<Outline *>(idx.internalPointer());
-        if (n == o) {
+        const Outline *const node = static_cast<Outline *>(idx.internalPointer());
+        if (node == o) {
             outlineIndex = idx;
             return true;
         }
         return false;
     });
     return outlineIndex;
+}
+
+void BookmarkModel::removePage(int pageNr)
+{
+    QVector<Outline *> toRemoveList;
+    bool wasModified = false;
+    iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
+        Outline *const node = static_cast<Outline *>(idx.internalPointer());
+        if (node->pageNumber() == pageNr) {
+            toRemoveList << node;
+        } else if (node->pageNumber() > pageNr) {
+            // decrease every bookmark page number after the number of deleted page.
+            // But do not emit aboutToChange - pages with their bookmarks are shifted automatically
+            node->setPageNumber(node->pageNumber() - 1);
+            Q_EMIT dataChanged(idx, idx, QList<int>() << static_cast<int>(Role::Page));
+            wasModified = true;
+        }
+        return false; // walk through all outlines
+    });
+    if (!toRemoveList.isEmpty()) {
+        for (const auto &outlineToRm : toRemoveList) {
+            removeOutline(indexFromOutline(outlineToRm));
+        }
+    }
+    if (wasModified && toRemoveList.isEmpty())
+        setStatus(Status::Modified);
 }
 
 int BookmarkModel::rowCount(const QModelIndex &parent) const

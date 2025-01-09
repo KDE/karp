@@ -88,6 +88,12 @@ public:
 
     QModelIndex indexFromOutline(Outline *o);
 
+    /**
+     * Removes bookmarks related to given @p pageNr
+     * and shifts page number of all bookmarks above that page.
+     */
+    void removePage(int pageNr);
+
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &) const override;
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
