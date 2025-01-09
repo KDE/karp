@@ -83,6 +83,7 @@ public:
 
     void addOutline(Outline *o);
     bool removeOutline(Outline *o);
+    void removeAllOutlines();
 
     Outline *getOutline(int id);
 

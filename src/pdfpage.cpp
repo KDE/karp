@@ -62,6 +62,11 @@ bool PdfPage::removeOutline(Outline *o)
     return m_outlines.removeOne(o);
 }
 
+void PdfPage::removeAllOutlines()
+{
+    m_outlines.clear();
+}
+
 Outline *PdfPage::getOutline(int id)
 {
     if (id < 0 || id >= m_outlines.size())
