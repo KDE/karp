@@ -537,7 +537,7 @@ void PdfEditModel::generate()
 
     auto conf = karpConfig::self();
     setProgress(0.05);
-    auto *const pdf = m_pdfList[m_pageList.first()->referenceFile()];
+    const auto *const pdf = m_pdfList[m_pageList.first()->referenceFile()];
     if (conf->askForOutFile()) {
         QFileInfo inInfo(pdf->filePath());
         m_outFile = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
