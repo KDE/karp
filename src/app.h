@@ -4,7 +4,7 @@
 #pragma once
 
 #include <AbstractKirigamiApplication>
-#include <QtQml/qqmlregistration.h>
+#include <QtQmlIntegration/qqmlintegration.h>
 
 class QQuickWindow;
 class ToolsThread;

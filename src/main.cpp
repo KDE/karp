@@ -80,9 +80,15 @@ int main(int argc, char *argv[])
 #endif
 
 #ifdef Q_OS_WINDOWS
+    FILE *outFile = nullptr;
+    FILE *errFile = nullptr;
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONOUT$", "w", stderr);
+        outFile = freopen("CONOUT$", "w", stdout);
+        if (!outFile)
+            qWarning() << "Failed to reopen stdout";
+        errFile = freopen("CONOUT$", "w", stderr);
+        if (!errFile)
+            qWarning() << "Failed to reopen stderr";
     }
 
     QApplication::setStyle(QStringLiteral("breeze"));
@@ -135,5 +141,14 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    return app.exec();
+    int execCode = app.exec();
+
+#ifdef Q_OS_WINDOWS
+    if (outFile)
+        delete outFile;
+    if (errFile)
+        delete errFile;
+#endif
+
+    return execCode;
 }
