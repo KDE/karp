@@ -326,8 +326,10 @@ void PdfEditModel::deletePage(int pageId)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
+    auto *const pg = m_pageList[pageId];
+    const bool hasOutline = pg->hasOutline();
     beginRemoveRows(QModelIndex(), pageId, pageId);
-    m_pageList[pageId]->setDeleted(true);
+    pg->setDeleted(true);
     m_deletedList << m_pageList.takeAt(pageId);
     m_pages--;
     endRemoveRows();
@@ -336,6 +338,8 @@ void PdfEditModel::deletePage(int pageId)
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
     setSelection(0, 0);
+    if (hasOutline)
+        m_bookmarks->removePage(pageId);
 }
 
 /**
@@ -349,6 +353,7 @@ void PdfEditModel::deletePages(const PageRange &range)
     // qCDebug(KARP_LOG) << range.from() << range.to() << range.type() << range.n();
     int from, to;
     int step = range.everyN() ? range.n() : 1;
+    QVector<int> deletedPages;
     if (range.allOutOfRange()) {
         // At first, delete what is after the range to preserve numbering at the beginning
         from = range.to();
@@ -357,6 +362,7 @@ void PdfEditModel::deletePages(const PageRange &range)
         for (int p = from; p < to; ++p) {
             m_deletedList << m_pageList.takeAt(from);
             m_pages--;
+            deletedPages << p;
         }
         endRemoveRows();
     }
@@ -365,6 +371,7 @@ void PdfEditModel::deletePages(const PageRange &range)
     QVector<int> toTakeList;
     for (int p = from; p <= to; p += step) {
         toTakeList << p;
+        deletedPages << p;
     }
     while (!toTakeList.empty()) {
         const int pageToRemove = toTakeList.takeLast();
@@ -377,6 +384,10 @@ void PdfEditModel::deletePages(const PageRange &range)
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
     setSelection(0, 0);
+    for (int p = 0; p < deletedPages.count(); ++p) {
+        // decrease page number to keep it accurate after previous pages were removed already
+        m_bookmarks->removePage(deletedPages[p] - p);
+    }
 }
 
 /**
@@ -933,6 +944,8 @@ void PdfEditModel::removeOutlineSlot(Outline *o)
     });
     for (auto &outline : toRemoveList) {
         int pageNr = outline->pageNumber();
+        if (pageNr < 0 || pageNr >= m_pageList.size())
+            continue;
         m_pageList[pageNr]->removeOutline(outline);
         Q_EMIT dataChanged(index(pageNr, 0), index(pageNr, 0), QList<int>() << RoleOutline);
     }
