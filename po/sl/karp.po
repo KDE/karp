@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-09 00:39+0000\n"
+"POT-Creation-Date: 2025-01-10 09:26+0000\n"
 "PO-Revision-Date: 2024-12-26 08:16+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -30,7 +30,7 @@ msgstr "matjaz.jeran@amis.net"
 msgid "PDF file to edit"
 msgstr "PDF datoteka za urejanje"
 
-#: app.cpp:86 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "Izberite datoteke PDF"
@@ -89,29 +89,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Metapodatki PDF"
 
-#: main.cpp:101
+#: main.cpp:107
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDE razvrščevalnik za PDFe"
 
-#: main.cpp:109
+#: main.cpp:115
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:111
+#: main.cpp:117
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"

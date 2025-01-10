@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-09 00:39+0000\n"
+"POT-Creation-Date: 2025-01-10 09:26+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "skkalwar999@gmail.com"
 msgid "PDF file to edit"
 msgstr "सम्पादनार्थं PDF सञ्चिका"
 
-#: app.cpp:86 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF सञ्चिकाः चिनोतु"
@@ -92,29 +92,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "पीडीएफ मेटाडाटा"
 
-#: main.cpp:101
+#: main.cpp:107
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "कर्प्"
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "PDFs कृते KDE व्यवस्थापकः"
 
-#: main.cpp:109
+#: main.cpp:115
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(ग) 2024 Tomasz Bojczuk"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "तोमास्ज बोजचुक"
 
-#: main.cpp:111
+#: main.cpp:117
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"

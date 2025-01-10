@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-09 00:39+0000\n"
+"POT-Creation-Date: 2025-01-10 09:26+0000\n"
 "PO-Revision-Date: 2024-11-26 21:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -32,7 +32,7 @@ msgstr "mail@kisaragi-hiu.com"
 msgid "PDF file to edit"
 msgstr "要編輯的 PDF 檔案"
 
-#: app.cpp:86 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "選擇 PDF 檔案"
@@ -90,29 +90,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "PDF 中繼資料"
 
-#: main.cpp:101
+#: main.cpp:107
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDE 的 PDF 排列工具"
 
-#: main.cpp:109
+#: main.cpp:115
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:111
+#: main.cpp:117
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
