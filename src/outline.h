@@ -111,6 +111,11 @@ public:
         m_zoom = zoom;
     }
 
+    /**
+     * Sets new page number and informs model about it.
+     */
+    void fixOutlinePage(int newPage);
+
 private:
     QVector<Outline *> m_childNodes;
     Outline *m_parentNode;

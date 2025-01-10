@@ -288,7 +288,7 @@ void BookmarkModel::removeOutline(const QModelIndex &idx)
     setStatus(Status::Modified);
 }
 
-QModelIndex BookmarkModel::indexFromOutline(Outline *o)
+QModelIndex BookmarkModel::indexFromOutline(const Outline *const o)
 {
     QModelIndex outlineIndex;
     iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
@@ -473,6 +473,12 @@ void BookmarkModel::iterate(const QModelIndex &parentIndex, const std::function<
             iterate(index(i, j, parentIndex), funct);
         }
     }
+}
+
+void BookmarkModel::updatePageNr(const Outline *const o)
+{
+    auto idx = indexFromOutline(o);
+    Q_EMIT dataChanged(idx, idx, QList<int>() << static_cast<int>(Role::Page));
 }
 
 #include "moc_bookmarkmodel.cpp"

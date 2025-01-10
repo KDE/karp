@@ -55,3 +55,11 @@ void Outline::removeChild(int row)
     nodeToRemove->clear();
     delete nodeToRemove;
 }
+
+void Outline::fixOutlinePage(int newPage)
+{
+    if (newPage == m_pageNumber)
+        return;
+    m_pageNumber = newPage;
+    BookmarkModel::self()->updatePageNr(this);
+}

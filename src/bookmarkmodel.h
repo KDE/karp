@@ -86,7 +86,7 @@ public:
     Q_INVOKABLE void insertBookmark(const QModelIndex &idx, int where, const QString &title, int page);
     Q_INVOKABLE void removeOutline(const QModelIndex &idx);
 
-    QModelIndex indexFromOutline(Outline *o);
+    QModelIndex indexFromOutline(const Outline *const o);
 
     /**
      * Removes bookmarks related to given @p pageNr
@@ -139,6 +139,13 @@ protected:
     void iterate(const QModelIndex &index, const std::function<bool(const QModelIndex &)> &funct);
 
     void addNode(Outline *node);
+
+    /**
+     * Emits @p dataChanged for index of given @p Outline
+     * but skips emitting @p aboutToChange,
+     * so it affects only @p BookmarkModel and related TreeView
+     */
+    void updatePageNr(const Outline *const o);
 
 private:
     static BookmarkModel *m_self;
