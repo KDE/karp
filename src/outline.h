@@ -57,7 +57,7 @@ public:
 
     void grabDataFromIndex(const QModelIndex &index, int pageOffset);
 
-    QString title() const
+    const QString &title() const
     {
         return m_title;
     }

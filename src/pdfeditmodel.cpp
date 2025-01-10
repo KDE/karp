@@ -939,7 +939,7 @@ void PdfEditModel::removeOutlineSlot(Outline *o)
     if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
         return;
     QVector<Outline *> toRemoveList;
-    m_bookmarks->walkThrough(o, [&](Outline *node) {
+    m_bookmarks->walkThrough(o, [&](Outline *const node) {
         toRemoveList << node;
     });
     for (auto &outline : toRemoveList) {

@@ -81,7 +81,7 @@ public:
         return !m_outlines.isEmpty();
     }
 
-    void addOutline(Outline *o);
+    void addOutline(Outline *const o);
     bool removeOutline(Outline *o);
     void removeAllOutlines();
 

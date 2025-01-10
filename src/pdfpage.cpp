@@ -52,7 +52,7 @@ qreal PdfPage::ratio() const
         return static_cast<qreal>(m_image.height()) / static_cast<qreal>(m_image.width());
 }
 
-void PdfPage::addOutline(Outline *o)
+void PdfPage::addOutline(Outline *const o)
 {
     m_outlines << o;
 }
@@ -79,7 +79,7 @@ QStringList PdfPage::outlineModel() const
     if (m_outlines.isEmpty())
         return QStringList();
     QStringList oList;
-    for (const auto &o : m_outlines)
+    for (const auto *const o : m_outlines)
         oList << o->title();
     return oList;
 }

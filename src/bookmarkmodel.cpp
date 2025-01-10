@@ -144,29 +144,29 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
     // Create objects for every outline and set part of its data:
     // the part which doesn't depend on other outlines.
     // Store references to every outline object connected with Outline node classes in QHash list.
-    iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
-        const Outline *n = static_cast<Outline *>(idx.internalPointer());
-        if (!n->parentNode())
+    iterate(QModelIndex(), [&qpdf, &pageRefs, &nodeIds](const QModelIndex &idx) -> bool {
+        const Outline *node = static_cast<Outline *>(idx.internalPointer());
+        if (!node->parentNode())
             return true;
 
         auto nodeStream = qpdf.newStream();
         auto nodeDict = QPDFObjectHandle::newDictionary();
-        nodeDict.replaceKey("/Count"s, QPDFObjectHandle::newInteger(n->childCount()));
-        nodeDict.replaceKey("/Title"s, QPDFObjectHandle::newUnicodeString(n->title().toStdString()));
+        nodeDict.replaceKey("/Count"s, QPDFObjectHandle::newInteger(node->childCount()));
+        nodeDict.replaceKey("/Title"s, QPDFObjectHandle::newUnicodeString(node->title().toStdString()));
         auto destArr = QPDFObjectHandle::newArray();
-        if (n->pageNumber() <= pageRefs.count()) {
-            auto &p = pageRefs[n->pageNumber()];
-            destArr.appendItem(qpdf.getObject(p.x(), p.y()));
+        if (node->pageNumber() < pageRefs.size()) {
+            const auto &pos = pageRefs[node->pageNumber()];
+            destArr.appendItem(qpdf.getObject(pos.x(), pos.y()));
         } else {
             qCDebug(KARP_LOG) << "[BookmarkModel]" << "Bookmark refers to page which doesn't exist in QPDF!";
         }
         destArr.appendItem(QPDFObjectHandle::newName("/XYZ"s));
-        destArr.appendItem(QPDFObjectHandle::newReal(n->location().x()));
-        destArr.appendItem(QPDFObjectHandle::newReal(n->location().y()));
-        destArr.appendItem(QPDFObjectHandle::newReal(n->zoom()));
+        destArr.appendItem(QPDFObjectHandle::newReal(node->location().x()));
+        destArr.appendItem(QPDFObjectHandle::newReal(node->location().y()));
+        destArr.appendItem(QPDFObjectHandle::newReal(node->zoom()));
         nodeDict.replaceKey("/Dest"s, destArr);
         qpdf.replaceObject(nodeStream.getObjectID(), nodeStream.getGeneration(), nodeDict);
-        nodeIds.insert(n, QPoint(nodeStream.getObjectID(), nodeStream.getGeneration()));
+        nodeIds.insert(node, QPoint(nodeStream.getObjectID(), nodeStream.getGeneration()));
         return false;
     });
 
@@ -186,7 +186,7 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
             return true;
         auto nodePos = nodeIds.value(n);
         auto nodeObj = qpdf.getObject(nodePos.x(), nodePos.y());
-        auto parentNode = n->parentNode();
+        const auto *const parentNode = n->parentNode();
         auto parentPos = nodeIds.value(parentNode);
         if (parentPos.isNull() || n->level() == 0) {
             nodeObj.replaceKey("/Parent"s, outlines);
@@ -353,7 +353,7 @@ QModelIndex BookmarkModel::index(int row, int column, const QModelIndex &parent)
     if (!hasIndex(row, column, parent))
         return QModelIndex();
 
-    Outline *parentNode;
+    const Outline *parentNode;
 
     if (!parent.isValid())
         parentNode = m_rootNode.data();
