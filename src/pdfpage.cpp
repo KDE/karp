@@ -52,6 +52,7 @@ qreal PdfPage::ratio() const
         return static_cast<qreal>(m_image.height()) / static_cast<qreal>(m_image.width());
 }
 
+// cppcheck-suppress constParameter
 void PdfPage::addOutline(Outline *const o)
 {
     m_outlines << o;

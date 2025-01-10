@@ -320,7 +320,7 @@ void BookmarkModel::removePage(int pageNr)
         return false; // walk through all outlines
     });
     if (!toRemoveList.isEmpty()) {
-        for (const auto &outlineToRm : toRemoveList) {
+        for (const auto *const outlineToRm : toRemoveList) {
             removeOutline(indexFromOutline(outlineToRm));
         }
     }

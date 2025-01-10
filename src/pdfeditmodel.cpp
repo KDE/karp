@@ -673,7 +673,7 @@ QModelIndex PdfEditModel::indexFromOutline(int pageNr, int outlineId)
 {
     if (pageNr < 0 || pageNr >= m_pageList.size())
         return QModelIndex();
-    auto outline = m_pageList[pageNr]->getOutline(outlineId);
+    auto *const outline = m_pageList[pageNr]->getOutline(outlineId);
     if (!outline)
         return QModelIndex();
     return m_bookmarks->indexFromOutline(outline);
@@ -941,6 +941,7 @@ void PdfEditModel::removeOutlineSlot(Outline *o)
     if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
         return;
     QVector<Outline *> toRemoveList;
+    // cppcheck-suppress constParameter
     m_bookmarks->walkThrough(o, [&toRemoveList](Outline *const node) {
         toRemoveList << node;
     });
