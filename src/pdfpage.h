@@ -81,6 +81,11 @@ public:
         return !m_outlines.isEmpty();
     }
 
+    int outlinesCount() const
+    {
+        return m_outlines.count();
+    }
+
     void addOutline(Outline *const o);
     bool removeOutline(Outline *o);
     void removeAllOutlines();
