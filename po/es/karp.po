@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-09 00:39+0000\n"
+"POT-Creation-Date: 2025-01-10 09:26+0000\n"
 "PO-Revision-Date: 2024-12-26 20:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -31,7 +31,7 @@ msgstr "ecuadra@eloihr.net"
 msgid "PDF file to edit"
 msgstr "Archivo PDF que se va a editar"
 
-#: app.cpp:86 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "Seleccionar archivos PDF"
@@ -91,29 +91,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Metadatos PDF"
 
-#: main.cpp:101
+#: main.cpp:107
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "Organizador de archivos PDF de KDE"
 
-#: main.cpp:109
+#: main.cpp:115
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "© 2024 Tomasz Bojczuk"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:111
+#: main.cpp:117
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"

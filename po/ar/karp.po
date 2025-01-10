@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-09 00:39+0000\n"
+"POT-Creation-Date: 2025-01-10 09:26+0000\n"
 "PO-Revision-Date: 2024-12-31 20:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -33,7 +33,7 @@ msgstr "omats@vivaldi.net"
 msgid "PDF file to edit"
 msgstr "ملف بي دي اف للتحرير"
 
-#: app.cpp:86 pdfsorganizer.cpp:190
+#: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "حدد ملفات بي دي اف"
@@ -91,29 +91,29 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "بيانات تعريفية لملف بي دي اف"
 
-#: main.cpp:101
+#: main.cpp:107
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "كارب"
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "منظم كيدي لملفات بي دي اف"
 
-#: main.cpp:109
+#: main.cpp:115
 #, kde-format
 msgid "(c) 2024 Tomasz Bojczuk"
 msgstr "(c) 2024 توماس بوجشوك"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "توماس بوجشوك"
 
-#: main.cpp:111
+#: main.cpp:117
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
