@@ -264,6 +264,13 @@ protected:
     void removeOutlineSlot(Outline *o);
     void changeOutlineSlot(Outline *o, const QString &, int newPage); /**< For now we don't use new title */
 
+    /**
+     * When page is moved, referring bookmark has to point to new number.
+     * This method iterates from @p startPage to @p endPage pages
+     * and fixes every outline page number.
+     */
+    void fixOutlinePages(int startPage, int endPage);
+
 Q_SIGNALS:
     void wantRenderImage(int) const;
     void wantRenderPage(int, PdfPage *) const;

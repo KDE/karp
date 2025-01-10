@@ -410,6 +410,7 @@ int PdfEditModel::movePage(int fromPage, int toPage)
     const int startPage = qMin(fromPage, toPage);
     const int endPage = qMax(fromPage, toPage);
     // update all affected pages
+    fixOutlinePages(startPage, endPage);
     Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
     m_wasMoved = true;
     Q_EMIT editedChanged();
@@ -451,6 +452,7 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     endMoveRows();
     const int startPage = qMin(from, targetNr);
     const int endPage = qMax(to, targetNr + (to - from));
+    fixOutlinePages(startPage, endPage);
     Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
     // update selected page numbers
     const int moveTarget = rowTarget + 1;
@@ -939,7 +941,7 @@ void PdfEditModel::removeOutlineSlot(Outline *o)
     if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
         return;
     QVector<Outline *> toRemoveList;
-    m_bookmarks->walkThrough(o, [&](Outline *const node) {
+    m_bookmarks->walkThrough(o, [&toRemoveList](Outline *const node) {
         toRemoveList << node;
     });
     for (auto &outline : toRemoveList) {
@@ -963,6 +965,23 @@ void PdfEditModel::changeOutlineSlot(Outline *o, const QString &, int newPage)
         Q_EMIT dataChanged(index(o->pageNumber(), 0), index(o->pageNumber(), 0), QList<int>() << RoleOutline);
         m_pageList[newPage]->addOutline(o);
         Q_EMIT dataChanged(index(newPage, 0), index(newPage, 0), QList<int>() << RoleOutline);
+    }
+}
+
+void PdfEditModel::fixOutlinePages(int startPage, int endPage)
+{
+    if (startPage >= m_pageList.size() || endPage >= m_pageList.size())
+        return;
+    for (int p = startPage; p <= endPage; ++p) {
+        auto pg = m_pageList[p];
+        if (pg->hasOutline()) {
+            for (int o = 0; o < pg->outlinesCount(); ++o) {
+                auto oline = pg->getOutline(o);
+                if (oline->pageNumber() != p) {
+                    oline->fixOutlinePage(p);
+                }
+            }
+        }
     }
 }
 
