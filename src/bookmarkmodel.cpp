@@ -180,27 +180,27 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
 
     // Set keys depend on sibling or parenting outlines: /Prev, /Next, /First, /Last
     // and /Parent for nested bookmarks
-    iterate(QModelIndex(), [&](const QModelIndex &idx) -> bool {
-        const Outline *n = static_cast<Outline *>(idx.internalPointer());
-        if (!n->parentNode())
+    iterate(QModelIndex(), [&nodeIds, &qpdf, &outlines, &posOfPrev](const QModelIndex &idx) -> bool {
+        const Outline *node = static_cast<Outline *>(idx.internalPointer());
+        if (!node->parentNode())
             return true;
-        auto nodePos = nodeIds.value(n);
+        auto nodePos = nodeIds.value(node);
         auto nodeObj = qpdf.getObject(nodePos.x(), nodePos.y());
-        const auto *const parentNode = n->parentNode();
+        const auto *const parentNode = node->parentNode();
         auto parentPos = nodeIds.value(parentNode);
-        if (parentPos.isNull() || n->level() == 0) {
+        if (parentPos.isNull() || node->level() == 0) {
             nodeObj.replaceKey("/Parent"s, outlines);
         } else {
             auto parentObj = qpdf.getObject(parentPos.x(), parentPos.y());
             nodeObj.replaceKey("/Parent"s, parentObj);
             if (parentNode->childCount()) {
-                if (n == parentNode->child(0))
+                if (node == parentNode->child(0))
                     parentObj.replaceKey("/First", nodeObj);
-                if (n == parentNode->child(parentNode->childCount() - 1))
+                if (node == parentNode->child(parentNode->childCount() - 1))
                     parentObj.replaceKey("/Last", nodeObj);
             }
         }
-        if (n->level() == 0) {
+        if (node->level() == 0) {
             if (!posOfPrev.isNull()) {
                 auto prevObj = qpdf.getObject(posOfPrev.x(), posOfPrev.y());
                 nodeObj.replaceKey("/Prev", prevObj);
@@ -208,10 +208,10 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
             }
             posOfPrev = nodePos;
         }
-        if (n->childCount() > 1) {
+        if (node->childCount() > 1) {
             QPoint prevChildPos;
-            for (int b = 0; b < n->childCount(); ++b) {
-                auto bPos = nodeIds.value(n->child(b));
+            for (int b = 0; b < node->childCount(); ++b) {
+                auto bPos = nodeIds.value(node->child(b));
                 auto bObj = qpdf.getObject(bPos.x(), bPos.y());
                 if (!prevChildPos.isNull()) {
                     auto prevObj = qpdf.getObject(prevChildPos.x(), prevChildPos.y());
@@ -333,7 +333,7 @@ int BookmarkModel::rowCount(const QModelIndex &parent) const
     if (parent.column() > 0)
         return 0;
 
-    Outline *parentNode = nullptr;
+    const Outline *parentNode = nullptr;
 
     if (!parent.isValid())
         parentNode = m_rootNode.data();
