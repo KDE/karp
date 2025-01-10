@@ -22,7 +22,7 @@ Kirigami.Dialog {
     visible: true
     standardButtons: Kirigami.Dialog.NoButton
     implicitWidth: Kirigami.Units.gridUnit * 30
-    implicitHeight: Kirigami.Units.gridUnit * 15
+    implicitHeight: Kirigami.Units.gridUnit * 17
     padding: Kirigami.Units.gridUnit
 
     ColumnLayout {
