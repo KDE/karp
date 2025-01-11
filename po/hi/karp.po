@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:26+0000\n"
+"POT-Creation-Date: 2025-01-11 00:39+0000\n"
 "PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "आपके ईमेल"
 
-#: app.cpp:56 pdfeditmodel.cpp:543
+#: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
 msgid "PDF file to edit"
 msgstr "संपादित करने के लिए पीडीएफ फाइल"
@@ -118,37 +118,110 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "मेंटेनर"
 
-#: pdfeditmodel.cpp:486
+#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
+#, kde-format
 msgid "Title"
 msgstr "शीर्षक"
 
-#: pdfeditmodel.cpp:487
+#: pdfeditmodel.cpp:515
 msgid "Subject"
 msgstr "विषय"
 
-#: pdfeditmodel.cpp:488
+#: pdfeditmodel.cpp:516
 msgid "Author"
 msgstr "लेखक"
 
-#: pdfeditmodel.cpp:489
+#: pdfeditmodel.cpp:517
 msgid "Keyword"
 msgstr "कीवर्ड"
 
-#: pdfeditmodel.cpp:490
+#: pdfeditmodel.cpp:518
 msgid "Producer"
 msgstr "निर्माता"
 
-#: pdfeditmodel.cpp:491
+#: pdfeditmodel.cpp:519
 msgid "Creator"
 msgstr "निर्माता"
 
-#: pdfeditmodel.cpp:492
+#: pdfeditmodel.cpp:520
 msgid "Creation Date"
 msgstr "निर्माण तिथि"
 
-#: pdfeditmodel.cpp:493
+#: pdfeditmodel.cpp:521
 msgid "Modification Date"
 msgstr "सुधार की तारीख"
+
+#: qml/Bookmarks/OutlineDialog.qml:21
+#, kde-format
+msgid "Edit Chapter"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "पहला"
+
+#: qml/Bookmarks/OutlineDialog.qml:55
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "अंतिम"
+
+#: qml/Bookmarks/OutlineDialog.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "बचाना"
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add PDF"
+msgctxt "@action:button"
+msgid "Add"
+msgstr "पीडीएफ जोड़ें"
+
+#: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "रद्द करना"
+
+#: qml/Bookmarks/TOCView.qml:90
+#, kde-format
+msgid "Add Chapter"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:112
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Above"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:120
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Below"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add Subsection"
+msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -246,12 +319,6 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr "आवेदन करना"
 
-#: qml/Dialogs/PdfFilesDialog.qml:143
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "रद्द करना"
-
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
@@ -281,16 +348,6 @@ msgstr "पासवर्ड आवश्यक है"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "फ़ाइल %1 खोलने के लिए पासवर्ड प्रदान करें"
-
-#: qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "पहला"
-
-#: qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "अंतिम"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
@@ -359,92 +416,98 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "संस्करण %1"
 
-#: qml/MainPage.qml:215
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Set password"
 msgstr "सांकेतिक शब्द लगना"
 
-#: qml/MainPage.qml:215
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "पीडीएफ फाइल को पासवर्ड से सुरक्षित रखें।"
 
-#: qml/MainToolbar.qml:22
+#: qml/MainToolbar.qml:23
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "हटाने के लिए पृष्ठ चुनें"
 
-#: qml/MainToolbar.qml:42
+#: qml/MainToolbar.qml:43
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "घुमाने के लिए पृष्ठ चुनें"
 
-#: qml/MainToolbar.qml:56
+#: qml/MainToolbar.qml:57
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "स्थानांतरित करने के लिए पृष्ठ चुनें"
 
 #: qml/MainToolbar.qml:73
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Table of Content (Bookmarks)"
+msgstr ""
+
+#: qml/MainToolbar.qml:87
 #, fuzzy, kde-format
 #| msgid "all pages in selected range"
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "चयनित श्रेणी के सभी पृष्ठ"
 
-#: qml/MainToolbar.qml:98
+#: qml/MainToolbar.qml:112
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "पेज लेबल दिखाएं"
 
-#: qml/MainToolbar.qml:110
+#: qml/MainToolbar.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "ज़ूम आउट"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "ज़ूम इन"
 
-#: qml/MainToolbar.qml:138
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "पेज %1 का %2"
 
-#: qml/MainToolbar.qml:151
+#: qml/MainToolbar.qml:165
 #, kde-format
 msgid "Select pages to delete"
 msgstr "हटाने के लिए पृष्ठ चुनें"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "मिटाना"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:180
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "घुमाने के लिए पृष्ठ चुनें"
 
-#: qml/MainToolbar.qml:167
+#: qml/MainToolbar.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "घुमाएँ"
 
-#: qml/MainToolbar.qml:176
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgid "Angle"
 msgstr "कोण"
 
-#: qml/MainToolbar.qml:194
+#: qml/MainToolbar.qml:208
 #, kde-format
 msgid "Select pages to move"
 msgstr "स्थानांतरित करने के लिए पृष्ठ चुनें"

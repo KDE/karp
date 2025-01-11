@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:26+0000\n"
+"POT-Creation-Date: 2025-01-11 00:39+0000\n"
 "PO-Revision-Date: 2024-12-16 10:45+0100\n"
 "Last-Translator: Tomasz Bojczuk <seelook@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "seelook@gmail.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:543
+#: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Plik PDF do edycji"
@@ -122,37 +122,110 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Opiekun"
 
-#: pdfeditmodel.cpp:486
+#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
+#, kde-format
 msgid "Title"
 msgstr "Tytuł"
 
-#: pdfeditmodel.cpp:487
+#: pdfeditmodel.cpp:515
 msgid "Subject"
 msgstr "Temat"
 
-#: pdfeditmodel.cpp:488
+#: pdfeditmodel.cpp:516
 msgid "Author"
 msgstr "Autor"
 
-#: pdfeditmodel.cpp:489
+#: pdfeditmodel.cpp:517
 msgid "Keyword"
 msgstr "Kluczowe słowa"
 
-#: pdfeditmodel.cpp:490
+#: pdfeditmodel.cpp:518
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:491
+#: pdfeditmodel.cpp:519
 msgid "Creator"
 msgstr "Utworzone w"
 
-#: pdfeditmodel.cpp:492
+#: pdfeditmodel.cpp:520
 msgid "Creation Date"
 msgstr "Data utworzenia"
 
-#: pdfeditmodel.cpp:493
+#: pdfeditmodel.cpp:521
 msgid "Modification Date"
 msgstr "Data modyfikacji"
+
+#: qml/Bookmarks/OutlineDialog.qml:21
+#, kde-format
+msgid "Edit Chapter"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "pierwsza"
+
+#: qml/Bookmarks/OutlineDialog.qml:55
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "ostatnia"
+
+#: qml/Bookmarks/OutlineDialog.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "Zapisz"
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add PDF"
+msgctxt "@action:button"
+msgid "Add"
+msgstr "Dodaj PDF"
+
+#: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: qml/Bookmarks/TOCView.qml:90
+#, kde-format
+msgid "Add Chapter"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:112
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Above"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:120
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Below"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add Subsection"
+msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -251,12 +324,6 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr "Zastosuj"
 
-#: qml/Dialogs/PdfFilesDialog.qml:143
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "Anuluj"
-
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
@@ -287,16 +354,6 @@ msgstr "Wymagane hasło"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "Podaj hasło aby otworzyć plik %1"
-
-#: qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "pierwsza"
-
-#: qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "ostatnia"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
@@ -366,92 +423,98 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Wersja %1"
 
-#: qml/MainPage.qml:215
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Set password"
 msgstr "Ustaw hasło"
 
-#: qml/MainPage.qml:215
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Chroń plik PDF hasłem."
 
-#: qml/MainToolbar.qml:22
+#: qml/MainToolbar.qml:23
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Wybierz strony do usunięcia"
 
-#: qml/MainToolbar.qml:42
+#: qml/MainToolbar.qml:43
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Wybierz strony do obrócenia"
 
-#: qml/MainToolbar.qml:56
+#: qml/MainToolbar.qml:57
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Wybierz strony do przesunięcia"
 
 #: qml/MainToolbar.qml:73
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Table of Content (Bookmarks)"
+msgstr ""
+
+#: qml/MainToolbar.qml:87
 #, fuzzy, kde-format
 #| msgid "all pages in selected range"
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "wszystkie strony z wybranego zakresu"
 
-#: qml/MainToolbar.qml:98
+#: qml/MainToolbar.qml:112
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Wyświetlaj etykiety stron"
 
-#: qml/MainToolbar.qml:110
+#: qml/MainToolbar.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Zmniejsz"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Powiększ"
 
-#: qml/MainToolbar.qml:138
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Strona %1 z %2"
 
-#: qml/MainToolbar.qml:151
+#: qml/MainToolbar.qml:165
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Wybierz strony do usunięcia"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Usuń"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:180
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Wybierz strony do obrócenia"
 
-#: qml/MainToolbar.qml:167
+#: qml/MainToolbar.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Obróć"
 
-#: qml/MainToolbar.qml:176
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgid "Angle"
 msgstr "Kąt"
 
-#: qml/MainToolbar.qml:194
+#: qml/MainToolbar.qml:208
 #, kde-format
 msgid "Select pages to move"
 msgstr "Wybierz strony do przesunięcia"
