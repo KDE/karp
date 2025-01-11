@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
         // The license this code is released under.
         KAboutLicense::GPL,
         // Copyright Statement.
-        i18n("(c) 2024 Tomasz Bojczuk"));
+        i18n("(c) 2024-2025 Tomasz Bojczuk"));
     aboutData.addAuthor(i18nc("@info:credit", "Tomasz Bojczuk"),
                         i18nc("@info:credit", "Maintainer"),
                         u"seelook@gmail.com"_s,
