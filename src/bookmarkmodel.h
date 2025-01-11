@@ -10,7 +10,6 @@ class Outline;
 class QPdfDocument;
 class QPdfBookmarkModel;
 class QPDF;
-class QPDFObjectHandle;
 
 /**
  * @brief BookmarkModel class is based on @p QPdfBookmarkModel
