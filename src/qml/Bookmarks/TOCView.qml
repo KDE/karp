@@ -104,7 +104,7 @@ ColumnLayout {
             id: titleAction
             icon.name: "bookmark-edit"
             onTriggered: {
-                openOutlineDialog(BookmarkModel.Insert.Edit, menu.sender.title, menu.sender.page, text)
+                openOutlineDialog(BookmarkModel.Insert.Edit, menu.sender.title, menu.sender.page, i18n("Edit Chapter"))
 
             }
         }
