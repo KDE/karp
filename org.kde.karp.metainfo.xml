@@ -253,6 +253,7 @@
       <caption xml:lang="pl">Główne okno aplikacji ze stronami PDF-a</caption>
       <caption xml:lang="sa">PDF सञ्चिकायाः पृष्ठैः सह Karp मुख्यविण्डो</caption>
       <caption xml:lang="sl">Glavno okno Karp s stranmi datoteke PDF</caption>
+      <caption xml:lang="sv">Huvudfönstret för Karp med sidor från en PDF-fil</caption>
       <caption xml:lang="tr">PDF dosyasının sayfalarını gösteren Karp ana sayfası</caption>
       <caption xml:lang="uk">Головне вікно Karp зі сторінками файла PDF</caption>
       <caption xml:lang="x-test">xxKarp main window with pages of PDF filexx</caption>
@@ -277,6 +278,7 @@
       <caption xml:lang="pl">Dodawanie pliku PDF chronionego hasłem</caption>
       <caption xml:lang="sa">गुप्तशब्दसंरक्षितं PDF सञ्चिकां योजयन्</caption>
       <caption xml:lang="sl">Dodajanje datoteke PDF zaščitene z geslom</caption>
+      <caption xml:lang="sv">Tillägg av lösenordsskyddad PDF-fil</caption>
       <caption xml:lang="tr">Parola korumalı PDF dosyasına iliştiriliyor</caption>
       <caption xml:lang="uk">Додавання захищеного паролем файла PDF</caption>
       <caption xml:lang="x-test">xxAppending password protected PDF filexx</caption>
