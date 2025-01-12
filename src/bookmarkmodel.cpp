@@ -116,6 +116,9 @@ void BookmarkModel::saveBookmarks(QPDF &qpdf)
     if (m_status == Status::NoBookmarks || m_status == Status::Unchanged)
         return;
 
+    if (m_counter < 1)
+        return;
+
     auto qpdfRoot = qpdf.getRoot();
     if (m_status == Status::Removed) {
         if (qpdfRoot.hasKey("/Outlines"s)) {
