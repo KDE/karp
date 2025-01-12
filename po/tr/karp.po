@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-11 00:39+0000\n"
-"PO-Revision-Date: 2024-12-26 14:03+0300\n"
+"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"PO-Revision-Date: 2025-01-11 17:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -104,8 +104,9 @@ msgid "KDE arranger for PDFs"
 msgstr "PDF Düzenleyicisi"
 
 #: main.cpp:115
-#, kde-format
-msgid "(c) 2024 Tomasz Bojczuk"
+#, fuzzy, kde-format
+#| msgid "(c) 2024 Tomasz Bojczuk"
+msgid "(c) 2024-2025 Tomasz Bojczuk"
 msgstr "© 2024 Tomasz Bojczuk"
 
 #: main.cpp:116
@@ -156,7 +157,7 @@ msgstr "Değiştirilme Tarihi"
 #: qml/Bookmarks/OutlineDialog.qml:21
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "Faslı Düzenle"
 
 #: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -167,7 +168,7 @@ msgstr "ilk"
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "nokta/sayfa"
 
 #: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
@@ -178,23 +179,19 @@ msgstr "son"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "Kaydet"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr "PDF Ekle"
+msgstr "Ekle"
 
 #: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
@@ -205,25 +202,25 @@ msgstr "İptal"
 #: qml/Bookmarks/TOCView.qml:90
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "Fasıl Ekle"
 
 #: qml/Bookmarks/TOCView.qml:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "Yukarı Ekle"
 
 #: qml/Bookmarks/TOCView.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "Aşağı Ekle"
 
 #: qml/Bookmarks/TOCView.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "Alt Bölüm Ekle"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -450,7 +447,7 @@ msgstr "Taşınacak sayfaları seç"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "İçindekiler (Yer İmleri)"
 
 #: qml/MainToolbar.qml:87
 #, kde-format

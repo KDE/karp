@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-11 00:39+0000\n"
-"PO-Revision-Date: 2024-12-31 11:42+0100\n"
+"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"PO-Revision-Date: 2025-01-11 22:49+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -104,8 +104,9 @@ msgid "KDE arranger for PDFs"
 msgstr "KDE-aranĝanto por PDF-oj"
 
 #: main.cpp:115
-#, kde-format
-msgid "(c) 2024 Tomasz Bojczuk"
+#, fuzzy, kde-format
+#| msgid "(c) 2024 Tomasz Bojczuk"
+msgid "(c) 2024-2025 Tomasz Bojczuk"
 msgstr "(c) 2024 Tomasz Bojczuk"
 
 #: main.cpp:116
@@ -156,7 +157,7 @@ msgstr "Dato de modifo"
 #: qml/Bookmarks/OutlineDialog.qml:21
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "Redakti Ĉapitron"
 
 #: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -167,7 +168,7 @@ msgstr "unue"
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "punktoj al paĝo"
 
 #: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
@@ -178,23 +179,19 @@ msgstr "laste"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Forigi"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "Konservi"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr "Aldoni PDF"
+msgstr "Aldoni"
 
 #: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
@@ -205,25 +202,25 @@ msgstr "Nuligi"
 #: qml/Bookmarks/TOCView.qml:90
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "Aldoni Ĉapitron"
 
 #: qml/Bookmarks/TOCView.qml:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "Enmeti Supre"
 
 #: qml/Bookmarks/TOCView.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "Enmeti Malsupre"
 
 #: qml/Bookmarks/TOCView.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "Aldoni Subsekcion"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -450,7 +447,7 @@ msgstr "Elekti paĝojn por movi"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "Enhavtabelo (Legosignoj)"
 
 #: qml/MainToolbar.qml:87
 #, kde-format

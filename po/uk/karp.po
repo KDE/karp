@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2024.
+# Yuri Chornoivan <yurchor@ukr.net>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-11 00:39+0000\n"
-"PO-Revision-Date: 2024-12-26 22:12+0200\n"
+"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"PO-Revision-Date: 2025-01-11 13:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -105,8 +105,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Впорядкувальник PDF від KDE"
 
 #: main.cpp:115
-#, kde-format
-msgid "(c) 2024 Tomasz Bojczuk"
+#, fuzzy, kde-format
+#| msgid "(c) 2024 Tomasz Bojczuk"
+msgid "(c) 2024-2025 Tomasz Bojczuk"
 msgstr "© Томаш Бойчук, 2024"
 
 #: main.cpp:116
@@ -157,7 +158,7 @@ msgstr "Дата внесення змін"
 #: qml/Bookmarks/OutlineDialog.qml:21
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "Редагувати главу"
 
 #: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -168,7 +169,7 @@ msgstr "перша"
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "вказує на сторінку"
 
 #: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
@@ -179,23 +180,19 @@ msgstr "остання"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Вилучити"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "Зберегти"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr "Додати PDF"
+msgstr "Додати"
 
 #: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
@@ -206,25 +203,25 @@ msgstr "Скасувати"
 #: qml/Bookmarks/TOCView.qml:90
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "Додати главу"
 
 #: qml/Bookmarks/TOCView.qml:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "Вставити вище"
 
 #: qml/Bookmarks/TOCView.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "Вставити нижче"
 
 #: qml/Bookmarks/TOCView.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "Додати підрозділ"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -455,7 +452,7 @@ msgstr "Вибрати сторінки для пересування"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "Зміст (закладки)"
 
 #: qml/MainToolbar.qml:87
 #, kde-format

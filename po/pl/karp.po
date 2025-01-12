@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-11 00:39+0000\n"
+"POT-Creation-Date: 2025-01-12 00:40+0000\n"
 "PO-Revision-Date: 2024-12-16 10:45+0100\n"
 "Last-Translator: Tomasz Bojczuk <seelook@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -106,8 +106,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Aranżer PDF-ów dla KDE"
 
 #: main.cpp:115
-#, kde-format
-msgid "(c) 2024 Tomasz Bojczuk"
+#, fuzzy, kde-format
+#| msgid "(c) 2024 Tomasz Bojczuk"
+msgid "(c) 2024-2025 Tomasz Bojczuk"
 msgstr "© Tomasz Bojczuk, 2024"
 
 #: main.cpp:116
