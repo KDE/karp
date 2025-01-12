@@ -13,7 +13,7 @@ project(karp VERSION ${RELEASE_SERVICE_VERSION})
 
 include(FeatureSummary)
 
-set(QT6_MIN_VERSION 6.6.0)
+set(QT6_MIN_VERSION 6.8.0)
 set(KF6_MIN_VERSION 6.0.0)
 set(KIRIGAMI_ADDONS_MIN_VERSION 1.5.0)
 
