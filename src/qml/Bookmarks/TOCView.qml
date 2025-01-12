@@ -90,7 +90,7 @@ ColumnLayout {
         text: i18n("Add Chapter")
         onClicked: {
             menu.modelIndex = tView.rootIndex
-            openOutlineDialog(BookmarkModel.Insert.AtEnd, "", 1, text)
+            openOutlineDialog(BookmarkModel.Insert.AtEnd, "", 0, text)
         }
     }
 
