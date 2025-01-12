@@ -34,7 +34,11 @@ public:
      * @p from() @p to() pages.
      * When @p EveryNPage is set - @p step() is also used
      */
-    enum RangeType : quint8 { AllInRange = 0, EveryNPage, AllOutOfRange };
+    enum RangeType : quint8 {
+        AllInRange = 0,
+        EveryNPage,
+        AllOutOfRange
+    };
     Q_ENUM(RangeType)
 
     int from() const;
@@ -42,6 +46,30 @@ public:
 
     int to() const;
     void setTo(int t);
+
+    void setRange(int f, int t, int s = 1);
+
+    bool inRange(int pageNr) const;
+
+    /**
+     * Returns number of pages in this range.
+     * NOTICE: Due to @p from() and @p to() are included
+     * i.e: range of [1-5] contains 5 pages.
+     */
+    int pageCount() const
+    {
+        return m_to - m_from + 1;
+    }
+
+    bool isValid() const
+    {
+        return m_from > 0 && m_to > 0;
+    }
+
+    /**
+     * Resets to 0 and makes page range invalid.
+     */
+    void reset();
 
     int n() const;
     void setN(int nn);

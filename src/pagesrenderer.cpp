@@ -5,7 +5,6 @@
 #include "pdfeditmodel.h"
 #include "pdfpage.h"
 #include <QDebug>
-#include <QPdfDocument>
 
 // #################################################################################################
 // ###################        class RenderThread       ############################################
@@ -130,3 +129,5 @@ void PagesRenderer::pageReadySlot(int pageNr)
         renderer->render(nextPage.first, nextPage.second);
     }
 }
+
+#include "moc_pagesrenderer.cpp"

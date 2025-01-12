@@ -68,7 +68,7 @@ protected:
     void pageReadySlot(int pageNr);
 
 private:
-    QThread *m_thread;
+    QThread *m_thread = nullptr;
     int m_maxThreads = 1;
 
     /**

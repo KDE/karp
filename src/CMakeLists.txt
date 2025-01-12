@@ -1,9 +1,17 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fexceptions")
+kde_enable_exceptions()
 
 add_executable(karp)
+
+ecm_qt_declare_logging_category(karp
+    HEADER karp_debug.h
+    IDENTIFIER KARP_LOG
+    CATEGORY_NAME org.kde.karp
+    DESCRIPTION "karp"
+    EXPORT KARP
+)
 
 qt_add_qml_module(karp
     URI org.kde.karp
@@ -14,6 +22,7 @@ qt_add_qml_module(karp
         qml/MainPage.qml
         qml/MainToolbar.qml
         qml/EditDelegate.qml
+        qml/PdfView.qml
 
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/MovePagesDialog.qml
@@ -30,6 +39,9 @@ qt_add_qml_module(karp
         qml/Messages/MissingPdfTool.qml
         qml/Messages/ProgressDialog.qml
         qml/Messages/InitialInfo.qml
+
+        qml/Bookmarks/TOCView.qml
+        qml/Bookmarks/OutlineDialog.qml
 )
 
 
@@ -50,6 +62,21 @@ target_sources(karp PUBLIC
     toolsthread.cpp
     pagerange.cpp
     qpdfproxy.cpp
+    bookmarkmodel.cpp
+    outline.cpp
+
+    app.h
+    pdfpage.h
+    pdffile.h
+    pdfmetadata.h
+    pdfeditmodel.h
+    pdfpageitem.h
+    pdfsorganizer.h
+    toolsthread.h
+    pagerange.h
+    qpdfproxy.h
+    bookmarkmodel.h
+    outline.h
 )
 
 target_link_libraries(karp
@@ -66,16 +93,19 @@ target_link_libraries(karp
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::Kirigami
-    KF6::Crash
     KirigamiAddonsStatefulApp
     qpdf::libqpdf
 )
 
-if(TARGET KF6::I18nQml)
-target_link_libraries(karp PUBLIC
+if (TARGET KF6::I18nQml)
+    target_link_libraries(karp PUBLIC
         KF6::I18nQml
-)
+    )
 endif()
+if (TARGET KF6::Crash)
+    target_link_libraries(karp PUBLIC KF6::Crash)
+endif()
+
 target_include_directories(karp PUBLIC ${CMAKE_BINARY_DIR})
 
 if (ANDROID)
@@ -88,6 +118,18 @@ if (ANDROID)
     )
 else()
     target_link_libraries(karp PUBLIC Qt::Widgets)
+endif()
+
+
+if(APPLE)
+    set_target_properties(karp PROPERTIES
+        MACOSX_BUNDLE_DISPLAY_NAME "Karp"
+        MACOSX_BUNDLE_BUNDLE_NAME "Karp"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "Karp ${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.karp"
+	MACOSX_BUNDLE_COPYRIGHT "2024-2025 The Karp Developers")
 endif()
 
 kconfig_add_kcfg_files(karp GENERATE_MOC karpconfig.kcfgc)

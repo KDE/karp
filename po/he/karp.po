@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:38+0000\n"
-"PO-Revision-Date: 2024-12-09 08:00+0200\n"
+"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"PO-Revision-Date: 2024-12-27 08:33+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,128 +28,202 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
-#: app.cpp:56 pdfeditmodel.cpp:474
+#: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
 msgid "PDF file to edit"
 msgstr "קובץ PDF לעריכה"
 
-#: app.cpp:86 pdfsorganizer.cpp:178
+#: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "בחירת קובצי PDF"
 
-#: app.cpp:171
+#: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF חסר."
 
-#: app.cpp:175
+#: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript חסר."
 
-#: app.cpp:178
+#: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "יש להתקין את התוכניות שהוזכרו לעיל, אחרת לא כל היכולות תהיינה זמינות."
 
-#: app.cpp:200
+#: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "הוספת קובצי PDF"
 
-#: app.cpp:210
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "פינוי כל הקבצים"
 
-#: app.cpp:224
+#: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "מיטוב PDF"
 
-#: app.cpp:233
+#: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "צמצום גודל"
 
-#: app.cpp:242
+#: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "הגדרת סיסמה"
 
-#: app.cpp:251
+#: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "נתוני על של PDF"
 
-#: main.cpp:74
+#: main.cpp:107
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:78
+#: main.cpp:111
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "מסדר קובצי PDF מבית KDE"
 
-#: main.cpp:82
-#, kde-format
-msgid "(c) 2024 Tomasz Bojczuk"
+#: main.cpp:115
+#, fuzzy, kde-format
+#| msgid "(c) 2024 Tomasz Bojczuk"
+msgid "(c) 2024-2025 Tomasz Bojczuk"
 msgstr "(c) 2024 תומאס בויצ׳וק"
 
-#: main.cpp:83
+#: main.cpp:116
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "תומאס בויצ׳וק"
 
-#: main.cpp:84
+#: main.cpp:117
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "מתחזק"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
+#, kde-format
 msgid "Title"
 msgstr "כותרת"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:515
 msgid "Subject"
 msgstr "נושא"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:516
 msgid "Author"
 msgstr "כותב/ת"
 
-#: pdfeditmodel.cpp:420
+#: pdfeditmodel.cpp:517
 msgid "Keyword"
 msgstr "מילת מפתח"
 
-#: pdfeditmodel.cpp:421
+#: pdfeditmodel.cpp:518
 msgid "Producer"
 msgstr "מפיק/ה"
 
-#: pdfeditmodel.cpp:422
+#: pdfeditmodel.cpp:519
 msgid "Creator"
 msgstr "יוצר/ת"
 
-#: pdfeditmodel.cpp:423
+#: pdfeditmodel.cpp:520
 msgid "Creation Date"
 msgstr "תאריך יצירה"
 
-#: pdfeditmodel.cpp:424
+#: pdfeditmodel.cpp:521
 msgid "Modification Date"
 msgstr "תאריך שינוי"
+
+#: qml/Bookmarks/OutlineDialog.qml:21
+#, kde-format
+msgid "Edit Chapter"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "ראשון"
+
+#: qml/Bookmarks/OutlineDialog.qml:55
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "אחרון"
+
+#: qml/Bookmarks/OutlineDialog.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr ""
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "שמירה"
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add PDF"
+msgctxt "@action:button"
+msgid "Add"
+msgstr "הוספת PDF"
+
+#: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "ביטול"
+
+#: qml/Bookmarks/TOCView.qml:90
+#, kde-format
+msgid "Add Chapter"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:112
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Above"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:120
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Below"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add Subsection"
+msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -225,54 +299,46 @@ msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "הוספה וסידור קובצי PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:115
+#: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "נא להוסיף קובץ PDF אחד או יותר כדי להמשיך"
 
-#: qml/Dialogs/PdfFilesDialog.qml:118 qml/Dialogs/PdfFilesDialog.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF…"
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "הוספת PDF…"
+msgstr "הוספת PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:133
+#: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "סך כל העמודים: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:144
+#: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
-
-#: qml/Dialogs/PdfFilesDialog.qml:149
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr ""
+msgstr "החלה"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
 msgstr "מאפייני PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:54
+#: qml/Dialogs/PdfMetadataDialog.qml:55
 #, kde-format
 msgid "Output PDF"
 msgstr "פלט PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:131
+#: qml/Dialogs/PdfMetadataDialog.qml:135
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "העתקת כל מפתחות נתוני העל לקובץ הפלט"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:157
+#: qml/Dialogs/PdfMetadataDialog.qml:161
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "לחיצה כפולה תעתיק את נתוני העל לקובץ פלט ה־PDF."
@@ -286,16 +352,6 @@ msgstr "דרושה סיסמה"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "נא לספק סיסמה כדי לפתוח את הקובץ %1"
-
-#: qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "ראשון"
-
-#: qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "אחרון"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
@@ -323,12 +379,10 @@ msgid "Quit"
 msgstr "יציאה"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "שמירה בשם…"
+msgstr "שמירה בשם"
 
 #: qml/MainPage.qml:33
 #, kde-format
@@ -368,85 +422,97 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "גרסה %1"
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Set password"
 msgstr "הגדרת סיסמה"
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "הגנה על קובצי PDF בסיסמה."
 
-#: qml/MainToolbar.qml:21
+#: qml/MainToolbar.qml:23
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "נא לבחור עמודים למחיקה"
 
-#: qml/MainToolbar.qml:40
+#: qml/MainToolbar.qml:43
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "נא לבחור עמודים לסיבוב"
 
-#: qml/MainToolbar.qml:53
+#: qml/MainToolbar.qml:57
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "נא לבחור עמודים להעברה"
 
-#: qml/MainToolbar.qml:69
+#: qml/MainToolbar.qml:73
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Table of Content (Bookmarks)"
+msgstr ""
+
+#: qml/MainToolbar.qml:87
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "בחירה מרובת עמודים"
+
+#: qml/MainToolbar.qml:112
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "הצגת תוויות עמודים"
 
-#: qml/MainToolbar.qml:81
+#: qml/MainToolbar.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "התרחקות"
 
-#: qml/MainToolbar.qml:93
+#: qml/MainToolbar.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "התקרבות"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "עמוד %1 מתוך %2"
 
-#: qml/MainToolbar.qml:121
+#: qml/MainToolbar.qml:165
 #, kde-format
 msgid "Select pages to delete"
 msgstr "נא לבחור עמודים למחיקה"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "מחיקה"
 
-#: qml/MainToolbar.qml:133
+#: qml/MainToolbar.qml:180
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "נא לבחור עמודים לסיבוב"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "סיבוב"
 
-#: qml/MainToolbar.qml:143
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgid "Angle"
 msgstr "זווית"
 
-#: qml/MainToolbar.qml:161
+#: qml/MainToolbar.qml:208
 #, kde-format
 msgid "Select pages to move"
 msgstr "נא לבחור עמודים להעברה"

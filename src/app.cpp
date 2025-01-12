@@ -10,7 +10,6 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
-#include <QDebug>
 #include <QFileDialog>
 #include <QQuickWindow>
 
@@ -20,6 +19,7 @@ App::App(QObject *parent)
     : AbstractKirigamiApplication(parent)
 {
     setupActions();
+    qApp->installEventFilter(this);
     m_tools = new ToolsThread();
     connect(m_tools, &ToolsThread::lookingDone, this, &App::findToolsSlot);
     m_tools->lookForTools();
@@ -120,7 +120,7 @@ QString App::name() const
     return m_name;
 }
 
-void App::setName(QString pdfName)
+void App::setName(const QString &pdfName)
 {
     if (pdfName == m_name)
         return;
@@ -133,7 +133,7 @@ QString App::path() const
     return m_path;
 }
 
-void App::setPath(QString pdfPath)
+void App::setPath(const QString &pdfPath)
 {
     if (pdfPath == m_path)
         return;
@@ -149,6 +149,19 @@ QString App::qpdfVersion() const
 QString App::gsVersion() const
 {
     return m_tools->gsVersion();
+}
+
+bool App::ctrlPressed() const
+{
+    return m_ctrlPressed;
+}
+
+void App::setCtrlPressed(bool ctrlOn)
+{
+    if (ctrlOn == m_ctrlPressed)
+        return;
+    m_ctrlPressed = ctrlOn;
+    Q_EMIT ctrlPressedChanged();
 }
 
 QColor App::alpha(const QColor &c, int alpha)
@@ -252,6 +265,20 @@ void App::setupActions()
         action->setIcon(QIcon::fromTheme(u"viewpdf"_s));
         mainCollection()->addAction(action->objectName(), action);
     }
+}
+
+bool App::eventFilter(QObject *obj, QEvent *ev)
+{
+    if (ev->type() == QEvent::KeyPress) {
+        auto keyEvent = static_cast<QKeyEvent *>(ev);
+        if (keyEvent->key() == Qt::Key_Control)
+            setCtrlPressed(true);
+    } else if (ev->type() == QEvent::KeyRelease) {
+        auto keyEvent = static_cast<QKeyEvent *>(ev);
+        if (keyEvent->key() == Qt::Key_Control)
+            setCtrlPressed(false);
+    }
+    return AbstractKirigamiApplication::eventFilter(obj, ev);
 }
 
 #include "moc_app.cpp"

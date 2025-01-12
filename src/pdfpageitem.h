@@ -4,7 +4,6 @@
 #pragma once
 
 #include <QImage>
-#include <QQmlEngine>
 #include <QQuickPaintedItem>
 
 class QPainter;
@@ -20,7 +19,7 @@ public:
     explicit PdfPageItem(QQuickItem *parent = nullptr);
 
     QVariant image() const;
-    void setImage(QVariant img);
+    void setImage(const QVariant &img);
 
     void paint(QPainter *painter) override;
 

@@ -4,7 +4,7 @@
 #pragma once
 
 #include <AbstractKirigamiApplication>
-#include <QQmlEngine>
+#include <QtQmlIntegration/qqmlintegration.h>
 
 class QQuickWindow;
 class ToolsThread;
@@ -21,6 +21,7 @@ class App : public AbstractKirigamiApplication
     Q_PROPERTY(QString path READ path NOTIFY pathChanged)
     Q_PROPERTY(QString qpdfVersion READ qpdfVersion NOTIFY toolsVersionChanged)
     Q_PROPERTY(QString gsVersion READ gsVersion NOTIFY toolsVersionChanged)
+    Q_PROPERTY(bool ctrlPressed READ ctrlPressed NOTIFY ctrlPressedChanged)
 
 public:
     explicit App(QObject *parent = nullptr);
@@ -47,13 +48,16 @@ public:
     void setPdfLoaded(bool isLoaded);
 
     QString name() const;
-    void setName(QString pdfName);
+    void setName(const QString &pdfName);
 
     QString path() const;
-    void setPath(QString pdfPath);
+    void setPath(const QString &pdfPath);
 
     QString qpdfVersion() const;
     QString gsVersion() const;
+
+    bool ctrlPressed() const;
+    void setCtrlPressed(bool ctrlOn);
 
     // helpers
     Q_INVOKABLE QColor alpha(const QColor &c, int alpha);
@@ -66,7 +70,7 @@ Q_SIGNALS:
     void pathChanged();
     void toolsVersionChanged();
     void toolIsMissing(const QString &);
-    void toolCheckMessage(const QString &);
+    void ctrlPressedChanged();
     // Main Actions
     void wantClearAll();
     void wantSettings();
@@ -83,9 +87,12 @@ protected:
     void findToolsSlot();
     void setupActions() override;
 
+    bool eventFilter(QObject *obj, QEvent *ev) override;
+
 private:
     bool m_pdfLoaded = false;
     QString m_name;
     QString m_path;
-    ToolsThread *m_tools;
+    ToolsThread *m_tools = nullptr;
+    bool m_ctrlPressed = false;
 };

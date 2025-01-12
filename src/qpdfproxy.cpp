@@ -2,16 +2,16 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "qpdfproxy.h"
+#include "karp_debug.h"
 #include "pdfeditmodel.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
-#include <QDebug>
 #include <QDir>
-#include <QSet>
 #include <QStandardPaths>
 #include <qpdf/QPDFUsage.hh>
 
 using namespace Qt::Literals::StringLiterals;
+using namespace std::string_literals;
 
 QpdfProxy::QpdfProxy(PdfEditModel *pdfModel, QObject *parent)
     : QObject(parent)
@@ -38,11 +38,13 @@ void QpdfProxy::addMetaToJob(QPDF &qpdf, PdfMetaData *metaData)
 {
     // TODO: handle case when metadata has to be removed
     auto trailer = qpdf.getTrailer();
-    auto info = trailer.getKey("/Info");
+    auto info = trailer.getKey("/Info"s);
     if (info.isNull()) {
+        auto newStream = qpdf.newStream();
         auto newDict = QPDFObjectHandle::newDictionary();
-        trailer.replaceKey("/Info", newDict);
         metaData->setAllInfoKeys(newDict);
+        qpdf.replaceObject(newStream.getObjectID(), newStream.getGeneration(), newDict);
+        trailer.replaceKey("/Info"s, newDict);
     } else {
         auto infoObj = qpdf.getObject(info.getObjectID(), info.getObjGen().getGen());
         metaData->setAllInfoKeys(infoObj);
@@ -51,7 +53,7 @@ void QpdfProxy::addMetaToJob(QPDF &qpdf, PdfMetaData *metaData)
 
 void QpdfProxy::forcePdfVersion(QPDFJob::Config *jobConf, qreal ver)
 {
-    jobConf->forceVersion("1." + std::to_string(static_cast<int>(ver * 10.0 - 10.0)));
+    jobConf->forceVersion("1."s + std::to_string(static_cast<int>(ver * 10.0 - 10.0)));
 }
 
 void QpdfProxy::setPdfPassword(QPDFJob::Config *jobConf, const std::string &pass)
@@ -73,7 +75,7 @@ void QpdfProxy::threadSlot()
     int fileId = firstPage->referenceFile();
     chunks << (QVector<quint16>() << fileId << fromPage);
     for (int p = 1; p < m_pdfModel->pageCount(); ++p) {
-        auto nextPage = m_pdfModel->page(p);
+        const auto *const nextPage = m_pdfModel->page(p);
         if (nextPage->referenceFile() != fileId) {
             fileId = nextPage->referenceFile();
             fromPage = nextPage->origPage();
@@ -87,7 +89,7 @@ void QpdfProxy::threadSlot()
     // NOTICE: page number (r) refers to number in m_pageList not orig page number in PDF file
     QVector<quint16> r90, r180, r270;
     for (int r = 0; r < m_pdfModel->pageCount(); ++r) {
-        auto page = m_pdfModel->page(r);
+        const auto *const page = m_pdfModel->page(r);
         if (page->rotated() == 90)
             r90 << r;
         else if (page->rotated() == 180)
@@ -134,16 +136,17 @@ void QpdfProxy::threadSlot()
             auto qpdfSP = qpdfJob.createQPDF();
             auto &qpdf = *qpdfSP;
             addMetaToJob(qpdf, m_pdfModel->metaData());
+            m_pdfModel->saveBookmarks(qpdf);
             qpdfJob.writeQPDF(qpdf);
         } else {
             qpdfJob.run();
         }
 
     } catch (QPDFUsage &e) {
-        qDebug() << "[QpdfProxy]" << "configuration error: " << e.what();
+        qCDebug(KARP_LOG) << "[QpdfProxy]" << "configuration error: " << e.what();
         return;
     } catch (std::exception &e) {
-        qDebug() << "[QpdfProxy]" << "other error: " << e.what();
+        qCDebug(KARP_LOG) << "[QpdfProxy]" << "other error: " << e.what();
         return;
     }
     if (QFile::exists(tempOut)) {
@@ -161,7 +164,7 @@ void QpdfProxy::appendRangeToJob(const QVector<quint16> &range, QPDFJob::PagesCo
     QString pRange;
     std::string file, pass;
     if (isFirst) {
-        // qpdfPages->file("."); // pnly above qpdf 10.9.0 version
+        // qpdfPages->file("."); // only above qpdf 10.9.0 version
         file = "."; // for first file we referring to input file of QPDFJob "."
         pdf = m_pdfModel->pdfs()[m_pdfModel->page(0)->referenceFile()];
     } else {
@@ -201,14 +204,16 @@ std::string QpdfProxy::getPagesForRotation(int angle, const QVector<quint16> &pa
 {
     std::string pRange;
     if (!pageList.isEmpty()) {
-        pRange = std::to_string(angle) + ":" + std::to_string(pageList[0] + 1);
+        pRange = std::to_string(angle) + ":"s + std::to_string(pageList[0] + 1);
     }
     int p = 1;
     while (p < pageList.count()) {
         if (!pRange.empty())
-            pRange += ",";
+            pRange += ","s;
         pRange += std::to_string(pageList[p] + 1); //.append(QString::number(pageList[p] + 1));
         p++;
     }
     return pRange;
 }
+
+#include "moc_qpdfproxy.cpp"

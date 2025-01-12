@@ -5,15 +5,17 @@
 
 #include <QImage>
 
+class Outline;
+
 /**
  * @brief PdfPage is container class with information about PDF page.
  */
 class PdfPage
 {
 public:
-    PdfPage(const QImage &image, quint16 origPage, quint16 refFile = 0);
+    explicit PdfPage(const QImage &image, quint16 origPage, quint16 refFile = 0);
 
-    PdfPage(quint16 origPage, quint16 refFile = 0)
+    explicit PdfPage(quint16 origPage, quint16 refFile = 0)
         : m_origPage(origPage)
         , m_refFile(refFile)
     {
@@ -66,7 +68,31 @@ public:
     }
     void setDeleted(bool isDel);
 
+    bool selected() const
+    {
+        return m_flags & PageSelected;
+    }
+    void setSelected(bool isSel);
+
     qreal ratio() const;
+
+    bool hasOutline() const
+    {
+        return !m_outlines.isEmpty();
+    }
+
+    int outlinesCount() const
+    {
+        return m_outlines.count();
+    }
+
+    void addOutline(Outline *const o);
+    bool removeOutline(Outline *o);
+    void removeAllOutlines();
+
+    Outline *getOutline(int id);
+
+    QStringList outlineModel() const;
 
     /**
      * Page state kept into @p m_flags
@@ -77,6 +103,7 @@ public:
         PageRotated180 = 2,
         PageRotated270 = 3,
         PageDeleted = 4,
+        PageSelected = 16,
     };
 
 private:
@@ -84,4 +111,5 @@ private:
     quint16 m_origPage = 0;
     quint16 m_refFile = 0;
     quint8 m_flags = 0;
+    QVector<Outline *> m_outlines;
 };

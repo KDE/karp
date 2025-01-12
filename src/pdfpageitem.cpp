@@ -2,7 +2,6 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfpageitem.h"
-#include <QDebug>
 #include <QPainter>
 
 PdfPageItem::PdfPageItem(QQuickItem *parent)
@@ -15,7 +14,7 @@ QVariant PdfPageItem::image() const
     return QVariant::fromValue(m_image);
 }
 
-void PdfPageItem::setImage(QVariant img)
+void PdfPageItem::setImage(const QVariant &img)
 {
     m_image = qvariant_cast<QImage>(img);
     setSize(m_image.size());

@@ -4,7 +4,6 @@
 #pragma once
 
 #include <QDateTime>
-#include <QJsonObject>
 #include <QPdfDocument>
 
 #define PDF_METADATA_TAGS_COUNT (8)
@@ -21,26 +20,26 @@ public:
 
     bool modified() const;
 
-    QString title() const;
+    const QString &title() const;
     void setTitle(const QString &title);
 
-    QString subject() const;
+    const QString &subject() const;
     void setSubject(const QString &subject);
 
-    QString author() const;
+    const QString &author() const;
     void setAuthor(const QString &author);
 
-    QString creator() const;
+    const QString &creator() const;
     void setCreator(const QString &creator);
 
-    QString producer() const;
+    const QString &producer() const;
     void setProducer(const QString &producer);
 
-    QString keyword() const;
+    const QString &keyword() const;
     void setKeyword(const QString &keyword);
 
     QDateTime creationDate() const;
-    void setCreationDate(const QDateTime &creationDate);
+    void setCreationDate(const QDateTime &creationDate, bool makeModified = true);
 
     QDateTime modDate() const;
     void setModDate(const QDateTime &modDate);

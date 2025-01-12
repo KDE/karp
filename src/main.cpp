@@ -3,7 +3,6 @@
     SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 */
 
-#include <QtGlobal>
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
 #else
@@ -11,18 +10,25 @@
 #endif
 
 #include <QIcon>
+#include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include <QUrl>
 
+#include "karp_debug.h"
 #include "version-karp.h"
 #include <KAboutData>
+#if __has_include("KCrash")
 #include <KCrash>
+#endif
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
 #include "karpconfig.h"
+#define HAVE_STYLE_MANAGER __has_include(<KStyleManager>)
+#if HAVE_STYLE_MANAGER
+#include <KStyleManager>
+#endif
 
 #ifdef Q_OS_WINDOWS
 #include <windows.h>
@@ -45,6 +51,27 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
     QApplication app(argc, argv);
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("karp")));
+
+#ifndef NDEBUG
+    QLoggingCategory::setFilterRules("org.kde.karp*=true"_L1);
+    qCDebug(KARP_LOG) << "Debug build";
+#endif
+
+#if HAVE_STYLE_MANAGER
+    /**
+     * trigger initialisation of proper application style
+     */
+    KStyleManager::initStyle();
+#else
+    /**
+     * For Windows and macOS: use Breeze if available
+     * Of all tested styles that works the best for us
+     */
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+#endif
 
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
@@ -53,11 +80,13 @@ int main(int argc, char *argv[])
 #endif
 
 #ifdef Q_OS_WINDOWS
+    FILE *outFile = nullptr;
+    FILE *errFile = nullptr;
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        FILE *outFile = freopen("CONOUT$", "w", stdout);
+        outFile = freopen("CONOUT$", "w", stdout);
         if (!outFile)
             qWarning() << "Failed to reopen stdout";
-        FILE *errFile = freopen("CONOUT$", "w", stderr);
+        errFile = freopen("CONOUT$", "w", stderr);
         if (!errFile)
             qWarning() << "Failed to reopen stderr";
     }
@@ -83,7 +112,7 @@ int main(int argc, char *argv[])
         // The license this code is released under.
         KAboutLicense::GPL,
         // Copyright Statement.
-        i18n("(c) 2024 Tomasz Bojczuk"));
+        i18n("(c) 2024-2025 Tomasz Bojczuk"));
     aboutData.addAuthor(i18nc("@info:credit", "Tomasz Bojczuk"),
                         i18nc("@info:credit", "Maintainer"),
                         u"seelook@gmail.com"_s,
@@ -91,8 +120,9 @@ int main(int argc, char *argv[])
     // aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.karp"_s));
-
+#if __has_include("KCrash")
     KCrash::initialize();
+#endif
 
     QQmlApplicationEngine engine;
 
@@ -111,5 +141,14 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    return app.exec();
+    int execCode = app.exec();
+
+#ifdef Q_OS_WINDOWS
+    if (outFile)
+        delete outFile;
+    if (errFile)
+        delete errFile;
+#endif
+
+    return execCode;
 }

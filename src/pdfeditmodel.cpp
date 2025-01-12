@@ -2,19 +2,18 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfeditmodel.h"
+#include "bookmarkmodel.h"
+#include "karp_debug.h"
 #include "karpconfig.h"
-#include "pagerange.h"
+#include "outline.h"
 #include "pdffile.h"
 #include "pdfmetadata.h"
 #include "qpdfproxy.h"
 #include "toolsthread.h"
 #include <KLazyLocalizedString>
-#include <QDebug>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QPdfDocument>
-#include <QPdfPageRenderer>
-#include <QProcess>
 #include <QScreen>
 #include <QStandardPaths>
 #include <QTimer>
@@ -35,13 +34,19 @@ QColor alpha(const QColor &c)
 PdfEditModel *PdfEditModel::m_self = nullptr;
 
 PdfEditModel::PdfEditModel(QObject *parent)
-    : QAbstractTableModel(parent)
+    : QAbstractListModel(parent)
 {
     m_self = this;
     m_metaData = new PdfMetaData();
     m_prefPageWidth = qApp->screens().first()->size().width() / 4;
     m_columns = INIT_COLUMN_COUNT;
     m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
+    m_pageRange.reset();
+    m_bookmarks = new BookmarkModel(this);
+    connect(m_bookmarks, &BookmarkModel::statusChanged, this, &PdfEditModel::editedChanged);
+    connect(m_bookmarks, &BookmarkModel::outlineAdded, this, &PdfEditModel::newOutlineSlot);
+    connect(m_bookmarks, &BookmarkModel::aboutToRemove, this, &PdfEditModel::removeOutlineSlot);
+    connect(m_bookmarks, &BookmarkModel::aboutToChange, this, &PdfEditModel::changeOutlineSlot);
 }
 
 PdfEditModel::~PdfEditModel()
@@ -57,16 +62,17 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
 {
     auto newPdf = new PdfFile(pdfFile, pdfCount());
     if (!(newPdf->error() == QPdfDocument::Error::None || newPdf->error() == QPdfDocument::Error::IncorrectPassword)) {
-        qDebug() << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile << newPdf->error();
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile << newPdf->error();
         newPdf->deleteLater();
         return;
     }
     appendPdfFileToModel(newPdf);
     updateCreationTimeInMetadata(newPdf);
     karpConfig::self()->setLastDir(m_pdfList.last()->dir());
+    m_bookmarks->appendPdf(newPdf);
 }
 
-void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
+void PdfEditModel::prependPdfs(const QVector<PdfFile *> &pdfList)
 {
     if (pdfList.isEmpty())
         return;
@@ -78,9 +84,12 @@ void PdfEditModel::prependPdfs(QVector<PdfFile *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
+    for (auto &pdf : pdfList) {
+        m_bookmarks->prependPdf(pdf);
+    }
 }
 
-void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
+void PdfEditModel::appendPdfs(const QVector<PdfFile *> &pdfList)
 {
     if (pdfList.isEmpty())
         return;
@@ -91,11 +100,9 @@ void PdfEditModel::appendPdfs(QVector<PdfFile *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
-}
-
-int PdfEditModel::pageCount() const
-{
-    return m_pages;
+    for (auto &pdf : pdfList) {
+        m_bookmarks->appendPdf(pdf);
+    }
 }
 
 QVector<PdfFile *> &PdfEditModel::pdfs()
@@ -122,12 +129,20 @@ void PdfEditModel::setViewWidth(qreal vw)
         return;
     updateMaxPageWidth();
     Q_EMIT viewWidthChanged();
-    Q_EMIT dataChanged(index(0, 0), index(m_rows - 1, m_columns - 1), QList<int>() << RoleImage);
+    Q_EMIT dataChanged(index(0, 0), index(m_pages - 1, 0), QList<int>() << RoleImage);
 }
 
 qreal PdfEditModel::maxPageWidth() const
 {
     return m_maxPageWidth;
+}
+
+qreal PdfEditModel::maxPageHeight() const
+{
+    if (m_pdfList.isEmpty())
+        return 1.0;
+    auto pageSize = m_pdfList.first()->pagePointSize(0);
+    return m_maxPageWidth * (pageSize.height() / pageSize.width());
 }
 
 qreal PdfEditModel::spacing() const
@@ -144,13 +159,14 @@ void PdfEditModel::setSpacing(qreal sp)
         return;
     updateMaxPageWidth();
     Q_EMIT spacingChanged();
-    Q_EMIT dataChanged(index(0, 0), index(m_rows - 1, m_columns - 1), QList<int>() << RoleImage);
+    Q_EMIT dataChanged(index(0, 0), index(m_pages - 1, 0), QList<int>() << RoleImage);
 }
 
 bool PdfEditModel::edited() const
 {
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
-        || m_metaData->modified() || m_pdfVersion > 0.0 || pdfCount() > 1;
+        || m_metaData->modified() || m_pdfVersion > 0.0 || m_bookmarks->status() == BookmarkModel::Status::Modified
+        || m_bookmarks->status() == BookmarkModel::Status::Removed;
 }
 
 bool PdfEditModel::optimizeImages() const
@@ -197,7 +213,7 @@ void PdfEditModel::setPdfVersion(qreal pV)
     Q_EMIT editedChanged();
 }
 
-QString PdfEditModel::passKey() const
+const QString &PdfEditModel::passKey() const
 {
     return m_passKey;
 }
@@ -259,9 +275,7 @@ void PdfEditModel::rotatePage(int pageId, int angle)
     else
         m_rotatedCount--;
     m_pageList[pageId]->setRotated(angle);
-    int r = pageId / m_columns;
-    int c = pageId % m_columns;
-    Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+    Q_EMIT dataChanged(index(pageId, 0), index(pageId, 0), QList<int>() << RoleRotated);
     Q_EMIT editedChanged();
 }
 
@@ -284,9 +298,7 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
         if (a > 270)
             a = a - 360;
         m_pageList[p]->setRotated(a);
-        int r = p / m_columns;
-        int c = p % m_columns;
-        Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+        Q_EMIT dataChanged(index(p, 0), index(p, 0), QList<int>() << RoleRotated);
         if (a)
             m_rotatedCount++;
         else
@@ -300,9 +312,7 @@ void PdfEditModel::rotatePages(const PageRange &range, int angle)
             if (a > 270)
                 a = a - 360;
             m_pageList[p]->setRotated(a);
-            int r = p / m_columns;
-            int c = p % m_columns;
-            Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleRotated);
+            Q_EMIT dataChanged(index(p, 0), index(p, 0), QList<int>() << RoleRotated);
             if (a)
                 m_rotatedCount++;
             else
@@ -316,14 +326,20 @@ void PdfEditModel::deletePage(int pageId)
 {
     if (pageId < 0 || pageId >= m_pages)
         return;
-    m_pageList[pageId]->setDeleted(true);
-    beginResetModel();
+    auto *const pg = m_pageList[pageId];
+    const bool hasOutline = pg->hasOutline();
+    beginRemoveRows(QModelIndex(), pageId, pageId);
+    pg->setDeleted(true);
     m_deletedList << m_pageList.takeAt(pageId);
     m_pages--;
-    m_rows = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
-    endResetModel();
+    endRemoveRows();
+    if (pageId < m_pages)
+        Q_EMIT dataChanged(index(pageId, 0), index(m_pages - 1, 0));
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
+    setSelection(0, 0);
+    if (hasOutline)
+        m_bookmarks->removePage(pageId);
 }
 
 /**
@@ -334,52 +350,71 @@ void PdfEditModel::deletePages(const PageRange &range)
     if (rangeIsInvalid(range))
         return;
 
-    // qDebug() << range.from() << range.to() << range.type() << range.n();
+    // qCDebug(KARP_LOG) << range.from() << range.to() << range.type() << range.n();
     int from, to;
     int step = range.everyN() ? range.n() : 1;
-    beginResetModel();
+    QVector<int> deletedPages;
     if (range.allOutOfRange()) {
         // At first, delete what is after the range to preserve numbering at the beginning
         from = range.to();
         to = m_pages;
+        beginRemoveRows(QModelIndex(), from, to - 1);
         for (int p = from; p < to; ++p) {
             m_deletedList << m_pageList.takeAt(from);
             m_pages--;
+            deletedPages << p;
         }
+        endRemoveRows();
     }
     from = range.allOutOfRange() ? 0 : range.from() - 1;
     to = range.allOutOfRange() ? range.from() - 2 : range.to() - 1;
     QVector<int> toTakeList;
     for (int p = from; p <= to; p += step) {
         toTakeList << p;
+        deletedPages << p;
     }
     while (!toTakeList.empty()) {
-        m_deletedList << m_pageList.takeAt(toTakeList.takeLast());
+        const int pageToRemove = toTakeList.takeLast();
+        beginRemoveRows(QModelIndex(), pageToRemove, pageToRemove);
+        m_deletedList << m_pageList.takeAt(pageToRemove);
         m_pages--;
+        endRemoveRows();
     }
-    endResetModel();
+    Q_EMIT dataChanged(index(0, 0), index(m_pages - 1, 0));
     Q_EMIT pageCountChanged();
     Q_EMIT editedChanged();
+    setSelection(0, 0);
+    for (int p = 0; p < deletedPages.count(); ++p) {
+        // decrease page number to keep it accurate after previous pages were removed already
+        m_bookmarks->removePage(deletedPages[p] - p);
+    }
 }
 
 /**
  * Returns target page number or -1 if move can't be performed.
  */
-int PdfEditModel::movePage(int pageNr, int toPage)
+int PdfEditModel::movePage(int fromPage, int toPage)
 {
-    if (pageNr < 0 || pageNr >= m_pages || toPage < 0 || toPage >= m_pages)
+    if (fromPage < 0 || fromPage >= m_pages || toPage < 0 || toPage >= m_pages)
         return -1;
-
+    if (fromPage == toPage)
+        return -1;
+    int off = 0;
+    const int pageDiff = toPage - fromPage;
+    if (pageDiff >= 1)
+        off = 1;
+    if (!beginMoveRows(QModelIndex{}, fromPage, fromPage, QModelIndex{}, toPage + off))
+        return -1;
+    m_pageList.move(fromPage, toPage);
+    endMoveRows();
+    const int startPage = qMin(fromPage, toPage);
+    const int endPage = qMax(fromPage, toPage);
+    // update all affected pages
+    fixOutlinePages(startPage, endPage);
+    Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
     m_wasMoved = true;
-    if (toPage / m_columns < pageNr / m_columns) // QVector::workaround for 'move' method when moving backward from other row
-        toPage++;
-    m_pageList.move(pageNr, toPage);
     Q_EMIT editedChanged();
-    int startPage = qMin(pageNr, toPage);
-    int endPage = qMax(pageNr, toPage);
-    // update all cells in affected rows
-    Q_EMIT dataChanged(index(startPage / m_columns, 0), index(endPage / m_columns, m_columns - 1));
-    return toPage;
+    return toPage + off;
 }
 
 void PdfEditModel::movePages(const PageRange &range, int targetPage)
@@ -387,29 +422,91 @@ void PdfEditModel::movePages(const PageRange &range, int targetPage)
     if (rangeIsInvalid(range))
         return;
 
-    int from = range.from() - 1;
-    int to = range.to() - 1;
+    const int from = range.from() - 1;
+    const int to = range.to() - 1;
     int targetNr = qAbs(targetPage);
-    // 1. take pages which are going to be moved
-    QVector<PdfPage *> pagesToMove;
-    for (int p = from; p <= to; ++p) {
-        pagesToMove << m_pageList.takeAt(from);
-    }
     if (targetNr > from)
         targetNr = targetNr - (to - from) - 1;
     if (targetPage < 0)
         targetNr--;
     if (targetNr < 0) {
-        qDebug() << "PdfEditModel" << "Wrong target page:" << targetNr << "FIXME!";
+        qCDebug(KARP_LOG) << "PdfEditModel" << "Wrong target page:" << targetNr << "FIXME!";
         return;
+    }
+    int rowTarget = qAbs(targetPage);
+    if (targetPage < 0)
+        rowTarget = qMax(rowTarget - 1, 0);
+    if (!beginMoveRows(QModelIndex{}, from, to, QModelIndex{}, rowTarget)) {
+        qCDebug(KARP_LOG) << "PdfEditModel" << "Cannot start begin move:" << from << to << rowTarget << "FIXME!";
+        return;
+    }
+    // 1. take pages which are going to be moved
+    QVector<PdfPage *> pagesToMove;
+    for (int p = from; p <= to; ++p) {
+        pagesToMove << m_pageList.takeAt(from);
     }
     // 2. Insert selected pages after or before target page
     for (int p = from; p <= to; ++p) {
         m_pageList.insert(targetNr + (p - from), pagesToMove.takeFirst());
     }
-    int startPage = qMin(from, targetNr);
-    int endPage = qMax(to, targetNr + (to - from));
-    Q_EMIT dataChanged(index(startPage / m_columns, 0), index(endPage / m_columns, m_columns - 1));
+    endMoveRows();
+    const int startPage = qMin(from, targetNr);
+    const int endPage = qMax(to, targetNr + (to - from));
+    fixOutlinePages(startPage, endPage);
+    Q_EMIT dataChanged(index(startPage, 0), index(endPage, 0));
+    // update selected page numbers
+    const int moveTarget = rowTarget + 1;
+    const int selectedPageCount = m_pageRange.pageCount();
+    if (moveTarget < m_pageRange.from())
+        setSelection(moveTarget, moveTarget + selectedPageCount - 1);
+    else
+        setSelection(moveTarget - selectedPageCount, moveTarget - 1);
+    m_wasMoved = true;
+    Q_EMIT editedChanged();
+}
+
+void PdfEditModel::moveSelected(int targetPage)
+{
+    if (targetPage >= m_pageRange.from() && targetPage <= m_pageRange.to()) {
+        // qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot move selection!" << targetPage << m_pageRange.from() << m_pageRange.to();
+        return;
+    }
+    movePages(m_pageRange, targetPage);
+}
+
+/**
+ * WARNING: be careful with page numbers!
+ * Range starts from 1, @p m_pageList starts from 0
+ */
+void PdfEditModel::selectPage(int pageNr, bool selected, bool append)
+{
+    if (pageNr < 0 || pageNr >= m_pages)
+        return;
+
+    const int pageToSelect = pageNr + 1;
+    if (append) { // multi-page mode
+        if (selected) {
+            const int from = m_pageRange.isValid() ? qMin(pageToSelect, m_pageRange.from()) : pageToSelect;
+            setSelection(from, qMax(m_pageRange.to(), pageToSelect));
+        } else { // deselect
+            if (pageToSelect == m_pageRange.from()) {
+                if (pageToSelect == m_pageRange.to())
+                    setSelection(0, 0);
+                else
+                    setSelection(pageToSelect + 1, m_pageRange.to());
+            } else {
+                if (pageToSelect == m_pageRange.to())
+                    setSelection(m_pageRange.from(), pageToSelect - 1);
+                else
+                    setSelection(pageToSelect, m_pageRange.to());
+            }
+        }
+    } else { // single page
+        if (selected)
+            setSelection(pageToSelect, pageToSelect);
+        else
+            setSelection(0, 0);
+    }
 }
 
 QString PdfEditModel::getMetaDataKey(int keyId)
@@ -468,12 +565,12 @@ void PdfEditModel::generate()
 
     auto conf = karpConfig::self();
     setProgress(0.05);
-    auto pdf = m_pdfList[m_pageList.first()->referenceFile()];
+    const auto *const pdf = m_pdfList[m_pageList.first()->referenceFile()];
     if (conf->askForOutFile()) {
         QFileInfo inInfo(pdf->filePath());
         m_outFile = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
         if (m_outFile.isEmpty()) {
-            qDebug() << "[PdfEditModel]" << "Output file not provided!";
+            qCDebug(KARP_LOG) << "[PdfEditModel]" << "Output file not provided!";
             setProgress(1.0);
             Q_EMIT pdfGenerated();
             return;
@@ -519,12 +616,13 @@ void PdfEditModel::clearAll()
     m_deletedList.clear();
     qDeleteAll(m_pdfList);
     m_pdfList.clear();
-    m_rows = 0;
     m_columns = INIT_COLUMN_COUNT;
     m_pages = 0;
     m_rotatedCount = 0;
     m_wasMoved = false;
+    m_pageRange.reset();
     endResetModel();
+    m_bookmarks->clear();
     Q_EMIT pageCountChanged();
     Q_EMIT pdfCountChanged();
     Q_EMIT editedChanged();
@@ -535,13 +633,7 @@ void PdfEditModel::clearAll()
 int PdfEditModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return m_rows;
-}
-
-int PdfEditModel::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent)
-    return m_columns;
+    return m_pages;
 }
 
 QColor PdfEditModel::labelColor(int fileId)
@@ -557,7 +649,7 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     pdf->setPassword(pass);
     pdf->setFile(pdf->filePath());
     if (pdf->error() != QPdfDocument::Error::None) {
-        qDebug() << "[PdfEditModel] Wrong password!" << pdf->error();
+        qCDebug(KARP_LOG) << "[PdfEditModel] Wrong password!" << pdf->error();
         m_pdfList.remove(fileId);
         pdf->deleteLater();
     } else {
@@ -565,51 +657,102 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     }
 }
 
-QString PdfEditModel::outFile() const
+QAbstractItemModel *PdfEditModel::getBookmarkModel()
+{
+    return m_bookmarks;
+}
+
+QStringList PdfEditModel::getPageOutlines(int p)
+{
+    if (p < 0 || p >= m_pageList.size())
+        return QStringList();
+    return m_pageList[p]->outlineModel();
+}
+
+QModelIndex PdfEditModel::indexFromOutline(int pageNr, int outlineId)
+{
+    if (pageNr < 0 || pageNr >= m_pageList.size())
+        return QModelIndex();
+    auto *const outline = m_pageList[pageNr]->getOutline(outlineId);
+    if (!outline)
+        return QModelIndex();
+    return m_bookmarks->indexFromOutline(outline);
+}
+
+QString PdfEditModel::outlineTitle(const QModelIndex &bookmarkModelIndex)
+{
+    const Outline *o = static_cast<Outline *>(bookmarkModelIndex.internalPointer());
+    return o ? o->title() : QString();
+}
+
+int PdfEditModel::outlinePage(const QModelIndex &bookmarkModelIndex)
+{
+    const Outline *o = static_cast<Outline *>(bookmarkModelIndex.internalPointer());
+    return o ? o->pageNumber() : -1;
+}
+
+void PdfEditModel::insertBookmark(const QModelIndex &idx, int where, const QString &title, int page)
+{
+    m_bookmarks->insertBookmark(idx, where, title, page);
+}
+
+void PdfEditModel::removeOutline(const QModelIndex &bookmarkModelIndex)
+{
+    m_bookmarks->removeOutline(bookmarkModelIndex);
+}
+
+const QString &PdfEditModel::outFile() const
 {
     return m_outFile;
 }
 
+void PdfEditModel::saveBookmarks(QPDF &qpdf)
+{
+    m_bookmarks->saveBookmarks(qpdf);
+}
+
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= m_rows || index.column() < 0 || index.column() >= m_columns)
+    if (index.row() < 0 || index.row() >= m_pages)
         return QVariant();
-    int pageNr = index.row() * m_columns + index.column();
+    int pageNr = index.row();
     PdfFile *pdf = nullptr;
-    PdfPage *page = nullptr;
-    if (pageNr < m_pages) {
-        page = m_pageList.at(pageNr);
-        int refFileId = page->referenceFile();
-        if (refFileId < pdfCount())
-            pdf = m_pdfList[refFileId];
-    }
+    PdfPage *pPage = nullptr;
+    pPage = m_pageList.at(pageNr);
+    int refFileId = pPage->referenceFile();
+    if (refFileId < pdfCount())
+        pdf = m_pdfList[refFileId];
     switch (role) {
     case RoleImage: {
-        if (!pdf || !page)
+        if (!pdf || !pPage)
             return QVariant::fromValue(QImage());
-        if (page->nullImage() && pdf) {
+        if (pPage->nullImage()) {
             // TODO: find current screen
-            QSizeF pSize = pdf->pagePointSize(page->origPage());
+            QSizeF pSize = pdf->pagePointSize(pPage->origPage());
             qreal pageRatio = pSize.height() / pSize.width();
-            pdf->requestPage(page, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
+            pdf->requestPage(pPage, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
         }
-        return QVariant::fromValue(page->image());
+        return QVariant::fromValue(pPage->image());
     }
     case RoleRotated: {
-        return page ? page->rotated() : 0;
+        return pPage ? pPage->rotated() : 0;
     }
     case RoleOrigNr:
-        return page ? page->origPage() : 0;
+        return pPage ? pPage->origPage() : 0;
     case RolePageNr:
         return pageNr;
     case RolePageRatio: {
-        if (!pdf || !page)
+        if (!pdf || !pPage)
             return 1;
-        auto pageSize = pdf->pagePointSize(page->origPage());
+        auto pageSize = pdf->pagePointSize(pPage->origPage());
         return pageSize.height() / pageSize.width();
     }
     case RoleFileId:
-        return page ? page->referenceFile() : 0;
+        return pPage ? pPage->referenceFile() : 0;
+    case RoleSelected:
+        return pPage ? pPage->selected() : false;
+    case RoleOutline:
+        return pPage ? pPage->hasOutline() : false;
     default:
         return QVariant();
     }
@@ -617,12 +760,14 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfEditModel::roleNames() const
 {
-    return {{RoleImage, "pageImg"},
-            {RoleRotated, "rotated"},
-            {RoleOrigNr, "origPage"},
-            {RolePageNr, "pageNr"},
-            {RolePageRatio, "pageRatio"},
-            {RoleFileId, "fileId"}};
+    return {{RoleImage, "pageImg"_ba},
+            {RoleRotated, "rotated"_ba},
+            {RoleOrigNr, "origPage"_ba},
+            {RolePageNr, "pageNr"_ba},
+            {RolePageRatio, "pageRatio"_ba},
+            {RoleFileId, "fileId"_ba},
+            {RoleSelected, "selected"_ba},
+            {RoleOutline, "hasOutline"_ba}};
 }
 
 Qt::ItemFlags PdfEditModel::flags(const QModelIndex &index) const
@@ -641,8 +786,8 @@ void PdfEditModel::changeColumnCount(int colCnt)
     beginResetModel();
     m_columns = colCnt;
     updateMaxPageWidth();
-    m_rows = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
     endResetModel();
+    Q_EMIT columnsChanged();
 }
 
 void PdfEditModel::updateMaxPageWidth()
@@ -650,7 +795,7 @@ void PdfEditModel::updateMaxPageWidth()
     if (m_columns == 0)
         return;
     qreal oldMax = m_maxPageWidth;
-    m_maxPageWidth = (m_viewWidth - ((m_columns + 1) * m_spacing)) / static_cast<qreal>(m_columns);
+    m_maxPageWidth = (m_viewWidth - ((m_columns + 3) * m_spacing)) / static_cast<qreal>(m_columns);
     if (oldMax != m_maxPageWidth)
         Q_EMIT maxPageWidthChanged();
 }
@@ -658,9 +803,9 @@ void PdfEditModel::updateMaxPageWidth()
 void PdfEditModel::pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage)
 {
     Q_UNUSED(pdfPage)
-    int r = pageNr / m_columns;
-    int c = pageNr % m_columns;
-    Q_EMIT dataChanged(index(r, c), index(r, c), QList<int>() << RoleImage);
+    Q_EMIT dataChanged(index(pageNr, 0), index(pageNr, 0), QList<int>() << RoleImage);
+    if (pageNr == 0)
+        Q_EMIT maxPageWidthChanged();
 }
 
 void PdfEditModel::appendPdfFileToModel(PdfFile *pdf)
@@ -701,20 +846,19 @@ void PdfEditModel::prependPdfPages(PdfFile *pdf)
     for (int i = pagesToAdd - 1; i >= 0; --i) {
         m_pageList.prepend(new PdfPage(i, pdf->referenceFileId()));
     }
-    addPagesToModel(pagesToAdd);
+    beginInsertRows(QModelIndex(), 0, pagesToAdd - 1);
+    m_pages += pagesToAdd;
+    endInsertRows();
+    Q_EMIT pageCountChanged();
+    Q_EMIT pdfCountChanged();
+    Q_EMIT dataChanged(index(pagesToAdd, 0), index(m_pages - 1, 0));
 }
 
 void PdfEditModel::addPagesToModel(int pagesToAdd)
 {
+    beginInsertRows(QModelIndex(), m_pages, m_pages + pagesToAdd);
     m_pages += pagesToAdd;
-    int newRowCount = m_pages / m_columns + (m_pages % m_columns > 0 ? 1 : 0);
-    beginInsertRows(QModelIndex(), m_rows, newRowCount - 1);
-    m_rows = newRowCount;
     endInsertRows();
-    if (m_columns < 1) {
-        beginInsertColumns(QModelIndex(), 0, m_columns - 1);
-        endInsertColumns();
-    }
     Q_EMIT pageCountChanged();
     Q_EMIT pdfCountChanged();
 }
@@ -735,7 +879,7 @@ void PdfEditModel::toolProgressSlot(qreal prog)
 bool PdfEditModel::rangeIsInvalid(const PageRange &range)
 {
     if (range.from() < 1 || range.from() > m_pages || range.to() < 1 || range.to() > m_pages) {
-        qDebug() << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n();
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Wrong page range! FIXME!" << range.from() << range.to() << range.type() << range.n() << "pages:" << m_pages;
         return true;
     }
     return false;
@@ -745,7 +889,101 @@ void PdfEditModel::updateCreationTimeInMetadata(PdfFile *pdf)
 {
     auto newDateTime = pdf->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
     if (newDateTime.toSecsSinceEpoch() < m_metaData->creationDate().toSecsSinceEpoch())
-        m_metaData->setCreationDate(newDateTime);
+        m_metaData->setCreationDate(newDateTime, false);
+}
+
+void PdfEditModel::setSelection(int from, int to)
+{
+    if (from == 0 && to == 0) { // reset
+        if (!m_pageRange.isValid())
+            return; // nothing to do
+    } else if (from < 1 || to > m_pages || from > m_pages || to < 1 || from > to) {
+        qCDebug(KARP_LOG) << "{PdfEditModel}" << "Wrong page range!" << "from" << from << "to" << to << "pages" << m_pages;
+        return;
+    }
+    // qDebug() << "SET SELECTION" << "from" << from << "to" << to << "pages" << m_pages;
+    int updateFrom = 0, updateTo = 0;
+    // deselect previously selected pages
+    if (m_pageRange.isValid()) {
+        updateFrom = m_pageRange.from() - 1;
+        updateTo = m_pageRange.to() - 1;
+        for (int p = updateFrom; p <= updateTo; ++p) {
+            if (p < m_pageList.count()) {
+                m_pageList[p]->setSelected(false);
+            }
+        }
+        Q_EMIT dataChanged(index(updateFrom, 0), index(updateTo, 0), QList<int>() << RoleSelected);
+    }
+    if (from == 0 && to == 0) {
+        m_pageRange.reset();
+        Q_EMIT selectionChanged();
+        return;
+    }
+    m_pageRange.setRange(from, to);
+    updateFrom = from - 1;
+    updateTo = to - 1;
+    for (int p = updateFrom; p <= updateTo; ++p) {
+        m_pageList[p]->setSelected(true);
+    }
+    Q_EMIT dataChanged(index(updateFrom, 0), index(updateTo, 0), QList<int>() << RoleSelected);
+    Q_EMIT selectionChanged();
+}
+
+void PdfEditModel::newOutlineSlot(Outline *o)
+{
+    if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
+        return;
+    m_pageList[o->pageNumber()]->addOutline(o);
+}
+
+void PdfEditModel::removeOutlineSlot(Outline *o)
+{
+    if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
+        return;
+    QVector<Outline *> toRemoveList;
+    // cppcheck-suppress constParameter
+    m_bookmarks->walkThrough(o, [&toRemoveList](Outline *const node) {
+        toRemoveList << node;
+    });
+    for (auto &outline : toRemoveList) {
+        int pageNr = outline->pageNumber();
+        if (pageNr < 0 || pageNr >= m_pageList.size())
+            continue;
+        m_pageList[pageNr]->removeOutline(outline);
+        Q_EMIT dataChanged(index(pageNr, 0), index(pageNr, 0), QList<int>() << RoleOutline);
+    }
+}
+
+void PdfEditModel::changeOutlineSlot(Outline *o, const QString &, int newPage)
+{
+    if (!o || o->pageNumber() == newPage)
+        return;
+    if (o->pageNumber() < 0 || o->pageNumber() >= m_pageList.size())
+        return;
+    if (newPage < 0 || newPage >= m_pageList.size())
+        return;
+    if (m_pageList[o->pageNumber()]->removeOutline(o)) {
+        Q_EMIT dataChanged(index(o->pageNumber(), 0), index(o->pageNumber(), 0), QList<int>() << RoleOutline);
+        m_pageList[newPage]->addOutline(o);
+        Q_EMIT dataChanged(index(newPage, 0), index(newPage, 0), QList<int>() << RoleOutline);
+    }
+}
+
+void PdfEditModel::fixOutlinePages(int startPage, int endPage)
+{
+    if (startPage >= m_pageList.size() || endPage >= m_pageList.size())
+        return;
+    for (int p = startPage; p <= endPage; ++p) {
+        auto pg = m_pageList[p];
+        if (pg->hasOutline()) {
+            for (int o = 0; o < pg->outlinesCount(); ++o) {
+                auto oline = pg->getOutline(o);
+                if (oline->pageNumber() != p) {
+                    oline->fixOutlinePage(p);
+                }
+            }
+        }
+    }
 }
 
 #include "moc_pdfeditmodel.cpp"

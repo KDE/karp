@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfpage.h"
+#include "outline.h"
 
 PdfPage::PdfPage(const QImage &image, quint16 origPage, quint16 refFile)
     : m_image(image)
@@ -35,10 +36,51 @@ void PdfPage::setRotated(int r)
     // in any other case it is 0
 }
 
+void PdfPage::setSelected(bool isSel)
+{
+    if (isSel)
+        m_flags |= PageSelected;
+    else
+        m_flags &= ~PageSelected;
+}
+
 qreal PdfPage::ratio() const
 {
     if (m_image.isNull())
         return 1.0;
     else
         return static_cast<qreal>(m_image.height()) / static_cast<qreal>(m_image.width());
+}
+
+// cppcheck-suppress constParameter
+void PdfPage::addOutline(Outline *const o)
+{
+    m_outlines << o;
+}
+
+bool PdfPage::removeOutline(Outline *o)
+{
+    return m_outlines.removeOne(o);
+}
+
+void PdfPage::removeAllOutlines()
+{
+    m_outlines.clear();
+}
+
+Outline *PdfPage::getOutline(int id)
+{
+    if (id < 0 || id >= m_outlines.size())
+        return nullptr;
+    return m_outlines[id];
+}
+
+QStringList PdfPage::outlineModel() const
+{
+    if (m_outlines.isEmpty())
+        return QStringList();
+    QStringList oList;
+    for (const auto *const o : m_outlines)
+        oList << o->title();
+    return oList;
 }

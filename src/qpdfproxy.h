@@ -48,6 +48,6 @@ protected:
     std::string getPagesForRotation(int angle, const QVector<quint16> &pageList);
 
 private:
-    PdfEditModel *m_pdfModel;
-    QThread *m_thread;
+    PdfEditModel *const m_pdfModel;
+    QThread *const m_thread;
 };

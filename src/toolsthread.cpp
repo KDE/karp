@@ -2,12 +2,12 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "toolsthread.h"
+#include "karp_debug.h"
 #include "karpconfig.h"
 #include "pdfeditmodel.h"
 #include "pdffile.h"
 #include "qpdfproxy.h"
 #include "version-karp.h"
-#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QProcess>
@@ -52,7 +52,7 @@ void ToolsThread::resizeByGs(const QString &filePath, int pages)
 void ToolsThread::cancel()
 {
     if (!isRunning())
-        qDebug() << "[ToolsThread]" << "is not running";
+        qCDebug(KARP_LOG) << "[ToolsThread]" << "is not running";
     m_doCancel = true;
 }
 
@@ -61,7 +61,7 @@ QString ToolsThread::qpdfVersion() const
     return QString::fromStdString(QPDF::QPDFVersion());
 }
 
-QString ToolsThread::gsVersion() const
+const QString &ToolsThread::gsVersion() const
 {
     return m_gsVersion;
 }
@@ -115,7 +115,7 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
     p.close();
     QString gsPath;
     if (m_gsVersion.isEmpty()) {
-        qDebug() << "[ToolsThread]" << "Ghostscript not found";
+        qCDebug(KARP_LOG) << "[ToolsThread]" << "Ghostscript not found";
     } else {
 #if defined(Q_OS_UNIX)
         p.setProgram(u"whereis"_s);
@@ -184,8 +184,8 @@ bool ToolsThread::resizeByGsThread()
             auto jobConf = qpdfJob.config();
             jobConf->emptyInput()->outputFile(outInfo.filePath().toStdString());
             auto qpdfPages = jobConf->pages();
-            for (auto &p : pages) {
-                qpdfPages->pageSpec(p.toStdString(), "");
+            for (const auto &pg : pages) {
+                qpdfPages->pageSpec(pg.toStdString(), "");
             }
             qpdfPages->endPages();
             if (pdfModel->pdfVersion() > 0.0) {
@@ -198,13 +198,14 @@ bool ToolsThread::resizeByGsThread()
             auto qpdfSP = qpdfJob.createQPDF();
             auto &qpdf = *qpdfSP;
             QpdfProxy::addMetaToJob(qpdf, pdfModel->metaData());
+            pdfModel->saveBookmarks(qpdf);
             qpdfJob.writeQPDF(qpdf);
         } catch (QPDFUsage &e) {
-            qDebug() << "[ToolsThread]" << "QPDF configuration error: " << e.what();
+            qCDebug(KARP_LOG) << "[ToolsThread]" << "QPDF configuration error: " << e.what();
         } catch (std::exception &e) {
-            qDebug() << "[ToolsThread]" << "QPDF error:" << e.what();
+            qCDebug(KARP_LOG) << "[ToolsThread]" << "QPDF error:" << e.what();
         }
-        // qDebug() << outFileSize / 1024 << outInfo.size() / 1024;
+        // qCDebug(KARP_LOG) << outFileSize / 1024 << outInfo.size() / 1024;
         if (outInfo.size() > outFileSize)
             Q_EMIT progressChanged(GS_REDUCE_NOT_WORKED);
         // override out file with new size, but delete existing file first
@@ -213,8 +214,10 @@ bool ToolsThread::resizeByGsThread()
         QFile::copy(outInfo.filePath(), m_pathArg);
         QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
     }
-    for (auto &tp : pages)
+    for (const auto &tp : pages)
         QFile::remove(tp);
 
     return true;
 }
+
+#include "moc_toolsthread.cpp"

@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Luigi Toscano <luigi.toscano@tiscali.it>
 #
 # extract in a temporarily dummy cpp file
-$EXTRACTRC `find . -name \*.rc -o -name \*.ui -o -name \*.kcfg` >>rc.cpp
+$EXTRACTRC `find . -name \*.kcfg` >>rc.cpp
 # main code files
 $XGETTEXT `find . -name \*.cpp -o -name \*.h -o -name \*.qml` -o $podir/karp.pot
 # cleanup

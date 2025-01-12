@@ -2,13 +2,14 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pdfsorganizer.h"
+#include "karp_debug.h"
 #include "pdfeditmodel.h"
 #include <KLocalizedString>
-#include <QDebug>
 #include <QFileDialog>
 #include <QPdfDocument>
 #include <QStandardPaths>
 #include <QTimer>
+#include <numeric>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -69,14 +70,26 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> PdfListModel::roleNames() const
 {
-    return {{RoleDirName, "path"}, {RoleFileName, "fileName"}, {RolePageCount, "pageCount"}, {RoleLocked, "locked"}, {RoleAllPages, "selectAll"}};
+    return {{RoleDirName, QByteArrayLiteral("path")},
+            {RoleFileName, QByteArrayLiteral("fileName")},
+            {RolePageCount, QByteArrayLiteral("pageCount")},
+            {RoleLocked, QByteArrayLiteral("locked")},
+            {RoleAllPages, QByteArrayLiteral("selectAll")}};
 }
 
 void PdfListModel::move(int fromId, int toId)
 {
     if (fromId < 0 || fromId >= m_rows || toId < 0 || toId >= m_rows)
         return;
+    if (fromId == toId)
+        return;
+    int off = 0;
+    if (toId - fromId == 1)
+        off = 1;
+    if (!beginMoveRows(QModelIndex{}, fromId, fromId, QModelIndex{}, toId + off))
+        return;
     m_pdfFiles.move(fromId, toId);
+    endMoveRows();
 }
 
 void PdfListModel::remove(int fileId)
@@ -111,8 +124,8 @@ int PdfListModel::setPdfPassword(int fileId, const QString &pass)
 // #################################################################################################
 PdfsOrganizer::PdfsOrganizer(QObject *parent)
     : QObject(parent)
+    , m_fileModel(new PdfListModel(this))
 {
-    m_fileModel = new PdfListModel(this);
 }
 
 QVariant PdfsOrganizer::editModel()
@@ -140,19 +153,19 @@ void PdfsOrganizer::setInitFiles(const QVariant &filesVar)
 void PdfsOrganizer::setEditModel(const QVariant &edMod)
 {
     if (m_editModel) {
-        qDebug() << "[PdfsOrganizer]" << "Edit model already set!";
+        qCDebug(KARP_LOG) << "[PdfsOrganizer]" << "Edit model already set!";
         return;
     }
     m_editModel = qvariant_cast<PdfEditModel *>(edMod);
     if (m_editModel == nullptr) {
-        qDebug() << "[PdfsOrganizer]" << "Wrong PDF Edit model! FIXME";
+        qCDebug(KARP_LOG) << "[PdfsOrganizer]" << "Wrong PDF Edit model! FIXME";
         return;
     }
     Q_EMIT editModelChanged();
 
-    for (auto &pdfFile : m_editModel->pdfs()) {
-        m_totalPages += m_fileModel->appendPdfFile(pdfFile);
-    }
+    m_totalPages += std::accumulate(m_editModel->pdfs().cbegin(), m_editModel->pdfs().cend(), 0, [&](int tp, PdfFile *pdfFile) {
+        return tp + m_fileModel->appendPdfFile(pdfFile);
+    });
     Q_EMIT fileModelChanged();
     Q_EMIT totalPagesChanged();
 }
@@ -212,7 +225,7 @@ void PdfsOrganizer::setPdfPassword(int fileId, const QString &pass)
         Q_EMIT totalPagesChanged();
         auto passFileId = m_passFiles.takeFirst();
         if (passFileId != fileId)
-            qDebug() << "[PdfsOrganizer]" << "Password Ids don't match. FIXME!" << fileId << passFileId;
+            qCDebug(KARP_LOG) << "[PdfsOrganizer]" << "Password Ids don't match. FIXME!" << fileId << passFileId;
         if (!m_passFiles.isEmpty()) {
             int nextFileId = m_passFiles.first();
             Q_EMIT passwordRequired(m_fileModel->getPdfFile(nextFileId)->name(), nextFileId);
@@ -225,7 +238,7 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
     if (pdfList.isEmpty())
         return;
 
-    for (auto &pdfFile : pdfList) {
+    for (const auto &pdfFile : pdfList) {
         m_totalPages += m_fileModel->appendFile(pdfFile);
         auto pdf = m_fileModel->lastPdf();
         if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
@@ -233,7 +246,7 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
             m_passFiles << m_fileModel->rows() - 1;
             if (askForPass) {
                 // ask for password with some delay to instantiate all QML stuff
-                QTimer::singleShot(200, this, [=] {
+                QTimer::singleShot(200, this, [this, pdf] {
                     Q_EMIT passwordRequired(pdf->name(), m_passFiles.first());
                 });
             }
@@ -241,3 +254,5 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
     }
     Q_EMIT totalPagesChanged();
 }
+
+#include "moc_pdfsorganizer.cpp"

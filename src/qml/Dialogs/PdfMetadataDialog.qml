@@ -18,6 +18,7 @@ FormCard.FormCardDialog {
 
     title: i18n("PDF properties")
     visible: true
+    closePolicy: Kirigami.PromptDialog.NoAutoClose
     standardButtons: QQC2.DialogButtonBox.Close | QQC2.DialogButtonBox.Save
 
     property var mainWin: Kirigami.ApplicationWindow.window
@@ -103,7 +104,10 @@ FormCard.FormCardDialog {
                     onClicked: singleClickNotification()
                     onDoubleClicked: {
                         copyAnim.start()
-                        targetView.itemAtIndex(index).modelData = modelData
+                        if (index < 6)
+                            targetView.itemAtIndex(index).text = modelData
+                        else
+                            targetView.itemAtIndex(index).dateTime = modelData
                     }
                 }
                 Component.onCompleted: {

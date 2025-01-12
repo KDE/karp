@@ -13,7 +13,7 @@ project(karp VERSION ${RELEASE_SERVICE_VERSION})
 
 include(FeatureSummary)
 
-set(QT6_MIN_VERSION 6.5.0)
+set(QT6_MIN_VERSION 6.8.0)
 set(KF6_MIN_VERSION 6.0.0)
 set(KIRIGAMI_ADDONS_MIN_VERSION 1.5.0)
 
@@ -28,6 +28,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMSetupVersion)
 include(ECMFindQmlModule)
 include(ECMDeprecationSettings)
+include(ECMQtDeclareLoggingCategory)
 if (NOT ANDROID)
     include(KDEGitCommitHooks)
     include(KDEClangFormat)
@@ -49,15 +50,16 @@ if (QT_KNOWN_POLICY_QTP0004)
     qt_policy(SET QTP0004 NEW)
 endif ()
 
-find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Kirigami CoreAddons Config I18n Crash)
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Kirigami CoreAddons Config I18n)
+find_package(KF6 ${KF6_MIN_VERSION} COMPONENTS Crash)
 find_package(KF6KirigamiAddons ${KIRIGAMI_ADDONS_MIN_VERSION})
 set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"
 )
 
-ecm_set_disabled_deprecation_versions(QT 6.8
-    KF 6.9.0
+ecm_set_disabled_deprecation_versions(QT 6.8.1
+    KF 6.10.0
 )
 
 find_package(qpdf REQUIRED)
@@ -70,6 +72,8 @@ if (ANDROID)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
 endif()
 
+add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
+
 add_subdirectory(src)
 
 install(FILES org.kde.karp.desktop DESTINATION ${KDE_INSTALL_APPDIR})
@@ -77,7 +81,13 @@ install(FILES org.kde.karp.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES org.kde.karp.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 ki18n_install(po)
 
-feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+ecm_qt_install_logging_categories(
+    EXPORT KARP
+    FILE karp.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 if (NOT ANDROID)
     file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)

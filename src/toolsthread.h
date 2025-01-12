@@ -11,7 +11,7 @@ class ToolsThread : public QThread
 
 public:
     explicit ToolsThread();
-    ~ToolsThread();
+    ~ToolsThread() override;
 
     static ToolsThread *self()
     {
@@ -36,7 +36,7 @@ public:
     void cancel();
 
     QString qpdfVersion() const;
-    QString gsVersion() const;
+    const QString &gsVersion() const;
 
 Q_SIGNALS:
     void lookingDone();

@@ -13,6 +13,8 @@ Components.FloatingToolBar {
 
     required property PdfEditModel pdfModel
     property alias labelsVisible: labelsAction.checked
+    property alias multiSelect: selectAction.checked
+    property alias showBookmarks: bookmarkAction.checked
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -26,8 +28,9 @@ Components.FloatingToolBar {
             }
 
             onClicked: {
-                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
-                delDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+                let from = pdfModel.firstSelected ? pdfModel.firstSelected : 1
+                let to = pdfModel.lastSelected ? pdfModel.lastSelected : 1
+                delDlgComp.createObject(null, { range: APP.range(from, to) })
             }
 
             QQC2.ToolTip.text: text
@@ -40,8 +43,9 @@ Components.FloatingToolBar {
             text: i18nc("@action:intoolbar", "Select pages to rotate")
             display: QQC2.ToolButton.IconOnly
             onClicked: {
-                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
-                rotDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+                let from = pdfModel.firstSelected ? pdfModel.firstSelected : 1
+                let to = pdfModel.lastSelected ? pdfModel.lastSelected : 1
+                rotDlgComp.createObject(null, { range: APP.range(from, to) })
             }
 
             QQC2.ToolTip.text: text
@@ -54,8 +58,47 @@ Components.FloatingToolBar {
             display: QQC2.ToolButton.IconOnly
             icon.name: "transform-move"
             onClicked: {
-                let pageNr = pdfView.currentColumn > -1 ? pdfView.currentRow * pdfView.columns + pdfView.currentColumn + 1: 1
-                mvDlgComp.createObject(null, { range: APP.range(pageNr, pageNr) })
+                let from = pdfModel.firstSelected ? pdfModel.firstSelected : 1
+                let to = pdfModel.lastSelected ? pdfModel.lastSelected : 1
+                mvDlgComp.createObject(null, { range: APP.range(from, to) })
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            id: bookmarkAction
+            text: i18nc("@action:intoolbar", "Table of Content (Bookmarks)")
+            display: QQC2.ToolButton.IconOnly
+            icon.name: "bookmark-toolbar"
+            checkable: true
+            onClicked: showBookmarks = checked // override default binding to prefer user want to see bookmark pane
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.ToolButton {
+            id: selectAction
+
+            text: i18nc("@action:intoolbar", "Multiple pages selection")
+            display: QQC2.ToolButton.IconOnly
+            icon.name: "view-pages-overview"
+            icon.color: checked ? Kirigami.Theme.highlightColor : undefined
+            checkable: true
+            checked: APP.ctrlPressed
+
+            onClicked: {
+                if (checked) {
+                    checked = true
+                } else {
+                    let currPage = pdfView.currentIndex > -1 ? pdfView.currentIndex : 0
+                    pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false)
+                    checked = Qt.binding(() => APP.ctrlPressed)
+                }
             }
 
             QQC2.ToolTip.text: text
@@ -93,7 +136,7 @@ Components.FloatingToolBar {
             text: i18nc("@action:intoolbar", "Zoom In")
             icon.name: "zoom-in"
             onClicked: pdfModel.zoomIn()
-            enabled: pdfView.columns > 1
+            enabled: pdfModel.columns > 1
             display: QQC2.ToolButton.IconOnly
 
             QQC2.ToolTip.text: text
@@ -103,14 +146,15 @@ Components.FloatingToolBar {
 
         QQC2.SpinBox {
             id: pageSpin
+            property bool canIndexAtY: true
             from: 1; to: pdfModel.pageCount
-            textFromValue: function(value) {
+            textFromValue: (value) => {
                 return i18n("Page %1 of %2", value, to)
             }
-            onValueModified: pdfView.positionViewAtRow((value - 1) / pdfView.columns, TableView.AlignTop)
-            Binding {
-                pageSpin.value: pdfView.cellAtPosition(10, pdfView.contentY + 10, true).y * pdfView.columns + 1
-                delayed: true
+            onValueModified: {
+                canIndexAtY = false
+                pdfView.positionViewAtIndex(value - 1, GridView.Center)
+                canIndexAtY = true
             }
         }
 
@@ -121,7 +165,10 @@ Components.FloatingToolBar {
                 title: i18n("Select pages to delete")
                 acceptText: i18nc("@action:button", "Delete")
                 pageCount: pdfModel.pageCount
-                onAccepted: pdfModel.deletePages(range)
+                onAccepted: {
+                    pdfModel.deletePages(range)
+                    pdfView.currentIndex = -1
+                }
             }
         }
         Component {
@@ -162,6 +209,14 @@ Components.FloatingToolBar {
                 pageCount: pdfModel.pageCount
                 onAccepted: pdfModel.movePages(range, targetPage)
             }
+        }
+    }
+
+    Connections {
+        target: pdfView
+        function onContentYChanged() : void {
+            if (pageSpin.canIndexAtY)
+                pageSpin.value = pdfView.indexAt(10, pdfView.contentY + Math.min(pdfView.cellHeight, pdfView.height / 2)) + 1
         }
     }
 }

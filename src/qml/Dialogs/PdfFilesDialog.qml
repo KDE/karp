@@ -19,6 +19,7 @@ FormCard.FormCardDialog {
     title: i18nc("@title:dialog", "Add and Arrange PDF files")
     width: Kirigami.ApplicationWindow.window.width - Kirigami.Units.gridUnit * 2
     height: Kirigami.ApplicationWindow.window.height - Kirigami.Units.gridUnit * 2
+    closePolicy: Kirigami.PromptDialog.NoAutoClose
 
     PdfsOrganizer {
         id: pdfOrg
@@ -37,67 +38,60 @@ FormCard.FormCardDialog {
         Kirigami.CardsListView {
             id: fileView
 
-            property alias pdfModel: visualModel.model
-
             Layout.fillHeight: true
             Layout.fillWidth: true
 
             clip: true
             spacing: Kirigami.Units.smallSpacing
 
-            model: DelegateModel {
-                id: visualModel
+            model: pdfOrg.fileModel
 
-                model: pdfOrg.fileModel
+            delegate: DropArea {
+                id: delegate
 
-                delegate: DropArea {
-                    id: delegate
+                required property int index
+                required property string path
+                required property string fileName
+                required property int pageCount
+                required property bool locked
+                required property bool selectAll
+                property int visualIndex: index
+                property ListView lv: ListView.view
 
-                    required property int index
-                    required property string path
-                    required property string fileName
-                    required property int pageCount
-                    required property bool locked
-                    required property bool selectAll
-                    property int visualIndex: DelegateModel.itemsIndex
-                    property ListView lv: ListView.view
+                width: lv.width - Kirigami.Units.gridUnit * 2
+                height: pdfDelegate.height
 
-                    width: lv.width - Kirigami.Units.gridUnit * 2
-                    height: pdfDelegate.height
+                PdfFileDelegate {
+                    id: pdfDelegate
 
-                    PdfFileDelegate {
-                        id: pdfDelegate
+                    property int visualIndex: delegate.index
 
-                        property int visualIndex: delegate.visualIndex
+                    z: dragActive ? 5 : 1
+                    width: parent.width
+                    Drag.active: dragActive
+                    Drag.source: pdfDelegate
+                    Drag.hotSpot.y: height / 2
 
-                        z: dragActive ? 5 : 1
-                        width: parent.width
-                        Drag.active: dragActive
-                        Drag.source: pdfDelegate
-                        Drag.hotSpot.y: height / 2
-
-                        states: [
-                            State {
-                                when: pdfDelegate.dragActive
-                                ParentChange {
-                                    target: pdfDelegate
-                                    parent: fileView.contentItem
-                                }
+                    states: [
+                        State {
+                            when: pdfDelegate.dragActive
+                            ParentChange {
+                                target: pdfDelegate
+                                parent: fileView.contentItem
                             }
-                        ]
-                    }
-                    onEntered: function (drag) {
-                        let from = (drag.source as PdfFileDelegate).visualIndex;
-                        let to = pdfDelegate.visualIndex;
-                        // Previously loaded PDF-s are locked and we don't allow to move new files between them.
-                        // Item (new file) can be moved before or after already loaded PDF-s
-                        if (locked) {
-                            if (to > 0 && to < lv.count - 1)
-                                return;
                         }
-                        visualModel.items.move(from, to);
-                        pdfOrg.fileModel.move(from, to);
+                    ]
+                }
+                onEntered: drag => {
+                    let from = (drag.source as PdfFileDelegate).visualIndex;
+                    let to = pdfDelegate.visualIndex;
+                    // Previously loaded PDF-s are locked and we don't allow to move new files between them.
+                    // Item (new file) can be moved before or after already loaded PDF-s
+                    if (locked) {
+                        if (to > 0 && to < lv.count - 1)
+                            return;
                     }
+                    pdfOrg.fileModel.move(from, to);
                 }
             }
 
@@ -154,4 +148,5 @@ FormCard.FormCardDialog {
         pdfOrg.applyNewFiles();
         close();
     }
+    onClosed: destroy()
 }

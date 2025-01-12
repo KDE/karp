@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['Linux/Qt6', 'Android/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+- 'on': ['Linux', 'Android', 'FreeBSD', 'Windows']
   'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/kcolorscheme': '@latest-kf6'
@@ -10,14 +10,17 @@ Dependencies:
     'frameworks/kconfig': '@latest-kf6'
     'frameworks/ki18n': '@latest-kf6'
     'frameworks/kirigami': '@latest-kf6'
-    'frameworks/kcrash': '@latest-kf6'
     'libraries/kirigami-addons': '@latest-kf6'
 
-- 'on': ['Linux/Qt6/Shared', 'FreeBSD/Qt6/Shared', 'Windows/Qt6/Shared']
+- 'on': ['Linux', 'FreeBSD', 'Windows']
+  'require':
+    'frameworks/kcrash': '@latest-kf6'
+
+- 'on': ['Linux/Shared', 'FreeBSD/Shared', 'Windows/Shared']
   'require':
     'frameworks/qqc2-desktop-style': '@latest-kf6'
 
-- 'on': ['Linux/Qt6/Static']
+- 'on': ['Linux/Static']
   'require':
     'plasma/qqc2-breeze-style': '@latest-kf6'
 

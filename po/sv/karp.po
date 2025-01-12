@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-11 00:38+0000\n"
-"PO-Revision-Date: 2024-12-03 20:37+0100\n"
+"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"PO-Revision-Date: 2025-01-11 21:26+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -27,27 +27,27 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: app.cpp:56 pdfeditmodel.cpp:474
+#: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
 msgid "PDF file to edit"
 msgstr "PDF-fil att redigera"
 
-#: app.cpp:86 pdfsorganizer.cpp:178
+#: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "Välj PDF-filer"
 
-#: app.cpp:171
+#: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF saknas."
 
-#: app.cpp:175
+#: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript saknas."
 
-#: app.cpp:178
+#: app.cpp:191
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -56,101 +56,171 @@ msgstr ""
 "Installera programmen som nämns ovan, annars är inte alla funktioner "
 "tillgängliga."
 
-#: app.cpp:200
+#: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Lägg till PDF-filer"
 
-#: app.cpp:210
+#: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Rensa alla filer"
 
-#: app.cpp:224
+#: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimera PDF"
 
-#: app.cpp:233
+#: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Reducera storlek"
 
-#: app.cpp:242
+#: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Ange lösenord"
 
-#: app.cpp:251
+#: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "PDF-metadata"
 
-#: main.cpp:74
+#: main.cpp:107
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:78
+#: main.cpp:111
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "KDE-arrangör för PDF:er"
 
-#: main.cpp:82
-#, kde-format
-msgid "(c) 2024 Tomasz Bojczuk"
+#: main.cpp:115
+#, fuzzy, kde-format
+#| msgid "(c) 2024 Tomasz Bojczuk"
+msgid "(c) 2024-2025 Tomasz Bojczuk"
 msgstr "© 2024 Tomasz Bojczuk"
 
-#: main.cpp:83
+#: main.cpp:116
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:84
+#: main.cpp:117
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Underhåll"
 
-#: pdfeditmodel.cpp:417
+#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
+#, kde-format
 msgid "Title"
 msgstr "Titel"
 
-#: pdfeditmodel.cpp:418
+#: pdfeditmodel.cpp:515
 msgid "Subject"
 msgstr "Rubrik"
 
-#: pdfeditmodel.cpp:419
+#: pdfeditmodel.cpp:516
 msgid "Author"
 msgstr "Författare"
 
-#: pdfeditmodel.cpp:420
+#: pdfeditmodel.cpp:517
 msgid "Keyword"
 msgstr "Nyckelord"
 
-#: pdfeditmodel.cpp:421
+#: pdfeditmodel.cpp:518
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:422
+#: pdfeditmodel.cpp:519
 msgid "Creator"
 msgstr "Skapare"
 
-#: pdfeditmodel.cpp:423
+#: pdfeditmodel.cpp:520
 msgid "Creation Date"
 msgstr "Skapad datum"
 
-#: pdfeditmodel.cpp:424
+#: pdfeditmodel.cpp:521
 msgid "Modification Date"
 msgstr "Ändringsdatum"
+
+#: qml/Bookmarks/OutlineDialog.qml:21
+#, kde-format
+msgid "Edit Chapter"
+msgstr "Redigera kapitel"
+
+#: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "första"
+
+#: qml/Bookmarks/OutlineDialog.qml:55
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr "pekar på sida"
+
+#: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "sista"
+
+#: qml/Bookmarks/OutlineDialog.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "Ta bort"
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, kde-format
+msgctxt "@action:button"
+msgid "Save"
+msgstr "Spara"
+
+#: qml/Bookmarks/OutlineDialog.qml:82
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr "Lägg till"
+
+#: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: qml/Bookmarks/TOCView.qml:90
+#, kde-format
+msgid "Add Chapter"
+msgstr "Lägg till kapitel"
+
+#: qml/Bookmarks/TOCView.qml:112
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Above"
+msgstr "Infoga ovanför"
+
+#: qml/Bookmarks/TOCView.qml:120
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Below"
+msgstr "Infoga nedanför"
+
+#: qml/Bookmarks/TOCView.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add Subsection"
+msgstr "Lägg till delavsnitt"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -192,11 +262,10 @@ msgid "page"
 msgstr "sida"
 
 #: qml/Dialogs/PdfFileDelegate.qml:61
-#, fuzzy, kde-format
-#| msgid "%1 pages"
+#, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] "%1 sidor"
+msgstr[0] "%1 sida"
 msgstr[1] "%1 sidor"
 
 #: qml/Dialogs/PdfFileDelegate.qml:75
@@ -220,62 +289,51 @@ msgid "Select pages to add"
 msgstr "Markera sidor att lägga till"
 
 #: qml/Dialogs/PdfFilesDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Add and arrange PDF files"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "Lägg till och arrangera PDF-filer"
 
-#: qml/Dialogs/PdfFilesDialog.qml:115
-#, fuzzy, kde-format
-#| msgid "Select one or more PDF files."
+#: qml/Dialogs/PdfFilesDialog.qml:109
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr "Markera en eller flera PDF-filer."
+msgstr "Lägg till en eller flera PDF-filer för att fortsätta"
 
-#: qml/Dialogs/PdfFilesDialog.qml:118 qml/Dialogs/PdfFilesDialog.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
+#, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr "Lägg till PDF-filer"
+msgstr "Lägg till PDF"
 
-#: qml/Dialogs/PdfFilesDialog.qml:133
-#, fuzzy, kde-format
-#| msgid "Total pages"
+#: qml/Dialogs/PdfFilesDialog.qml:127
+#, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr "Totalt antal sidor"
+msgstr "Totalt antal sidor: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:144
+#: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
-
-#: qml/Dialogs/PdfFilesDialog.qml:149
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr ""
+msgstr "Verkställ"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:19
 #, kde-format
 msgid "PDF properties"
 msgstr "PDF-egenskaper"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:54
+#: qml/Dialogs/PdfMetadataDialog.qml:55
 #, kde-format
 msgid "Output PDF"
 msgstr "Utdata-PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:131
+#: qml/Dialogs/PdfMetadataDialog.qml:135
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Kopiera alla metadatanycklar till utdatafilen"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:157
+#: qml/Dialogs/PdfMetadataDialog.qml:161
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Dubbelklicka för att kopiera metadata till PDF-utdatafilen."
@@ -289,16 +347,6 @@ msgstr "Lösenord krävs"
 #, kde-format
 msgid "Provide password to open file %1"
 msgstr "Ange lösenord för att öppna filen %1"
-
-#: qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "första"
-
-#: qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "sista"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
@@ -326,12 +374,10 @@ msgid "Quit"
 msgstr "Avsluta"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As"
-msgstr "Spara som..."
+msgstr "Spara som"
 
 #: qml/MainPage.qml:33
 #, kde-format
@@ -352,112 +398,114 @@ msgid "PDF Options"
 msgstr "PDF-alternativ"
 
 #: qml/MainPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set PDF version"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr "Ställ in PDF-version"
+msgstr "PDF-version"
 
 #: qml/MainPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "like default PDF version"
-#| msgid "default"
+#, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
-msgstr "standardvärde"
+msgstr "Standardvärde"
 
 #: qml/MainPage.qml:78
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "Version %1"
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Set password"
 msgstr "Ange lösenord"
 
-#: qml/MainPage.qml:285
+#: qml/MainPage.qml:247
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Skydda PDF-fil med lösenord."
 
-#: qml/MainToolbar.qml:21
-#, fuzzy, kde-format
-#| msgid "Select pages to delete"
+#: qml/MainToolbar.qml:23
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Markera sidor att ta bort"
 
-#: qml/MainToolbar.qml:40
-#, fuzzy, kde-format
-#| msgid "Select pages to rotate"
+#: qml/MainToolbar.qml:43
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Markera sidor att rotera"
 
-#: qml/MainToolbar.qml:53
-#, fuzzy, kde-format
-#| msgid "Select pages to move"
+#: qml/MainToolbar.qml:57
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Markera sidor att flytta"
 
-#: qml/MainToolbar.qml:69
-#, fuzzy, kde-format
-#| msgid "Show page labels"
+#: qml/MainToolbar.qml:73
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Table of Content (Bookmarks)"
+msgstr "Innehållsförteckning (bokmärken)"
+
+#: qml/MainToolbar.qml:87
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "Markering av flera sidor"
+
+#: qml/MainToolbar.qml:112
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
-msgstr "Visa sidbeteckningar"
+msgstr "Visa sidobeteckningar"
 
-#: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgid "Zoom Out"
+#: qml/MainToolbar.qml:124
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Zooma ut"
 
-#: qml/MainToolbar.qml:93
-#, fuzzy, kde-format
-#| msgid "Zoom In"
+#: qml/MainToolbar.qml:136
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Zooma in"
 
-#: qml/MainToolbar.qml:108
+#: qml/MainToolbar.qml:152
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Sida %1 av %2"
 
-#: qml/MainToolbar.qml:121
+#: qml/MainToolbar.qml:165
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Markera sidor att ta bort"
 
-#: qml/MainToolbar.qml:122
+#: qml/MainToolbar.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Ta bort"
 
-#: qml/MainToolbar.qml:133
+#: qml/MainToolbar.qml:180
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Markera sidor att rotera"
 
-#: qml/MainToolbar.qml:134
+#: qml/MainToolbar.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Rotera"
 
-#: qml/MainToolbar.qml:143
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgid "Angle"
 msgstr "Vinkel"
 
-#: qml/MainToolbar.qml:161
+#: qml/MainToolbar.qml:208
 #, kde-format
 msgid "Select pages to move"
 msgstr "Markera sidor att flytta"
