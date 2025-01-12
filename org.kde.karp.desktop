@@ -54,4 +54,5 @@ Exec=karp %U
 Icon=org.kde.karp
 Type=Application
 Terminal=false
+MimeType=application/pdf;
 Categories=Office;Utility;
