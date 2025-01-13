@@ -454,10 +454,16 @@ void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstr
     }
 }
 
-void BookmarkModel::addNode(Outline *node)
+void BookmarkModel::registerNode(Outline *node)
 {
     m_counter++;
     Q_EMIT outlineAdded(node);
+}
+
+void BookmarkModel::unregisterNode(Outline *node)
+{
+    Q_UNUSED(node);
+    m_counter--;
 }
 
 void BookmarkModel::iterate(const QModelIndex &parentIndex, const std::function<bool(const QModelIndex &)> &funct)

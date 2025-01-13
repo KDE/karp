@@ -12,11 +12,13 @@ Outline::Outline(int page, Outline *parentNode)
 {
     // register all nodes except root one which is empty
     if (parentNode)
-        BookmarkModel::self()->addNode(this);
+        BookmarkModel::self()->registerNode(this);
 }
 
 Outline::~Outline()
 {
+    if (m_parentNode)
+        BookmarkModel::self()->unregisterNode(this);
     clear();
 }
 

@@ -137,7 +137,8 @@ protected:
      */
     void iterate(const QModelIndex &index, const std::function<bool(const QModelIndex &)> &funct);
 
-    void addNode(Outline *node);
+    void registerNode(Outline *node);
+    void unregisterNode(Outline *node);
 
     /**
      * Emits @p dataChanged for index of given @p Outline
