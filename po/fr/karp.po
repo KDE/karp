@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
 "PO-Revision-Date: 2024-12-27 08:59+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -13,16 +13,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 24.12.0\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Xavier Besnard"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "xavier.besnard@kde.org"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -101,10 +91,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Arrangeur de fichiers « PDF » pour KDE"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "(c) 2024 Tomasz Bojczuk"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -114,9 +103,15 @@ msgstr "Tomasz Bojczuk"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "Mainteneur"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Xavier Besnard"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xavier.besnard@kde.org"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -151,7 +146,7 @@ msgstr "Date de création"
 msgid "Modification Date"
 msgstr "Date de modification"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
 msgstr ""
@@ -648,6 +643,15 @@ msgstr "À propos de Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "À propos de KDE"
+
+#, fuzzy
+#~| msgid "(c) 2024 Tomasz Bojczuk"
+#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
+#~ msgstr "(c) 2024 Tomasz Bojczuk"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "Mainteneur"
 
 #~ msgctxt "@option:check"
 #~ msgid "Show PDF File Path"

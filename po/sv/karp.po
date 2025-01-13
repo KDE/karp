@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
-"PO-Revision-Date: 2025-01-11 21:26+0100\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
+"PO-Revision-Date: 2025-01-12 08:45+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -16,16 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.12.0\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Stefan Asserhäll"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "stefan.asserhall@gmail.com"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -104,10 +94,9 @@ msgid "KDE arranger for PDFs"
 msgstr "KDE-arrangör för PDF:er"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "© 2024 Tomasz Bojczuk"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -117,9 +106,15 @@ msgstr "Tomasz Bojczuk"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "Underhåll"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@gmail.com"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -154,7 +149,7 @@ msgstr "Skapad datum"
 msgid "Modification Date"
 msgstr "Ändringsdatum"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
 msgstr "Redigera kapitel"
@@ -639,6 +634,14 @@ msgstr "Om Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Om KDE"
+
+#~| msgid "(c) 2024 Tomasz Bojczuk"
+#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
+#~ msgstr "© 2024-2025 Tomasz Bojczuk"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "Underhåll"
 
 #, fuzzy
 #~| msgid "show PDF path"

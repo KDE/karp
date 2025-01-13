@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
-"PO-Revision-Date: 2025-01-11 14:18+0100\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
+"PO-Revision-Date: 2025-01-12 05:20+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -17,16 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.5\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Temuri Doghonadze"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "temuri.doghonadze@gmail.com"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -105,10 +95,9 @@ msgid "KDE arranger for PDFs"
 msgstr "PDF-ების დამლაგებელი PDF-ებისთვის"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "(c) 2024 ტომაშ ბოიჩუკი"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -118,9 +107,15 @@ msgstr "ტომაშ ბოიჩუკი"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "წამყვანი პროგრამისტი"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Temuri Doghonadze"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "temuri.doghonadze@gmail.com"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -155,7 +150,7 @@ msgstr "შეცვლის თარიღის მიხედვით"
 msgid "Modification Date"
 msgstr "ცვლილების თარიღი"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
 msgstr "თავის ჩასწორება"
@@ -642,6 +637,13 @@ msgstr "Karp-ის შესახებ"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE-ის შესახებ"
+
+#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
+#~ msgstr "(c) 2024-2025 ტომაშ ბოიჩუკი"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "წამყვანი პროგრამისტი"
 
 #~ msgctxt "@option:check"
 #~ msgid "Show PDF File Path"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
-"PO-Revision-Date: 2025-01-11 17:08+0300\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
+"PO-Revision-Date: 2025-01-12 13:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,16 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.03.70\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Emir SARI"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "emir_sari@icloud.com"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -104,10 +94,9 @@ msgid "KDE arranger for PDFs"
 msgstr "PDF Düzenleyicisi"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "© 2024 Tomasz Bojczuk"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -117,9 +106,15 @@ msgstr "Tomasz Bojczuk"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "Bakımcı"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Emir SARI"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "emir_sari@icloud.com"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -154,7 +149,7 @@ msgstr "Oluşturulma Tarihi"
 msgid "Modification Date"
 msgstr "Değiştirilme Tarihi"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
 msgstr "Faslı Düzenle"
@@ -640,6 +635,14 @@ msgstr "Karp Hakkında"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE Hakkında"
+
+#~| msgid "(c) 2024 Tomasz Bojczuk"
+#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
+#~ msgstr "© 2024–2025 Tomasz Bojczuk"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "Bakımcı"
 
 #~ msgctxt "@option:check"
 #~ msgid "Show PDF File Path"

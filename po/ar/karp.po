@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
-"PO-Revision-Date: 2024-12-31 20:12+0400\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
+"PO-Revision-Date: 2025-01-12 12:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,16 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "عمر أبو محمد Omar TS"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "omats@vivaldi.net"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -103,10 +93,9 @@ msgid "KDE arranger for PDFs"
 msgstr "منظم كيدي لملفات بي دي اف"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "(c) 2024 توماس بوجشوك"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -116,9 +105,15 @@ msgstr "توماس بوجشوك"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "الصائن"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "عمر أبو محمد Omar TS"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "omats@vivaldi.net"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -153,10 +148,10 @@ msgstr "تاريخ الإنشاء"
 msgid "Modification Date"
 msgstr "تاريخ التعديل"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "حرر الفصل"
 
 #: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -167,7 +162,7 @@ msgstr "الأول"
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "المراجع للصفحة"
 
 #: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
@@ -178,23 +173,19 @@ msgstr "الأخير"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "أزل"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "احفظ"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr "أضف بي دي اف"
+msgstr "أضف"
 
 #: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
@@ -205,25 +196,25 @@ msgstr "ألغِ"
 #: qml/Bookmarks/TOCView.qml:90
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "أضف فصلًا"
 
 #: qml/Bookmarks/TOCView.qml:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "أدرج في الأعلى"
 
 #: qml/Bookmarks/TOCView.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "أدرج في الأسفل"
 
 #: qml/Bookmarks/TOCView.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "أضف قسم فرعي"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -458,7 +449,7 @@ msgstr "حدد صفحات للنقل"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "جدول المحتويات (العلامات)"
 
 #: qml/MainToolbar.qml:87
 #, kde-format
@@ -650,6 +641,15 @@ msgstr "حول كارب"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "حول كيدي"
+
+#, fuzzy
+#~| msgid "(c) 2024 Tomasz Bojczuk"
+#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
+#~ msgstr "(c) 2024 توماس بوجشوك"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "الصائن"
 
 #, fuzzy
 #~| msgid "show PDF path"

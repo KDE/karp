@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
 "PO-Revision-Date: 2024-12-28 15:33+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -16,16 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.03.70\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Luigi Toscano"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "luigi.toscano@tiscali.it"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -104,10 +94,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Organizzatore KDE di PDF"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "(c) 2024 Tomasz Bojczuk"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -117,9 +106,15 @@ msgstr "Tomasz Bojczuk"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "Responsabile"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Luigi Toscano"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "luigi.toscano@tiscali.it"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -154,7 +149,7 @@ msgstr "Data di creazione"
 msgid "Modification Date"
 msgstr "Data di modifica"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
 msgstr ""
@@ -647,6 +642,15 @@ msgstr "Informazioni su Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Informazioni su KDE"
+
+#, fuzzy
+#~| msgid "(c) 2024 Tomasz Bojczuk"
+#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
+#~ msgstr "(c) 2024 Tomasz Bojczuk"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "Responsabile"
 
 #, fuzzy
 #~| msgid "show PDF path"

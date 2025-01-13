@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -16,16 +16,6 @@ msgstr ""
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /kf6-trunk/messages/karp/karp.pot\n"
 "X-Crowdin-File-ID: 56708\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Tyson Tan"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "tds00@qq.com"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -102,10 +92,9 @@ msgid "KDE arranger for PDFs"
 msgstr "KDE 的 PDF 编辑器"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "(c) 2024 Tomasz Bojczuk"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -115,9 +104,15 @@ msgstr "Tomasz Bojczuk"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "维护者"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tyson Tan"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tds00@qq.com"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -152,10 +147,10 @@ msgstr "创建日期"
 msgid "Modification Date"
 msgstr "修改日期"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "编辑章节"
 
 #: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -166,7 +161,7 @@ msgstr "第一页"
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "指向页面"
 
 #: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
@@ -177,19 +172,19 @@ msgstr "最后一页"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
@@ -200,25 +195,25 @@ msgstr "取消"
 #: qml/Bookmarks/TOCView.qml:90
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "添加章节"
 
 #: qml/Bookmarks/TOCView.qml:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "插入上方"
 
 #: qml/Bookmarks/TOCView.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "插入下方"
 
 #: qml/Bookmarks/TOCView.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "添加子小节"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -443,7 +438,7 @@ msgstr "选择要移动的页面"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "目录 (书签)"
 
 #: qml/MainToolbar.qml:87
 #, kde-format
@@ -635,3 +630,7 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "维护者"

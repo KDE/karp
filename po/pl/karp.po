@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024 Tomasz Bojczuk <seelook@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Tomasz Bojczuk <seelook@gmail.com>
 # SPDX-FileCopyrightText: 2024 Tomasz Bojczuk <seelook@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:40+0000\n"
-"PO-Revision-Date: 2024-12-16 10:45+0100\n"
+"POT-Creation-Date: 2025-01-13 00:39+0000\n"
+"PO-Revision-Date: 2025-01-12 14:38+0100\n"
 "Last-Translator: Tomasz Bojczuk <seelook@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,17 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.2\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Tomasz Bojczuk"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "seelook@gmail.com"
+"X-Generator: Poedit 3.5\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -106,10 +96,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Aranżer PDF-ów dla KDE"
 
 #: main.cpp:115
-#, fuzzy, kde-format
-#| msgid "(c) 2024 Tomasz Bojczuk"
-msgid "(c) 2024-2025 Tomasz Bojczuk"
-msgstr "© Tomasz Bojczuk, 2024"
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr ""
 
 #: main.cpp:116
 #, kde-format
@@ -119,9 +108,15 @@ msgstr "Tomasz Bojczuk"
 
 #: main.cpp:117
 #, kde-format
-msgctxt "@info:credit"
-msgid "Maintainer"
-msgstr "Opiekun"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tomasz Bojczuk"
+
+#: main.cpp:117
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "seelook@gmail.com"
 
 #: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
 #, kde-format
@@ -156,10 +151,10 @@ msgstr "Data utworzenia"
 msgid "Modification Date"
 msgstr "Data modyfikacji"
 
-#: qml/Bookmarks/OutlineDialog.qml:21
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "Edytuj rozdział"
 
 #: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -170,7 +165,7 @@ msgstr "pierwsza"
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "odnosi się do strony"
 
 #: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
@@ -181,23 +176,19 @@ msgstr "ostatnia"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Usuń"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "Zapisz"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr "Dodaj PDF"
+msgstr "Dodaj"
 
 #: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
@@ -208,25 +199,25 @@ msgstr "Anuluj"
 #: qml/Bookmarks/TOCView.qml:90
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "Dodaj rozdział"
 
 #: qml/Bookmarks/TOCView.qml:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "Wstaw powyżej"
 
 #: qml/Bookmarks/TOCView.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "Wstaw poniżej"
 
 #: qml/Bookmarks/TOCView.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "Dodaj podrozdział"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -456,14 +447,13 @@ msgstr "Wybierz strony do przesunięcia"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "Spis treści (zakładki)"
 
 #: qml/MainToolbar.qml:87
-#, fuzzy, kde-format
-#| msgid "all pages in selected range"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr "wszystkie strony z wybranego zakresu"
+msgstr "Zaznaczanie wielu stron"
 
 #: qml/MainToolbar.qml:112
 #, kde-format
@@ -649,6 +639,15 @@ msgstr "O aplikacji Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O  KDE"
+
+#, fuzzy
+#~| msgid "(c) 2024 Tomasz Bojczuk"
+#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
+#~ msgstr "© Tomasz Bojczuk, 2024"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Maintainer"
+#~ msgstr "Opiekun"
 
 #~ msgctxt "@option:check"
 #~ msgid "Show PDF File Path"
