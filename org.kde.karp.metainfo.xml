@@ -71,6 +71,7 @@
     <p xml:lang="gl">Karp fornece unha interface simple para modificar ficheiros PDF. Permítelle facer o seguinte en poucas premas:</p>
     <p xml:lang="he">Karp - מספק ממשק משתמש פשוט לשינויים בקובצי PDF. במספר לחיצות עכבר אפשר:</p>
     <p xml:lang="hi">कार्प - पीडीएफ फाइलों में संशोधन के लिए सरल यूआई देता है। कुछ माउस स्ट्रोक के साथ उपयोगकर्ता कर सकते हैं:</p>
+    <p xml:lang="ia">Karp - da simple UI per modfiicationes de files PDF. Con pauc movimentos de mus le usator pote:</p>
     <p xml:lang="it">Karp - fornisce una semplice interfaccia per la modifica di file PDF. Con pochi movimenti di mouse l'utente può:</p>
     <p xml:lang="ka">Karp - მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
     <p xml:lang="nl">Karp - geeft een eenvoudige UI voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
@@ -95,6 +96,7 @@
       <li xml:lang="gl">Engadir máis ficheiros PDF e fusionalos.</li>
       <li xml:lang="he">להוסיף עוד קובצי PDF ולמזג</li>
       <li xml:lang="hi">अधिक PDF फ़ाइलें जोड़ें और मर्ज करें</li>
+      <li xml:lang="ia">Adjunger plus files PDF e fusionar</li>
       <li xml:lang="it">Appendere più file PDF e fonderli</li>
       <li xml:lang="ka">მიაწეროს ბოლოში PDF ფაილები ერთმანეთს და მათი შერწყმა</li>
       <li xml:lang="nl">Meer PDF bestanden achter voegen en mengen</li>
@@ -118,6 +120,7 @@
       <li xml:lang="gl">Eliminar, rotar e reorganizar as páxinas.</li>
       <li xml:lang="he">למחוק, לסובב ולסדר עמודים מחדש</li>
       <li xml:lang="hi">पृष्ठों को हटाएं, घुमाएं और पुनः क्रमित करें</li>
+      <li xml:lang="ia">Deler, rotar e reorinar paginas</li>
       <li xml:lang="it">Eliminare, ruotare e riordinare pagine</li>
       <li xml:lang="ka">გვერდების წაშლა, შებრუნება და გადალაგება</li>
       <li xml:lang="nl">Pagina's verwijderen, draaien en opnieuw ordenen</li>
@@ -165,6 +168,7 @@
       <li xml:lang="gl">Optimizar as imaxes.</li>
       <li xml:lang="he">למטב תמונות</li>
       <li xml:lang="hi">छवियों को अनुकूलित करें</li>
+      <li xml:lang="ia">Optimisar images</li>
       <li xml:lang="it">Ottimizzare le immagini</li>
       <li xml:lang="ka">სურათების ოპტიმიზაცია</li>
       <li xml:lang="nl">Afbeeldingen optimaliseren</li>
@@ -188,6 +192,7 @@
       <li xml:lang="gl">Ver e modificar as propiedades dun PDF.</li>
       <li xml:lang="he">להציג ולשנות מאפיינים של PDF</li>
       <li xml:lang="hi">PDF गुण देखें और संशोधित करें</li>
+      <li xml:lang="ia">Vider e modificar proprietates de PDF</li>
       <li xml:lang="it">Visualizzare e modificare le proprietà dei PDF</li>
       <li xml:lang="ka">PDF თვისებების ნახვა და შეცვლა</li>
       <li xml:lang="nl">PDF eigenschappen bekijken en wijzigen</li>
@@ -247,6 +252,7 @@
       <caption xml:lang="gl">A xanela principal de Karp con páxinas dun ficheiro PDF.</caption>
       <caption xml:lang="he">החלון הראשי של Karp עם עמודים של קובץ PDF</caption>
       <caption xml:lang="hi">पीडीएफ फाइल के पृष्ठों के साथ कार्प मुख्य विंडो</caption>
+      <caption xml:lang="ia">Fenestra principalde Karp conpaginas de file PDF</caption>
       <caption xml:lang="it">La finestra principale di Karp con pagine di un file PDF</caption>
       <caption xml:lang="ka">Karp-ის მთავარი ფანჯარა PDF ფაილის გვერდებით</caption>
       <caption xml:lang="nl">Hoofdvenster van Karp met pagina's van PDF-bestand</caption>
@@ -272,6 +278,7 @@
       <caption xml:lang="gl">Inclusión dun ficheiro PDF protexido por contrasinal.</caption>
       <caption xml:lang="he">הוספת קובץ PDF מוגן בסיסמה</caption>
       <caption xml:lang="hi">पासवर्ड से सुरक्षित पीडीएफ फाइल जोड़ना</caption>
+      <caption xml:lang="ia">Adjunger filePDF protegite per contrasigno</caption>
       <caption xml:lang="it">Aggiunta di un file PDF protetto da password</caption>
       <caption xml:lang="ka">პაროლით დაცული PDF ფაილის ბოლოში მიწერა</caption>
       <caption xml:lang="nl">PDF-bestand, beveiligd met wachtwoord, wordt achter gevoegd</caption>
