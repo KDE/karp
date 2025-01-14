@@ -7,6 +7,7 @@
 #include <QPdfDocument>
 
 class QPdfPageRenderer;
+class QThread;
 class PdfPage;
 
 #define NO_PAGE_ID (65535)
@@ -104,7 +105,10 @@ protected:
         }
     };
 
+    void threadSlot();
+
 private:
+    QThread *m_thread;
     quint16 m_refFileId = 0;
     PdfFileFlags m_state = PdfNotAdded;
     QPdfPageRenderer *m_renderer = nullptr;

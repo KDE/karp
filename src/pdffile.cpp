@@ -7,18 +7,24 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QPdfPageRenderer>
+#include <QThread>
 #include <algorithm>
 
 PdfFile::PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s)
     : QPdfDocument()
+    , m_thread(new QThread)
     , m_refFileId(refFileId)
     , m_state(s)
 {
+    moveToThread(m_thread);
+    connect(m_thread, &QThread::started, this, &PdfFile::threadSlot);
     setFile(pdfFileName);
 }
 
 PdfFile::~PdfFile()
 {
+    m_thread->wait();
+    m_thread->deleteLater();
     if (m_renderer)
         m_renderer->deleteLater();
 }
@@ -28,7 +34,7 @@ void PdfFile::setFile(const QString &fileName)
     if (!m_renderer) {
         m_renderer = new QPdfPageRenderer();
         m_renderer->setDocument(this);
-        m_renderer->setRenderMode(QPdfPageRenderer::RenderMode::MultiThreaded);
+        // m_renderer->setRenderMode(QPdfPageRenderer::RenderMode::MultiThreaded);
         connect(m_renderer, &QPdfPageRenderer::pageRendered, this, &PdfFile::requestPageSlot);
     }
     QFileInfo pdfInfo(fileName);
@@ -46,7 +52,7 @@ void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageI
         }))
         return;
     m_pagesToRender << PageToRender(pdfPage, pageId, pageSize);
-    m_renderer->requestPage(pdfPage->origPage(), pageSize);
+    m_thread->start();
 }
 
 void PdfFile::requestPageSlot(int pageNumber, QSize imageSize, const QImage &img)
@@ -56,11 +62,21 @@ void PdfFile::requestPageSlot(int pageNumber, QSize imageSize, const QImage &img
     if (pageNumber != renderedPage.pdfPage->origPage())
         qCDebug(KARP_LOG) << "[PdfFile]" << "Wrong page rendered! FIXME!" << pageNumber << renderedPage.pdfPage->origPage();
     renderedPage.pdfPage->setImage(img);
-    if (!m_pagesToRender.isEmpty()) {
+    if (m_pagesToRender.isEmpty()) {
+        m_thread->quit();
+    } else {
         auto &pageToRender = m_pagesToRender.first();
         m_renderer->requestPage(pageToRender.pdfPage->origPage(), pageToRender.size);
     }
     Q_EMIT pageRendered(renderedPage.pageId, renderedPage.pdfPage);
+}
+
+void PdfFile::threadSlot()
+{
+    if (!m_pagesToRender.isEmpty()) {
+        auto &pageToRender = m_pagesToRender.first();
+        m_renderer->requestPage(pageToRender.pdfPage->origPage(), pageToRender.size);
+    }
 }
 
 #include "moc_pdffile.cpp"
