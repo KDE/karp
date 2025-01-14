@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-13 00:39+0000\n"
-"PO-Revision-Date: 2024-12-27 08:33+0200\n"
+"PO-Revision-Date: 2025-01-13 19:39+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Poedit 3.5\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -151,7 +151,7 @@ msgstr "תאריך שינוי"
 #: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "עריכת פרק"
 
 #: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
@@ -162,7 +162,7 @@ msgstr "ראשון"
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "נקודות לעמוד"
 
 #: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
@@ -173,23 +173,19 @@ msgstr "אחרון"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "הסרה"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "שמירה"
 
 #: qml/Bookmarks/OutlineDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr "הוספת PDF"
+msgstr "הוספה"
 
 #: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
@@ -200,25 +196,25 @@ msgstr "ביטול"
 #: qml/Bookmarks/TOCView.qml:90
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "הוספת פרק"
 
 #: qml/Bookmarks/TOCView.qml:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "הוספה מעל"
 
 #: qml/Bookmarks/TOCView.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "הוספה מתחת"
 
 #: qml/Bookmarks/TOCView.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "הוספת תת־סעיף"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -449,7 +445,7 @@ msgstr "נא לבחור עמודים להעברה"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "תוכן עניינים (סימניות)"
 
 #: qml/MainToolbar.qml:87
 #, kde-format
@@ -642,12 +638,9 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "על KDE"
 
-#, fuzzy
-#~| msgid "(c) 2024 Tomasz Bojczuk"
 #~ msgid "(c) 2024-2025 Tomasz Bojczuk"
-#~ msgstr "(c) 2024 תומאס בויצ׳וק"
+#~ msgstr "(c) 2024‏-2025 תומאש בויצ׳וק"
 
-#~ msgctxt "@info:credit"
 #~ msgid "Maintainer"
 #~ msgstr "מתחזק"
 

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-13 00:39+0000\n"
-"PO-Revision-Date: 2025-01-12 19:19+0200\n"
+"PO-Revision-Date: 2025-01-13 13:14+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -97,7 +97,7 @@ msgstr "Впорядкувальник PDF від KDE"
 #: main.cpp:115
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "© Розробники Karp, 2024–2025"
 
 #: main.cpp:116
 #, kde-format

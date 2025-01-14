@@ -630,7 +630,3 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Maintainer"
-#~ msgstr "维护者"

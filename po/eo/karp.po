@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-13 00:39+0000\n"
-"PO-Revision-Date: 2025-01-12 08:09+0100\n"
+"PO-Revision-Date: 2025-01-13 22:15+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -96,7 +96,7 @@ msgstr "KDE-aranĝanto por PDF-oj"
 #: main.cpp:115
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "(k) 2024-2025 La Karp-Evoluistoj"
 
 #: main.cpp:116
 #, kde-format
@@ -390,7 +390,7 @@ msgstr[1] "dosieroj"
 #: qml/MainPage.qml:55
 #, kde-format
 msgid "PDF Options"
-msgstr "PDF opcioj"
+msgstr "PDF-Opcioj"
 
 #: qml/MainPage.qml:70
 #, kde-format
@@ -634,10 +634,3 @@ msgstr "Pri Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Pri KDE"
-
-#~ msgid "(c) 2024-2025 Tomasz Bojczuk"
-#~ msgstr "(c) 2024-2025 Tomasz Bojczuk"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Maintainer"
-#~ msgstr "Prizorganto"

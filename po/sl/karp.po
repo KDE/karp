@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-13 00:39+0000\n"
-"PO-Revision-Date: 2025-01-12 07:54+0100\n"
+"PO-Revision-Date: 2025-01-13 05:45+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -93,7 +93,7 @@ msgstr "KDE razvrščevalnik za PDFe"
 #: main.cpp:115
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "(c) 2024-2025 Razvijalci Karp-a"
 
 #: main.cpp:116
 #, kde-format
@@ -530,7 +530,7 @@ msgstr "Generiranje datoteke PDF"
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
-msgstr "Zmanjšanje velikost datoteke PDF ni pridelalo pričakovanih rezultatov."
+msgstr "Zmanjšanje velikost datoteke PDF ni pridelalo pričakovanih rezultatov!"
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -596,7 +596,7 @@ msgstr "Prisili različico PDF generirane datoteke"
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
-"Kadar je nastavljena privzeta, bo uporabljena različica PDF vhodne datoteke"
+"Kadar je nastavljena privzeta, bo uporabljena različica PDF vhodne datoteke."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
