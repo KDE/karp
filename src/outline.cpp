@@ -17,7 +17,7 @@ Outline::Outline(int page, Outline *parentNode)
 
 Outline::~Outline()
 {
-    if (m_parentNode)
+    if (m_parentNode && BookmarkModel::self())
         BookmarkModel::self()->unregisterNode(this);
     clear();
 }
