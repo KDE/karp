@@ -94,7 +94,7 @@ msgstr "KDE 的 PDF 编辑器"
 #: main.cpp:115
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "(c) 2024-2025 The Karp Developers"
 
 #: main.cpp:116
 #, kde-format
