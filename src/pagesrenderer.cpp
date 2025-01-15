@@ -2,9 +2,9 @@
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
 #include "pagesrenderer.h"
+#include "karp_renderer_debug.h"
 #include "pdfeditmodel.h"
 #include "pdfpage.h"
-#include <QDebug>
 
 // #################################################################################################
 // ###################        class RenderThread       ############################################
@@ -26,7 +26,7 @@ void RenderThread::setRenderParams(PdfEditModel *m, int pageWidth)
 void RenderThread::render(int nr, PdfPage *p)
 {
     if (m_busy) {
-        qDebug() << "[RenderThread] Rendering in progress!";
+        qCDebug(KARP_RENDERER_LOG) << "[RenderThread] Rendering in progress!";
         return;
     }
     m_busy = true;
@@ -42,7 +42,7 @@ void RenderThread::run()
     QSizeF pSize = m_model->pdfDocument()->pagePointSize(m_nr);
     qreal pageRatio = pSize.height() / pSize.width();
     m_page->setImage(m_model->pdfDocument()->render(m_nr, QSize(m_pageWidth, qFloor(m_pageWidth * pageRatio))));
-    qDebug() << "Rendering" << m_nr << e.nsecsElapsed() / 1000000.0;
+    qCDebug(KARP_RENDERER_LOG) << "Rendering" << m_nr << e.nsecsElapsed() / 1000000.0;
     Q_EMIT pageReady(m_nr);
     m_busy = false;
     // exec();
@@ -90,7 +90,7 @@ void PagesRenderer::renderPage(int pageNr, PdfPage *p)
             cnt++;
             continue;
         }
-        qDebug() << "Render" << cnt << pageNr;
+        qCDebug(KARP_RENDERER_LOG) << "Render" << cnt << pageNr;
         w->render(pageNr, p);
         notStarted = false;
         break;
@@ -123,7 +123,7 @@ void PagesRenderer::pageReadySlot(int pageNr)
         return;
     auto renderer = qobject_cast<RenderThread *>(sender());
     if (renderer) {
-        qDebug() << "renderer" << renderer;
+        qCDebug(KARP_RENDERER_LOG) << "renderer" << renderer;
         renderer->quit();
         auto nextPage = m_queue.takeFirst();
         renderer->render(nextPage.first, nextPage.second);

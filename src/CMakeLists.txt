@@ -13,6 +13,15 @@ ecm_qt_declare_logging_category(karp
     EXPORT KARP
 )
 
+
+ecm_qt_declare_logging_category(karp
+    HEADER karp_renderer_debug.h
+    IDENTIFIER KARP_RENDERER_LOG
+    CATEGORY_NAME org.kde.karp.renderer
+    DESCRIPTION "karp (renderer)"
+    EXPORT KARP
+)
+
 qt_add_qml_module(karp
     URI org.kde.karp
     VERSION 1.0
