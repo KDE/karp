@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-13 00:39+0000\n"
-"PO-Revision-Date: 2025-01-13 19:39+0200\n"
+"PO-Revision-Date: 2025-01-14 07:46+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -95,7 +95,7 @@ msgstr "מסדר קובצי PDF מבית KDE"
 #: main.cpp:115
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "(c) 2024‏-2025 המפתחים של Karp"
 
 #: main.cpp:116
 #, kde-format
