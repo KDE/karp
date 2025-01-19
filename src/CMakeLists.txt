@@ -15,7 +15,6 @@ ecm_qt_declare_logging_category(karp
 
 qt_add_qml_module(karp
     URI org.kde.karp
-    VERSION 1.0
     QML_FILES
         qml/Main.qml
         qml/About.qml
@@ -42,6 +41,13 @@ qt_add_qml_module(karp
 
         qml/Bookmarks/TOCView.qml
         qml/Bookmarks/OutlineDialog.qml
+
+    DEPENDENCIES
+        QtCore
+        QtQuick
+    IMPORTS
+        org.kde.karp.config
+
 )
 
 
