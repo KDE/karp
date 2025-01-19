@@ -141,7 +141,7 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
 #if defined(Q_OS_UNIX)
     p.setProgram(gsfPath.isEmpty() ? u"gs"_s : gsfPath);
 #else
-    p.setProgram(gsfPath.isEmpty() ? u"gswin64.exe"_s : gsfPath);
+    p.setProgram(gsfPath.isEmpty() ? u"gswin64c.exe"_s : gsfPath);
 #endif
     p.setArguments(QStringList() << u"-v"_s);
     p.start();
