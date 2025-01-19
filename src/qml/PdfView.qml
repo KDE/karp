@@ -4,7 +4,6 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import QtQml.Models
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.karp
@@ -13,14 +12,16 @@ import org.kde.karp.config
 GridView {
     id: pdfView
 
+    property bool pageIsDragged: false
+    property int dragOverlay: 0
+    required property MainToolbar bottomBar
+
     clip: true
     leftMargin: Kirigami.Units.largeSpacing
     rightMargin: Kirigami.Units.largeSpacing
     topMargin: Kirigami.Units.largeSpacing
     bottomMargin: Kirigami.Units.largeSpacing + bottomBar.height
 
-    property bool pageIsDragged: false
-    property int dragOverlay: 0
 
     displaced: Transition {
         NumberAnimation {
@@ -53,18 +54,18 @@ GridView {
         property alias pdfPage: pdfPage
         property alias img: img
 
-        visible: index < pdfModel.pageCount
+        visible: index < pdfView.model.pageCount
         width: GridView.view.cellWidth
         height: GridView.view.cellHeight
 
         onEntered: drag => {
             if (selected)
-                return
-            let from = drag.source.pageIndex
-            let to = dropDelegate.delegateIndex
+                return;
+            let from = drag.source.pageIndex;
+            let to = dropDelegate.delegateIndex;
             if (from === to)
-                return
-            pdfModel.moveSelected(to)
+                return;
+            pdfModel.moveSelected(to);
         }
 
         QQC2.AbstractButton {
@@ -73,10 +74,10 @@ GridView {
             property int pageIndex: dropDelegate.delegateIndex
             property bool dragActive: false
 
-            width: pdfModel.maxPageWidth
-            height: pdfModel.maxPageWidth * pageRatio
+            width: pdfView.model.maxPageWidth
+            height: pdfView.model.maxPageWidth * pageRatio
             z: dragActive ? 5 : 1
-            visible: !pdfView.pageIsDragged || !selected || index === pdfView.currentIndex
+            visible: !pdfView.pageIsDragged || !dropDelegate.selected || dropDelegate.index === pdfView.currentIndex
 
             Drag.active: dragActive
             Drag.source: pdfPage
@@ -85,16 +86,20 @@ GridView {
 
             background: PdfPageItem {
                 id: img
-                x: (parent.width - width) / 2
-                y: (parent.height - height) / 2
-                image: pageImg
-                scale: parent.width / (rotated === 90 || rotated === 270 ? height : width)
-                rotation: rotated
+                x: (pdfPage.width - img.width) / 2
+                y: (pdfPage.height - img.height) / 2
+                image: dropDelegate.pageImg
+                scale: pdfPage.width / (dropDelegate.rotated === 90 || dropDelegate.rotated === 270 ? img.height : img.width)
+                rotation: dropDelegate.rotated
                 opacity: pdfView.pageIsDragged && selected ? 0.5 : 1
-                Behavior on rotation { NumberAnimation { easing.type: Easing.OutQuad } }
+                Behavior on rotation {
+                    NumberAnimation {
+                        easing.type: Easing.OutQuad
+                    }
+                }
                 Rectangle {
                     anchors.fill: parent
-                    color: selected ? APP.alpha(Kirigami.Theme.highlightColor, 32) : "transparent"
+                    color: dropDelegate.selected ? APP.alpha(Kirigami.Theme.highlightColor, 32) : "transparent"
                 }
             }
             Rectangle {
@@ -102,49 +107,66 @@ GridView {
                 anchors.bottom: parent.bottom
                 height: Kirigami.Units.gridUnit * 2
                 width: pdfPage.width
-                color: pdfModel.labelColor(fileId)
+                color: pdfView.model.labelColor(dropDelegate.fileId)
                 Column {
-                    anchors { left: parent.left; leftMargin: Kirigami.Units.smallSpacing }
+                    anchors {
+                        left: parent.left
+                        leftMargin: Kirigami.Units.smallSpacing
+                    }
                     spacing: -Kirigami.Units.smallSpacing
                     Text {
                         height: Kirigami.Units.gridUnit
                         width: pdfPage.width - (Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing) * 3
-                        horizontalAlignment: Text.AlignLeft; verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignLeft
+                        verticalAlignment: Text.AlignVCenter
                         color: "#fff"
                         fontSizeMode: Text.Fit
                         minimumPixelSize: 9
                         elide: Text.ElideRight
-                        font { pixelSize: height }
-                        text: pdfModel.getPdfName(fileId)
+                        font {
+                            pixelSize: height
+                        }
+                        text: pdfView.model.getPdfName(fileId)
                     }
                     Text {
                         height: Kirigami.Units.gridUnit
                         anchors.left: parent.left
                         color: "#fff"
-                        font { pixelSize: height * 0.9; bold: true }
-                        text: origPage + 1
+                        font {
+                            pixelSize: height * 0.9
+                            bold: true
+                        }
+                        text: dropDelegate.origPage + 1
                     }
                 }
                 Text {
-                    width: Kirigami.Units.gridUnit * 3; height: Kirigami.Units.gridUnit * 2
-                    anchors { right: parent.right; rightMargin: Kirigami.Units.smallSpacing }
-                    horizontalAlignment: Text.AlignRight; verticalAlignment: Text.AlignVCenter
+                    width: Kirigami.Units.gridUnit * 3
+                    height: Kirigami.Units.gridUnit * 2
+                    anchors {
+                        right: parent.right
+                        rightMargin: Kirigami.Units.smallSpacing
+                    }
+                    horizontalAlignment: Text.AlignRight
+                    verticalAlignment: Text.AlignVCenter
                     color: "#fff"
                     fontSizeMode: Text.Fit
                     minimumPixelSize: 6
-                    font { pixelSize: height * 0.9; bold: true }
-                    text: (pageNr + 1)
+                    font {
+                        pixelSize: height * 0.9
+                        bold: true
+                    }
+                    text: (dropDelegate.pageNr + 1)
                 }
             }
 
             onClicked: {
-                pdfModel.selectPage(index, pdfView.currentIndex !== index, bottomBar.multiSelect)
-                pdfView.currentIndex = pdfView.currentIndex === index ? -1 : index
+                pdfView.model.selectPage(dropDelegate.index, pdfView.currentIndex !== dropDelegate.index, bottomBar.multiSelect);
+                pdfView.currentIndex = pdfView.currentIndex === dropDelegate.index ? -1 : dropDelegate.index;
             }
 
             states: [
                 State {
-                    when: (!bottomBar.multiSelect && pdfPage.dragActive) || (pdfView.pageIsDragged && bottomBar.multiSelect && selected)
+                    when: (!bottomBar.multiSelect && pdfPage.dragActive) || (pdfView.pageIsDragged && bottomBar.multiSelect && dropDelegate.selected)
                     ParentChange {
                         target: pdfPage
                         parent: pdfView.contentItem
@@ -157,7 +179,7 @@ GridView {
     highlight: EditDelegate {}
 
     Timer {
-        running: pdfView.pageIsDragged && dragOverlay !== 0
+        running: pdfView.pageIsDragged && pdfView.dragOverlay !== 0
         interval: 50
         repeat: true
         onTriggered: pdfView.contentY += Math.ceil(pdfView.dragOverlay / 3)

@@ -173,6 +173,7 @@ Kirigami.Page {
             cellWidth: pdfModel.maxPageWidth + pdfModel.spacing
             cellHeight: pdfModel.maxPageHeight + pdfModel.spacing
 
+            bottomBar: bottomBar
             model: pdfModel
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
