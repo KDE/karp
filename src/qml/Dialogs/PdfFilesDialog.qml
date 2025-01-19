@@ -149,4 +149,8 @@ FormCard.FormCardDialog {
         close();
     }
     onClosed: destroy()
+
+    Component.onCompleted: {
+        pdfOrg.addMorePDFs()
+    }
 }
