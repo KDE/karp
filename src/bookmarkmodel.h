@@ -78,7 +78,7 @@ public:
      */
     void clear();
 
-    void saveBookmarks(QPDF &qpdf);
+    void saveBookmarks(QPDF &qpdf, bool force = false);
 
     int bookmarksCount() const;
 

@@ -177,7 +177,7 @@ public:
 
     const QString &outFile() const;
 
-    void saveBookmarks(QPDF &qpdf);
+    void saveBookmarks(QPDF &qpdf, bool force = false);
 
     PdfPage *page(int p)
     {

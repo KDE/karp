@@ -706,9 +706,9 @@ const QString &PdfEditModel::outFile() const
     return m_outFile;
 }
 
-void PdfEditModel::saveBookmarks(QPDF &qpdf)
+void PdfEditModel::saveBookmarks(QPDF &qpdf, bool force)
 {
-    m_bookmarks->saveBookmarks(qpdf);
+    m_bookmarks->saveBookmarks(qpdf, force);
 }
 
 QVariant PdfEditModel::data(const QModelIndex &index, int role) const

@@ -111,9 +111,9 @@ void BookmarkModel::clear()
  * As for now QPDF doesn't provide methods to manipulate and store bookmarks.
  * We have to manipulate QPDF streams and dictionaries to achieve that.
  */
-void BookmarkModel::saveBookmarks(QPDF &qpdf)
+void BookmarkModel::saveBookmarks(QPDF &qpdf, bool force)
 {
-    if (m_status == Status::NoBookmarks || m_status == Status::Unchanged)
+    if (!force && (m_status == Status::NoBookmarks || m_status == Status::Unchanged))
         return;
 
     if (m_counter < 1)
