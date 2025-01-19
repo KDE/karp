@@ -10,11 +10,59 @@
 #include "version-karp.h"
 #include <QDir>
 #include <QFileInfo>
-#include <QProcess>
 #include <qpdf/QPDFJob.hh>
 #include <qpdf/QPDFUsage.hh>
 
 using namespace Qt::Literals::StringLiterals;
+
+GsThread::GsThread(int page)
+    : QProcess()
+    , m_pageNr(page)
+{
+    m_thread = new QThread();
+    moveToThread(m_thread);
+    setProgram(karpConfig::self()->gsPath());
+
+    connect(
+        m_thread,
+        &QThread::started,
+        this,
+        [=] {
+            start();
+            waitForFinished();
+            m_thread->quit();
+        },
+        Qt::DirectConnection);
+
+    connect(
+        m_thread,
+        &QThread::finished,
+        this,
+        [=] {
+            Q_EMIT gsFinished(this);
+        },
+        Qt::DirectConnection);
+}
+
+GsThread::~GsThread()
+{
+    m_thread->deleteLater();
+}
+
+void GsThread::doGS()
+{
+    m_thread->quit();
+    m_thread->start();
+}
+
+// #################################################################################################
+// ###################      class ToolsThread           ############################################
+// #################################################################################################
+
+#define TO_PS_ARGS_COUNT (14)
+#define TO_PDF_ARGS_COUNT (8)
+#define PAGENR_ARG_ID (10)
+#define OUTFILE_ARG_ID (6)
 
 ToolsThread *ToolsThread::m_self = nullptr;
 
@@ -51,8 +99,6 @@ void ToolsThread::resizeByGs(const QString &filePath, int pages)
 
 void ToolsThread::cancel()
 {
-    if (!isRunning())
-        qCDebug(KARP_LOG) << "[ToolsThread]" << "is not running";
     m_doCancel = true;
 }
 
@@ -76,8 +122,6 @@ void ToolsThread::run()
         Q_EMIT lookingDone();
     } else if (m_mode == ToolsResizeByGs) {
         resizeByGsThread();
-        m_mode = ToolsIdle;
-        Q_EMIT progressChanged(1.0);
     }
     m_doCancel = false;
 }
@@ -132,52 +176,106 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
     return gsPath;
 }
 
+/**
+ * gs -q -dNOPAUSE -dBATCH -P- -dSAFER -sDEVICE=ps2write -sOutputFile=page.ps -c save pop -dFirstPage=i -dLastPage=i -f input.pdf
+ */
+QStringList ToolsThread::toPsArgs(int pageNr)
+{
+    static const QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
+    const auto pagePath = tmpPath + QString(u"karp-%1."_s).arg(pageNr, 4, 10, QLatin1Char('0'));
+    const auto pageNrStr = QString::number(pageNr + 1);
+    QStringList args;
+    args << u"-q"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-P-"_s << u"-dSAFER"_s << u"-sDEVICE=ps2write"_s << "-sOutputFile="_L1 + pagePath + "ps"_L1
+         << u"-c"_s << u"save"_s << u"pop"_s << "-dFirstPage="_L1 + pageNrStr << "-dLastPage="_L1 + pageNrStr << u"-f"_s << m_pathArg;
+    return args;
+}
+
+/**
+ * gs -q -P- -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sstdout=%stderr -sOutputFile=file.pdf file.ps
+ */
+QStringList ToolsThread::toPdfArgs(const QString &pagePath)
+{
+    QStringList args;
+    args << u"-q"_s << u"-P-"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-sDEVICE=pdfwrite"_s << u"-sstdout=%stderr"_s << "-sOutputFile="_L1 + pagePath + "pdf"_L1
+         << pagePath + "ps"_L1;
+    return args;
+}
+
+void ToolsThread::gsFinishedSlot(GsThread *gs)
+{
+    if (!gs)
+        return;
+
+    gs->close();
+    if (gs->arguments().count() == TO_PS_ARGS_COUNT) {
+        // converts ps file into pdf
+        auto pathStr = gs->arguments().at(OUTFILE_ARG_ID).split(u"="_s);
+        if (pathStr.count() != 2)
+            return;
+        if (m_doCancel) {
+            QFile::remove(pathStr.last());
+            Q_EMIT gsProcessed();
+            return;
+        }
+        const auto pagePath = pathStr.last().chopped(2); // remove 'ps'
+        gs->setArguments(toPdfArgs(pagePath));
+        if (gs->pageNr() < m_pageCountArg)
+            gs->doGS();
+    } else if (gs->arguments().count() == TO_PDF_ARGS_COUNT) {
+        Q_EMIT progressChanged(m_pagesDone / static_cast<qreal>(m_pageCountArg + 2));
+        auto pathStr = gs->arguments().at(OUTFILE_ARG_ID).split(u"="_s);
+        if (pathStr.count() == 2) {
+            const auto pagePath = pathStr.last().chopped(3); // remove 'pdf'
+            QFile::remove(pagePath + "ps"_L1);
+        }
+        if (m_doCancel) {
+            Q_EMIT gsProcessed();
+            return;
+        }
+        const int nextPage = QThread::idealThreadCount() + gs->pageNr();
+        m_pagesDone++;
+        if (nextPage < m_pageCountArg) {
+            gs->setPageNr(nextPage);
+            gs->setArguments(toPsArgs(nextPage));
+            gs->doGS();
+        } else if (m_pagesDone == m_pageCountArg) {
+            Q_EMIT gsProcessed();
+        }
+    }
+}
+
 bool ToolsThread::resizeByGsThread()
 {
     if (m_pageCountArg < 1 || m_pathArg.isEmpty())
         return false;
 
-    QProcess p;
-    QStringList args;
-    auto conf = karpConfig::self();
-    p.setProcessChannelMode(QProcess::MergedChannels);
-    p.setProgram(conf->gsPath());
-
-    QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
-    QFileInfo outInfo(m_pathArg);
-    auto outFileSize = outInfo.size();
-    auto ps = u"ps"_s;
-    auto pdf = u"pdf"_s;
-    QStringList pages;
-    for (int i = 0; i < m_pageCountArg; ++i) {
-        if (m_doCancel)
-            break;
-        auto pagePath = tmpPath + QString(u"karp-%1."_s).arg(i, 4, 10, QLatin1Char('0'));
-        pages << pagePath + pdf;
-        auto pageNr = QString::number(i + 1);
-        // gs -q -dNOPAUSE -dBATCH -P- -dSAFER -sDEVICE=ps2write -sOutputFile=page.ps -c save pop -dFirstPage=i -dLastPage=i -f input.pdf
-        args << u"-q"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-P-"_s << u"-dSAFER"_s << u"-sDEVICE=ps2write"_s
-             << QLatin1String("-sOutputFile=") + pagePath + ps << u"-c"_s << u"save"_s << u"pop"_s << QLatin1String("-dFirstPage=") + pageNr
-             << QLatin1String("-dLastPage=") + pageNr << u"-f"_s << m_pathArg;
-        p.setArguments(args);
-        p.start();
-        p.waitForFinished();
-        p.close();
-        args.clear();
-        // gs -q -P- -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sstdout=%stderr -sOutputFile=file.pdf file.ps
-        args << u"-q"_s << u"-P-"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-sDEVICE=pdfwrite"_s << u"-sstdout=%stderr"_s
-             << QLatin1String("-sOutputFile=") + pagePath + pdf << pagePath + ps;
-        p.setArguments(args);
-        p.start();
-        p.waitForFinished();
-        p.close();
-        args.clear();
-        QFile::remove(pagePath + ps);
-        Q_EMIT progressChanged((i + 1) / static_cast<qreal>(m_pageCountArg + 2));
+    connect(this, &ToolsThread::gsProcessed, this, &ToolsThread::afterGSprocess);
+    m_pagesDone = 0;
+    const int optThreads = qMin(QThread::idealThreadCount(), m_pageCountArg);
+    for (int t = 0; t < optThreads; ++t) {
+        auto gs = new GsThread(t);
+        connect(gs, &GsThread::gsFinished, this, &ToolsThread::gsFinishedSlot);
+        gs->setArguments(toPsArgs(t));
+        m_gsWorkers << gs;
+        gs->doGS();
     }
+    return true;
+}
+
+bool ToolsThread::afterGSprocess()
+{
+    disconnect(this, &ToolsThread::gsProcessed, this, &ToolsThread::afterGSprocess);
+    QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
 
     auto pdfModel = PdfEditModel::self();
+    QStringList pages;
+    for (int i = 0; i < m_pageCountArg; ++i) {
+        auto pagePath = tmpPath + QString(u"karp-%1."_s).arg(i, 4, 10, QLatin1Char('0'));
+        pages << pagePath + "pdf"_L1;
+    }
     if (!m_doCancel && pdfModel) {
+        QFileInfo outInfo(m_pathArg);
+        auto outFileSize = outInfo.size();
         outInfo.setFile(tmpPath + outInfo.fileName());
         try {
             QPDFJob qpdfJob;
@@ -198,7 +296,7 @@ bool ToolsThread::resizeByGsThread()
             auto qpdfSP = qpdfJob.createQPDF();
             auto &qpdf = *qpdfSP;
             QpdfProxy::addMetaToJob(qpdf, pdfModel->metaData());
-            pdfModel->saveBookmarks(qpdf);
+            pdfModel->saveBookmarks(qpdf, true);
             qpdfJob.writeQPDF(qpdf);
         } catch (QPDFUsage &e) {
             qCDebug(KARP_LOG) << "[ToolsThread]" << "QPDF configuration error: " << e.what();
@@ -208,6 +306,8 @@ bool ToolsThread::resizeByGsThread()
         // qCDebug(KARP_LOG) << outFileSize / 1024 << outInfo.size() / 1024;
         if (outInfo.size() > outFileSize)
             Q_EMIT progressChanged(GS_REDUCE_NOT_WORKED);
+        else
+            Q_EMIT progressChanged(1.0);
         // override out file with new size, but delete existing file first
         if (QFile::exists(m_pathArg))
             QFile::remove(m_pathArg);
@@ -216,6 +316,13 @@ bool ToolsThread::resizeByGsThread()
     }
     for (const auto &tp : pages)
         QFile::remove(tp);
+
+    for (GsThread *gs : m_gsWorkers) {
+        gs->waitForFinish();
+        gs->deleteLater();
+    }
+    m_gsWorkers.clear();
+    m_mode = ToolsIdle;
 
     return true;
 }
