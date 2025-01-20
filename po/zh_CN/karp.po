@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:39+0000\n"
+"POT-Creation-Date: 2025-01-20 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -406,12 +406,12 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "版本 %1"
 
-#: qml/MainPage.qml:247
+#: qml/MainPage.qml:248
 #, kde-format
 msgid "Set password"
 msgstr "设置密码"
 
-#: qml/MainPage.qml:247
+#: qml/MainPage.qml:248
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "使用密码保护 PDF 文件。"

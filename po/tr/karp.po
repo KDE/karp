@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:39+0000\n"
+"POT-Creation-Date: 2025-01-20 00:39+0000\n"
 "PO-Revision-Date: 2025-01-13 16:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -410,12 +410,12 @@ msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Sürüm %1"
 
-#: qml/MainPage.qml:247
+#: qml/MainPage.qml:248
 #, kde-format
 msgid "Set password"
 msgstr "Parola Ayarla"
 
-#: qml/MainPage.qml:247
+#: qml/MainPage.qml:248
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "PDF dosyalarını parola ile koruyun."
