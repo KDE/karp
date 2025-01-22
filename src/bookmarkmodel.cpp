@@ -323,7 +323,7 @@ void BookmarkModel::removePage(int pageNr)
         return false; // walk through all outlines
     });
     if (!toRemoveList.isEmpty()) {
-        for (const auto *const outlineToRm : toRemoveList) {
+        for (const auto *const outlineToRm : std::as_const(toRemoveList)) {
             removeOutline(indexFromOutline(outlineToRm));
         }
     }

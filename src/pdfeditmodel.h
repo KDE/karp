@@ -133,7 +133,7 @@ public:
     Q_INVOKABLE void rotatePages(const PageRange &range, int angle);
     Q_INVOKABLE void deletePage(int pageId);
     Q_INVOKABLE void deletePages(const PageRange &range);
-    Q_INVOKABLE int movePage(int pageNr, int toPage);
+    Q_INVOKABLE int movePage(int fromPage, int toPage);
 
     /**
      * Moves selected pages in @p range before or after @P targetPage.
@@ -272,8 +272,8 @@ protected:
     void fixOutlinePages(int startPage, int endPage);
 
 Q_SIGNALS:
-    void wantRenderImage(int) const;
-    void wantRenderPage(int, PdfPage *) const;
+    void wantRenderImage(int);
+    void wantRenderPage(int, PdfPage *);
 
 private:
     static PdfEditModel *m_self;

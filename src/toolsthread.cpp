@@ -182,7 +182,7 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
 QStringList ToolsThread::toPsArgs(int pageNr)
 {
     static const QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
-    const auto pagePath = tmpPath + QString(u"karp-%1."_s).arg(pageNr, 4, 10, QLatin1Char('0'));
+    const QString pagePath = tmpPath + QString(u"karp-%1."_s).arg(pageNr, 4, 10, QLatin1Char('0'));
     const auto pageNrStr = QString::number(pageNr + 1);
     QStringList args;
     args << u"-q"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-P-"_s << u"-dSAFER"_s << u"-sDEVICE=ps2write"_s << "-sOutputFile="_L1 + pagePath + "ps"_L1
@@ -270,7 +270,7 @@ bool ToolsThread::afterGSprocess()
     auto pdfModel = PdfEditModel::self();
     QStringList pages;
     for (int i = 0; i < m_pageCountArg; ++i) {
-        auto pagePath = tmpPath + QString(u"karp-%1."_s).arg(i, 4, 10, QLatin1Char('0'));
+        const QString pagePath = tmpPath + QString(u"karp-%1."_s).arg(i, 4, 10, QLatin1Char('0'));
         pages << pagePath + "pdf"_L1;
     }
     if (!m_doCancel && pdfModel) {
@@ -314,10 +314,10 @@ bool ToolsThread::afterGSprocess()
         QFile::copy(outInfo.filePath(), m_pathArg);
         QFile::remove(outInfo.filePath()); // remove /tmp/file-out.pdf
     }
-    for (const auto &tp : pages)
+    for (const auto &tp : std::as_const(pages))
         QFile::remove(tp);
 
-    for (GsThread *gs : m_gsWorkers) {
+    for (GsThread *gs : std::as_const(m_gsWorkers)) {
         gs->waitForFinish();
         gs->deleteLater();
     }
