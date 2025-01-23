@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 */
 
+#include <QtCore/qglobal.h>
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
 #else
