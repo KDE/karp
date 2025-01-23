@@ -283,7 +283,7 @@ void BookmarkModel::removeOutline(const QModelIndex &idx)
     auto node = static_cast<Outline *>(idx.internalPointer());
     if (!node)
         return;
-    aboutToRemove(node);
+    Q_EMIT aboutToRemove(node);
     const int rowToRemove = node->row();
     beginRemoveRows(idx.parent(), rowToRemove, rowToRemove);
     node->parentNode()->removeChild(rowToRemove);
