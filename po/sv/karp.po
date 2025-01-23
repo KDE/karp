@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-20 00:39+0000\n"
+"POT-Creation-Date: 2025-01-23 00:39+0000\n"
 "PO-Revision-Date: 2025-01-13 17:19+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -369,9 +369,11 @@ msgid "Quit"
 msgstr "Avsluta"
 
 #: qml/MainPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As"
 msgctxt "@action:inmenu"
-msgid "Save As"
+msgid "Save As..."
 msgstr "Spara som"
 
 #: qml/MainPage.qml:33

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-20 00:39+0000\n"
+"POT-Creation-Date: 2025-01-23 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 11:30+0100\n"
 "Last-Translator: Simulacrum\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -364,7 +364,7 @@ msgstr ""
 #: qml/MainPage.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Save As"
+msgid "Save As..."
 msgstr ""
 
 #: qml/MainPage.qml:33

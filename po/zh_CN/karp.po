@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-20 00:39+0000\n"
+"POT-Creation-Date: 2025-01-23 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -366,9 +366,11 @@ msgid "Quit"
 msgstr "退出"
 
 #: qml/MainPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As"
 msgctxt "@action:inmenu"
-msgid "Save As"
+msgid "Save As..."
 msgstr "另存为"
 
 #: qml/MainPage.qml:33
