@@ -27,7 +27,7 @@ GsThread::GsThread(int page)
         m_thread,
         &QThread::started,
         this,
-        [=] {
+        [&] {
             start();
             waitForFinished();
             m_thread->quit();
@@ -38,7 +38,7 @@ GsThread::GsThread(int page)
         m_thread,
         &QThread::finished,
         this,
-        [=] {
+        [&] {
             Q_EMIT gsFinished(this);
         },
         Qt::DirectConnection);

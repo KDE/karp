@@ -587,7 +587,7 @@ void PdfEditModel::generate()
     }
 
     auto qpdf = new QpdfProxy(this);
-    connect(qpdf, &QpdfProxy::finished, this, [=] {
+    connect(qpdf, &QpdfProxy::finished, this, [&] {
         qpdf->deleteLater();
         if (m_reduceSize) {
             setProgress(0.1);
@@ -869,7 +869,7 @@ void PdfEditModel::toolProgressSlot(qreal prog)
     if (prog >= 1.0) {
         disconnect(ToolsThread::self(), &ToolsThread::progressChanged, this, &PdfEditModel::toolProgressSlot);
         setProgress(1.0);
-        QTimer::singleShot(300, this, [=] {
+        QTimer::singleShot(300, this, [&] {
             Q_EMIT pdfGenerated();
         });
     } else if (prog == GS_REDUCE_NOT_WORKED)
