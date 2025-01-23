@@ -16,7 +16,7 @@
 class Outline
 {
 public:
-    explicit Outline(int page, Outline *parentNode = nullptr);
+    explicit Outline(int page = 0, Outline *parentNode = nullptr);
     ~Outline();
 
     void clear();
