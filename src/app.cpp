@@ -33,7 +33,7 @@ void App::restoreWindowGeometry(QQuickWindow *window, const QString &group)
     KWindowConfig::restoreWindowSize(window, windowGroup);
     KWindowConfig::restoreWindowPosition(window, windowGroup);
     if (conf->fixedLastDir().isEmpty())
-        conf->setFixedLastDir(QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first());
+        conf->setFixedLastDir(QDir::homePath());
 }
 
 void App::saveWindowGeometry(QQuickWindow *window, const QString &group) const
@@ -92,7 +92,7 @@ QString App::getOpenDIr() const
     if (conf->openLastDir())
         return conf->lastDir();
     else if (conf->fixedLastDir().isEmpty())
-        return QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
+        return QDir::homePath();
     else
         return conf->fixedLastDir();
 }

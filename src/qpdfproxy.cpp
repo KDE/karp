@@ -98,7 +98,7 @@ void QpdfProxy::threadSlot()
             r270 << r;
     }
 
-    QString tempOut = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator() + "karp_out.pdf"_L1;
+    QString tempOut = QDir::tempPath() + QDir::separator() + "karp_out.pdf"_L1;
     try {
         QPDFJob qpdfJob;
         auto jobConf = qpdfJob.config();

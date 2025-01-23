@@ -186,7 +186,7 @@ bool PdfsOrganizer::addMorePDFs()
     if (m_fileModel->rows() > 0)
         lastPath = m_fileModel->lastPdf()->dir();
     if (lastPath.isEmpty())
-        lastPath = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first();
+        lastPath = QDir::homePath();
 
     auto pdfList = QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files"), lastPath, u"*.pdf"_s);
     addPdfList(pdfList);

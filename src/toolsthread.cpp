@@ -181,8 +181,7 @@ QString ToolsThread::findGhostScript(const QString &gsfPath)
  */
 QStringList ToolsThread::toPsArgs(int pageNr)
 {
-    static const QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
-    const QString pagePath = tmpPath + QString(u"karp-%1."_s).arg(pageNr, 4, 10, QLatin1Char('0'));
+    const QString pagePath = QDir::tempPath() + QDir::separator() + QString(u"karp-%1."_s).arg(pageNr, 4, 10, QLatin1Char('0'));
     const auto pageNrStr = QString::number(pageNr + 1);
     QStringList args;
     args << u"-q"_s << u"-dNOPAUSE"_s << u"-dBATCH"_s << u"-P-"_s << u"-dSAFER"_s << u"-sDEVICE=ps2write"_s << "-sOutputFile="_L1 + pagePath + "ps"_L1
@@ -265,7 +264,7 @@ bool ToolsThread::resizeByGsThread()
 bool ToolsThread::afterGSprocess()
 {
     disconnect(this, &ToolsThread::gsProcessed, this, &ToolsThread::afterGSprocess);
-    QString tmpPath = QStandardPaths::standardLocations(QStandardPaths::TempLocation).first() + QDir::separator();
+    QString tmpPath = QDir::tempPath() + QDir::separator();
 
     auto pdfModel = PdfEditModel::self();
     QStringList pages;
@@ -282,7 +281,7 @@ bool ToolsThread::afterGSprocess()
             auto jobConf = qpdfJob.config();
             jobConf->emptyInput()->outputFile(outInfo.filePath().toStdString());
             auto qpdfPages = jobConf->pages();
-            for (const auto &pg : pages) {
+            for (const auto &pg : std::as_const(pages)) {
                 qpdfPages->pageSpec(pg.toStdString(), "");
             }
             qpdfPages->endPages();
