@@ -416,12 +416,13 @@ QHash<int, QByteArray> BookmarkModel::roleNames() const
 
 void BookmarkModel::walkThrough(Outline *parentNode, const std::function<void(Outline *)> &funct)
 {
-    if (parentNode)
+    if (parentNode) {
         funct(parentNode);
 
-    const auto rows = parentNode->childCount();
-    for (int i = 0; i < rows; ++i) {
-        walkThrough(parentNode->child(i), funct);
+        const auto rows = parentNode->childCount();
+        for (int i = 0; i < rows; ++i) {
+            walkThrough(parentNode->child(i), funct);
+        }
     }
 }
 
