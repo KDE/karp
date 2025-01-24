@@ -22,6 +22,7 @@
 #if __has_include("KCrash")
 #include <KCrash>
 #endif
+#include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -47,6 +48,7 @@ using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char *argv[])
 {
+    KIconTheme::initTheme();
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
