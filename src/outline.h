@@ -16,7 +16,7 @@
 class Outline
 {
 public:
-    explicit Outline(int page = 0, Outline *parentNode = nullptr);
+    explicit Outline(int page, Outline *parentNode = nullptr);
     ~Outline();
 
     void clear();
@@ -117,8 +117,11 @@ public:
     void fixOutlinePage(int newPage);
 
 private:
+    Outline(Outline const &) = delete;
+    Outline &operator=(Outline const &) = delete;
+
     QVector<Outline *> m_childNodes;
-    Outline *m_parentNode;
+    Outline *m_parentNode = nullptr;
 
     QString m_title;
     int m_level = 0;
