@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-23 00:39+0000\n"
-"PO-Revision-Date: 2025-01-13 20:19+0100\n"
+"PO-Revision-Date: 2025-01-24 00:33+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -368,12 +368,10 @@ msgid "Quit"
 msgstr "Salir"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "Guardar como"
+msgstr "Guardar como..."
 
 #: qml/MainPage.qml:33
 #, kde-format

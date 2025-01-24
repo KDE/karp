@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-23 00:39+0000\n"
-"PO-Revision-Date: 2025-01-13 05:45+0100\n"
+"PO-Revision-Date: 2025-01-23 07:38+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -368,12 +368,10 @@ msgid "Quit"
 msgstr "Zapusti"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "Shrani kot"
+msgstr "Shrani kot..."
 
 #: qml/MainPage.qml:33
 #, kde-format

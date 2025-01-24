@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-23 00:39+0000\n"
-"PO-Revision-Date: 2025-01-13 05:12+0100\n"
+"PO-Revision-Date: 2025-01-23 04:24+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -370,12 +370,10 @@ msgid "Quit"
 msgstr "გასვლა"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "შენახვა, როგორც"
+msgstr "შენახვა, როგორც..."
 
 #: qml/MainPage.qml:33
 #, kde-format

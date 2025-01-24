@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-23 00:39+0000\n"
-"PO-Revision-Date: 2025-01-13 10:45+0100\n"
+"PO-Revision-Date: 2025-01-23 16:56+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -369,12 +369,10 @@ msgid "Quit"
 msgstr "Afsluiten"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "Opslaan als"
+msgstr "Opslaan als..."
 
 #: qml/MainPage.qml:33
 #, kde-format

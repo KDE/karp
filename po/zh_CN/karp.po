@@ -366,12 +366,10 @@ msgid "Quit"
 msgstr "退出"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "另存为"
+msgstr ""
 
 #: qml/MainPage.qml:33
 #, kde-format
