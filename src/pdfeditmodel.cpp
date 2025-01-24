@@ -587,7 +587,7 @@ void PdfEditModel::generate()
     }
 
     auto qpdf = new QpdfProxy(this);
-    connect(qpdf, &QpdfProxy::finished, this, [&] {
+    connect(qpdf, &QpdfProxy::finished, this, [qpdf, this] {
         qpdf->deleteLater();
         if (m_reduceSize) {
             setProgress(0.1);
