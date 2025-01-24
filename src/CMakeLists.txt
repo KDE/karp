@@ -95,6 +95,7 @@ target_link_libraries(karp
     Qt6::Svg
     Qt6::Pdf
     KF6::I18n
+    KF6::IconThemes
     KF6::CoreAddons
     KF6::ConfigCore
     KF6::ConfigGui
