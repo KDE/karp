@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:39+0000\n"
+"POT-Creation-Date: 2025-01-25 00:39+0000\n"
 "PO-Revision-Date: 2025-01-23 11:23+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -82,35 +82,35 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "Metadatos de PDF"
 
-#: main.cpp:107
+#: main.cpp:110
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:111
+#: main.cpp:114
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "Compositor de KDE per PDFs"
 
-#: main.cpp:115
+#: main.cpp:118
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
 msgstr "(c) 2024-2025 Le Developpatores de Karp "
 
-#: main.cpp:116
+#: main.cpp:119
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "Tomasz Bojczuk"
 
-#: main.cpp:117
+#: main.cpp:120
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Giovanni Sora"
 
-#: main.cpp:117
+#: main.cpp:120
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

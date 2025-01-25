@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:39+0000\n"
+"POT-Creation-Date: 2025-01-25 00:39+0000\n"
 "PO-Revision-Date: 2025-01-23 04:24+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -83,35 +83,35 @@ msgctxt "@action:inmenu"
 msgid "PDF metadata"
 msgstr "PDF მეტამონაცემები"
 
-#: main.cpp:107
+#: main.cpp:110
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
 msgstr "Karp"
 
-#: main.cpp:111
+#: main.cpp:114
 #, kde-format
 msgid "KDE arranger for PDFs"
 msgstr "PDF-ების დამლაგებელი PDF-ებისთვის"
 
-#: main.cpp:115
+#: main.cpp:118
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
 msgstr "(c) 2024-2025 Karp-ის პროგრამისტები"
 
-#: main.cpp:116
+#: main.cpp:119
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
 msgstr "ტომაშ ბოიჩუკი"
 
-#: main.cpp:117
+#: main.cpp:120
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: main.cpp:117
+#: main.cpp:120
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
