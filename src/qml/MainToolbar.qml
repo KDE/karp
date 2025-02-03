@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
@@ -28,8 +30,8 @@ Components.FloatingToolBar {
             }
 
             onClicked: {
-                let from = pdfModel.firstSelected ? pdfModel.firstSelected : 1
-                let to = pdfModel.lastSelected ? pdfModel.lastSelected : 1
+                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1
+                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1
                 delDlgComp.createObject(null, { range: APP.range(from, to) })
             }
 
@@ -43,8 +45,8 @@ Components.FloatingToolBar {
             text: i18nc("@action:intoolbar", "Select pages to rotate")
             display: QQC2.ToolButton.IconOnly
             onClicked: {
-                let from = pdfModel.firstSelected ? pdfModel.firstSelected : 1
-                let to = pdfModel.lastSelected ? pdfModel.lastSelected : 1
+                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1
+                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1
                 rotDlgComp.createObject(null, { range: APP.range(from, to) })
             }
 
@@ -58,8 +60,8 @@ Components.FloatingToolBar {
             display: QQC2.ToolButton.IconOnly
             icon.name: "transform-move"
             onClicked: {
-                let from = pdfModel.firstSelected ? pdfModel.firstSelected : 1
-                let to = pdfModel.lastSelected ? pdfModel.lastSelected : 1
+                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1
+                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1
                 mvDlgComp.createObject(null, { range: APP.range(from, to) })
             }
 
@@ -74,7 +76,7 @@ Components.FloatingToolBar {
             display: QQC2.ToolButton.IconOnly
             icon.name: "bookmark-toolbar"
             checkable: true
-            onClicked: showBookmarks = checked // override default binding to prefer user want to see bookmark pane
+            onClicked: root.showBookmarks = bookmarkAction.checked // override default binding to prefer user want to see bookmark pane
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
@@ -96,7 +98,7 @@ Components.FloatingToolBar {
                     checked = true
                 } else {
                     let currPage = pdfView.currentIndex > -1 ? pdfView.currentIndex : 0
-                    pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false)
+                    root.pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false)
                     checked = Qt.binding(() => APP.ctrlPressed)
                 }
             }
@@ -124,8 +126,8 @@ Components.FloatingToolBar {
             text: i18nc("@action:intoolbar", "Zoom Out")
             icon.name: "zoom-out"
             display: QQC2.ToolButton.IconOnly
-            onClicked: pdfModel.zoomOut()
-            enabled: pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
+            onClicked: root.pdfModel.zoomOut()
+            enabled: root.pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
@@ -135,8 +137,8 @@ Components.FloatingToolBar {
         QQC2.ToolButton {
             text: i18nc("@action:intoolbar", "Zoom In")
             icon.name: "zoom-in"
-            onClicked: pdfModel.zoomIn()
-            enabled: pdfModel.columns > 1
+            onClicked: root.pdfModel.zoomIn()
+            enabled: root.pdfModel.columns > 1
             display: QQC2.ToolButton.IconOnly
 
             QQC2.ToolTip.text: text
@@ -147,7 +149,7 @@ Components.FloatingToolBar {
         QQC2.SpinBox {
             id: pageSpin
             property bool canIndexAtY: true
-            from: 1; to: pdfModel.pageCount
+            from: 1; to: root.pdfModel.pageCount
             textFromValue: (value) => {
                 return i18n("Page %1 of %2", value, to)
             }
@@ -164,9 +166,9 @@ Components.FloatingToolBar {
                 visible: true
                 title: i18n("Select pages to delete")
                 acceptText: i18nc("@action:button", "Delete")
-                pageCount: pdfModel.pageCount
+                pageCount: root.pdfModel.pageCount
                 onAccepted: {
-                    pdfModel.deletePages(range)
+                    root.pdfModel.deletePages(range)
                     pdfView.currentIndex = -1
                 }
             }
@@ -181,12 +183,12 @@ Components.FloatingToolBar {
                 acceptText: i18nc("@action:button", "Rotate")
                 acceptIcon: "object-rotate-right"
                 height: Kirigami.Units.gridUnit * 23
-                pageCount: pdfModel.pageCount
+                pageCount: root.pdfModel.pageCount
                 topItem: Kirigami.AbstractCard {
                     Layout.fillWidth: true
                     contentItem: RowLayout {
                         spacing: Kirigami.Units.largeSpacing
-                        Item { height: 1; Layout.fillWidth: true }
+                        Item { Layout.preferredHeight: 1; Layout.fillWidth: true }
                         QQC2.Label { text: i18n("Angle") }
                         QQC2.ComboBox {
                             id: angleCombo
@@ -194,10 +196,10 @@ Components.FloatingToolBar {
                             currentIndex: rotDlg.angle / 90 - 1
                             onActivated: (index) => { rotDlg.angle = (index + 1) * 90 }
                         }
-                        Item { height: 1; Layout.fillWidth: true }
+                        Item { Layout.preferredHeight: 1; Layout.fillWidth: true }
                     }
                 }
-                onAccepted: pdfModel.rotatePages(range, rotDlg.angle)
+                onAccepted: root.pdfModel.rotatePages(range, rotDlg.angle)
             }
         }
         Component {
@@ -206,8 +208,8 @@ Components.FloatingToolBar {
                 id: mvDlg
                 visible: true
                 title: i18n("Select pages to move")
-                pageCount: pdfModel.pageCount
-                onAccepted: pdfModel.movePages(range, targetPage)
+                pageCount: root.pdfModel.pageCount
+                onAccepted: root.pdfModel.movePages(range, targetPage)
             }
         }
     }
