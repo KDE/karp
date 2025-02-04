@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-25 00:39+0000\n"
-"PO-Revision-Date: 2025-01-12 14:38+0100\n"
+"PO-Revision-Date: 2025-02-03 12:29+0100\n"
 "Last-Translator: Tomasz Bojczuk <seelook@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -98,7 +98,7 @@ msgstr "Aranżer PDF-ów dla KDE"
 #: main.cpp:118
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "(c) 2024-2025 Programiści aplikacji Karp"
 
 #: main.cpp:119
 #, kde-format
@@ -373,12 +373,10 @@ msgid "Quit"
 msgstr "Wyjdź"
 
 #: qml/MainPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "Zapisz jako"
+msgstr "Zapisz jako..."
 
 #: qml/MainPage.qml:33
 #, kde-format
