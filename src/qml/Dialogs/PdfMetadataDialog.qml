@@ -130,6 +130,7 @@ FormCard.FormCardDialog {
                     text: metaDelegate.index < 6 ? metaDelegate.modelData : Qt.formatDateTime(metaDelegate.modelData, "yyyy-MM-dd hh:mm:ss") // TODO: use more localized format
                     onClicked: metaDlg.singleClickNotification()
                     onDoubleClicked: {
+                        hidePassiveNotification();
                         copyAnim.start();
                         if (metaDelegate.index < 6)
                             targetView.itemAtIndex(metaDelegate.index).text = metaDelegate.modelData;
@@ -163,6 +164,7 @@ FormCard.FormCardDialog {
                 icon.name: "edit-copy"
                 onClicked: metaDlg.singleClickNotification()
                 onDoubleClicked: {
+                    hidePassiveNotification();
                     copyAnim.start();
                     for (var m = 0; m < metaView.count; ++m) {
                         let it = metaView.itemAtIndex(m);
@@ -171,6 +173,27 @@ FormCard.FormCardDialog {
                                 targetView.itemAtIndex(m).text = it.modelData;
                             else
                                 targetView.itemAtIndex(m).dateTime = it.modelData;
+                        }
+                    }
+                }
+            }
+        }
+
+        FormCard.FormCard {
+            id: clearButton
+            visible: targetView.visible
+            Layout.fillWidth: true
+            FormCard.FormButtonDelegate {
+                text: i18n("Double click to delete all metadata")
+                icon.name: "edit-delete"
+                onDoubleClicked: {
+                    for (var m = 0; m < metaView.count; ++m) {
+                        let it = targetView.itemAtIndex(m);
+                        if (it.visible) {
+                            if (m < 6)
+                                targetView.itemAtIndex(m).text = "";
+                            else
+                                targetView.itemAtIndex(m).dateTime = new Date("");
                         }
                     }
                 }
