@@ -44,6 +44,11 @@ public:
     QDateTime modDate() const;
     void setModDate(const QDateTime &modDate);
 
+    /**
+     * Iterates through all keys and returns @p TRUE if none is set.
+     */
+    bool checkIsEmpty() const;
+
     QVariantList model() const;
     void setData(const QVariantList &mData);
 

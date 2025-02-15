@@ -112,6 +112,12 @@ void PdfMetaData::setKeyword(const QString &keyword)
     m_keyword = keyword;
 }
 
+bool PdfMetaData::checkIsEmpty() const
+{
+    return m_title.isEmpty() && m_subject.isEmpty() && m_author.isEmpty() && m_keyword.isEmpty() && m_producer.isEmpty() && m_creator.isEmpty()
+        && !m_creationDate.isValid() && !m_modDate.isValid();
+}
+
 QVariantList PdfMetaData::model() const
 {
     QVariantList m;
