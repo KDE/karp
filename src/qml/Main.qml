@@ -60,12 +60,12 @@ Kirigami.ApplicationWindow {
     Connections {
         target: APP
         function onWantSettings(): void {
-            if (!settings)
-                settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(mainWin, { window: mainWin });
+            if (!mainWin.settings)
+                mainWin.settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(mainWin, { window: mainWin });
             settings.open();
         }
         function onOpenAboutPage(): void {
-            const aboutDlg = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
+            const aboutDlg = mainWin.pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
                 width: mainPage.width
             }, {
                 width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9),
@@ -73,7 +73,7 @@ Kirigami.ApplicationWindow {
             });
         }
         function onOpenAboutKDEPage(): void {
-            const aboutKdeDlg = pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {
+            const aboutKdeDlg = mainWin.pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {
                 width: mainPage.width
             }, {
                 width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9),
