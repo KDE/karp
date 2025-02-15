@@ -78,6 +78,10 @@ compile_commands.json
 # CMake
 *.txt.user*
 .clang-format
+*.clangd
+
+# QML
+*.qmlls.ini
 
 # VS code
 .vscode*
