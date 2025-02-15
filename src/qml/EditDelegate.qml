@@ -11,6 +11,8 @@ Rectangle {
     id: editDelg
     anchors.fill: parent
 
+    required property var pdfView
+    required property var pdfModel
     property int pageNr: pdfView.currentItem ? pdfView.currentIndex : 0
     property bool selected: pdfView.currentItem ? pdfView.currentItem.selected : false
     property bool hasOutline: pdfView.currentItem ? pdfView.currentItem.hasOutline : false
@@ -35,13 +37,13 @@ Rectangle {
             target: editDelg.parent
             cursorShape: Qt.DragMoveCursor
             onActiveChanged: {
-                pdfView.pageIsDragged = active
+                editDelg.pdfView.pageIsDragged = active
                 if (pdfView.currentItem)
                     pdfView.currentItem.pdfPage.dragActive = active
             }
             onActiveTranslationChanged: {
-                let posY = mapToItem(pdfView, dragButt.x, dragButt.y).y
-                if (posY < Kirigami.Units.gridUnit * 2 && !pdfView.atYBeginning)
+                let posY = dragButt.mapToItem(editDelg.pdfView, dragButt.x, dragButt.y).y
+                if (posY < Kirigami.Units.gridUnit * 2 && !editDelg.pdfView.atYBeginning)
                     pdfView.dragOverlay = posY - Kirigami.Units.gridUnit * 2
                 else if (posY > pdfView.height - Kirigami.Units.gridUnit * 4 && !pdfView.atYEnd)
                     pdfView.dragOverlay = posY - (pdfView.height - Kirigami.Units.gridUnit * 4)
@@ -57,8 +59,8 @@ Rectangle {
         icon.name: "edit-delete"
         icon.color: "red"
         onClicked: {
-            pdfModel.deletePage(pageNr)
-            pdfView.currentIndex = -1
+            editDelg.pdfModel.deletePage(editDelg.pageNr)
+            editDelg.pdfView.currentIndex = -1
         }
     }
     QQC2.Button {
@@ -66,7 +68,7 @@ Rectangle {
         z: 1
         anchors { top: parent.top; left: parent.left }
         icon.name: "object-rotate-left"
-        onClicked: pdfModel.rotatePage(pageNr, pdfView.currentItem.img.rotation > -270 ? pdfView.currentItem.img.rotation - 90 : 0)
+        onClicked: editDelg.pdfModel.rotatePage(editDelg.pageNr, editDelg.pdfView.currentItem.img.rotation > -270 ? editDelg.pdfView.currentItem.img.rotation - 90 : 0)
     }
     QQC2.Button {
         id: rotLeftButt
@@ -74,16 +76,16 @@ Rectangle {
         z: 1
         anchors { top: parent.top; right: parent.right }
         icon.name: "object-rotate-right"
-        onClicked: pdfModel.rotatePage(pageNr, pdfView.currentItem.img.rotation < 270 ? pdfView.currentItem.img.rotation + 90 : 0)
+        onClicked: editDelg.pdfModel.rotatePage(editDelg.pageNr, editDelg.pdfView.currentItem.img.rotation < 270 ? editDelg.pdfView.currentItem.img.rotation + 90 : 0)
     }
     QQC2.Button {
         id: outlineButt
-        visible: hasOutline && !dragHandler.active
+        visible: editDelg.hasOutline && !dragHandler.active
         z: 1
         anchors { top: rotLeftButt.bottom; left: parent.left }
-        icon.name: hasOutline ? "bookmarks-bookmarked" : "bookmarks"
+        icon.name: editDelg.hasOutline ? "bookmarks-bookmarked" : "bookmarks"
         onClicked: {
-            let menu = outlineComp.createObject(outlineButt, { model: pdfModel.getPageOutlines(pageNr) })
+            let menu = outlineComp.createObject(outlineButt, { model: editDelg.pdfModel.getPageOutlines(editDelg.pageNr) })
             menu.selected.connect((index) => {
                 var idx = pdfModel.indexFromOutline(pageNr, index)
                 let outlineDlg = Qt.createComponent("org.kde.karp", "OutlineDialog").createObject(editDelg,
@@ -101,35 +103,35 @@ Rectangle {
     }
     // move at upper row
     QQC2.Button {
-        visible: !dragHandler.active && pageNr >= pdfModel.columns && pageNr - pdfModel.columns < pdfModel.firstSelected - 1
+        visible: !dragHandler.active && editDelg.pageNr >= editDelg.pdfModel.columns && editDelg.pageNr - pdfModel.columns < pdfModel.firstSelected - 1
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; top: parent.top }
         icon.name: "arrow-up"
-        onClicked: pdfModel.moveSelected(pageNr - pdfModel.columns)
+        onClicked: editDelg.pdfModel.moveSelected(editDelg.pageNr - editDelg.pdfModel.columns)
     }
     // move at lower row
     QQC2.Button {
-        visible: !dragHandler.active && pageNr < pdfModel.pageCount - pdfModel.columns && pageNr + pdfModel.columns > pdfModel.lastSelected + 1
+        visible: !dragHandler.active && editDelg.pageNr < editDelg.pdfModel.pageCount - pdfModel.columns && pageNr + pdfModel.columns > pdfModel.lastSelected + 1
         z: 1
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: Kirigami.Units.gridUnit * 2 }
         icon.name: "arrow-down"
-        onClicked: pdfModel.moveSelected(pageNr + pdfModel.columns)
+        onClicked: editDelg.pdfModel.moveSelected(editDelg.pageNr + editDelg.pdfModel.columns)
     }
     // move at next column
     QQC2.Button {
-        visible: !dragHandler.active && pageNr < pdfModel.pageCount - 1 && pageNr + 1 > pdfModel.lastSelected - 1
+        visible: !dragHandler.active && editDelg.pageNr < editDelg.pdfModel.pageCount - 1 && pageNr + 1 > pdfModel.lastSelected - 1
         z: 1
         anchors { verticalCenter: parent.verticalCenter; right: parent.right }
         icon.name: "arrow-right"
-        onClicked: pdfModel.moveSelected(pageNr + 2)
+        onClicked: editDelg.pdfModel.moveSelected(editDelg.pageNr + 2)
     }
     // move at previous column
     QQC2.Button {
-        visible: !dragHandler.active && pageNr > 0 && pageNr - 1 < pdfModel.firstSelected - 1
+        visible: !dragHandler.active && editDelg.pageNr > 0 && editDelg.pageNr - 1 < editDelg.pdfModel.firstSelected - 1
         z: 1
         anchors { verticalCenter: parent.verticalCenter; left: parent.left }
         icon.name: "arrow-left"
-        onClicked: pdfModel.moveSelected(pageNr - 1)
+        onClicked: editDelg.pdfModel.moveSelected(editDelg.pageNr - 1)
     }
 
     Component {

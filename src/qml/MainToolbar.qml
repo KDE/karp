@@ -30,9 +30,11 @@ Components.FloatingToolBar {
             }
 
             onClicked: {
-                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1
-                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1
-                delDlgComp.createObject(null, { range: APP.range(from, to) })
+                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
+                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
+                delDlgComp.createObject(null, {
+                    range: APP.range(from, to)
+                });
             }
 
             QQC2.ToolTip.text: text
@@ -45,9 +47,11 @@ Components.FloatingToolBar {
             text: i18nc("@action:intoolbar", "Select pages to rotate")
             display: QQC2.ToolButton.IconOnly
             onClicked: {
-                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1
-                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1
-                rotDlgComp.createObject(null, { range: APP.range(from, to) })
+                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
+                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
+                rotDlgComp.createObject(null, {
+                    range: APP.range(from, to)
+                });
             }
 
             QQC2.ToolTip.text: text
@@ -60,9 +64,11 @@ Components.FloatingToolBar {
             display: QQC2.ToolButton.IconOnly
             icon.name: "transform-move"
             onClicked: {
-                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1
-                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1
-                mvDlgComp.createObject(null, { range: APP.range(from, to) })
+                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
+                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
+                mvDlgComp.createObject(null, {
+                    range: APP.range(from, to)
+                });
             }
 
             QQC2.ToolTip.text: text
@@ -95,11 +101,11 @@ Components.FloatingToolBar {
 
             onClicked: {
                 if (checked) {
-                    checked = true
+                    checked = true;
                 } else {
-                    let currPage = pdfView.currentIndex > -1 ? pdfView.currentIndex : 0
-                    root.pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false)
-                    checked = Qt.binding(() => APP.ctrlPressed)
+                    let currPage = pdfView.currentIndex > -1 ? pdfView.currentIndex : 0;
+                    root.pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false);
+                    checked = Qt.binding(() => APP.ctrlPressed);
                 }
             }
 
@@ -149,14 +155,15 @@ Components.FloatingToolBar {
         QQC2.SpinBox {
             id: pageSpin
             property bool canIndexAtY: true
-            from: 1; to: root.pdfModel.pageCount
-            textFromValue: (value) => {
-                return i18n("Page %1 of %2", value, to)
+            from: 1
+            to: root.pdfModel.pageCount
+            textFromValue: value => {
+                return i18n("Page %1 of %2", value, to);
             }
             onValueModified: {
-                canIndexAtY = false
-                pdfView.positionViewAtIndex(value - 1, GridView.Center)
-                canIndexAtY = true
+                canIndexAtY = false;
+                pdfView.positionViewAtIndex(value - 1, GridView.Center);
+                canIndexAtY = true;
             }
         }
 
@@ -168,8 +175,8 @@ Components.FloatingToolBar {
                 acceptText: i18nc("@action:button", "Delete")
                 pageCount: root.pdfModel.pageCount
                 onAccepted: {
-                    root.pdfModel.deletePages(range)
-                    pdfView.currentIndex = -1
+                    root.pdfModel.deletePages(range);
+                    pdfView.currentIndex = -1;
                 }
             }
         }
@@ -188,15 +195,25 @@ Components.FloatingToolBar {
                     Layout.fillWidth: true
                     contentItem: RowLayout {
                         spacing: Kirigami.Units.largeSpacing
-                        Item { Layout.preferredHeight: 1; Layout.fillWidth: true }
-                        QQC2.Label { text: i18n("Angle") }
+                        Item {
+                            Layout.preferredHeight: 1
+                            Layout.fillWidth: true
+                        }
+                        QQC2.Label {
+                            text: i18n("Angle")
+                        }
                         QQC2.ComboBox {
                             id: angleCombo
-                            model: [ "90°", "180°", "270°" ]
+                            model: ["90°", "180°", "270°"]
                             currentIndex: rotDlg.angle / 90 - 1
-                            onActivated: (index) => { rotDlg.angle = (index + 1) * 90 }
+                            onActivated: index => {
+                                rotDlg.angle = (index + 1) * 90;
+                            }
                         }
-                        Item { Layout.preferredHeight: 1; Layout.fillWidth: true }
+                        Item {
+                            Layout.preferredHeight: 1
+                            Layout.fillWidth: true
+                        }
                     }
                 }
                 onAccepted: root.pdfModel.rotatePages(range, rotDlg.angle)
@@ -216,9 +233,9 @@ Components.FloatingToolBar {
 
     Connections {
         target: pdfView
-        function onContentYChanged() : void {
+        function onContentYChanged(): void {
             if (pageSpin.canIndexAtY)
-                pageSpin.value = pdfView.indexAt(10, pdfView.contentY + Math.min(pdfView.cellHeight, pdfView.height / 2)) + 1
+                pageSpin.value = pdfView.indexAt(10, pdfView.contentY + Math.min(pdfView.cellHeight, pdfView.height / 2)) + 1;
         }
     }
 }

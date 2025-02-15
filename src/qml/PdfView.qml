@@ -22,7 +22,6 @@ GridView {
     topMargin: Kirigami.Units.largeSpacing
     bottomMargin: Kirigami.Units.largeSpacing + bottomBar.height
 
-
     displaced: Transition {
         NumberAnimation {
             properties: "x,y"
@@ -91,7 +90,7 @@ GridView {
                 image: dropDelegate.pageImg
                 scale: pdfPage.width / (dropDelegate.rotated === 90 || dropDelegate.rotated === 270 ? img.height : img.width)
                 rotation: dropDelegate.rotated
-                opacity: pdfView.pageIsDragged && selected ? 0.5 : 1
+                opacity: pdfView.pageIsDragged && dropDelegate.selected ? 0.5 : 1
                 Behavior on rotation {
                     NumberAnimation {
                         easing.type: Easing.OutQuad
@@ -103,7 +102,7 @@ GridView {
                 }
             }
             Rectangle {
-                visible: bottomBar.labelsVisible
+                visible: pdfView.bottomBar.labelsVisible
                 anchors.bottom: parent.bottom
                 height: Kirigami.Units.gridUnit * 2
                 width: pdfPage.width
@@ -126,7 +125,7 @@ GridView {
                         font {
                             pixelSize: height
                         }
-                        text: pdfView.model.getPdfName(fileId)
+                        text: pdfView.model.getPdfName(dropDelegate.fileId)
                     }
                     Text {
                         height: Kirigami.Units.gridUnit
@@ -160,13 +159,13 @@ GridView {
             }
 
             onClicked: {
-                pdfView.model.selectPage(dropDelegate.index, pdfView.currentIndex !== dropDelegate.index, bottomBar.multiSelect);
+                pdfView.model.selectPage(dropDelegate.index, pdfView.currentIndex !== dropDelegate.index, pdfView.bottomBar.multiSelect);
                 pdfView.currentIndex = pdfView.currentIndex === dropDelegate.index ? -1 : dropDelegate.index;
             }
 
             states: [
                 State {
-                    when: (!bottomBar.multiSelect && pdfPage.dragActive) || (pdfView.pageIsDragged && bottomBar.multiSelect && dropDelegate.selected)
+                    when: (!pdfView.bottomBar.multiSelect && pdfPage.dragActive) || (pdfView.pageIsDragged && pdfView.bottomBar.multiSelect && dropDelegate.selected)
                     ParentChange {
                         target: pdfPage
                         parent: pdfView.contentItem
@@ -176,7 +175,10 @@ GridView {
         }
     }
 
-    highlight: EditDelegate {}
+    highlight: EditDelegate {
+        pdfModel: pdfView.model
+        pdfView: pdfView
+    }
 
     Timer {
         running: pdfView.pageIsDragged && pdfView.dragOverlay !== 0
