@@ -17,6 +17,7 @@ Kirigami.Page {
 
     function clearAll() {
         pdfModel.clearAll()
+        bottomBar.showBookmarks = false
     }
 
     function generate() {
@@ -80,7 +81,7 @@ Kirigami.Page {
                     checkable: true
 
                     readonly property Binding binding: Binding {
-                        versionAction.checked: pdfModel.pdfVersion === version
+                        versionAction.checked: pdfModel.pdfVersion === versionAction.version
                     }
                 }
 
@@ -124,7 +125,7 @@ Kirigami.Page {
         z: 600000
         parent: page.overlay
         visible: !pdfModel.pageCount
-        onClicked: openPDFs(APP.getPdfFiles())
+        onClicked: page.openPDFs(APP.getPdfFiles())
     }
 
     PdfEditModel {
@@ -155,10 +156,13 @@ Kirigami.Page {
             QQC2.SplitView.fillHeight: true
             QQC2.SplitView.preferredWidth: Kirigami.Units.gridUnit * 15
             QQC2.SplitView.minimumWidth: Kirigami.Units.gridUnit * 5
-            QQC2.SplitView.maximumWidth: mainWin.contentItem.width / 3
+            QQC2.SplitView.maximumWidth: page.width / 3
 
             onBookmarkSelected: (pageNr) => {
                 pdfView.positionViewAtIndex(pageNr, GridView.Center)
+            }
+            onTocAboutToClear: {
+                bottomBar.showBookmarks = true // override bindings to keep pane visible
             }
         }
 
