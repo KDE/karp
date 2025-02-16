@@ -56,6 +56,7 @@ Kirigami.Page {
             text: i18n("PDF Options")
             Kirigami.Action {
                 id: optimizeAct
+                visible: false // TODO: it doesn't work properly with qpdf
                 fromQAction: APP.action("optimize")
                 checked: pdfModel.optimizeImages
             }
