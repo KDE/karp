@@ -76,7 +76,7 @@ public:
     /**
      * Removes all bookmarks/data from the model
      */
-    void clear();
+    Q_INVOKABLE void clear();
 
     void saveBookmarks(QPDF &qpdf, bool force = false);
 
