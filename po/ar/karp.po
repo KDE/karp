@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:39+0000\n"
+"POT-Creation-Date: 2025-02-16 00:39+0000\n"
 "PO-Revision-Date: 2025-01-28 19:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -316,22 +316,27 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr "طبّق"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:19
+#: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
 msgstr "خصائص بي دي اف"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:55
+#: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
 msgstr "مخرَج ملف بي دي اف"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:135
+#: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "انسخ كافة مفاتيح البيانات الوصفية إلى ملف الإخراج"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:161
+#: qml/Dialogs/PdfMetadataDialog.qml:187
+#, kde-format
+msgid "Double click to delete all metadata"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "انقر نقرًا مزدوجًا لنسخ البيانات الوصفية إلى ملف بي دي اف الناتج."
@@ -427,87 +432,87 @@ msgstr "عيّن كلمة سر"
 msgid "Protect PDF file with password."
 msgstr "احم ملف بي دي اف بكلمة مرور."
 
-#: qml/MainToolbar.qml:23
+#: qml/MainToolbar.qml:25
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "حدد صفحات للحذف"
 
-#: qml/MainToolbar.qml:43
+#: qml/MainToolbar.qml:47
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "حدد صفحات للتدوير"
 
-#: qml/MainToolbar.qml:57
+#: qml/MainToolbar.qml:63
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "حدد صفحات للنقل"
 
-#: qml/MainToolbar.qml:73
+#: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
 msgstr "جدول المحتويات (العلامات)"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "تحديد متعدّد الصفحات"
 
-#: qml/MainToolbar.qml:112
+#: qml/MainToolbar.qml:120
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "أظهر تسميات الصفحة"
 
-#: qml/MainToolbar.qml:124
+#: qml/MainToolbar.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "صغّر"
 
-#: qml/MainToolbar.qml:136
+#: qml/MainToolbar.qml:144
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "كبّر"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "الصفحة %1 من %2"
 
-#: qml/MainToolbar.qml:165
+#: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
 msgstr "حدد صفحات للحذف"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "احذف"
 
-#: qml/MainToolbar.qml:180
+#: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "حدد صفحات للتدوير"
 
-#: qml/MainToolbar.qml:181
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "دوّر"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
 msgstr "زاوية"
 
-#: qml/MainToolbar.qml:208
+#: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
 msgstr "حدد صفحات للنقل"

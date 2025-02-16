@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:39+0000\n"
+"POT-Creation-Date: 2025-02-16 00:39+0000\n"
 "PO-Revision-Date: 2025-01-23 12:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -313,22 +313,27 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr "Uygula"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:19
+#: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
 msgstr "PDF Özellikleri"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:55
+#: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
 msgstr "PDF Çıktıla"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:135
+#: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Tüm üst veri anahtarlarını çıktı dosyasına kopyala"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:161
+#: qml/Dialogs/PdfMetadataDialog.qml:187
+#, kde-format
+msgid "Double click to delete all metadata"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Üst veriyi çıktı PDF dosyasına kopyalamak için çift tıklayın."
@@ -420,87 +425,87 @@ msgstr "Parola Ayarla"
 msgid "Protect PDF file with password."
 msgstr "PDF dosyalarını parola ile koruyun."
 
-#: qml/MainToolbar.qml:23
+#: qml/MainToolbar.qml:25
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Silinecek sayfaları seç"
 
-#: qml/MainToolbar.qml:43
+#: qml/MainToolbar.qml:47
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Döndürülecek sayfaları seç"
 
-#: qml/MainToolbar.qml:57
+#: qml/MainToolbar.qml:63
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Taşınacak sayfaları seç"
 
-#: qml/MainToolbar.qml:73
+#: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
 msgstr "İçindekiler (Yer İmleri)"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "Birden Çok Sayfa Seç"
 
-#: qml/MainToolbar.qml:112
+#: qml/MainToolbar.qml:120
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Sayfa etiketlerini göster"
 
-#: qml/MainToolbar.qml:124
+#: qml/MainToolbar.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Uzaklaştır"
 
-#: qml/MainToolbar.qml:136
+#: qml/MainToolbar.qml:144
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Yakınlaştır"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Sayfa %1/%2"
 
-#: qml/MainToolbar.qml:165
+#: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Silinecek Sayfaları Seç"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Sil"
 
-#: qml/MainToolbar.qml:180
+#: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Döndürülecek Sayfaları Seç"
 
-#: qml/MainToolbar.qml:181
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Döndür"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
 msgstr "Açı"
 
-#: qml/MainToolbar.qml:208
+#: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
 msgstr "Taşınacak Sayfaları Seç"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:39+0000\n"
+"POT-Creation-Date: 2025-02-16 00:39+0000\n"
 "PO-Revision-Date: 2025-01-23 06:52+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -316,22 +316,27 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr "Aplikatu"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:19
+#: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
 msgstr "PDF propietateak"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:55
+#: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
 msgstr "Irteera PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:135
+#: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Kopiatu meta-datu gako guztiak irteerako PDFan"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:161
+#: qml/Dialogs/PdfMetadataDialog.qml:187
+#, kde-format
+msgid "Double click to delete all metadata"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Egin klik bikoitza meta-datuak irteerako PDF fitxategian kopiatzeko."
@@ -423,87 +428,87 @@ msgstr "Ezarri pasahitza"
 msgid "Protect PDF file with password."
 msgstr "Babestu PDF fitxategia pasahitz bidez."
 
-#: qml/MainToolbar.qml:23
+#: qml/MainToolbar.qml:25
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Hautatu ezabatu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:43
+#: qml/MainToolbar.qml:47
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Hautatu biratu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:57
+#: qml/MainToolbar.qml:63
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Hautatu mugitu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:73
+#: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
 msgstr "Aurkibidea (laster-markak)"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "Orri-anizkoitzeko hautapen"
 
-#: qml/MainToolbar.qml:112
+#: qml/MainToolbar.qml:120
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Erakutsi orrialde-etiketak"
 
-#: qml/MainToolbar.qml:124
+#: qml/MainToolbar.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Zooma urrundu"
 
-#: qml/MainToolbar.qml:136
+#: qml/MainToolbar.qml:144
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Zooma gerturatu"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Orrialdea %1 / %2"
 
-#: qml/MainToolbar.qml:165
+#: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Hautatu ezabatu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: qml/MainToolbar.qml:180
+#: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Hautatu biratu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:181
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Biratu"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
 msgstr "Angelua"
 
-#: qml/MainToolbar.qml:208
+#: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
 msgstr "Hautatu mugitu beharreko orrialdeak"

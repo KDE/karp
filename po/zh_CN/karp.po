@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:39+0000\n"
+"POT-Creation-Date: 2025-02-16 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -310,22 +310,27 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr "应用"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:19
+#: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
 msgstr "PDF 属性"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:55
+#: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
 msgstr "输出 PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:135
+#: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "复制所有元数据键到输出文件"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:161
+#: qml/Dialogs/PdfMetadataDialog.qml:187
+#, kde-format
+msgid "Double click to delete all metadata"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "双击以复制元数据到输出 PDF 文件。"
@@ -416,87 +421,87 @@ msgstr "设置密码"
 msgid "Protect PDF file with password."
 msgstr "使用密码保护 PDF 文件。"
 
-#: qml/MainToolbar.qml:23
+#: qml/MainToolbar.qml:25
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "选择要删除的页面"
 
-#: qml/MainToolbar.qml:43
+#: qml/MainToolbar.qml:47
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "选择要旋转的页面"
 
-#: qml/MainToolbar.qml:57
+#: qml/MainToolbar.qml:63
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "选择要移动的页面"
 
-#: qml/MainToolbar.qml:73
+#: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
 msgstr "目录 (书签)"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "多页选择"
 
-#: qml/MainToolbar.qml:112
+#: qml/MainToolbar.qml:120
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "显示页面标签"
 
-#: qml/MainToolbar.qml:124
+#: qml/MainToolbar.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "缩小"
 
-#: qml/MainToolbar.qml:136
+#: qml/MainToolbar.qml:144
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "放大"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "第 %1 页，共 %2 页"
 
-#: qml/MainToolbar.qml:165
+#: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
 msgstr "选择要删除的页面"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "删除"
 
-#: qml/MainToolbar.qml:180
+#: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "选择要旋转的页面"
 
-#: qml/MainToolbar.qml:181
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "旋转"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
 msgstr "角度"
 
-#: qml/MainToolbar.qml:208
+#: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
 msgstr "选择要移动的页面"

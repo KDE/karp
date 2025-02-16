@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:39+0000\n"
+"POT-Creation-Date: 2025-02-16 00:39+0000\n"
 "PO-Revision-Date: 2025-02-08 17:03+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -314,22 +314,27 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr "Zastosuj"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:19
+#: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
 msgstr "Właściwości PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:55
+#: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
 msgstr "Wynikowy PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:135
+#: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "Skopiuj wszystkie klucze metadanych do pliku wynikowego"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:161
+#: qml/Dialogs/PdfMetadataDialog.qml:187
+#, kde-format
+msgid "Double click to delete all metadata"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "Kliknij dwukrotnie, aby skopiować metadane do wynikowego pliku PDF."
@@ -422,87 +427,87 @@ msgstr "Ustaw hasło"
 msgid "Protect PDF file with password."
 msgstr "Chroń plik PDF hasłem."
 
-#: qml/MainToolbar.qml:23
+#: qml/MainToolbar.qml:25
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "Zaznacz strony do usunięcia"
 
-#: qml/MainToolbar.qml:43
+#: qml/MainToolbar.qml:47
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "Zaznacz strony do obrócenia"
 
-#: qml/MainToolbar.qml:57
+#: qml/MainToolbar.qml:63
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "Zaznacz strony do przeniesienia"
 
-#: qml/MainToolbar.qml:73
+#: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
 msgstr "Spis treści (zakładki)"
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "Zaznaczenie wielu stron"
 
-#: qml/MainToolbar.qml:112
+#: qml/MainToolbar.qml:120
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "Pokaż etykiety stron"
 
-#: qml/MainToolbar.qml:124
+#: qml/MainToolbar.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "Pomniejsz"
 
-#: qml/MainToolbar.qml:136
+#: qml/MainToolbar.qml:144
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "Powiększ"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Strona %1 z %2"
 
-#: qml/MainToolbar.qml:165
+#: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Zaznacz strony do usunięcia"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Usuń"
 
-#: qml/MainToolbar.qml:180
+#: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Zaznacz strony do obrócenia"
 
-#: qml/MainToolbar.qml:181
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Obróć"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
 msgstr "Kąt"
 
-#: qml/MainToolbar.qml:208
+#: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
 msgstr "Zaznacz strony do przeniesienia"

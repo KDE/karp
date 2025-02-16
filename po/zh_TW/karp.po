@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:39+0000\n"
+"POT-Creation-Date: 2025-02-16 00:39+0000\n"
 "PO-Revision-Date: 2024-11-26 21:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -320,22 +320,27 @@ msgctxt "@action:button"
 msgid "Apply"
 msgstr ""
 
-#: qml/Dialogs/PdfMetadataDialog.qml:19
+#: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
 msgstr "PDF 屬性"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:55
+#: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
 msgstr "輸出 PDF"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:135
+#: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
 msgstr "將所有中繼資料複製到輸出檔"
 
-#: qml/Dialogs/PdfMetadataDialog.qml:161
+#: qml/Dialogs/PdfMetadataDialog.qml:187
+#, kde-format
+msgid "Double click to delete all metadata"
+msgstr ""
+
+#: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr "雙擊來複製中繼資料到輸出 PDF 檔案中。"
@@ -432,94 +437,94 @@ msgstr "設定密碼"
 msgid "Protect PDF file with password."
 msgstr "用密碼來保護 PDF 檔。"
 
-#: qml/MainToolbar.qml:23
+#: qml/MainToolbar.qml:25
 #, fuzzy, kde-format
 #| msgid "Select pages to delete"
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
 msgstr "選擇要刪除的頁面"
 
-#: qml/MainToolbar.qml:43
+#: qml/MainToolbar.qml:47
 #, fuzzy, kde-format
 #| msgid "Select pages to rotate"
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
 msgstr "選擇要旋轉的頁面"
 
-#: qml/MainToolbar.qml:57
+#: qml/MainToolbar.qml:63
 #, fuzzy, kde-format
 #| msgid "Select pages to move"
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
 msgstr "選擇要移動的頁面"
 
-#: qml/MainToolbar.qml:73
+#: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
 msgstr ""
 
-#: qml/MainToolbar.qml:87
+#: qml/MainToolbar.qml:95
 #, fuzzy, kde-format
 #| msgid "all pages in selected range"
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
 msgstr "選取範圍內所有頁面"
 
-#: qml/MainToolbar.qml:112
+#: qml/MainToolbar.qml:120
 #, fuzzy, kde-format
 #| msgid "Show page labels"
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
 msgstr "顯示頁面標記"
 
-#: qml/MainToolbar.qml:124
+#: qml/MainToolbar.qml:132
 #, fuzzy, kde-format
 #| msgid "Zoom Out"
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
 msgstr "縮小"
 
-#: qml/MainToolbar.qml:136
+#: qml/MainToolbar.qml:144
 #, fuzzy, kde-format
 #| msgid "Zoom In"
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
 msgstr "放大"
 
-#: qml/MainToolbar.qml:152
+#: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "第 %1 頁，共 %2 頁"
 
-#: qml/MainToolbar.qml:165
+#: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
 msgstr "選擇要刪除的頁面"
 
-#: qml/MainToolbar.qml:166
+#: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "刪除"
 
-#: qml/MainToolbar.qml:180
+#: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "選擇要旋轉的頁面"
 
-#: qml/MainToolbar.qml:181
+#: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "旋轉"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
 msgstr "角度"
 
-#: qml/MainToolbar.qml:208
+#: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
 msgstr "選擇要移動的頁面"
