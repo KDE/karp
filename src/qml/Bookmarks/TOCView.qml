@@ -95,7 +95,7 @@ ColumnLayout {
 
                     background: Rectangle {
                         color: "transparent"
-                        radius: 2
+                        radius: Kirigami.Units.mediumSpacing
 
                         border {
                             width: ma.containsMouse ? 2 : 0
