@@ -31,6 +31,11 @@ QColor alpha(const QColor &c)
     return QColor(c.red(), c.green(), c.blue(), 0x80);
 }
 
+qreal pdfVersionFromConfValue(int pdfVer)
+{
+    return pdfVer >= 14 && pdfVer <= 17 ? pdfVer / 10.0 : 0.0;
+}
+
 PdfEditModel *PdfEditModel::m_self = nullptr;
 
 PdfEditModel::PdfEditModel(QObject *parent)
@@ -42,11 +47,17 @@ PdfEditModel::PdfEditModel(QObject *parent)
     m_columns = INIT_COLUMN_COUNT;
     m_labelColors << alpha(Qt::black) << alpha(Qt::darkMagenta) << alpha(Qt::darkYellow) << alpha(Qt::darkCyan) << alpha(Qt::darkBlue) << alpha(Qt::darkGreen);
     m_pageRange.reset();
+
     m_bookmarks = new BookmarkModel(this);
     connect(m_bookmarks, &BookmarkModel::statusChanged, this, &PdfEditModel::editedChanged);
     connect(m_bookmarks, &BookmarkModel::outlineAdded, this, &PdfEditModel::newOutlineSlot);
     connect(m_bookmarks, &BookmarkModel::aboutToRemove, this, &PdfEditModel::removeOutlineSlot);
     connect(m_bookmarks, &BookmarkModel::aboutToChange, this, &PdfEditModel::changeOutlineSlot);
+
+    m_pdfVersion = pdfVersionFromConfValue(karpConfig::self()->pdfVersion());
+    connect(karpConfig::self(), &karpConfig::pdfVersionChanged, this, [&] {
+        setPdfVersion(pdfVersionFromConfValue(karpConfig::self()->pdfVersion()));
+    });
 }
 
 PdfEditModel::~PdfEditModel()

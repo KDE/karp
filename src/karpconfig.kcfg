@@ -9,12 +9,12 @@ SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 -->
 <kcfgfile name="karprc" />
     <group name="General">
-        <entry key="lastDir" type="String" >
+        <entry key="lastDir" type="String">
         </entry>
         <entry key="openLastDir" type="Bool">
             <default>true</default>
         </entry>
-        <entry key="fixedLastDir" type="String" >
+        <entry key="fixedLastDir" type="String">
             <default></default>
         </entry>
         <entry key="askForOutFile" type="Bool">
@@ -23,13 +23,16 @@ SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
         <entry key="appendXfix" type="Bool">
             <default>true</default>
         </entry>
-        <entry key="outFileXfix" type="String" >
+        <entry key="outFileXfix" type="String">
             <default>-out</default>
         </entry>
     </group>
     <group name="Tools">
-        <entry key="gsPath" type="String" >
+        <entry key="gsPath" type="String">
             <default></default>
+        </entry>
+        <entry key="pdfVersion" type="Int">
+            <default>0</default>
         </entry>
     </group>
 </kcfg>
