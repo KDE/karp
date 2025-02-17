@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-16 00:39+0000\n"
+"POT-Creation-Date: 2025-02-17 00:39+0000\n"
 "PO-Revision-Date: 2025-01-28 19:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -115,7 +115,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "omats@vivaldi.net"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
+#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "العنوان"
@@ -148,73 +148,110 @@ msgstr "تاريخ الإنشاء"
 msgid "Modification Date"
 msgstr "تاريخ التعديل"
 
-#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
 #, kde-format
 msgid "Edit Chapter"
 msgstr "حرر الفصل"
 
-#: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "الأول"
-
-#: qml/Bookmarks/OutlineDialog.qml:55
-#, kde-format
-msgctxt "Edited bookmark/chapter points to page"
-msgid "points to page"
-msgstr "المراجع للصفحة"
-
-#: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "الأخير"
-
-#: qml/Bookmarks/OutlineDialog.qml:73
+#: qml/Bookmarks/OutlineDialog.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "أزل"
 
-#: qml/Bookmarks/OutlineDialog.qml:82
+#: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "احفظ"
 
-#: qml/Bookmarks/OutlineDialog.qml:82
+#: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "أضف"
 
-#: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
+#: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: qml/Bookmarks/TOCView.qml:90
+#: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "الأول"
+
+#: qml/Bookmarks/OutlineDialog.qml:99
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr "المراجع للصفحة"
+
+#: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "الأخير"
+
+#: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
 #, kde-format
 msgid "Add Chapter"
 msgstr "أضف فصلًا"
 
-#: qml/Bookmarks/TOCView.qml:112
+#: qml/Bookmarks/TOCView.qml:130
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Expand All"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:136
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Collapse All"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:146
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
+msgctxt "@action:intoolbar"
+msgid "Clear Table of Contents"
+msgstr "جدول المحتويات (العلامات)"
+
+#: qml/Bookmarks/TOCView.qml:168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
 msgstr "أدرج في الأعلى"
 
-#: qml/Bookmarks/TOCView.qml:120
+#: qml/Bookmarks/TOCView.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
 msgstr "أدرج في الأسفل"
 
-#: qml/Bookmarks/TOCView.qml:128
+#: qml/Bookmarks/TOCView.qml:186
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
 msgstr "أضف قسم فرعي"
+
+#: qml/Bookmarks/TOCView.qml:195
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Expand whole section"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:203
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Collapse whole section"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:219
+#, kde-format
+msgid "Are you sure you'd like to remove all chapters?"
+msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -376,19 +413,19 @@ msgstr "محرر بي دي اف بسيط"
 msgid "Quit"
 msgstr "اخرج"
 
-#: qml/MainPage.qml:33
+#: qml/MainPage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "احفظ كَ‍..."
 
-#: qml/MainPage.qml:33
+#: qml/MainPage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "احفظ"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:39
 #, kde-format
 msgid "file"
 msgid_plural "files"
@@ -399,35 +436,35 @@ msgstr[3] "ملفات"
 msgstr[4] "ملفًا"
 msgstr[5] "ملف"
 
-#: qml/MainPage.qml:55
+#: qml/MainPage.qml:56
 #, kde-format
 msgid "PDF Options"
 msgstr "خيارات بي دي اف"
 
-#: qml/MainPage.qml:70
+#: qml/MainPage.qml:72
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "نسخة بي دي اف"
 
-#: qml/MainPage.qml:78
+#: qml/MainPage.qml:80
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "المبدئيّ"
 
-#: qml/MainPage.qml:78
+#: qml/MainPage.qml:80
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "الإصدار %1"
 
-#: qml/MainPage.qml:248
+#: qml/MainPage.qml:253
 #, kde-format
 msgid "Set password"
 msgstr "عيّن كلمة سر"
 
-#: qml/MainPage.qml:248
+#: qml/MainPage.qml:253
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "احم ملف بي دي اف بكلمة مرور."

@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-16 00:39+0000\n"
-"PO-Revision-Date: 2025-01-23 09:13+0200\n"
+"POT-Creation-Date: 2025-02-17 00:39+0000\n"
+"PO-Revision-Date: 2025-02-16 07:34+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:571
 #, kde-format
@@ -115,7 +115,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
+#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "כותרת"
@@ -148,73 +148,110 @@ msgstr "תאריך יצירה"
 msgid "Modification Date"
 msgstr "תאריך שינוי"
 
-#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
 #, kde-format
 msgid "Edit Chapter"
 msgstr "עריכת פרק"
 
-#: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "ראשון"
-
-#: qml/Bookmarks/OutlineDialog.qml:55
-#, kde-format
-msgctxt "Edited bookmark/chapter points to page"
-msgid "points to page"
-msgstr "נקודות לעמוד"
-
-#: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "אחרון"
-
-#: qml/Bookmarks/OutlineDialog.qml:73
+#: qml/Bookmarks/OutlineDialog.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "הסרה"
 
-#: qml/Bookmarks/OutlineDialog.qml:82
+#: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "שמירה"
 
-#: qml/Bookmarks/OutlineDialog.qml:82
+#: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "הוספה"
 
-#: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
+#: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: qml/Bookmarks/TOCView.qml:90
+#: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "ראשון"
+
+#: qml/Bookmarks/OutlineDialog.qml:99
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr "נקודות לעמוד"
+
+#: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "אחרון"
+
+#: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
 #, kde-format
 msgid "Add Chapter"
 msgstr "הוספת פרק"
 
-#: qml/Bookmarks/TOCView.qml:112
+#: qml/Bookmarks/TOCView.qml:130
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Expand All"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:136
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Collapse All"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:146
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
+msgctxt "@action:intoolbar"
+msgid "Clear Table of Contents"
+msgstr "תוכן עניינים (סימניות)"
+
+#: qml/Bookmarks/TOCView.qml:168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
 msgstr "הוספה מעל"
 
-#: qml/Bookmarks/TOCView.qml:120
+#: qml/Bookmarks/TOCView.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
 msgstr "הוספה מתחת"
 
-#: qml/Bookmarks/TOCView.qml:128
+#: qml/Bookmarks/TOCView.qml:186
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
 msgstr "הוספת תת־סעיף"
+
+#: qml/Bookmarks/TOCView.qml:195
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Expand whole section"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:203
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Collapse whole section"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:219
+#, kde-format
+msgid "Are you sure you'd like to remove all chapters?"
+msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -332,7 +369,7 @@ msgstr "העתקת כל מפתחות נתוני העל לקובץ הפלט"
 #: qml/Dialogs/PdfMetadataDialog.qml:187
 #, kde-format
 msgid "Double click to delete all metadata"
-msgstr ""
+msgstr "לחיצה כפולה תמחק את כל נתוני העל"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
@@ -374,19 +411,19 @@ msgstr "עורך PDF פשוט"
 msgid "Quit"
 msgstr "יציאה"
 
-#: qml/MainPage.qml:33
+#: qml/MainPage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "שמירה בשם…"
 
-#: qml/MainPage.qml:33
+#: qml/MainPage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "שמירה"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:39
 #, kde-format
 msgid "file"
 msgid_plural "files"
@@ -395,35 +432,35 @@ msgstr[1] "קבצים"
 msgstr[2] "קבצים"
 msgstr[3] "קבצים"
 
-#: qml/MainPage.qml:55
+#: qml/MainPage.qml:56
 #, kde-format
 msgid "PDF Options"
 msgstr "אפשרויות PDF"
 
-#: qml/MainPage.qml:70
+#: qml/MainPage.qml:72
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "גרסת PDF"
 
-#: qml/MainPage.qml:78
+#: qml/MainPage.qml:80
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "ברירת מחדל"
 
-#: qml/MainPage.qml:78
+#: qml/MainPage.qml:80
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "גרסה %1"
 
-#: qml/MainPage.qml:248
+#: qml/MainPage.qml:253
 #, kde-format
 msgid "Set password"
 msgstr "הגדרת סיסמה"
 
-#: qml/MainPage.qml:248
+#: qml/MainPage.qml:253
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "הגנה על קובצי PDF בסיסמה."

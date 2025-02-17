@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-16 00:39+0000\n"
-"PO-Revision-Date: 2025-01-23 04:24+0100\n"
+"POT-Creation-Date: 2025-02-17 00:39+0000\n"
+"PO-Revision-Date: 2025-02-16 04:33+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -117,7 +117,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "temuri.doghonadze@gmail.com"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:38
+#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "სათაური"
@@ -150,73 +150,110 @@ msgstr "შეცვლის თარიღის მიხედვით"
 msgid "Modification Date"
 msgstr "ცვლილების თარიღი"
 
-#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:107
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
 #, kde-format
 msgid "Edit Chapter"
 msgstr "თავის ჩასწორება"
 
-#: qml/Bookmarks/OutlineDialog.qml:51 qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "პირველი"
-
-#: qml/Bookmarks/OutlineDialog.qml:55
-#, kde-format
-msgctxt "Edited bookmark/chapter points to page"
-msgid "points to page"
-msgstr "მიუთითებს გვერდზე"
-
-#: qml/Bookmarks/OutlineDialog.qml:63 qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "ბოლო"
-
-#: qml/Bookmarks/OutlineDialog.qml:73
+#: qml/Bookmarks/OutlineDialog.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: qml/Bookmarks/OutlineDialog.qml:82
+#: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "შენახვა"
 
-#: qml/Bookmarks/OutlineDialog.qml:82
+#: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
 msgstr "დამატება"
 
-#: qml/Bookmarks/OutlineDialog.qml:87 qml/Dialogs/PdfFilesDialog.qml:143
+#: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: qml/Bookmarks/TOCView.qml:90
+#: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "პირველი"
+
+#: qml/Bookmarks/OutlineDialog.qml:99
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr "მიუთითებს გვერდზე"
+
+#: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "ბოლო"
+
+#: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
 #, kde-format
 msgid "Add Chapter"
 msgstr "თავის დამატება"
 
-#: qml/Bookmarks/TOCView.qml:112
+#: qml/Bookmarks/TOCView.qml:130
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Expand All"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:136
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Collapse All"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:146
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
+msgctxt "@action:intoolbar"
+msgid "Clear Table of Contents"
+msgstr "სარჩევი (სანიშნეები)"
+
+#: qml/Bookmarks/TOCView.qml:168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
 msgstr "ჩასმა ზემოთ"
 
-#: qml/Bookmarks/TOCView.qml:120
+#: qml/Bookmarks/TOCView.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
 msgstr "ჩასმა ქვემოთ"
 
-#: qml/Bookmarks/TOCView.qml:128
+#: qml/Bookmarks/TOCView.qml:186
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
 msgstr "ქვესექციის დამატება"
+
+#: qml/Bookmarks/TOCView.qml:195
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Expand whole section"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:203
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Collapse whole section"
+msgstr ""
+
+#: qml/Bookmarks/TOCView.qml:219
+#, kde-format
+msgid "Are you sure you'd like to remove all chapters?"
+msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -332,7 +369,7 @@ msgstr "ყველა მეტამონაცემის გასაღ�
 #: qml/Dialogs/PdfMetadataDialog.qml:187
 #, kde-format
 msgid "Double click to delete all metadata"
-msgstr ""
+msgstr "ორმაგი წკაპი მეტამონაცემების სრულად წასაშლელად"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
@@ -374,54 +411,54 @@ msgstr "მარტივი PDF რედაქტორი"
 msgid "Quit"
 msgstr "გასვლა"
 
-#: qml/MainPage.qml:33
+#: qml/MainPage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "შენახვა, როგორც..."
 
-#: qml/MainPage.qml:33
+#: qml/MainPage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "შენახვა"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:39
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "ფაილი"
 msgstr[1] "ფაილები"
 
-#: qml/MainPage.qml:55
+#: qml/MainPage.qml:56
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF პარამეტრები"
 
-#: qml/MainPage.qml:70
+#: qml/MainPage.qml:72
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF-ის ვერსია"
 
-#: qml/MainPage.qml:78
+#: qml/MainPage.qml:80
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: qml/MainPage.qml:78
+#: qml/MainPage.qml:80
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "ვერსია %1"
 
-#: qml/MainPage.qml:248
+#: qml/MainPage.qml:253
 #, kde-format
 msgid "Set password"
 msgstr "პაროლის დაყენება"
 
-#: qml/MainPage.qml:248
+#: qml/MainPage.qml:253
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "დაიცავით PDF ფაილი პაროლით."
