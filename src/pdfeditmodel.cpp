@@ -176,7 +176,7 @@ void PdfEditModel::setSpacing(qreal sp)
 bool PdfEditModel::edited() const
 {
     return m_rotatedCount || !m_deletedList.empty() || m_wasMoved || m_optimizeImages || pdfCount() > 1 || m_reduceSize || !m_passKey.isEmpty()
-        || m_metaData->modified() || m_pdfVersion > 0.0 || m_bookmarks->status() == BookmarkModel::Status::Modified
+        || m_metaData->modified() || m_pdfVersion != karpConfig::self()->pdfVersion() / 10.0 || m_bookmarks->status() == BookmarkModel::Status::Modified
         || m_bookmarks->status() == BookmarkModel::Status::Removed;
 }
 
