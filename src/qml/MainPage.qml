@@ -25,6 +25,10 @@ Kirigami.Page {
         pdfModel.generate()
     }
 
+    FontMetrics {
+        id: nameElided
+    }
+
     actions: [
         Kirigami.Action {
             id: saveAction
@@ -42,7 +46,8 @@ Kirigami.Page {
         Kirigami.Action {
             id: nameAct
             visible: pdfModel.pdfCount > 0
-            text: pdfModel.pdfCount > 0 ? "1. " + pdfModel.getPdfName(0) : ""
+            text: nameElided.elidedText(tooltip, Qt.ElideMiddle, page.width * 0.4, 0)
+            tooltip: pdfModel.pdfCount > 0 ? "1. " + pdfModel.getPdfName(0) : ""
             icon.name: "snap-page"
             icon.color: pdfModel.labelColor(0)
         },
