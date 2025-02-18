@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:39+0000\n"
-"PO-Revision-Date: 2025-02-16 09:41+0200\n"
+"POT-Creation-Date: 2025-02-18 00:39+0000\n"
+"PO-Revision-Date: 2025-02-17 09:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:571
+#: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Файл PDF для редагування"
@@ -117,36 +117,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "Заголовок"
 
-#: pdfeditmodel.cpp:515
+#: pdfeditmodel.cpp:526
 msgid "Subject"
 msgstr "Тема"
 
-#: pdfeditmodel.cpp:516
+#: pdfeditmodel.cpp:527
 msgid "Author"
 msgstr "Автор"
 
-#: pdfeditmodel.cpp:517
+#: pdfeditmodel.cpp:528
 msgid "Keyword"
 msgstr "Ключове слово"
 
-#: pdfeditmodel.cpp:518
+#: pdfeditmodel.cpp:529
 msgid "Producer"
 msgstr "Підсистема створення"
 
-#: pdfeditmodel.cpp:519
+#: pdfeditmodel.cpp:530
 msgid "Creator"
 msgstr "Створено у"
 
-#: pdfeditmodel.cpp:520
+#: pdfeditmodel.cpp:531
 msgid "Creation Date"
 msgstr "Дата створення"
 
-#: pdfeditmodel.cpp:521
+#: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "Дата внесення змін"
 
@@ -204,21 +204,19 @@ msgstr "Додати главу"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
-msgstr ""
+msgstr "Розгорнути все"
 
 #: qml/Bookmarks/TOCView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
-msgstr ""
+msgstr "Згорнути все"
 
 #: qml/Bookmarks/TOCView.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr "Зміст (закладки)"
+msgstr "Очистити Зміст"
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
@@ -242,18 +240,18 @@ msgstr "Додати підрозділ"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr ""
+msgstr "Розгорнути увесь розділ"
 
 #: qml/Bookmarks/TOCView.qml:203
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr ""
+msgstr "Згорнути увесь розділ"
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you'd like to remove all chapters?"
-msgstr ""
+msgstr "Ви справді хочете вилучити усі глави?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -413,19 +411,19 @@ msgstr "Простий редактор PDF"
 msgid "Quit"
 msgstr "Вийти"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "Зберегти як…"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Зберегти"
 
-#: qml/MainPage.qml:39
+#: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
@@ -434,35 +432,35 @@ msgstr[1] "файли"
 msgstr[2] "файлів"
 msgstr[3] "файл"
 
-#: qml/MainPage.qml:56
+#: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
 msgstr "Параметри PDF"
 
-#: qml/MainPage.qml:72
+#: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "Версія PDF"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "типова"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Версія %1"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
 msgstr "Встановити пароль"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Захистити файл PDF паролем."
@@ -624,39 +622,39 @@ msgstr "Дописати на початок"
 msgid "It will produce: <b>%1filename%2.pdf</b>"
 msgstr "Результат роботи: <b>%1назва_файла%2.pdf</b>"
 
-#: qml/Settings/PdfTools.qml:12
+#: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
 msgstr "Інструменти PDF"
 
-#: qml/Settings/PdfTools.qml:18
+#: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "Надає змогу перевпорядковувати сторінки PDF."
 
-#: qml/Settings/PdfTools.qml:22
+#: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
 msgstr "Примусово вказати версію PDF для створеного файла"
 
-#: qml/Settings/PdfTools.qml:23
+#: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
 "Якщо встановлено типове значення, буде використано версію PDF з вхідного "
 "файла."
 
-#: qml/Settings/PdfTools.qml:24
+#: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
 msgstr "типова"
 
-#: qml/Settings/PdfTools.qml:32
+#: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
 msgstr "не знайдено"
 
-#: qml/Settings/PdfTools.qml:33
+#: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "Керування розміром і якістю файла PDF результатів."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:39+0000\n"
+"POT-Creation-Date: 2025-02-18 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 11:30+0100\n"
 "Last-Translator: Simulacrum\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:571
+#: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr ""
@@ -109,36 +109,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr ""
 
-#: pdfeditmodel.cpp:515
+#: pdfeditmodel.cpp:526
 msgid "Subject"
 msgstr ""
 
-#: pdfeditmodel.cpp:516
+#: pdfeditmodel.cpp:527
 msgid "Author"
 msgstr ""
 
-#: pdfeditmodel.cpp:517
+#: pdfeditmodel.cpp:528
 msgid "Keyword"
 msgstr ""
 
-#: pdfeditmodel.cpp:518
+#: pdfeditmodel.cpp:529
 msgid "Producer"
 msgstr ""
 
-#: pdfeditmodel.cpp:519
+#: pdfeditmodel.cpp:530
 msgid "Creator"
 msgstr ""
 
-#: pdfeditmodel.cpp:520
+#: pdfeditmodel.cpp:531
 msgid "Creation Date"
 msgstr ""
 
-#: pdfeditmodel.cpp:521
+#: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr ""
 
@@ -401,54 +401,54 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr ""
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr ""
 
-#: qml/MainPage.qml:39
+#: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/MainPage.qml:56
+#: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
 msgstr ""
 
-#: qml/MainPage.qml:72
+#: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr ""
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr ""
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr ""
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
 msgstr ""
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr ""
@@ -606,37 +606,37 @@ msgstr ""
 msgid "It will produce: <b>%1filename%2.pdf</b>"
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:12
+#: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:18
+#: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:22
+#: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:23
+#: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:24
+#: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:32
+#: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
 msgstr ""
 
-#: qml/Settings/PdfTools.qml:33
+#: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr ""

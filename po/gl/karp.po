@@ -6,18 +6,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:39+0000\n"
-"PO-Revision-Date: 2025-01-25 11:54+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"POT-Creation-Date: 2025-02-18 00:39+0000\n"
+"PO-Revision-Date: 2025-02-17 05:54+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:571
+#: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Ficheiro PDF para editar"
@@ -115,36 +115,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.gal"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "Título"
 
-#: pdfeditmodel.cpp:515
+#: pdfeditmodel.cpp:526
 msgid "Subject"
 msgstr "Asunto"
 
-#: pdfeditmodel.cpp:516
+#: pdfeditmodel.cpp:527
 msgid "Author"
 msgstr "Autoría"
 
-#: pdfeditmodel.cpp:517
+#: pdfeditmodel.cpp:528
 msgid "Keyword"
 msgstr "Palabra clave"
 
-#: pdfeditmodel.cpp:518
+#: pdfeditmodel.cpp:529
 msgid "Producer"
 msgstr "Produción"
 
-#: pdfeditmodel.cpp:519
+#: pdfeditmodel.cpp:530
 msgid "Creator"
 msgstr "Creación"
 
-#: pdfeditmodel.cpp:520
+#: pdfeditmodel.cpp:531
 msgid "Creation Date"
 msgstr "Data de creación"
 
-#: pdfeditmodel.cpp:521
+#: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "Data de modificación"
 
@@ -367,7 +367,7 @@ msgstr "Copiar todas as claves dos metadatos no ficheiro de saída."
 #: qml/Dialogs/PdfMetadataDialog.qml:187
 #, kde-format
 msgid "Double click to delete all metadata"
-msgstr ""
+msgstr "Faga clic duplo para eliminar todos os metadatos."
 
 #: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
@@ -409,54 +409,54 @@ msgstr "Editor sinxelo de PDF"
 msgid "Quit"
 msgstr "Saír"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "Gardar como…"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Gardar"
 
-#: qml/MainPage.qml:39
+#: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "ficheiro"
 msgstr[1] "ficheiros"
 
-#: qml/MainPage.qml:56
+#: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
 msgstr "Opcións do PDF"
 
-#: qml/MainPage.qml:72
+#: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "Versión de PDF"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Predeterminada"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Versión %1"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
 msgstr "Definir un contrasinal"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Protexer o ficheiro PDF cun contrasinal."
@@ -619,39 +619,39 @@ msgstr "Engadir ao principio"
 msgid "It will produce: <b>%1filename%2.pdf</b>"
 msgstr "Producirá: <b>%1nomedeficheiro%2.pdf</b>"
 
-#: qml/Settings/PdfTools.qml:12
+#: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
 msgstr "Ferramentas de PDF"
 
-#: qml/Settings/PdfTools.qml:18
+#: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "Permite a organización de páxinas PDF."
 
-#: qml/Settings/PdfTools.qml:22
+#: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
 msgstr "Forzar a versión de PDF do ficheiro xerado."
 
-#: qml/Settings/PdfTools.qml:23
+#: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
 "Seleccione «predeterminada» para usar a versión de PDF do ficheiro de "
 "entrada."
 
-#: qml/Settings/PdfTools.qml:24
+#: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
 msgstr "predeterminada"
 
-#: qml/Settings/PdfTools.qml:32
+#: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
 msgstr "non se atopou"
 
-#: qml/Settings/PdfTools.qml:33
+#: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "Xestionar o tamaño e calidade do ficheiro PDF de saída."

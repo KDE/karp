@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:39+0000\n"
+"POT-Creation-Date: 2025-02-18 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/karp/karp.pot\n"
 "X-Crowdin-File-ID: 56708\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:571
+#: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要编辑的 PDF 文件"
@@ -114,36 +114,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tds00@qq.com"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "标题"
 
-#: pdfeditmodel.cpp:515
+#: pdfeditmodel.cpp:526
 msgid "Subject"
 msgstr "主题"
 
-#: pdfeditmodel.cpp:516
+#: pdfeditmodel.cpp:527
 msgid "Author"
 msgstr "作者"
 
-#: pdfeditmodel.cpp:517
+#: pdfeditmodel.cpp:528
 msgid "Keyword"
 msgstr "关键词"
 
-#: pdfeditmodel.cpp:518
+#: pdfeditmodel.cpp:529
 msgid "Producer"
 msgstr "转换程序"
 
-#: pdfeditmodel.cpp:519
+#: pdfeditmodel.cpp:530
 msgid "Creator"
 msgstr "创建程序"
 
-#: pdfeditmodel.cpp:520
+#: pdfeditmodel.cpp:531
 msgid "Creation Date"
 msgstr "创建日期"
 
-#: pdfeditmodel.cpp:521
+#: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "修改日期"
 
@@ -210,12 +210,10 @@ msgid "Collapse All"
 msgstr ""
 
 #: qml/Bookmarks/TOCView.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr "目录 (书签)"
+msgstr ""
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
@@ -407,53 +405,53 @@ msgstr "简易 PDF 编辑器"
 msgid "Quit"
 msgstr "退出"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "另存为..."
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "保存"
 
-#: qml/MainPage.qml:39
+#: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "文件"
 
-#: qml/MainPage.qml:56
+#: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF 选项"
 
-#: qml/MainPage.qml:72
+#: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF版本"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "默认"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "版本 %1"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
 msgstr "设置密码"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "使用密码保护 PDF 文件。"
@@ -614,37 +612,37 @@ msgstr "前方附加"
 msgid "It will produce: <b>%1filename%2.pdf</b>"
 msgstr "这将生成：<b>%1文件名%2.pdf</b>"
 
-#: qml/Settings/PdfTools.qml:12
+#: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
 msgstr "PDF 工具"
 
-#: qml/Settings/PdfTools.qml:18
+#: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "用于编辑 PDF 页面。"
 
-#: qml/Settings/PdfTools.qml:22
+#: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
 msgstr "强制指定生成文件的 PDF 版本"
 
-#: qml/Settings/PdfTools.qml:23
+#: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr "当设置为默认时，将使用输入文件的 PDF 版本。"
 
-#: qml/Settings/PdfTools.qml:24
+#: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
 msgstr "默认"
 
-#: qml/Settings/PdfTools.qml:32
+#: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
 msgstr "没有找到"
 
-#: qml/Settings/PdfTools.qml:33
+#: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "用于控制 PDF 输出文件的大小和画质。"

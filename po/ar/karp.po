@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:39+0000\n"
+"POT-Creation-Date: 2025-02-18 00:39+0000\n"
 "PO-Revision-Date: 2025-01-28 19:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,7 +18,7 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:571
+#: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "ملف بي دي اف للتحرير"
@@ -115,36 +115,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "omats@vivaldi.net"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "العنوان"
 
-#: pdfeditmodel.cpp:515
+#: pdfeditmodel.cpp:526
 msgid "Subject"
 msgstr "الموضوع"
 
-#: pdfeditmodel.cpp:516
+#: pdfeditmodel.cpp:527
 msgid "Author"
 msgstr "المؤلف"
 
-#: pdfeditmodel.cpp:517
+#: pdfeditmodel.cpp:528
 msgid "Keyword"
 msgstr "الكلمة المفتاحيّة"
 
-#: pdfeditmodel.cpp:518
+#: pdfeditmodel.cpp:529
 msgid "Producer"
 msgstr "المنتج"
 
-#: pdfeditmodel.cpp:519
+#: pdfeditmodel.cpp:530
 msgid "Creator"
 msgstr "المبتكر"
 
-#: pdfeditmodel.cpp:520
+#: pdfeditmodel.cpp:531
 msgid "Creation Date"
 msgstr "تاريخ الإنشاء"
 
-#: pdfeditmodel.cpp:521
+#: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "تاريخ التعديل"
 
@@ -413,19 +413,19 @@ msgstr "محرر بي دي اف بسيط"
 msgid "Quit"
 msgstr "اخرج"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "احفظ كَ‍..."
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "احفظ"
 
-#: qml/MainPage.qml:39
+#: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
@@ -436,35 +436,35 @@ msgstr[3] "ملفات"
 msgstr[4] "ملفًا"
 msgstr[5] "ملف"
 
-#: qml/MainPage.qml:56
+#: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
 msgstr "خيارات بي دي اف"
 
-#: qml/MainPage.qml:72
+#: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "نسخة بي دي اف"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "المبدئيّ"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "الإصدار %1"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
 msgstr "عيّن كلمة سر"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "احم ملف بي دي اف بكلمة مرور."
@@ -625,37 +625,37 @@ msgstr "قدّم"
 msgid "It will produce: <b>%1filename%2.pdf</b>"
 msgstr "سيُنتج: <b>%1filename%2.pdf</b>"
 
-#: qml/Settings/PdfTools.qml:12
+#: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
 msgstr "أدوات بي دي اف"
 
-#: qml/Settings/PdfTools.qml:18
+#: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "يسمح بترتيبات صفحات بي دي اف."
 
-#: qml/Settings/PdfTools.qml:22
+#: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
 msgstr "افرض إصدار PDF للملف الناتج"
 
-#: qml/Settings/PdfTools.qml:23
+#: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr "عند ضبطه على الوضع المبدئي؛ يستخدم إصدار بي دي اف من ملف الإدخال."
 
-#: qml/Settings/PdfTools.qml:24
+#: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
 msgstr "المبدئيّ"
 
-#: qml/Settings/PdfTools.qml:32
+#: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
 msgstr "لم يُعثر عليه"
 
-#: qml/Settings/PdfTools.qml:33
+#: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "أدر حجم وجودة ملف بي دي اف الناتج."

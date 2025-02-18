@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:39+0000\n"
+"POT-Creation-Date: 2025-02-18 00:39+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:571
+#: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "सम्पादनार्थं PDF सञ्चिका"
@@ -116,36 +116,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "शीर्षक"
 
-#: pdfeditmodel.cpp:515
+#: pdfeditmodel.cpp:526
 msgid "Subject"
 msgstr "विषयः"
 
-#: pdfeditmodel.cpp:516
+#: pdfeditmodel.cpp:527
 msgid "Author"
 msgstr "लेखकः"
 
-#: pdfeditmodel.cpp:517
+#: pdfeditmodel.cpp:528
 msgid "Keyword"
 msgstr "कीवर्ड"
 
-#: pdfeditmodel.cpp:518
+#: pdfeditmodel.cpp:529
 msgid "Producer"
 msgstr "निर्माता"
 
-#: pdfeditmodel.cpp:519
+#: pdfeditmodel.cpp:530
 msgid "Creator"
 msgstr "प्रजापति"
 
-#: pdfeditmodel.cpp:520
+#: pdfeditmodel.cpp:531
 msgid "Creation Date"
 msgstr "सृष्टि तिथि"
 
-#: pdfeditmodel.cpp:521
+#: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "परिवर्तन तिथि"
 
@@ -414,7 +414,7 @@ msgstr "सरलः पीडीएफ सम्पादकः"
 msgid "Quit"
 msgstr "परिजहातु"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save As"
@@ -422,48 +422,48 @@ msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "यथा रक्षतु"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "रक्ष्"
 
-#: qml/MainPage.qml:39
+#: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "सञ्चिका"
 msgstr[1] "सञ्चिकाः"
 
-#: qml/MainPage.qml:56
+#: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF विकल्पाः"
 
-#: qml/MainPage.qml:72
+#: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF संस्करणम्"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "मूलभूतम्‌"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "संस्करणम् %1"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
 msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "गुप्तशब्देन PDF सञ्चिकां रक्षन्तु।"
@@ -624,37 +624,37 @@ msgstr "पूर्ववर्तनम्"
 msgid "It will produce: <b>%1filename%2.pdf</b>"
 msgstr "एतत् उत्पादयिष्यति: <b>%1filename%2.pdf</b>"
 
-#: qml/Settings/PdfTools.qml:12
+#: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
 msgstr "PDF Tools इति"
 
-#: qml/Settings/PdfTools.qml:18
+#: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "PDF पृष्ठव्यवस्थां अनुमन्यते ।"
 
-#: qml/Settings/PdfTools.qml:22
+#: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
 msgstr "उत्पन्नसञ्चिकायाः PDF संस्करणं बलात्"
 
-#: qml/Settings/PdfTools.qml:23
+#: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr "यदा पूर्वनिर्धारितं सेट् भवति तदा इनपुट् सञ्चिकायाः PDF संस्करणं उपयुज्यते ।"
 
-#: qml/Settings/PdfTools.qml:24
+#: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
 msgstr "मूलभूतम्‌"
 
-#: qml/Settings/PdfTools.qml:32
+#: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
 msgstr "न लभ्यते"
 
-#: qml/Settings/PdfTools.qml:33
+#: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "आउटपुट् PDF सञ्चिकायाः आकारं गुणवत्तां च प्रबन्धयन्तु ।"

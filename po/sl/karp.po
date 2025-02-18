@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:39+0000\n"
-"PO-Revision-Date: 2025-02-16 07:44+0100\n"
+"POT-Creation-Date: 2025-02-18 00:39+0000\n"
+"PO-Revision-Date: 2025-02-17 10:33+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:571
+#: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "PDF datoteka za urejanje"
@@ -113,36 +113,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
-#: pdfeditmodel.cpp:514 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "Naslov"
 
-#: pdfeditmodel.cpp:515
+#: pdfeditmodel.cpp:526
 msgid "Subject"
 msgstr "Predmet"
 
-#: pdfeditmodel.cpp:516
+#: pdfeditmodel.cpp:527
 msgid "Author"
 msgstr "Avtor"
 
-#: pdfeditmodel.cpp:517
+#: pdfeditmodel.cpp:528
 msgid "Keyword"
 msgstr "Ključna beseda"
 
-#: pdfeditmodel.cpp:518
+#: pdfeditmodel.cpp:529
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:519
+#: pdfeditmodel.cpp:530
 msgid "Creator"
 msgstr "Ustvarjalec"
 
-#: pdfeditmodel.cpp:520
+#: pdfeditmodel.cpp:531
 msgid "Creation Date"
 msgstr "Datum nastanka"
 
-#: pdfeditmodel.cpp:521
+#: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "Datum spremembe"
 
@@ -200,21 +200,19 @@ msgstr "Dodaj poglavje"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
-msgstr ""
+msgstr "Razširi vse"
 
 #: qml/Bookmarks/TOCView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
-msgstr ""
+msgstr "Strni vse"
 
 #: qml/Bookmarks/TOCView.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr "Kazalo (zaznamki)"
+msgstr "Počisti kazalo"
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
@@ -238,18 +236,18 @@ msgstr "Dodaj podrazdelek"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr ""
+msgstr "Razširi celotni razdelek"
 
 #: qml/Bookmarks/TOCView.qml:203
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr ""
+msgstr "Strni celotni razdelek"
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you'd like to remove all chapters?"
-msgstr ""
+msgstr "Ali ste prepričani, da želite odstraniti vsa poglavja?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -409,19 +407,19 @@ msgstr "Preprosti urejevalnik PDF"
 msgid "Quit"
 msgstr "Zapusti"
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
 msgstr "Shrani kot..."
 
-#: qml/MainPage.qml:34
+#: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Shrani"
 
-#: qml/MainPage.qml:39
+#: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
@@ -430,35 +428,35 @@ msgstr[1] "datoteka"
 msgstr[2] "datoteka"
 msgstr[3] "datoteka"
 
-#: qml/MainPage.qml:56
+#: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
 msgstr "Možnosti PDF"
 
-#: qml/MainPage.qml:72
+#: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF različica"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Privzeto"
 
-#: qml/MainPage.qml:80
+#: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Različica %1"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
 msgstr "Nastavi geslo"
 
-#: qml/MainPage.qml:253
+#: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Zaščiti datoteko PDF z geslom."
@@ -619,38 +617,38 @@ msgstr "Pripni na začetek"
 msgid "It will produce: <b>%1filename%2.pdf</b>"
 msgstr "Ustvaril bo: <b>%1filename%2.pdf</b>"
 
-#: qml/Settings/PdfTools.qml:12
+#: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
 msgstr "Orodja PDF"
 
-#: qml/Settings/PdfTools.qml:18
+#: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Allows PDF page arrangements."
 msgstr "Omogoča razvrščanje strani PDF."
 
-#: qml/Settings/PdfTools.qml:22
+#: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
 msgstr "Prisili različico PDF generirane datoteke"
 
-#: qml/Settings/PdfTools.qml:23
+#: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
 "Kadar je nastavljena privzeta, bo uporabljena različica PDF vhodne datoteke."
 
-#: qml/Settings/PdfTools.qml:24
+#: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
 msgstr "privzeta"
 
-#: qml/Settings/PdfTools.qml:32
+#: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
 msgstr "ni najden"
 
-#: qml/Settings/PdfTools.qml:33
+#: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Manage size and quality of output PDF file."
 msgstr "Upravljaj velikost in kakovost izhodne datoteke PDF."
