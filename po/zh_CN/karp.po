@@ -201,19 +201,19 @@ msgstr "添加章节"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
-msgstr ""
+msgstr "展开全部"
 
 #: qml/Bookmarks/TOCView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
-msgstr ""
+msgstr "折叠全部"
 
 #: qml/Bookmarks/TOCView.qml:146
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr ""
+msgstr "清空内容列表"
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
@@ -237,18 +237,18 @@ msgstr "添加子小节"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr ""
+msgstr "展开整个章节"
 
 #: qml/Bookmarks/TOCView.qml:203
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr ""
+msgstr "折叠整个章节"
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you'd like to remove all chapters?"
-msgstr ""
+msgstr "您确认要删除全部章节吗?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -363,7 +363,7 @@ msgstr "复制所有元数据键到输出文件"
 #: qml/Dialogs/PdfMetadataDialog.qml:187
 #, kde-format
 msgid "Double click to delete all metadata"
-msgstr ""
+msgstr "双击以删除所有元数据"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
