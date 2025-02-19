@@ -17,7 +17,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             text: "QPDF " + APP.qpdfVersion
-            description: i18n("Allows PDF page arrangements.")
+            description: i18n("Qpdf lets you arrange pages in edited PDF files.")
         }
 
         FormCard.FormComboBoxDelegate {
@@ -37,7 +37,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             text: "GPL Ghostscript " + (APP.gsVersion === "" ? i18n("not found") : APP.gsVersion)
-            description: i18n("Manage size and quality of output PDF file.")
+            description: i18n("Ghostscript manages size and quality of output PDF file.")
         }
 
         FormPathDelegate {
