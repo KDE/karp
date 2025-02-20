@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:39+0000\n"
-"PO-Revision-Date: 2025-02-17 05:54+0100\n"
+"POT-Creation-Date: 2025-02-20 00:39+0000\n"
+"PO-Revision-Date: 2025-02-19 07:32+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -202,21 +202,19 @@ msgstr "Engadir un capítulo"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
-msgstr ""
+msgstr "Expandir todo"
 
 #: qml/Bookmarks/TOCView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
-msgstr ""
+msgstr "Pregar todo"
 
 #: qml/Bookmarks/TOCView.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr "Índice (marcadores)"
+msgstr "Borrar o índice"
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
@@ -240,18 +238,18 @@ msgstr "Engadir unha subsección"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr ""
+msgstr "Expandir toda a sección"
 
 #: qml/Bookmarks/TOCView.qml:203
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr ""
+msgstr "Pregar toda a sección"
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you'd like to remove all chapters?"
-msgstr ""
+msgstr "Seguro que quere retirar todos os capítulos?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -626,8 +624,8 @@ msgstr "Ferramentas de PDF"
 
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
-msgid "Allows PDF page arrangements."
-msgstr "Permite a organización de páxinas PDF."
+msgid "Qpdf lets you arrange pages in edited PDF files."
+msgstr ""
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -652,8 +650,9 @@ msgid "not found"
 msgstr "non se atopou"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Manage size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Manage size and quality of output PDF file."
+msgid "Ghostscript manages size and quality of output PDF file."
 msgstr "Xestionar o tamaño e calidade do ficheiro PDF de saída."
 
 #: qml/Settings/SettingsPage.qml:11
@@ -679,6 +678,9 @@ msgstr "Sobre Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Sobre KDE"
+
+#~ msgid "Allows PDF page arrangements."
+#~ msgstr "Permite a organización de páxinas PDF."
 
 #~ msgid "(c) 2024-2025 Tomasz Bojczuk"
 #~ msgstr "© 2024-2025 Tomasz Bojczuk"

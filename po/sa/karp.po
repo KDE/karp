@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:39+0000\n"
+"POT-Creation-Date: 2025-02-20 00:39+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -631,8 +631,8 @@ msgstr "PDF Tools इति"
 
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
-msgid "Allows PDF page arrangements."
-msgstr "PDF पृष्ठव्यवस्थां अनुमन्यते ।"
+msgid "Qpdf lets you arrange pages in edited PDF files."
+msgstr ""
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -655,8 +655,9 @@ msgid "not found"
 msgstr "न लभ्यते"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Manage size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Manage size and quality of output PDF file."
+msgid "Ghostscript manages size and quality of output PDF file."
 msgstr "आउटपुट् PDF सञ्चिकायाः आकारं गुणवत्तां च प्रबन्धयन्तु ।"
 
 #: qml/Settings/SettingsPage.qml:11
@@ -682,6 +683,9 @@ msgstr "कार्पस्य विषये"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE विषये"
+
+#~ msgid "Allows PDF page arrangements."
+#~ msgstr "PDF पृष्ठव्यवस्थां अनुमन्यते ।"
 
 #, fuzzy
 #~| msgid "(c) 2024 Tomasz Bojczuk"

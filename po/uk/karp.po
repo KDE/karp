@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:39+0000\n"
+"POT-Creation-Date: 2025-02-20 00:39+0000\n"
 "PO-Revision-Date: 2025-02-17 09:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -629,8 +629,8 @@ msgstr "Інструменти PDF"
 
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
-msgid "Allows PDF page arrangements."
-msgstr "Надає змогу перевпорядковувати сторінки PDF."
+msgid "Qpdf lets you arrange pages in edited PDF files."
+msgstr ""
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -655,8 +655,9 @@ msgid "not found"
 msgstr "не знайдено"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Manage size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Manage size and quality of output PDF file."
+msgid "Ghostscript manages size and quality of output PDF file."
 msgstr "Керування розміром і якістю файла PDF результатів."
 
 #: qml/Settings/SettingsPage.qml:11
@@ -682,6 +683,9 @@ msgstr "Про «Karp»"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Про KDE"
+
+#~ msgid "Allows PDF page arrangements."
+#~ msgstr "Надає змогу перевпорядковувати сторінки PDF."
 
 #~| msgid "(c) 2024 Tomasz Bojczuk"
 #~ msgid "(c) 2024-2025 Tomasz Bojczuk"

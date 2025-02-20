@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:39+0000\n"
+"POT-Creation-Date: 2025-02-20 00:39+0000\n"
 "PO-Revision-Date: 2025-02-18 15:00+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -623,8 +623,8 @@ msgstr "Instrumentos de PDF"
 
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
-msgid "Allows PDF page arrangements."
-msgstr "Permitte arranbiamentos depagina PDF."
+msgid "Qpdf lets you arrange pages in edited PDF files."
+msgstr ""
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -649,8 +649,9 @@ msgid "not found"
 msgstr "non trovate"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Manage size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Manage size and quality of output PDF file."
+msgid "Ghostscript manages size and quality of output PDF file."
 msgstr "Gere grandor e qualitate de file PDF de exito."
 
 #: qml/Settings/SettingsPage.qml:11
@@ -676,6 +677,9 @@ msgstr "A proposito de Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "A proposito de KDE"
+
+#~ msgid "Allows PDF page arrangements."
+#~ msgstr "Permitte arranbiamentos depagina PDF."
 
 #~ msgctxt "@info:credit"
 #~ msgid "Maintainer"

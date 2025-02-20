@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:39+0000\n"
+"POT-Creation-Date: 2025-02-20 00:39+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -619,8 +619,8 @@ msgstr "PDF 工具"
 
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
-msgid "Allows PDF page arrangements."
-msgstr "用于编辑 PDF 页面。"
+msgid "Qpdf lets you arrange pages in edited PDF files."
+msgstr ""
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -643,8 +643,9 @@ msgid "not found"
 msgstr "没有找到"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Manage size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Manage size and quality of output PDF file."
+msgid "Ghostscript manages size and quality of output PDF file."
 msgstr "用于控制 PDF 输出文件的大小和画质。"
 
 #: qml/Settings/SettingsPage.qml:11
@@ -670,3 +671,6 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
+
+#~ msgid "Allows PDF page arrangements."
+#~ msgstr "用于编辑 PDF 页面。"
