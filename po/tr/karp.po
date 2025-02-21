@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-17 11:07+0300\n"
+"PO-Revision-Date: 2025-02-20 09:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -589,7 +589,7 @@ msgstr "Sabit yol"
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr "Çıktı PDF’si için öntanımlı ad"
+msgstr "PDF çıktısı için öntanımlı ad"
 
 #: qml/Settings/General.qml:48
 #, kde-format
@@ -625,6 +625,8 @@ msgstr "PDF Araçları"
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
 msgstr ""
+"QPDF, düzenlenmiş PDF dosyalarındaki sayfaların sırasını değiştirmenize "
+"olanak tanır."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -648,10 +650,9 @@ msgid "not found"
 msgstr "bulunamadı"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "Çıktı PDF dosyasının boyutunu ve kalitesini yönetin."
+msgstr "Ghostscript, PDF çıktı dosyasının boyutunu ve kalitesini yönetir."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format

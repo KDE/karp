@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-17 03:37+0100\n"
+"PO-Revision-Date: 2025-02-21 00:03+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -411,7 +411,7 @@ msgstr "Salir"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr "Guardar como..."
+msgstr "Guardar como…"
 
 #: qml/MainPage.qml:38
 #, kde-format
@@ -625,7 +625,7 @@ msgstr "Herramientas PDF"
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
-msgstr ""
+msgstr "Qpdf le permite organizar las páginas de los archivos PDF editados."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -650,10 +650,9 @@ msgid "not found"
 msgstr "no encontrada"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "Gestión de tamaño y calidad del archivo PDF de salida."
+msgstr "Ghostscript gestiona el tamaño y la calidad del archivo PDF de salida."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format

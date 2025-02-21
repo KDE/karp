@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-17 09:51+0200\n"
+"PO-Revision-Date: 2025-02-20 08:33+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -630,7 +630,7 @@ msgstr "Інструменти PDF"
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
-msgstr ""
+msgstr "Qpdf надає вам змогу упорядковувати сторінки у редагованих файлах PDF."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -655,10 +655,9 @@ msgid "not found"
 msgstr "не знайдено"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "Керування розміром і якістю файла PDF результатів."
+msgstr "Ghostscript керує розміром і якістю результатів у файлі PDF."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format

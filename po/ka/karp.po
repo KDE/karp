@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-17 02:26+0100\n"
+"PO-Revision-Date: 2025-02-20 07:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -626,6 +626,7 @@ msgstr "PDF-ის ხელსაწყოები"
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
 msgstr ""
+"Qpdf საშუალებას გაძლევთ, გადააადგილოთ გვერდები ჩასწორებად PDF ფაილებში."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -650,10 +651,9 @@ msgid "not found"
 msgstr "ვერ მოიძებნა"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "გამოტანილი PDF ფაილის ზომისა და ხარისხის მართვა."
+msgstr "Ghostscript მართავს ზომას და ხარისხს გამოტანილ PDF ფაილში."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
