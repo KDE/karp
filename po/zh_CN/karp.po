@@ -643,10 +643,9 @@ msgid "not found"
 msgstr "没有找到"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "用于控制 PDF 输出文件的大小和画质。"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
@@ -671,6 +670,3 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#~ msgid "Allows PDF page arrangements."
-#~ msgstr "用于编辑 PDF 页面。"
