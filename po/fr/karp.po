@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-18 09:06+0100\n"
+"PO-Revision-Date: 2025-02-21 11:22+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -628,6 +628,8 @@ msgstr "Outils pour le format « PDF »"
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
 msgstr ""
+"Qpdf vous permet d'organiser les pages dans des fichiers en format « PDF » "
+"modifiés."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -652,10 +654,11 @@ msgid "not found"
 msgstr "non trouvé"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "Gérer la taille et la qualité du fichier « PDF » de sortie."
+msgstr ""
+"Ghostscript gère la taille et la qualité du fichier au format « PDF » de "
+"sortie."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format

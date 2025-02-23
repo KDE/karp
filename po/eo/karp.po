@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-12 07:01+0100\n"
+"PO-Revision-Date: 2025-02-22 21:54+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -212,12 +212,10 @@ msgid "Collapse All"
 msgstr ""
 
 #: qml/Bookmarks/TOCView.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr "Enhavtabelo (Legosignoj)"
+msgstr "Viŝi Enhavtabelon"
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
@@ -649,10 +647,9 @@ msgid "not found"
 msgstr "ne trovita"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "Administri grandecon kaj kvaliton de eliga PDF-dosiero."
+msgstr "Ghostscript mastrumas grandecon kaj kvaliton de eliga PDF-dosiero."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
@@ -677,6 +674,3 @@ msgstr "Pri Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Pri KDE"
-
-#~ msgid "Allows PDF page arrangements."
-#~ msgstr "Permesas PDF-paĝajn aranĝojn."

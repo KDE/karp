@@ -620,7 +620,7 @@ msgstr "PDF 工具"
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
-msgstr ""
+msgstr "Qpdf 用于对编辑过的 PDF 文件进行页面重排。"
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -645,7 +645,7 @@ msgstr "没有找到"
 #: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr ""
+msgstr "Ghostscript 用于管理输出 PDF 文件的大小和画质。"
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
