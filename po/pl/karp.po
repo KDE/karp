@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-17 23:53+0100\n"
+"PO-Revision-Date: 2025-02-23 11:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
@@ -56,7 +56,7 @@ msgstr "Dodaj pliki PDF"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr "Wyczyść wszystkie pliki"
+msgstr "Wszystkie wszystkie pliki"
 
 #: app.cpp:237
 #, kde-format
@@ -233,24 +233,24 @@ msgstr "Wstaw poniżej"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr "Dodaj podroździał"
+msgstr "Dodaj podsekcję"
 
 #: qml/Bookmarks/TOCView.qml:195
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr "Rozwiń cały podrozdział"
+msgstr "Rozszerz cały obszar"
 
 #: qml/Bookmarks/TOCView.qml:203
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr "Zwiń cały podrozdział"
+msgstr "Zwiń cały obszar"
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you'd like to remove all chapters?"
-msgstr "Czy rzeczywiście chcesz usunąć wszystkie rozdziały?"
+msgstr "Czy na pewno usunąć wszystkie rozdziały?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -626,7 +626,7 @@ msgstr "Narzędzia PDF"
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
-msgstr ""
+msgstr "Qpdf umożliwia ci rozmieszczenie stron w edytowanych plikach PDF."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -636,7 +636,7 @@ msgstr "Wymuś wersję PDF tworzonego pliku"
 #: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
-msgstr "Przy domyślnych zostanie użyta wersja PDF z pliku wejściowego."
+msgstr "Przy domyślnych zostanie użyta wersja PDF lub plik wejściowy."
 
 #: qml/Settings/PdfTools.qml:26
 #, kde-format
@@ -649,10 +649,9 @@ msgid "not found"
 msgstr "nie znaleziono"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "Zarządzaj rozmiarem i jakością wynikowego pliku PDF."
+msgstr "Ghostscript zarządza rozmiarem i jakością wynikowego pliku PDF."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
@@ -670,7 +669,7 @@ msgstr "Narzędzia PDF"
 #, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
-msgstr "O aplikacji Karp"
+msgstr "O Karp"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
