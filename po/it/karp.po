@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-01-25 14:09+0100\n"
-"Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
+"PO-Revision-Date: 2025-02-20 16:31+0100\n"
+"Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
@@ -204,21 +204,19 @@ msgstr "Aggiungi capitolo"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
-msgstr ""
+msgstr "Espandi tutto"
 
 #: qml/Bookmarks/TOCView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
-msgstr ""
+msgstr "Contrai tutto"
 
 #: qml/Bookmarks/TOCView.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr "Indice (segnalibri)"
+msgstr "Pulisci l'indice"
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
@@ -242,18 +240,18 @@ msgstr "Aggiungi sottosezione"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr ""
+msgstr "Espandi l'intera sezione"
 
 #: qml/Bookmarks/TOCView.qml:203
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr ""
+msgstr "Richiudi l'intera sezione"
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you'd like to remove all chapters?"
-msgstr ""
+msgstr "Si vogliono davvero voler rimuovere tutti i capitoli?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -359,22 +357,22 @@ msgstr "Properità del PDF"
 #: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
-msgstr "PDF di uscita"
+msgstr "PDF generato"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
-msgstr "Copia tutte le chiavi dei metadati nel file di uscita"
+msgstr "Copia tutte le chiavi dei metadati nel file generato"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:187
 #, kde-format
 msgid "Double click to delete all metadata"
-msgstr ""
+msgstr "Doppio clic per eliminare tutti i metadati"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
-msgstr "Doppio clic per copiare i metadati nel file PDF di uscita."
+msgstr "Doppio clic per copiare i metadati nel file PDF generato."
 
 #: qml/Dialogs/PdfPassDialog.qml:19
 #, kde-format
@@ -594,7 +592,7 @@ msgstr "Percorso fisso"
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr "Nome predefinito per il file PDF in uscita"
+msgstr "Nome predefinito per il file PDF generato"
 
 #: qml/Settings/General.qml:48
 #, kde-format
@@ -629,7 +627,7 @@ msgstr "Strumenti PDF"
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
-msgstr ""
+msgstr "Qpdf permette di organizzare le pagine nei file PDF modificati."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
@@ -654,10 +652,9 @@ msgid "not found"
 msgstr "non trovato"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Manage size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr "Gestisce la dimensione e la qualità dei file PDF di uscita."
+msgstr "Ghostscript gestisce la dimensione e la qualità dei file PDF generati."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
