@@ -1,36 +1,38 @@
+# SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2024-11-23 11:30+0100\n"
-"Last-Translator: Simulacrum\n"
+"PO-Revision-Date: 2025-02-16 22:45+0100\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
-msgstr ""
+msgstr "Zu bearbeitende PDF-Datei"
 
 #: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
-msgstr ""
+msgstr "PDF-Dateien auswählen"
 
 #: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
-msgstr ""
+msgstr "QPDF fehlt."
 
 #: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
-msgstr ""
+msgstr "Ghostscript fehlt."
 
 #: app.cpp:191
 #, kde-format
@@ -38,159 +40,161 @@ msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr ""
+"Installieren Sie die oben genannten Programme, da sonst nicht alle "
+"Funktionen zur Verfügung stehen."
 
 #: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
-msgstr ""
+msgstr "PDF-Dateien hinzufügen"
 
 #: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr ""
+msgstr "Alle Dateien schließen"
 
 #: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
-msgstr ""
+msgstr "PDF optimieren"
 
 #: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
-msgstr ""
+msgstr "Größe reduzieren"
 
 #: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
-msgstr ""
+msgstr "Passwort setzen"
 
 #: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
-msgstr ""
+msgstr "PDF-Metadaten"
 
 #: main.cpp:110
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
-msgstr ""
+msgstr "Karp"
 
 #: main.cpp:114
 #, kde-format
 msgid "KDE arranger for PDFs"
-msgstr ""
+msgstr "Ein KDE-Programm zum Arrangieren von PDF-Dateien"
 
 #: main.cpp:118
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "Copyright 2024–2025, die Karp-Entwickler"
 
 #: main.cpp:119
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
-msgstr ""
+msgstr "Tomasz Bojczuk"
 
 #: main.cpp:120
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Deutsches KDE-Übersetzerteam"
 
 #: main.cpp:120
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-i18n-de@kde.org"
 
 #: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: pdfeditmodel.cpp:526
 msgid "Subject"
-msgstr ""
+msgstr "Thema"
 
 #: pdfeditmodel.cpp:527
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: pdfeditmodel.cpp:528
 msgid "Keyword"
-msgstr ""
+msgstr "Schlagwort"
 
 #: pdfeditmodel.cpp:529
 msgid "Producer"
-msgstr ""
+msgstr "Produzent"
 
 #: pdfeditmodel.cpp:530
 msgid "Creator"
-msgstr ""
+msgstr "Ersteller"
 
 #: pdfeditmodel.cpp:531
 msgid "Creation Date"
-msgstr ""
+msgstr "Erstellungsdatum"
 
 #: pdfeditmodel.cpp:532
 msgid "Modification Date"
-msgstr ""
+msgstr "Änderungsdatum"
 
 #: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "Kapitel bearbeiten"
 
 #: qml/Bookmarks/OutlineDialog.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
 
 #: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Hinzufügen"
 
 #: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
 msgid "first"
-msgstr ""
+msgstr "erste"
 
 #: qml/Bookmarks/OutlineDialog.qml:99
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "verweist auf Seite"
 
 #: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
 msgid "last"
-msgstr ""
+msgstr "letzte"
 
 #: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "Kapitel hinzufügen"
 
 #: qml/Bookmarks/TOCView.qml:130
 #, kde-format
@@ -214,19 +218,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "Oberhalb einfügen"
 
 #: qml/Bookmarks/TOCView.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "Unterhalb einfügen"
 
 #: qml/Bookmarks/TOCView.qml:186
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "Unterabschnitt einfügen"
 
 #: qml/Bookmarks/TOCView.qml:195
 #, kde-format
@@ -248,113 +252,113 @@ msgstr ""
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
-msgstr ""
+msgstr "Seitenbereich"
 
 #: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
-msgstr ""
+msgstr "von"
 
 #: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
-msgstr ""
+msgstr "bis"
 
 #: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr ""
+msgstr "Verschieben"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
-msgstr ""
+msgstr "vor"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
-msgstr ""
+msgstr "nach"
 
 #: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
-msgstr ""
+msgstr "Seite"
 
 #: qml/Dialogs/PdfFileDelegate.qml:61
 #, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Seite"
+msgstr[1] "%1 Seiten"
 
 #: qml/Dialogs/PdfFileDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
-msgstr ""
+msgstr "Alle Seiten hinzufügen"
 
 #: qml/Dialogs/PdfFileDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
-msgstr ""
+msgstr "Ausgewählte Seiten hinzufügen"
 
 #: qml/Dialogs/PdfFileDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
-msgstr ""
+msgstr "Von der Liste entfernen"
 
 #: qml/Dialogs/PdfFileDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
-msgstr ""
+msgstr "Seiten zum Hinzufügen auswählen"
 
 #: qml/Dialogs/PdfFilesDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
-msgstr ""
+msgstr "PDF-Dateien hinzufügen und anordnen"
 
 #: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr ""
+msgstr "Eine oder mehrere PDF-Dateien hinzufügen um fortzusetzen"
 
 #: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr ""
+msgstr "PDF hinzufügen"
 
 #: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr ""
+msgstr "Seiten insgesamt: %1"
 
 #: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Anwenden"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
-msgstr ""
+msgstr "PDF-Eigenschaften"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
-msgstr ""
+msgstr "PDF-Ausgabe"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
-msgstr ""
+msgstr "Alle Metadaten in die Ausgabedatei kopieren"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:187
 #, kde-format
@@ -364,184 +368,184 @@ msgstr ""
 #: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
-msgstr ""
+msgstr "Doppelklicken Sie, um Metadaten in die PDF-Ausgabedatei zu kopieren."
 
 #: qml/Dialogs/PdfPassDialog.qml:19
 #, kde-format
 msgid "Password required"
-msgstr ""
+msgstr "Password erforderlich"
 
 #: qml/Dialogs/PdfPassDialog.qml:31
 #, kde-format
 msgid "Provide password to open file %1"
-msgstr ""
+msgstr "Passwort angeben, um die Datei %1 zu öffnen"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
 msgid "all pages in selected range"
-msgstr ""
+msgstr "alle Seiten im ausgewählten Bereich"
 
 #: qml/Dialogs/SelectPagesDialog.qml:105
 #, kde-format
 msgid "every %1 page"
-msgstr ""
+msgstr "jede %1. Seite"
 
 #: qml/Dialogs/SelectPagesDialog.qml:118
 #, kde-format
 msgid "all pages out of range"
-msgstr ""
+msgstr "alle Seiten außerhalb vom Bereich"
 
 #: qml/Main.qml:24
 #, kde-format
 msgid "Simple PDF editor"
-msgstr ""
+msgstr "Einfacher PDF-Editor"
 
 #: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "Beenden"
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr ""
+msgstr "Speichern unter …"
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Datei"
+msgstr[1] "Dateien"
 
 #: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
-msgstr ""
+msgstr "PDF-Optionen"
 
 #: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr ""
+msgstr "PDF-Version"
 
 #: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "Version %1"
 
 #: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
-msgstr ""
+msgstr "Passwort festlegen"
 
 #: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
-msgstr ""
+msgstr "PDF-Datei mit einem Passwort schützen."
 
 #: qml/MainToolbar.qml:25
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
-msgstr ""
+msgstr "Seiten zum Löschen auswählen"
 
 #: qml/MainToolbar.qml:47
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
-msgstr ""
+msgstr "Seiten zum Drehen auswählen"
 
 #: qml/MainToolbar.qml:63
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
-msgstr ""
+msgstr "Seiten zum Verschieben auswählen"
 
 #: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "Inhaltsverzeichnis (Lesezeichen)"
 
 #: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr ""
+msgstr "Mehrfachseitenauswahl"
 
 #: qml/MainToolbar.qml:120
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
-msgstr ""
+msgstr "Seitenbeschriftungen anzeigen"
 
 #: qml/MainToolbar.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
-msgstr ""
+msgstr "Verkleinern"
 
 #: qml/MainToolbar.qml:144
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
-msgstr ""
+msgstr "Vergrößern"
 
 #: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
-msgstr ""
+msgstr "Seite %1 von %2"
 
 #: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
-msgstr ""
+msgstr "Seiten zum Löschen auswählen"
 
 #: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
-msgstr ""
+msgstr "Seiten zum Drehen auswählen"
 
 #: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
-msgstr ""
+msgstr "Drehen"
 
 #: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
-msgstr ""
+msgstr "Winkel"
 
 #: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
-msgstr ""
+msgstr "Seiten zum Verschieben auswählen"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format
 msgid "Select one or more PDF files."
-msgstr ""
+msgstr "Wählen Sie eine oder mehrere PDF-Dateien."
 
 #: qml/Messages/InitialInfo.qml:22
 #, kde-format
@@ -550,66 +554,71 @@ msgid ""
 "Then arrange all pages: reorder, rotate, remove.\n"
 "At the end save new PDF with selected options."
 msgstr ""
+"Wenn mehrere Dateien ausgewählt sind - sortieren Sie sie zuerst.\n"
+"Dann alle Seiten anordnen: neu sortieren, drehen, entfernen.\n"
+"Zum Schluss neue PDF-Datei mit den gewählten Optionen speichern."
 
 #: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
-msgstr ""
+msgstr "PDF-Datei erzeugen"
 
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
 msgstr ""
+"Die Verkleinerung der PDF-Datei hat nicht zu den erwarteten Ergebnissen "
+"geführt!"
 
 #: qml/Settings/General.qml:19
 #, kde-format
 msgid "Open file dialog at"
-msgstr ""
+msgstr "Dateiauswahl öffnen in"
 
 #: qml/Settings/General.qml:23
 #, kde-format
 msgid "Last opened directory"
-msgstr ""
+msgstr "zuletzt geöffnetem Ordner"
 
 #: qml/Settings/General.qml:29
 #, kde-format
 msgid "Fixed path"
-msgstr ""
+msgstr "fixem Pfad"
 
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr ""
+msgstr "Standardname für die PDF-Ausgabe"
 
 #: qml/Settings/General.qml:48
 #, kde-format
 msgid "Always ask for file name"
-msgstr ""
+msgstr "Immer nach dem Dateinamen fragen"
 
 #: qml/Settings/General.qml:54
 #, kde-format
 msgid "Combine with input file name"
-msgstr ""
+msgstr "Mit dem Dateinamen der Eingabedatei kombinieren"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Append"
-msgstr ""
+msgstr "Anhängen"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Prepend"
-msgstr ""
+msgstr "Voranstellen"
 
 #: qml/Settings/General.qml:77
 #, kde-format
 msgid "It will produce: <b>%1filename%2.pdf</b>"
-msgstr ""
+msgstr "Dies ergibt: <b>%1Dateiname%2.pdf</b>"
 
 #: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
-msgstr ""
+msgstr "PDF-Werkzeuge"
 
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
@@ -619,22 +628,24 @@ msgstr ""
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr ""
+msgstr "PDF-Version der generierten Seite erzwingen"
 
 #: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
+"Wenn diese Option auf Standard gesetzt ist, wird die PDF-Version der "
+"Eingabedatei verwendet."
 
 #: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
-msgstr ""
+msgstr "Standard"
 
 #: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
-msgstr ""
+msgstr "Nicht gefunden"
 
 #: qml/Settings/PdfTools.qml:40
 #, kde-format
@@ -645,22 +656,22 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "PDF tools"
-msgstr ""
+msgstr "PDF-Werkzeuge"
 
 #: qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
-msgstr ""
+msgstr "Über Karp"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr ""
+msgstr "Über KDE"
