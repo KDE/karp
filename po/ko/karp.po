@@ -1,0 +1,672 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the karp package.
+# SPDX-FileCopyrightText: 2025 Shinjo Park <kde@peremen.name>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: karp\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-02-20 00:39+0000\n"
+"PO-Revision-Date: 2025-04-06 22:58+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#: app.cpp:56 pdfeditmodel.cpp:582
+#, kde-format
+msgid "PDF file to edit"
+msgstr "편집할 PDF 파일"
+
+#: app.cpp:86 pdfsorganizer.cpp:191
+#, kde-format
+msgid "Select PDF files"
+msgstr "PDF 파일 선택"
+
+#: app.cpp:184
+#, kde-format
+msgid "QPDF is missing."
+msgstr "QPDF가 없습니다."
+
+#: app.cpp:188
+#, kde-format
+msgid "Ghostscript is missing."
+msgstr "Ghostscript가 없습니다."
+
+#: app.cpp:191
+#, kde-format
+msgid ""
+"Install programs mentioned above, otherwise not all functions will be "
+"available."
+msgstr "위에 있는 프로그램을 설치하지 않으면 일부 기능을 사용할 수 없습니다."
+
+#: app.cpp:213
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add PDF files"
+msgstr "PDF 파일 추가"
+
+#: app.cpp:223
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Clear all files"
+msgstr "모든 파일 비우기"
+
+#: app.cpp:237
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "PDF 최적화"
+
+#: app.cpp:246
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Reduce size"
+msgstr "크기 줄이기"
+
+#: app.cpp:255
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Set password"
+msgstr "암호 설정"
+
+#: app.cpp:264
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF metadata"
+msgstr "PDF 메타데이터"
+
+#: main.cpp:110
+#, kde-format
+msgctxt "@title"
+msgid "Karp"
+msgstr "Karp"
+
+#: main.cpp:114
+#, kde-format
+msgid "KDE arranger for PDFs"
+msgstr "KDE PDF 정리 도구"
+
+#: main.cpp:118
+#, kde-format
+msgid "(c) 2024-2025 The Karp Developers"
+msgstr "(c) 2024-2025 The Karp Developers"
+
+#: main.cpp:119
+#, kde-format
+msgctxt "@info:credit"
+msgid "Tomasz Bojczuk"
+msgstr "Tomasz Bojczuk"
+
+#: main.cpp:120
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#: main.cpp:120
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
+#, kde-format
+msgid "Title"
+msgstr "제목"
+
+#: pdfeditmodel.cpp:526
+msgid "Subject"
+msgstr "주제"
+
+#: pdfeditmodel.cpp:527
+msgid "Author"
+msgstr "작성자"
+
+#: pdfeditmodel.cpp:528
+msgid "Keyword"
+msgstr "키워드"
+
+#: pdfeditmodel.cpp:529
+msgid "Producer"
+msgstr "제작자"
+
+#: pdfeditmodel.cpp:530
+msgid "Creator"
+msgstr "생성자"
+
+#: pdfeditmodel.cpp:531
+msgid "Creation Date"
+msgstr "만든 날짜"
+
+#: pdfeditmodel.cpp:532
+msgid "Modification Date"
+msgstr "수정한 날짜"
+
+#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
+#, kde-format
+msgid "Edit Chapter"
+msgstr "장 편집"
+
+#: qml/Bookmarks/OutlineDialog.qml:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "삭제"
+
+#: qml/Bookmarks/OutlineDialog.qml:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Save"
+msgstr "저장"
+
+#: qml/Bookmarks/OutlineDialog.qml:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr "추가"
+
+#: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "취소"
+
+#: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "처음"
+
+#: qml/Bookmarks/OutlineDialog.qml:99
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr "쪽을 가리킴"
+
+#: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "마지막"
+
+#: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
+#, kde-format
+msgid "Add Chapter"
+msgstr "장 추가"
+
+#: qml/Bookmarks/TOCView.qml:130
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Expand All"
+msgstr "모두 펴기"
+
+#: qml/Bookmarks/TOCView.qml:136
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Collapse All"
+msgstr "모두 접기"
+
+#: qml/Bookmarks/TOCView.qml:146
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Clear Table of Contents"
+msgstr "목차 비우기"
+
+#: qml/Bookmarks/TOCView.qml:168
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Above"
+msgstr "위에 삽입"
+
+#: qml/Bookmarks/TOCView.qml:176
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Insert Below"
+msgstr "아래에 삽입"
+
+#: qml/Bookmarks/TOCView.qml:186
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add Subsection"
+msgstr "절 추가"
+
+#: qml/Bookmarks/TOCView.qml:195
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Expand whole section"
+msgstr "전체 선택 펼치기"
+
+#: qml/Bookmarks/TOCView.qml:203
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Collapse whole section"
+msgstr "전체 선택 접기"
+
+#: qml/Bookmarks/TOCView.qml:219
+#, kde-format
+msgid "Are you sure you'd like to remove all chapters?"
+msgstr "모든 장을 삭제하시겠습니까?"
+
+#: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
+#, kde-format
+msgid "Page range"
+msgstr "쪽 범위"
+
+#: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
+#, kde-format
+msgid "from"
+msgstr "시작"
+
+#: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
+#, kde-format
+msgid "to"
+msgstr "끝"
+
+#: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "이동"
+
+#: qml/Dialogs/MovePagesDialog.qml:96
+#, kde-format
+msgctxt "@combobox:before/after"
+msgid "before"
+msgstr "이전"
+
+#: qml/Dialogs/MovePagesDialog.qml:96
+#, kde-format
+msgctxt "@combobox:before/after"
+msgid "after"
+msgstr "이후"
+
+#: qml/Dialogs/MovePagesDialog.qml:136
+#, kde-format
+msgctxt "Move page range after/before (number)"
+msgid "page"
+msgstr "쪽"
+
+#: qml/Dialogs/PdfFileDelegate.qml:61
+#, kde-format
+msgid "%1 page"
+msgid_plural "%1 pages"
+msgstr[0] "%1쪽"
+
+#: qml/Dialogs/PdfFileDelegate.qml:75
+#, kde-format
+msgid "Add all pages"
+msgstr "모든 쪽 추가"
+
+#: qml/Dialogs/PdfFileDelegate.qml:83
+#, kde-format
+msgid "Add selected pages"
+msgstr "선택한 쪽 추가"
+
+#: qml/Dialogs/PdfFileDelegate.qml:92
+#, kde-format
+msgid "Remove from list"
+msgstr "목록에서 삭제"
+
+#: qml/Dialogs/PdfFileDelegate.qml:105
+#, kde-format
+msgid "Select pages to add"
+msgstr "추가할 쪽 선택"
+
+#: qml/Dialogs/PdfFilesDialog.qml:19
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Add and Arrange PDF files"
+msgstr "PDF 파일을 추가하고 재정렬"
+
+#: qml/Dialogs/PdfFilesDialog.qml:109
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Add one or more PDF file to proceed"
+msgstr "처리할 PDF 파일을 하나 이상 추가"
+
+#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
+#, kde-format
+msgctxt "@action:button"
+msgid "Add PDF"
+msgstr "PDF 추가"
+
+#: qml/Dialogs/PdfFilesDialog.qml:127
+#, kde-format
+msgctxt "@info"
+msgid "Total pages: %1"
+msgstr "총 쪽: %1쪽"
+
+#: qml/Dialogs/PdfFilesDialog.qml:138
+#, kde-format
+msgctxt "@action:button"
+msgid "Apply"
+msgstr "적용"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:18
+#, kde-format
+msgid "PDF properties"
+msgstr "PDF 속성"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:56
+#, kde-format
+msgid "Output PDF"
+msgstr "출력 PDF"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:163
+#, kde-format
+msgid "Copy all metadata keys to output file"
+msgstr "모든 메타데이터 키를 출력 파일로 복사"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:187
+#, kde-format
+msgid "Double click to delete all metadata"
+msgstr "두 번 클릭하여 모든 메타데이터 삭제"
+
+#: qml/Dialogs/PdfMetadataDialog.qml:223
+#, kde-format
+msgid "Double click to copy metadata into output PDF file."
+msgstr "두 번 클릭하면 메타데이터를 출력 PDF 파일로 복사합니다."
+
+#: qml/Dialogs/PdfPassDialog.qml:19
+#, kde-format
+msgid "Password required"
+msgstr "암호 필요함"
+
+#: qml/Dialogs/PdfPassDialog.qml:31
+#, kde-format
+msgid "Provide password to open file %1"
+msgstr "%1 파일을 열 때 필요한 암호를 입력하십시오"
+
+#: qml/Dialogs/SelectPagesDialog.qml:97
+#, kde-format
+msgid "all pages in selected range"
+msgstr "선택한 범위 내의 모든 쪽"
+
+#: qml/Dialogs/SelectPagesDialog.qml:105
+#, kde-format
+msgid "every %1 page"
+msgstr "매 %1쪽마다"
+
+#: qml/Dialogs/SelectPagesDialog.qml:118
+#, kde-format
+msgid "all pages out of range"
+msgstr "선택한 범위의 쪽 제외"
+
+#: qml/Main.qml:24
+#, kde-format
+msgid "Simple PDF editor"
+msgstr "간단한 PDF 편집기"
+
+#: qml/Main.qml:53
+#, kde-format
+msgid "Quit"
+msgstr "끝내기"
+
+#: qml/MainPage.qml:38
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Save As..."
+msgstr "다른 이름으로 저장..."
+
+#: qml/MainPage.qml:38
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Save"
+msgstr "저장"
+
+#: qml/MainPage.qml:43
+#, kde-format
+msgid "file"
+msgid_plural "files"
+msgstr[0] "파일"
+
+#: qml/MainPage.qml:61
+#, kde-format
+msgid "PDF Options"
+msgstr "PDF 설정"
+
+#: qml/MainPage.qml:77
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF 버전"
+
+#: qml/MainPage.qml:85
+#, kde-format
+msgctxt "like default PDF version"
+msgid "Default"
+msgstr "기본값"
+
+#: qml/MainPage.qml:85
+#, kde-format
+msgctxt "PDF version"
+msgid "Version %1"
+msgstr "버전 %1"
+
+#: qml/MainPage.qml:258
+#, kde-format
+msgid "Set password"
+msgstr "암호 설정"
+
+#: qml/MainPage.qml:258
+#, kde-format
+msgid "Protect PDF file with password."
+msgstr "PDF 파일을 암호로 보호합니다."
+
+#: qml/MainToolbar.qml:25
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to delete"
+msgstr "삭제할 쪽 선택"
+
+#: qml/MainToolbar.qml:47
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to rotate"
+msgstr "회전할 쪽 선택"
+
+#: qml/MainToolbar.qml:63
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to move"
+msgstr "이동할 쪽 선택"
+
+#: qml/MainToolbar.qml:81
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Table of Content (Bookmarks)"
+msgstr "목차(책갈피)"
+
+#: qml/MainToolbar.qml:95
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "여러 쪽 선택"
+
+#: qml/MainToolbar.qml:120
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show page labels"
+msgstr "쪽 이름표 표시"
+
+#: qml/MainToolbar.qml:132
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom Out"
+msgstr "축소"
+
+#: qml/MainToolbar.qml:144
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom In"
+msgstr "확대"
+
+#: qml/MainToolbar.qml:161
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "%2쪽 중 %1쪽"
+
+#: qml/MainToolbar.qml:174
+#, kde-format
+msgid "Select pages to delete"
+msgstr "삭제할 쪽 선택"
+
+#: qml/MainToolbar.qml:175
+#, kde-format
+msgctxt "@action:button"
+msgid "Delete"
+msgstr "삭제"
+
+#: qml/MainToolbar.qml:189
+#, kde-format
+msgid "Select pages to rotate"
+msgstr "회전할 쪽 선택"
+
+#: qml/MainToolbar.qml:190
+#, kde-format
+msgctxt "@action:button"
+msgid "Rotate"
+msgstr "회전"
+
+#: qml/MainToolbar.qml:203
+#, kde-format
+msgid "Angle"
+msgstr "각도"
+
+#: qml/MainToolbar.qml:227
+#, kde-format
+msgid "Select pages to move"
+msgstr "이동할 쪽 선택"
+
+#: qml/Messages/InitialInfo.qml:20
+#, kde-format
+msgid "Select one or more PDF files."
+msgstr "하나 이상의 PDF 파일을 선택하십시오."
+
+#: qml/Messages/InitialInfo.qml:22
+#, kde-format
+msgid ""
+"When more files is selected - order them first.\n"
+"Then arrange all pages: reorder, rotate, remove.\n"
+"At the end save new PDF with selected options."
+msgstr ""
+"여러 개의 파일을 선택했다면 순서를 먼저 정하십시오.\n"
+"그 다음 각 쪽을 이동, 회전, 삭제할 수 있습니다.\n"
+"마지막으로 선택한 옵션을 사용하여 새로운 PDF를 저장하십시오."
+
+#: qml/Messages/ProgressDialog.qml:15
+#, kde-format
+msgid "Generating PDF file"
+msgstr "PDF 파일 생성 중"
+
+#: qml/Messages/ProgressDialog.qml:51
+#, kde-format
+msgid "Reducing PDF file size did not produce expected results!"
+msgstr "PDF 파일 크기 축소가 예상한 결과를 반환하지 못했습니다!"
+
+#: qml/Settings/General.qml:19
+#, kde-format
+msgid "Open file dialog at"
+msgstr "파일 대화 상자를 열 위치"
+
+#: qml/Settings/General.qml:23
+#, kde-format
+msgid "Last opened directory"
+msgstr "마지막으로 연 디렉터리"
+
+#: qml/Settings/General.qml:29
+#, kde-format
+msgid "Fixed path"
+msgstr "고정된 경로"
+
+#: qml/Settings/General.qml:44
+#, kde-format
+msgid "Default name for output PDF"
+msgstr "출력 PDF 파일 기본 이름"
+
+#: qml/Settings/General.qml:48
+#, kde-format
+msgid "Always ask for file name"
+msgstr "항상 파일 이름 묻기"
+
+#: qml/Settings/General.qml:54
+#, kde-format
+msgid "Combine with input file name"
+msgstr "입력 파일 이름과 결합"
+
+#: qml/Settings/General.qml:64
+#, kde-format
+msgid "Append"
+msgstr "덧붙이기"
+
+#: qml/Settings/General.qml:64
+#, kde-format
+msgid "Prepend"
+msgstr "앞에 붙이기"
+
+#: qml/Settings/General.qml:77
+#, kde-format
+msgid "It will produce: <b>%1filename%2.pdf</b>"
+msgstr "결과: <b>%1filename%2.pdf</b>"
+
+#: qml/Settings/PdfTools.qml:11
+#, kde-format
+msgid "PDF Tools"
+msgstr "PDF 도구"
+
+#: qml/Settings/PdfTools.qml:20
+#, kde-format
+msgid "Qpdf lets you arrange pages in edited PDF files."
+msgstr "Qpdf를 사용하여 편집된 PDF 파일의 쪽을 재정렬할 수 있습니다."
+
+#: qml/Settings/PdfTools.qml:24
+#, kde-format
+msgid "Force PDF version of generated file"
+msgstr "생성된 PDF 파일의 버전 강제"
+
+#: qml/Settings/PdfTools.qml:25
+#, kde-format
+msgid "When set to default, PDF version of input file will be used."
+msgstr "기본값으로 설정하면 입력 파일의 PDF 버전을 사용합니다."
+
+#: qml/Settings/PdfTools.qml:26
+#, kde-format
+msgid "default"
+msgstr "기본값"
+
+#: qml/Settings/PdfTools.qml:39
+#, kde-format
+msgid "not found"
+msgstr "찾을 수 없음"
+
+#: qml/Settings/PdfTools.qml:40
+#, kde-format
+msgid "Ghostscript manages size and quality of output PDF file."
+msgstr "Ghostscript는 출력 PDF 파일의 크기와 품질을 관리합니다."
+
+#: qml/Settings/SettingsPage.qml:11
+#, kde-format
+msgctxt "@action:button Category in settings"
+msgid "General"
+msgstr "일반"
+
+#: qml/Settings/SettingsPage.qml:17
+#, kde-format
+msgctxt "@action:button Category in settings"
+msgid "PDF tools"
+msgstr "PDF 도구"
+
+#: qml/Settings/SettingsPage.qml:23
+#, kde-format
+msgctxt "@action:button"
+msgid "About Karp"
+msgstr "Karp 정보"
+
+#: qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "About KDE"
+msgstr "KDE 정보"
