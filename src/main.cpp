@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
         // The license this code is released under.
         KAboutLicense::GPL,
         // Copyright Statement.
-        i18n("(c) 2024-2025 The Karp Developers"));
+        i18n("© 2024-2025 The Karp Developers"));
     aboutData.addAuthor(i18nc("@info:credit", "Tomasz Bojczuk"), QString(), u"seelook@gmail.com"_s, u"https://sourceforge.net/u/seelook/profile"_s);
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
