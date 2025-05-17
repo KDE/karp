@@ -19,9 +19,9 @@ FormCard.FormCard {
         icon.name: "application-pdf"
         text: i18n("Select one or more PDF files.")
         description: i18n(
-"When more files is selected - order them first.\n\
-Then arrange all pages: reorder, rotate, remove.\n\
-At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n\
+Then, arrange all pages: Reorder, Rotate, Remove.\n\
+At the end, save the new PDF with the selected options."
         )
         onClicked: root.clicked()
     }

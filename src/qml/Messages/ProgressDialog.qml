@@ -48,7 +48,7 @@ Kirigami.Dialog {
                 wrapMode: Text.WordWrap
                 color: Kirigami.Theme.textColor
                 horizontalAlignment: Text.AlignHCenter
-                text: i18n("Reducing PDF file size did not produce expected results!")
+                text: i18n("Reducing the PDF file size did not produce the expected results!")
             }
         }
     }

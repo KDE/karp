@@ -22,7 +22,7 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             text: i18n("Force PDF version of generated file")
-            description: i18n("When set to default, PDF version of input file will be used.")
+            description: i18n("When set to default, the PDF version of the input file will be used.")
             model: [i18n("default"), "1.4", "1.5", "1.6", "1.7"]
             currentIndex: KarpConf.pdfVersion >= 14 && KarpConf.pdfVersion <= 17 ? KarpConf.pdfVersion - 13 : 0
             onActivated: KarpConf.pdfVersion = currentIndex === 0 ? 0 : 13 + currentIndex
@@ -37,7 +37,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             text: "GPL Ghostscript " + (APP.gsVersion === "" ? i18n("not found") : APP.gsVersion)
-            description: i18n("Ghostscript manages size and quality of output PDF file.")
+            description: i18n("Ghostscript manages the size and quality of the output PDF file.")
         }
 
         FormPathDelegate {

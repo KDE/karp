@@ -216,7 +216,7 @@ ColumnLayout {
             showCloseButton: false
             flatFooterButtons: false
             QQC2.Label {
-                text: i18n("Are you sure you'd like to remove all chapters?")
+                text: i18n("Are you sure you want to remove all chapters?")
             }
 
             standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel

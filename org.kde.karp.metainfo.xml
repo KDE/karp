@@ -69,7 +69,7 @@
     <name translate="no">KDE</name>
   </developer>
   <description>
-    <p>Karp - gives simple UI for PDF files modification. With a few mouse strokes user can:</p>
+    <p>Karp - Provides a simple UI for modifying PDF files. With a few mouse strokes, you can:</p>
     <p xml:lang="ar">كارب - يوفّر واجهة مستخدم بسيطة لتعديل ملفات بي دي اف. من خلال بضع نقرات بالفأرة، يمكن للمستخدم:</p>
     <p xml:lang="ca">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
     <p xml:lang="ca-valencia">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
@@ -98,7 +98,7 @@
     <p xml:lang="zh-CN">Karp 是一款界面简单易用的 PDF 编辑应用，只需点击几次鼠标即可进行以下操作：</p>
     <p xml:lang="zh-TW">Karp - 提供修改 PDF 檔案用的簡單介面。只要滑鼠點幾下就能：</p>
     <ul>
-      <li>Append more PDF files and merge</li>
+      <li>Append and merge multiple PDF files</li>
       <li xml:lang="ar">إضافة المزيد من ملفات بي دي اف ودمجها</li>
       <li xml:lang="ca">Afegir més fitxers PDF i fusionar-los</li>
       <li xml:lang="ca-valencia">Afegir més fitxers PDF i fusionar-los</li>
@@ -238,7 +238,7 @@
       <li xml:lang="uk">Переглядати властивості PDF і вносити до них зміни</li>
       <li xml:lang="zh-CN">查看和修改 PDF 文件属性</li>
       <li xml:lang="zh-TW">檢視或修改 PDF 屬性</li>
-      <li>Protect PDF with password</li>
+      <li>Protect PDF files with a password</li>
       <li xml:lang="ar">حماية ملف بي دي اف بكلمة سر</li>
       <li xml:lang="ca">Protegir el PDF amb una contrasenya</li>
       <li xml:lang="ca-valencia">Protegir PDF amb una contrasenya</li>
@@ -278,7 +278,7 @@
   </categories>
   <screenshots>
     <screenshot type="default">
-      <caption>Karp main window with pages of PDF file</caption>
+      <caption>The Karp main window with pages of a PDF file</caption>
       <caption xml:lang="ar">نافذة كارب الرئيسة مع صفحات ملف بي دي اف</caption>
       <caption xml:lang="ca">Finestra principal del Karp amb pàgines d'un fitxer PDF</caption>
       <caption xml:lang="ca-valencia">Finestra principal de Karp amb pàgines d'un fitxer PDF</caption>
@@ -309,7 +309,7 @@
       <image>https://cdn.kde.org/screenshots/karp/karp_mainwindow.png</image>
     </screenshot>
     <screenshot type="default">
-      <caption>Appending password protected PDF file</caption>
+      <caption>Appending a password protected PDF file</caption>
       <caption xml:lang="ar">تعديل ملفات بي دي اف محميّة بكلمة سر</caption>
       <caption xml:lang="ca">S'afegeix un fitxer PDF protegit per contrasenya</caption>
       <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit per contrasenya</caption>
