@@ -9,6 +9,7 @@
   <name xml:lang="ar">كارب</name>
   <name xml:lang="ca">Karp</name>
   <name xml:lang="ca-valencia">Karp</name>
+  <name xml:lang="de">Karp</name>
   <name xml:lang="eo">Karp</name>
   <name xml:lang="es">Karp</name>
   <name xml:lang="eu">Karp</name>
@@ -34,6 +35,7 @@
   <summary xml:lang="ar">منظم كيدي لملفات بي دي اف</summary>
   <summary xml:lang="ca">Organitzador de PDF de KDE</summary>
   <summary xml:lang="ca-valencia">Organitzador de PDF de KDE</summary>
+  <summary xml:lang="de">Ein KDE-Programm zum Arrangieren von PDF-Dateien</summary>
   <summary xml:lang="eo">KDE-aranĝanto por PDF-oj</summary>
   <summary xml:lang="es">Organizador PDF de KDE</summary>
   <summary xml:lang="eu">KDEren PDF moldatzailea</summary>
@@ -66,6 +68,7 @@
     <p xml:lang="ar">كارب - يوفّر واجهة مستخدم بسيطة لتعديل ملفات بي دي اف. من خلال بضع نقرات بالفأرة، يمكن للمستخدم:</p>
     <p xml:lang="ca">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
     <p xml:lang="ca-valencia">Karp: Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí l'usuari pot:</p>
+    <p xml:lang="de">Karp — bietet PDF-Bearbeitung mit einer einfachen Benutzeroberfläche. Mit ein paar Mausklicks können Sie:</p>
     <p xml:lang="eo">Karp - donas simplan UI por modifi PDF-dosierojn. Per kelkaj musbatoj, uzanto povas:</p>
     <p xml:lang="es">Karp proporciona una interfaz sencilla para modificar archivos PDF. Con unos clics de ratón puede:</p>
     <p xml:lang="eu">Karp - PDF fitxategiak aldatzeko EI sinple bat ematen du. Saguaren trazu gutxi batzuekin erabiltzaileak ondokoak egin ditzake:</p>
@@ -92,6 +95,7 @@
       <li xml:lang="ar">إضافة المزيد من ملفات بي دي اف ودمجها</li>
       <li xml:lang="ca">Afegir més fitxers PDF i fusionar-los</li>
       <li xml:lang="ca-valencia">Afegir més fitxers PDF i fusionar-los</li>
+      <li xml:lang="de">PDF-Dateien aneinanderhängen und zusammenfügen</li>
       <li xml:lang="eo">Aldoni pliajn PDF-dosierojn kaj kunfandi</li>
       <li xml:lang="es">Añadir más archivos PDF y fusionarlos</li>
       <li xml:lang="eu">PDF fitxategi gehiago erantsi eta elkartu</li>
@@ -117,6 +121,7 @@
       <li xml:lang="ar">حذف وتدوير وإعادة ترتيب الصفحات</li>
       <li xml:lang="ca">Suprimir, girar o reordenar pàgines</li>
       <li xml:lang="ca-valencia">Suprimir, girar o reordenar pàgines</li>
+      <li xml:lang="de">Seiten löschen, drehen und neu anordnen</li>
       <li xml:lang="eo">Forigi, rotacii kaj reordigi paĝojn</li>
       <li xml:lang="es">Borrar, rotar y reordenar las páginas</li>
       <li xml:lang="eu">Orrialdeak ezabatu, biratu eta berrantolatu</li>
@@ -142,6 +147,7 @@
       <li xml:lang="ar">تقليل حجم ملف بي دي اف</li>
       <li xml:lang="ca">Reduir la mida de fitxers PDF</li>
       <li xml:lang="ca-valencia">Reduir la mida de fitxers PDF</li>
+      <li xml:lang="de">Die Dateigröße von PDFs reduzieren</li>
       <li xml:lang="eo">Redukti PDF-dosiergrandecon</li>
       <li xml:lang="es">Reducir el tamaño del archivo PDF</li>
       <li xml:lang="eu">PDF fitxategiaren neurria murriztu</li>
@@ -167,6 +173,7 @@
       <li xml:lang="ar">تحسين الصور</li>
       <li xml:lang="ca">Optimitzar les imatges</li>
       <li xml:lang="ca-valencia">Optimitzar les imatges</li>
+      <li xml:lang="de">Bilder optimieren</li>
       <li xml:lang="eo">Optimumigi bildojn</li>
       <li xml:lang="es">Optimizar imágenes</li>
       <li xml:lang="eu">Irudiak optimizatu</li>
@@ -192,6 +199,7 @@
       <li xml:lang="ar">عرض وتعديل خصائص بي دي اف</li>
       <li xml:lang="ca">Veure i modificar les propietats del PDF</li>
       <li xml:lang="ca-valencia">Veure i modificar les propietats de PDF</li>
+      <li xml:lang="de">PDF-Eigenschaften ansehen und ändern</li>
       <li xml:lang="eo">Rigardi kaj modifi PDF-propraĵojn</li>
       <li xml:lang="es">Ver y modificar las propiedades del PDF</li>
       <li xml:lang="eu">PDF propietateak ikusi eta aldatu</li>
@@ -217,6 +225,7 @@
       <li xml:lang="ar">حماية ملف بي دي اف بكلمة مرور</li>
       <li xml:lang="ca">Protegir el PDF amb una contrasenya</li>
       <li xml:lang="ca-valencia">Protegir PDF amb una contrasenya</li>
+      <li xml:lang="de">PDF-Dateien mit einem Passwort schützen</li>
       <li xml:lang="eo">Protekti PDF per pasvorto</li>
       <li xml:lang="es">Proteger el PDF con contraseña</li>
       <li xml:lang="eu">PDFak pasahitz bidez babestu</li>
@@ -254,6 +263,7 @@
       <caption xml:lang="ar">نافذة كارب الرئيسة مع صفحات ملف بي دي اف</caption>
       <caption xml:lang="ca">Finestra principal del Karp amb pàgines d'un fitxer PDF</caption>
       <caption xml:lang="ca-valencia">Finestra principal de Karp amb pàgines d'un fitxer PDF</caption>
+      <caption xml:lang="de">Karp-Hauptfenster mit Seiten einer PDF-Datei</caption>
       <caption xml:lang="eo">Karp ĉefa fenestro kun paĝoj de PDF-dosiero</caption>
       <caption xml:lang="es">Ventana principal de Karp con páginas de un archivo PDF</caption>
       <caption xml:lang="eu">Karp-en leiho nagusia PDF fitxategien orrialdeekin</caption>
@@ -281,6 +291,7 @@
       <caption xml:lang="ar">تعديل ملفات بي دي اف محميّة بكلمة سر</caption>
       <caption xml:lang="ca">S'afegeix un fitxer PDF protegit per contrasenya</caption>
       <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit per contrasenya</caption>
+      <caption xml:lang="de">Passwortgeschützte PDF-Dateien aneinanderhängen</caption>
       <caption xml:lang="eo">Aldonante pasvorte protektitan PDF-dosieron</caption>
       <caption xml:lang="es">Añadir un archivo PDF protegido con contraseña</caption>
       <caption xml:lang="eu">Pasahitz bidez babestutako PDF fitxategia eranstea</caption>
