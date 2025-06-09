@@ -284,6 +284,7 @@
       <caption xml:lang="uk">Головне вікно Karp зі сторінками файла PDF</caption>
       <caption xml:lang="x-test">xxKarp main window with pages of PDF filexx</caption>
       <caption xml:lang="zh-CN">Karp 的主窗口正在显示 PDF 页面</caption>
+      <caption xml:lang="zh-TW">Karp 主視窗，顯示 PDF 檔案的頁面</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_mainwindow.png</image>
     </screenshot>
     <screenshot type="default">
@@ -312,6 +313,7 @@
       <caption xml:lang="uk">Додавання захищеного паролем файла PDF</caption>
       <caption xml:lang="x-test">xxAppending password protected PDF filexx</caption>
       <caption xml:lang="zh-CN">附加密码保护的 PDF 文件</caption>
+      <caption xml:lang="zh-TW">將內容加入密碼保護的 PDF 檔案</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_add_pdf_with_password.png</image>
     </screenshot>
   </screenshots>
