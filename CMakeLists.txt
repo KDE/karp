@@ -62,7 +62,7 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
 )
 
 ecm_set_disabled_deprecation_versions(QT 6.9.0
-    KF 6.13.0
+    KF 6.16.0
 )
 
 find_package(qpdf REQUIRED)
