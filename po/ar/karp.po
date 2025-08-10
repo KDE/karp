@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-21 13:54+0400\n"
+"PO-Revision-Date: 2025-08-09 21:53+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -73,7 +73,7 @@ msgstr "قلّل الحجم"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
-msgstr "عيّن كلمة مرور"
+msgstr "عيّن كلمة سر"
 
 #: app.cpp:264
 #, kde-format
@@ -465,7 +465,7 @@ msgstr "عيّن كلمة سر"
 #: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
-msgstr "احم ملف بي دي اف بكلمة مرور."
+msgstr "احم ملف بي دي اف بكلمة سر."
 
 #: qml/MainToolbar.qml:25
 #, kde-format
