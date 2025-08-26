@@ -330,4 +330,7 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.karp.desktop</launchable>
   <url type="homepage">https://invent.kde.org/graphics/karp</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=karp</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=karp&amp;source=appdata</url>
+  <url type="vcs-browser">https://invent.kde.org/graphics/karp</url>
 </component>
