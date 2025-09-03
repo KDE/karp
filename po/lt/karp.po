@@ -8,35 +8,36 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:39+0000\n"
-"PO-Revision-Date: 2025-02-20 00:39+0000\n"
+"PO-Revision-Date: 2025-09-02 20:22+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: \n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.6\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
-msgstr ""
+msgstr "PDF failas, kurį taisyti"
 
 #: app.cpp:86 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
-msgstr ""
+msgstr "Pasirinkite PDF failus"
 
 #: app.cpp:184
 #, kde-format
 msgid "QPDF is missing."
-msgstr ""
+msgstr "Trūksta QPDF."
 
 #: app.cpp:188
 #, kde-format
 msgid "Ghostscript is missing."
-msgstr ""
+msgstr "Trūksta Ghostscript."
 
 #: app.cpp:191
 #, kde-format
@@ -44,512 +45,517 @@ msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr ""
+"Įdiekite aukščiau paminėtas programas, priešingu atveju bus prieinamos ne "
+"visos funkcijos."
 
 #: app.cpp:213
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
-msgstr ""
+msgstr "Pridėti PDF failų"
 
 #: app.cpp:223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr ""
+msgstr "Išvalyti visus failus"
 
 #: app.cpp:237
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
-msgstr ""
+msgstr "Optimizuoti PDF"
 
 #: app.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
-msgstr ""
+msgstr "Sumažinti dydį"
 
 #: app.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
-msgstr ""
+msgstr "Nustatyti slaptažodį"
 
 #: app.cpp:264
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
-msgstr ""
+msgstr "PDF metaduomenys"
 
 #: main.cpp:110
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
-msgstr ""
+msgstr "Karp"
 
 #: main.cpp:114
 #, kde-format
 msgid "KDE arranger for PDFs"
-msgstr ""
+msgstr "KDE išdėstymo įrankis, skirtas PDF failams"
 
 #: main.cpp:118
 #, kde-format
 msgid "(c) 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "(c) 2024–2025 Karp plėtotojai"
 
 #: main.cpp:119
 #, kde-format
 msgctxt "@info:credit"
 msgid "Tomasz Bojczuk"
-msgstr ""
+msgstr "Tomasz Bojczuk"
 
 #: main.cpp:120
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Moo"
 
 #: main.cpp:120
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "<>"
 
 #: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
 #, kde-format
 msgid "Title"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: pdfeditmodel.cpp:526
 msgid "Subject"
-msgstr ""
+msgstr "Tema"
 
 #: pdfeditmodel.cpp:527
 msgid "Author"
-msgstr ""
+msgstr "Autorius"
 
 #: pdfeditmodel.cpp:528
 msgid "Keyword"
-msgstr ""
+msgstr "Raktažodis"
 
 #: pdfeditmodel.cpp:529
 msgid "Producer"
-msgstr ""
+msgstr "Rengėjas"
 
 #: pdfeditmodel.cpp:530
 msgid "Creator"
-msgstr ""
+msgstr "Kūrėjas"
 
 #: pdfeditmodel.cpp:531
 msgid "Creation Date"
-msgstr ""
+msgstr "Sukūrimo data"
 
 #: pdfeditmodel.cpp:532
 msgid "Modification Date"
-msgstr ""
+msgstr "Modifikavimo data"
 
 #: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
 #, kde-format
 msgid "Edit Chapter"
-msgstr ""
+msgstr "Taisyti skyrių"
 
 #: qml/Bookmarks/OutlineDialog.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr ""
+msgstr "Šalinti"
 
 #: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Save"
-msgstr ""
+msgstr "Įrašyti"
 
 #: qml/Bookmarks/OutlineDialog.qml:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Add"
-msgstr ""
+msgstr "Pridėti"
 
 #: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
 #, kde-format
 msgid "first"
-msgstr ""
+msgstr "pirmas"
 
 #: qml/Bookmarks/OutlineDialog.qml:99
 #, kde-format
 msgctxt "Edited bookmark/chapter points to page"
 msgid "points to page"
-msgstr ""
+msgstr "nurodo į puslapį"
 
 #: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
 #, kde-format
 msgid "last"
-msgstr ""
+msgstr "paskutinis"
 
 #: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
 #, kde-format
 msgid "Add Chapter"
-msgstr ""
+msgstr "Pridėti skyrių"
 
 #: qml/Bookmarks/TOCView.qml:130
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
-msgstr ""
+msgstr "Išskleisti viską"
 
 #: qml/Bookmarks/TOCView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
-msgstr ""
+msgstr "Suskleisti viską"
 
 #: qml/Bookmarks/TOCView.qml:146
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr ""
+msgstr "Išvalyti turinį"
 
 #: qml/Bookmarks/TOCView.qml:168
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
-msgstr ""
+msgstr "Įterpti aukščiau"
 
 #: qml/Bookmarks/TOCView.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
-msgstr ""
+msgstr "Įterpti žemiau"
 
 #: qml/Bookmarks/TOCView.qml:186
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
-msgstr ""
+msgstr "Pridėti poskyrį"
 
 #: qml/Bookmarks/TOCView.qml:195
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr ""
+msgstr "Išskleisti visą sekciją"
 
 #: qml/Bookmarks/TOCView.qml:203
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr ""
+msgstr "Suskleisti visą sekciją"
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you'd like to remove all chapters?"
-msgstr ""
+msgstr "Ar tikrai norėtumėte pašalinti visus skyrius?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
-msgstr ""
+msgstr "Puslapių rėžis"
 
 #: qml/Dialogs/MovePagesDialog.qml:54 qml/Dialogs/SelectPagesDialog.qml:74
 #, kde-format
 msgid "from"
-msgstr ""
+msgstr "nuo"
 
 #: qml/Dialogs/MovePagesDialog.qml:61 qml/Dialogs/SelectPagesDialog.qml:80
 #, kde-format
 msgid "to"
-msgstr ""
+msgstr "iki"
 
 #: qml/Dialogs/MovePagesDialog.qml:78 qml/Dialogs/MovePagesDialog.qml:151
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr ""
+msgstr "Perkelti"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "before"
-msgstr ""
+msgstr "prieš"
 
 #: qml/Dialogs/MovePagesDialog.qml:96
 #, kde-format
 msgctxt "@combobox:before/after"
 msgid "after"
-msgstr ""
+msgstr "po"
 
 #: qml/Dialogs/MovePagesDialog.qml:136
 #, kde-format
 msgctxt "Move page range after/before (number)"
 msgid "page"
-msgstr ""
+msgstr "psl."
 
 #: qml/Dialogs/PdfFileDelegate.qml:61
 #, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 puslapis"
+msgstr[1] "%1 puslapiai"
+msgstr[2] "%1 puslapių"
+msgstr[3] "%1 puslapis"
 
 #: qml/Dialogs/PdfFileDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
-msgstr ""
+msgstr "Pridėti visus puslapius"
 
 #: qml/Dialogs/PdfFileDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
-msgstr ""
+msgstr "Pridėti pasirinktus puslapius"
 
 #: qml/Dialogs/PdfFileDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
-msgstr ""
+msgstr "Šalinti iš sąrašo"
 
 #: qml/Dialogs/PdfFileDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
-msgstr ""
+msgstr "Pasirinkite puslapius, kuriuos pridėti"
 
 #: qml/Dialogs/PdfFilesDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
-msgstr ""
+msgstr "Pridėti ir išdėstyti PDF failus"
 
 #: qml/Dialogs/PdfFilesDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
-msgstr ""
+msgstr "Norėdami tęsti pridėkite vieną ar daugiau PDF failų"
 
 #: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
-msgstr ""
+msgstr "Pridėti PDF"
 
 #: qml/Dialogs/PdfFilesDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
-msgstr ""
+msgstr "Iš viso puslapių: %1"
 
 #: qml/Dialogs/PdfFilesDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Taikyti"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:18
 #, kde-format
 msgid "PDF properties"
-msgstr ""
+msgstr "PDF savybės"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:56
 #, kde-format
 msgid "Output PDF"
-msgstr ""
+msgstr "Išvesties PDF"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:163
 #, kde-format
 msgid "Copy all metadata keys to output file"
-msgstr ""
+msgstr "Kopijuoti visas metaduomenų reikšmes į išvesties failą"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:187
 #, kde-format
 msgid "Double click to delete all metadata"
-msgstr ""
+msgstr "Spustelėkite du kartus norėdami ištrinti visus metaduomenis"
 
 #: qml/Dialogs/PdfMetadataDialog.qml:223
 #, kde-format
 msgid "Double click to copy metadata into output PDF file."
 msgstr ""
+"Spustelėkite du kartus norėdami kopijuoti metaduomenis į išvesties PDF failą."
 
 #: qml/Dialogs/PdfPassDialog.qml:19
 #, kde-format
 msgid "Password required"
-msgstr ""
+msgstr "Reikalingas slaptažodis"
 
 #: qml/Dialogs/PdfPassDialog.qml:31
 #, kde-format
 msgid "Provide password to open file %1"
-msgstr ""
+msgstr "Pateikite slaptažodį, kad atvertumėte failą %1"
 
 #: qml/Dialogs/SelectPagesDialog.qml:97
 #, kde-format
 msgid "all pages in selected range"
-msgstr ""
+msgstr "visus puslapius pasirinktame rėžyje"
 
 #: qml/Dialogs/SelectPagesDialog.qml:105
 #, kde-format
 msgid "every %1 page"
-msgstr ""
+msgstr "kas %1 puslapį"
 
 #: qml/Dialogs/SelectPagesDialog.qml:118
 #, kde-format
 msgid "all pages out of range"
-msgstr ""
+msgstr "visus puslapius už rėžio ribų"
 
 #: qml/Main.qml:24
 #, kde-format
 msgid "Simple PDF editor"
-msgstr ""
+msgstr "Paprastas PDF redaktorius"
 
 #: qml/Main.qml:53
 #, kde-format
 msgid "Quit"
-msgstr ""
+msgstr "Išeiti"
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As..."
-msgstr ""
+msgstr "Įrašyti kaip..."
 
 #: qml/MainPage.qml:38
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
-msgstr ""
+msgstr "Įrašyti"
 
 #: qml/MainPage.qml:43
 #, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "failas"
+msgstr[1] "failai"
+msgstr[2] "failai"
+msgstr[3] "failai"
 
 #: qml/MainPage.qml:61
 #, kde-format
 msgid "PDF Options"
-msgstr ""
+msgstr "PDF parinktys"
 
 #: qml/MainPage.qml:77
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
-msgstr ""
+msgstr "PDF versija"
 
 #: qml/MainPage.qml:85
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
-msgstr ""
+msgstr "Numatytoji"
 
 #: qml/MainPage.qml:85
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
-msgstr ""
+msgstr "Versija %1"
 
 #: qml/MainPage.qml:258
 #, kde-format
 msgid "Set password"
-msgstr ""
+msgstr "Nustatyti slaptažodį"
 
 #: qml/MainPage.qml:258
 #, kde-format
 msgid "Protect PDF file with password."
-msgstr ""
+msgstr "Apsaugokite PDF failą slaptažodžiu."
 
 #: qml/MainToolbar.qml:25
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to delete"
-msgstr ""
+msgstr "Pasirinkti, kuriuos puslapius ištrinti"
 
 #: qml/MainToolbar.qml:47
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to rotate"
-msgstr ""
+msgstr "Pasirinkti, kuriuos puslapius pasukti"
 
 #: qml/MainToolbar.qml:63
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select pages to move"
-msgstr ""
+msgstr "Pasirinkti, kuriuos puslapius perkelti"
 
 #: qml/MainToolbar.qml:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgstr "Turinys (Žymelės)"
 
 #: qml/MainToolbar.qml:95
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Multiple pages selection"
-msgstr ""
+msgstr "Kelių puslapių žymėjimas"
 
 #: qml/MainToolbar.qml:120
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show page labels"
-msgstr ""
+msgstr "Rodyti puslapių etiketes"
 
 #: qml/MainToolbar.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom Out"
-msgstr ""
+msgstr "Mažinti"
 
 #: qml/MainToolbar.qml:144
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Zoom In"
-msgstr ""
+msgstr "Didinti"
 
 #: qml/MainToolbar.qml:161
 #, kde-format
 msgid "Page %1 of %2"
-msgstr ""
+msgstr "Puslapis %1 iš %2"
 
 #: qml/MainToolbar.qml:174
 #, kde-format
 msgid "Select pages to delete"
-msgstr ""
+msgstr "Pasirinkite puslapius, kuriuos ištrinsite"
 
 #: qml/MainToolbar.qml:175
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"
 
 #: qml/MainToolbar.qml:189
 #, kde-format
 msgid "Select pages to rotate"
-msgstr ""
+msgstr "Pasirinkite puslapius, kuriuos pasuksite"
 
 #: qml/MainToolbar.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
-msgstr ""
+msgstr "Pasukti"
 
 #: qml/MainToolbar.qml:203
 #, kde-format
 msgid "Angle"
-msgstr ""
+msgstr "Kampas"
 
 #: qml/MainToolbar.qml:227
 #, kde-format
 msgid "Select pages to move"
-msgstr ""
+msgstr "Pasirinkite puslapius, kuriuos perkelsite"
 
 #: qml/Messages/InitialInfo.qml:20
 #, kde-format
 msgid "Select one or more PDF files."
-msgstr ""
+msgstr "Pasirinkite vieną ar daugiau PDF failų."
 
 #: qml/Messages/InitialInfo.qml:22
 #, kde-format
@@ -558,117 +564,121 @@ msgid ""
 "Then arrange all pages: reorder, rotate, remove.\n"
 "At the end save new PDF with selected options."
 msgstr ""
+"Jei pasirinksite daugiau kaip vieną failą, iš pradžių, juos išrikiuokite.\n"
+"Tada išdėstykite visus puslapius: pertvarkykite, pasukite, pašalinkite.\n"
+"Galiausiai, įrašykite naują PDF failą naudodami pasirinktas parinktis."
 
 #: qml/Messages/ProgressDialog.qml:15
 #, kde-format
 msgid "Generating PDF file"
-msgstr ""
+msgstr "Generuojamas PDF failas"
 
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing PDF file size did not produce expected results!"
-msgstr ""
+msgstr "PDF failo dydžio sumažinimas neatnešė jokių laukiamų rezultatų!"
 
 #: qml/Settings/General.qml:19
 #, kde-format
 msgid "Open file dialog at"
-msgstr ""
+msgstr "Atverti failų dialogą"
 
 #: qml/Settings/General.qml:23
 #, kde-format
 msgid "Last opened directory"
-msgstr ""
+msgstr "Paskutiniame atvertame kataloge"
 
 #: qml/Settings/General.qml:29
 #, kde-format
 msgid "Fixed path"
-msgstr ""
+msgstr "Fiksuotame kelyje"
 
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr ""
+msgstr "Numatytasis išvesties PDF failo pavadinimas"
 
 #: qml/Settings/General.qml:48
 #, kde-format
 msgid "Always ask for file name"
-msgstr ""
+msgstr "Visada klausti failo pavadinimo"
 
 #: qml/Settings/General.qml:54
 #, kde-format
 msgid "Combine with input file name"
-msgstr ""
+msgstr "Sujungti su įvesties failo pavadinimu"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Append"
-msgstr ""
+msgstr "Pridėti gale"
 
 #: qml/Settings/General.qml:64
 #, kde-format
 msgid "Prepend"
-msgstr ""
+msgstr "Pridėti pradžioje"
 
 #: qml/Settings/General.qml:77
 #, kde-format
 msgid "It will produce: <b>%1filename%2.pdf</b>"
-msgstr ""
+msgstr "Tai sukurs: <b>%1filename%2.pdf</b>"
 
 #: qml/Settings/PdfTools.qml:11
 #, kde-format
 msgid "PDF Tools"
-msgstr ""
+msgstr "PDF įrankiai"
 
 #: qml/Settings/PdfTools.qml:20
 #, kde-format
 msgid "Qpdf lets you arrange pages in edited PDF files."
-msgstr ""
+msgstr "Qpdf jums leidžia taisomuose PDF failuose išdėstyti puslapius."
 
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr ""
+msgstr "Sukurtame faile priverstinai naudoti PDF versiją"
 
 #: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, PDF version of input file will be used."
 msgstr ""
+"Kai nustatytą į „numatytąją“, bus naudojama įvesties failo PDF versiją."
 
 #: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
-msgstr ""
+msgstr "numatytąją"
 
 #: qml/Settings/PdfTools.qml:39
 #, kde-format
 msgid "not found"
-msgstr ""
+msgstr "nerasta"
 
 #: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Ghostscript manages size and quality of output PDF file."
-msgstr ""
+msgstr "Ghostscript valdo išvesties PDF failo dydį ir kokybę."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "General"
-msgstr ""
+msgstr "Bendra"
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgctxt "@action:button Category in settings"
 msgid "PDF tools"
-msgstr ""
+msgstr "PDF įrankiai"
 
 #: qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "About Karp"
-msgstr ""
+msgstr "Apie Karp"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "About KDE"
-msgstr ""
+msgstr "Apie KDE"
