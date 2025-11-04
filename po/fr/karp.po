@@ -577,7 +577,7 @@ msgstr ""
 #: qml/Settings/General.qml:19
 #, kde-format
 msgid "Open file dialog at"
-msgstr "Ouvrir la boîte de dialogue de fichiers à"
+msgstr "Ouvrir la boite de dialogue de fichiers à"
 
 #: qml/Settings/General.qml:23
 #, kde-format
