@@ -10,6 +10,7 @@
 #include <QApplication>
 #endif
 
+#include <QCommandLineParser>
 #include <QIcon>
 #include <QLoggingCategory>
 #include <QQmlApplicationEngine>
@@ -124,6 +125,12 @@ int main(int argc, char *argv[])
     KCrash::initialize();
 #endif
 
+    QCommandLineParser parser;
+    parser.setApplicationDescription(i18n("KDE arranger for PDFs"));
+
+    aboutData.setupCommandLine(&parser);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
     QQmlApplicationEngine engine;
 
     auto config = karpConfig::self();
