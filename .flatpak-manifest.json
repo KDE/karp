@@ -33,13 +33,8 @@
             "sources": [
                 {
                     "type": "archive",
-<<<<<<< HEAD
-                    "url": "https://github.com/qpdf/qpdf/archive/refs/tags/v11.9.1.tar.gz",
-                    "sha256": "98d509e29def377d90ff4a34e48e8e20865600342006bff53e489f689bbbb15d",
-=======
                     "url": "https://github.com/qpdf/qpdf/archive/refs/tags/v12.2.0.tar.gz",
                     "sha256": "2d004611699a94030a594318393f08a7352ab1cf3cee337c5312d4e7eb7f8a4f",
->>>>>>> e2686db (CI - Flatpak - Add update check data for qpdf and update to latest)
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 5542,
