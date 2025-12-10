@@ -3,8 +3,8 @@
     "branch": "master",
     "runtime": "org.kde.Platform",
     "runtime-version": "6.10",
-    "base-version": "6.10",    
-    "base": "io.qt.qtwebengine.BaseApp",    
+    "base-version": "6.10",
+    "base": "io.qt.qtwebengine.BaseApp",
     "sdk": "org.kde.Sdk",
     "command": "karp",
     "tags": ["nightly"],
@@ -55,6 +55,6 @@
                     ]
                 }
             ]
-        }	    
+        }
     ]
 }
