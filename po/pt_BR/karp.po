@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:40+0000\n"
+"POT-Creation-Date: 2026-04-16 00:41+0000\n"
 "PO-Revision-Date: 2026-03-06 15:57-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -95,8 +95,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Organizador KDE para PDFs"
 
 #: main.cpp:119
-#, kde-format
-msgid "(c) 2024-2025 The Karp Developers"
+#, fuzzy, kde-format
+#| msgid "(c) 2024-2025 The Karp Developers"
+msgid "© 2024-2025 The Karp Developers"
 msgstr "(c) 2024-2025 Os Desenvolvedores do Karp"
 
 #: main.cpp:120
@@ -249,8 +250,9 @@ msgid "Collapse whole section"
 msgstr "Recolher seção inteira"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, kde-format
-msgid "Are you sure you'd like to remove all chapters?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you'd like to remove all chapters?"
+msgid "Are you sure you want to remove all chapters?"
 msgstr "Tem certeza de que deseja remover todos os capítulos?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
@@ -410,9 +412,11 @@ msgid "Quit"
 msgstr "Sair"
 
 #: qml/MainPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As …"
 msgstr "Salvar como..."
 
 #: qml/MainPage.qml:38
@@ -480,9 +484,11 @@ msgid "Select pages to move"
 msgstr "Selecionar páginas a mover"
 
 #: qml/MainToolbar.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
 msgctxt "@action:intoolbar"
-msgid "Table of Content (Bookmarks)"
+msgid "Table of Contents (Bookmarks)"
 msgstr "Índice (Marcadores)"
 
 #: qml/MainToolbar.qml:95
@@ -552,11 +558,15 @@ msgid "Select one or more PDF files."
 msgstr "Selecione um ou mais arquivos PDF."
 
 #: qml/Messages/InitialInfo.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When more files is selected - order them first.\n"
+#| "Then arrange all pages: reorder, rotate, remove.\n"
+#| "At the end save new PDF with selected options."
 msgid ""
-"When more files is selected - order them first.\n"
-"Then arrange all pages: reorder, rotate, remove.\n"
-"At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n"
+"Then, arrange all pages: Reorder, Rotate, Remove.\n"
+"At the end, save the new PDF with the selected options."
 msgstr ""
 "Quando mais arquivos forem selecionados, ordene-os primeiro.\n"
 "Em seguida, organize todas as páginas: reordene, gire, remova.\n"
@@ -568,8 +578,9 @@ msgid "Generating PDF file"
 msgstr "Gerando arquivo PDF"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, kde-format
-msgid "Reducing PDF file size did not produce expected results!"
+#, fuzzy, kde-format
+#| msgid "Reducing PDF file size did not produce expected results!"
+msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "Reduzir o tamanho do arquivo PDF não produziu os resultados esperados!"
 
 #: qml/Settings/General.qml:19
@@ -633,8 +644,9 @@ msgid "Force PDF version of generated file"
 msgstr "Forçar versão PDF do arquivo gerado"
 
 #: qml/Settings/PdfTools.qml:25
-#, kde-format
-msgid "When set to default, PDF version of input file will be used."
+#, fuzzy, kde-format
+#| msgid "When set to default, PDF version of input file will be used."
+msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Quando definido como padrão, a versão PDF do arquivo de entrada será usada."
 
@@ -649,8 +661,9 @@ msgid "not found"
 msgstr "não encontrado"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Ghostscript manages size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Ghostscript manages size and quality of output PDF file."
+msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr ""
 "O Ghostscript gerencia o tamanho e a qualidade do arquivo PDF de saída."
 

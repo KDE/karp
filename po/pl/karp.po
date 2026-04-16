@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:40+0000\n"
+"POT-Creation-Date: 2026-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-02-23 11:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -93,8 +93,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Program do układania PDFów od KDE"
 
 #: main.cpp:119
-#, kde-format
-msgid "(c) 2024-2025 The Karp Developers"
+#, fuzzy, kde-format
+#| msgid "(c) 2024-2025 The Karp Developers"
+msgid "© 2024-2025 The Karp Developers"
 msgstr "(c) 2024-2025 Programiści Karpa"
 
 #: main.cpp:120
@@ -247,8 +248,9 @@ msgid "Collapse whole section"
 msgstr "Zwiń cały obszar"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, kde-format
-msgid "Are you sure you'd like to remove all chapters?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you'd like to remove all chapters?"
+msgid "Are you sure you want to remove all chapters?"
 msgstr "Czy na pewno usunąć wszystkie rozdziały?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
@@ -409,9 +411,11 @@ msgid "Quit"
 msgstr "Zakończ"
 
 #: qml/MainPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As …"
 msgstr "Zapisz jako…"
 
 #: qml/MainPage.qml:38
@@ -480,9 +484,11 @@ msgid "Select pages to move"
 msgstr "Zaznacz strony do przeniesienia"
 
 #: qml/MainToolbar.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
 msgctxt "@action:intoolbar"
-msgid "Table of Content (Bookmarks)"
+msgid "Table of Contents (Bookmarks)"
 msgstr "Spis treści (zakładki)"
 
 #: qml/MainToolbar.qml:95
@@ -552,11 +558,15 @@ msgid "Select one or more PDF files."
 msgstr "Zaznacz jeden lub więcej plików PDF."
 
 #: qml/Messages/InitialInfo.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When more files is selected - order them first.\n"
+#| "Then arrange all pages: reorder, rotate, remove.\n"
+#| "At the end save new PDF with selected options."
 msgid ""
-"When more files is selected - order them first.\n"
-"Then arrange all pages: reorder, rotate, remove.\n"
-"At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n"
+"Then, arrange all pages: Reorder, Rotate, Remove.\n"
+"At the end, save the new PDF with the selected options."
 msgstr ""
 "Gdy zaznaczonych jest więcej plików - uszereguj je najpierw.\n"
 "Następnie ułóż wszystkie strony: zmień kolejność, obróć, usuń.\n"
@@ -568,8 +578,9 @@ msgid "Generating PDF file"
 msgstr "Tworzenie pliku PDF"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, kde-format
-msgid "Reducing PDF file size did not produce expected results!"
+#, fuzzy, kde-format
+#| msgid "Reducing PDF file size did not produce expected results!"
+msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "Zmniejszenie rozmiaru pliku nie przyniosło zamierzonego wyniku!"
 
 #: qml/Settings/General.qml:19
@@ -633,8 +644,9 @@ msgid "Force PDF version of generated file"
 msgstr "Wymuś wersję PDF tworzonego pliku"
 
 #: qml/Settings/PdfTools.qml:25
-#, kde-format
-msgid "When set to default, PDF version of input file will be used."
+#, fuzzy, kde-format
+#| msgid "When set to default, PDF version of input file will be used."
+msgid "When set to default, the PDF version of the input file will be used."
 msgstr "Przy domyślnych zostanie użyta wersja PDF lub plik wejściowy."
 
 #: qml/Settings/PdfTools.qml:26
@@ -648,8 +660,9 @@ msgid "not found"
 msgstr "nie znaleziono"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Ghostscript manages size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Ghostscript manages size and quality of output PDF file."
+msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript zarządza rozmiarem i jakością wynikowego pliku PDF."
 
 #: qml/Settings/SettingsPage.qml:11

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:40+0000\n"
+"POT-Creation-Date: 2026-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-02-20 09:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -94,8 +94,9 @@ msgid "KDE arranger for PDFs"
 msgstr "PDF Düzenleyicisi"
 
 #: main.cpp:119
-#, kde-format
-msgid "(c) 2024-2025 The Karp Developers"
+#, fuzzy, kde-format
+#| msgid "(c) 2024-2025 The Karp Developers"
+msgid "© 2024-2025 The Karp Developers"
 msgstr "© 2024–2025 Karp Geliştiricileri"
 
 #: main.cpp:120
@@ -248,8 +249,9 @@ msgid "Collapse whole section"
 msgstr "Tüm Bölümü Daralt"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, kde-format
-msgid "Are you sure you'd like to remove all chapters?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you'd like to remove all chapters?"
+msgid "Are you sure you want to remove all chapters?"
 msgstr "Tüm fasılları kaldırmak istediğinizden emin misiniz?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
@@ -409,9 +411,11 @@ msgid "Quit"
 msgstr "Çık"
 
 #: qml/MainPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As …"
 msgstr "Farklı Kaydet…"
 
 #: qml/MainPage.qml:38
@@ -479,9 +483,11 @@ msgid "Select pages to move"
 msgstr "Taşınacak sayfaları seç"
 
 #: qml/MainToolbar.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
 msgctxt "@action:intoolbar"
-msgid "Table of Content (Bookmarks)"
+msgid "Table of Contents (Bookmarks)"
 msgstr "İçindekiler (Yer İmleri)"
 
 #: qml/MainToolbar.qml:95
@@ -551,11 +557,15 @@ msgid "Select one or more PDF files."
 msgstr "Bir veya daha çok PDF dosyası seçin."
 
 #: qml/Messages/InitialInfo.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When more files is selected - order them first.\n"
+#| "Then arrange all pages: reorder, rotate, remove.\n"
+#| "At the end save new PDF with selected options."
 msgid ""
-"When more files is selected - order them first.\n"
-"Then arrange all pages: reorder, rotate, remove.\n"
-"At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n"
+"Then, arrange all pages: Reorder, Rotate, Remove.\n"
+"At the end, save the new PDF with the selected options."
 msgstr ""
 "Daha fazla dosya seçildiğinde onları önce sıralayın.\n"
 "Sonrasında tüm sayfaları düzenleyin: Yeniden sıralayın, döndürün, kaldırın.\n"
@@ -567,8 +577,9 @@ msgid "Generating PDF file"
 msgstr "PDF dosyası üretiliyor…"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, kde-format
-msgid "Reducing PDF file size did not produce expected results!"
+#, fuzzy, kde-format
+#| msgid "Reducing PDF file size did not produce expected results!"
+msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "PDF dosyasını indirgemek beklenen sonucu vermedi!"
 
 #: qml/Settings/General.qml:19
@@ -634,8 +645,9 @@ msgid "Force PDF version of generated file"
 msgstr "Üretilen dosyanın PDF sürümünü zorla"
 
 #: qml/Settings/PdfTools.qml:25
-#, kde-format
-msgid "When set to default, PDF version of input file will be used."
+#, fuzzy, kde-format
+#| msgid "When set to default, PDF version of input file will be used."
+msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Öntanımlı olarak ayarlandığında, girdi dosyasının PDF sürümü kullanılacaktır."
 
@@ -650,8 +662,9 @@ msgid "not found"
 msgstr "bulunamadı"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Ghostscript manages size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Ghostscript manages size and quality of output PDF file."
+msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript, PDF çıktı dosyasının boyutunu ve kalitesini yönetir."
 
 #: qml/Settings/SettingsPage.qml:11

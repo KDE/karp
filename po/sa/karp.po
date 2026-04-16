@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:40+0000\n"
+"POT-Creation-Date: 2026-04-16 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -95,7 +95,7 @@ msgstr "PDFs कृते KDE व्यवस्थापकः"
 
 #: main.cpp:119
 #, kde-format
-msgid "(c) 2024-2025 The Karp Developers"
+msgid "© 2024-2025 The Karp Developers"
 msgstr ""
 
 #: main.cpp:120
@@ -255,7 +255,7 @@ msgstr ""
 
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
-msgid "Are you sure you'd like to remove all chapters?"
+msgid "Are you sure you want to remove all chapters?"
 msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
@@ -419,7 +419,7 @@ msgstr "परिजहातु"
 #| msgctxt "@action:inmenu"
 #| msgid "Save As"
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As …"
 msgstr "यथा रक्षतु"
 
 #: qml/MainPage.qml:38
@@ -487,10 +487,12 @@ msgid "Select pages to move"
 msgstr "स्थानान्तरणार्थं पृष्ठानि चिनोतु"
 
 #: qml/MainToolbar.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Clear all files"
 msgctxt "@action:intoolbar"
-msgid "Table of Content (Bookmarks)"
-msgstr ""
+msgid "Table of Contents (Bookmarks)"
+msgstr "सर्वाणि सञ्चिकाः स्वच्छं कुर्वन्तु"
 
 #: qml/MainToolbar.qml:95
 #, kde-format
@@ -559,11 +561,15 @@ msgid "Select one or more PDF files."
 msgstr "एकं वा अधिकं वा PDF सञ्चिकां चिनोतु।"
 
 #: qml/Messages/InitialInfo.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When more files is selected - order them first.\n"
+#| "Then arrange all pages: reorder, rotate, remove.\n"
+#| "At the end save new PDF with selected options."
 msgid ""
-"When more files is selected - order them first.\n"
-"Then arrange all pages: reorder, rotate, remove.\n"
-"At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n"
+"Then, arrange all pages: Reorder, Rotate, Remove.\n"
+"At the end, save the new PDF with the selected options."
 msgstr ""
 "यदा अधिकाः सञ्चिकाः चयनिताः भवन्ति - प्रथमं तान् आदेशयन्तु ।\n"
 "ततः सर्वाणि पृष्ठानि व्यवस्थापयन्तु: पुनः क्रमं कुर्वन्तु, परिभ्रमन्तु, निष्कासयन्तु।\n"
@@ -575,8 +581,9 @@ msgid "Generating PDF file"
 msgstr "PDF सञ्चिकां जनयति"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, kde-format
-msgid "Reducing PDF file size did not produce expected results!"
+#, fuzzy, kde-format
+#| msgid "Reducing PDF file size did not produce expected results!"
+msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "PDF सञ्चिकायाः आकारं न्यूनीकृत्य अपेक्षितं परिणामं न प्राप्तम्!"
 
 #: qml/Settings/General.qml:19
@@ -640,8 +647,9 @@ msgid "Force PDF version of generated file"
 msgstr "उत्पन्नसञ्चिकायाः PDF संस्करणं बलात्"
 
 #: qml/Settings/PdfTools.qml:25
-#, kde-format
-msgid "When set to default, PDF version of input file will be used."
+#, fuzzy, kde-format
+#| msgid "When set to default, PDF version of input file will be used."
+msgid "When set to default, the PDF version of the input file will be used."
 msgstr "यदा पूर्वनिर्धारितं सेट् भवति तदा इनपुट् सञ्चिकायाः PDF संस्करणं उपयुज्यते ।"
 
 #: qml/Settings/PdfTools.qml:26
@@ -657,7 +665,7 @@ msgstr "न लभ्यते"
 #: qml/Settings/PdfTools.qml:40
 #, fuzzy, kde-format
 #| msgid "Manage size and quality of output PDF file."
-msgid "Ghostscript manages size and quality of output PDF file."
+msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "आउटपुट् PDF सञ्चिकायाः आकारं गुणवत्तां च प्रबन्धयन्तु ।"
 
 #: qml/Settings/SettingsPage.qml:11

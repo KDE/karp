@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:40+0000\n"
+"POT-Creation-Date: 2026-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-06-09 00:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -92,8 +92,9 @@ msgid "KDE arranger for PDFs"
 msgstr "KDE 的 PDF 排列工具"
 
 #: main.cpp:119
-#, kde-format
-msgid "(c) 2024-2025 The Karp Developers"
+#, fuzzy, kde-format
+#| msgid "(c) 2024-2025 The Karp Developers"
+msgid "© 2024-2025 The Karp Developers"
 msgstr "(c) 2024-2025 Karp 開發團隊"
 
 #: main.cpp:120
@@ -246,8 +247,9 @@ msgid "Collapse whole section"
 msgstr "收起整個段落"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, kde-format
-msgid "Are you sure you'd like to remove all chapters?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you'd like to remove all chapters?"
+msgid "Are you sure you want to remove all chapters?"
 msgstr "您確定要移除所有章節嗎？"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
@@ -406,9 +408,11 @@ msgid "Quit"
 msgstr "離開"
 
 #: qml/MainPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As …"
 msgstr "另存為…"
 
 #: qml/MainPage.qml:38
@@ -475,9 +479,11 @@ msgid "Select pages to move"
 msgstr "選擇要移動的頁面"
 
 #: qml/MainToolbar.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
 msgctxt "@action:intoolbar"
-msgid "Table of Content (Bookmarks)"
+msgid "Table of Contents (Bookmarks)"
 msgstr "目錄（書籤）"
 
 #: qml/MainToolbar.qml:95
@@ -547,11 +553,15 @@ msgid "Select one or more PDF files."
 msgstr "請選擇至少一個 PDF 檔案。"
 
 #: qml/Messages/InitialInfo.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When more files is selected - order them first.\n"
+#| "Then arrange all pages: reorder, rotate, remove.\n"
+#| "At the end save new PDF with selected options."
 msgid ""
-"When more files is selected - order them first.\n"
-"Then arrange all pages: reorder, rotate, remove.\n"
-"At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n"
+"Then, arrange all pages: Reorder, Rotate, Remove.\n"
+"At the end, save the new PDF with the selected options."
 msgstr ""
 "選擇超過一個檔案時 —— 先排序它們。\n"
 "然後排列所有頁面：改變順序、旋轉或移除。\n"
@@ -563,8 +573,9 @@ msgid "Generating PDF file"
 msgstr "正在產生 PDF 檔"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, kde-format
-msgid "Reducing PDF file size did not produce expected results!"
+#, fuzzy, kde-format
+#| msgid "Reducing PDF file size did not produce expected results!"
+msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "降低 PDF 檔案大小時沒有產生預期的結果！"
 
 #: qml/Settings/General.qml:19
@@ -628,8 +639,9 @@ msgid "Force PDF version of generated file"
 msgstr "強制產生檔案使用 PDF 版本"
 
 #: qml/Settings/PdfTools.qml:25
-#, kde-format
-msgid "When set to default, PDF version of input file will be used."
+#, fuzzy, kde-format
+#| msgid "When set to default, PDF version of input file will be used."
+msgid "When set to default, the PDF version of the input file will be used."
 msgstr "設為預設值時，會使用輸入檔案的 PDF 版本。"
 
 #: qml/Settings/PdfTools.qml:26
@@ -643,8 +655,9 @@ msgid "not found"
 msgstr "沒有找到"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Ghostscript manages size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Ghostscript manages size and quality of output PDF file."
+msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript 管理輸出 PDF 檔案的大小與品質。"
 
 #: qml/Settings/SettingsPage.qml:11

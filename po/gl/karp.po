@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:40+0000\n"
+"POT-Creation-Date: 2026-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-02-21 07:30+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -93,8 +93,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Organizador de PDF de KDE"
 
 #: main.cpp:119
-#, kde-format
-msgid "(c) 2024-2025 The Karp Developers"
+#, fuzzy, kde-format
+#| msgid "(c) 2024-2025 The Karp Developers"
+msgid "© 2024-2025 The Karp Developers"
 msgstr "© 2024-2025 Equipo desenvolvedor de Karp"
 
 #: main.cpp:120
@@ -247,8 +248,9 @@ msgid "Collapse whole section"
 msgstr "Pregar toda a sección"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, kde-format
-msgid "Are you sure you'd like to remove all chapters?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you'd like to remove all chapters?"
+msgid "Are you sure you want to remove all chapters?"
 msgstr "Seguro que quere retirar todos os capítulos?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
@@ -408,9 +410,11 @@ msgid "Quit"
 msgstr "Saír"
 
 #: qml/MainPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As …"
 msgstr "Gardar como…"
 
 #: qml/MainPage.qml:38
@@ -478,9 +482,11 @@ msgid "Select pages to move"
 msgstr "Seleccione as páxinas para mover"
 
 #: qml/MainToolbar.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
 msgctxt "@action:intoolbar"
-msgid "Table of Content (Bookmarks)"
+msgid "Table of Contents (Bookmarks)"
 msgstr "Índice (marcadores)"
 
 #: qml/MainToolbar.qml:95
@@ -550,11 +556,15 @@ msgid "Select one or more PDF files."
 msgstr "Seleccione un ou máis ficheiros PDF."
 
 #: qml/Messages/InitialInfo.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When more files is selected - order them first.\n"
+#| "Then arrange all pages: reorder, rotate, remove.\n"
+#| "At the end save new PDF with selected options."
 msgid ""
-"When more files is selected - order them first.\n"
-"Then arrange all pages: reorder, rotate, remove.\n"
-"At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n"
+"Then, arrange all pages: Reorder, Rotate, Remove.\n"
+"At the end, save the new PDF with the selected options."
 msgstr ""
 "Cando seleccione máis ficheiros, ordéneos primeiro.\n"
 "Despois organice as páxinas (ordene, rote, elimine).\n"
@@ -566,8 +576,9 @@ msgid "Generating PDF file"
 msgstr "Xerando o ficheiro PDF"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, kde-format
-msgid "Reducing PDF file size did not produce expected results!"
+#, fuzzy, kde-format
+#| msgid "Reducing PDF file size did not produce expected results!"
+msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr ""
 "A redución do tamaño do ficheiro PDF non produciu o resultado esperado!"
 
@@ -633,8 +644,9 @@ msgid "Force PDF version of generated file"
 msgstr "Forzar a versión de PDF do ficheiro xerado."
 
 #: qml/Settings/PdfTools.qml:25
-#, kde-format
-msgid "When set to default, PDF version of input file will be used."
+#, fuzzy, kde-format
+#| msgid "When set to default, PDF version of input file will be used."
+msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Seleccione «predeterminada» para usar a versión de PDF do ficheiro de "
 "entrada."
@@ -650,8 +662,9 @@ msgid "not found"
 msgstr "non se atopou"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Ghostscript manages size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Ghostscript manages size and quality of output PDF file."
+msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript xestiona o tamaño e calidade do ficheiro PDF de saída."
 
 #: qml/Settings/SettingsPage.qml:11

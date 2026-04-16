@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-01 00:40+0000\n"
+"POT-Creation-Date: 2026-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-05-21 01:11+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -92,8 +92,9 @@ msgid "KDE arranger for PDFs"
 msgstr "Ein KDE-Programm zum Arrangieren von PDF-Dateien"
 
 #: main.cpp:119
-#, kde-format
-msgid "(c) 2024-2025 The Karp Developers"
+#, fuzzy, kde-format
+#| msgid "(c) 2024-2025 The Karp Developers"
+msgid "© 2024-2025 The Karp Developers"
 msgstr "© 2024–2025 Die Karp-Entwickler"
 
 #: main.cpp:120
@@ -246,8 +247,9 @@ msgid "Collapse whole section"
 msgstr "Gesamten Bereich einklappen"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, kde-format
-msgid "Are you sure you'd like to remove all chapters?"
+#, fuzzy, kde-format
+#| msgid "Are you sure you'd like to remove all chapters?"
+msgid "Are you sure you want to remove all chapters?"
 msgstr "Möchten Sie wirklich alle Kapitel entfernen?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
@@ -407,9 +409,11 @@ msgid "Quit"
 msgstr "Beenden"
 
 #: qml/MainPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As..."
 msgctxt "@action:inmenu"
-msgid "Save As..."
+msgid "Save As …"
 msgstr "Speichern unter …"
 
 #: qml/MainPage.qml:38
@@ -477,9 +481,11 @@ msgid "Select pages to move"
 msgstr "Seiten zum Verschieben auswählen"
 
 #: qml/MainToolbar.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
 msgctxt "@action:intoolbar"
-msgid "Table of Content (Bookmarks)"
+msgid "Table of Contents (Bookmarks)"
 msgstr "Inhaltsverzeichnis (Lesezeichen)"
 
 #: qml/MainToolbar.qml:95
@@ -549,11 +555,15 @@ msgid "Select one or more PDF files."
 msgstr "Wählen Sie eine oder mehrere PDF-Dateien."
 
 #: qml/Messages/InitialInfo.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When more files is selected - order them first.\n"
+#| "Then arrange all pages: reorder, rotate, remove.\n"
+#| "At the end save new PDF with selected options."
 msgid ""
-"When more files is selected - order them first.\n"
-"Then arrange all pages: reorder, rotate, remove.\n"
-"At the end save new PDF with selected options."
+"When multiple files are selected – order them first.\n"
+"Then, arrange all pages: Reorder, Rotate, Remove.\n"
+"At the end, save the new PDF with the selected options."
 msgstr ""
 "Wenn mehrere Dateien ausgewählt sind - sortieren Sie sie zuerst.\n"
 "Dann ordnen Sie die Seiten an: neu sortieren, drehen, entfernen.\n"
@@ -565,8 +575,9 @@ msgid "Generating PDF file"
 msgstr "PDF-Datei wird erzeugt"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, kde-format
-msgid "Reducing PDF file size did not produce expected results!"
+#, fuzzy, kde-format
+#| msgid "Reducing PDF file size did not produce expected results!"
+msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr ""
 "Die Verkleinerung der PDF-Datei hat nicht zu den erwarteten Ergebnissen "
 "geführt!"
@@ -632,8 +643,9 @@ msgid "Force PDF version of generated file"
 msgstr "PDF-Version der erzeugten Datei erzwingen"
 
 #: qml/Settings/PdfTools.qml:25
-#, kde-format
-msgid "When set to default, PDF version of input file will be used."
+#, fuzzy, kde-format
+#| msgid "When set to default, PDF version of input file will be used."
+msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Wenn diese Option auf „Standard“ gesetzt ist, wird die PDF-Version der "
 "Eingabedatei verwendet."
@@ -649,8 +661,9 @@ msgid "not found"
 msgstr "nicht gefunden"
 
 #: qml/Settings/PdfTools.qml:40
-#, kde-format
-msgid "Ghostscript manages size and quality of output PDF file."
+#, fuzzy, kde-format
+#| msgid "Ghostscript manages size and quality of output PDF file."
+msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript verwaltet die Größe und Qualität der PDF-Ausgabedatei."
 
 #: qml/Settings/SettingsPage.qml:11
