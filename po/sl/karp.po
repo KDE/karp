@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-16 00:41+0000\n"
-"PO-Revision-Date: 2025-02-20 07:36+0100\n"
+"PO-Revision-Date: 2026-04-16 06:33+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
@@ -88,11 +88,10 @@ msgstr "Karp"
 #: main.cpp:115 main.cpp:129
 #, kde-format
 msgid "KDE arranger for PDFs"
-msgstr "KDE razvrščevalnik za PDFe"
+msgstr "KDE razmeščevalnik za PDF-je"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "(c) 2024-2025 The Karp Developers"
+#, kde-format
 msgid "© 2024-2025 The Karp Developers"
 msgstr "(c) 2024-2025 Razvijalci Karp-a"
 
@@ -246,8 +245,7 @@ msgid "Collapse whole section"
 msgstr "Strni celotni razdelek"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, fuzzy, kde-format
-#| msgid "Are you sure you'd like to remove all chapters?"
+#, kde-format
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Ali ste prepričani, da želite odstraniti vsa poglavja?"
 
@@ -410,12 +408,10 @@ msgid "Quit"
 msgstr "Zapusti"
 
 #: qml/MainPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As …"
-msgstr "Shrani kot..."
+msgstr "Shrani kot ..."
 
 #: qml/MainPage.qml:38
 #, kde-format
@@ -484,9 +480,7 @@ msgid "Select pages to move"
 msgstr "Izberite strani za premikanje"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Contents (Bookmarks)"
 msgstr "Kazalo (zaznamki)"
@@ -558,19 +552,15 @@ msgid "Select one or more PDF files."
 msgstr "Izberite eno ali več datotek PDF."
 
 #: qml/Messages/InitialInfo.qml:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "When more files is selected - order them first.\n"
-#| "Then arrange all pages: reorder, rotate, remove.\n"
-#| "At the end save new PDF with selected options."
+#, kde-format
 msgid ""
 "When multiple files are selected – order them first.\n"
 "Then, arrange all pages: Reorder, Rotate, Remove.\n"
 "At the end, save the new PDF with the selected options."
 msgstr ""
-"Ko je izbranih več datotek - jih najprej razvrstite. Nato rzporedite vse "
-"strani: preuredite, zasukajte, odstranite. Na koncu shranite novi PDF z "
-"izbranimi možnostmi."
+"Ko je izbranih več datotek - jih najprej razvrstite.\n"
+"Nato razporedite vse strani: preuredite, zasukajte, odstranite.\n"
+"Na koncu shranite novi PDF z izbranimi možnostmi."
 
 #: qml/Messages/ProgressDialog.qml:15
 #, kde-format
@@ -578,8 +568,7 @@ msgid "Generating PDF file"
 msgstr "Generiranje datoteke PDF"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Reducing PDF file size did not produce expected results!"
+#, kde-format
 msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "Zmanjšanje velikost datoteke PDF ni pridelalo pričakovanih rezultatov!"
 
@@ -644,8 +633,7 @@ msgid "Force PDF version of generated file"
 msgstr "Prisili različico PDF generirane datoteke"
 
 #: qml/Settings/PdfTools.qml:25
-#, fuzzy, kde-format
-#| msgid "When set to default, PDF version of input file will be used."
+#, kde-format
 msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Kadar je nastavljena privzeta, bo uporabljena različica PDF vhodne datoteke."
@@ -661,8 +649,7 @@ msgid "not found"
 msgstr "ni najden"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Ghostscript manages size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript upravlja velikost in kakovost izhodne datoteke PDF."
 

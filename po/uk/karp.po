@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2024, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-16 00:41+0000\n"
-"PO-Revision-Date: 2025-02-20 08:33+0200\n"
+"PO-Revision-Date: 2026-04-16 08:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -95,8 +95,7 @@ msgid "KDE arranger for PDFs"
 msgstr "Впорядкувальник PDF від KDE"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "(c) 2024-2025 The Karp Developers"
+#, kde-format
 msgid "© 2024-2025 The Karp Developers"
 msgstr "© Розробники Karp, 2024–2025"
 
@@ -250,8 +249,7 @@ msgid "Collapse whole section"
 msgstr "Згорнути увесь розділ"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, fuzzy, kde-format
-#| msgid "Are you sure you'd like to remove all chapters?"
+#, kde-format
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Ви справді хочете вилучити усі глави?"
 
@@ -414,9 +412,7 @@ msgid "Quit"
 msgstr "Вийти"
 
 #: qml/MainPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As …"
 msgstr "Зберегти як…"
@@ -488,9 +484,7 @@ msgid "Select pages to move"
 msgstr "Вибрати сторінки для пересування"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Contents (Bookmarks)"
 msgstr "Зміст (закладки)"
@@ -562,11 +556,7 @@ msgid "Select one or more PDF files."
 msgstr "Виберіть один або декілька файлів PDF."
 
 #: qml/Messages/InitialInfo.qml:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "When more files is selected - order them first.\n"
-#| "Then arrange all pages: reorder, rotate, remove.\n"
-#| "At the end save new PDF with selected options."
+#, kde-format
 msgid ""
 "When multiple files are selected – order them first.\n"
 "Then, arrange all pages: Reorder, Rotate, Remove.\n"
@@ -582,8 +572,7 @@ msgid "Generating PDF file"
 msgstr "Створюємо файл PDF"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Reducing PDF file size did not produce expected results!"
+#, kde-format
 msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr ""
 "Спроба зменшити розмір файла PDF не призвела до очікуваних результатів!"
@@ -649,8 +638,7 @@ msgid "Force PDF version of generated file"
 msgstr "Примусово вказати версію PDF для створеного файла"
 
 #: qml/Settings/PdfTools.qml:25
-#, fuzzy, kde-format
-#| msgid "When set to default, PDF version of input file will be used."
+#, kde-format
 msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Якщо встановлено типове значення, буде використано версію PDF з вхідного "
@@ -667,8 +655,7 @@ msgid "not found"
 msgstr "не знайдено"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Ghostscript manages size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript керує розміром і якістю результатів у файлі PDF."
 

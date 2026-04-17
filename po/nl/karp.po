@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-16 00:41+0000\n"
-"PO-Revision-Date: 2025-02-20 10:30+0100\n"
+"PO-Revision-Date: 2026-04-16 10:30+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
@@ -94,8 +94,7 @@ msgid "KDE arranger for PDFs"
 msgstr "KDE arrangeur voor PDF's"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "(c) 2024-2025 The Karp Developers"
+#, kde-format
 msgid "© 2024-2025 The Karp Developers"
 msgstr "(c) 2024-2025 De ontwikkelaars van Karp"
 
@@ -249,10 +248,9 @@ msgid "Collapse whole section"
 msgstr "Gehele sectie invouwen"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, fuzzy, kde-format
-#| msgid "Are you sure you'd like to remove all chapters?"
+#, kde-format
 msgid "Are you sure you want to remove all chapters?"
-msgstr "Weet u zeker dat u alle hoofdstukken wilt verwijderen?"
+msgstr "Wilt u alle hoofdstukken verwijderen?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -411,12 +409,10 @@ msgid "Quit"
 msgstr "Afsluiten"
 
 #: qml/MainPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As …"
-msgstr "Opslaan als..."
+msgstr "Opslaan als …"
 
 #: qml/MainPage.qml:38
 #, kde-format
@@ -483,9 +479,7 @@ msgid "Select pages to move"
 msgstr "Selecteer te verplaatsen pagina's"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Contents (Bookmarks)"
 msgstr "Inhoudsopgave (bladwijzers)"
@@ -557,17 +551,13 @@ msgid "Select one or more PDF files."
 msgstr "Selecteer een of meer PDF-bestanden."
 
 #: qml/Messages/InitialInfo.qml:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "When more files is selected - order them first.\n"
-#| "Then arrange all pages: reorder, rotate, remove.\n"
-#| "At the end save new PDF with selected options."
+#, kde-format
 msgid ""
 "When multiple files are selected – order them first.\n"
 "Then, arrange all pages: Reorder, Rotate, Remove.\n"
 "At the end, save the new PDF with the selected options."
 msgstr ""
-"Wanneer meer bestanden zijn geselecteerd - order ze eerst.\n"
+"Wanneer meerdere bestanden zijn geselecteerd - order ze eerst.\n"
 "Arrangeer alle pagina's: opnieuw ordenen, draaien, verwijderen.\n"
 "Aan het eind sla de nieuwe PDF op met geselecteerde opties."
 
@@ -577,8 +567,7 @@ msgid "Generating PDF file"
 msgstr "PDF-bestand wordt gegenereerd"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Reducing PDF file size did not produce expected results!"
+#, kde-format
 msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr ""
 "Verminderen van de grootte van het PDF-bestand produceerde niet de verwachte "
@@ -645,8 +634,7 @@ msgid "Force PDF version of generated file"
 msgstr "PDF-versie van gegenereerd bestand afdwingen"
 
 #: qml/Settings/PdfTools.qml:25
-#, fuzzy, kde-format
-#| msgid "When set to default, PDF version of input file will be used."
+#, kde-format
 msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Indien op standaard gezet zal de PDF-versie van het invoerbestand gebruikt "
@@ -663,10 +651,10 @@ msgid "not found"
 msgstr "niet gevonden"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Ghostscript manages size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages the size and quality of the output PDF file."
-msgstr "Ghostscript beheert grootte en kwaliteit van PDF-uitvoerbestand."
+msgstr ""
+"Ghostscript beheert de grootte en kwaliteit van het PDF-uitvoerbestand."
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
