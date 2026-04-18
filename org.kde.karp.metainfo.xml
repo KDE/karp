@@ -70,8 +70,30 @@
   </developer>
   <description>
     <p>Karp — Provides a simple UI for modifying PDF files. With a few mouse strokes, you can:</p>
+    <p xml:lang="ca">Karp — Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí podeu:</p>
+    <p xml:lang="ca-valencia">Karp — Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí podeu:</p>
+    <p xml:lang="es">Karp proporciona una interfaz sencilla para modificar archivos PDF. Con unos clics de ratón puede:</p>
+    <p xml:lang="he">Karp - מספק ממשק משתמש פשוט לשינוי קובצי PDF. במספר לחיצות עכבר אפשר:</p>
+    <p xml:lang="ia">Karp - forni un simple UI per modificar files PDF. Con pauc movimentos de mus le tu pote:</p>
+    <p xml:lang="ka">Karp — მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
+    <p xml:lang="nl">Karp - levert een eenvoudige gebruikersinterface voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
+    <p xml:lang="pt-BR">Karp — Oferece uma interface de usuário simples para modificar arquivos PDF. Com alguns cliques do mouse, você pode:</p>
+    <p xml:lang="sl">Karp - ponuja preprost uporabniški vmesnik za spreminjanje datotek PDF. Z nekaj potezami miške lahko:</p>
+    <p xml:lang="tr">Karp, PDF dosyalarında değişiklik yapmak için yalın bir arayüz sunar. Birkaç fare hareketiyle kullanıcılar:</p>
+    <p xml:lang="uk">Karp — простий інтерфейс для внесення змін до файлів PDF. За декілька клацань кнопками миші користувач може:</p>
     <ul>
       <li>Append and merge multiple PDF files</li>
+      <li xml:lang="ca">Afegir i fusionar diversos fitxers PDF</li>
+      <li xml:lang="ca-valencia">Afegir i fusionar diversos fitxers PDF</li>
+      <li xml:lang="es">Añadir y fusionar múltiples archivos PDF</li>
+      <li xml:lang="he">הוספה ומיזוג של כמה קובצי PDF</li>
+      <li xml:lang="ia">Adjunge e fusiona multiple files PDF</li>
+      <li xml:lang="ka">PDF ფაილების შერწყმა და ერთმანეთის ბოლოში მიწერა</li>
+      <li xml:lang="nl">Meerdere PDF-bestanden toevoegen en samenstellen</li>
+      <li xml:lang="pt-BR">Anexar e mesclar vários arquivos PDF</li>
+      <li xml:lang="sl">Dodajate in združujete več datotek PDF</li>
+      <li xml:lang="tr">Birden çok PDF dosyasını birleştirebilir ve iliştirebilir;</li>
+      <li xml:lang="uk">Дозаписувати та об'єднувати файли PDF</li>
       <li>Delete, rotate and reorder pages</li>
       <li xml:lang="ar">حذف وتدوير وإعادة ترتيب الصفحات</li>
       <li xml:lang="ca">Suprimir, girar o reordenar pàgines</li>
@@ -96,7 +118,7 @@
       <li xml:lang="sk">Odstrániť, otočiť a zmeniť poradie strán</li>
       <li xml:lang="sl">Briše, obrača in preureja strani</li>
       <li xml:lang="sv">Ta bort, rotera och ordna om sidor</li>
-      <li xml:lang="tr">Sayfaları silebilir, döndürebilir ve yeniden sıralayabilir</li>
+      <li xml:lang="tr">Sayfaları silebilir, döndürebilir ve yeniden sıralayabilir;</li>
       <li xml:lang="uk">Вилучати, обертати та перевпорядковувати сторінки</li>
       <li xml:lang="zh-CN">删除、旋转和重新排序页面</li>
       <li xml:lang="zh-TW">刪除、旋轉或改變頁面順序</li>
@@ -124,7 +146,7 @@
       <li xml:lang="sk">Zmenšiť veľkosť súboru PDF</li>
       <li xml:lang="sl">Zmanjša velikost datoteke PDF</li>
       <li xml:lang="sv">Reducera PDF-filstorlek</li>
-      <li xml:lang="tr">PDF dosyalarının boyutunu azaltabilir</li>
+      <li xml:lang="tr">PDF dosyalarının boyutunu azaltabilir;</li>
       <li xml:lang="uk">Зменшувати розмір файлів PDF</li>
       <li xml:lang="zh-CN">压缩 PDF 文件体积</li>
       <li xml:lang="zh-TW">降低 PDF 檔案大小</li>
@@ -152,7 +174,7 @@
       <li xml:lang="sk">Optimalizovať obrázky</li>
       <li xml:lang="sl">Optimizira slike</li>
       <li xml:lang="sv">Optimera bilder</li>
-      <li xml:lang="tr">Görselleri eniyileyebilir</li>
+      <li xml:lang="tr">Görselleri eniyileyebilir;</li>
       <li xml:lang="uk">Оптимізувати зображення</li>
       <li xml:lang="zh-CN">对图像进行压缩优化</li>
       <li xml:lang="zh-TW">最佳化影像</li>
@@ -180,11 +202,22 @@
       <li xml:lang="sk">Zobraziť a upraviť vlastnosti PDF</li>
       <li xml:lang="sl">Ogleduje in spreminja lastnosti PDF</li>
       <li xml:lang="sv">Visa och ändra PDF-egenskaper</li>
-      <li xml:lang="tr">PDF özelliklerini görüntüleyebilir ve üzerinde değişiklik yapabilir</li>
+      <li xml:lang="tr">PDF özelliklerini görüntüleyebilir ve üzerinde değişiklik yapabilir;</li>
       <li xml:lang="uk">Переглядати властивості PDF і вносити до них зміни</li>
       <li xml:lang="zh-CN">查看和修改 PDF 文件属性</li>
       <li xml:lang="zh-TW">檢視或修改 PDF 屬性</li>
       <li>Protect PDF files with a password</li>
+      <li xml:lang="ca">Protegir fitxers PDF amb una contrasenya</li>
+      <li xml:lang="ca-valencia">Protegir fitxers PDF amb una contrasenya</li>
+      <li xml:lang="es">Proteger archivos PDF con contraseña</li>
+      <li xml:lang="he">להגן על קובצי PDF בסיסמה</li>
+      <li xml:lang="ia">Protege files PDF con un contrasigno</li>
+      <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
+      <li xml:lang="nl">PDF-bestanden met een wachtwoord beschermen</li>
+      <li xml:lang="pt-BR">Proteger arquivos PDF com uma senha</li>
+      <li xml:lang="sl">Zaščitite datoteko PDF z geslom</li>
+      <li xml:lang="tr">PDF’leri parola ile koruyabilirsiniz.</li>
+      <li xml:lang="uk">Захищати файли PDF паролем</li>
     </ul>
   </description>
   <provides>
@@ -198,10 +231,32 @@
   <screenshots>
     <screenshot type="default">
       <caption>The Karp main window with pages of a PDF file</caption>
+      <caption xml:lang="ca">La finestra principal del Karp amb pàgines d'un fitxer PDF</caption>
+      <caption xml:lang="ca-valencia">La finestra principal de Karp amb pàgines d'un fitxer PDF</caption>
+      <caption xml:lang="es">Ventana principal de Karp con páginas de un archivo PDF</caption>
+      <caption xml:lang="he">החלון הראשי של Karp עם עמודים של קובץ PDF</caption>
+      <caption xml:lang="ia">Le fenestra principal de Karp con paginas de un file PDF</caption>
+      <caption xml:lang="ka">Karp-ის მთავარი ფანჯარა PDF ფაილის გვერდებით</caption>
+      <caption xml:lang="nl">Het hoofdvenster van Karp met pagina's van een PDF-bestand</caption>
+      <caption xml:lang="pt-BR">A janela principal do Karp com páginas de um arquivo PDF</caption>
+      <caption xml:lang="sl">Glavno okno Karp-a s stranmi datoteke PDF</caption>
+      <caption xml:lang="tr">PDF dosyasının sayfalarını gösteren Karp ana sayfası</caption>
+      <caption xml:lang="uk">Головне вікно Karp зі сторінками файла PDF</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_mainwindow.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Appending a password protected PDF file</caption>
+      <caption xml:lang="ca">S'afegeix un fitxer PDF protegit per contrasenya</caption>
+      <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit per contrasenya</caption>
+      <caption xml:lang="es">Añadir un archivo PDF protegido con contraseña</caption>
+      <caption xml:lang="he">הוספת קובץ PDF מוגן בסיסמה</caption>
+      <caption xml:lang="ia">Adjunge un file PDF protegite per contrasigno</caption>
+      <caption xml:lang="ka">პაროლით დაცული PDF ფაილის ბოლოში მიწერა</caption>
+      <caption xml:lang="nl">PDF-bestand, beveiligd met wachtwoord, wordt achter gevoegd</caption>
+      <caption xml:lang="pt-BR">Anexando um arquivo PDF protegido por senha</caption>
+      <caption xml:lang="sl">Dodajanje datoteke PDF zaščitene z geslom</caption>
+      <caption xml:lang="tr">Parola korumalı bir PDF dosyasına iliştirme yaparken</caption>
+      <caption xml:lang="uk">Додавання захищеного паролем файла PDF</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_add_pdf_with_password.png</image>
     </screenshot>
   </screenshots>
