@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-16 00:41+0000\n"
+"POT-Creation-Date: 2026-04-19 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -94,7 +94,7 @@ msgstr "KDE 的 PDF 编辑器"
 #: main.cpp:119
 #, kde-format
 msgid "© 2024-2025 The Karp Developers"
-msgstr ""
+msgstr "© 2024-2025 The Karp Developers"
 
 #: main.cpp:120
 #, kde-format
@@ -248,7 +248,7 @@ msgstr "折叠整个章节"
 #: qml/Bookmarks/TOCView.qml:219
 #, kde-format
 msgid "Are you sure you want to remove all chapters?"
-msgstr ""
+msgstr "您确定要移除全部章节吗？"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -406,10 +406,12 @@ msgid "Quit"
 msgstr "退出"
 
 #: qml/MainPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save As …"
 msgctxt "@action:inmenu"
-msgid "Save As …"
-msgstr ""
+msgid "Save As…"
+msgstr "另存为…"
 
 #: qml/MainPage.qml:38
 #, kde-format
@@ -478,7 +480,7 @@ msgstr "选择要移动的页面"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Contents (Bookmarks)"
-msgstr ""
+msgstr "目录 (书签)"
 
 #: qml/MainToolbar.qml:95
 #, kde-format
@@ -553,6 +555,9 @@ msgid ""
 "Then, arrange all pages: Reorder, Rotate, Remove.\n"
 "At the end, save the new PDF with the selected options."
 msgstr ""
+"当选择了多个文件时，请先排好它们的顺序。\n"
+"然后编辑所有页面：重新排序、旋转、移除。\n"
+"最后，使用选定的选项保存为新的 PDF 文件。"
 
 #: qml/Messages/ProgressDialog.qml:15
 #, kde-format
@@ -562,7 +567,7 @@ msgstr "正在生成 PDF 文件"
 #: qml/Messages/ProgressDialog.qml:51
 #, kde-format
 msgid "Reducing the PDF file size did not produce the expected results!"
-msgstr ""
+msgstr "PDF 文件体积压缩操作没有得到预期的结果。"
 
 #: qml/Settings/General.qml:19
 #, kde-format
@@ -627,7 +632,7 @@ msgstr "强制指定生成文件的 PDF 版本"
 #: qml/Settings/PdfTools.qml:25
 #, kde-format
 msgid "When set to default, the PDF version of the input file will be used."
-msgstr ""
+msgstr "当设置为默认时，将使用输入文件的 PDF 版本。"
 
 #: qml/Settings/PdfTools.qml:26
 #, kde-format
@@ -642,7 +647,7 @@ msgstr "没有找到"
 #: qml/Settings/PdfTools.qml:40
 #, kde-format
 msgid "Ghostscript manages the size and quality of the output PDF file."
-msgstr ""
+msgstr "Ghostscript 用于管理输出 PDF 文件的大小和画质。"
 
 #: qml/Settings/SettingsPage.qml:11
 #, kde-format
