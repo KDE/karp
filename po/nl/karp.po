@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-19 00:42+0000\n"
-"PO-Revision-Date: 2026-04-16 10:30+0200\n"
+"PO-Revision-Date: 2026-04-19 14:52+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -409,12 +409,10 @@ msgid "Quit"
 msgstr "Afsluiten"
 
 #: qml/MainPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As …"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
-msgstr "Opslaan als …"
+msgstr "Opslaan als…"
 
 #: qml/MainPage.qml:38
 #, kde-format
