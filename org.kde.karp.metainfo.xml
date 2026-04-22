@@ -79,6 +79,7 @@
     <p xml:lang="ka">Karp — მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
     <p xml:lang="nl">Karp - levert een eenvoudige gebruikersinterface voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
     <p xml:lang="pt-BR">Karp — Oferece uma interface de usuário simples para modificar arquivos PDF. Com alguns cliques do mouse, você pode:</p>
+    <p xml:lang="sk">Karp – poskytuje jednoduché rozhranie na úpravu súborov PDF. Niekoľkými kliknutiami myšou môžete:</p>
     <p xml:lang="sl">Karp - ponuja preprost uporabniški vmesnik za spreminjanje datotek PDF. Z nekaj potezami miške lahko:</p>
     <p xml:lang="tr">Karp, PDF dosyalarında değişiklik yapmak için yalın bir arayüz sunar. Birkaç fare hareketiyle kullanıcılar:</p>
     <p xml:lang="uk">Karp — простий інтерфейс для внесення змін до файлів PDF. За декілька клацань кнопками миші користувач може:</p>
@@ -94,6 +95,7 @@
       <li xml:lang="ka">PDF ფაილების შერწყმა და ერთმანეთის ბოლოში მიწერა</li>
       <li xml:lang="nl">Meerdere PDF-bestanden toevoegen en samenstellen</li>
       <li xml:lang="pt-BR">Anexar e mesclar vários arquivos PDF</li>
+      <li xml:lang="sk">Pridať a zlúčiť viacero súborov PDF</li>
       <li xml:lang="sl">Dodajate in združujete več datotek PDF</li>
       <li xml:lang="tr">Birden çok PDF dosyasını birleştirebilir ve iliştirebilir;</li>
       <li xml:lang="uk">Дозаписувати та об'єднувати файли PDF</li>
@@ -220,6 +222,7 @@
       <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
       <li xml:lang="nl">PDF-bestanden met een wachtwoord beschermen</li>
       <li xml:lang="pt-BR">Proteger arquivos PDF com uma senha</li>
+      <li xml:lang="sk">Chrániť súbory PDF heslom</li>
       <li xml:lang="sl">Zaščitite datoteko PDF z geslom</li>
       <li xml:lang="tr">PDF’leri parola ile koruyabilirsiniz.</li>
       <li xml:lang="uk">Захищати файли PDF паролем</li>
@@ -246,6 +249,7 @@
       <caption xml:lang="ka">Karp-ის მთავარი ფანჯარა PDF ფაილის გვერდებით</caption>
       <caption xml:lang="nl">Het hoofdvenster van Karp met pagina's van een PDF-bestand</caption>
       <caption xml:lang="pt-BR">A janela principal do Karp com páginas de um arquivo PDF</caption>
+      <caption xml:lang="sk">Hlavné okno Karp so stranami súboru PDF</caption>
       <caption xml:lang="sl">Glavno okno Karp-a s stranmi datoteke PDF</caption>
       <caption xml:lang="tr">PDF dosyasının sayfalarını gösteren Karp ana sayfası</caption>
       <caption xml:lang="uk">Головне вікно Karp зі сторінками файла PDF</caption>
@@ -263,6 +267,7 @@
       <caption xml:lang="ka">პაროლით დაცული PDF ფაილის ბოლოში მიწერა</caption>
       <caption xml:lang="nl">PDF-bestand, beveiligd met wachtwoord, wordt achter gevoegd</caption>
       <caption xml:lang="pt-BR">Anexando um arquivo PDF protegido por senha</caption>
+      <caption xml:lang="sk">Pridávanie súboru PDF chráneného heslom</caption>
       <caption xml:lang="sl">Dodajanje datoteke PDF zaščitene z geslom</caption>
       <caption xml:lang="tr">Parola korumalı bir PDF dosyasına iliştirme yaparken</caption>
       <caption xml:lang="uk">Додавання захищеного паролем файла PDF</caption>
