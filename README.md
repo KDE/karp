@@ -29,3 +29,21 @@ To reduce PDF size Karp calls [GPL Ghostscript](https://www.ghostscript.com)
  * Adding watermark
  * Adding page numbers or other labels
  * Improving image quality, text visibility
+
+
+### Compiling from Source
+#### Using kde-builder
+Karp can be built using [`kde-builder`](https://develop.kde.org/docs/getting-started/building/kde-builder-compile/)
+```
+kde-builder karp
+```
+
+#### Using cmake
+If you have all dependencies installed, you can use cmake to build it:
+```
+git clone https://invent.kde.org/graphics/karp && cd karp
+cmake -B build
+cmake --build build
+./build/bin/karp
+```
+
