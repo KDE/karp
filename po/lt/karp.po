@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-19 00:42+0000\n"
-"PO-Revision-Date: 2025-09-02 20:22+0300\n"
+"PO-Revision-Date: 2026-04-23 20:38+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: app.cpp:56 pdfeditmodel.cpp:582
 #, kde-format
@@ -96,10 +96,9 @@ msgid "KDE arranger for PDFs"
 msgstr "KDE išdėstymo įrankis, skirtas PDF failams"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "(c) 2024-2025 The Karp Developers"
+#, kde-format
 msgid "© 2024-2025 The Karp Developers"
-msgstr "(c) 2024–2025 Karp plėtotojai"
+msgstr "© 2024–2025 Karp plėtotojai"
 
 #: main.cpp:120
 #, kde-format
@@ -251,10 +250,9 @@ msgid "Collapse whole section"
 msgstr "Suskleisti visą sekciją"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, fuzzy, kde-format
-#| msgid "Are you sure you'd like to remove all chapters?"
+#, kde-format
 msgid "Are you sure you want to remove all chapters?"
-msgstr "Ar tikrai norėtumėte pašalinti visus skyrius?"
+msgstr "Ar tikrai norite pašalinti visus skyrius?"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -416,12 +414,10 @@ msgid "Quit"
 msgstr "Išeiti"
 
 #: qml/MainPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
-msgstr "Įrašyti kaip..."
+msgstr "Įrašyti kaip…"
 
 #: qml/MainPage.qml:38
 #, kde-format
@@ -490,9 +486,7 @@ msgid "Select pages to move"
 msgstr "Pasirinkti, kuriuos puslapius perkelti"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Contents (Bookmarks)"
 msgstr "Turinys (Žymelės)"
@@ -564,11 +558,7 @@ msgid "Select one or more PDF files."
 msgstr "Pasirinkite vieną ar daugiau PDF failų."
 
 #: qml/Messages/InitialInfo.qml:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "When more files is selected - order them first.\n"
-#| "Then arrange all pages: reorder, rotate, remove.\n"
-#| "At the end save new PDF with selected options."
+#, kde-format
 msgid ""
 "When multiple files are selected – order them first.\n"
 "Then, arrange all pages: Reorder, Rotate, Remove.\n"
@@ -584,8 +574,7 @@ msgid "Generating PDF file"
 msgstr "Generuojamas PDF failas"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Reducing PDF file size did not produce expected results!"
+#, kde-format
 msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "PDF failo dydžio sumažinimas neatnešė jokių laukiamų rezultatų!"
 
@@ -650,8 +639,7 @@ msgid "Force PDF version of generated file"
 msgstr "Sukurtame faile priverstinai naudoti PDF versiją"
 
 #: qml/Settings/PdfTools.qml:25
-#, fuzzy, kde-format
-#| msgid "When set to default, PDF version of input file will be used."
+#, kde-format
 msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
 "Kai nustatytą į „numatytąją“, bus naudojama įvesties failo PDF versiją."
@@ -667,8 +655,7 @@ msgid "not found"
 msgstr "nerasta"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Ghostscript manages size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "Ghostscript valdo išvesties PDF failo dydį ir kokybę."
 

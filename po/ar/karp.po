@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
-# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-19 00:42+0000\n"
-"PO-Revision-Date: 2025-08-09 21:53+0400\n"
+"PO-Revision-Date: 2026-04-23 10:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -93,10 +93,9 @@ msgid "KDE arranger for PDFs"
 msgstr "منظم كيدي لملفات بي دي اف"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "(c) 2024-2025 The Karp Developers"
+#, kde-format
 msgid "© 2024-2025 The Karp Developers"
-msgstr "(ج) 2024-2025 مطورو كارب"
+msgstr "© 2024-2025 مطورو كارب"
 
 #: main.cpp:120
 #, kde-format
@@ -248,8 +247,7 @@ msgid "Collapse whole section"
 msgstr "اطو كامل القسم"
 
 #: qml/Bookmarks/TOCView.qml:219
-#, fuzzy, kde-format
-#| msgid "Are you sure you'd like to remove all chapters?"
+#, kde-format
 msgid "Are you sure you want to remove all chapters?"
 msgstr "أمتأكّد أنك ترغب في إزالة كل الفصول؟"
 
@@ -414,12 +412,10 @@ msgid "Quit"
 msgstr "اخرج"
 
 #: qml/MainPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
-msgstr "احفظ كَ‍..."
+msgstr "احفظ كَ‍…"
 
 #: qml/MainPage.qml:38
 #, kde-format
@@ -490,9 +486,7 @@ msgid "Select pages to move"
 msgstr "حدد صفحات للنقل"
 
 #: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Contents (Bookmarks)"
 msgstr "جدول المحتويات (العلامات)"
@@ -564,11 +558,7 @@ msgid "Select one or more PDF files."
 msgstr "حدد ملف بي دي اف واحدًا أو أكثر."
 
 #: qml/Messages/InitialInfo.qml:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "When more files is selected - order them first.\n"
-#| "Then arrange all pages: reorder, rotate, remove.\n"
-#| "At the end save new PDF with selected options."
+#, kde-format
 msgid ""
 "When multiple files are selected – order them first.\n"
 "Then, arrange all pages: Reorder, Rotate, Remove.\n"
@@ -584,8 +574,7 @@ msgid "Generating PDF file"
 msgstr "أنشئ ملف بي دي اف"
 
 #: qml/Messages/ProgressDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Reducing PDF file size did not produce expected results!"
+#, kde-format
 msgid "Reducing the PDF file size did not produce the expected results!"
 msgstr "لم يؤدي تقليل حجم ملف بي دي اف إلى النتائج المتوقعة!"
 
@@ -650,8 +639,7 @@ msgid "Force PDF version of generated file"
 msgstr "افرض إصدار PDF للملف الناتج"
 
 #: qml/Settings/PdfTools.qml:25
-#, fuzzy, kde-format
-#| msgid "When set to default, PDF version of input file will be used."
+#, kde-format
 msgid "When set to default, the PDF version of the input file will be used."
 msgstr "عند ضبطه على الوضع المبدئي؛ يستخدم إصدار بي دي اف من ملف الإدخال."
 
@@ -666,8 +654,7 @@ msgid "not found"
 msgstr "لم يُعثر عليه"
 
 #: qml/Settings/PdfTools.qml:40
-#, fuzzy, kde-format
-#| msgid "Ghostscript manages size and quality of output PDF file."
+#, kde-format
 msgid "Ghostscript manages the size and quality of the output PDF file."
 msgstr "يدير Ghostscript حجم وجودة ملف بي دي إف الناتج."
 
