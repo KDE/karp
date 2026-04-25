@@ -409,7 +409,7 @@ msgstr "退出"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
-msgstr ""
+msgstr "另存为…"
 
 #: qml/MainPage.qml:38
 #, kde-format
