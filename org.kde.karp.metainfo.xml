@@ -70,6 +70,7 @@
   </developer>
   <description>
     <p>Karp — Provides a simple UI for modifying PDF files. With a few mouse strokes, you can:</p>
+    <p xml:lang="ar">كارب — يقدم واجهة مستخدم بسيطة لتعديل ملفات بي دي اف. من خلال بضع نقرات بالفأرة، يمكن للمستخدم:</p>
     <p xml:lang="ca">Karp — Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí podeu:</p>
     <p xml:lang="ca-valencia">Karp — Proporciona una interfície d'usuari senzilla per a la modificació de fitxers PDF. Amb uns quants traços de ratolí podeu:</p>
     <p xml:lang="es">Karp proporciona una interfaz sencilla para modificar archivos PDF. Con unos clics de ratón puede:</p>
@@ -77,6 +78,7 @@
     <p xml:lang="he">Karp - מספק ממשק משתמש פשוט לשינוי קובצי PDF. במספר לחיצות עכבר אפשר:</p>
     <p xml:lang="ia">Karp - forni un simple UI per modificar files PDF. Con pauc movimentos de mus le tu pote:</p>
     <p xml:lang="ka">Karp — მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
+    <p xml:lang="lt">Karp pateikia paprastą naudotojo sąsają, skirtą modifikuoti PDF failus. Naudodami kelis pelės brūkštelėjimus galite:</p>
     <p xml:lang="nl">Karp - levert een eenvoudige gebruikersinterface voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
     <p xml:lang="pt-BR">Karp — Oferece uma interface de usuário simples para modificar arquivos PDF. Com alguns cliques do mouse, você pode:</p>
     <p xml:lang="sk">Karp – poskytuje jednoduché rozhranie na úpravu súborov PDF. Niekoľkými kliknutiami myšou môžete:</p>
@@ -86,6 +88,7 @@
     <p xml:lang="zh-CN">Karp — 提供一个简单的界面用于修改 PDF 文件。只需点击几下鼠标，即可实现以下操作：</p>
     <ul>
       <li>Append and merge multiple PDF files</li>
+      <li xml:lang="ar">تعديل ملفات بي دي اف محميّة بكلمة سر</li>
       <li xml:lang="ca">Afegir i fusionar diversos fitxers PDF</li>
       <li xml:lang="ca-valencia">Afegir i fusionar diversos fitxers PDF</li>
       <li xml:lang="es">Añadir y fusionar múltiples archivos PDF</li>
@@ -93,6 +96,7 @@
       <li xml:lang="he">הוספה ומיזוג של כמה קובצי PDF</li>
       <li xml:lang="ia">Adjunge e fusiona multiple files PDF</li>
       <li xml:lang="ka">PDF ფაილების შერწყმა და ერთმანეთის ბოლოში მიწერა</li>
+      <li xml:lang="lt">Pridėti ir sulieti keletą PDF failų</li>
       <li xml:lang="nl">Meerdere PDF-bestanden toevoegen en samenstellen</li>
       <li xml:lang="pt-BR">Anexar e mesclar vários arquivos PDF</li>
       <li xml:lang="sk">Pridať a zlúčiť viacero súborov PDF</li>
@@ -213,6 +217,7 @@
       <li xml:lang="zh-CN">查看和修改 PDF 文件属性</li>
       <li xml:lang="zh-TW">檢視或修改 PDF 屬性</li>
       <li>Protect PDF files with a password</li>
+      <li xml:lang="ar">حماية ملفات بي دي اف بكلمة سر</li>
       <li xml:lang="ca">Protegir fitxers PDF amb una contrasenya</li>
       <li xml:lang="ca-valencia">Protegir fitxers PDF amb una contrasenya</li>
       <li xml:lang="es">Proteger archivos PDF con contraseña</li>
@@ -220,6 +225,7 @@
       <li xml:lang="he">להגן על קובצי PDF בסיסמה</li>
       <li xml:lang="ia">Protege files PDF con un contrasigno</li>
       <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
+      <li xml:lang="lt">Apsaugoti PDF failus slaptažodžiu</li>
       <li xml:lang="nl">PDF-bestanden met een wachtwoord beschermen</li>
       <li xml:lang="pt-BR">Proteger arquivos PDF com uma senha</li>
       <li xml:lang="sk">Chrániť súbory PDF heslom</li>
@@ -240,6 +246,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>The Karp main window with pages of a PDF file</caption>
+      <caption xml:lang="ar">نافذة كارب الرئيسة مع صفحات ملف بي دي اف</caption>
       <caption xml:lang="ca">La finestra principal del Karp amb pàgines d'un fitxer PDF</caption>
       <caption xml:lang="ca-valencia">La finestra principal de Karp amb pàgines d'un fitxer PDF</caption>
       <caption xml:lang="es">Ventana principal de Karp con páginas de un archivo PDF</caption>
@@ -247,6 +254,7 @@
       <caption xml:lang="he">החלון הראשי של Karp עם עמודים של קובץ PDF</caption>
       <caption xml:lang="ia">Le fenestra principal de Karp con paginas de un file PDF</caption>
       <caption xml:lang="ka">Karp-ის მთავარი ფანჯარა PDF ფაილის გვერდებით</caption>
+      <caption xml:lang="lt">Karp pagrindinis langas su PDF failo puslapiais</caption>
       <caption xml:lang="nl">Het hoofdvenster van Karp met pagina's van een PDF-bestand</caption>
       <caption xml:lang="pt-BR">A janela principal do Karp com páginas de um arquivo PDF</caption>
       <caption xml:lang="sk">Hlavné okno Karp so stranami súboru PDF</caption>
@@ -258,6 +266,7 @@
     </screenshot>
     <screenshot type="default">
       <caption>Appending a password protected PDF file</caption>
+      <caption xml:lang="ar">تعديل ملفات بي دي اف محميّة بكلمة سر</caption>
       <caption xml:lang="ca">S'afegeix un fitxer PDF protegit per contrasenya</caption>
       <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit per contrasenya</caption>
       <caption xml:lang="es">Añadir un archivo PDF protegido con contraseña</caption>
@@ -265,6 +274,7 @@
       <caption xml:lang="he">הוספת קובץ PDF מוגן בסיסמה</caption>
       <caption xml:lang="ia">Adjunge un file PDF protegite per contrasigno</caption>
       <caption xml:lang="ka">პაროლით დაცული PDF ფაილის ბოლოში მიწერა</caption>
+      <caption xml:lang="lt">Slaptažodžiu apsaugoto PDF failo pridėjimas</caption>
       <caption xml:lang="nl">PDF-bestand, beveiligd met wachtwoord, wordt achter gevoegd</caption>
       <caption xml:lang="pt-BR">Anexando um arquivo PDF protegido por senha</caption>
       <caption xml:lang="sk">Pridávanie súboru PDF chráneného heslom</caption>
