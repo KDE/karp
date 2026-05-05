@@ -77,6 +77,7 @@
     <p xml:lang="fr">Karp - Il vous propose une interface utilisateur simple pour la modification de fichiers au format « PDF ». En quelques clic de souris, la personne utilisatrice peut :</p>
     <p xml:lang="he">Karp - מספק ממשק משתמש פשוט לשינוי קובצי PDF. במספר לחיצות עכבר אפשר:</p>
     <p xml:lang="ia">Karp - forni un simple UI per modificar files PDF. Con pauc movimentos de mus le tu pote:</p>
+    <p xml:lang="it">Karp - fornisce una semplice interfaccia per la modifica di file PDF. Con pochi colpi di mouse l'utente può:</p>
     <p xml:lang="ka">Karp — მარტივი ინტერფეისი PDF ფაილების შესაცვლელად. თაგუნას რამდენიმე წკაპით მომხმარებელს შეუძლია:</p>
     <p xml:lang="lt">Karp pateikia paprastą naudotojo sąsają, skirtą modifikuoti PDF failus. Naudodami kelis pelės brūkštelėjimus galite:</p>
     <p xml:lang="nl">Karp - levert een eenvoudige gebruikersinterface voor wijzigen van PDF bestanden. Met een paar muisstreken kan de gebruiker:</p>
@@ -95,6 +96,7 @@
       <li xml:lang="fr">Ajouter et fusionner des fichiers au format « PDF »</li>
       <li xml:lang="he">הוספה ומיזוג של כמה קובצי PDF</li>
       <li xml:lang="ia">Adjunge e fusiona multiple files PDF</li>
+      <li xml:lang="it">Aggiungere e unire più file PDF</li>
       <li xml:lang="ka">PDF ფაილების შერწყმა და ერთმანეთის ბოლოში მიწერა</li>
       <li xml:lang="lt">Pridėti ir sulieti keletą PDF failų</li>
       <li xml:lang="nl">Meerdere PDF-bestanden toevoegen en samenstellen</li>
@@ -224,6 +226,7 @@
       <li xml:lang="fr">Protéger les fichiers au format « PDF » avec un mot de passe</li>
       <li xml:lang="he">להגן על קובצי PDF בסיסמה</li>
       <li xml:lang="ia">Protege files PDF con un contrasigno</li>
+      <li xml:lang="it">Proteggere i file PDF con una password</li>
       <li xml:lang="ka">PDF ფაილის დაცვა პაროლით</li>
       <li xml:lang="lt">Apsaugoti PDF failus slaptažodžiu</li>
       <li xml:lang="nl">PDF-bestanden met een wachtwoord beschermen</li>
@@ -253,6 +256,7 @@
       <caption xml:lang="fr">Fenêtre principale de Karp avec des pages de fichier au format « PDF »</caption>
       <caption xml:lang="he">החלון הראשי של Karp עם עמודים של קובץ PDF</caption>
       <caption xml:lang="ia">Le fenestra principal de Karp con paginas de un file PDF</caption>
+      <caption xml:lang="it">La finestra principale di Karp con pagine di un file PDF</caption>
       <caption xml:lang="ka">Karp-ის მთავარი ფანჯარა PDF ფაილის გვერდებით</caption>
       <caption xml:lang="lt">Karp pagrindinis langas su PDF failo puslapiais</caption>
       <caption xml:lang="nl">Het hoofdvenster van Karp met pagina's van een PDF-bestand</caption>
@@ -273,6 +277,7 @@
       <caption xml:lang="fr">Ajout d'un fichier au format « PDF » protégé par un mot de passe</caption>
       <caption xml:lang="he">הוספת קובץ PDF מוגן בסיסמה</caption>
       <caption xml:lang="ia">Adjunge un file PDF protegite per contrasigno</caption>
+      <caption xml:lang="it">Aggiunta di un file PDF protetto da password</caption>
       <caption xml:lang="ka">პაროლით დაცული PDF ფაილის ბოლოში მიწერა</caption>
       <caption xml:lang="lt">Slaptažodžiu apsaugoto PDF failo pridėjimas</caption>
       <caption xml:lang="nl">PDF-bestand, beveiligd met wachtwoord, wordt achter gevoegd</caption>
