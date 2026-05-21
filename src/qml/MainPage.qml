@@ -45,9 +45,6 @@ Kirigami.Page {
             Kirigami.Action {
                 fromQAction: APP.action('clear_all')
                 enabled: pdfModel.pageCount
-            },
-            Kirigami.Action {
-                fromQAction: APP.action('options_configure')
             }
         ]
     }
@@ -59,20 +56,6 @@ Kirigami.Page {
             enabled: pdfModel.edited
             fromQAction: APP.action("save_pdf")
             text: KarpConf.askForOutFile ? i18nc("@action:inmenu", "Save As…") : i18nc("@action:inmenu", "Save")
-        },
-        Kirigami.Action {
-            visible: pdfModel.pdfCount > 0
-            displayComponent: QQC2.Label {
-                text: i18np("file", "files", pdfModel.pdfCount) + ":"
-            }
-        },
-        Kirigami.Action {
-            id: nameAct
-            visible: pdfModel.pdfCount > 0
-            text: nameElided.elidedText(tooltip, Qt.ElideMiddle, page.width * 0.4, 0)
-            tooltip: pdfModel.pdfCount > 0 ? "1. " + pdfModel.getPdfName(0) : ""
-            icon.name: "snap-page"
-            icon.color: pdfModel.labelColor(0)
         },
         Kirigami.Action {
             enabled: pdfModel.pageCount
@@ -124,6 +107,9 @@ Kirigami.Page {
             Kirigami.Action {
                 fromQAction: APP.action("pdf_meta")
             }
+        },
+        Kirigami.Action {
+            fromQAction: APP.action('options_configure')
         }
     ]
 
@@ -227,14 +213,6 @@ Kirigami.Page {
 
     Connections {
         target: pdfModel
-        function onPdfCountChanged(): void {
-            if (pdfModel.pdfCount > 1) {
-                let newAct = actionComp.createObject(nameAct);
-                newAct.text = pdfModel.pdfCount + ". " + pdfModel.getPdfName(pdfModel.pdfCount - 1);
-                newAct.icon.color = pdfModel.labelColor(pdfModel.pdfCount - 1);
-                nameAct.children.push(newAct);
-            }
-        }
         function onPasswordRequired(fName: string, fId: int): void {
             let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page, {
                 fileName: fName,
@@ -302,13 +280,6 @@ Kirigami.Page {
             Qt.createComponent("org.kde.karp", "PdfMetadataDialog").createObject(page, {
                 pdfModel: pdfModel
             });
-        }
-    }
-
-    Component {
-        id: actionComp
-        Kirigami.Action {
-            icon.name: "snap-page"
         }
     }
 
