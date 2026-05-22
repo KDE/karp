@@ -17,7 +17,6 @@ qt_add_qml_module(karp
     URI org.kde.karp
     QML_FILES
         qml/Main.qml
-        qml/About.qml
         qml/MainPage.qml
         qml/MainToolbar.qml
         qml/EditDelegate.qml
