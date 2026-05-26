@@ -25,32 +25,6 @@ App::App(QObject *parent)
     m_tools->lookForTools();
 }
 
-void App::restoreWindowGeometry(QQuickWindow *window, const QString &group)
-{
-    auto conf = karpConfig::self();
-    KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
-    KWindowConfig::restoreWindowSize(window, windowGroup);
-    KWindowConfig::restoreWindowPosition(window, windowGroup);
-    if (conf->fixedLastDir().isEmpty())
-        conf->setFixedLastDir(QDir::homePath());
-}
-
-void App::saveWindowGeometry(QQuickWindow *window, const QString &group) const
-{
-    auto conf = karpConfig::self();
-    if (!m_path.isEmpty()) {
-        QFileInfo lastPathInfo(m_path);
-        conf->setLastDir(lastPathInfo.absoluteDir().path());
-    }
-    conf->save();
-    KConfig dataResource(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, u"Window-"_s + group);
-    KWindowConfig::saveWindowPosition(window, windowGroup);
-    KWindowConfig::saveWindowSize(window, windowGroup);
-    dataResource.sync();
-}
-
 QString App::getPdfFile()
 {
     auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), getOpenDIr(), u"*.pdf"_s);

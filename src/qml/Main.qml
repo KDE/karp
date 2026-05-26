@@ -4,6 +4,7 @@
 import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.karp
+import org.kde.config as KConfig
 
 Kirigami.ApplicationWindow {
     id: mainWin
@@ -13,10 +14,7 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 20
 
-    onClosing: APP.saveWindowGeometry(mainWin)
-
     Component.onCompleted: {
-        APP.restoreWindowGeometry(mainWin)
         mainPage.openPDFs(APP.getInitFileList())
     }
 
@@ -55,6 +53,10 @@ Kirigami.ApplicationWindow {
                 onTriggered: Qt.quit()
             }
         ]
+    }
+
+    KConfig.WindowStateSaver {
+        configGroupName: "main"
     }
 
     Connections {
