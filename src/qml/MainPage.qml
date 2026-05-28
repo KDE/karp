@@ -31,6 +31,18 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
+            id: exportAction
+            //visible: pdfModel.pageCount
+            text: "Export Document" //TODO: translation
+            icon.name: "document-export"
+            //TODO: what to do with KarpConf.askForOutFile
+            onTriggered: {
+                Qt.createComponent("org.kde.karp", "ExportDialog").createObject(page, {
+                    pdfModel: pdfModel
+                });
+            }
+        },
+        Kirigami.Action {
             id: saveAction
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
