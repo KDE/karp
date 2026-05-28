@@ -15,11 +15,10 @@ FormCard.FormCardDialog {
 
     onClosed: destroy()
 
-    //TODO: redo text and descriptions
-    //TODO: i18n contexts
+    //TODO: add descriptions
     FormCard.FormSwitchDelegate {
         id: optimizeSwitch
-        enabled: false //TODO
+        enabled: false //TODO make it work again
         text: i18nc("@action:inmenu", "Optimize PDF")
     }
 
@@ -43,10 +42,10 @@ FormCard.FormCardDialog {
     }
 
     FormCard.FormButtonDelegate {
-        text: i18nc("@action:inmenu", "PDF Metadata")
+        text: i18nc("@action:inmenu", "Edit PDF Metadata")
         icon.name: "document-properties"
         onClicked: {
-            Qt.createComponent("org.kde.karp", "PdfMetadataDialog").createObject(page, {
+            Qt.createComponent("org.kde.karp", "PdfMetadataDialog").createObject(this, {
                 pdfModel: pdfModel
             });
         }

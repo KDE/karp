@@ -28,7 +28,7 @@ Kirigami.Page {
             id: exportAction
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
-            text: "Export Document" //TODO: translation
+            text: i18nc("@action:inmenu", "Export Document") 
             icon.name: "document-export"
             //TODO: what to do with KarpConf.askForOutFile
             onTriggered: {
