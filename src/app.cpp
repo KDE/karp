@@ -198,16 +198,7 @@ void App::setupActions()
 {
     AbstractKirigamiApplication::setupActions();
 
-    auto actionName = "save_pdf"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantSavePdf);
-        // action->setText(); // Handle it by QML
-        action->setIcon(QIcon::fromTheme(u"document-save"_s));
-        mainCollection()->addAction(action->objectName(), action);
-        mainCollection()->setDefaultShortcut(action, QKeySequence::StandardKey::Save);
-    }
-
-    actionName = "open_pdf"_L1;
+    auto actionName = "open_pdf"_L1;
     if (KAuthorized::authorizeAction(actionName)) {
         auto action = mainCollection()->addAction(actionName, this, &App::wantOpenPdf);
         action->setText(i18nc("@action:inmenu", "Add PDF files"));
@@ -228,41 +219,6 @@ void App::setupActions()
     actionName = "options_configure"_L1;
     if (KAuthorized::authorizeAction(actionName)) {
         auto action = KStandardActions::preferences(this, &App::wantSettings, this);
-        mainCollection()->addAction(action->objectName(), action);
-    }
-
-    actionName = "optimize"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantOptimize);
-        action->setText(i18nc("@action:inmenu", "Optimize PDF"));
-        action->setIcon(QIcon::fromTheme(u"image-x-generic"_s));
-        action->setCheckable(true);
-        mainCollection()->addAction(action->objectName(), action);
-    }
-
-    actionName = "reduce_size"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantReduceSize);
-        action->setText(i18nc("@action:inmenu", "Reduce size"));
-        action->setIcon(QIcon::fromTheme(u"application-x-compressed-tar"_s));
-        action->setCheckable(true);
-        mainCollection()->addAction(action->objectName(), action);
-    }
-
-    actionName = "set_password"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantSetPassword);
-        action->setText(i18nc("@action:inmenu", "Set password"));
-        action->setIcon(QIcon::fromTheme(u"lock"_s));
-        action->setCheckable(true);
-        mainCollection()->addAction(action->objectName(), action);
-    }
-
-    actionName = "pdf_meta"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantPdfMeta);
-        action->setText(i18nc("@action:inmenu", "PDF metadata"));
-        action->setIcon(QIcon::fromTheme(u"viewpdf"_s));
         mainCollection()->addAction(action->objectName(), action);
     }
 }

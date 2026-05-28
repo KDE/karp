@@ -13,16 +13,10 @@ Kirigami.Page {
     id: page
 
     property alias pdfModel: pdfModel
-    readonly property alias saveAction: saveAction
 
     function clearAll() {
         pdfModel.clearAll()
         bottomBar.showBookmarks = false
-    }
-
-    function generate() {
-        Qt.createComponent("org.kde.karp", "ProgressDialog").createObject(page, { pdfModel: pdfModel })
-        pdfModel.generate()
     }
 
     FontMetrics {
@@ -32,7 +26,8 @@ Kirigami.Page {
     actions: [
         Kirigami.Action {
             id: exportAction
-            //visible: pdfModel.pageCount
+            visible: pdfModel.pageCount
+            enabled: pdfModel.edited
             text: "Export Document" //TODO: translation
             icon.name: "document-export"
             //TODO: what to do with KarpConf.askForOutFile
@@ -41,13 +36,6 @@ Kirigami.Page {
                     pdfModel: pdfModel
                 });
             }
-        },
-        Kirigami.Action {
-            id: saveAction
-            visible: pdfModel.pageCount
-            enabled: pdfModel.edited
-            fromQAction: APP.action("save_pdf")
-            text: KarpConf.askForOutFile ? i18nc("@action:inmenu", "Save As…") : i18nc("@action:inmenu", "Save")
         },
         Kirigami.Action {
             visible: pdfModel.pdfCount > 0
@@ -67,71 +55,6 @@ Kirigami.Page {
             fromQAction: APP.action("open_pdf")
             text: ""
         },
-        Kirigami.Action {
-            enabled: pdfModel.pageCount
-            icon.name: "settings-configure"
-            text: i18n("PDF Options")
-            Kirigami.Action {
-                id: optimizeAct
-                visible: false // TODO: it doesn't work properly with qpdf
-                fromQAction: APP.action("optimize")
-                checked: pdfModel.optimizeImages
-            }
-            Kirigami.Action {
-                id: redSizeAct
-                enabled: APP.gsVersion !== ""
-                fromQAction: APP.action("reduce_size")
-                checked: pdfModel.reduceSize
-            }
-            Kirigami.Action {
-                id: pdfVerAct
-
-                text: i18nc("@action:inmenu", "PDF Version")
-                icon.name: 'application-pdf-symbolic'
-
-                component VersionAction : Kirigami.Action {
-                    id: versionAction
-
-                    required property real version
-
-                    text: version === 0 ? i18nc("like default PDF version", "Default") : i18nc("PDF version", "Version %1", version)
-                    onTriggered: pdfModel.pdfVersion = version;
-                    checkable: true
-
-                    readonly property Binding binding: Binding {
-                        versionAction.checked: pdfModel.pdfVersion === versionAction.version
-                    }
-                }
-
-                VersionAction {
-                    version: 0.0
-                }
-
-                VersionAction {
-                    version: 1.4
-                }
-
-                VersionAction {
-                    version: 1.5
-                }
-
-                VersionAction {
-                    version: 1.6
-                }
-
-                VersionAction {
-                    version: 1.7
-                }
-            }
-
-            Kirigami.Action {
-                fromQAction: APP.action("set_password")
-                checked: pdfModel.passKey !== ""
-            }
-            Kirigami.Action {
-                fromQAction: APP.action("pdf_meta")
-            }
-        }
     ]
 
     topPadding: 0
@@ -241,9 +164,6 @@ Kirigami.Page {
             Qt.createComponent("org.kde.karp", "MissingPdfTool").createObject(page, { text: warn })
         }
         // Actions
-        function onWantSavePdf() : void {
-            page.generate()
-        }
         function onWantOpenPdf() : void {
             const fileDlgComp = Qt.createComponent("org.kde.karp", "PdfFilesDialog");
             if (fileDlgComp.status !== Component.Ready) {
@@ -258,21 +178,6 @@ Kirigami.Page {
         }
         function onWantClearAll() : void {
             page.clearAll()
-        }
-        function onWantOptimize() : void {
-            pdfModel.optimizeImages = optimizeAct.checked
-        }
-        function onWantReduceSize() : void {
-            pdfModel.reduceSize = redSizeAct.checked
-        }
-        function onWantSetPassword() : void {
-            let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page,
-                { fileName: "", fileId: 0, title: i18n("Set password"), passLabel: i18n("Protect PDF file with password."), passKey: pdfModel.passKey })
-            passDlg.accepted.connect(function(){ pdfModel.passKey = passDlg.passKey })
-            passDlg.rejected.connect(function(){ pdfModel.passKey = "" })
-        }
-        function onWantPdfMeta() {
-            Qt.createComponent("org.kde.karp", "PdfMetadataDialog").createObject(page, { pdfModel: pdfModel })
         }
     }
 

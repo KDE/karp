@@ -29,11 +29,6 @@ Kirigami.ApplicationWindow {
                 fromQAction: APP.action('open_pdf')
             },
             Kirigami.Action {
-                enabled: mainPage.saveAction.enabled
-                fromQAction: APP.action('save_pdf')
-                text: mainPage.saveAction.text
-            },
-            Kirigami.Action {
                 fromQAction: APP.action('clear_all')
                 enabled: mainPage.pdfModel.pageCount
             },

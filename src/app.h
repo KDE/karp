@@ -75,13 +75,7 @@ Q_SIGNALS:
     void wantClearAll();
     void wantSettings();
     // Main Page Actions
-    void wantSavePdf();
     void wantOpenPdf();
-    // PDF options
-    void wantOptimize();
-    void wantReduceSize();
-    void wantSetPassword();
-    void wantPdfMeta();
 
 protected:
     void findToolsSlot();
