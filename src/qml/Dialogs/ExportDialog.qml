@@ -8,7 +8,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 FormCard.FormCardDialog {
     visible: true
     title: i18nc("@title:dialog", "Export Options")
-    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+    standardButtons: Kirigami.Dialog.Save | Kirigami.Dialog.Cancel
     closePolicy: Kirigami.PromptDialog.NoAutoClose
 
     required property var pdfModel
