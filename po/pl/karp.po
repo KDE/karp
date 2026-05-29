@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-19 00:42+0000\n"
+"POT-Creation-Date: 2026-05-29 00:41+0000\n"
 "PO-Revision-Date: 2026-05-09 15:48+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,27 +18,27 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:582
+#: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Plik PDF do edytowania"
 
-#: app.cpp:86 pdfsorganizer.cpp:191
+#: app.cpp:60 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "Zaznacz pliki PDF"
 
-#: app.cpp:184
+#: app.cpp:158
 #, kde-format
 msgid "QPDF is missing."
 msgstr "Brak QPDF."
 
-#: app.cpp:188
+#: app.cpp:162
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Brak Ghostscript."
 
-#: app.cpp:191
+#: app.cpp:165
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -46,37 +46,37 @@ msgid ""
 msgstr ""
 "Wgraj programy wymienione powyżej, bo nie wszystkie funkcje będą dostępne."
 
-#: app.cpp:213
+#: app.cpp:187
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Dodaj pliki PDF"
 
-#: app.cpp:223
+#: app.cpp:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Wszystkie wszystkie pliki"
 
-#: app.cpp:237
+#: app.cpp:211
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Zoptymalizuj PDFa"
 
-#: app.cpp:246
+#: app.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Zmniejszyć rozmiar"
 
-#: app.cpp:255
+#: app.cpp:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Ustaw hasło"
 
-#: app.cpp:264
+#: app.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -401,12 +401,12 @@ msgstr "co %1 stronę"
 msgid "all pages out of range"
 msgstr "wszystkie strony poza zakresem"
 
-#: qml/Main.qml:24
+#: qml/Main.qml:22
 #, kde-format
 msgid "Simple PDF editor"
 msgstr "Prosty edytor PDF"
 
-#: qml/Main.qml:53
+#: qml/Main.qml:51
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"

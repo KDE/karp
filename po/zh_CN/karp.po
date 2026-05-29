@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-19 00:42+0000\n"
+"POT-Creation-Date: 2026-05-29 00:41+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,64 +17,64 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/karp/karp.pot\n"
 "X-Crowdin-File-ID: 56708\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:582
+#: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要编辑的 PDF 文件"
 
-#: app.cpp:86 pdfsorganizer.cpp:191
+#: app.cpp:60 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "选择 PDF 文件"
 
-#: app.cpp:184
+#: app.cpp:158
 #, kde-format
 msgid "QPDF is missing."
 msgstr "缺少 QPDF"
 
-#: app.cpp:188
+#: app.cpp:162
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "缺少 Ghostscript"
 
-#: app.cpp:191
+#: app.cpp:165
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "请安装上述程序，否则部分功能将不可用。"
 
-#: app.cpp:213
+#: app.cpp:187
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "添加 PDF 文件"
 
-#: app.cpp:223
+#: app.cpp:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "清除所有文件"
 
-#: app.cpp:237
+#: app.cpp:211
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "优化 PDF"
 
-#: app.cpp:246
+#: app.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "压缩体积"
 
-#: app.cpp:255
+#: app.cpp:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "设置密码"
 
-#: app.cpp:264
+#: app.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -395,12 +395,12 @@ msgstr "每 %1 页"
 msgid "all pages out of range"
 msgstr "所有页面超出范围"
 
-#: qml/Main.qml:24
+#: qml/Main.qml:22
 #, kde-format
 msgid "Simple PDF editor"
 msgstr "简易 PDF 编辑器"
 
-#: qml/Main.qml:53
+#: qml/Main.qml:51
 #, kde-format
 msgid "Quit"
 msgstr "退出"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-19 00:42+0000\n"
+"POT-Creation-Date: 2026-05-29 00:41+0000\n"
 "PO-Revision-Date: 2026-04-20 11:08+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -14,27 +14,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:582
+#: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Fichier « PDF » à modifier"
 
-#: app.cpp:86 pdfsorganizer.cpp:191
+#: app.cpp:60 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "Sélectionner les fichiers « PDF »"
 
-#: app.cpp:184
+#: app.cpp:158
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF est manquant."
 
-#: app.cpp:188
+#: app.cpp:162
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Le module « Ghostscript » est manquant."
 
-#: app.cpp:191
+#: app.cpp:165
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -43,37 +43,37 @@ msgstr ""
 "Installer les programmes mentionnés ci-dessus. Dans le cas contraire, toutes "
 "les fonctionnalités ne seront pas disponibles."
 
-#: app.cpp:213
+#: app.cpp:187
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Ajouter des fichiers au format « PDF »"
 
-#: app.cpp:223
+#: app.cpp:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Effacer tous les fichiers"
 
-#: app.cpp:237
+#: app.cpp:211
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimiser le» fichier « PDF "
 
-#: app.cpp:246
+#: app.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "Réduire la taille"
 
-#: app.cpp:255
+#: app.cpp:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "Définir un mot de passe"
 
-#: app.cpp:264
+#: app.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -397,12 +397,12 @@ msgstr "toutes les %1 pages"
 msgid "all pages out of range"
 msgstr "toutes les pages hors de l'intervalle"
 
-#: qml/Main.qml:24
+#: qml/Main.qml:22
 #, kde-format
 msgid "Simple PDF editor"
 msgstr "Éditeur simple de fichiers « PDF »"
 
-#: qml/Main.qml:53
+#: qml/Main.qml:51
 #, kde-format
 msgid "Quit"
 msgstr "Quitter"

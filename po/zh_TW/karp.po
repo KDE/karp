@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-19 00:42+0000\n"
+"POT-Creation-Date: 2026-05-29 00:41+0000\n"
 "PO-Revision-Date: 2025-06-09 00:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -17,64 +17,64 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 25.07.70\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:582
+#: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要編輯的 PDF 檔案"
 
-#: app.cpp:86 pdfsorganizer.cpp:191
+#: app.cpp:60 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "選擇 PDF 檔案"
 
-#: app.cpp:184
+#: app.cpp:158
 #, kde-format
 msgid "QPDF is missing."
 msgstr "缺乏 QPDF。"
 
-#: app.cpp:188
+#: app.cpp:162
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "缺乏 Ghostscript。"
 
-#: app.cpp:191
+#: app.cpp:165
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "請安裝以上提到的程式，否則某些功能會無法使用。"
 
-#: app.cpp:213
+#: app.cpp:187
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "加入 PDF 檔案"
 
-#: app.cpp:223
+#: app.cpp:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "清除所有檔案"
 
-#: app.cpp:237
+#: app.cpp:211
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "最佳化 PDF"
 
-#: app.cpp:246
+#: app.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "降低大小"
 
-#: app.cpp:255
+#: app.cpp:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "設定密碼"
 
-#: app.cpp:264
+#: app.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -397,12 +397,12 @@ msgstr "每 %1 頁"
 msgid "all pages out of range"
 msgstr "所有範圍外的頁面"
 
-#: qml/Main.qml:24
+#: qml/Main.qml:22
 #, kde-format
 msgid "Simple PDF editor"
 msgstr "簡單的 PDF 編輯器"
 
-#: qml/Main.qml:53
+#: qml/Main.qml:51
 #, kde-format
 msgid "Quit"
 msgstr "離開"
