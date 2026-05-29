@@ -15,7 +15,6 @@ Kirigami.Page {
     id: page
 
     property alias pdfModel: pdfModel
-
     function clearAll() {
         pdfModel.clearAll();
         bottomBar.showBookmarks = false;
@@ -25,6 +24,7 @@ Kirigami.Page {
         id: nameElided
     }
     titleDelegate: Kirigami.ActionToolBar {
+        id: leftActionBar
         Layout.fillWidth: true
         Layout.fillHeight: true
 
@@ -43,6 +43,20 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
+            visible: pdfModel.pdfCount > 0
+            displayComponent: QQC2.Label {
+                text: i18np("file", "files", pdfModel.pdfCount) + ":"
+            }
+        },
+        Kirigami.Action {
+            id: fileActions
+            visible: pdfModel.pdfCount > 0
+            text: nameElided.elidedText(tooltip, Qt.ElideMiddle, page.width * 0.4, 0)
+            tooltip: pdfModel.pdfCount > 0 ? "1. " + pdfModel.getPdfName(0) : ""
+            icon.name: "snap-page"
+            icon.color: pdfModel.labelColor(0)
+        },
+        Kirigami.Action {
             id: exportAction
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
@@ -56,37 +70,9 @@ Kirigami.Page {
             }
         },
         Kirigami.Action {
-            visible: pdfModel.pdfCount > 0
-            displayComponent: QQC2.Label {
-                text: i18np("file", "files", pdfModel.pdfCount) + ":"
-            }
-        },
-        Kirigami.Action {
-            id: nameAct
-            visible: pdfModel.pdfCount > 0
-            text: nameElided.elidedText(tooltip, Qt.ElideMiddle, page.width * 0.4, 0)
-            tooltip: pdfModel.pdfCount > 0 ? "1. " + pdfModel.getPdfName(0) : ""
-            icon.name: "snap-page"
-            icon.color: pdfModel.labelColor(0)
-        },
-        Kirigami.Action {
             fromQAction: APP.action('options_configure')
         }
     ]
-
-    component VersionAction: Kirigami.Action {
-        id: versionAction
-
-        required property real version
-
-        text: version === 0 ? i18nc("like default PDF version", "Default") : i18nc("PDF version", "Version %1", version)
-        onTriggered: pdfModel.pdfVersion = version
-        checkable: true
-
-        readonly property Binding binding: Binding {
-            versionAction.checked: pdfModel.pdfVersion === versionAction.version
-        }
-    }
 
     topPadding: 0
     rightPadding: 0
@@ -174,6 +160,15 @@ Kirigami.Page {
 
     Connections {
         target: pdfModel
+        function onPdfCountChanged(): void {
+            if (pdfModel.pdfCount > 1) {
+                let action = actionComp.createObject(fileActions);
+                action.text = pdfModel.pdfCount + ". " + pdfModel.getPdfName(pdfModel.pdfCount - 1);
+                action.icon.color = pdfModel.labelColor(pdfModel.pdfCount - 1);
+                fileActions.children.push(action);
+            }
+        }
+
         function onPasswordRequired(fName: string, fId: int): void {
             let passDlg = Qt.createComponent("org.kde.karp", "PdfPassDialog").createObject(page, {
                 fileName: fName,
@@ -212,6 +207,13 @@ Kirigami.Page {
         }
         function onWantClearAll(): void {
             page.clearAll();
+        }
+    }
+
+    Component {
+        id: actionComp
+        Kirigami.Action {
+            icon.name: "snap-page"
         }
     }
 
