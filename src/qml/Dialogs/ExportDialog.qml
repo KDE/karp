@@ -4,16 +4,14 @@
 import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.karp
 
 FormCard.FormCardDialog {
-    visible: true
     title: i18nc("@title:dialog", "Export Options")
     standardButtons: Kirigami.Dialog.Save | Kirigami.Dialog.Cancel
     closePolicy: Kirigami.PromptDialog.NoAutoClose
 
-    required property var pdfModel
-
-    onClosed: destroy()
+    required property PdfEditModel pdfModel
 
     //TODO: add descriptions
     FormCard.FormSwitchDelegate {
@@ -46,7 +44,7 @@ FormCard.FormCardDialog {
         icon.name: "document-properties"
         onClicked: {
             Qt.createComponent("org.kde.karp", "PdfMetadataDialog").createObject(this, {
-                pdfModel: pdfModel
+                pdfModel
             });
         }
     }
@@ -58,13 +56,14 @@ FormCard.FormCardDialog {
         pdfModel.pdfVersion = versionComboBox.currentValue;
 
         Qt.createComponent("org.kde.karp", "ProgressDialog").createObject(this, {
-            pdfModel: pdfModel
+            pdfModel
         });
         pdfModel.generate();
     }
 
     ListModel {
         id: metadataModel
+        //TODO: make them translateable
         ListElement {
             text: "Default"
             version: 0.0

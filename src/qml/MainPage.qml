@@ -66,7 +66,7 @@ Kirigami.Page {
             onTriggered: {
                 Qt.createComponent("org.kde.karp", "ExportDialog").createObject(page, {
                     pdfModel: pdfModel
-                });
+                }).open();
             }
         },
         Kirigami.Action {
