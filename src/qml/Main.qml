@@ -4,6 +4,7 @@
 import QtQuick
 import org.kde.kirigami as Kirigami
 import org.kde.karp
+import org.kde.config as KConfig
 
 Kirigami.ApplicationWindow {
     id: mainWin
@@ -13,67 +14,22 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 20
 
-    onClosing: APP.saveWindowGeometry(mainWin)
-
     Component.onCompleted: {
-        APP.restoreWindowGeometry(mainWin)
-        mainPage.openPDFs(APP.getInitFileList())
+        mainPage.openPDFs(APP.getInitFileList());
     }
 
-    globalDrawer: Kirigami.GlobalDrawer {
-        title: i18n("Simple PDF editor")
-        titleIcon: "application-pdf"
-        isMenu: Kirigami.Settings.isMobile
-        actions: [
-            Kirigami.Action {
-                fromQAction: APP.action('open_pdf')
-            },
-            Kirigami.Action {
-                fromQAction: APP.action('clear_all')
-                enabled: mainPage.pdfModel.pageCount
-            },
-            Kirigami.Action {
-                fromQAction: APP.action('options_configure')
-            },
-            // Kirigami.Action {
-            //     fromQAction: APP.action('open_kcommand_bar')
-            // },
-            Kirigami.Action {
-                fromQAction: APP.action('open_about_page')
-            },
-            Kirigami.Action {
-                fromQAction: APP.action('open_about_kde_page')
-            },
-            Kirigami.Action {
-                text: i18n("Quit")
-                icon.name: "application-exit"
-                onTriggered: Qt.quit()
-            }
-        ]
+    KConfig.WindowStateSaver {
+        configGroupName: "main"
     }
 
     Connections {
         target: APP
         function onWantSettings(): void {
             if (!mainWin.settings)
-                mainWin.settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(mainWin, { window: mainWin });
+                mainWin.settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(mainWin, {
+                    window: mainWin
+                });
             settings.open();
-        }
-        function onOpenAboutPage(): void {
-            const aboutDlg = mainWin.pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {
-                width: mainPage.width
-            }, {
-                width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9),
-                height: Math.min(Kirigami.Units.gridUnit * 30, mainWin.height * 0.8)
-            });
-        }
-        function onOpenAboutKDEPage(): void {
-            const aboutKdeDlg = mainWin.pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"), {
-                width: mainPage.width
-            }, {
-                width: Math.min(Kirigami.Units.gridUnit * 40, mainWin.width * 0.9),
-                height: Math.min(Kirigami.Units.gridUnit * 30, mainWin.height * 0.8)
-            });
         }
     }
 

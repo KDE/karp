@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-19 00:42+0000\n"
+"POT-Creation-Date: 2026-05-29 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -17,64 +17,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: app.cpp:56 pdfeditmodel.cpp:582
+#: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "संपादित करने के लिए पीडीएफ फाइल"
 
-#: app.cpp:86 pdfsorganizer.cpp:191
+#: app.cpp:60 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "पीडीएफ फाइलें चुनें"
 
-#: app.cpp:184
+#: app.cpp:158
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF गायब है."
 
-#: app.cpp:188
+#: app.cpp:162
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "घोस्टस्क्रिप्ट गायब है."
 
-#: app.cpp:191
+#: app.cpp:165
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "ऊपर बताए गए प्रोग्राम इंस्टॉल करें, अन्यथा सभी फ़ंक्शन उपलब्ध नहीं होंगे।"
 
-#: app.cpp:213
+#: app.cpp:187
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "पीडीएफ फ़ाइलें जोड़ें"
 
-#: app.cpp:223
+#: app.cpp:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "सभी फ़ाइलें साफ़ करें"
 
-#: app.cpp:237
+#: app.cpp:211
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "पीडीएफ अनुकूलित करें"
 
-#: app.cpp:246
+#: app.cpp:220
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce size"
 msgstr "आकार कम करें"
 
-#: app.cpp:255
+#: app.cpp:229
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Set password"
 msgstr "सांकेतिक शब्द लगना"
 
-#: app.cpp:264
+#: app.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF metadata"
@@ -402,12 +402,12 @@ msgstr "हर %1 पेज"
 msgid "all pages out of range"
 msgstr "सभी पृष्ठ सीमा से बाहर"
 
-#: qml/Main.qml:24
+#: qml/Main.qml:22
 #, kde-format
 msgid "Simple PDF editor"
 msgstr "सरल पीडीएफ संपादक"
 
-#: qml/Main.qml:53
+#: qml/Main.qml:51
 #, kde-format
 msgid "Quit"
 msgstr "छोड़ना"
