@@ -40,7 +40,7 @@ Kirigami.Page {
         actions: [
             Kirigami.Action {
                 fromQAction: APP.action("open_pdf")
-                text: i18nc("@action:inmenu", "Add PDF files")
+                text: i18nc("@action:inmenu", "Add files")
             },
             Kirigami.Action {
                 fromQAction: APP.action('clear_all')
