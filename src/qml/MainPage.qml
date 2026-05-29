@@ -5,7 +5,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts as Layouts
+import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigami.controls as Kirigami
 import org.kde.karp
@@ -24,7 +24,7 @@ Kirigami.Page {
 
     function generate() {
         Qt.createComponent("org.kde.karp", "ProgressDialog").createObject(page, {
-            pdfModel: pdfModel
+            pdfModel
         });
         pdfModel.generate();
     }
@@ -33,8 +33,8 @@ Kirigami.Page {
         id: nameElided
     }
     titleDelegate: Kirigami.ActionToolBar {
-        Layouts.Layout.fillWidth: true
-        Layouts.Layout.fillHeight: true
+        Layout.fillWidth: true
+        Layout.fillHeight: true
 
         alignment: Qt.AlignLeft
         actions: [
