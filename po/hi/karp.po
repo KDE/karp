@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -402,17 +402,15 @@ msgstr "हर %1 पेज"
 msgid "all pages out of range"
 msgstr "सभी पृष्ठ सीमा से बाहर"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "सरल पीडीएफ संपादक"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "पीडीएफ फ़ाइलें जोड़ें"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "छोड़ना"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save As"
@@ -420,48 +418,41 @@ msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "के रूप रक्षित करें"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "बचाना"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "फ़ाइलें"
-msgstr[1] "फ़ाइलें"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "पीडीएफ विकल्प"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "पीडीएफ संस्करण"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "गलती करना"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "संस्करण %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "सांकेतिक शब्द लगना"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "पीडीएफ फाइल को पासवर्ड से सुरक्षित रखें।"
@@ -690,6 +681,17 @@ msgstr "कार्प के बारे में"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "केडीई के बारे में"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "सरल पीडीएफ संपादक"
+
+#~ msgid "Quit"
+#~ msgstr "छोड़ना"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "फ़ाइलें"
+#~ msgstr[1] "फ़ाइलें"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "पीडीएफ पृष्ठ व्यवस्था की अनुमति देता है।"

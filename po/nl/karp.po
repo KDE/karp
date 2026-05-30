@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2026-04-19 14:52+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -398,64 +398,55 @@ msgstr "elke %1 pagina"
 msgid "all pages out of range"
 msgstr "alle pagina's buiten de reeks"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "Eenvoudige PDF-bewerker"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "PDF-bestanden toevoegen"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Afsluiten"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Opslaan als…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Opslaan"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "bestand"
-msgstr[1] "bestanden"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF-opties"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF-versie"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Standaard"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Versie %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Wachtwoord instellen"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "PDF-bestand beschermen met wachtwoord."
@@ -679,6 +670,17 @@ msgstr "Info over Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Info over KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "Eenvoudige PDF-bewerker"
+
+#~ msgid "Quit"
+#~ msgstr "Afsluiten"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "bestand"
+#~ msgstr[1] "bestanden"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "Staat arrangeren van PDF-pagina's toe."

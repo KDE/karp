@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2025-05-21 01:11+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -398,17 +398,15 @@ msgstr "alle %1 Seiten"
 msgid "all pages out of range"
 msgstr "alle Seiten außerhalb des Bereichs"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "Einfacher PDF-Editor"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "PDF-Dateien hinzufügen"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Beenden"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save As..."
@@ -416,48 +414,41 @@ msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Speichern unter …"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Speichern"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "Datei"
-msgstr[1] "Dateien"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF-Optionen"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF-Version"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Standard"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Version %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Passwort festlegen"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "PDF-Datei mit einem Passwort schützen."
@@ -689,3 +680,14 @@ msgstr "Über Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Über KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "Einfacher PDF-Editor"
+
+#~ msgid "Quit"
+#~ msgstr "Beenden"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "Datei"
+#~ msgstr[1] "Dateien"

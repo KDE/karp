@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2026-04-23 10:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -401,68 +401,55 @@ msgstr "كل %1 صفحة"
 msgid "all pages out of range"
 msgstr "جميع الصفحات خارج النطاق"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "محرر بي دي اف بسيط"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "أضف ملفات بي دي اف"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "اخرج"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "احفظ كَ‍…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "احفظ"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "ملف"
-msgstr[1] "ملف واحد"
-msgstr[2] "ملفان"
-msgstr[3] "ملفات"
-msgstr[4] "ملفًا"
-msgstr[5] "ملف"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "خيارات بي دي اف"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "نسخة بي دي اف"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "المبدئيّ"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "الإصدار %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "عيّن كلمة سر"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "احم ملف بي دي اف بكلمة سر."
@@ -681,6 +668,21 @@ msgstr "حول كارب"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "حول كيدي"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "محرر بي دي اف بسيط"
+
+#~ msgid "Quit"
+#~ msgstr "اخرج"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "ملف"
+#~ msgstr[1] "ملف واحد"
+#~ msgstr[2] "ملفان"
+#~ msgstr[3] "ملفات"
+#~ msgstr[4] "ملفًا"
+#~ msgstr[5] "ملف"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "يسمح بترتيبات صفحات بي دي اف."

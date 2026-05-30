@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2026-04-19 16:06+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -401,66 +401,55 @@ msgstr "кожну %1 сторінку"
 msgid "all pages out of range"
 msgstr "усі сторінки поза діапазоном"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "Простий редактор PDF"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "Додати файли PDF"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Вийти"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Зберегти як…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Зберегти"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "файл"
-msgstr[1] "файли"
-msgstr[2] "файлів"
-msgstr[3] "файл"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "Параметри PDF"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "Версія PDF"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "типова"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Версія %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Встановити пароль"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Захистити файл PDF паролем."
@@ -682,6 +671,19 @@ msgstr "Про «Karp»"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Про KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "Простий редактор PDF"
+
+#~ msgid "Quit"
+#~ msgstr "Вийти"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "файл"
+#~ msgstr[1] "файли"
+#~ msgstr[2] "файлів"
+#~ msgstr[3] "файл"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "Надає змогу перевпорядковувати сторінки PDF."

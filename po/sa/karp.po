@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -404,17 +404,15 @@ msgstr "प्रत्येकं %1 पृष्ठं"
 msgid "all pages out of range"
 msgstr "सर्वाणि पृष्ठानि परिधितः बहिः"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "सरलः पीडीएफ सम्पादकः"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "PDF सञ्चिकाः योजयन्तु"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "परिजहातु"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save As"
@@ -422,48 +420,41 @@ msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "यथा रक्षतु"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "रक्ष्"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "सञ्चिका"
-msgstr[1] "सञ्चिकाः"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF विकल्पाः"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF संस्करणम्"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "मूलभूतम्‌"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "संस्करणम् %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "गुप्तशब्देन PDF सञ्चिकां रक्षन्तु।"
@@ -691,6 +682,17 @@ msgstr "कार्पस्य विषये"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE विषये"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "सरलः पीडीएफ सम्पादकः"
+
+#~ msgid "Quit"
+#~ msgstr "परिजहातु"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "सञ्चिका"
+#~ msgstr[1] "सञ्चिकाः"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "PDF पृष्ठव्यवस्थां अनुमन्यते ।"
