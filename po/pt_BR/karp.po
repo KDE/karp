@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2026-04-19 07:51-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -399,64 +399,55 @@ msgstr "cada %1 página(s)"
 msgid "all pages out of range"
 msgstr "todas as páginas fora do intervalo"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "Editor de PDF simples"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "Adicionar arquivos PDF"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Sair"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Salvar como…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Salvar"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "arquivo"
-msgstr[1] "arquivos"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "Opções do PDF"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "Versão do PDF"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Padrão"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Versão %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Definir senha"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Protege o PDF com uma senha."
@@ -677,3 +668,14 @@ msgstr "Sobre o Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Sobre a KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "Editor de PDF simples"
+
+#~ msgid "Quit"
+#~ msgstr "Sair"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "arquivo"
+#~ msgstr[1] "arquivos"

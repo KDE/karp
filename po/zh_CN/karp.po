@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -395,63 +395,55 @@ msgstr "每 %1 页"
 msgid "all pages out of range"
 msgstr "所有页面超出范围"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "简易 PDF 编辑器"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "添加 PDF 文件"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "退出"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "另存为…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "保存"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "文件"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF 选项"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF版本"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "默认"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "版本 %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "设置密码"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "使用密码保护 PDF 文件。"
@@ -670,3 +662,13 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "简易 PDF 编辑器"
+
+#~ msgid "Quit"
+#~ msgstr "退出"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "文件"

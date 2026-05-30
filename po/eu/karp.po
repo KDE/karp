@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2025-06-08 11:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -403,17 +403,15 @@ msgstr "%1 orrialdero"
 msgid "all pages out of range"
 msgstr "barrutitik kanpoko orrialde guztiak"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "PDF editore erraza"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "Gehitu PDF fitxategiak"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Irten"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save As..."
@@ -421,48 +419,41 @@ msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Gorde honela..."
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Gorde"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "Fitxategia"
-msgstr[1] "fitxategiak"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF aukerak"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF bertsioa"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Lehenetsia"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Bertsioa %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Ezarri pasahitza"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Babestu PDF fitxategia pasahitz bidez."
@@ -694,6 +685,17 @@ msgstr "Karp-eri buruz"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDEri buruz"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "PDF editore erraza"
+
+#~ msgid "Quit"
+#~ msgstr "Irten"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "Fitxategia"
+#~ msgstr[1] "fitxategiak"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "PDF orrialdeak antolatzeko aukera ematen du."

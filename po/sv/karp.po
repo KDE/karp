@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2025-02-20 20:26+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -400,17 +400,15 @@ msgstr "var %1:e sida"
 msgid "all pages out of range"
 msgstr "alla sidor utanför intervall"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "Enkel PDF-editor"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "Lägg till PDF-filer"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Avsluta"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save As..."
@@ -418,48 +416,41 @@ msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Spara som..."
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Spara"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "fil"
-msgstr[1] "filer"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF-alternativ"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF-version"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Standardvärde"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Version %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Ange lösenord"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Skydda PDF-fil med lösenord."
@@ -687,6 +678,17 @@ msgstr "Om Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Om KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "Enkel PDF-editor"
+
+#~ msgid "Quit"
+#~ msgstr "Avsluta"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "fil"
+#~ msgstr[1] "filer"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "Tillåter att PDF-sidor arrangeras."

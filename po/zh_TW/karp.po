@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2025-06-09 00:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -397,17 +397,15 @@ msgstr "每 %1 頁"
 msgid "all pages out of range"
 msgstr "所有範圍外的頁面"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "簡單的 PDF 編輯器"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "加入 PDF 檔案"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "離開"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Save As..."
@@ -415,47 +413,41 @@ msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "另存為…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "儲存"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "檔案"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF 選項"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF 版本"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "預設"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "版本 %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "設定密碼"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "用密碼來保護 PDF 檔。"
@@ -683,6 +675,16 @@ msgstr "關於 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "關於 KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "簡單的 PDF 編輯器"
+
+#~ msgid "Quit"
+#~ msgstr "離開"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "檔案"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "允許排列 PDF 頁面。"

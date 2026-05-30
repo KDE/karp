@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2026-04-19 03:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -399,64 +399,55 @@ msgstr "ყოველ %1 გვერდში"
 msgid "all pages out of range"
 msgstr "ყველა გვერდები შუალედს გარეთ"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "მარტივი PDF რედაქტორი"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "PDF ფაილების დამატება"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "გასვლა"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "შენახვა, როგორც…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "შენახვა"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "ფაილი"
-msgstr[1] "ფაილები"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF პარამეტრები"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF-ის ვერსია"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "ვერსია %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "პაროლის დაყენება"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "დაიცავით PDF ფაილი პაროლით."
@@ -678,6 +669,17 @@ msgstr "Karp-ის შესახებ"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE-ის შესახებ"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "მარტივი PDF რედაქტორი"
+
+#~ msgid "Quit"
+#~ msgstr "გასვლა"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "ფაილი"
+#~ msgstr[1] "ფაილები"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "იძლევა PDF-ის გვერდების გადალაგების საშუალებას."

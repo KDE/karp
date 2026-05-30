@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2026-04-23 20:38+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -403,66 +403,55 @@ msgstr "kas %1 puslapį"
 msgid "all pages out of range"
 msgstr "visus puslapius už rėžio ribų"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "Paprastas PDF redaktorius"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "Pridėti PDF failų"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Išeiti"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Įrašyti kaip…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Įrašyti"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "failas"
-msgstr[1] "failai"
-msgstr[2] "failai"
-msgstr[3] "failai"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF parinktys"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF versija"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Numatytoji"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Versija %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Nustatyti slaptažodį"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Apsaugokite PDF failą slaptažodžiu."
@@ -682,3 +671,16 @@ msgstr "Apie Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Apie KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "Paprastas PDF redaktorius"
+
+#~ msgid "Quit"
+#~ msgstr "Išeiti"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "failas"
+#~ msgstr[1] "failai"
+#~ msgstr[2] "failai"
+#~ msgstr[3] "failai"

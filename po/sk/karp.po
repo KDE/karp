@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:41+0000\n"
+"POT-Creation-Date: 2026-05-30 00:42+0000\n"
 "PO-Revision-Date: 2025-12-01 00:40+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -398,65 +398,55 @@ msgstr "každá %1. strana"
 msgid "all pages out of range"
 msgstr "všetky strany mimo rozsahu"
 
-#: qml/Main.qml:22
-#, kde-format
-msgid "Simple PDF editor"
-msgstr "Jednoduchý editor PDF"
+#: qml/MainPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgctxt "@action:inmenu"
+msgid "Add files"
+msgstr "Pridať súbory PDF"
 
-#: qml/Main.qml:51
-#, kde-format
-msgid "Quit"
-msgstr "Koniec"
-
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save As…"
 msgstr "Uložiť ako…"
 
-#: qml/MainPage.qml:38
+#: qml/MainPage.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save"
 msgstr "Uložiť"
 
-#: qml/MainPage.qml:43
-#, kde-format
-msgid "file"
-msgid_plural "files"
-msgstr[0] "súbor"
-msgstr[1] "súbory"
-msgstr[2] "súborov"
-
-#: qml/MainPage.qml:61
+#: qml/MainPage.qml:63
 #, kde-format
 msgid "PDF Options"
 msgstr "PDF možnosti"
 
-#: qml/MainPage.qml:77
+#: qml/MainPage.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "Verzia PDF"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "like default PDF version"
 msgid "Default"
 msgstr "Predvolená"
 
-#: qml/MainPage.qml:85
+#: qml/MainPage.qml:121
 #, kde-format
 msgctxt "PDF version"
 msgid "Version %1"
 msgstr "Verzia %1"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:268
 #, kde-format
 msgid "Set password"
 msgstr "Nastaviť heslo"
 
-#: qml/MainPage.qml:258
+#: qml/MainPage.qml:269
 #, kde-format
 msgid "Protect PDF file with password."
 msgstr "Chrániť súbor PDF heslom."
@@ -675,3 +665,15 @@ msgstr "O aplikácii Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O KDE"
+
+#~ msgid "Simple PDF editor"
+#~ msgstr "Jednoduchý editor PDF"
+
+#~ msgid "Quit"
+#~ msgstr "Koniec"
+
+#~ msgid "file"
+#~ msgid_plural "files"
+#~ msgstr[0] "súbor"
+#~ msgstr[1] "súbory"
+#~ msgstr[2] "súborov"
