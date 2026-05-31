@@ -58,31 +58,31 @@ target_compile_definitions(karp PRIVATE POINTERHOLDER_TRANSITION=0)
 
 target_sources(karp PUBLIC
     main.cpp
-    app.cpp
-    pdfpage.cpp
-    pdffile.cpp
-    pdfmetadata.cpp
-    pdfeditmodel.cpp
-    pdfpageitem.cpp
-    pdfsorganizer.cpp
-    toolsthread.cpp
-    pagerange.cpp
-    qpdfproxy.cpp
-    bookmarkmodel.cpp
-    outline.cpp
 
     app.h
-    pdfpage.h
-    pdffile.h
-    pdfmetadata.h
-    pdfeditmodel.h
-    pdfpageitem.h
-    pdfsorganizer.h
-    toolsthread.h
-    pagerange.h
-    qpdfproxy.h
+    app.cpp
     bookmarkmodel.h
+    bookmarkmodel.cpp
+    pdfpage.h
+    pdfpage.cpp
+    pdffile.h
+    pdffile.cpp
+    pdfmetadata.h
+    pdfmetadata.cpp
+    pdfeditmodel.h
+    pdfeditmodel.cpp
+    pdfpageitem.h
+    pdfpageitem.cpp
+    pdfsorganizer.h
+    pdfsorganizer.cpp
+    pagerange.h
+    pagerange.cpp
+    qpdfproxy.h
+    qpdfproxy.cpp
     outline.h
+    outline.cpp
+    toolsthread.h
+    toolsthread.cpp
 )
 
 target_link_libraries(karp
