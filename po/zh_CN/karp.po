@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -44,41 +44,17 @@ msgid ""
 "available."
 msgstr "请安装上述程序，否则部分功能将不可用。"
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "添加 PDF 文件"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "清除所有文件"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "优化 PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "压缩体积"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "设置密码"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "PDF 元数据"
 
 #: main.cpp:111
 #, kde-format
@@ -250,6 +226,49 @@ msgstr "折叠整个章节"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "您确定要移除全部章节吗？"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF 选项"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "优化 PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "压缩体积"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF版本"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "设置密码"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "PDF 元数据"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -395,7 +414,7 @@ msgstr "每 %1 页"
 msgid "all pages out of range"
 msgstr "所有页面超出范围"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -403,50 +422,17 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "添加 PDF 文件"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "另存为…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "保存"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "文件"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF 选项"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "PDF版本"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "默认"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "版本 %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "设置密码"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "使用密码保护 PDF 文件。"
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -663,12 +649,30 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "另存为…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "保存"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "默认"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "版本 %1"
+
+#~ msgid "Set password"
+#~ msgstr "设置密码"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "使用密码保护 PDF 文件。"
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "简易 PDF 编辑器"
 
 #~ msgid "Quit"
 #~ msgstr "退出"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "文件"

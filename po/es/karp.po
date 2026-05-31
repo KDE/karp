@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
-"PO-Revision-Date: 2026-04-19 19:10+0100\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
+"PO-Revision-Date: 2026-05-30 15:45+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
@@ -47,41 +47,17 @@ msgstr ""
 "Instale los programas mencionados. En caso contrario no estarán disponibles "
 "todas las funciones."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Añadir archivos PDF"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Quitar todos los archivos"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Optimizar PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Reducir tamaño"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Definir contraseña"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "Metadatos PDF"
 
 #: main.cpp:111
 #, kde-format
@@ -253,6 +229,49 @@ msgstr "Contraer toda la sección"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "¿Seguro que quiere eliminar todos los capítulos?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "Opciones PDF"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimizar PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Reducir tamaño"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "Versión de PDF"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Definir contraseña"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "Metadatos PDF"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -399,58 +418,26 @@ msgstr "cada %1 páginas"
 msgid "all pages out of range"
 msgstr "todas las páginas fuera del intervalo"
 
-#: qml/MainPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#: qml/MainPage.qml:35
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "Añadir archivos PDF"
+msgstr "Añadir archivos"
 
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Guardar como…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Guardar"
+#: qml/MainPage.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add files"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "Añadir archivos"
+msgstr[1] "Añadir archivos"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "Opciones PDF"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "Versión de PDF"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Predeterminada"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Versión %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Definir contraseña"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Proteger el archivo PDF con contraseña."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -671,13 +658,24 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Acerca de KDE"
 
-#~ msgid "Simple PDF editor"
-#~ msgstr "Editor PDF sencillo"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Guardar como…"
 
-#~ msgid "Quit"
-#~ msgstr "Salir"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Guardar"
 
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "archivo"
-#~ msgstr[1] "archivos"
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Predeterminada"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Versión %1"
+
+#~ msgid "Set password"
+#~ msgstr "Definir contraseña"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Proteger el archivo PDF con contraseña."

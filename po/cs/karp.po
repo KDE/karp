@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2026-03-17 08:40+0100\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -44,40 +44,16 @@ msgid ""
 "available."
 msgstr ""
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr ""
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
-msgstr ""
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr ""
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr ""
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Nastavit heslo"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
 msgstr ""
 
 #: main.cpp:111
@@ -250,6 +226,45 @@ msgstr "Sbalit celou sekci"
 msgid "Are you sure you want to remove all chapters?"
 msgstr ""
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "Možnosti PDF"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr ""
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr ""
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr ""
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Nastavit heslo"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr ""
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -397,7 +412,7 @@ msgstr ""
 msgid "all pages out of range"
 msgstr ""
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgid "file"
 #| msgid_plural "files"
@@ -405,51 +420,20 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "soubor"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Uložit jako..."
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Uložit"
+#| msgid "file"
+#| msgid_plural "files"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "soubor"
+msgstr[1] "soubor"
+msgstr[2] "soubor"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "Možnosti PDF"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr ""
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Výchozí"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Verze %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Nastavit heslo"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
+msgid "Export Document"
 msgstr ""
 
 #: qml/MainToolbar.qml:25
@@ -663,6 +647,28 @@ msgstr ""
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O prostředí KDE"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Save As..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Uložit jako..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Uložit"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Výchozí"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Verze %1"
+
+#~ msgid "Set password"
+#~ msgstr "Nastavit heslo"
 
 #~ msgid "Quit"
 #~ msgstr "Ukončit"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2026-05-25 19:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -44,41 +44,17 @@ msgid ""
 "available."
 msgstr "위에 있는 프로그램을 설치하지 않으면 일부 기능을 사용할 수 없습니다."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "PDF 파일 추가"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "모든 파일 비우기"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "PDF 최적화"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "크기 줄이기"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "암호 설정"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "PDF 메타데이터"
 
 #: main.cpp:111
 #, kde-format
@@ -250,6 +226,49 @@ msgstr "전체 선택 접기"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "모든 장을 삭제하시겠습니까?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF 설정"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "PDF 최적화"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "크기 줄이기"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF 버전"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "암호 설정"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "PDF 메타데이터"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -395,7 +414,7 @@ msgstr "매 %1쪽마다"
 msgid "all pages out of range"
 msgstr "선택한 범위의 쪽 제외"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -403,50 +422,17 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "PDF 파일 추가"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "다른 이름으로 저장…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "저장"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "파일"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF 설정"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "PDF 버전"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "기본값"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "버전 %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "암호 설정"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "PDF 파일을 암호로 보호합니다."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -663,12 +649,30 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE 정보"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "다른 이름으로 저장…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "저장"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "기본값"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "버전 %1"
+
+#~ msgid "Set password"
+#~ msgstr "암호 설정"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "PDF 파일을 암호로 보호합니다."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "간단한 PDF 편집기"
 
 #~ msgid "Quit"
 #~ msgstr "끝내기"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "파일"

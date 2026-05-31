@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2026-04-23 10:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -45,41 +45,17 @@ msgid ""
 "available."
 msgstr "ثبّت البرامج المذكورة أعلاه، وإلا فلن تكون كافة الوظائف متاحة."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "أضف ملفات بي دي اف"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "امحُ جميع الملفات"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "حسّن بي دي اف"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "قلّل الحجم"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "عيّن كلمة سر"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "بيانات تعريفية لملف بي دي اف"
 
 #: main.cpp:111
 #, kde-format
@@ -251,6 +227,49 @@ msgstr "اطو كامل القسم"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "أمتأكّد أنك ترغب في إزالة كل الفصول؟"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "خيارات بي دي اف"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "حسّن بي دي اف"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "قلّل الحجم"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "نسخة بي دي اف"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "عيّن كلمة سر"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "بيانات تعريفية لملف بي دي اف"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -401,7 +420,7 @@ msgstr "كل %1 صفحة"
 msgid "all pages out of range"
 msgstr "جميع الصفحات خارج النطاق"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -409,50 +428,22 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "أضف ملفات بي دي اف"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "احفظ كَ‍…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "احفظ"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "ملف"
+msgstr[1] "ملف واحد"
+msgstr[2] "ملفان"
+msgstr[3] "ملفات"
+msgstr[4] "ملفًا"
+msgstr[5] "ملف"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "خيارات بي دي اف"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "نسخة بي دي اف"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "المبدئيّ"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "الإصدار %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "عيّن كلمة سر"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "احم ملف بي دي اف بكلمة سر."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -669,20 +660,33 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "حول كيدي"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "احفظ كَ‍…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "احفظ"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "المبدئيّ"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "الإصدار %1"
+
+#~ msgid "Set password"
+#~ msgstr "عيّن كلمة سر"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "احم ملف بي دي اف بكلمة سر."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "محرر بي دي اف بسيط"
 
 #~ msgid "Quit"
 #~ msgstr "اخرج"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "ملف"
-#~ msgstr[1] "ملف واحد"
-#~ msgstr[2] "ملفان"
-#~ msgstr[3] "ملفات"
-#~ msgstr[4] "ملفًا"
-#~ msgstr[5] "ملف"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "يسمح بترتيبات صفحات بي دي اف."

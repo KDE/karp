@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
-"PO-Revision-Date: 2026-04-19 16:06+0300\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
+"PO-Revision-Date: 2026-05-30 09:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -47,41 +47,17 @@ msgstr ""
 "Встановіть згадані вище програми, щоб мати доступ до усіх можливостей "
 "програми."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Додати файли PDF"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Вилучити усі файли"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Оптимізувати PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Зменшити розмір"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Встановити пароль"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "Метадані PDF"
 
 #: main.cpp:111
 #, kde-format
@@ -253,6 +229,49 @@ msgstr "Згорнути увесь розділ"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Ви справді хочете вилучити усі глави?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "Параметри PDF"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Оптимізувати PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Зменшити розмір"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "Версія PDF"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Встановити пароль"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "Метадані PDF"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -401,58 +420,26 @@ msgstr "кожну %1 сторінку"
 msgid "all pages out of range"
 msgstr "усі сторінки поза діапазоном"
 
-#: qml/MainPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#: qml/MainPage.qml:35
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "Додати файли PDF"
+msgstr "Додати файли"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Зберегти як…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Зберегти"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "файл"
+msgstr[1] "файли"
+msgstr[2] "файлів"
+msgstr[3] "файл"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "Параметри PDF"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "Версія PDF"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "типова"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Версія %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Встановити пароль"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Захистити файл PDF паролем."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -672,18 +659,33 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Про KDE"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Зберегти як…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Зберегти"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "типова"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Версія %1"
+
+#~ msgid "Set password"
+#~ msgstr "Встановити пароль"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Захистити файл PDF паролем."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "Простий редактор PDF"
 
 #~ msgid "Quit"
 #~ msgstr "Вийти"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "файл"
-#~ msgstr[1] "файли"
-#~ msgstr[2] "файлів"
-#~ msgstr[3] "файл"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "Надає змогу перевпорядковувати сторінки PDF."

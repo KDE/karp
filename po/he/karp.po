@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2026-04-19 08:34+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -45,41 +45,17 @@ msgid ""
 "available."
 msgstr "יש להתקין את התוכניות שהוזכרו לעיל, אחרת לא כל היכולות תהיינה זמינות."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "הוספת קובצי PDF"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "פינוי כל הקבצים"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "מיטוב PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "צמצום גודל"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "הגדרת סיסמה"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "נתוני על של PDF"
 
 #: main.cpp:111
 #, kde-format
@@ -251,6 +227,49 @@ msgstr "לצמצם את כל המקטע"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "להסיר את כל הפרקים?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "אפשרויות PDF"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "מיטוב PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "צמצום גודל"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "גרסת PDF"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "הגדרת סיסמה"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "נתוני על של PDF"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -399,7 +418,7 @@ msgstr "כל עמוד %1"
 msgid "all pages out of range"
 msgstr "כל העמודים מחוץ לטווח"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -407,50 +426,20 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "הוספת קובצי PDF"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "שמירה בשם…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "שמירה"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "קובץ"
+msgstr[1] "קבצים"
+msgstr[2] "קבצים"
+msgstr[3] "קבצים"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "אפשרויות PDF"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "גרסת PDF"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "ברירת מחדל"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "גרסה %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "הגדרת סיסמה"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "הגנה על קובצי PDF בסיסמה."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -667,18 +656,33 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "על KDE"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "שמירה בשם…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "שמירה"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "ברירת מחדל"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "גרסה %1"
+
+#~ msgid "Set password"
+#~ msgstr "הגדרת סיסמה"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "הגנה על קובצי PDF בסיסמה."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "עורך PDF פשוט"
 
 #~ msgid "Quit"
 #~ msgstr "יציאה"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "קובץ"
-#~ msgstr[1] "קבצים"
-#~ msgstr[2] "קבצים"
-#~ msgstr[3] "קבצים"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "מאפשר סידור עמודי PDF מחדש."

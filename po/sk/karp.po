@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2025-12-01 00:40+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -45,41 +45,17 @@ msgid ""
 msgstr ""
 "Nainštalujte vyššie uvedené programy, inak nebudú dostupné všetky funkcie."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Pridať súbory PDF"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Vyčistiť všetky súbory"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Optimalizovať PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Zmenšiť veľkosť"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Nastaviť heslo"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "Metadáta PDF"
 
 #: main.cpp:111
 #, kde-format
@@ -251,6 +227,49 @@ msgstr "Zbaliť celú sekciu"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Naozaj chcete odstrániť všetky kapitoly?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF možnosti"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimalizovať PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Zmenšiť veľkosť"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "Verzia PDF"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Nastaviť heslo"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "Metadáta PDF"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -398,7 +417,7 @@ msgstr "každá %1. strana"
 msgid "all pages out of range"
 msgstr "všetky strany mimo rozsahu"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -406,50 +425,19 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "Pridať súbory PDF"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Uložiť ako…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Uložiť"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "súbor"
+msgstr[1] "súbory"
+msgstr[2] "súborov"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF možnosti"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "Verzia PDF"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Predvolená"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Verzia %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Nastaviť heslo"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Chrániť súbor PDF heslom."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -666,14 +654,30 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "O KDE"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Uložiť ako…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Uložiť"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Predvolená"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Verzia %1"
+
+#~ msgid "Set password"
+#~ msgstr "Nastaviť heslo"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Chrániť súbor PDF heslom."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "Jednoduchý editor PDF"
 
 #~ msgid "Quit"
 #~ msgstr "Koniec"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "súbor"
-#~ msgstr[1] "súbory"
-#~ msgstr[2] "súborov"

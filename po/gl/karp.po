@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2025-02-21 07:30+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -45,41 +45,17 @@ msgid ""
 msgstr ""
 "Instale eses programas, ou non todas as funcionalidades estarán dispoñíbeis."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Engadir ficheiros PDF"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Retirar todos os ficheiros"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Optimizar o PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Reducir o tamaño"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Definir un contrasinal"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "Metadatos do PDF"
 
 #: main.cpp:111
 #, kde-format
@@ -253,6 +229,49 @@ msgstr "Pregar toda a sección"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Seguro que quere retirar todos os capítulos?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "Opcións do PDF"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimizar o PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Reducir o tamaño"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "Versión de PDF"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Definir un contrasinal"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "Metadatos do PDF"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -399,7 +418,7 @@ msgstr "cada %1 páxina"
 msgid "all pages out of range"
 msgstr "todas as páxinas fóra do intervalo"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -407,52 +426,18 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "Engadir ficheiros PDF"
 
-#: qml/MainPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Gardar como…"
-
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Gardar"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "ficheiro"
+msgstr[1] "ficheiros"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "Opcións do PDF"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "Versión de PDF"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Predeterminada"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Versión %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Definir un contrasinal"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Protexer o ficheiro PDF cun contrasinal."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -682,16 +667,36 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Sobre KDE"
 
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Save As..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Gardar como…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Gardar"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Predeterminada"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Versión %1"
+
+#~ msgid "Set password"
+#~ msgstr "Definir un contrasinal"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Protexer o ficheiro PDF cun contrasinal."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "Editor sinxelo de PDF"
 
 #~ msgid "Quit"
 #~ msgstr "Saír"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "ficheiro"
-#~ msgstr[1] "ficheiros"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "Permite a organización de páxinas PDF."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -44,41 +44,17 @@ msgid ""
 "available."
 msgstr "ऊपर बताए गए प्रोग्राम इंस्टॉल करें, अन्यथा सभी फ़ंक्शन उपलब्ध नहीं होंगे।"
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "पीडीएफ फ़ाइलें जोड़ें"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "सभी फ़ाइलें साफ़ करें"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "पीडीएफ अनुकूलित करें"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "आकार कम करें"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "सांकेतिक शब्द लगना"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "पीडीएफ मेटाडेटा"
 
 #: main.cpp:111
 #, kde-format
@@ -256,6 +232,49 @@ msgstr ""
 msgid "Are you sure you want to remove all chapters?"
 msgstr ""
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "पीडीएफ विकल्प"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "पीडीएफ अनुकूलित करें"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "आकार कम करें"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "पीडीएफ संस्करण"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "सांकेतिक शब्द लगना"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "पीडीएफ मेटाडेटा"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -402,7 +421,7 @@ msgstr "हर %1 पेज"
 msgid "all pages out of range"
 msgstr "सभी पृष्ठ सीमा से बाहर"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -410,52 +429,18 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "पीडीएफ फ़ाइलें जोड़ें"
 
-#: qml/MainPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "के रूप रक्षित करें"
-
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "बचाना"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "फ़ाइलें"
+msgstr[1] "फ़ाइलें"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "पीडीएफ विकल्प"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "पीडीएफ संस्करण"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "गलती करना"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "संस्करण %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "सांकेतिक शब्द लगना"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "पीडीएफ फाइल को पासवर्ड से सुरक्षित रखें।"
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -682,16 +667,36 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "केडीई के बारे में"
 
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Save As"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "के रूप रक्षित करें"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "बचाना"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "गलती करना"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "संस्करण %1"
+
+#~ msgid "Set password"
+#~ msgstr "सांकेतिक शब्द लगना"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "पीडीएफ फाइल को पासवर्ड से सुरक्षित रखें।"
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "सरल पीडीएफ संपादक"
 
 #~ msgid "Quit"
 #~ msgstr "छोड़ना"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "फ़ाइलें"
-#~ msgstr[1] "फ़ाइलें"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "पीडीएफ पृष्ठ व्यवस्था की अनुमति देता है।"

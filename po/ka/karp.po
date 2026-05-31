@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
-"PO-Revision-Date: 2026-04-19 03:52+0200\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
+"PO-Revision-Date: 2026-05-30 05:07+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -47,41 +47,17 @@ msgstr ""
 "დააყენეთ ზემოთ მოხსენიებული პროგრამა. წინააღმდეგ შემთხვევაში ყველა ფუნქცია "
 "არ იმუშავებს."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "PDF ფაილების დამატება"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "ყველა ფაილის გასუფთავება"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "PDF-ის ოპტიმიზაცია"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "ზომის შემცირება"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "პაროლის დაყენება"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "PDF მეტამონაცემები"
 
 #: main.cpp:111
 #, kde-format
@@ -253,6 +229,49 @@ msgstr "მთელი მონაკვეთის ჩაკეცვა"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "მართლა გნებავთ ყველა თავის წაშლა?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF პარამეტრები"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "PDF-ის ოპტიმიზაცია"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "ზომის შემცირება"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF-ის ვერსია"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "პაროლის დაყენება"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "PDF მეტამონაცემები"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -399,58 +418,24 @@ msgstr "ყოველ %1 გვერდში"
 msgid "all pages out of range"
 msgstr "ყველა გვერდები შუალედს გარეთ"
 
-#: qml/MainPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#: qml/MainPage.qml:35
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "PDF ფაილების დამატება"
+msgstr "ფაილების დამატება"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "შენახვა, როგორც…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "შენახვა"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "ფაილი"
+msgstr[1] "ფაილები"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF პარამეტრები"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "PDF-ის ვერსია"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "ნაგულისხმევი"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "ვერსია %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "პაროლის დაყენება"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "დაიცავით PDF ფაილი პაროლით."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -670,16 +655,33 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE-ის შესახებ"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "შენახვა, როგორც…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "შენახვა"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "ნაგულისხმევი"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "ვერსია %1"
+
+#~ msgid "Set password"
+#~ msgstr "პაროლის დაყენება"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "დაიცავით PDF ფაილი პაროლით."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "მარტივი PDF რედაქტორი"
 
 #~ msgid "Quit"
 #~ msgstr "გასვლა"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "ფაილი"
-#~ msgstr[1] "ფაილები"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "იძლევა PDF-ის გვერდების გადალაგების საშუალებას."

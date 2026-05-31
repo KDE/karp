@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
-"PO-Revision-Date: 2026-04-19 10:01+0200\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
+"PO-Revision-Date: 2026-05-30 09:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -49,41 +49,17 @@ msgstr ""
 "Instal·leu els programes esmentats anteriorment, en cas contrari no totes "
 "les funcions estaran disponibles."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Afegeix fitxers PDF"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Neteja tots els fitxers"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Optimitza el PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Redueix la mida"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Estableix la contrasenya"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "Metadades del PDF"
 
 #: main.cpp:111
 #, kde-format
@@ -255,6 +231,49 @@ msgstr "Redueix tota la secció"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Segur que voleu eliminar tots els capítols?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "Opcions del PDF"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimitza el PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Redueix la mida"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "Versió del PDF"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Estableix la contrasenya"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "Metadades del PDF"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -401,58 +420,24 @@ msgstr "cada %1 pàgina/es"
 msgid "all pages out of range"
 msgstr "totes les pàgines fora de l'interval"
 
-#: qml/MainPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#: qml/MainPage.qml:35
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "Afegeix fitxers PDF"
+msgstr "Afegeix fitxers"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Desa com a…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Desa"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "fitxer"
+msgstr[1] "fitxers"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "Opcions del PDF"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "Versió del PDF"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Predeterminada"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Versió %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Estableix la contrasenya"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Protegeix el fitxer PDF amb una contrasenya."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -673,16 +658,33 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Quant a KDE"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Desa com a…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Desa"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Predeterminada"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Versió %1"
+
+#~ msgid "Set password"
+#~ msgstr "Estableix la contrasenya"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Protegeix el fitxer PDF amb una contrasenya."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "Editor senzill de PDF"
 
 #~ msgid "Quit"
 #~ msgstr "Surt"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "fitxer"
-#~ msgstr[1] "fitxers"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "Permet els arranjaments de pàgina de PDF."

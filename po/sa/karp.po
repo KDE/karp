@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -46,41 +46,17 @@ msgid ""
 "available."
 msgstr "उपरि उल्लिखितानि कार्यक्रमाणि संस्थापयन्तु, अन्यथा सर्वाणि कार्याणि न उपलभ्यन्ते ।"
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "PDF सञ्चिकाः योजयन्तु"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "सर्वाणि सञ्चिकाः स्वच्छं कुर्वन्तु"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "PDF अनुकूलितं कुर्वन्तु"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "आकारं न्यूनीकरोतु"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "पीडीएफ मेटाडाटा"
 
 #: main.cpp:111
 #, kde-format
@@ -258,6 +234,49 @@ msgstr ""
 msgid "Are you sure you want to remove all chapters?"
 msgstr ""
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF विकल्पाः"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "PDF अनुकूलितं कुर्वन्तु"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "आकारं न्यूनीकरोतु"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF संस्करणम्"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "पीडीएफ मेटाडाटा"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -404,7 +423,7 @@ msgstr "प्रत्येकं %1 पृष्ठं"
 msgid "all pages out of range"
 msgstr "सर्वाणि पृष्ठानि परिधितः बहिः"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -412,52 +431,18 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "PDF सञ्चिकाः योजयन्तु"
 
-#: qml/MainPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As"
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "यथा रक्षतु"
-
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "रक्ष्"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "सञ्चिका"
+msgstr[1] "सञ्चिकाः"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF विकल्पाः"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "PDF संस्करणम्"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "मूलभूतम्‌"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "संस्करणम् %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "गुप्तशब्देन PDF सञ्चिकां रक्षन्तु।"
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -683,16 +668,36 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE विषये"
 
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Save As"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "यथा रक्षतु"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "रक्ष्"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "मूलभूतम्‌"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "संस्करणम् %1"
+
+#~ msgid "Set password"
+#~ msgstr "गुप्तशब्दं सेट् कुर्वन्तु"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "गुप्तशब्देन PDF सञ्चिकां रक्षन्तु।"
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "सरलः पीडीएफ सम्पादकः"
 
 #~ msgid "Quit"
 #~ msgstr "परिजहातु"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "सञ्चिका"
-#~ msgstr[1] "सञ्चिकाः"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "PDF पृष्ठव्यवस्थां अनुमन्यते ।"

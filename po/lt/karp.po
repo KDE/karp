@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2026-04-23 20:38+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -48,41 +48,17 @@ msgstr ""
 "Įdiekite aukščiau paminėtas programas, priešingu atveju bus prieinamos ne "
 "visos funkcijos."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Pridėti PDF failų"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Išvalyti visus failus"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Optimizuoti PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Sumažinti dydį"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Nustatyti slaptažodį"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "PDF metaduomenys"
 
 #: main.cpp:111
 #, kde-format
@@ -254,6 +230,49 @@ msgstr "Suskleisti visą sekciją"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Ar tikrai norite pašalinti visus skyrius?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF parinktys"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimizuoti PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Sumažinti dydį"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF versija"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Nustatyti slaptažodį"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "PDF metaduomenys"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -403,7 +422,7 @@ msgstr "kas %1 puslapį"
 msgid "all pages out of range"
 msgstr "visus puslapius už rėžio ribų"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -411,50 +430,20 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "Pridėti PDF failų"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Įrašyti kaip…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Įrašyti"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "failas"
+msgstr[1] "failai"
+msgstr[2] "failai"
+msgstr[3] "failai"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF parinktys"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "PDF versija"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Numatytoji"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Versija %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Nustatyti slaptažodį"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Apsaugokite PDF failą slaptažodžiu."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -672,15 +661,30 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Apie KDE"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Įrašyti kaip…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Įrašyti"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Numatytoji"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Versija %1"
+
+#~ msgid "Set password"
+#~ msgstr "Nustatyti slaptažodį"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Apsaugokite PDF failą slaptažodžiu."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "Paprastas PDF redaktorius"
 
 #~ msgid "Quit"
 #~ msgstr "Išeiti"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "failas"
-#~ msgstr[1] "failai"
-#~ msgstr[2] "failai"
-#~ msgstr[3] "failai"

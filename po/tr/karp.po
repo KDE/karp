@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2024-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
-"PO-Revision-Date: 2026-04-19 11:01+0300\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
+"PO-Revision-Date: 2026-05-30 19:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
@@ -46,41 +46,17 @@ msgstr ""
 "Yukarıda belirtilen programları kurun; aksi takdirde tüm işlevler "
 "kullanılabilir olmayacaktır."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "PDF Dosyaları Ekle"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Tüm Dosyaları Temizle"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "PDF Eniyile"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Boyut Azalt"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Parola Ayarla"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "PDF Üst Verisi"
 
 #: main.cpp:111
 #, kde-format
@@ -252,6 +228,49 @@ msgstr "Tüm Bölümü Daralt"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Tüm fasılları kaldırmak istediğinizden emin misiniz?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF Seçenekleri"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "PDF Eniyile"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Boyut Azalt"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF Sürümü"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Parola Ayarla"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "PDF Üst Verisi"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -398,58 +417,24 @@ msgstr "her %1 sayfa"
 msgid "all pages out of range"
 msgstr "erim dışındaki tüm sayfalar"
 
-#: qml/MainPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#: qml/MainPage.qml:35
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "PDF Dosyaları Ekle"
+msgstr "Dosyalar Ekle"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Farklı Kaydet…"
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Kaydet"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "dosya"
+msgstr[1] "dosya"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF Seçenekleri"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "PDF Sürümü"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Öntanımlı"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Sürüm %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Parola Ayarla"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "PDF dosyalarını parola ile koruyun."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -669,16 +654,33 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE Hakkında"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Farklı Kaydet…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Kaydet"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Öntanımlı"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Sürüm %1"
+
+#~ msgid "Set password"
+#~ msgstr "Parola Ayarla"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "PDF dosyalarını parola ile koruyun."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "Basit PDF Düzenleyicisi"
 
 #~ msgid "Quit"
 #~ msgstr "Çık"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "dosya"
-#~ msgstr[1] "dosya"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "PDF sayfalarının düzenlenmesine izin verir."

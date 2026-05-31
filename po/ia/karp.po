@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2026-04-19 17:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -46,41 +46,17 @@ msgstr ""
 "Installa programmas mentionate supra, alteremente non tote le functiones "
 "essera disponibile."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Adde files PDF"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Netta omne files"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Optimiza PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Reduce grandor"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Fixa contrasigno"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "Metadatos de PDF"
 
 #: main.cpp:111
 #, kde-format
@@ -252,6 +228,49 @@ msgstr "Plica section integre"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "Tu es secur que tu vole remover omne capitulos?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "Optiones de PDF"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimiza PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Reduce grandor"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "Version de PDF"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Fixa contrasigno"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "Metadatos de PDF"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -398,7 +417,7 @@ msgstr "cata %1 pagina"
 msgid "all pages out of range"
 msgstr "tote paginas foras de extension"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -406,50 +425,18 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "Adde files PDF"
 
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Salveguarda como..."
-
-#: qml/MainPage.qml:58
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Salveguarda"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "file"
+msgstr[1] "files"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "Optiones de PDF"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "Version de PDF"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Predefinite"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Version %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Fixa contrasigno"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Protege file PDF con contrasigno."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -668,16 +655,33 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "A proposito de KDE"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Salveguarda como..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Salveguarda"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Predefinite"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Version %1"
+
+#~ msgid "Set password"
+#~ msgstr "Fixa contrasigno"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Protege file PDF con contrasigno."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "Simple redactor (editor) de PDF"
 
 #~ msgid "Quit"
 #~ msgstr "Quita"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "file"
-#~ msgstr[1] "files"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "Permitte arranbiamentos depagina PDF."

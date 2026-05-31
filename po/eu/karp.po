@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-30 00:42+0000\n"
+"POT-Creation-Date: 2026-05-31 00:41+0000\n"
 "PO-Revision-Date: 2025-06-08 11:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -49,41 +49,17 @@ msgstr ""
 "Instalatu gorago aipatutako programak, bestela funtzio guztiak ez dira "
 "ibiliko."
 
-#: app.cpp:187
+#: app.cpp:178
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add PDF files"
 msgstr "Gehitu PDF fitxategiak"
 
-#: app.cpp:197
+#: app.cpp:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Clear all files"
 msgstr "Garbitu fitxategi guztiak"
-
-#: app.cpp:211
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Optimize PDF"
-msgstr "Optimizatu PDF"
-
-#: app.cpp:220
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Reduce size"
-msgstr "Txikiagotu neurria"
-
-#: app.cpp:229
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Set password"
-msgstr "Ezarri pasahitza"
-
-#: app.cpp:238
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "PDF metadata"
-msgstr "PDF meta-datuak"
 
 #: main.cpp:111
 #, kde-format
@@ -257,6 +233,49 @@ msgstr "Tolestu atal osoa"
 msgid "Are you sure you want to remove all chapters?"
 msgstr "ziur zaude kapitulu guztiak kendu nahi dituzula?"
 
+#: qml/Dialogs/ExportDialog.qml:10
+#, fuzzy, kde-format
+#| msgid "PDF Options"
+msgctxt "@title:dialog"
+msgid "Export Options"
+msgstr "PDF aukerak"
+
+#: qml/Dialogs/ExportDialog.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Optimize PDF"
+msgstr "Optimizatu PDF"
+
+#: qml/Dialogs/ExportDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Reduce size"
+msgctxt "@action:inmenu"
+msgid "Reduce Size"
+msgstr "Txikiagotu neurria"
+
+#: qml/Dialogs/ExportDialog.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "PDF Version"
+msgstr "PDF bertsioa"
+
+#: qml/Dialogs/ExportDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu"
+msgid "Password"
+msgstr "Ezarri pasahitza"
+
+#: qml/Dialogs/ExportDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "PDF metadata"
+msgctxt "@action:inmenu"
+msgid "Edit PDF Metadata"
+msgstr "PDF meta-datuak"
+
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
 msgid "Page range"
@@ -403,7 +422,7 @@ msgstr "%1 orrialdero"
 msgid "all pages out of range"
 msgstr "barrutitik kanpoko orrialde guztiak"
 
-#: qml/MainPage.qml:43
+#: qml/MainPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add PDF files"
@@ -411,52 +430,18 @@ msgctxt "@action:inmenu"
 msgid "Add files"
 msgstr "Gehitu PDF fitxategiak"
 
-#: qml/MainPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save As..."
-msgctxt "@action:inmenu"
-msgid "Save As…"
-msgstr "Gorde honela..."
-
-#: qml/MainPage.qml:58
+#: qml/MainPage.qml:48
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Save"
-msgstr "Gorde"
+msgid "file"
+msgid_plural "files"
+msgstr[0] "Fitxategia"
+msgstr[1] "fitxategiak"
 
 #: qml/MainPage.qml:63
 #, kde-format
-msgid "PDF Options"
-msgstr "PDF aukerak"
-
-#: qml/MainPage.qml:79
-#, kde-format
 msgctxt "@action:inmenu"
-msgid "PDF Version"
-msgstr "PDF bertsioa"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "like default PDF version"
-msgid "Default"
-msgstr "Lehenetsia"
-
-#: qml/MainPage.qml:121
-#, kde-format
-msgctxt "PDF version"
-msgid "Version %1"
-msgstr "Bertsioa %1"
-
-#: qml/MainPage.qml:268
-#, kde-format
-msgid "Set password"
-msgstr "Ezarri pasahitza"
-
-#: qml/MainPage.qml:269
-#, kde-format
-msgid "Protect PDF file with password."
-msgstr "Babestu PDF fitxategia pasahitz bidez."
+msgid "Export Document"
+msgstr ""
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -686,16 +671,36 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDEri buruz"
 
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Save As..."
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save As…"
+#~ msgstr "Gorde honela..."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Save"
+#~ msgstr "Gorde"
+
+#~ msgctxt "like default PDF version"
+#~ msgid "Default"
+#~ msgstr "Lehenetsia"
+
+#~ msgctxt "PDF version"
+#~ msgid "Version %1"
+#~ msgstr "Bertsioa %1"
+
+#~ msgid "Set password"
+#~ msgstr "Ezarri pasahitza"
+
+#~ msgid "Protect PDF file with password."
+#~ msgstr "Babestu PDF fitxategia pasahitz bidez."
+
 #~ msgid "Simple PDF editor"
 #~ msgstr "PDF editore erraza"
 
 #~ msgid "Quit"
 #~ msgstr "Irten"
-
-#~ msgid "file"
-#~ msgid_plural "files"
-#~ msgstr[0] "Fitxategia"
-#~ msgstr[1] "fitxategiak"
 
 #~ msgid "Allows PDF page arrangements."
 #~ msgstr "PDF orrialdeak antolatzeko aukera ematen du."
