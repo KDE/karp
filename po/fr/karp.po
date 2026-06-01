@@ -425,7 +425,9 @@ msgid "Add files"
 msgstr "Ajouter des fichiers au format « PDF »"
 
 #: qml/MainPage.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "file"
+#| msgid_plural "files"
 msgid "file"
 msgid_plural "files"
 msgstr[0] "fichier"

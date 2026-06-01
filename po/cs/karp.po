@@ -421,14 +421,12 @@ msgid "Add files"
 msgstr "soubor"
 
 #: qml/MainPage.qml:48
-#, fuzzy, kde-format
-#| msgid "file"
-#| msgid_plural "files"
+#, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "soubor"
-msgstr[1] "soubor"
-msgstr[2] "soubor"
+msgstr[1] "soubory"
+msgstr[2] "souborů"
 
 #: qml/MainPage.qml:63
 #, kde-format

@@ -228,11 +228,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "Naozaj chcete odstrániť všetky kapitoly?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "PDF možnosti"
+msgstr "Možnosti exportu"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -241,9 +240,7 @@ msgid "Optimize PDF"
 msgstr "Optimalizovať PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Zmenšiť veľkosť"
@@ -255,20 +252,16 @@ msgid "PDF Version"
 msgstr "Verzia PDF"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Nastaviť heslo"
+msgstr "Heslo"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "Metadáta PDF"
+msgstr "Upraviť metadáta PDF"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -418,12 +411,10 @@ msgid "all pages out of range"
 msgstr "všetky strany mimo rozsahu"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "Pridať súbory PDF"
+msgstr "Pridať súbory"
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -437,7 +428,7 @@ msgstr[2] "súborov"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Exportovať dokument"
 
 #: qml/MainToolbar.qml:25
 #, kde-format

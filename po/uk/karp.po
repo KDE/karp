@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-05-30 09:57+0300\n"
+"PO-Revision-Date: 2026-05-31 12:50+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -230,11 +230,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "Ви справді хочете вилучити усі глави?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "Параметри PDF"
+msgstr "Параметри експорту"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -243,9 +242,7 @@ msgid "Optimize PDF"
 msgstr "Оптимізувати PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Зменшити розмір"
@@ -257,20 +254,16 @@ msgid "PDF Version"
 msgstr "Версія PDF"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Встановити пароль"
+msgstr "Пароль"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "Метадані PDF"
+msgstr "Редагувати метадані PDF"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -439,7 +432,7 @@ msgstr[3] "файл"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Експортувати документ"
 
 #: qml/MainToolbar.qml:25
 #, kde-format

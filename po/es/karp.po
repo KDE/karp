@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-05-30 15:45+0100\n"
+"PO-Revision-Date: 2026-05-31 14:18+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -230,11 +230,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "¿Seguro que quiere eliminar todos los capítulos?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "Opciones PDF"
+msgstr "Opciones de exportación"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -243,9 +242,7 @@ msgid "Optimize PDF"
 msgstr "Optimizar PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Reducir tamaño"
@@ -257,20 +254,16 @@ msgid "PDF Version"
 msgstr "Versión de PDF"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Definir contraseña"
+msgstr "Contraseña"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "Metadatos PDF"
+msgstr "Editar metadatos PDF"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -425,19 +418,17 @@ msgid "Add files"
 msgstr "Añadir archivos"
 
 #: qml/MainPage.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add files"
+#, kde-format
 msgid "file"
 msgid_plural "files"
-msgstr[0] "Añadir archivos"
-msgstr[1] "Añadir archivos"
+msgstr[0] "archivo"
+msgstr[1] "archivos"
 
 #: qml/MainPage.qml:63
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Exportar documento"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
@@ -657,25 +648,3 @@ msgstr "Acerca de Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Acerca de KDE"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Save As…"
-#~ msgstr "Guardar como…"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Save"
-#~ msgstr "Guardar"
-
-#~ msgctxt "like default PDF version"
-#~ msgid "Default"
-#~ msgstr "Predeterminada"
-
-#~ msgctxt "PDF version"
-#~ msgid "Version %1"
-#~ msgstr "Versión %1"
-
-#~ msgid "Set password"
-#~ msgstr "Definir contraseña"
-
-#~ msgid "Protect PDF file with password."
-#~ msgstr "Proteger el archivo PDF con contraseña."

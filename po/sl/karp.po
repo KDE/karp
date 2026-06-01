@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-05-30 06:36+0200\n"
+"PO-Revision-Date: 2026-05-31 07:13+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -226,11 +226,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "Ali ste prepričani, da želite odstraniti vsa poglavja?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "Možnosti PDF"
+msgstr "Možnosti izvoza"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -239,9 +238,7 @@ msgid "Optimize PDF"
 msgstr "Optimiziraj PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Zmanjšaj velikost"
@@ -253,20 +250,16 @@ msgid "PDF Version"
 msgstr "PDF različica"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Nastavi geslo"
+msgstr "Geslo"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "Metapodatki PDF"
+msgstr "Uredi metapodatke PDF"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -435,7 +428,7 @@ msgstr[3] "datoteka"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Izvozi dokument"
 
 #: qml/MainToolbar.qml:25
 #, kde-format

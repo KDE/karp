@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-05-30 05:07+0200\n"
+"PO-Revision-Date: 2026-05-31 05:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -230,11 +230,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "მართლა გნებავთ ყველა თავის წაშლა?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "PDF პარამეტრები"
+msgstr "გატანის მორგება"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -243,9 +242,7 @@ msgid "Optimize PDF"
 msgstr "PDF-ის ოპტიმიზაცია"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "ზომის შემცირება"
@@ -257,20 +254,16 @@ msgid "PDF Version"
 msgstr "PDF-ის ვერსია"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "პაროლის დაყენება"
+msgstr "პაროლი"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "PDF მეტამონაცემები"
+msgstr "PDF-ის მეტამონაცემების ჩასწორება"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -435,7 +428,7 @@ msgstr[1] "ფაილები"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "დოკუმენტის გატანა"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
