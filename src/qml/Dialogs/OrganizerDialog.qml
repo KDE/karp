@@ -61,7 +61,7 @@ FormCard.FormCardDialog {
                 width: lv.width - Kirigami.Units.gridUnit * 2
                 height: pdfDelegate.height
 
-                PdfFileDelegate {
+                OrganizerDelegate {
                     id: pdfDelegate
 
                     property int visualIndex: delegate.index
@@ -83,7 +83,7 @@ FormCard.FormCardDialog {
                     ]
                 }
                 onEntered: drag => {
-                    let from = (drag.source as PdfFileDelegate).visualIndex;
+                    let from = (drag.source as OrganizerDelegate).visualIndex;
                     let to = pdfDelegate.visualIndex;
                     // Previously loaded PDF-s are locked and we don't allow to move new files between them.
                     // Item (new file) can be moved before or after already loaded PDF-s
@@ -151,6 +151,6 @@ FormCard.FormCardDialog {
     onClosed: destroy()
 
     Component.onCompleted: {
-        pdfOrg.addMorePDFs()
+        pdfOrg.addMorePDFs();
     }
 }

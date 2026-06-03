@@ -25,9 +25,9 @@ qt_add_qml_module(karp
         qml/Dialogs/SelectPagesDialog.qml
         qml/Dialogs/MovePagesDialog.qml
         qml/Dialogs/PdfMetadataDialog.qml
-        qml/Dialogs/PdfFilesDialog.qml
         qml/Dialogs/PdfPassDialog.qml
-        qml/Dialogs/PdfFileDelegate.qml
+        qml/Dialogs/OrganizerDialog.qml
+        qml/Dialogs/OrganizerDelegate.qml
         qml/Dialogs/ExportDialog.qml
 
         qml/Settings/SettingsPage.qml
@@ -39,8 +39,8 @@ qt_add_qml_module(karp
         qml/Messages/ProgressDialog.qml
         qml/Messages/InitialInfo.qml
 
-        qml/Bookmarks/TOCView.qml
-        qml/Bookmarks/OutlineDialog.qml
+        qml/Bookmarks/BookmarksView.qml
+        qml/Bookmarks/EditBookmarkDialog.qml
 
     DEPENDENCIES
         QtCore

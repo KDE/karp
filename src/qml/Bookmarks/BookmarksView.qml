@@ -13,22 +13,21 @@ import org.kde.kirigami.delegates as KD
 ColumnLayout {
     id: tocView
 
-    function openOutlineDialog(whereToAdd: var, outlineTitle: string, pageNr: int, dialogTitle: string) : void {
-        outlineDlg = Qt.createComponent("org.kde.karp", "OutlineDialog").createObject(tocView,
-                                                                                      {
-                                                                                          pageCount: tocView.model.pageCount,
-                                                                                          whereToAdd: whereToAdd,
-                                                                                          bookmarkTitle: outlineTitle,
-                                                                                          targetPage: pageNr + 1,
-                                                                                          title: dialogTitle
-                                                                                    })
+    function openOutlineDialog(whereToAdd: var, outlineTitle: string, pageNr: int, dialogTitle: string): void {
+        outlineDlg = Qt.createComponent("org.kde.karp", "EditBookmarkDialog").createObject(tocView, {
+            pageCount: tocView.model.pageCount,
+            whereToAdd: whereToAdd,
+            bookmarkTitle: outlineTitle,
+            targetPage: pageNr + 1,
+            title: dialogTitle
+        });
         outlineDlg.accepted.connect(() => {
-            tocView.model.insertBookmark(menu.modelIndex, outlineDlg.whereToAdd, outlineDlg.bookmarkTitle, outlineDlg.targetPage - 1)
+            tocView.model.insertBookmark(menu.modelIndex, outlineDlg.whereToAdd, outlineDlg.bookmarkTitle, outlineDlg.targetPage - 1);
             if (outlineDlg.whereToAdd === BookmarkModel.Insert.Inside && menu.sender)
-                tView.expand(menu.sender.row)
-                menu.sender = null
-        })
-        outlineDlg.removed.connect(() => tocView.model.removeOutline(menu.modelIndex))
+                tView.expand(menu.sender.row);
+            menu.sender = null;
+        });
+        outlineDlg.removed.connect(() => tocView.model.removeOutline(menu.modelIndex));
     }
 
     property alias model: tView.model
@@ -36,7 +35,7 @@ ColumnLayout {
     property var outlineDlg
 
     signal bookmarkSelected(var pageNr)
-    signal tocAboutToClear()
+    signal tocAboutToClear
 
     Kirigami.SearchField {
         visible: false // TODO
@@ -101,15 +100,10 @@ ColumnLayout {
                             width: ma.containsMouse ? 2 : 0
                             color: Kirigami.Theme.highlightColor
                         }
-
                     }
-
                 }
-
             }
-
         }
-
     }
 
     Kirigami.ActionToolBar {
@@ -135,8 +129,8 @@ ColumnLayout {
                 icon.name: "collapse-all"
                 tooltip: i18nc("@action:intoolbar", "Collapse All")
                 onTriggered: {
-                    tView.collapseRecursively()
-                    tView.returnToBounds()
+                    tView.collapseRecursively();
+                    tView.returnToBounds();
                 }
             },
             Kirigami.Action {
@@ -168,7 +162,7 @@ ColumnLayout {
             text: i18nc("@action:inmenu", "Insert Above")
             icon.name: "go-up"
             onTriggered: {
-                 tocView.openOutlineDialog(BookmarkModel.Insert.Above, "", menu.sender.page, text);
+                tocView.openOutlineDialog(BookmarkModel.Insert.Above, "", menu.sender.page, text);
             }
         }
 
@@ -176,7 +170,7 @@ ColumnLayout {
             text: i18nc("@action:inmenu", "Insert Below")
             icon.name: "go-down"
             onTriggered: {
-                 tocView.openOutlineDialog(BookmarkModel.Insert.Below, "", menu.sender.page, text);
+                tocView.openOutlineDialog(BookmarkModel.Insert.Below, "", menu.sender.page, text);
             }
         }
 
@@ -186,7 +180,7 @@ ColumnLayout {
             text: i18nc("@action:inmenu", "Add Subsection")
             icon.name: "bookmark-new"
             onTriggered: {
-                 tocView.openOutlineDialog(BookmarkModel.Insert.Inside, "", menu.sender.page, text);
+                tocView.openOutlineDialog(BookmarkModel.Insert.Inside, "", menu.sender.page, text);
             }
         }
 
@@ -194,7 +188,7 @@ ColumnLayout {
             enabled: !addSubAction.enabled && menu.sender && !menu.sender.expanded
             text: i18nc("@action:inmenu", "Expand whole section")
             onTriggered: {
-                tView.expandRecursively(menu.sender.row, -1)
+                tView.expandRecursively(menu.sender.row, -1);
             }
         }
 
@@ -202,7 +196,7 @@ ColumnLayout {
             enabled: !addSubAction.enabled && menu.sender && menu.sender.expanded
             text: i18nc("@action:inmenu", "Collapse whole section")
             onTriggered: {
-                tView.collapseRecursively(menu.sender.row)
+                tView.collapseRecursively(menu.sender.row);
             }
         }
     }
@@ -221,11 +215,10 @@ ColumnLayout {
 
             standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
             onAccepted: {
-                tocView.tocAboutToClear()
-                tocView.model.clear()
+                tocView.tocAboutToClear();
+                tocView.model.clear();
             }
             onClosed: destroy()
         }
     }
-
 }

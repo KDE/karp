@@ -107,7 +107,7 @@ Kirigami.Page {
             }
         }
 
-        TOCView {
+        BookmarksView {
             id: outlines
 
             visible: bottomBar.showBookmarks
@@ -192,7 +192,7 @@ Kirigami.Page {
         }
         // Actions
         function onWantOpenPdf(): void {
-            const fileDlgComp = Qt.createComponent("org.kde.karp", "PdfFilesDialog");
+            const fileDlgComp = Qt.createComponent("org.kde.karp", "OrganizerDialog");
             if (fileDlgComp.status !== Component.Ready) {
                 console.error(fileDlgComp.errorString());
                 return;
@@ -219,13 +219,13 @@ Kirigami.Page {
 
     /**
      * Common function to handle @p pdfFiles argument.
-     * When it is just single file - load it immediately or open PdfFilesDialog
+     * When it is just single file - load it immediately or open OrganizerDialog
      */
     function openPDFs(pdfFiles: var) {
         if (pdfFiles.length === 1)
             pdfModel.loadPdfFile(pdfFiles[0]);
         else if (pdfFiles.length > 1)
-            Qt.createComponent("org.kde.karp", "PdfFilesDialog").createObject(page, {
+            Qt.createComponent("org.kde.karp", "OrganizerDialog").createObject(page, {
                 pdfEdit: pdfModel,
                 initFiles: pdfFiles
             });
