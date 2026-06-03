@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-05-31 06:54+0200\n"
+"PO-Revision-Date: 2026-06-01 07:43+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -226,11 +226,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "Voulez-vous vraiment supprimer tous les chapitres ?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "Options « PDF »"
+msgstr "Options d'exportation"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -239,9 +238,7 @@ msgid "Optimize PDF"
 msgstr "Optimiser le» fichier « PDF "
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Réduire la taille"
@@ -253,20 +250,16 @@ msgid "PDF Version"
 msgstr "Version « PDF »"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Définir un mot de passe"
+msgstr "Mot de passe"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "Métadonnées PDF"
+msgstr "Modifier les métadonnées « PDF »"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -433,7 +426,7 @@ msgstr[1] "fichiers"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Exporter le document"
 
 #: qml/MainToolbar.qml:25
 #, kde-format

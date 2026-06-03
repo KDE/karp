@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-04-19 08:34+0300\n"
+"PO-Revision-Date: 2026-06-02 09:16+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
@@ -228,11 +228,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "להסיר את כל הפרקים?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "אפשרויות PDF"
+msgstr "אפשרויות ייצוא"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -241,9 +240,7 @@ msgid "Optimize PDF"
 msgstr "מיטוב PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "צמצום גודל"
@@ -255,20 +252,16 @@ msgid "PDF Version"
 msgstr "גרסת PDF"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "הגדרת סיסמה"
+msgstr "סיסמה"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "נתוני על של PDF"
+msgstr "עריכת נתוני על של PDF"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -419,12 +412,10 @@ msgid "all pages out of range"
 msgstr "כל העמודים מחוץ לטווח"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "הוספת קובצי PDF"
+msgstr "הוספת קבצים"
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -439,7 +430,7 @@ msgstr[3] "קבצים"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "ייצוא מסמך"
 
 #: qml/MainToolbar.qml:25
 #, kde-format

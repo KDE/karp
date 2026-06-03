@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-04-23 20:38+0300\n"
+"PO-Revision-Date: 2026-06-02 13:04+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
@@ -231,11 +231,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "Ar tikrai norite pašalinti visus skyrius?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "PDF parinktys"
+msgstr "Eksportavimo parinktys"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -244,9 +243,7 @@ msgid "Optimize PDF"
 msgstr "Optimizuoti PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Sumažinti dydį"
@@ -258,20 +255,16 @@ msgid "PDF Version"
 msgstr "PDF versija"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Nustatyti slaptažodį"
+msgstr "Slaptažodis"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "PDF metaduomenys"
+msgstr "Taisyti PDF metaduomenis"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -423,12 +416,10 @@ msgid "all pages out of range"
 msgstr "visus puslapius už rėžio ribų"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "Pridėti PDF failų"
+msgstr "Pridėti failų"
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -443,7 +434,7 @@ msgstr[3] "failai"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Eksportuoti dokumentą"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
