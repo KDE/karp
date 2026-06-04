@@ -227,11 +227,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "您确定要移除全部章节吗？"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "PDF 选项"
+msgstr ""
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -240,12 +239,10 @@ msgid "Optimize PDF"
 msgstr "优化 PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
-msgstr "压缩体积"
+msgstr ""
 
 #: qml/Dialogs/ExportDialog.qml:30
 #, kde-format
@@ -254,20 +251,16 @@ msgid "PDF Version"
 msgstr "PDF版本"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "设置密码"
+msgstr ""
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "PDF 元数据"
+msgstr ""
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -415,12 +408,10 @@ msgid "all pages out of range"
 msgstr "所有页面超出范围"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "添加 PDF 文件"
+msgstr ""
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -648,31 +639,3 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Save As…"
-#~ msgstr "另存为…"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Save"
-#~ msgstr "保存"
-
-#~ msgctxt "like default PDF version"
-#~ msgid "Default"
-#~ msgstr "默认"
-
-#~ msgctxt "PDF version"
-#~ msgid "Version %1"
-#~ msgstr "版本 %1"
-
-#~ msgid "Set password"
-#~ msgstr "设置密码"
-
-#~ msgid "Protect PDF file with password."
-#~ msgstr "使用密码保护 PDF 文件。"
-
-#~ msgid "Simple PDF editor"
-#~ msgstr "简易 PDF 编辑器"
-
-#~ msgid "Quit"
-#~ msgstr "退出"
