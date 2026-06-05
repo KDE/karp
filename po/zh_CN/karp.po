@@ -230,7 +230,7 @@ msgstr "您确定要移除全部章节吗？"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr ""
+msgstr "导出选项"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -242,7 +242,7 @@ msgstr "优化 PDF"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
-msgstr ""
+msgstr "压缩体积"
 
 #: qml/Dialogs/ExportDialog.qml:30
 #, kde-format
@@ -254,13 +254,13 @@ msgstr "PDF版本"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr ""
+msgstr "编辑 PDF 元数据"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -411,7 +411,7 @@ msgstr "所有页面超出范围"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr ""
+msgstr "添加文件"
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -423,7 +423,7 @@ msgstr[0] "文件"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "导出文档"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
