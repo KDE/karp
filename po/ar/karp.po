@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-04-23 10:47+0400\n"
+"PO-Revision-Date: 2026-06-05 13:51+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -228,11 +228,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "أمتأكّد أنك ترغب في إزالة كل الفصول؟"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "خيارات بي دي اف"
+msgstr "خيارات التّصدير"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -241,9 +240,7 @@ msgid "Optimize PDF"
 msgstr "حسّن بي دي اف"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "قلّل الحجم"
@@ -255,20 +252,16 @@ msgid "PDF Version"
 msgstr "نسخة بي دي اف"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "عيّن كلمة سر"
+msgstr "كلمة السّر"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "بيانات تعريفية لملف بي دي اف"
+msgstr "حرر البيانات التعريفية لملف بي دي اف"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -421,12 +414,10 @@ msgid "all pages out of range"
 msgstr "جميع الصفحات خارج النطاق"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "أضف ملفات بي دي اف"
+msgstr "أضف ملفات..."
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -443,7 +434,7 @@ msgstr[5] "ملف"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "صدّر وثيقة"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
