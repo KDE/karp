@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-05-25 19:01+0200\n"
+"PO-Revision-Date: 2026-06-06 11:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -227,11 +227,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "모든 장을 삭제하시겠습니까?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "PDF 설정"
+msgstr "내보내기 옵션"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -240,9 +239,7 @@ msgid "Optimize PDF"
 msgstr "PDF 최적화"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "크기 줄이기"
@@ -254,20 +251,16 @@ msgid "PDF Version"
 msgstr "PDF 버전"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "암호 설정"
+msgstr "암호"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "PDF 메타데이터"
+msgstr "PDF 메타데이터 편집"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -415,12 +408,10 @@ msgid "all pages out of range"
 msgstr "선택한 범위의 쪽 제외"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "PDF 파일 추가"
+msgstr "파일 추가"
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -432,7 +423,7 @@ msgstr[0] "파일"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "문서 내보내기"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
