@@ -1,6 +1,6 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the karp package.
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Luigi Toscano <luigi.toscano@tiscali.it>
+# SPDX-FileCopyrightText: 2024-2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # SPDX-FileCopyrightText: 2025 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-31 00:41+0000\n"
-"PO-Revision-Date: 2026-04-23 01:18+0200\n"
+"PO-Revision-Date: 2026-06-07 22:36+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: app.cpp:30 pdfeditmodel.cpp:582
 #, kde-format
@@ -230,11 +230,10 @@ msgid "Are you sure you want to remove all chapters?"
 msgstr "Si vogliono davvero voler rimuovere tutti i capitoli?"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "Opzioni PDF"
+msgstr "Opzioni di esportazione"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -243,9 +242,7 @@ msgid "Optimize PDF"
 msgstr "Ottimizza PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Riduci la dimensione"
@@ -257,20 +254,16 @@ msgid "PDF Version"
 msgstr "Versione PDF"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Imposta password"
+msgstr "Password"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "Metadati PDF"
+msgstr "Modifica metadati del PDF"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -419,12 +412,10 @@ msgid "all pages out of range"
 msgstr "tutte le pagine fuori dall'intervallo"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "Aggiungi file PDF"
+msgstr "Aggiungi file"
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -437,7 +428,7 @@ msgstr[1] "file"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Esporta documento"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
