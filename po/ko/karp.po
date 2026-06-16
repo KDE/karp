@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-31 00:41+0000\n"
+"POT-Creation-Date: 2026-06-16 00:41+0000\n"
 "PO-Revision-Date: 2026-06-06 11:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -90,7 +90,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/EditBookmarkDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "제목"
@@ -123,108 +123,109 @@ msgstr "만든 날짜"
 msgid "Modification Date"
 msgstr "수정한 날짜"
 
-#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
-#, kde-format
-msgid "Edit Chapter"
-msgstr "장 편집"
-
-#: qml/Bookmarks/OutlineDialog.qml:34
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove"
-msgstr "삭제"
-
-#: qml/Bookmarks/OutlineDialog.qml:43
-#, kde-format
-msgctxt "@action:button"
-msgid "Save"
-msgstr "저장"
-
-#: qml/Bookmarks/OutlineDialog.qml:43
-#, kde-format
-msgctxt "@action:button"
-msgid "Add"
-msgstr "추가"
-
-#: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "취소"
-
-#: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "처음"
-
-#: qml/Bookmarks/OutlineDialog.qml:99
-#, kde-format
-msgctxt "Edited bookmark/chapter points to page"
-msgid "points to page"
-msgstr "쪽을 가리킴"
-
-#: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "마지막"
-
-#: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
+#: qml/Bookmarks/BookmarksView.qml:114 qml/Bookmarks/BookmarksView.qml:115
 #, kde-format
 msgid "Add Chapter"
 msgstr "장 추가"
 
-#: qml/Bookmarks/TOCView.qml:130
+#: qml/Bookmarks/BookmarksView.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
 msgstr "모두 펴기"
 
-#: qml/Bookmarks/TOCView.qml:136
+#: qml/Bookmarks/BookmarksView.qml:130
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
 msgstr "모두 접기"
 
-#: qml/Bookmarks/TOCView.qml:146
+#: qml/Bookmarks/BookmarksView.qml:140
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
 msgstr "목차 비우기"
 
-#: qml/Bookmarks/TOCView.qml:168
+#: qml/Bookmarks/BookmarksView.qml:157 qml/Bookmarks/EditBookmarkDialog.qml:21
+#, kde-format
+msgid "Edit Chapter"
+msgstr "장 편집"
+
+#: qml/Bookmarks/BookmarksView.qml:162
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
 msgstr "위에 삽입"
 
-#: qml/Bookmarks/TOCView.qml:176
+#: qml/Bookmarks/BookmarksView.qml:170
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
 msgstr "아래에 삽입"
 
-#: qml/Bookmarks/TOCView.qml:186
+#: qml/Bookmarks/BookmarksView.qml:180
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
 msgstr "절 추가"
 
-#: qml/Bookmarks/TOCView.qml:195
+#: qml/Bookmarks/BookmarksView.qml:189
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
 msgstr "전체 선택 펼치기"
 
-#: qml/Bookmarks/TOCView.qml:203
+#: qml/Bookmarks/BookmarksView.qml:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
 msgstr "전체 선택 접기"
 
-#: qml/Bookmarks/TOCView.qml:219
+#: qml/Bookmarks/BookmarksView.qml:213
 #, kde-format
 msgid "Are you sure you want to remove all chapters?"
 msgstr "모든 장을 삭제하시겠습니까?"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "삭제"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Save"
+msgstr "저장"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Add"
+msgstr "추가"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "취소"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "처음"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:99
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr "쪽을 가리킴"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:114
+#: qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "마지막"
 
 #: qml/Dialogs/ExportDialog.qml:10
 #, kde-format
@@ -301,57 +302,57 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "쪽"
 
-#: qml/Dialogs/PdfFileDelegate.qml:61
+#: qml/Dialogs/OrganizerDelegate.qml:61
 #, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
 msgstr[0] "%1쪽"
 
-#: qml/Dialogs/PdfFileDelegate.qml:75
+#: qml/Dialogs/OrganizerDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
 msgstr "모든 쪽 추가"
 
-#: qml/Dialogs/PdfFileDelegate.qml:83
+#: qml/Dialogs/OrganizerDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
 msgstr "선택한 쪽 추가"
 
-#: qml/Dialogs/PdfFileDelegate.qml:92
+#: qml/Dialogs/OrganizerDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
 msgstr "목록에서 삭제"
 
-#: qml/Dialogs/PdfFileDelegate.qml:105
+#: qml/Dialogs/OrganizerDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
 msgstr "추가할 쪽 선택"
 
-#: qml/Dialogs/PdfFilesDialog.qml:19
+#: qml/Dialogs/OrganizerDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "PDF 파일을 추가하고 재정렬"
 
-#: qml/Dialogs/PdfFilesDialog.qml:109
+#: qml/Dialogs/OrganizerDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "처리할 PDF 파일을 하나 이상 추가"
 
-#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
+#: qml/Dialogs/OrganizerDialog.qml:112 qml/Dialogs/OrganizerDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "PDF 추가"
 
-#: qml/Dialogs/PdfFilesDialog.qml:127
+#: qml/Dialogs/OrganizerDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "총 쪽: %1쪽"
 
-#: qml/Dialogs/PdfFilesDialog.qml:138
+#: qml/Dialogs/OrganizerDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"

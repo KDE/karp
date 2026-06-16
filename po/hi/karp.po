@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-31 00:41+0000\n"
+"POT-Creation-Date: 2026-06-16 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -90,7 +90,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "आपके ईमेल"
 
-#: pdfeditmodel.cpp:525 qml/Bookmarks/OutlineDialog.qml:66
+#: pdfeditmodel.cpp:525 qml/Bookmarks/EditBookmarkDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "शीर्षक"
@@ -123,73 +123,24 @@ msgstr "निर्माण तिथि"
 msgid "Modification Date"
 msgstr "सुधार की तारीख"
 
-#: qml/Bookmarks/OutlineDialog.qml:21 qml/Bookmarks/TOCView.qml:163
-#, kde-format
-msgid "Edit Chapter"
-msgstr ""
-
-#: qml/Bookmarks/OutlineDialog.qml:34
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove"
-msgstr ""
-
-#: qml/Bookmarks/OutlineDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save"
-msgctxt "@action:button"
-msgid "Save"
-msgstr "बचाना"
-
-#: qml/Bookmarks/OutlineDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add PDF"
-msgctxt "@action:button"
-msgid "Add"
-msgstr "पीडीएफ जोड़ें"
-
-#: qml/Bookmarks/OutlineDialog.qml:48 qml/Dialogs/PdfFilesDialog.qml:143
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "रद्द करना"
-
-#: qml/Bookmarks/OutlineDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
-#, kde-format
-msgid "first"
-msgstr "पहला"
-
-#: qml/Bookmarks/OutlineDialog.qml:99
-#, kde-format
-msgctxt "Edited bookmark/chapter points to page"
-msgid "points to page"
-msgstr ""
-
-#: qml/Bookmarks/OutlineDialog.qml:114 qml/Dialogs/SelectPagesDialog.qml:88
-#, kde-format
-msgid "last"
-msgstr "अंतिम"
-
-#: qml/Bookmarks/TOCView.qml:120 qml/Bookmarks/TOCView.qml:121
+#: qml/Bookmarks/BookmarksView.qml:114 qml/Bookmarks/BookmarksView.qml:115
 #, kde-format
 msgid "Add Chapter"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:130
+#: qml/Bookmarks/BookmarksView.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Expand All"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:136
+#: qml/Bookmarks/BookmarksView.qml:130
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Collapse All"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:146
+#: qml/Bookmarks/BookmarksView.qml:140
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Clear all files"
@@ -197,40 +148,90 @@ msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
 msgstr "सभी फ़ाइलें साफ़ करें"
 
-#: qml/Bookmarks/TOCView.qml:168
+#: qml/Bookmarks/BookmarksView.qml:157 qml/Bookmarks/EditBookmarkDialog.qml:21
+#, kde-format
+msgid "Edit Chapter"
+msgstr ""
+
+#: qml/Bookmarks/BookmarksView.qml:162
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Above"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:176
+#: qml/Bookmarks/BookmarksView.qml:170
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Insert Below"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:186
+#: qml/Bookmarks/BookmarksView.qml:180
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Subsection"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:195
+#: qml/Bookmarks/BookmarksView.qml:189
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:203
+#: qml/Bookmarks/BookmarksView.qml:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
 msgstr ""
 
-#: qml/Bookmarks/TOCView.qml:219
+#: qml/Bookmarks/BookmarksView.qml:213
 #, kde-format
 msgid "Are you sure you want to remove all chapters?"
 msgstr ""
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr ""
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "बचाना"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add PDF"
+msgctxt "@action:button"
+msgid "Add"
+msgstr "पीडीएफ जोड़ें"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "रद्द करना"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:90 qml/Dialogs/SelectPagesDialog.qml:70
+#, kde-format
+msgid "first"
+msgstr "पहला"
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:99
+#, kde-format
+msgctxt "Edited bookmark/chapter points to page"
+msgid "points to page"
+msgstr ""
+
+#: qml/Bookmarks/EditBookmarkDialog.qml:114
+#: qml/Dialogs/SelectPagesDialog.qml:88
+#, kde-format
+msgid "last"
+msgstr "अंतिम"
 
 #: qml/Dialogs/ExportDialog.qml:10
 #, fuzzy, kde-format
@@ -314,58 +315,58 @@ msgctxt "Move page range after/before (number)"
 msgid "page"
 msgstr "पेज"
 
-#: qml/Dialogs/PdfFileDelegate.qml:61
+#: qml/Dialogs/OrganizerDelegate.qml:61
 #, kde-format
 msgid "%1 page"
 msgid_plural "%1 pages"
 msgstr[0] "%1 पृष्ठ"
 msgstr[1] "%1 पृष्ठ"
 
-#: qml/Dialogs/PdfFileDelegate.qml:75
+#: qml/Dialogs/OrganizerDelegate.qml:75
 #, kde-format
 msgid "Add all pages"
 msgstr "सभी पृष्ठ जोड़ें"
 
-#: qml/Dialogs/PdfFileDelegate.qml:83
+#: qml/Dialogs/OrganizerDelegate.qml:83
 #, kde-format
 msgid "Add selected pages"
 msgstr "चयनित पृष्ठ जोड़ें"
 
-#: qml/Dialogs/PdfFileDelegate.qml:92
+#: qml/Dialogs/OrganizerDelegate.qml:92
 #, kde-format
 msgid "Remove from list"
 msgstr "सूची से हटाएँ"
 
-#: qml/Dialogs/PdfFileDelegate.qml:105
+#: qml/Dialogs/OrganizerDelegate.qml:105
 #, kde-format
 msgid "Select pages to add"
 msgstr "जोड़ने के लिए पृष्ठ चुनें"
 
-#: qml/Dialogs/PdfFilesDialog.qml:19
+#: qml/Dialogs/OrganizerDialog.qml:19
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "पीडीएफ फाइलें जोड़ें और व्यवस्थित करें"
 
-#: qml/Dialogs/PdfFilesDialog.qml:109
+#: qml/Dialogs/OrganizerDialog.qml:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "आगे बढ़ने के लिए एक या अधिक PDF फ़ाइल जोड़ें"
 
-#: qml/Dialogs/PdfFilesDialog.qml:112 qml/Dialogs/PdfFilesDialog.qml:132
+#: qml/Dialogs/OrganizerDialog.qml:112 qml/Dialogs/OrganizerDialog.qml:132
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "पीडीएफ जोड़ें"
 
-#: qml/Dialogs/PdfFilesDialog.qml:127
+#: qml/Dialogs/OrganizerDialog.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "कुल पृष्ठ: %1"
 
-#: qml/Dialogs/PdfFilesDialog.qml:138
+#: qml/Dialogs/OrganizerDialog.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
