@@ -9,8 +9,6 @@ import org.kde.config as KConfig
 Kirigami.ApplicationWindow {
     id: mainWin
 
-    title: APP.name
-
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 20
 

@@ -17,7 +17,6 @@ class App : public AbstractKirigamiApplication
     QML_SINGLETON
 
     Q_PROPERTY(bool pdfLoaded READ pdfLoaded NOTIFY pdfLoadedChanged)
-    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString path READ path NOTIFY pathChanged)
     Q_PROPERTY(QString qpdfVersion READ qpdfVersion NOTIFY toolsVersionChanged)
     Q_PROPERTY(QString gsVersion READ gsVersion NOTIFY toolsVersionChanged)
@@ -42,9 +41,6 @@ public:
 
     bool pdfLoaded() const;
     void setPdfLoaded(bool isLoaded);
-
-    QString name() const;
-    void setName(const QString &pdfName);
 
     QString path() const;
     void setPath(const QString &pdfPath);
