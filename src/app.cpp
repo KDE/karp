@@ -4,7 +4,6 @@
 #include "app.h"
 #include "karpconfig.h"
 #include "pagerange.h"
-#include "pdfeditmodel.h"
 #include "toolsthread.h"
 #include <KAuthorized>
 #include <KLocalizedString>
@@ -136,11 +135,6 @@ void App::setCtrlPressed(bool ctrlOn)
         return;
     m_ctrlPressed = ctrlOn;
     Q_EMIT ctrlPressedChanged();
-}
-
-QColor App::alpha(const QColor &c, int alpha)
-{
-    return QColor(c.red(), c.green(), c.blue(), alpha);
 }
 
 PageRange App::range(int from, int to)

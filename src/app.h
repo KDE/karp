@@ -56,8 +56,6 @@ public:
     void setCtrlPressed(bool ctrlOn);
 
     // helpers
-    Q_INVOKABLE QColor alpha(const QColor &c, int alpha);
-
     Q_INVOKABLE PageRange range(int from, int to);
 
 Q_SIGNALS:
