@@ -98,7 +98,7 @@ GridView {
                 }
                 Rectangle {
                     anchors.fill: parent
-                    color: dropDelegate.selected ? APP.alpha(Kirigami.Theme.highlightColor, 32) : "transparent"
+                    color: dropDelegate.selected ? Qt.alpha(Kirigami.Theme.highlightColor, 0.125) : "transparent"
                 }
             }
             Rectangle {
