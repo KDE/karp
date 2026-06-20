@@ -32,7 +32,6 @@ QString App::getPdfFile()
 
     setPath(pdfFile);
     QFileInfo pdfFileInfo(pdfFile);
-    setName(pdfFileInfo.fileName());
     setPdfLoaded(true);
     return m_path;
 }
@@ -86,19 +85,6 @@ void App::setPdfLoaded(bool isLoaded)
         return;
     m_pdfLoaded = isLoaded;
     Q_EMIT pdfLoadedChanged();
-}
-
-QString App::name() const
-{
-    return m_name;
-}
-
-void App::setName(const QString &pdfName)
-{
-    if (pdfName == m_name)
-        return;
-    m_name = pdfName;
-    Q_EMIT nameChanged();
 }
 
 QString App::path() const
