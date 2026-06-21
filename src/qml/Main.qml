@@ -3,8 +3,8 @@
 
 import QtQuick
 import org.kde.kirigami as Kirigami
-import org.kde.karp
 import org.kde.config as KConfig
+import org.kde.karp
 
 Kirigami.ApplicationWindow {
     id: mainWin
@@ -20,19 +20,9 @@ Kirigami.ApplicationWindow {
         configGroupName: "main"
     }
 
-    Connections {
-        target: APP
-        function onWantSettings(): void {
-            if (!mainWin.settings)
-                mainWin.settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(mainWin, {
-                    window: mainWin
-                });
-            settings.open();
-        }
+    Actions {
+        pageRow: mainWin.pageStack
     }
-
-    // private
-    property SettingsPage settings
 
     pageStack.initialPage: MainPage {
         id: mainPage

@@ -61,16 +61,9 @@ Q_SIGNALS:
     void toolsVersionChanged();
     void toolIsMissing(const QString &);
     void ctrlPressedChanged();
-    // Main Actions
-    void wantClearAll();
-    void wantSettings();
-    // Main Page Actions
-    void wantOpenPdf();
 
 protected:
     void findToolsSlot();
-    void setupActions() override;
-
     bool eventFilter(QObject *obj, QEvent *ev) override;
 
 private:

@@ -60,6 +60,7 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"
 )
+find_package(KF6KirigamiAppComponents REQUIRED)
 
 ecm_set_disabled_deprecation_versions(QT 6.10.0
     KF 6.19.0
@@ -70,6 +71,7 @@ find_package(qpdf REQUIRED)
 qt_policy(SET QTP0001 NEW)
 
 ecm_find_qmlmodule(org.kde.kirigamiaddons.formcard 1.0)
+ecm_find_qmlmodule(org.kde.kirigami.actioncollection 1.0)
 
 if (ANDROID)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
