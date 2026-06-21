@@ -14,13 +14,13 @@ GridView {
 
     property bool pageIsDragged: false
     property int dragOverlay: 0
-    required property MainToolbar bottomBar
+    required property bool showLabels
+    required property bool multiSelect
 
     clip: true
     leftMargin: Kirigami.Units.largeSpacing
     rightMargin: Kirigami.Units.largeSpacing
     topMargin: Kirigami.Units.largeSpacing
-    bottomMargin: Kirigami.Units.largeSpacing + bottomBar.height
 
     displaced: Transition {
         NumberAnimation {
@@ -102,7 +102,7 @@ GridView {
                 }
             }
             Rectangle {
-                visible: pdfView.bottomBar.labelsVisible
+                visible: pdfView.showLabels
                 anchors.bottom: parent.bottom
                 height: Kirigami.Units.gridUnit * 2
                 width: pdfPage.width
@@ -159,13 +159,13 @@ GridView {
             }
 
             onClicked: {
-                pdfView.model.selectPage(dropDelegate.index, pdfView.currentIndex !== dropDelegate.index, pdfView.bottomBar.multiSelect);
+                pdfView.model.selectPage(dropDelegate.index, pdfView.currentIndex !== dropDelegate.index, pdfView.multiSelect);
                 pdfView.currentIndex = pdfView.currentIndex === dropDelegate.index ? -1 : dropDelegate.index;
             }
 
             states: [
                 State {
-                    when: (!pdfView.bottomBar.multiSelect && pdfPage.dragActive) || (pdfView.pageIsDragged && pdfView.bottomBar.multiSelect && dropDelegate.selected)
+                    when: (!pdfView.multiSelect && pdfPage.dragActive) || (pdfView.pageIsDragged && pdfView.multiSelect && dropDelegate.selected)
                     ParentChange {
                         target: pdfPage
                         parent: pdfView.contentItem

@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kirigami.actioncollection as Kirigami
 import org.kde.kirigamiaddons.components as Components
 import QtQuick.Layouts
 import org.kde.karp
@@ -14,142 +15,134 @@ Components.FloatingToolBar {
     id: root
 
     required property PdfEditModel pdfModel
-    property alias labelsVisible: labelsAction.checked
-    property alias multiSelect: selectAction.checked
-    property alias showBookmarks: bookmarkAction.checked
+    required property bool showBookmarks
+    required property bool multiSelect
+    required property bool showLabels
+
+    signal booksmarksToggled(bool checked)
+    signal labelsToggled(bool checked)
+
+    component ActionToolButton: QQC2.ToolButton {
+        display: QQC2.ToolButton.IconOnly
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    }
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.smallSpacing
 
-        QQC2.ToolButton {
-            text: i18nc("@action:intoolbar", "Select pages to delete")
-            display: QQC2.ToolButton.IconOnly
-            icon {
-                name: "edit-delete"
-                color: "red"
-            }
+        ActionToolButton {
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "multi-delete"
 
-            onClicked: {
-                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
-                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
-                delDlgComp.createObject(null, {
-                    range: APP.range(from, to)
-                });
-            }
-
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        QQC2.ToolButton {
-            icon.name: "object-rotate-right"
-            text: i18nc("@action:intoolbar", "Select pages to rotate")
-            display: QQC2.ToolButton.IconOnly
-            onClicked: {
-                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
-                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
-                rotDlgComp.createObject(null, {
-                    range: APP.range(from, to)
-                });
-            }
-
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        QQC2.ToolButton {
-            text: i18nc("@action:intoolbar", "Select pages to move")
-            display: QQC2.ToolButton.IconOnly
-            icon.name: "transform-move"
-            onClicked: {
-                let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
-                let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
-                mvDlgComp.createObject(null, {
-                    range: APP.range(from, to)
-                });
-            }
-
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        QQC2.ToolButton {
-            id: bookmarkAction
-            text: i18nc("@action:intoolbar", "Table of Contents (Bookmarks)")
-            display: QQC2.ToolButton.IconOnly
-            icon.name: "bookmark-toolbar"
-            checkable: true
-            onClicked: root.showBookmarks = bookmarkAction.checked // override default binding to prefer user want to see bookmark pane
-
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        QQC2.ToolButton {
-            id: selectAction
-
-            text: i18nc("@action:intoolbar", "Multiple pages selection")
-            display: QQC2.ToolButton.IconOnly
-            icon.name: "view-pages-overview"
-            icon.color: checked ? Kirigami.Theme.highlightColor : undefined
-            checkable: true
-            checked: APP.ctrlPressed
-
-            onClicked: {
-                if (checked) {
-                    checked = true;
-                } else {
-                    let currPage = pdfView.currentIndex > -1 ? pdfView.currentIndex : 0;
-                    root.pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false);
-                    checked = Qt.binding(() => APP.ctrlPressed);
+                onTriggered: {
+                    let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
+                    let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
+                    delDlgComp.createObject(null, {
+                        range: APP.range(from, to)
+                    });
                 }
             }
-
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
 
-        QQC2.ToolButton {
+        ActionToolButton {
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "multi-rotate"
+
+                onTriggered: {
+                    let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
+                    let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
+                    rotDlgComp.createObject(null, {
+                        range: APP.range(from, to)
+                    });
+                }
+            }
+        }
+
+        ActionToolButton {
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "multi-move"
+
+                onTriggered: {
+                    let from = root.pdfModel.firstSelected ? root.pdfModel.firstSelected : 1;
+                    let to = root.pdfModel.lastSelected ? root.pdfModel.lastSelected : 1;
+                    mvDlgComp.createObject(null, {
+                        range: APP.range(from, to)
+                    });
+                }
+            }
+        }
+
+        ActionToolButton {
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "toggle-bookmarks-pane"
+
+                checkable: true
+                checked: root.showBookmarks
+
+                onToggled: root.booksmarksToggled(checked)
+            }
+        }
+
+        ActionToolButton {
+            id: selectAction
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "toggle-multi-select"
+
+                checkable: true
+                checked: root.multiSelect
+
+                onToggled: {
+                    if (checked) {
+                        checked = true;
+                    } else {
+                        let currPage = pdfView.currentIndex > -1 ? pdfView.currentIndex : 0;
+                        root.pdfModel.selectPage(currPage, pdfView.currentIndex > -1, false);
+                        checked = Qt.binding(() => APP.ctrlPressed);
+                    }
+                }
+            }
+        }
+
+        ActionToolButton {
             id: labelsAction
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "toggle-page-labels"
 
-            text: i18nc("@action:intoolbar", "Show page labels")
-            display: QQC2.ToolButton.IconOnly
-            icon.name: "label"
-            checkable: true
-            checked: true
+                checkable: true
+                checked: root.showLabels
 
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                onTriggered:  root.labelsToggled(checked);
+                
+            }
         }
 
-        QQC2.ToolButton {
-            text: i18nc("@action:intoolbar", "Zoom Out")
-            icon.name: "zoom-out"
-            display: QQC2.ToolButton.IconOnly
-            onClicked: root.pdfModel.zoomOut()
-            enabled: root.pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
-
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-
-        QQC2.ToolButton {
-            text: i18nc("@action:intoolbar", "Zoom In")
-            icon.name: "zoom-in"
-            onClicked: root.pdfModel.zoomIn()
+        ActionToolButton {
             enabled: root.pdfModel.columns > 1
-            display: QQC2.ToolButton.IconOnly
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "zoom-in"
 
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                onTriggered: root.pdfModel.zoomIn()
+            }
+        }
+
+        ActionToolButton {
+            enabled: root.pdfModel.maxPageWidth > Kirigami.Units.gridUnit * 7
+            action: Kirigami.Action {
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "zoom-out"
+
+                onTriggered: root.pdfModel.zoomOut()
+            }
         }
 
         QQC2.SpinBox {

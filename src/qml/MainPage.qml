@@ -17,6 +17,14 @@ Kirigami.Page {
     id: page
 
     property alias pdfModel: pdfModel
+    property bool showBookmarks: false
+    property bool showLabels: false
+    property bool multiSelect: APP.ctrlPressed
+
+    topPadding: 0
+    rightPadding: 0
+    leftPadding: 0
+    bottomPadding: 0
 
     FontMetrics {
         id: nameElided
@@ -58,11 +66,10 @@ Kirigami.Page {
             icon.color: pdfModel.labelColor(0)
         },
         Kirigami.Action {
-            id: exportAction
+            Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+            Kirigami.ActionCollection.action: "export"
             visible: pdfModel.pageCount
             enabled: pdfModel.edited
-            text: i18nc("@action:inmenu", "Export Document")
-            icon.name: "document-export"
             //TODO: what to do with KarpConf.askForOutFile
             onTriggered: {
                 Qt.createComponent("org.kde.karp", "ExportDialog").createObject(page, {
@@ -76,11 +83,6 @@ Kirigami.Page {
             onTriggered: page.openSettings()
         }
     ]
-
-    topPadding: 0
-    rightPadding: 0
-    leftPadding: 0
-    bottomPadding: 0
 
     InitialInfo {
         z: 600000
@@ -111,9 +113,10 @@ Kirigami.Page {
         }
 
         BookmarksView {
-            id: outlines
+            id: bookmarksView
 
-            visible: bottomBar.showBookmarks
+            visible: page.showBookmarks
+
             QQC2.SplitView.fillHeight: true
             QQC2.SplitView.preferredWidth: Kirigami.Units.gridUnit * 15
             QQC2.SplitView.minimumWidth: Kirigami.Units.gridUnit * 5
@@ -122,24 +125,24 @@ Kirigami.Page {
             onBookmarkSelected: pageNr => {
                 pdfView.positionViewAtIndex(pageNr, GridView.Center);
             }
-            onTocAboutToClear: {
-                bottomBar.showBookmarks = true; // override bindings to keep pane visible
-            }
         }
 
         PdfView {
             id: pdfView
-
             visible: pdfModel.pageCount
+            
             QQC2.SplitView.fillWidth: true
             QQC2.SplitView.minimumWidth: splitView.width / 2
             QQC2.SplitView.fillHeight: true
 
+            model: pdfModel
+            showLabels: page.showLabels
+            multiSelect: page.multiSelect
+            
             cellWidth: pdfModel.maxPageWidth + pdfModel.spacing
             cellHeight: pdfModel.maxPageHeight + pdfModel.spacing
 
-            bottomBar: bottomBar
-            model: pdfModel
+            bottomMargin: Kirigami.Units.largeSpacing + bookmarksView.height
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
@@ -153,7 +156,13 @@ Kirigami.Page {
         x: pdfView.x + (pdfView.width - width) / 2
         z: 600000
         parent: page.overlay
-        showBookmarks: outlines.rows > 0
+
+        showBookmarks: page.showBookmarks
+        showLabels: page.showLabels
+        multiSelect: page.multiSelect
+
+        onBooksmarksToggled: checked => page.showBookmarks = checked
+        onLabelsToggled: checked => page.showLabels = checked
 
         anchors {
             bottom: parent.bottom
@@ -214,7 +223,7 @@ Kirigami.Page {
                 pdfEdit: pdfModel,
                 initFiles: pdfFiles
             });
-        outlines.model = pdfModel.getBookmarkModel();
+        bookmarksView.model = pdfModel.getBookmarkModel();
     }
 
     function openOrganizerDialog(): void {
@@ -233,7 +242,6 @@ Kirigami.Page {
     }
     function clearAll() {
         pdfModel.clearAll();
-        bottomBar.showBookmarks = false;
     }
     function openSettings(): void {
         const settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(page);
