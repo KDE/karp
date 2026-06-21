@@ -8,6 +8,8 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigami.controls as Kirigami
+import org.kde.kirigami.actioncollection as Kirigami
+
 import org.kde.karp
 import org.kde.karp.config
 
@@ -15,10 +17,6 @@ Kirigami.Page {
     id: page
 
     property alias pdfModel: pdfModel
-    function clearAll() {
-        pdfModel.clearAll();
-        bottomBar.showBookmarks = false;
-    }
 
     FontMetrics {
         id: nameElided
@@ -31,12 +29,15 @@ Kirigami.Page {
         alignment: Qt.AlignLeft
         actions: [
             Kirigami.Action {
-                fromQAction: APP.action("open_pdf")
-                text: i18nc("@action:inmenu", "Add files")
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "open_pdf"
+                onTriggered: page.openOrganizerDialog()
             },
             Kirigami.Action {
-                fromQAction: APP.action('clear_all')
+                Kirigami.ActionCollection.collection: "org.kde.karp.actions"
+                Kirigami.ActionCollection.action: "clear_all"
                 enabled: pdfModel.pageCount
+                onTriggered: page.clearAll()
             }
         ]
     }
@@ -70,7 +71,9 @@ Kirigami.Page {
             }
         },
         Kirigami.Action {
-            fromQAction: APP.action('options_configure')
+            Kirigami.ActionCollection.collection: "org.kde.globalactions"
+            Kirigami.ActionCollection.action: "Preferences"
+            onTriggered: page.openSettings()
         }
     ]
 
@@ -190,24 +193,6 @@ Kirigami.Page {
                 text: warn
             });
         }
-        // Actions
-        function onWantOpenPdf(): void {
-            const fileDlgComp = Qt.createComponent("org.kde.karp", "OrganizerDialog");
-            if (fileDlgComp.status !== Component.Ready) {
-                console.error(fileDlgComp.errorString());
-                return;
-            }
-            // pdfView.selectionModel.clearCurrentIndex()
-            // Workaround to avoid stilling drag by pdfView during PDF reorder
-            contentItem.enabled = false;
-            let fileDlgObj = fileDlgComp.createObject(page, {
-                pdfEdit: pdfModel
-            });
-            fileDlgObj.closed.connect(() => contentItem.enabled = true);
-        }
-        function onWantClearAll(): void {
-            page.clearAll();
-        }
     }
 
     Component {
@@ -230,5 +215,28 @@ Kirigami.Page {
                 initFiles: pdfFiles
             });
         outlines.model = pdfModel.getBookmarkModel();
+    }
+
+    function openOrganizerDialog(): void {
+        const fileDlgComp = Qt.createComponent("org.kde.karp", "OrganizerDialog");
+        if (fileDlgComp.status !== Component.Ready) {
+            console.error(fileDlgComp.errorString());
+            return;
+        }
+        // pdfView.selectionModel.clearCurrentIndex()
+        // Workaround to avoid stilling drag by pdfView during PDF reorder
+        contentItem.enabled = false;
+        let fileDlgObj = fileDlgComp.createObject(page, {
+            pdfEdit: pdfModel
+        });
+        fileDlgObj.closed.connect(() => contentItem.enabled = true);
+    }
+    function clearAll() {
+        pdfModel.clearAll();
+        bottomBar.showBookmarks = false;
+    }
+    function openSettings(): void {
+        const settings = Qt.createComponent("org.kde.karp", "SettingsPage").createObject(page);
+        settings.open();
     }
 }

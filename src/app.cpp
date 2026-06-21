@@ -17,7 +17,6 @@ using namespace Qt::Literals::StringLiterals;
 App::App(QObject *parent)
     : AbstractKirigamiApplication(parent)
 {
-    setupActions();
     qApp->installEventFilter(this);
     m_tools = new ToolsThread();
     connect(m_tools, &ToolsThread::lookingDone, this, &App::findToolsSlot);
@@ -146,35 +145,6 @@ void App::findToolsSlot()
         Q_EMIT toolIsMissing(message);
     }
     Q_EMIT toolsVersionChanged();
-}
-
-void App::setupActions()
-{
-    AbstractKirigamiApplication::setupActions();
-
-    auto actionName = "open_pdf"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantOpenPdf);
-        action->setText(i18nc("@action:inmenu", "Add PDF files"));
-        action->setIcon(QIcon::fromTheme(u"list-add"_s));
-        action->setToolTip(action->text());
-        mainCollection()->addAction(action->objectName(), action);
-        mainCollection()->setDefaultShortcut(action, QKeySequence::StandardKey::Open);
-    }
-
-    actionName = "clear_all"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = mainCollection()->addAction(actionName, this, &App::wantClearAll);
-        action->setText(i18nc("@action:inmenu", "Clear all files"));
-        action->setIcon(QIcon::fromTheme(u"edit-clear-all"_s));
-        mainCollection()->addAction(action->objectName(), action);
-    }
-
-    actionName = "options_configure"_L1;
-    if (KAuthorized::authorizeAction(actionName)) {
-        auto action = KStandardActions::preferences(this, &App::wantSettings, this);
-        mainCollection()->addAction(action->objectName(), action);
-    }
 }
 
 bool App::eventFilter(QObject *obj, QEvent *ev)

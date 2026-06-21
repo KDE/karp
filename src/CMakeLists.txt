@@ -17,6 +17,7 @@ qt_add_qml_module(karp
     URI org.kde.karp
     QML_FILES
         qml/Main.qml
+        qml/Actions.qml
         qml/MainPage.qml
         qml/MainToolbar.qml
         qml/EditDelegate.qml
@@ -100,6 +101,7 @@ target_link_libraries(karp
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::Kirigami
+    KF6::KirigamiActionCollection
     KirigamiAddonsStatefulApp
     qpdf::libqpdf
 )
