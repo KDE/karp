@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-16 00:41+0000\n"
-"PO-Revision-Date: 2026-04-19 17:26+0200\n"
+"PO-Revision-Date: 2026-06-24 17:37+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -230,11 +230,10 @@ msgid "last"
 msgstr "ultime"
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "Optiones de PDF"
+msgstr "Optiones de exportar"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -243,9 +242,7 @@ msgid "Optimize PDF"
 msgstr "Optimiza PDF"
 
 #: qml/Dialogs/ExportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Reduce size"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Reduce grandor"
@@ -257,20 +254,16 @@ msgid "PDF Version"
 msgstr "Version de PDF"
 
 #: qml/Dialogs/ExportDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Set password"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr "Fixa contrasigno"
+msgstr "Contrasigno"
 
 #: qml/Dialogs/ExportDialog.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "PDF metadata"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
-msgstr "Metadatos de PDF"
+msgstr "Modifica Metadatos de PDF"
 
 #: qml/Dialogs/MovePagesDialog.qml:44 qml/Dialogs/SelectPagesDialog.qml:65
 #, kde-format
@@ -419,12 +412,10 @@ msgid "all pages out of range"
 msgstr "tote paginas foras de extension"
 
 #: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add files"
-msgstr "Adde files PDF"
+msgstr "Adde Files..."
 
 #: qml/MainPage.qml:48
 #, kde-format
@@ -437,7 +428,7 @@ msgstr[1] "files"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Export Document"
-msgstr ""
+msgstr "Exporta  documento"
 
 #: qml/MainToolbar.qml:25
 #, kde-format
