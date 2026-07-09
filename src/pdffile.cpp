@@ -13,12 +13,16 @@ PdfFile::PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s)
     setFile(pdfFileName);
 }
 
-void PdfFile::setFile(const QString &fileName)
+PdfFile::~PdfFile()
+{
+}
+
+void PdfFile::setFile(const QString &fileName, const QByteArray &ownerPassword, const QByteArray &userPassword)
 {
     QFileInfo pdfInfo(fileName);
     m_dir = pdfInfo.canonicalPath() + QDir::separator();
     m_name = pdfInfo.fileName();
-    m_document = Poppler::Document::load(fileName);
+    m_document = Poppler::Document::load(fileName, ownerPassword, userPassword);
     // TODO: Handle errors
     if (m_document) {
         m_range.setTo(m_document->numPages());
@@ -38,6 +42,7 @@ void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageI
     }
     QImage image = page->renderToImage(72.0, 72.0, 0, 0, pageSize.width(), pageSize.height());
     pdfPage->setImage(image);
+    Q_EMIT pageRendered(pageId, pdfPage);
 }
 
 #include "moc_pdffile.cpp"
