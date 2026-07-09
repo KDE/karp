@@ -19,6 +19,7 @@ include(FeatureSummary)
 set(QT6_MIN_VERSION 6.8.0)
 set(KF6_MIN_VERSION 6.0.0)
 set(KIRIGAMI_ADDONS_MIN_VERSION 1.5.0)
+set(POPPLER_VERSION  26.01)
 
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -64,6 +65,11 @@ find_package(KF6KirigamiAppComponents REQUIRED)
 
 ecm_set_disabled_deprecation_versions(QT 6.10.0
     KF 6.19.0
+)
+
+find_package(Poppler ${POPPLER_VERSION} REQUIRED COMPONENTS Qt6)
+set_package_properties(Poppler PROPERTIES
+    PURPOSE "Required for PDF rendering"
 )
 
 find_package(qpdf REQUIRED)

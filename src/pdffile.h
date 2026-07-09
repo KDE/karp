@@ -4,10 +4,8 @@
 #pragma once
 
 #include "pagerange.h"
-#include <QPdfDocument>
+#include <poppler/qt6/poppler-qt6.h>
 
-class QPdfPageRenderer;
-class QThread;
 class PdfPage;
 
 #define NO_PAGE_ID (65535)
@@ -18,10 +16,8 @@ class PdfPage;
  * It render pages in separate thread with @p QPdfPageRenderer
  * and collects queries for rendering pages.
  */
-class PdfFile : public QPdfDocument
+class PdfFile
 {
-    Q_OBJECT
-
 public:
     enum PdfFileFlags : quint8 {
         PdfNotAdded = 0, /**< Initial state when file was not yet loaded to the model */
@@ -31,7 +27,6 @@ public:
     };
 
     PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s = PdfNotAdded);
-    ~PdfFile() override;
 
     void setFile(const QString &fileName);
 
@@ -81,39 +76,22 @@ public:
         return m_range;
     }
 
+    Poppler::Document *document()
+    {
+        return m_document.get();
+    }
+
     /**
      * Request rendering image for @p pdfPage of @p pageId in pages list.
      * Saves rendered @p QImage and emits @p pageRendered() when ready.
      */
     void requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId);
 
-Q_SIGNALS:
-    void pageRendered(quint16, PdfPage *);
-
-protected:
-    void requestPageSlot(int pageNumber, QSize imageSize, const QImage &img);
-
-    struct PageToRender {
-        PdfPage *pdfPage = nullptr;
-        quint16 pageId = NO_PAGE_ID;
-        QSize size;
-        PageToRender(PdfPage *p, quint16 id, const QSize &s)
-            : pdfPage(p)
-            , pageId(id)
-            , size(s)
-        {
-        }
-    };
-
-    void threadSlot();
-
 private:
-    QThread *m_thread;
     quint16 m_refFileId = 0;
     PdfFileFlags m_state = PdfNotAdded;
-    QPdfPageRenderer *m_renderer = nullptr;
     QString m_dir;
     QString m_name;
     PageRange m_range;
-    QVector<PageToRender> m_pagesToRender;
+    std::unique_ptr<Poppler::Document> m_document;
 };
