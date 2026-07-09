@@ -8,7 +8,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
-class PdfFile;
+class PdfDocument;
 class PdfMetaData;
 class BookmarkModel;
 class QPDF;
@@ -57,15 +57,15 @@ public:
 
     Q_INVOKABLE void loadPdfFile(const QString &pdfFile);
 
-    void prependPdfs(const QVector<PdfFile *> &pdfList);
-    void appendPdfs(const QVector<PdfFile *> &pdfList);
+    void prependPdfs(const QVector<PdfDocument *> &pdfList);
+    void appendPdfs(const QVector<PdfDocument *> &pdfList);
 
     int pageCount() const
     {
         return m_pages;
     }
 
-    QVector<PdfFile *> &pdfs();
+    QVector<PdfDocument *> &pdfs();
     int pdfCount() const
     {
         return m_pdfList.count();
@@ -236,11 +236,11 @@ protected:
 
     void pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage);
 
-    void appendPdfFileToModel(PdfFile *pdf);
-    void appendPdfPages(PdfFile *pdf);
+    void appendPdfFileToModel(PdfDocument *pdf);
+    void appendPdfPages(PdfDocument *pdf);
 
-    void prependPdfFileToModel(PdfFile *pdf);
-    void prependPdfPages(PdfFile *pdf);
+    void prependPdfFileToModel(PdfDocument *pdf);
+    void prependPdfPages(PdfDocument *pdf);
 
     void addPagesToModel(int pagesToAdd);
 
@@ -252,7 +252,7 @@ protected:
      * Checks creation time of added PDF and sets it
      * if it is older than metadata @p PdfMetaData has set
      */
-    void updateCreationTimeInMetadata(PdfFile *pdf);
+    void updateCreationTimeInMetadata(PdfDocument *pdf);
 
     /**
      * Set selected page range @p from @p to and update pages with @p RoleSelected.
@@ -277,7 +277,7 @@ Q_SIGNALS:
 
 private:
     static PdfEditModel *m_self;
-    QVector<PdfFile *> m_pdfList;
+    QVector<PdfDocument *> m_pdfList;
     QVector<PdfPage *> m_pageList;
     int m_pages = 0;
     int m_columns = 0;

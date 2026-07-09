@@ -66,8 +66,8 @@ target_sources(karp PUBLIC
     bookmarkmodel.cpp
     pdfpage.h
     pdfpage.cpp
-    pdffile.h
-    pdffile.cpp
+    pdfdocument.h
+    pdfdocument.cpp
     pdfmetadata.h
     pdfmetadata.cpp
     pdfeditmodel.h

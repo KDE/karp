@@ -3,8 +3,8 @@
 
 #include "qpdfproxy.h"
 #include "karp_debug.h"
+#include "pdfdocument.h"
 #include "pdfeditmodel.h"
-#include "pdffile.h"
 #include "pdfmetadata.h"
 #include <QDir>
 #include <QStandardPaths>
@@ -166,7 +166,7 @@ void QpdfProxy::threadSlot()
 
 void QpdfProxy::appendRangeToJob(const QVector<quint16> &range, QPDFJob::PagesConfig *qpdfPages, bool isFirst)
 {
-    PdfFile *pdf = nullptr;
+    PdfDocument *pdf = nullptr;
     QString pRange;
     std::string file, pass;
     if (isFirst) {

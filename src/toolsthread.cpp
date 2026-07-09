@@ -4,8 +4,8 @@
 #include "toolsthread.h"
 #include "karp_debug.h"
 #include "karpconfig.h"
+#include "pdfdocument.h"
 #include "pdfeditmodel.h"
-#include "pdffile.h"
 #include "qpdfproxy.h"
 #include "version-karp.h"
 #include <QDir>

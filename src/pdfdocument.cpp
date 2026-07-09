@@ -1,23 +1,23 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 // SPDX-FileCopyrightText: 2024 by Tomasz Bojczuk <seelook@gmail.com>
 
-#include "pdffile.h"
+#include "pdfdocument.h"
 #include "pdfpage.h"
 #include <QDir>
 #include <QFileInfo>
 
-PdfFile::PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s)
+PdfDocument::PdfDocument(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s)
     : m_refFileId(refFileId)
     , m_state(s)
 {
     setFile(pdfFileName);
 }
 
-PdfFile::~PdfFile()
+PdfDocument::~PdfDocument()
 {
 }
 
-void PdfFile::setFile(const QString &fileName, const QByteArray &ownerPassword, const QByteArray &userPassword)
+void PdfDocument::setFile(const QString &fileName, const QByteArray &ownerPassword, const QByteArray &userPassword)
 {
     QFileInfo pdfInfo(fileName);
     m_dir = pdfInfo.canonicalPath() + QDir::separator();
@@ -29,7 +29,7 @@ void PdfFile::setFile(const QString &fileName, const QByteArray &ownerPassword, 
     }
 }
 
-void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId)
+void PdfDocument::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId)
 {
     Q_UNUSED(pageId);
     Q_UNUSED(pageSize)
@@ -46,4 +46,4 @@ void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageI
     Q_EMIT pageRendered(pageId, pdfPage);
 }
 
-#include "moc_pdffile.cpp"
+#include "moc_pdfdocument.cpp"

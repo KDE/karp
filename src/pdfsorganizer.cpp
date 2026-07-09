@@ -23,8 +23,8 @@ PdfListModel::PdfListModel(QObject *parent)
 
 int PdfListModel::appendFile(const QString &pdfFile)
 {
-    auto newPdf = new PdfFile(pdfFile, m_rows);
-    if (newPdf->document() == nullptr) {
+    auto newPdf = new PdfDocument(pdfFile, m_rows);
+    if (!newPdf->isValid()) {
         newPdf->deleteLater();
         return 0;
     }
@@ -32,16 +32,16 @@ int PdfListModel::appendFile(const QString &pdfFile)
     beginInsertRows(QModelIndex(), m_rows, m_rows);
     m_rows++;
     endInsertRows();
-    return newPdf->document()->numPages();
+    return newPdf->pageCount();
 }
 
-int PdfListModel::appendPdfFile(PdfFile *pdf)
+int PdfListModel::appendPdfFile(PdfDocument *pdf)
 {
     m_pdfFiles << pdf;
     beginInsertRows(QModelIndex(), m_rows, m_rows);
     m_rows++;
     endInsertRows();
-    return pdf->document()->numPages();
+    return pdf->pageCount();
 }
 
 int PdfListModel::rowCount(const QModelIndex &parent) const
@@ -58,9 +58,9 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
     case RoleFileName:
         return m_pdfFiles[index.row()]->name();
     case RolePageCount:
-        return m_pdfFiles[index.row()]->document()->numPages();
+        return m_pdfFiles[index.row()]->pageCount();
     case RoleLocked:
-        return m_pdfFiles[index.row()]->state() == PdfFile::PdfLoaded;
+        return m_pdfFiles[index.row()]->state() == PdfDocument::PdfLoaded;
     case RoleAllPages:
         return m_pdfFiles[index.row()]->range().type() == PageRange::AllInRange;
     default:
@@ -111,12 +111,12 @@ int PdfListModel::setPdfPassword(int fileId, const QString &pass)
         return 0;
     auto pdf = getPdfFile(fileId);
     pdf->setFile(pdf->filePath(), pass.toLatin1(), pass.toLatin1());
-    if (pdf->document()->isLocked()) {
+    if (pdf->isLocked()) {
         remove(fileId);
         return 0;
     }
     Q_EMIT dataChanged(index(fileId, 0), index(fileId, 0), QList<int>() << RolePageCount);
-    return pdf->document()->numPages();
+    return pdf->pageCount();
 }
 // #################################################################################################
 // ###################            PdfsOrganizer         ############################################
@@ -162,7 +162,7 @@ void PdfsOrganizer::setEditModel(const QVariant &edMod)
     }
     Q_EMIT editModelChanged();
 
-    m_totalPages += std::accumulate(m_editModel->pdfs().cbegin(), m_editModel->pdfs().cend(), 0, [&](int tp, PdfFile *pdfFile) {
+    m_totalPages += std::accumulate(m_editModel->pdfs().cbegin(), m_editModel->pdfs().cend(), 0, [&](int tp, PdfDocument *pdfFile) {
         return tp + m_fileModel->appendPdfFile(pdfFile);
     });
     Q_EMIT fileModelChanged();
@@ -196,16 +196,16 @@ void PdfsOrganizer::applyNewFiles()
 {
     int idOfFirstLoaded = -1;
     for (int p = 0; p < m_fileModel->rows(); ++p) {
-        if (m_fileModel->getPdfFile(p)->state() == PdfFile::PdfLoaded) {
+        if (m_fileModel->getPdfFile(p)->state() == PdfDocument::PdfLoaded) {
             idOfFirstLoaded = p;
             break;
         }
     }
 
-    QVector<PdfFile *> filesToAppend, filesToPrepend;
+    QVector<PdfDocument *> filesToAppend, filesToPrepend;
     for (int p = 0; p < m_fileModel->rows(); ++p) {
         auto pdf = m_fileModel->getPdfFile(p);
-        if (pdf->state() == PdfFile::PdfNotAdded) {
+        if (pdf->state() == PdfDocument::PdfNotAdded) {
             if (p < idOfFirstLoaded)
                 filesToPrepend << pdf;
             else
@@ -240,7 +240,7 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
     for (const auto &pdfFile : pdfList) {
         m_totalPages += m_fileModel->appendFile(pdfFile);
         auto pdf = m_fileModel->lastPdf();
-        if (pdf->document()->isLocked()) {
+        if (pdf->isLocked()) {
             bool askForPass = m_passFiles.isEmpty();
             m_passFiles << m_fileModel->rows() - 1;
             if (askForPass) {
