@@ -32,6 +32,7 @@ void PdfFile::setFile(const QString &fileName, const QByteArray &ownerPassword, 
 void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId)
 {
     Q_UNUSED(pageId);
+    Q_UNUSED(pageSize)
 
     if (!m_document) {
         return;
@@ -40,7 +41,7 @@ void PdfFile::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageI
     if (!page) {
         return;
     }
-    QImage image = page->renderToImage(72.0, 72.0, 0, 0, pageSize.width(), pageSize.height());
+    QImage image = page->renderToImage();
     pdfPage->setImage(image);
     Q_EMIT pageRendered(pageId, pdfPage);
 }

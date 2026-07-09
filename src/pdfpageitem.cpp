@@ -17,14 +17,17 @@ QVariant PdfPageItem::image() const
 void PdfPageItem::setImage(const QVariant &img)
 {
     m_image = qvariant_cast<QImage>(img);
-    setSize(m_image.size());
     update();
 }
 
 void PdfPageItem::paint(QPainter *painter)
 {
+    QImage fittedImage = m_image.scaled(width(), height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    qreal xOff = (width() - fittedImage.width()) / 2;
+    qreal yOff = (height() - fittedImage.height()) / 2;
+
     painter->fillRect(0, 0, width() - 1, height() - 1, Qt::white);
-    painter->drawImage(0, 0, m_image);
+    painter->drawImage(xOff, yOff, fittedImage);
 }
 
 #include "moc_pdfpageitem.cpp"
