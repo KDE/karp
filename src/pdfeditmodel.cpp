@@ -71,16 +71,16 @@ PdfEditModel::~PdfEditModel()
 
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
 {
-    auto newPdf = new PdfFile(pdfFile, pdfCount());
-    if (!(newPdf->error() == QPdfDocument::Error::None || newPdf->error() == QPdfDocument::Error::IncorrectPassword)) {
-        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile << newPdf->error();
-        newPdf->deleteLater();
+    auto file = new PdfFile(pdfFile, pdfCount());
+    if (file->document() == nullptr) {
+        qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile;
+        file->deleteLater();
         return;
     }
-    appendPdfFileToModel(newPdf);
-    updateCreationTimeInMetadata(newPdf);
+    appendPdfFileToModel(file);
+    updateCreationTimeInMetadata(file);
     karpConfig::self()->setLastDir(m_pdfList.last()->dir());
-    m_bookmarks->appendPdf(newPdf);
+    // m_bookmarks->appendPdf(file); // FIXME
 }
 
 void PdfEditModel::prependPdfs(const QVector<PdfFile *> &pdfList)
@@ -95,9 +95,11 @@ void PdfEditModel::prependPdfs(const QVector<PdfFile *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
-    for (auto &pdf : pdfList) {
+    /*
+       for (auto &pdf : pdfList) {
         m_bookmarks->prependPdf(pdf);
     }
+    */
 }
 
 void PdfEditModel::appendPdfs(const QVector<PdfFile *> &pdfList)
@@ -111,9 +113,11 @@ void PdfEditModel::appendPdfs(const QVector<PdfFile *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
+    /*
     for (auto &pdf : pdfList) {
         m_bookmarks->appendPdf(pdf);
     }
+    */
 }
 
 QVector<PdfFile *> &PdfEditModel::pdfs()
@@ -152,7 +156,7 @@ qreal PdfEditModel::maxPageHeight() const
 {
     if (m_pdfList.isEmpty())
         return 1.0;
-    auto pageSize = m_pdfList.first()->pagePointSize(0);
+    auto pageSize = m_pdfList.first()->document()->page(0)->pageSize();
     return m_maxPageWidth * (pageSize.height() / pageSize.width());
 }
 
@@ -261,7 +265,7 @@ void PdfEditModel::zoomOut()
 // TODO argument for PDF id
 QDateTime PdfEditModel::creationDate() const
 {
-    return m_pdfList.first()->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
+    return m_pdfList.first()->document()->creationDate();
 }
 
 void PdfEditModel::rotatePage(int pageId, int angle)
@@ -542,10 +546,9 @@ QVariantList PdfEditModel::getMetaDataModel(int fileId) const
     if (m_pdfList.isEmpty() || fileId >= pdfCount() || fileId < 0)
         return mdm;
 
-    auto pdf = m_pdfList[fileId];
-    for (int i = 0; i <= static_cast<int>(QPdfDocument::MetaDataField::ModificationDate); ++i) {
-        auto fieldType = static_cast<QPdfDocument::MetaDataField>(i);
-        mdm << pdf->metaData(fieldType);
+    auto pdf = m_pdfList[fileId]->document();
+    for (auto key : pdf->infoKeys()) {
+        mdm << pdf->info(key);
     }
     return mdm;
 }
@@ -657,10 +660,9 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     if (fileId < 0 || fileId >= pdfCount())
         return;
     auto pdf = m_pdfList[fileId];
-    pdf->setPassword(pass);
-    pdf->setFile(pdf->filePath());
-    if (pdf->error() != QPdfDocument::Error::None) {
-        qCDebug(KARP_LOG) << "[PdfEditModel] Wrong password!" << pdf->error();
+    pdf->setFile(pdf->filePath(), pass.toLatin1(), pass.toLatin1());
+    if (pdf->document()->isLocked()) {
+        qCDebug(KARP_LOG) << "[PdfEditModel] Wrong password!";
         m_pdfList.remove(fileId);
         pdf->deleteLater();
     } else {
@@ -739,7 +741,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue(QImage());
         if (pPage->nullImage()) {
             // TODO: find current screen
-            QSizeF pSize = pdf->pagePointSize(pPage->origPage());
+            QSizeF pSize = pdf->document()->page(pPage->origPage())->pageSize();
             qreal pageRatio = pSize.height() / pSize.width();
             pdf->requestPage(pPage, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
         }
@@ -755,7 +757,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     case RolePageRatio: {
         if (!pdf || !pPage)
             return 1;
-        auto pageSize = pdf->pagePointSize(pPage->origPage());
+        auto pageSize = pdf->document()->page(pPage->origPage())->pageSize();
         return pageSize.height() / pageSize.width();
     }
     case RoleFileId:
@@ -825,7 +827,7 @@ void PdfEditModel::appendPdfFileToModel(PdfFile *pdf)
     m_pdfList << pdf;
     pdf->setState(PdfFile::PdfLoaded); // TODO = handle other states
     connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
-    if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
+    if (pdf->document()->isLocked()) {
         // It occurs only when app is called with one file argument
         Q_EMIT passwordRequired(pdf->name(), pdfCount() - 1);
         return;
@@ -835,7 +837,7 @@ void PdfEditModel::appendPdfFileToModel(PdfFile *pdf)
 
 void PdfEditModel::appendPdfPages(PdfFile *pdf)
 {
-    int pagesToAdd = pdf->pageCount();
+    int pagesToAdd = pdf->document()->numPages();
     for (int i = 0; i < pagesToAdd; ++i) {
         m_pageList << new PdfPage(i, pdf->referenceFileId());
     }
@@ -853,7 +855,7 @@ void PdfEditModel::prependPdfFileToModel(PdfFile *pdf)
 
 void PdfEditModel::prependPdfPages(PdfFile *pdf)
 {
-    int pagesToAdd = pdf->pageCount();
+    int pagesToAdd = pdf->document()->numPages();
     for (int i = pagesToAdd - 1; i >= 0; --i) {
         m_pageList.prepend(new PdfPage(i, pdf->referenceFileId()));
     }
@@ -898,7 +900,7 @@ bool PdfEditModel::rangeIsInvalid(const PageRange &range)
 
 void PdfEditModel::updateCreationTimeInMetadata(PdfFile *pdf)
 {
-    auto newDateTime = pdf->metaData(QPdfDocument::MetaDataField::CreationDate).toDateTime();
+    auto newDateTime = pdf->document()->creationDate();
     if (newDateTime.toSecsSinceEpoch() < m_metaData->creationDate().toSecsSinceEpoch())
         m_metaData->setCreationDate(newDateTime, false);
 }

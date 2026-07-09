@@ -24,7 +24,7 @@ PdfListModel::PdfListModel(QObject *parent)
 int PdfListModel::appendFile(const QString &pdfFile)
 {
     auto newPdf = new PdfFile(pdfFile, m_rows);
-    if (!(newPdf->error() == QPdfDocument::Error::None || newPdf->error() == QPdfDocument::Error::IncorrectPassword)) {
+    if (newPdf->document() == nullptr) {
         newPdf->deleteLater();
         return 0;
     }
@@ -32,7 +32,7 @@ int PdfListModel::appendFile(const QString &pdfFile)
     beginInsertRows(QModelIndex(), m_rows, m_rows);
     m_rows++;
     endInsertRows();
-    return newPdf->pageCount();
+    return newPdf->document()->numPages();
 }
 
 int PdfListModel::appendPdfFile(PdfFile *pdf)
@@ -41,7 +41,7 @@ int PdfListModel::appendPdfFile(PdfFile *pdf)
     beginInsertRows(QModelIndex(), m_rows, m_rows);
     m_rows++;
     endInsertRows();
-    return pdf->pageCount();
+    return pdf->document()->numPages();
 }
 
 int PdfListModel::rowCount(const QModelIndex &parent) const
@@ -58,7 +58,7 @@ QVariant PdfListModel::data(const QModelIndex &index, int role) const
     case RoleFileName:
         return m_pdfFiles[index.row()]->name();
     case RolePageCount:
-        return m_pdfFiles[index.row()]->pageCount();
+        return m_pdfFiles[index.row()]->document()->numPages();
     case RoleLocked:
         return m_pdfFiles[index.row()]->state() == PdfFile::PdfLoaded;
     case RoleAllPages:
@@ -110,14 +110,13 @@ int PdfListModel::setPdfPassword(int fileId, const QString &pass)
     if (fileId < 0 || fileId >= rows())
         return 0;
     auto pdf = getPdfFile(fileId);
-    pdf->setPassword(pass);
-    pdf->load(pdf->filePath());
-    if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
+    pdf->setFile(pdf->filePath(), pass.toLatin1(), pass.toLatin1());
+    if (pdf->document()->isLocked()) {
         remove(fileId);
         return 0;
     }
     Q_EMIT dataChanged(index(fileId, 0), index(fileId, 0), QList<int>() << RolePageCount);
-    return pdf->pageCount();
+    return pdf->document()->numPages();
 }
 // #################################################################################################
 // ###################            PdfsOrganizer         ############################################
@@ -241,7 +240,7 @@ void PdfsOrganizer::addPdfList(const QStringList &pdfList)
     for (const auto &pdfFile : pdfList) {
         m_totalPages += m_fileModel->appendFile(pdfFile);
         auto pdf = m_fileModel->lastPdf();
-        if (pdf->error() == QPdfDocument::Error::IncorrectPassword) {
+        if (pdf->document()->isLocked()) {
             bool askForPass = m_passFiles.isEmpty();
             m_passFiles << m_fileModel->rows() - 1;
             if (askForPass) {

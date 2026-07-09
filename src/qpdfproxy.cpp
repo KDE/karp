@@ -200,8 +200,8 @@ void QpdfProxy::appendRangeToJob(const QVector<quint16> &range, QPDFJob::PagesCo
         }
     }
     // qpdfPages->range(pageRange.toStdString());
-    if (!pdf->password().isEmpty())
-        pass = pdf->password().toStdString();
+    //    if (!pdf->password().isEmpty()) TODO
+    //       pass = pdf->password().toStdString(); TODO
     // qpdfPages->password(pdf->password().toStdString());
     qpdfPages->pageSpec(file, pRange.toStdString(), pass.data());
 }

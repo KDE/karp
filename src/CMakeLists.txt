@@ -104,6 +104,7 @@ target_link_libraries(karp
     KF6::KirigamiActionCollection
     KirigamiAddonsStatefulApp
     qpdf::libqpdf
+    Poppler::Qt6
 )
 
 if (TARGET KF6::I18nQml)

@@ -4,6 +4,7 @@
 #pragma once
 
 #include "pagerange.h"
+#include <QObject>
 #include <poppler/qt6/poppler-qt6.h>
 
 class PdfPage;
@@ -16,8 +17,9 @@ class PdfPage;
  * It render pages in separate thread with @p QPdfPageRenderer
  * and collects queries for rendering pages.
  */
-class PdfFile
+class PdfFile : public QObject
 {
+    Q_OBJECT
 public:
     enum PdfFileFlags : quint8 {
         PdfNotAdded = 0, /**< Initial state when file was not yet loaded to the model */
@@ -27,8 +29,9 @@ public:
     };
 
     PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s = PdfNotAdded);
+    ~PdfFile();
 
-    void setFile(const QString &fileName);
+    void setFile(const QString &fileName, const QByteArray &ownerPassword = QByteArray(), const QByteArray &userPassword = QByteArray());
 
     quint16 referenceFileId() const
     {
@@ -86,6 +89,9 @@ public:
      * Saves rendered @p QImage and emits @p pageRendered() when ready.
      */
     void requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId);
+
+Q_SIGNALS:
+    void pageRendered(quint16, PdfPage *);
 
 private:
     quint16 m_refFileId = 0;
