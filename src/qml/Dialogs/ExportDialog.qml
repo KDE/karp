@@ -37,6 +37,7 @@ FormCard.FormCardDialog {
     FormCard.FormPasswordFieldDelegate {
         id: passwordField
         label: i18nc("@action:inmenu", "Password")
+        placeholderText: i18nc("@action:inmenu password placeholder", "No Password")
     }
 
     FormCard.FormButtonDelegate {
