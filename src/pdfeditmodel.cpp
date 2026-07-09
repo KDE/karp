@@ -6,7 +6,7 @@
 #include "karp_debug.h"
 #include "karpconfig.h"
 #include "outline.h"
-#include "pdffile.h"
+#include "pdfdocument.h"
 #include "pdfmetadata.h"
 #include "qpdfproxy.h"
 #include "toolsthread.h"
@@ -71,8 +71,8 @@ PdfEditModel::~PdfEditModel()
 
 void PdfEditModel::loadPdfFile(const QString &pdfFile)
 {
-    auto file = new PdfFile(pdfFile, pdfCount());
-    if (file->document() == nullptr) {
+    auto file = new PdfDocument(pdfFile, pdfCount());
+    if (!file->isValid()) {
         qCDebug(KARP_LOG) << "[PdfEditModel]" << "Cannot load PDF document" << pdfFile;
         file->deleteLater();
         return;
@@ -83,7 +83,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
     // m_bookmarks->appendPdf(file); // FIXME
 }
 
-void PdfEditModel::prependPdfs(const QVector<PdfFile *> &pdfList)
+void PdfEditModel::prependPdfs(const QVector<PdfDocument *> &pdfList)
 {
     if (pdfList.isEmpty())
         return;
@@ -102,7 +102,7 @@ void PdfEditModel::prependPdfs(const QVector<PdfFile *> &pdfList)
     */
 }
 
-void PdfEditModel::appendPdfs(const QVector<PdfFile *> &pdfList)
+void PdfEditModel::appendPdfs(const QVector<PdfDocument *> &pdfList)
 {
     if (pdfList.isEmpty())
         return;
@@ -120,7 +120,7 @@ void PdfEditModel::appendPdfs(const QVector<PdfFile *> &pdfList)
     */
 }
 
-QVector<PdfFile *> &PdfEditModel::pdfs()
+QVector<PdfDocument *> &PdfEditModel::pdfs()
 {
     return m_pdfList;
 }
@@ -156,7 +156,7 @@ qreal PdfEditModel::maxPageHeight() const
 {
     if (m_pdfList.isEmpty())
         return 1.0;
-    auto pageSize = m_pdfList.first()->document()->page(0)->pageSize();
+    auto pageSize = m_pdfList.first()->pageSize(0);
     return m_maxPageWidth * (pageSize.height() / pageSize.width());
 }
 
@@ -265,7 +265,7 @@ void PdfEditModel::zoomOut()
 // TODO argument for PDF id
 QDateTime PdfEditModel::creationDate() const
 {
-    return m_pdfList.first()->document()->creationDate();
+    return m_pdfList.first()->creationDate();
 }
 
 void PdfEditModel::rotatePage(int pageId, int angle)
@@ -546,7 +546,7 @@ QVariantList PdfEditModel::getMetaDataModel(int fileId) const
     if (m_pdfList.isEmpty() || fileId >= pdfCount() || fileId < 0)
         return mdm;
 
-    auto pdf = m_pdfList[fileId]->document();
+    auto pdf = m_pdfList[fileId];
     for (auto key : pdf->infoKeys()) {
         mdm << pdf->info(key);
     }
@@ -661,7 +661,7 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
         return;
     auto pdf = m_pdfList[fileId];
     pdf->setFile(pdf->filePath(), pass.toLatin1(), pass.toLatin1());
-    if (pdf->document()->isLocked()) {
+    if (pdf->isLocked()) {
         qCDebug(KARP_LOG) << "[PdfEditModel] Wrong password!";
         m_pdfList.remove(fileId);
         pdf->deleteLater();
@@ -729,7 +729,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= m_pages)
         return QVariant();
     int pageNr = index.row();
-    PdfFile *pdf = nullptr;
+    PdfDocument *pdf = nullptr;
     PdfPage *pPage = nullptr;
     pPage = m_pageList.at(pageNr);
     int refFileId = pPage->referenceFile();
@@ -741,7 +741,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue(QImage());
         if (pPage->nullImage()) {
             // TODO: find current screen
-            QSizeF pSize = pdf->document()->page(pPage->origPage())->pageSize();
+            QSizeF pSize = pdf->pageSize(pPage->origPage());
             qreal pageRatio = pSize.height() / pSize.width();
             pdf->requestPage(pPage, QSize(m_prefPageWidth, qFloor(m_prefPageWidth * pageRatio)), pageNr);
         }
@@ -757,7 +757,7 @@ QVariant PdfEditModel::data(const QModelIndex &index, int role) const
     case RolePageRatio: {
         if (!pdf || !pPage)
             return 1;
-        auto pageSize = pdf->document()->page(pPage->origPage())->pageSize();
+        auto pageSize = pdf->pageSize(pPage->origPage());
         return pageSize.height() / pageSize.width();
     }
     case RoleFileId:
@@ -821,13 +821,13 @@ void PdfEditModel::pageRenderedSlot(quint16 pageNr, PdfPage *pdfPage)
         Q_EMIT maxPageWidthChanged();
 }
 
-void PdfEditModel::appendPdfFileToModel(PdfFile *pdf)
+void PdfEditModel::appendPdfFileToModel(PdfDocument *pdf)
 {
     pdf->setReferenceId(pdfCount());
     m_pdfList << pdf;
-    pdf->setState(PdfFile::PdfLoaded); // TODO = handle other states
-    connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
-    if (pdf->document()->isLocked()) {
+    pdf->setState(PdfDocument::PdfLoaded); // TODO = handle other states
+    connect(pdf, &PdfDocument::pageRendered, this, &PdfEditModel::pageRenderedSlot);
+    if (pdf->isLocked()) {
         // It occurs only when app is called with one file argument
         Q_EMIT passwordRequired(pdf->name(), pdfCount() - 1);
         return;
@@ -835,27 +835,27 @@ void PdfEditModel::appendPdfFileToModel(PdfFile *pdf)
     appendPdfPages(pdf);
 }
 
-void PdfEditModel::appendPdfPages(PdfFile *pdf)
+void PdfEditModel::appendPdfPages(PdfDocument *pdf)
 {
-    int pagesToAdd = pdf->document()->numPages();
+    int pagesToAdd = pdf->pageCount();
     for (int i = 0; i < pagesToAdd; ++i) {
         m_pageList << new PdfPage(i, pdf->referenceFileId());
     }
     addPagesToModel(pagesToAdd);
 }
 
-void PdfEditModel::prependPdfFileToModel(PdfFile *pdf)
+void PdfEditModel::prependPdfFileToModel(PdfDocument *pdf)
 {
     pdf->setReferenceId(pdfCount());
     m_pdfList.append(pdf);
-    pdf->setState(PdfFile::PdfLoaded);
-    connect(pdf, &PdfFile::pageRendered, this, &PdfEditModel::pageRenderedSlot);
+    pdf->setState(PdfDocument::PdfLoaded);
+    connect(pdf, &PdfDocument::pageRendered, this, &PdfEditModel::pageRenderedSlot);
     prependPdfPages(pdf);
 }
 
-void PdfEditModel::prependPdfPages(PdfFile *pdf)
+void PdfEditModel::prependPdfPages(PdfDocument *pdf)
 {
-    int pagesToAdd = pdf->document()->numPages();
+    int pagesToAdd = pdf->pageCount();
     for (int i = pagesToAdd - 1; i >= 0; --i) {
         m_pageList.prepend(new PdfPage(i, pdf->referenceFileId()));
     }
@@ -898,9 +898,9 @@ bool PdfEditModel::rangeIsInvalid(const PageRange &range)
     return false;
 }
 
-void PdfEditModel::updateCreationTimeInMetadata(PdfFile *pdf)
+void PdfEditModel::updateCreationTimeInMetadata(PdfDocument *pdf)
 {
-    auto newDateTime = pdf->document()->creationDate();
+    auto newDateTime = pdf->creationDate();
     if (newDateTime.toSecsSinceEpoch() < m_metaData->creationDate().toSecsSinceEpoch())
         m_metaData->setCreationDate(newDateTime, false);
 }

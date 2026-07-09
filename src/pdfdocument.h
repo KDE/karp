@@ -4,6 +4,7 @@
 #pragma once
 
 #include "pagerange.h"
+#include <QDateTime>
 #include <QObject>
 #include <poppler/qt6/poppler-qt6.h>
 
@@ -12,12 +13,11 @@ class PdfPage;
 #define NO_PAGE_ID (65535)
 
 /**
- * @brief PdfFile extends @p QPdfDocument class.
+ * @brief PdfFile
  *
- * It render pages in separate thread with @p QPdfPageRenderer
- * and collects queries for rendering pages.
+ * Contianer for a PDF document. Has reference to underlying Poppler document.
  */
-class PdfFile : public QObject
+class PdfDocument : public QObject
 {
     Q_OBJECT
 public:
@@ -28,8 +28,8 @@ public:
         PdfEveryNPage,
     };
 
-    PdfFile(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s = PdfNotAdded);
-    ~PdfFile();
+    PdfDocument(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s = PdfNotAdded);
+    ~PdfDocument();
 
     void setFile(const QString &fileName, const QByteArray &ownerPassword = QByteArray(), const QByteArray &userPassword = QByteArray());
 
@@ -79,9 +79,39 @@ public:
         return m_range;
     }
 
-    Poppler::Document *document()
+    int pageCount() const
     {
-        return m_document.get();
+        return m_document->numPages();
+    }
+
+    bool isLocked() const
+    {
+        return m_document->isLocked();
+    }
+
+    bool isValid() const
+    {
+        return m_document != nullptr;
+    }
+
+    QSize pageSize(int index) const
+    {
+        return m_document->page(index)->pageSize();
+    }
+
+    QDateTime creationDate() const
+    {
+        return m_document->creationDate();
+    }
+
+    QStringList infoKeys() const
+    {
+        return m_document->infoKeys();
+    }
+
+    QString info(const QString &key) const
+    {
+        return m_document->info(key);
     }
 
     /**

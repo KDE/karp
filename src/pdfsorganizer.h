@@ -3,12 +3,12 @@
 
 #pragma once
 
-#include "pdffile.h"
+#include "pdfdocument.h"
 #include <QAbstractListModel>
 #include <QObject>
 
 class PdfEditModel;
-class PdfFile;
+class PdfDocument;
 
 /**
  * @brief PdfListModel exposes selected PDF files to ListView
@@ -34,7 +34,7 @@ public:
      * Returns number of pages the file has or 0.
      */
     int appendFile(const QString &pdfFile);
-    int appendPdfFile(PdfFile *pdf);
+    int appendPdfFile(PdfDocument *pdf);
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
@@ -45,12 +45,12 @@ public:
         return m_rows;
     }
 
-    PdfFile *getPdfFile(int id)
+    PdfDocument *getPdfFile(int id)
     {
         return m_pdfFiles[id];
     }
 
-    PdfFile *lastPdf()
+    PdfDocument *lastPdf()
     {
         return m_pdfFiles.last();
     }
@@ -63,7 +63,7 @@ public:
 private:
     int m_rows = 0;
 
-    QVector<PdfFile *> m_pdfFiles;
+    QVector<PdfDocument *> m_pdfFiles;
 };
 
 /**
