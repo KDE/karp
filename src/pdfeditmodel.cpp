@@ -13,7 +13,6 @@
 #include <KLazyLocalizedString>
 #include <QFileDialog>
 #include <QFileInfo>
-#include <QPdfDocument>
 #include <QScreen>
 #include <QStandardPaths>
 #include <QTimer>
@@ -80,7 +79,7 @@ void PdfEditModel::loadPdfFile(const QString &pdfFile)
     appendPdfFileToModel(file);
     updateCreationTimeInMetadata(file);
     karpConfig::self()->setLastDir(m_pdfList.last()->dir());
-    // m_bookmarks->appendPdf(file); // FIXME
+    m_bookmarks->appendPdf(file);
 }
 
 void PdfEditModel::prependPdfs(const QVector<PdfDocument *> &pdfList)
@@ -95,11 +94,9 @@ void PdfEditModel::prependPdfs(const QVector<PdfDocument *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
-    /*
-       for (auto &pdf : pdfList) {
+    for (auto &pdf : pdfList) {
         m_bookmarks->prependPdf(pdf);
     }
-    */
 }
 
 void PdfEditModel::appendPdfs(const QVector<PdfDocument *> &pdfList)
@@ -113,11 +110,9 @@ void PdfEditModel::appendPdfs(const QVector<PdfDocument *> &pdfList)
     karpConfig::self()->setLastDir(pdfList.last()->dir());
     if (pdfCount() > 1)
         Q_EMIT editedChanged();
-    /*
     for (auto &pdf : pdfList) {
         m_bookmarks->appendPdf(pdf);
     }
-    */
 }
 
 QVector<PdfDocument *> &PdfEditModel::pdfs()

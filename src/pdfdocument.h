@@ -114,6 +114,11 @@ public:
         return m_document->info(key);
     }
 
+    QVector<Poppler::OutlineItem> outlines() const
+    {
+        return m_document->outline();
+    }
+
     /**
      * Request rendering image for @p pdfPage of @p pageId in pages list.
      * Saves rendered @p QImage and emits @p pageRendered() when ready.

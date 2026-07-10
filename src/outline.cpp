@@ -4,7 +4,6 @@
 #include "outline.h"
 #include "bookmarkmodel.h"
 #include "karp_debug.h"
-#include <QPdfBookmarkModel>
 
 Outline::Outline(int page, Outline *parentNode)
     : m_parentNode(parentNode)
@@ -22,15 +21,14 @@ Outline::~Outline()
     clear();
 }
 
-void Outline::grabDataFromIndex(const QModelIndex &index, int pageOffset)
+void Outline::grabDataPopplerOutline(const Poppler::OutlineItem outline, int level, int pageOffset)
 {
-    if (!index.isValid())
-        return;
-    m_title = index.data(static_cast<int>(QPdfBookmarkModel::Role::Title)).toString();
-    m_level = index.data(static_cast<int>(QPdfBookmarkModel::Role::Level)).toInt();
-    m_pageNumber = index.data(static_cast<int>(QPdfBookmarkModel::Role::Page)).toInt() + pageOffset;
-    m_location = index.data(static_cast<int>(QPdfBookmarkModel::Role::Location)).toPointF();
-    m_zoom = index.data(static_cast<int>(QPdfBookmarkModel::Role::Zoom)).toReal();
+    auto destination = outline.destination();
+    m_title = outline.name();
+    m_level = level;
+    m_pageNumber = destination->pageNumber() + pageOffset;
+    m_location = QPointF(destination->left(), destination->top());
+    m_zoom = destination->zoom();
 }
 
 void Outline::clear()

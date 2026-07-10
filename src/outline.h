@@ -6,6 +6,7 @@
 #include <QModelIndex>
 #include <QPointF>
 #include <QVector>
+#include <poppler-qt6.h>
 
 /**
  * @brief Outline class describes PDF outline/bookmark/chapter.
@@ -55,7 +56,7 @@ public:
         return m_parentNode;
     }
 
-    void grabDataFromIndex(const QModelIndex &index, int pageOffset);
+    void grabDataPopplerOutline(const Poppler::OutlineItem outline, int level, int pageOffset);
 
     const QString &title() const
     {
