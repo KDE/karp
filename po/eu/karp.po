@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:41+0000\n"
+"POT-Creation-Date: 2026-07-10 00:41+0000\n"
 "PO-Revision-Date: 2025-06-08 11:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,27 +20,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.2\n"
 
-#: app.cpp:30 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Editatu beharreko PDF fitxategia"
 
-#: app.cpp:60 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "Hautatu PDF fitxategiak"
 
-#: app.cpp:158
+#: app.cpp:137
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF falta da."
 
-#: app.cpp:162
+#: app.cpp:141
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript falta da."
 
-#: app.cpp:165
+#: app.cpp:144
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -48,18 +48,6 @@ msgid ""
 msgstr ""
 "Instalatu gorago aipatutako programak, bestela funtzio guztiak ez dira "
 "ibiliko."
-
-#: app.cpp:178
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Add PDF files"
-msgstr "Gehitu PDF fitxategiak"
-
-#: app.cpp:188
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Clear all files"
-msgstr "Garbitu fitxategi guztiak"
 
 #: main.cpp:111
 #, kde-format
@@ -128,6 +116,79 @@ msgstr "Sorrera-data"
 #: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "Aldatze-data"
+
+#: qml/Actions.qml:10
+#, kde-format
+msgid "Karp Actions"
+msgstr ""
+
+#: qml/Actions.qml:14
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add PDF files"
+msgstr "Gehitu PDF fitxategiak"
+
+#: qml/Actions.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Clear all files"
+msgstr "Garbitu fitxategi guztiak"
+
+#: qml/Actions.qml:26
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export Document"
+msgstr ""
+
+#: qml/Actions.qml:32
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to delete"
+msgstr "Hautatu ezabatu beharreko orrialdeak"
+
+#: qml/Actions.qml:39
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to rotate"
+msgstr "Hautatu biratu beharreko orrialdeak"
+
+#: qml/Actions.qml:45
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to move"
+msgstr "Hautatu mugitu beharreko orrialdeak"
+
+#: qml/Actions.qml:51
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar"
+#| msgid "Table of Content (Bookmarks)"
+msgctxt "@action:intoolbar"
+msgid "Table of Contents (Bookmarks)"
+msgstr "Aurkibidea (laster-markak)"
+
+#: qml/Actions.qml:57
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "Orri-anizkoitzeko hautapen"
+
+#: qml/Actions.qml:63
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show page labels"
+msgstr "Erakutsi orrialde-etiketak"
+
+#: qml/Actions.qml:69
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom In"
+msgstr "Zooma gerturatu"
+
+#: qml/Actions.qml:75
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom Out"
+msgstr "Zooma urrundu"
 
 #: qml/Bookmarks/BookmarksView.qml:114 qml/Bookmarks/BookmarksView.qml:115
 #, kde-format
@@ -269,7 +330,15 @@ msgctxt "@action:inmenu"
 msgid "Password"
 msgstr "Ezarri pasahitza"
 
-#: qml/Dialogs/ExportDialog.qml:43
+#: qml/Dialogs/ExportDialog.qml:40
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Set password"
+msgctxt "@action:inmenu password placeholder"
+msgid "No Password"
+msgstr "Ezarri pasahitza"
+
+#: qml/Dialogs/ExportDialog.qml:44
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "PDF metadata"
@@ -423,110 +492,46 @@ msgstr "%1 orrialdero"
 msgid "all pages out of range"
 msgstr "barrutitik kanpoko orrialde guztiak"
 
-#: qml/MainPage.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
-msgctxt "@action:inmenu"
-msgid "Add files"
-msgstr "Gehitu PDF fitxategiak"
-
-#: qml/MainPage.qml:48
+#: qml/MainPage.qml:57
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "Fitxategia"
 msgstr[1] "fitxategiak"
 
-#: qml/MainPage.qml:63
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Export Document"
-msgstr ""
-
-#: qml/MainToolbar.qml:25
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to delete"
-msgstr "Hautatu ezabatu beharreko orrialdeak"
-
-#: qml/MainToolbar.qml:47
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to rotate"
-msgstr "Hautatu biratu beharreko orrialdeak"
-
-#: qml/MainToolbar.qml:63
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to move"
-msgstr "Hautatu mugitu beharreko orrialdeak"
-
-#: qml/MainToolbar.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar"
-#| msgid "Table of Content (Bookmarks)"
-msgctxt "@action:intoolbar"
-msgid "Table of Contents (Bookmarks)"
-msgstr "Aurkibidea (laster-markak)"
-
-#: qml/MainToolbar.qml:95
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Multiple pages selection"
-msgstr "Orri-anizkoitzeko hautapen"
-
-#: qml/MainToolbar.qml:120
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show page labels"
-msgstr "Erakutsi orrialde-etiketak"
-
-#: qml/MainToolbar.qml:132
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Zoom Out"
-msgstr "Zooma urrundu"
-
-#: qml/MainToolbar.qml:144
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Zoom In"
-msgstr "Zooma gerturatu"
-
-#: qml/MainToolbar.qml:161
+#: qml/MainToolbar.qml:154
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Orrialdea %1 / %2"
 
-#: qml/MainToolbar.qml:174
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Hautatu ezabatu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:175
+#: qml/MainToolbar.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: qml/MainToolbar.qml:189
+#: qml/MainToolbar.qml:182
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Hautatu biratu beharreko orrialdeak"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Biratu"
 
-#: qml/MainToolbar.qml:203
+#: qml/MainToolbar.qml:196
 #, kde-format
 msgid "Angle"
 msgstr "Angelua"
 
-#: qml/MainToolbar.qml:227
+#: qml/MainToolbar.qml:220
 #, kde-format
 msgid "Select pages to move"
 msgstr "Hautatu mugitu beharreko orrialdeak"
@@ -671,6 +676,13 @@ msgstr "Karp-eri buruz"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDEri buruz"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Add PDF files"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Add files"
+#~ msgstr "Gehitu PDF fitxategiak"
 
 #, fuzzy
 #~| msgctxt "@action:inmenu"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:41+0000\n"
+"POT-Creation-Date: 2026-07-10 00:41+0000\n"
 "PO-Revision-Date: 2026-06-06 11:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,44 +17,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: app.cpp:30 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "편집할 PDF 파일"
 
-#: app.cpp:60 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF 파일 선택"
 
-#: app.cpp:158
+#: app.cpp:137
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF가 없습니다."
 
-#: app.cpp:162
+#: app.cpp:141
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript가 없습니다."
 
-#: app.cpp:165
+#: app.cpp:144
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr "위에 있는 프로그램을 설치하지 않으면 일부 기능을 사용할 수 없습니다."
-
-#: app.cpp:178
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Add PDF files"
-msgstr "PDF 파일 추가"
-
-#: app.cpp:188
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Clear all files"
-msgstr "모든 파일 비우기"
 
 #: main.cpp:111
 #, kde-format
@@ -122,6 +110,77 @@ msgstr "만든 날짜"
 #: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "수정한 날짜"
+
+#: qml/Actions.qml:10
+#, kde-format
+msgid "Karp Actions"
+msgstr ""
+
+#: qml/Actions.qml:14
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add PDF files"
+msgstr "PDF 파일 추가"
+
+#: qml/Actions.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Clear all files"
+msgstr "모든 파일 비우기"
+
+#: qml/Actions.qml:26
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export Document"
+msgstr "문서 내보내기"
+
+#: qml/Actions.qml:32
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to delete"
+msgstr "삭제할 쪽 선택"
+
+#: qml/Actions.qml:39
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to rotate"
+msgstr "회전할 쪽 선택"
+
+#: qml/Actions.qml:45
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to move"
+msgstr "이동할 쪽 선택"
+
+#: qml/Actions.qml:51
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Table of Contents (Bookmarks)"
+msgstr "목차(책갈피)"
+
+#: qml/Actions.qml:57
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "여러 쪽 선택"
+
+#: qml/Actions.qml:63
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show page labels"
+msgstr "쪽 이름표 표시"
+
+#: qml/Actions.qml:69
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom In"
+msgstr "확대"
+
+#: qml/Actions.qml:75
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom Out"
+msgstr "축소"
 
 #: qml/Bookmarks/BookmarksView.qml:114 qml/Bookmarks/BookmarksView.qml:115
 #, kde-format
@@ -257,7 +316,15 @@ msgctxt "@action:inmenu"
 msgid "Password"
 msgstr "암호"
 
-#: qml/Dialogs/ExportDialog.qml:43
+#: qml/Dialogs/ExportDialog.qml:40
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Password"
+msgctxt "@action:inmenu password placeholder"
+msgid "No Password"
+msgstr "암호"
+
+#: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
@@ -408,105 +475,45 @@ msgstr "매 %1쪽마다"
 msgid "all pages out of range"
 msgstr "선택한 범위의 쪽 제외"
 
-#: qml/MainPage.qml:35
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Add files"
-msgstr "파일 추가"
-
-#: qml/MainPage.qml:48
+#: qml/MainPage.qml:57
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "파일"
 
-#: qml/MainPage.qml:63
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Export Document"
-msgstr "문서 내보내기"
-
-#: qml/MainToolbar.qml:25
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to delete"
-msgstr "삭제할 쪽 선택"
-
-#: qml/MainToolbar.qml:47
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to rotate"
-msgstr "회전할 쪽 선택"
-
-#: qml/MainToolbar.qml:63
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to move"
-msgstr "이동할 쪽 선택"
-
-#: qml/MainToolbar.qml:81
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Table of Contents (Bookmarks)"
-msgstr "목차(책갈피)"
-
-#: qml/MainToolbar.qml:95
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Multiple pages selection"
-msgstr "여러 쪽 선택"
-
-#: qml/MainToolbar.qml:120
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show page labels"
-msgstr "쪽 이름표 표시"
-
-#: qml/MainToolbar.qml:132
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Zoom Out"
-msgstr "축소"
-
-#: qml/MainToolbar.qml:144
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Zoom In"
-msgstr "확대"
-
-#: qml/MainToolbar.qml:161
+#: qml/MainToolbar.qml:154
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "%2쪽 중 %1쪽"
 
-#: qml/MainToolbar.qml:174
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgid "Select pages to delete"
 msgstr "삭제할 쪽 선택"
 
-#: qml/MainToolbar.qml:175
+#: qml/MainToolbar.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "삭제"
 
-#: qml/MainToolbar.qml:189
+#: qml/MainToolbar.qml:182
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "회전할 쪽 선택"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "회전"
 
-#: qml/MainToolbar.qml:203
+#: qml/MainToolbar.qml:196
 #, kde-format
 msgid "Angle"
 msgstr "각도"
 
-#: qml/MainToolbar.qml:227
+#: qml/MainToolbar.qml:220
 #, kde-format
 msgid "Select pages to move"
 msgstr "이동할 쪽 선택"
@@ -640,6 +647,10 @@ msgstr "Karp 정보"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE 정보"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Add files"
+#~ msgstr "파일 추가"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Save As…"

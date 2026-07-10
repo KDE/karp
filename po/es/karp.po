@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:41+0000\n"
+"POT-Creation-Date: 2026-07-10 00:41+0000\n"
 "PO-Revision-Date: 2026-05-31 14:18+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 26.04.1\n"
 
-#: app.cpp:30 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:582
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Archivo PDF que se va a editar"
 
-#: app.cpp:60 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:191
 #, kde-format
 msgid "Select PDF files"
 msgstr "Seleccionar archivos PDF"
 
-#: app.cpp:158
+#: app.cpp:137
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF está ausente."
 
-#: app.cpp:162
+#: app.cpp:141
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript está ausente."
 
-#: app.cpp:165
+#: app.cpp:144
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -46,18 +46,6 @@ msgid ""
 msgstr ""
 "Instale los programas mencionados. En caso contrario no estarán disponibles "
 "todas las funciones."
-
-#: app.cpp:178
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Add PDF files"
-msgstr "Añadir archivos PDF"
-
-#: app.cpp:188
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Clear all files"
-msgstr "Quitar todos los archivos"
 
 #: main.cpp:111
 #, kde-format
@@ -125,6 +113,77 @@ msgstr "Fecha de creación"
 #: pdfeditmodel.cpp:532
 msgid "Modification Date"
 msgstr "Fecha de modificación"
+
+#: qml/Actions.qml:10
+#, kde-format
+msgid "Karp Actions"
+msgstr ""
+
+#: qml/Actions.qml:14
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Add PDF files"
+msgstr "Añadir archivos PDF"
+
+#: qml/Actions.qml:20
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Clear all files"
+msgstr "Quitar todos los archivos"
+
+#: qml/Actions.qml:26
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Export Document"
+msgstr "Exportar documento"
+
+#: qml/Actions.qml:32
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to delete"
+msgstr "Seleccione las páginas que se van a borrar"
+
+#: qml/Actions.qml:39
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to rotate"
+msgstr "Seleccione las páginas que se van a rotar"
+
+#: qml/Actions.qml:45
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select pages to move"
+msgstr "Seleccione las páginas que se van a mover"
+
+#: qml/Actions.qml:51
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Table of Contents (Bookmarks)"
+msgstr "Índice (marcadores)"
+
+#: qml/Actions.qml:57
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Multiple pages selection"
+msgstr "Selección de múltiples páginas"
+
+#: qml/Actions.qml:63
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show page labels"
+msgstr "Mostrar etiquetas de páginas"
+
+#: qml/Actions.qml:69
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom In"
+msgstr "Acercar"
+
+#: qml/Actions.qml:75
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Zoom Out"
+msgstr "Alejar"
 
 #: qml/Bookmarks/BookmarksView.qml:114 qml/Bookmarks/BookmarksView.qml:115
 #, kde-format
@@ -260,7 +319,15 @@ msgctxt "@action:inmenu"
 msgid "Password"
 msgstr "Contraseña"
 
-#: qml/Dialogs/ExportDialog.qml:43
+#: qml/Dialogs/ExportDialog.qml:40
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Password"
+msgctxt "@action:inmenu password placeholder"
+msgid "No Password"
+msgstr "Contraseña"
+
+#: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
@@ -412,106 +479,46 @@ msgstr "cada %1 páginas"
 msgid "all pages out of range"
 msgstr "todas las páginas fuera del intervalo"
 
-#: qml/MainPage.qml:35
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Add files"
-msgstr "Añadir archivos"
-
-#: qml/MainPage.qml:48
+#: qml/MainPage.qml:57
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "archivo"
 msgstr[1] "archivos"
 
-#: qml/MainPage.qml:63
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Export Document"
-msgstr "Exportar documento"
-
-#: qml/MainToolbar.qml:25
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to delete"
-msgstr "Seleccione las páginas que se van a borrar"
-
-#: qml/MainToolbar.qml:47
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to rotate"
-msgstr "Seleccione las páginas que se van a rotar"
-
-#: qml/MainToolbar.qml:63
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Select pages to move"
-msgstr "Seleccione las páginas que se van a mover"
-
-#: qml/MainToolbar.qml:81
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Table of Contents (Bookmarks)"
-msgstr "Índice (marcadores)"
-
-#: qml/MainToolbar.qml:95
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Multiple pages selection"
-msgstr "Selección de múltiples páginas"
-
-#: qml/MainToolbar.qml:120
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show page labels"
-msgstr "Mostrar etiquetas de páginas"
-
-#: qml/MainToolbar.qml:132
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Zoom Out"
-msgstr "Alejar"
-
-#: qml/MainToolbar.qml:144
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Zoom In"
-msgstr "Acercar"
-
-#: qml/MainToolbar.qml:161
+#: qml/MainToolbar.qml:154
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Página %1 de %2"
 
-#: qml/MainToolbar.qml:174
+#: qml/MainToolbar.qml:167
 #, kde-format
 msgid "Select pages to delete"
 msgstr "Seleccione las páginas que se van a borrar"
 
-#: qml/MainToolbar.qml:175
+#: qml/MainToolbar.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete"
 msgstr "Borrar"
 
-#: qml/MainToolbar.qml:189
+#: qml/MainToolbar.qml:182
 #, kde-format
 msgid "Select pages to rotate"
 msgstr "Seleccione las páginas que se van a rotar"
 
-#: qml/MainToolbar.qml:190
+#: qml/MainToolbar.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Rotate"
 msgstr "Rotar"
 
-#: qml/MainToolbar.qml:203
+#: qml/MainToolbar.qml:196
 #, kde-format
 msgid "Angle"
 msgstr "Ángulo"
 
-#: qml/MainToolbar.qml:227
+#: qml/MainToolbar.qml:220
 #, kde-format
 msgid "Select pages to move"
 msgstr "Seleccione las páginas que se van a mover"
@@ -649,3 +656,7 @@ msgstr "Acerca de Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Acerca de KDE"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Add files"
+#~ msgstr "Añadir archivos"
