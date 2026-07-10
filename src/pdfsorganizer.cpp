@@ -6,7 +6,6 @@
 #include "pdfeditmodel.h"
 #include <KLocalizedString>
 #include <QFileDialog>
-#include <QPdfDocument>
 #include <QStandardPaths>
 #include <QTimer>
 #include <numeric>

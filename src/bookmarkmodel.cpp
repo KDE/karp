@@ -4,10 +4,9 @@
 #include "bookmarkmodel.h"
 #include "karp_debug.h"
 #include "outline.h"
+#include "pdfdocument.h"
 #include <QDebug>
 #include <QMetaEnum>
-#include <QPdfBookmarkModel>
-#include <QPdfDocument>
 #include <qpdf/QPDFPageDocumentHelper.hh>
 #include <qpdf/QPDFUsage.hh>
 
@@ -60,27 +59,23 @@ void BookmarkModel::setStatus(Status st)
     Q_EMIT statusChanged();
 }
 
-void BookmarkModel::appendPdf(QPdfDocument *pdf)
+void BookmarkModel::appendPdf(PdfDocument *pdf)
 {
     if (m_pageCount == 0)
         setStatus(Status::Unchanged);
     else
         setStatus(Status::Modified);
-    QPdfBookmarkModel model;
-    model.setDocument(pdf);
     m_pageOffset = (m_pageCount > 0 ? m_pageCount - 1 : 0);
     beginResetModel();
-    addBookmarksFromModel(QModelIndex(), &model, m_rootNode.data());
+    addBookmarks(pdf->outlines(), m_rootNode.data());
     endResetModel();
     m_pageOffset = 0;
     setPageCount(m_pageCount + pdf->pageCount());
 }
 
-void BookmarkModel::prependPdf(QPdfDocument *pdf)
+void BookmarkModel::prependPdf(PdfDocument *pdf)
 {
     setStatus(Status::Modified);
-    QPdfBookmarkModel model;
-    model.setDocument(pdf);
     m_pageOffset = 0;
     beginResetModel();
     if (rowCount(QModelIndex()) > 0) {
@@ -92,7 +87,7 @@ void BookmarkModel::prependPdf(QPdfDocument *pdf)
             return false;
         });
     }
-    addBookmarksFromModel(QModelIndex(), &model, m_rootNode.data(), true);
+    addBookmarks(pdf->outlines(), m_rootNode.data(), true);
     endResetModel();
     setPageCount(m_pageCount + pdf->pageCount());
 }
@@ -426,31 +421,19 @@ void BookmarkModel::walkThrough(Outline *parentNode, const std::function<void(Ou
     }
 }
 
-void BookmarkModel::addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, Outline *parentBookmark, bool doPrepend)
+void BookmarkModel::addBookmarks(QVector<Poppler::OutlineItem> outlines, Outline *parent, bool doPrepend, int level)
 {
-    Outline *childBookmark = nullptr;
-    if (index.isValid()) {
-        childBookmark = new Outline(index.data(static_cast<int>(QPdfBookmarkModel::Role::Page)).toInt() + m_pageOffset, parentBookmark);
-        childBookmark->grabDataFromIndex(index, m_pageOffset);
-        if (parentBookmark) {
-            if (doPrepend) {
-                if (childBookmark->level() == 0) {
-                    parentBookmark->insertChild(index.row(), childBookmark);
-                } else
-                    parentBookmark->appendChild(childBookmark);
-            } else
-                parentBookmark->appendChild(childBookmark);
+    for (auto item : outlines) {
+        auto destination = item.destination();
+        Outline *bookmark = new Outline(destination->pageNumber() + m_pageOffset, parent);
+        bookmark->grabDataPopplerOutline(item, level, m_pageOffset);
+        if (item.hasChildren()) {
+            addBookmarks(item.children(), bookmark, doPrepend, level + 1);
         }
-    } else {
-        childBookmark = parentBookmark;
-    }
-    if ((index.flags() & Qt::ItemNeverHasChildren) || !model->hasChildren(index))
-        return;
-    const auto rows = model->rowCount(index);
-    const auto cols = model->columnCount(index);
-    for (int i = 0; i < rows; ++i) {
-        for (int j = 0; j < cols; ++j) {
-            addBookmarksFromModel(model->index(i, j, index), model, childBookmark, doPrepend);
+        if (doPrepend) {
+            parent->prependChild(bookmark);
+        } else {
+            parent->appendChild(bookmark);
         }
     }
 }

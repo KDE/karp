@@ -5,15 +5,14 @@
 
 #include <QAbstractItemModel>
 #include <QQmlEngine>
+#include <poppler-qt6.h>
 
 class Outline;
-class QPdfDocument;
-class QPdfBookmarkModel;
+class PdfDocument;
 class QPDF;
 
 /**
- * @brief BookmarkModel class is based on @p QPdfBookmarkModel
- * but it is able to merge bookmarks from many PDF files.
+ * @brief BookmarkModel is able to merge bookmarks from many PDF files.
  *
  * It implements saving bookmarks/outlines to QPDF class @p saveBookmarks()
  * and allows to insert and edit bookmarks.
@@ -70,8 +69,8 @@ public:
     /**
      * Appends bookmarks (if any) from @p pdf document to the model
      */
-    void appendPdf(QPdfDocument *pdf);
-    void prependPdf(QPdfDocument *pdf);
+    void appendPdf(PdfDocument *pdf);
+    void prependPdf(PdfDocument *pdf);
 
     /**
      * Removes all bookmarks/data from the model
@@ -124,10 +123,10 @@ protected:
     void setStatus(Status st);
 
     /**
-     * This method recursively searches @p QPdfBookmarkModel
+     * This method recursively searches @p Poppler::OutlineItem
      * and adds bookmark data to this model
      */
-    void addBookmarksFromModel(const QModelIndex &index, const QAbstractItemModel *model, Outline *parentBookmark, bool doPrepend = false);
+    void addBookmarks(QVector<Poppler::OutlineItem> outlines, Outline *parent, bool doPrepend = false, int level = 0);
 
     /**
      * Iterates through all outlines in this model
