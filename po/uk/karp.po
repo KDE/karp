@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-05-31 12:50+0300\n"
+"PO-Revision-Date: 2026-07-10 10:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -117,7 +117,7 @@ msgstr "Дата внесення змін"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Дії Karp"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -320,12 +320,10 @@ msgid "Password"
 msgstr "Пароль"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "Пароль"
+msgstr "Немає пароля"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format

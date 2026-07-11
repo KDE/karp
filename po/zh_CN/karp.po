@@ -317,12 +317,10 @@ msgid "Password"
 msgstr "密码"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "密码"
+msgstr ""
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
@@ -647,7 +645,3 @@ msgstr "关于 Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Add files"
-#~ msgstr "添加文件"

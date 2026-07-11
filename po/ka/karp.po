@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-05-31 05:29+0200\n"
+"PO-Revision-Date: 2026-07-10 05:35+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -117,7 +117,7 @@ msgstr "ცვლილების თარიღი"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Karp-ის ქმედებები"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -320,12 +320,10 @@ msgid "Password"
 msgstr "პაროლი"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "პაროლი"
+msgstr "პაროლის გარეშე"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format

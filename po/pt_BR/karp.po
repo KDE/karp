@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-05-31 05:59-0300\n"
+"PO-Revision-Date: 2026-07-10 07:13-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: app.cpp:28 pdfeditmodel.cpp:582
 #, kde-format
@@ -117,7 +117,7 @@ msgstr "Data de modificação"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Ações do Karp"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -320,12 +320,10 @@ msgid "Password"
 msgstr "Senha"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "Senha"
+msgstr "Sem senha"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format

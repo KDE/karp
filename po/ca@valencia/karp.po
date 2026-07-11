@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-05-31 10:39+0200\n"
+"PO-Revision-Date: 2026-07-10 09:06+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -119,7 +119,7 @@ msgstr "Data de modificació"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Accions de Karp"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -322,12 +322,10 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "Contrasenya"
+msgstr "Sense contrasenya"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
@@ -657,7 +655,3 @@ msgstr "Quant a Karp"
 msgctxt "@action:button"
 msgid "About KDE"
 msgstr "Quant a KDE"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Add files"
-#~ msgstr "Afig fitxers"

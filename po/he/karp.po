@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-06-02 09:16+0300\n"
+"PO-Revision-Date: 2026-07-10 10:24+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -115,7 +115,7 @@ msgstr "תאריך שינוי"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "פעולות Karp"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -318,12 +318,10 @@ msgid "Password"
 msgstr "סיסמה"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "סיסמה"
+msgstr "אין סיסמה"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-05-31 07:13+0200\n"
+"PO-Revision-Date: 2026-07-10 07:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -113,7 +113,7 @@ msgstr "Datum spremembe"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Karpove dejavnosti"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -316,12 +316,10 @@ msgid "Password"
 msgstr "Geslo"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "Geslo"
+msgstr "Ni gesla"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
