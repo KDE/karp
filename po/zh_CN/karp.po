@@ -114,7 +114,7 @@ msgstr "修改日期"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Karp 操作"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -320,7 +320,7 @@ msgstr "密码"
 #, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr ""
+msgstr "没有密码"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
