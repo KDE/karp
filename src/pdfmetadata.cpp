@@ -151,36 +151,36 @@ void PdfMetaData::setAllInfoKeys(QPDFObjectHandle &qpdfHandle)
 {
     if (!m_title.isEmpty()) {
         auto titleObj = QPDFObjectHandle::newString(m_title.toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Title), titleObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::Title), titleObj);
     }
     if (!m_subject.isEmpty()) {
         auto subjectObj = QPDFObjectHandle::newString(m_subject.toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Subject), subjectObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::Subject), subjectObj);
     }
     if (!m_author.isEmpty()) {
         auto authorObj = QPDFObjectHandle::newString(m_author.toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Author), authorObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::Author), authorObj);
     }
     if (!m_keyword.isEmpty()) {
         auto keywordsObj = QPDFObjectHandle::newString(m_keyword.toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Keywords), keywordsObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::Keywords), keywordsObj);
     }
     if (!m_producer.isEmpty()) {
         auto producerObj = QPDFObjectHandle::newString(m_producer.toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Producer), producerObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::Producer), producerObj);
     }
     if (!m_creator.isEmpty()) {
         auto creatorObj = QPDFObjectHandle::newString(m_creator.toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::Creator), creatorObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::Creator), creatorObj);
     }
     // TODO: deal with time zone (+00), common format string
     if (m_creationDate.isValid()) {
         auto dateObj = QPDFObjectHandle::newString(m_creationDate.toString(u"D:yyyyMMddhhmmss+00''00''"_s).toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::CreationDate), dateObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::CreationDate), dateObj);
     }
     if (m_modDate.isValid()) {
         auto dateObj = QPDFObjectHandle::newString(m_modDate.toString(u"D:yyyyMMddhhmmss+00''00''"_s).toStdString());
-        qpdfHandle.replaceKey(infoTag(QPdfDocument::MetaDataField::ModificationDate), dateObj);
+        qpdfHandle.replaceKey(infoTag(MetaDataField::ModificationDate), dateObj);
     }
 }
 
@@ -189,7 +189,7 @@ QByteArrayList PdfMetaData::tags()
     return m_tags;
 }
 
-QByteArray PdfMetaData::tag(QPdfDocument::MetaDataField tagId)
+QByteArray PdfMetaData::tag(MetaDataField tagId)
 {
     const int id = static_cast<int>(tagId);
     if (id < 0 || id >= PDF_METADATA_TAGS_COUNT)
@@ -197,7 +197,7 @@ QByteArray PdfMetaData::tag(QPdfDocument::MetaDataField tagId)
     return m_tags[id];
 }
 
-std::string PdfMetaData::infoTag(QPdfDocument::MetaDataField tagId)
+std::string PdfMetaData::infoTag(MetaDataField tagId)
 {
     return "/" + tag(tagId).toStdString();
 }
