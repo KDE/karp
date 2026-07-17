@@ -94,7 +94,6 @@ target_link_libraries(karp
     Qt6::Quick
     Qt6::QuickControls2
     Qt6::Svg
-    Qt6::Pdf
     KF6::I18n
     KF6::IconThemes
     KF6::CoreAddons
@@ -108,9 +107,7 @@ target_link_libraries(karp
 )
 
 if (TARGET KF6::I18nQml)
-    target_link_libraries(karp PUBLIC
-        KF6::I18nQml
-    )
+    target_link_libraries(karp PUBLIC KF6::I18nQml)
 endif()
 if (TARGET KF6::Crash)
     target_link_libraries(karp PUBLIC KF6::Crash)
