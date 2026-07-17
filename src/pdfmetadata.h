@@ -65,8 +65,7 @@ public:
     void setAllInfoKeys(QPDFObjectHandle &qpdfHandle);
 
     /**
-     * List of tags used in PDF metadata ordered according to
-     * @p QPdfDocument::MetaDataField:
+     * List of tags used in PDF metadata ordered according to @p MetaDataField:
      * Title, Subject, Author, Keywords, Creator, Producer, CreationDate, ModDate
      */
     static QByteArrayList tags();
