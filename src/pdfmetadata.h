@@ -4,7 +4,6 @@
 #pragma once
 
 #include <QDateTime>
-#include <QPdfDocument>
 
 #define PDF_METADATA_TAGS_COUNT (8)
 
@@ -17,6 +16,17 @@ class PdfMetaData
 {
 public:
     PdfMetaData();
+
+    enum class MetaDataField {
+        Title,
+        Subject,
+        Author,
+        Keywords,
+        Producer,
+        Creator,
+        CreationDate,
+        ModificationDate
+    };
 
     bool modified() const;
 
@@ -61,9 +71,9 @@ public:
      */
     static QByteArrayList tags();
 
-    static QByteArray tag(QPdfDocument::MetaDataField tagId);
+    static QByteArray tag(MetaDataField tagId);
 
-    std::string infoTag(QPdfDocument::MetaDataField tagId);
+    std::string infoTag(MetaDataField tagId);
 
 private:
     static QByteArrayList m_tags;
