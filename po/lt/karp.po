@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-06-02 13:04+0300\n"
+"PO-Revision-Date: 2026-07-19 00:21+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -118,7 +118,7 @@ msgstr "Modifikavimo data"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Karp veiksmai"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -321,12 +321,10 @@ msgid "Password"
 msgstr "Slaptažodis"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "Slaptažodis"
+msgstr "Nėra slaptažodžio"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
