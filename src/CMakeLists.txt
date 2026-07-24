@@ -144,3 +144,4 @@ endif()
 kconfig_add_kcfg_files(karp GENERATE_MOC karpconfig.kcfgc)
 
 install(TARGETS karp ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES karpconfig.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
