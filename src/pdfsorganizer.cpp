@@ -109,7 +109,7 @@ int PdfListModel::setPdfPassword(int fileId, const QString &pass)
     if (fileId < 0 || fileId >= rows())
         return 0;
     auto pdf = getPdfFile(fileId);
-    pdf->setFile(pdf->filePath(), pass.toLatin1(), pass.toLatin1());
+    pdf->setPassword(pass.toLatin1());
     if (pdf->isLocked()) {
         remove(fileId);
         return 0;

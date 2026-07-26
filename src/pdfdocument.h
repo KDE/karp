@@ -31,7 +31,7 @@ public:
     PdfDocument(const QString &pdfFileName, quint16 refFileId, PdfFileFlags s = PdfNotAdded);
     ~PdfDocument();
 
-    void setFile(const QString &fileName, const QByteArray &ownerPassword = QByteArray(), const QByteArray &userPassword = QByteArray());
+    void setFile(const QString &fileName);
 
     quint16 referenceFileId() const
     {
@@ -81,12 +81,12 @@ public:
 
     int pageCount() const
     {
-        return m_document->numPages();
+        return m_locked ? 0 : m_document->numPages();
     }
 
     bool isLocked() const
     {
-        return m_document->isLocked();
+        return m_locked;
     }
 
     bool isValid() const
@@ -96,37 +96,40 @@ public:
 
     QSize pageSize(int index) const
     {
-        return m_document->page(index)->pageSize();
+        return m_locked ? QSize() : m_document->page(index)->pageSize();
     }
 
     QDateTime creationDate() const
     {
-        return m_document->creationDate();
+        return m_locked ? QDateTime() : m_document->creationDate();
     }
 
     QStringList infoKeys() const
     {
-        return m_document->infoKeys();
+        return m_locked ? QStringList() : m_document->infoKeys();
     }
 
     QString info(const QString &key) const
     {
-        return m_document->info(key);
+        return m_locked ? QString() : m_document->info(key);
     }
 
     QVector<Poppler::OutlineItem> outlines() const
     {
-        return m_document->outline();
+        return m_locked ? QVector<Poppler::OutlineItem>() : m_document->outline();
     }
-
     /**
      * Request rendering image for @p pdfPage of @p pageId in pages list.
      * Saves rendered @p QImage and emits @p pageRendered() when ready.
      */
     void requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId);
+    void setPassword(QByteArray password);
 
 Q_SIGNALS:
     void pageRendered(quint16, PdfPage *);
+
+private:
+    void update();
 
 private:
     quint16 m_refFileId = 0;
@@ -135,4 +138,5 @@ private:
     QString m_name;
     PageRange m_range;
     std::unique_ptr<Poppler::Document> m_document;
+    bool m_locked;
 };

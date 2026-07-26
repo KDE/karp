@@ -17,15 +17,32 @@ PdfDocument::~PdfDocument()
 {
 }
 
-void PdfDocument::setFile(const QString &fileName, const QByteArray &ownerPassword, const QByteArray &userPassword)
+void PdfDocument::update()
+{
+    if (m_document) {
+        m_locked = m_document->isLocked();
+
+        if (!m_locked) {
+            m_range.setTo(m_document->numPages());
+        }
+    }
+}
+
+void PdfDocument::setFile(const QString &fileName)
 {
     QFileInfo pdfInfo(fileName);
     m_dir = pdfInfo.canonicalPath() + QDir::separator();
     m_name = pdfInfo.fileName();
-    m_document = Poppler::Document::load(fileName, ownerPassword, userPassword);
-    // TODO: Handle errors
+    m_document = Poppler::Document::load(fileName);
+
+    update();
+}
+
+void PdfDocument::setPassword(const QByteArray password)
+{
     if (m_document) {
-        m_range.setTo(m_document->numPages());
+        m_document->unlock(QByteArray(), password);
+        update();
     }
 }
 
@@ -34,7 +51,7 @@ void PdfDocument::requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 p
     Q_UNUSED(pageId);
     Q_UNUSED(pageSize)
 
-    if (!m_document) {
+    if (!m_document || m_locked) {
         return;
     }
     std::unique_ptr<Poppler::Page> page = m_document->page(pdfPage->origPage());

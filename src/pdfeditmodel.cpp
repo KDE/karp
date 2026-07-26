@@ -655,7 +655,7 @@ void PdfEditModel::setPdfPassword(int fileId, const QString &pass)
     if (fileId < 0 || fileId >= pdfCount())
         return;
     auto pdf = m_pdfList[fileId];
-    pdf->setFile(pdf->filePath(), pass.toLatin1(), pass.toLatin1());
+    pdf->setPassword(pass.toLatin1());
     if (pdf->isLocked()) {
         qCDebug(KARP_LOG) << "[PdfEditModel] Wrong password!";
         m_pdfList.remove(fileId);
