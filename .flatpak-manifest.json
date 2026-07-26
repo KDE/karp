@@ -63,6 +63,59 @@
       ]
     },
     {
+      "name": "poppler",
+      "buildsystem": "cmake-ninja",
+      "builddir": true,
+      "config-opts": [
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DBUILD_GTK_TESTS=OFF",
+        "-DBUILD_QT5_TESTS=OFF",
+        "-DBUILD_QT6_TESTS=OFF",
+        "-DBUILD_CPP_TESTS=OFF",
+        "-DENABLE_UTILS=OFF",
+        "-DENABLE_CPP=OFF",
+        "-DENABLE_GLIB=OFF",
+        "-DENABLE_QT5=OFF",
+        "-DENABLE_QT6=ON"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://poppler.freedesktop.org/poppler-26.07.0.tar.xz",
+          "sha256": "304832f48f8a47fdca90c6b6d1f684e68f37c10c9a0726f345f4ca9df4ca01e2",
+          "x-checker-data": {
+            "type": "anitya",
+            "project-id": 3686,
+            "stable-only": true,
+            "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
+          }
+        }
+      ],
+      "modules": [
+        {
+          "name": "boost",
+          "buildsystem": "simple",
+          "build-commands": [
+            "./bootstrap.sh --prefix=/app --with-libraries=system",
+            "./b2 -j $FLATPAK_BUILDER_N_JOBS install"
+          ],
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://archives.boost.io/release/1.90.0/source/boost_1_90_0.tar.bz2",
+              "sha256": "49551aff3b22cbc5c5a9ed3dbc92f0e23ea50a0f7325b0d198b705e8ee3fc305",
+              "x-checker-data": {
+                "type": "anitya",
+                "project-id": 6845,
+                "stable-only": true,
+                "url-template": "https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "karp",
       "buildsystem": "cmake-ninja",
       "builddir": true,
