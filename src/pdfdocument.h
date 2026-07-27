@@ -122,7 +122,7 @@ public:
      * Request rendering image for @p pdfPage of @p pageId in pages list.
      * Saves rendered @p QImage and emits @p pageRendered() when ready.
      */
-    void requestPage(PdfPage *pdfPage, const QSize &pageSize, quint16 pageId);
+    void requestPage(PdfPage *pdfPage, const QSize &requestedSized, quint16 pageId);
     void setPassword(QByteArray password);
 
 Q_SIGNALS:

@@ -22,11 +22,18 @@ void PdfPageItem::setImage(const QVariant &img)
 
 void PdfPageItem::paint(QPainter *painter)
 {
-    QImage fittedImage = m_image.scaled(width(), height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    qreal xOff = (width() - fittedImage.width()) / 2;
-    qreal yOff = (height() - fittedImage.height()) / 2;
+    qreal dpr = m_image.devicePixelRatio();
+    if (dpr <= 0) {
+        dpr = 1.0; // fallback safety
+    }
+    QSize targetSize(width() * dpr, height() * dpr);
 
-    painter->fillRect(0, 0, width() - 1, height() - 1, Qt::white);
+    QImage fittedImage = m_image.scaled(targetSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    fittedImage.setDevicePixelRatio(dpr);
+
+    qreal xOff = (width() - fittedImage.width() / dpr) / 2;
+    qreal yOff = (height() - fittedImage.height() / dpr) / 2;
+
     painter->drawImage(xOff, yOff, fittedImage);
 }
 

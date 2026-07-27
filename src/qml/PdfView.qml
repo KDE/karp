@@ -85,8 +85,6 @@ GridView {
 
             background: PdfPageItem {
                 id: img
-                x: (pdfPage.width - img.width) / 2
-                y: (pdfPage.height - img.height) / 2
                 image: dropDelegate.pageImg
                 scale: pdfPage.width / (dropDelegate.rotated === 90 || dropDelegate.rotated === 270 ? img.height : img.width)
                 rotation: dropDelegate.rotated
