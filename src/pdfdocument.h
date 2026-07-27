@@ -94,9 +94,9 @@ public:
         return m_document != nullptr;
     }
 
-    QSize pageSize(int index) const
+    QSizeF pageSize(int index) const
     {
-        return m_locked ? QSize() : m_document->page(index)->pageSize();
+        return m_locked ? QSize() : m_document->page(index)->pageSizeF();
     }
 
     QDateTime creationDate() const
