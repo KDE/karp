@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-10 00:41+0000\n"
-"PO-Revision-Date: 2026-07-10 19:35+0300\n"
+"PO-Revision-Date: 2026-08-03 18:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -35,7 +35,7 @@ msgstr "QPDF eksik."
 #: app.cpp:141
 #, kde-format
 msgid "Ghostscript is missing."
-msgstr "Ghostcript eksik."
+msgstr "Ghostcript kurulu değil."
 
 #: app.cpp:144
 #, kde-format
@@ -43,8 +43,8 @@ msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
 "available."
 msgstr ""
-"Yukarıda belirtilen programları kurun; aksi takdirde tüm işlevler "
-"kullanılabilir olmayacaktır."
+"Yukarıda belirtilen programları kurun; aksi takdirde programın işlevlerinin "
+"tümünü kullanamayabilirsiniz."
 
 #: main.cpp:111
 #, kde-format
@@ -55,7 +55,7 @@ msgstr "Karp"
 #: main.cpp:115 main.cpp:129
 #, kde-format
 msgid "KDE arranger for PDFs"
-msgstr "PDF Düzenleyicisi"
+msgstr "PDF’ler için sayfa organize edicisi"
 
 #: main.cpp:119
 #, kde-format
@@ -234,13 +234,13 @@ msgstr "Alt Bölüm Ekle"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Expand whole section"
-msgstr "Tüm bölümü Genişlet"
+msgstr "Tüm bölümü genişlet"
 
 #: qml/Bookmarks/BookmarksView.qml:197
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Collapse whole section"
-msgstr "Tüm Bölümü Daralt"
+msgstr "Tüm bölümü daralt"
 
 #: qml/Bookmarks/BookmarksView.qml:213
 #, kde-format
@@ -549,7 +549,7 @@ msgstr "PDF dosyasını indirgemek beklenen sonucu vermedi!"
 #: qml/Settings/General.qml:19
 #, kde-format
 msgid "Open file dialog at"
-msgstr "Dosya İletişim Kutusu Aç"
+msgstr "Dosya iletişim kutusunu şurada aç"
 
 #: qml/Settings/General.qml:23
 #, kde-format
