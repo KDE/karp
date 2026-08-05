@@ -60,7 +60,7 @@
   <summary xml:lang="sk">KDE usporiadač PDF</summary>
   <summary xml:lang="sl">KDE razvrščevalnik za PDF-e</summary>
   <summary xml:lang="sv">KDE-arrangör för PDF:er</summary>
-  <summary xml:lang="tr">PDF Düzenleyicisi</summary>
+  <summary xml:lang="tr">PDF’ler için sayfa organize edicisi</summary>
   <summary xml:lang="ug">KDE مۇھىتىدىكى PDF تەھرىرلىگۈچ</summary>
   <summary xml:lang="uk">Впорядкувальник PDF від KDE</summary>
   <summary xml:lang="zh-CN">KDE 的 PDF 编辑器</summary>
@@ -94,6 +94,7 @@
     <p xml:lang="tr">Karp, PDF dosyalarında değişiklik yapmak için yalın bir arayüz sunar. Birkaç fare hareketiyle kullanıcılar:</p>
     <p xml:lang="uk">Karp — простий інтерфейс для внесення змін до файлів PDF. За декілька клацань кнопками миші користувач може:</p>
     <p xml:lang="zh-CN">Karp — 提供一个简单的界面用于修改 PDF 文件。只需点击几下鼠标，即可实现以下操作：</p>
+    <p xml:lang="zh-TW">Karp — 提供修改 PDF 檔案用的簡單介面。只要滑鼠點幾下就能：</p>
     <ul>
       <li>Append and merge multiple PDF files</li>
       <li xml:lang="ar">تعديل ملفات بي دي اف محميّة بكلمة سر</li>
@@ -117,6 +118,7 @@
       <li xml:lang="tr">Birden çok PDF dosyasını birleştirebilir ve iliştirebilir;</li>
       <li xml:lang="uk">Дозаписувати та об'єднувати файли PDF</li>
       <li xml:lang="zh-CN">添加、合并多个 PDF 文件</li>
+      <li xml:lang="zh-TW">合併多個 PDF 檔案</li>
       <li>Delete, rotate and reorder pages</li>
       <li xml:lang="ar">حذف وتدوير وإعادة ترتيب الصفحات</li>
       <li xml:lang="ca">Suprimir, girar o reordenar pàgines</li>
@@ -255,6 +257,7 @@
       <li xml:lang="tr">PDF’leri parola ile koruyabilirsiniz.</li>
       <li xml:lang="uk">Захищати файли PDF паролем</li>
       <li xml:lang="zh-CN">使用密码保护 PDF 文件</li>
+      <li xml:lang="zh-TW">用密碼來保護 PDF 檔</li>
     </ul>
   </description>
   <provides>
@@ -289,6 +292,7 @@
       <caption xml:lang="tr">PDF dosyasının sayfalarını gösteren Karp ana sayfası</caption>
       <caption xml:lang="uk">Головне вікно Karp зі сторінками файла PDF</caption>
       <caption xml:lang="zh-CN">Karp 的主窗口正在显示 PDF 页面</caption>
+      <caption xml:lang="zh-TW">Karp 主視窗，顯示 PDF 檔案的頁面</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_mainwindow.png</image>
     </screenshot>
     <screenshot type="default">
@@ -314,6 +318,7 @@
       <caption xml:lang="tr">Parola korumalı bir PDF dosyasına iliştirme yaparken</caption>
       <caption xml:lang="uk">Додавання захищеного паролем файла PDF</caption>
       <caption xml:lang="zh-CN">对密码保护的 PDF 文件进行添加操作</caption>
+      <caption xml:lang="zh-TW">將內容加入密碼保護的 PDF 檔案</caption>
       <image>https://cdn.kde.org/screenshots/karp/karp_add_pdf_with_password.png</image>
     </screenshot>
   </screenshots>
