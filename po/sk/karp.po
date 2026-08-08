@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-08 00:42+0000\n"
 "PO-Revision-Date: 2025-12-01 00:40+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:580
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Súbor PDF na úpravu"
 
-#: app.cpp:57 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "Vybrať súbory PDF"
@@ -79,36 +79,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
-#: pdfeditmodel.cpp:525 qml/Bookmarks/EditBookmarkDialog.qml:66
+#: pdfeditmodel.cpp:524 qml/Bookmarks/EditBookmarkDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "Názov"
 
-#: pdfeditmodel.cpp:526
+#: pdfeditmodel.cpp:525
 msgid "Subject"
 msgstr "Predmet"
 
-#: pdfeditmodel.cpp:527
+#: pdfeditmodel.cpp:526
 msgid "Author"
 msgstr "Autor"
 
-#: pdfeditmodel.cpp:528
+#: pdfeditmodel.cpp:527
 msgid "Keyword"
 msgstr "Kľúčové slovo"
 
-#: pdfeditmodel.cpp:529
+#: pdfeditmodel.cpp:528
 msgid "Producer"
 msgstr "Producent"
 
-#: pdfeditmodel.cpp:530
+#: pdfeditmodel.cpp:529
 msgid "Creator"
 msgstr "Tvorca"
 
-#: pdfeditmodel.cpp:531
+#: pdfeditmodel.cpp:530
 msgid "Creation Date"
 msgstr "Dátum vytvorenia"
 
-#: pdfeditmodel.cpp:532
+#: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "Dátum úpravy"
 

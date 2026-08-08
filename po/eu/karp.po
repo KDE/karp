@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-08 00:42+0000\n"
 "PO-Revision-Date: 2025-06-08 11:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,12 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.2\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:580
 #, kde-format
 msgid "PDF file to edit"
 msgstr "Editatu beharreko PDF fitxategia"
 
-#: app.cpp:57 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "Hautatu PDF fitxategiak"
@@ -84,36 +84,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: pdfeditmodel.cpp:525 qml/Bookmarks/EditBookmarkDialog.qml:66
+#: pdfeditmodel.cpp:524 qml/Bookmarks/EditBookmarkDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "Titulua"
 
-#: pdfeditmodel.cpp:526
+#: pdfeditmodel.cpp:525
 msgid "Subject"
 msgstr "Gaia"
 
-#: pdfeditmodel.cpp:527
+#: pdfeditmodel.cpp:526
 msgid "Author"
 msgstr "Egilea"
 
-#: pdfeditmodel.cpp:528
+#: pdfeditmodel.cpp:527
 msgid "Keyword"
 msgstr "Gako-hitza"
 
-#: pdfeditmodel.cpp:529
+#: pdfeditmodel.cpp:528
 msgid "Producer"
 msgstr "Ekoizlea"
 
-#: pdfeditmodel.cpp:530
+#: pdfeditmodel.cpp:529
 msgid "Creator"
 msgstr "Sortzailea"
 
-#: pdfeditmodel.cpp:531
+#: pdfeditmodel.cpp:530
 msgid "Creation Date"
 msgstr "Sorrera-data"
 
-#: pdfeditmodel.cpp:532
+#: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "Aldatze-data"
 

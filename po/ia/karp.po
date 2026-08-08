@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-08 00:42+0000\n"
 "PO-Revision-Date: 2026-07-15 18:54+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:580
 #, kde-format
 msgid "PDF file to edit"
 msgstr "File de PDF a modificar"
 
-#: app.cpp:57 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "Selige files PDF"
@@ -80,36 +80,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
-#: pdfeditmodel.cpp:525 qml/Bookmarks/EditBookmarkDialog.qml:66
+#: pdfeditmodel.cpp:524 qml/Bookmarks/EditBookmarkDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "Titulo"
 
-#: pdfeditmodel.cpp:526
+#: pdfeditmodel.cpp:525
 msgid "Subject"
 msgstr "Subjecto"
 
-#: pdfeditmodel.cpp:527
+#: pdfeditmodel.cpp:526
 msgid "Author"
 msgstr "Autor"
 
-#: pdfeditmodel.cpp:528
+#: pdfeditmodel.cpp:527
 msgid "Keyword"
 msgstr "Parola clave"
 
-#: pdfeditmodel.cpp:529
+#: pdfeditmodel.cpp:528
 msgid "Producer"
 msgstr "Productor"
 
-#: pdfeditmodel.cpp:530
+#: pdfeditmodel.cpp:529
 msgid "Creator"
 msgstr "Creator"
 
-#: pdfeditmodel.cpp:531
+#: pdfeditmodel.cpp:530
 msgid "Creation Date"
 msgstr "Data de creation"
 
-#: pdfeditmodel.cpp:532
+#: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "Data de modification"
 

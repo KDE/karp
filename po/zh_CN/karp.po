@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-08 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,12 +17,12 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/karp/karp.pot\n"
 "X-Crowdin-File-ID: 56708\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:580
 #, kde-format
 msgid "PDF file to edit"
 msgstr "要编辑的 PDF 文件"
 
-#: app.cpp:57 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "选择 PDF 文件"
@@ -78,36 +78,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tds00@qq.com"
 
-#: pdfeditmodel.cpp:525 qml/Bookmarks/EditBookmarkDialog.qml:66
+#: pdfeditmodel.cpp:524 qml/Bookmarks/EditBookmarkDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "标题"
 
-#: pdfeditmodel.cpp:526
+#: pdfeditmodel.cpp:525
 msgid "Subject"
 msgstr "主题"
 
-#: pdfeditmodel.cpp:527
+#: pdfeditmodel.cpp:526
 msgid "Author"
 msgstr "作者"
 
-#: pdfeditmodel.cpp:528
+#: pdfeditmodel.cpp:527
 msgid "Keyword"
 msgstr "关键词"
 
-#: pdfeditmodel.cpp:529
+#: pdfeditmodel.cpp:528
 msgid "Producer"
 msgstr "转换程序"
 
-#: pdfeditmodel.cpp:530
+#: pdfeditmodel.cpp:529
 msgid "Creator"
 msgstr "创建程序"
 
-#: pdfeditmodel.cpp:531
+#: pdfeditmodel.cpp:530
 msgid "Creation Date"
 msgstr "创建日期"
 
-#: pdfeditmodel.cpp:532
+#: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "修改日期"
 

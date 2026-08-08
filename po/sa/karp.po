@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-08 00:42+0000\n"
 "PO-Revision-Date: 2024-12-29 22:53+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:582
+#: app.cpp:28 pdfeditmodel.cpp:580
 #, kde-format
 msgid "PDF file to edit"
 msgstr "सम्पादनार्थं PDF सञ्चिका"
 
-#: app.cpp:57 pdfsorganizer.cpp:191
+#: app.cpp:57 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "PDF सञ्चिकाः चिनोतु"
@@ -80,36 +80,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: pdfeditmodel.cpp:525 qml/Bookmarks/EditBookmarkDialog.qml:66
+#: pdfeditmodel.cpp:524 qml/Bookmarks/EditBookmarkDialog.qml:66
 #, kde-format
 msgid "Title"
 msgstr "शीर्षक"
 
-#: pdfeditmodel.cpp:526
+#: pdfeditmodel.cpp:525
 msgid "Subject"
 msgstr "विषयः"
 
-#: pdfeditmodel.cpp:527
+#: pdfeditmodel.cpp:526
 msgid "Author"
 msgstr "लेखकः"
 
-#: pdfeditmodel.cpp:528
+#: pdfeditmodel.cpp:527
 msgid "Keyword"
 msgstr "कीवर्ड"
 
-#: pdfeditmodel.cpp:529
+#: pdfeditmodel.cpp:528
 msgid "Producer"
 msgstr "निर्माता"
 
-#: pdfeditmodel.cpp:530
+#: pdfeditmodel.cpp:529
 msgid "Creator"
 msgstr "प्रजापति"
 
-#: pdfeditmodel.cpp:531
+#: pdfeditmodel.cpp:530
 msgid "Creation Date"
 msgstr "सृष्टि तिथि"
 
-#: pdfeditmodel.cpp:532
+#: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "परिवर्तन तिथि"
 
