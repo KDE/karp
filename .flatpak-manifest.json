@@ -5,7 +5,9 @@
   "runtime-version": "6.11",
   "sdk": "org.kde.Sdk",
   "command": "karp",
-  "tags": ["nightly"],
+  "tags": [
+    "nightly"
+  ],
   "desktop-file-name-suffix": " (Nightly)",
   "finish-args": [
     "--device=dri",
@@ -29,8 +31,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/qpdf/qpdf/archive/refs/tags/v12.3.2.tar.gz",
-          "sha256": "11ac1800f0d7334863fa1fce6a8b87b105897610bb6a25b9b883ba3f9f1aa4d7",
+          "url": "https://github.com/qpdf/qpdf/archive/refs/tags/v12.4.0.tar.gz",
+          "sha256": "34c49d7d73e428cc30b197aa5648cd2c757af9a7596554fa1316bf9fe1188f81",
           "x-checker-data": {
             "type": "anitya",
             "project-id": 5542,
@@ -41,7 +43,9 @@
     },
     {
       "name": "kirigamiaddons",
-      "config-opts": ["-DBUILD_TESTING=OFF"],
+      "config-opts": [
+        "-DBUILD_TESTING=OFF"
+      ],
       "buildsystem": "cmake-ninja",
       "sources": [
         {
@@ -54,7 +58,10 @@
     {
       "name": "kirigami-app-components",
       "buildsystem": "cmake-ninja",
-      "config-opts": ["-DBUILD_TESTING=OFF", "-DBUILD_WITH_QT6=ON"],
+      "config-opts": [
+        "-DBUILD_TESTING=OFF",
+        "-DBUILD_WITH_QT6=ON"
+      ],
       "sources": [
         {
           "type": "git",
@@ -81,8 +88,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://poppler.freedesktop.org/poppler-26.07.0.tar.xz",
-          "sha256": "304832f48f8a47fdca90c6b6d1f684e68f37c10c9a0726f345f4ca9df4ca01e2",
+          "url": "https://poppler.freedesktop.org/poppler-26.08.0.tar.xz",
+          "sha256": "dc906e68cea698109706ac6aa3d2c9d4512fcfcac42d90b8afcda486d1b9abd0",
           "x-checker-data": {
             "type": "anitya",
             "project-id": 3686,
@@ -123,7 +130,9 @@
         {
           "type": "dir",
           "path": ".",
-          "skip": [".git"]
+          "skip": [
+            ".git"
+          ]
         }
       ]
     }
