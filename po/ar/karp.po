@@ -539,7 +539,7 @@ msgid ""
 "Then, arrange all pages: Reorder, Rotate, Remove.\n"
 "At the end, save the new PDF with the selected options."
 msgstr ""
-"عند تحديد المزيد من الملفات - رتبها أولاً.\n"
+"عند تحديد المزيد من الملفات - رتبها أولًا.\n"
 "ثم رتب جميع الصفحات: أعد الترتيب، دوِّر، وأزِل.\n"
 "وفي النهاية، احفظ ملف بي دي اف الجديد بالخيارات المحددة."
 
