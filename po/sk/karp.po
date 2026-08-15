@@ -115,7 +115,7 @@ msgstr "Dátum úpravy"
 #: qml/Actions.qml:10
 #, kde-format
 msgid "Karp Actions"
-msgstr ""
+msgstr "Akcie Karp"
 
 #: qml/Actions.qml:14
 #, kde-format
@@ -318,12 +318,10 @@ msgid "Password"
 msgstr "Heslo"
 
 #: qml/Dialogs/ExportDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Password"
+#, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
-msgstr "Heslo"
+msgstr "Bez hesla"
 
 #: qml/Dialogs/ExportDialog.qml:44
 #, kde-format
