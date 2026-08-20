@@ -1,140 +1,140 @@
 {
-  "id": "org.kde.karp",
-  "branch": "master",
-  "runtime": "org.kde.Platform",
-  "runtime-version": "6.11",
-  "sdk": "org.kde.Sdk",
-  "command": "karp",
-  "tags": [
-    "nightly"
-  ],
-  "desktop-file-name-suffix": " (Nightly)",
-  "finish-args": [
-    "--device=dri",
-    "--share=ipc",
-    "--socket=fallback-x11",
-    "--socket=wayland",
-    "--socket=pulseaudio",
-    "--share=network"
-  ],
-  "separate-locales": false,
-  "modules": [
-    {
-      "name": "qpdf",
-      "buildsystem": "cmake-ninja",
-      "builddir": true,
-      "config-opts": [
-        "-DCMAKE_INSTALL_LIBDIR=/app/lib",
-        "-DLIB_INSTALL_DIR=/app/lib",
-        "-DMAINTAINER_MODE=OFF"
-      ],
-      "sources": [
+    "id": "org.kde.karp",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "6.11",
+    "sdk": "org.kde.Sdk",
+    "command": "karp",
+    "tags": [
+        "nightly"
+    ],
+    "desktop-file-name-suffix": " (Nightly)",
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--socket=pulseaudio",
+        "--share=network"
+    ],
+    "separate-locales": false,
+    "modules": [
         {
-          "type": "archive",
-          "url": "https://github.com/qpdf/qpdf/archive/refs/tags/v12.4.0.tar.gz",
-          "sha256": "34c49d7d73e428cc30b197aa5648cd2c757af9a7596554fa1316bf9fe1188f81",
-          "x-checker-data": {
-            "type": "anitya",
-            "project-id": 5542,
-            "url-template": "https://github.com/qpdf/qpdf/archive/refs/tags/v$version.tar.gz"
-          }
-        }
-      ]
-    },
-    {
-      "name": "kirigamiaddons",
-      "config-opts": [
-        "-DBUILD_TESTING=OFF"
-      ],
-      "buildsystem": "cmake-ninja",
-      "sources": [
+            "name": "qpdf",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DLIB_INSTALL_DIR=/app/lib",
+                "-DMAINTAINER_MODE=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/qpdf/qpdf/archive/refs/tags/v12.4.0.tar.gz",
+                    "sha256": "34c49d7d73e428cc30b197aa5648cd2c757af9a7596554fa1316bf9fe1188f81",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 5542,
+                        "url-template": "https://github.com/qpdf/qpdf/archive/refs/tags/v$version.tar.gz"
+                    }
+                }
+            ]
+        },
         {
-          "type": "git",
-          "url": "https://invent.kde.org/libraries/kirigami-addons.git",
-          "branch": "master"
-        }
-      ]
-    },
-    {
-      "name": "kirigami-app-components",
-      "buildsystem": "cmake-ninja",
-      "config-opts": [
-        "-DBUILD_TESTING=OFF",
-        "-DBUILD_WITH_QT6=ON"
-      ],
-      "sources": [
+            "name": "kirigamiaddons",
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kirigami-addons.git",
+                    "branch": "master"
+                }
+            ]
+        },
         {
-          "type": "git",
-          "url": "https://invent.kde.org/libraries/kirigami-app-components"
-        }
-      ]
-    },
-    {
-      "name": "poppler",
-      "buildsystem": "cmake-ninja",
-      "builddir": true,
-      "config-opts": [
-        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
-        "-DBUILD_GTK_TESTS=OFF",
-        "-DBUILD_QT5_TESTS=OFF",
-        "-DBUILD_QT6_TESTS=OFF",
-        "-DBUILD_CPP_TESTS=OFF",
-        "-DENABLE_UTILS=OFF",
-        "-DENABLE_CPP=OFF",
-        "-DENABLE_GLIB=OFF",
-        "-DENABLE_QT5=OFF",
-        "-DENABLE_QT6=ON"
-      ],
-      "sources": [
+            "name": "kirigami-app-components",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DBUILD_TESTING=OFF",
+                "-DBUILD_WITH_QT6=ON"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kirigami-app-components"
+                }
+            ]
+        },
         {
-          "type": "archive",
-          "url": "https://poppler.freedesktop.org/poppler-26.08.0.tar.xz",
-          "sha256": "dc906e68cea698109706ac6aa3d2c9d4512fcfcac42d90b8afcda486d1b9abd0",
-          "x-checker-data": {
-            "type": "anitya",
-            "project-id": 3686,
-            "stable-only": true,
-            "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
-          }
-        }
-      ],
-      "modules": [
+            "name": "poppler",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DBUILD_GTK_TESTS=OFF",
+                "-DBUILD_QT5_TESTS=OFF",
+                "-DBUILD_QT6_TESTS=OFF",
+                "-DBUILD_CPP_TESTS=OFF",
+                "-DENABLE_UTILS=OFF",
+                "-DENABLE_CPP=OFF",
+                "-DENABLE_GLIB=OFF",
+                "-DENABLE_QT5=OFF",
+                "-DENABLE_QT6=ON"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://poppler.freedesktop.org/poppler-26.08.0.tar.xz",
+                    "sha256": "dc906e68cea698109706ac6aa3d2c9d4512fcfcac42d90b8afcda486d1b9abd0",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3686,
+                        "stable-only": true,
+                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
+                    }
+                }
+            ],
+            "modules": [
+                {
+                    "name": "boost",
+                    "buildsystem": "simple",
+                    "build-commands": [
+                        "./bootstrap.sh --prefix=/app --with-libraries=system",
+                        "./b2 -j $FLATPAK_BUILDER_N_JOBS install"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://archives.boost.io/release/1.90.0/source/boost_1_90_0.tar.bz2",
+                            "sha256": "49551aff3b22cbc5c5a9ed3dbc92f0e23ea50a0f7325b0d198b705e8ee3fc305",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 6845,
+                                "stable-only": true,
+                                "url-template": "https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         {
-          "name": "boost",
-          "buildsystem": "simple",
-          "build-commands": [
-            "./bootstrap.sh --prefix=/app --with-libraries=system",
-            "./b2 -j $FLATPAK_BUILDER_N_JOBS install"
-          ],
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://archives.boost.io/release/1.90.0/source/boost_1_90_0.tar.bz2",
-              "sha256": "49551aff3b22cbc5c5a9ed3dbc92f0e23ea50a0f7325b0d198b705e8ee3fc305",
-              "x-checker-data": {
-                "type": "anitya",
-                "project-id": 6845,
-                "stable-only": true,
-                "url-template": "https://archives.boost.io/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2"
-              }
-            }
-          ]
+            "name": "karp",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": ".",
+                    "skip": [
+                        ".git"
+                    ]
+                }
+            ]
         }
-      ]
-    },
-    {
-      "name": "karp",
-      "buildsystem": "cmake-ninja",
-      "builddir": true,
-      "sources": [
-        {
-          "type": "dir",
-          "path": ".",
-          "skip": [
-            ".git"
-          ]
-        }
-      ]
-    }
-  ]
+    ]
 }
