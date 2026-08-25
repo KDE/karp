@@ -298,8 +298,8 @@
     <screenshot type="default">
       <caption>Appending a password protected PDF file</caption>
       <caption xml:lang="ar">تعديل ملفات بي دي اف محميّة بكلمة سر</caption>
-      <caption xml:lang="ca">S'afegeix un fitxer PDF protegit per contrasenya</caption>
-      <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit per contrasenya</caption>
+      <caption xml:lang="ca">S'afegeix un fitxer PDF protegit amb contrasenya</caption>
+      <caption xml:lang="ca-valencia">S'afig un fitxer PDF protegit amb contrasenya</caption>
       <caption xml:lang="cs">Připojení souboru PDF chráněného heslem</caption>
       <caption xml:lang="de">Passwortgeschützte PDF-Dateien aneinanderhängen</caption>
       <caption xml:lang="es">Añadir un archivo PDF protegido con contraseña</caption>
