@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-08 00:42+0000\n"
-"PO-Revision-Date: 2026-07-15 18:54+0200\n"
+"PO-Revision-Date: 2026-09-01 17:09+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -604,7 +604,7 @@ msgstr "Qpdf te permitte arrangiar paginasin files PDF modificate."
 #: qml/Settings/PdfTools.qml:24
 #, kde-format
 msgid "Force PDF version of generated file"
-msgstr "Fortia version de PDF defile generate"
+msgstr "Fortia version de PDF de file generate"
 
 #: qml/Settings/PdfTools.qml:25
 #, kde-format
