@@ -23,18 +23,6 @@ App::App(QObject *parent)
     m_tools->lookForTools();
 }
 
-QString App::getPdfFile()
-{
-    auto pdfFile = QFileDialog::getOpenFileName(nullptr, i18n("PDF file to edit"), getOpenDIr(), u"*.pdf"_s);
-    if (pdfFile.isEmpty())
-        return QString();
-
-    setPath(pdfFile);
-    QFileInfo pdfFileInfo(pdfFile);
-    setPdfLoaded(true);
-    return m_path;
-}
-
 /**
  * Look up for files in command line arguments.
  * If PDF file list will be passed by file browser we cannot use @p QCommandLineParser

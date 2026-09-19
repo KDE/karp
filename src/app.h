@@ -25,7 +25,6 @@ class App : public AbstractKirigamiApplication
 public:
     explicit App(QObject *parent = nullptr);
 
-    Q_INVOKABLE QString getPdfFile();
     Q_INVOKABLE QStringList getPdfFiles();
 
     Q_INVOKABLE QStringList getInitFileList();
