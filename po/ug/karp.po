@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-08 00:42+0000\n"
-"PO-Revision-Date: 2026-05-30 16:50-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -49,7 +49,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Karp"
-msgstr "Karp"
+msgstr ""
 
 #: main.cpp:115 main.cpp:129
 #, kde-format
@@ -288,11 +288,10 @@ msgid "last"
 msgstr ""
 
 #: qml/Dialogs/ExportDialog.qml:10
-#, fuzzy, kde-format
-#| msgid "PDF Options"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
-msgstr "PDF تاللانما"
+msgstr "چىقىرىشنى تاللاش تۈرى"
 
 #: qml/Dialogs/ExportDialog.qml:20
 #, kde-format
@@ -316,7 +315,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
-msgstr ""
+msgstr "ئىم"
 
 #: qml/Dialogs/ExportDialog.qml:40
 #, kde-format
@@ -645,7 +644,6 @@ msgctxt "@action:button"
 msgid "About KDE"
 msgstr "KDE ھەققىدە"
 
-#, fuzzy
 #~| msgid "file"
 #~| msgid_plural "files"
 #~ msgctxt "@action:inmenu"
