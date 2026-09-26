@@ -9,7 +9,8 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
-#include <QFileDialog>
+#include <QDir>
+#include <QFileInfo>
 #include <QQuickWindow>
 
 using namespace Qt::Literals::StringLiterals;
@@ -38,11 +39,6 @@ QStringList App::getInitFileList()
             initFiles << argString;
     }
     return initFiles;
-}
-
-QStringList App::getPdfFiles()
-{
-    return QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files"), getOpenDIr(), u"*.pdf"_s);
 }
 
 QString App::getOpenDIr() const
@@ -147,6 +143,16 @@ bool App::eventFilter(QObject *obj, QEvent *ev)
             setCtrlPressed(false);
     }
     return AbstractKirigamiApplication::eventFilter(obj, ev);
+}
+
+QString App::urlToPath(const QUrl &url) const
+{
+    return url.isLocalFile() ? url.toLocalFile() : url.toString();
+}
+
+QUrl App::getOpenDirUrl() const
+{
+    return QUrl::fromLocalFile(getOpenDIr());
 }
 
 #include "moc_app.cpp"

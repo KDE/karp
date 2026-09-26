@@ -4,6 +4,7 @@
 import QtQuick
 import QtQml.Models
 import QtQuick.Controls as QQC2
+import QtQuick.Dialogs
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import QtQuick.Layouts
@@ -110,9 +111,24 @@ FormCard.FormCardDialog {
                 helpfulAction: Kirigami.Action {
                     icon.name: "list-add-symbolic"
                     text: i18nc("@action:button", "Add PDF")
-                    onTriggered: pdfOrg.addMorePDFs()
+                    onTriggered: addPdfsDialog.open()
                 }
             }
+        }
+    }
+
+    FileDialog {
+        id: addPdfsDialog
+        title: i18nc("@title:window", "Select PDF files")
+        fileMode: FileDialog.OpenFiles
+        currentFolder: APP.getOpenDirUrl()
+        nameFilters: [i18n("PDF files (*.pdf)")]
+        onAccepted: {
+            let paths = [];
+            for (let i = 0; i < selectedFiles.length; ++i) {
+                paths.push(APP.urlToPath(selectedFiles[i]));
+            }
+            pdfOrg.addPdfList(paths);
         }
     }
 
@@ -126,13 +142,14 @@ FormCard.FormCardDialog {
             font.bold: true
             text: i18nc("@info", "Total pages: %1", pdfOrg.totalPages)
         }
+
         QQC2.Button {
             id: addPdfs
             icon.name: "list-add-symbolic"
             text: i18nc("@action:button", "Add PDF")
             visible: fileView.count !== 0
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ActionRole
-            onClicked: pdfOrg.addMorePDFs()
+            onClicked: addPdfsDialog.open()
         }
         QQC2.Button {
             text: i18nc("@action:button", "Apply")
@@ -151,6 +168,6 @@ FormCard.FormCardDialog {
     onClosed: destroy()
 
     Component.onCompleted: {
-        pdfOrg.addMorePDFs();
+        addPdfsDialog.open();
     }
 }

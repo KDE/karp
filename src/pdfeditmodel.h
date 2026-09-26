@@ -149,7 +149,7 @@ public:
     Q_INVOKABLE void setTargetMetaData(const QVariantList &metaList);
     PdfMetaData *metaData();
 
-    Q_INVOKABLE void generate();
+    Q_INVOKABLE void generate(const QString &outFile = QString());
     Q_INVOKABLE void cancel();
 
     /**

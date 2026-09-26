@@ -5,7 +5,6 @@
 #include "karp_debug.h"
 #include "pdfeditmodel.h"
 #include <KLocalizedString>
-#include <QFileDialog>
 #include <QStandardPaths>
 #include <QTimer>
 #include <numeric>
@@ -176,19 +175,6 @@ QVariant PdfsOrganizer::fileModel() const
 int PdfsOrganizer::totalPages() const
 {
     return m_totalPages;
-}
-
-bool PdfsOrganizer::addMorePDFs()
-{
-    QString lastPath;
-    if (m_fileModel->rows() > 0)
-        lastPath = m_fileModel->lastPdf()->dir();
-    if (lastPath.isEmpty())
-        lastPath = QDir::homePath();
-
-    auto pdfList = QFileDialog::getOpenFileNames(nullptr, i18n("Select PDF files"), lastPath, u"*.pdf"_s);
-    addPdfList(pdfList);
-    return !pdfList.isEmpty();
 }
 
 void PdfsOrganizer::applyNewFiles()

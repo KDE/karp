@@ -25,8 +25,6 @@ class App : public AbstractKirigamiApplication
 public:
     explicit App(QObject *parent = nullptr);
 
-    Q_INVOKABLE QStringList getPdfFiles();
-
     Q_INVOKABLE QStringList getInitFileList();
 
     /**
@@ -35,6 +33,9 @@ public:
     Q_INVOKABLE QString getOpenDIr() const;
 
     Q_INVOKABLE void checkGS(const QString &gsPath);
+
+    Q_INVOKABLE QString urlToPath(const QUrl &url) const;
+    Q_INVOKABLE QUrl getOpenDirUrl() const;
 
     // properties
 

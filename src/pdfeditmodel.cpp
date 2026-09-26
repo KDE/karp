@@ -11,7 +11,7 @@
 #include "qpdfproxy.h"
 #include "toolsthread.h"
 #include <KLazyLocalizedString>
-#include <QFileDialog>
+#include <QDir>
 #include <QFileInfo>
 #include <QScreen>
 #include <QStandardPaths>
@@ -564,7 +564,7 @@ PdfMetaData *PdfEditModel::metaData()
     return m_metaData;
 }
 
-void PdfEditModel::generate()
+void PdfEditModel::generate(const QString &outFile)
 {
     if (m_pdfList.isEmpty() || m_pageList.isEmpty()) {
         setProgress(1.0);
@@ -575,15 +575,12 @@ void PdfEditModel::generate()
     auto conf = karpConfig::self();
     setProgress(0.05);
     const auto *const pdf = m_pdfList[m_pageList.first()->referenceFile()];
-    if (conf->askForOutFile()) {
-        QFileInfo inInfo(pdf->filePath());
-        m_outFile = QFileDialog::getSaveFileName(nullptr, i18n("PDF file to edit"), inInfo.filePath(), u"*.pdf"_s);
-        if (m_outFile.isEmpty()) {
-            qCDebug(KARP_LOG) << "[PdfEditModel]" << "Output file not provided!";
-            setProgress(1.0);
-            Q_EMIT pdfGenerated();
-            return;
-        }
+    if (!outFile.isEmpty()) {
+        m_outFile = outFile;
+    } else if (conf->askForOutFile()) {
+        setProgress(1.0);
+        Q_EMIT pdfGenerated();
+        return;
     } else {
         m_outFile = pdf->filePath();
         // takes first file name and adds prefix/suffix

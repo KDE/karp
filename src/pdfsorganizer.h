@@ -97,11 +97,12 @@ public:
      * If something was selected - adds files to @p PdfListModel
      * and returns TRUE.
      */
-    Q_INVOKABLE bool addMorePDFs();
 
     Q_INVOKABLE void applyNewFiles();
 
     Q_INVOKABLE void setPdfPassword(int fileId, const QString &pass);
+
+    Q_INVOKABLE void addPdfList(const QStringList &pdfList);
 
 Q_SIGNALS:
     void editModelChanged();
@@ -114,9 +115,6 @@ Q_SIGNALS:
      * 1st argument is file name and 2nd is file id in the list
      */
     void passwordRequired(const QString &, int);
-
-protected:
-    void addPdfList(const QStringList &pdfList);
 
 private:
     PdfEditModel *m_editModel = nullptr;

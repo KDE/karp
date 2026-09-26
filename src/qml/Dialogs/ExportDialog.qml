@@ -2,11 +2,14 @@
 // SPDX-FileCopyrightText: 2026 by Darshan Phaldesai <dev.darshanphaldesai@gmail.com>
 
 import QtQuick
+import QtQuick.Dialogs
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.karp
+import org.kde.karp.config
 
 FormCard.FormCardDialog {
+    id: exportDialog
     title: i18nc("@title:dialog", "Export Options")
     standardButtons: Kirigami.Dialog.Save | Kirigami.Dialog.Cancel
     closePolicy: Kirigami.PromptDialog.NoAutoClose
@@ -14,6 +17,26 @@ FormCard.FormCardDialog {
     required property PdfEditModel pdfModel
 
     //TODO: add descriptions
+
+    FileDialog {
+        id: saveDialog
+        title: i18nc("@title:window", "Save PDF file")
+        fileMode: FileDialog.SaveFile
+        currentFolder: APP.getOpenDirUrl()
+        nameFilters: [i18n("PDF files (*.pdf)")]
+        defaultSuffix: "pdf"
+        onAccepted: {
+            startExport(APP.urlToPath(selectedFile))
+        }
+    }
+
+    function startExport(outPath: string): void {
+        Qt.createComponent("org.kde.karp", "ProgressDialog").createObject(exportDialog, {
+            pdfModel: pdfModel
+        });
+        pdfModel.generate(outPath);
+    }
+
     FormCard.FormSwitchDelegate {
         id: optimizeSwitch
         enabled: false //TODO make it work again
@@ -56,10 +79,11 @@ FormCard.FormCardDialog {
         pdfModel.reduceSize = sizeSwitch.checked;
         pdfModel.pdfVersion = versionComboBox.currentValue;
 
-        Qt.createComponent("org.kde.karp", "ProgressDialog").createObject(this, {
-            pdfModel
-        });
-        pdfModel.generate();
+        if (KarpConf.askForOutFile) {
+            saveDialog.open();
+        } else {
+            startExport("");
+        }
     }
 
     ListModel {

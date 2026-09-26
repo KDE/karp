@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import QtQuick.Dialogs
 import org.kde.kirigami as Kirigami
 import org.kde.kirigami.controls as Kirigami
 import org.kde.kirigami.actioncollection as Kirigami
@@ -84,11 +85,26 @@ Kirigami.Page {
         }
     ]
 
+    FileDialog {
+        id: openDialog
+        title: i18nc("@title:window", "Select PDF files")
+        fileMode: FileDialog.OpenFiles
+        currentFolder: APP.getOpenDirUrl()
+        nameFilters: [i18n("PDF files(*.pdf)")]
+        onAccepted: {
+            let paths = [];
+            for (let i = 0; i < selectedFiles.length; ++i) {
+                paths.push(APP.urlToPath(selectedFiles[i]));
+            }
+            page.openPDFs(paths);
+        }
+    }
+
     InitialInfo {
         z: 600000
         parent: page.overlay
         visible: !pdfModel.pageCount
-        onClicked: page.openPDFs(APP.getPdfFiles())
+        onClicked: openDialog.open();
     }
 
     PdfEditModel {
