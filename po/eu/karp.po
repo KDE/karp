@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:42+0000\n"
+"POT-Creation-Date: 2026-09-27 00:42+0000\n"
 "PO-Revision-Date: 2025-06-08 11:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,27 +20,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.2\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "Editatu beharreko PDF fitxategia"
-
-#: app.cpp:57 pdfsorganizer.cpp:189
+#: app.cpp:45 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "Hautatu PDF fitxategiak"
 
-#: app.cpp:137
+#: app.cpp:125
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF falta da."
 
-#: app.cpp:141
+#: app.cpp:129
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript falta da."
 
-#: app.cpp:144
+#: app.cpp:132
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -116,6 +111,11 @@ msgstr "Sorrera-data"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "Aldatze-data"
+
+#: pdfeditmodel.cpp:580
+#, kde-format
+msgid "PDF file to edit"
+msgstr "Editatu beharreko PDF fitxategia"
 
 #: qml/Actions.qml:10
 #, kde-format

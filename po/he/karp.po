@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:42+0000\n"
+"POT-Creation-Date: 2026-09-27 00:42+0000\n"
 "PO-Revision-Date: 2026-07-10 10:24+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,27 +18,22 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 26.04.1\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "קובץ PDF לעריכה"
-
-#: app.cpp:57 pdfsorganizer.cpp:189
+#: app.cpp:45 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "בחירת קובצי PDF"
 
-#: app.cpp:137
+#: app.cpp:125
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF חסר."
 
-#: app.cpp:141
+#: app.cpp:129
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript חסר."
 
-#: app.cpp:144
+#: app.cpp:132
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -111,6 +106,11 @@ msgstr "תאריך יצירה"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "תאריך שינוי"
+
+#: pdfeditmodel.cpp:580
+#, kde-format
+msgid "PDF file to edit"
+msgstr "קובץ PDF לעריכה"
 
 #: qml/Actions.qml:10
 #, kde-format

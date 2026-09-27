@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:42+0000\n"
+"POT-Creation-Date: 2026-09-27 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 19:23\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,27 +17,22 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/karp/karp.pot\n"
 "X-Crowdin-File-ID: 56708\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "要编辑的 PDF 文件"
-
-#: app.cpp:57 pdfsorganizer.cpp:189
+#: app.cpp:45 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "选择 PDF 文件"
 
-#: app.cpp:137
+#: app.cpp:125
 #, kde-format
 msgid "QPDF is missing."
 msgstr "缺少 QPDF"
 
-#: app.cpp:141
+#: app.cpp:129
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "缺少 Ghostscript"
 
-#: app.cpp:144
+#: app.cpp:132
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -110,6 +105,11 @@ msgstr "创建日期"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "修改日期"
+
+#: pdfeditmodel.cpp:580
+#, kde-format
+msgid "PDF file to edit"
+msgstr "要编辑的 PDF 文件"
 
 #: qml/Actions.qml:10
 #, kde-format
