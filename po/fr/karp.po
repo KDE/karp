@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:42+0000\n"
+"POT-Creation-Date: 2026-09-27 00:42+0000\n"
 "PO-Revision-Date: 2026-08-29 19:36+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -14,27 +14,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 26.08.0\n"
 
-#: app.cpp:28 pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "Fichier « PDF » à modifier"
-
-#: app.cpp:57 pdfsorganizer.cpp:189
+#: app.cpp:45 pdfsorganizer.cpp:189
 #, kde-format
 msgid "Select PDF files"
 msgstr "Sélectionner les fichiers « PDF »"
 
-#: app.cpp:137
+#: app.cpp:125
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF est manquant."
 
-#: app.cpp:141
+#: app.cpp:129
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Le module « Ghostscript » est manquant."
 
-#: app.cpp:144
+#: app.cpp:132
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -109,6 +104,11 @@ msgstr "Date de création"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "Date de modification"
+
+#: pdfeditmodel.cpp:580
+#, kde-format
+msgid "PDF file to edit"
+msgstr "Fichier « PDF » à modifier"
 
 #: qml/Actions.qml:10
 #, kde-format
