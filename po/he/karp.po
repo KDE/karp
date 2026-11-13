@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:42+0000\n"
+"POT-Creation-Date: 2026-11-13 00:55+0000\n"
 "PO-Revision-Date: 2026-07-10 10:24+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,22 +18,17 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 26.04.1\n"
 
-#: app.cpp:45 pdfsorganizer.cpp:189
-#, kde-format
-msgid "Select PDF files"
-msgstr "בחירת קובצי PDF"
-
-#: app.cpp:125
+#: app.cpp:121
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF חסר."
 
-#: app.cpp:129
+#: app.cpp:125
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript חסר."
 
-#: app.cpp:132
+#: app.cpp:128
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -106,11 +101,6 @@ msgstr "תאריך יצירה"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "תאריך שינוי"
-
-#: pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "קובץ PDF לעריכה"
 
 #: qml/Actions.qml:10
 #, kde-format
@@ -264,7 +254,7 @@ msgctxt "@action:button"
 msgid "Add"
 msgstr "הוספה"
 
-#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:143
+#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -287,43 +277,56 @@ msgstr "נקודות לעמוד"
 msgid "last"
 msgstr "אחרון"
 
-#: qml/Dialogs/ExportDialog.qml:10
+#: qml/Dialogs/ExportDialog.qml:13
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
 msgstr "אפשרויות ייצוא"
 
-#: qml/Dialogs/ExportDialog.qml:20
+#: qml/Dialogs/ExportDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "add PDF files"
+msgctxt "@title:window"
+msgid "Save PDF file"
+msgstr "הוספת קובצי PDF"
+
+#: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
+#, fuzzy, kde-format
+#| msgid "PDF file to edit"
+msgid "PDF files (*.pdf)"
+msgstr "קובץ PDF לעריכה"
+
+#: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "מיטוב PDF"
 
-#: qml/Dialogs/ExportDialog.qml:25
+#: qml/Dialogs/ExportDialog.qml:48
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "צמצום גודל"
 
-#: qml/Dialogs/ExportDialog.qml:30
+#: qml/Dialogs/ExportDialog.qml:53
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "גרסת PDF"
 
-#: qml/Dialogs/ExportDialog.qml:39
+#: qml/Dialogs/ExportDialog.qml:62
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
 msgstr "סיסמה"
 
-#: qml/Dialogs/ExportDialog.qml:40
+#: qml/Dialogs/ExportDialog.qml:63
 #, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
 msgstr "אין סיסמה"
 
-#: qml/Dialogs/ExportDialog.qml:44
+#: qml/Dialogs/ExportDialog.qml:67
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
@@ -397,31 +400,38 @@ msgstr "הסרה מהרשימה"
 msgid "Select pages to add"
 msgstr "נא לבחור עמודים להוספה"
 
-#: qml/Dialogs/OrganizerDialog.qml:19
+#: qml/Dialogs/OrganizerDialog.qml:20
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "הוספה וסידור קובצי PDF"
 
-#: qml/Dialogs/OrganizerDialog.qml:109
+#: qml/Dialogs/OrganizerDialog.qml:110
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "נא להוסיף קובץ PDF אחד או יותר כדי להמשיך"
 
-#: qml/Dialogs/OrganizerDialog.qml:112 qml/Dialogs/OrganizerDialog.qml:132
+#: qml/Dialogs/OrganizerDialog.qml:113 qml/Dialogs/OrganizerDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "הוספת PDF"
 
-#: qml/Dialogs/OrganizerDialog.qml:127
+#: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@title:window"
+msgid "Select PDF files"
+msgstr "בחירת קובצי PDF"
+
+#: qml/Dialogs/OrganizerDialog.qml:143
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "סך כל העמודים: %1"
 
-#: qml/Dialogs/OrganizerDialog.qml:138
+#: qml/Dialogs/OrganizerDialog.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
@@ -477,7 +487,7 @@ msgstr "כל עמוד %1"
 msgid "all pages out of range"
 msgstr "כל העמודים מחוץ לטווח"
 
-#: qml/MainPage.qml:57
+#: qml/MainPage.qml:58
 #, kde-format
 msgid "file"
 msgid_plural "files"
@@ -485,6 +495,12 @@ msgstr[0] "קובץ"
 msgstr[1] "קבצים"
 msgstr[2] "קבצים"
 msgstr[3] "קבצים"
+
+#: qml/MainPage.qml:93
+#, fuzzy, kde-format
+#| msgid "add PDF files"
+msgid "PDF files(*.pdf)"
+msgstr "הוספת קובצי PDF"
 
 #: qml/MainToolbar.qml:154
 #, kde-format
@@ -701,9 +717,6 @@ msgstr "על KDE"
 #~ msgctxt "@action:button"
 #~ msgid "Add PDF..."
 #~ msgstr "הוספת PDF…"
-
-#~ msgid "add PDF files"
-#~ msgstr "הוספת קובצי PDF"
 
 #~ msgid "Set PDF version"
 #~ msgstr "הגדרת גרסת PDF"

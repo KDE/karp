@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:42+0000\n"
+"POT-Creation-Date: 2026-11-13 00:55+0000\n"
 "PO-Revision-Date: 2026-09-23 06:56+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -18,22 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.9\n"
 
-#: app.cpp:45 pdfsorganizer.cpp:189
-#, kde-format
-msgid "Select PDF files"
-msgstr "PDF ھۆججىتى تاللىنىدۇ"
-
-#: app.cpp:125
+#: app.cpp:121
 #, kde-format
 msgid "QPDF is missing."
 msgstr ""
 
-#: app.cpp:129
+#: app.cpp:125
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr ""
 
-#: app.cpp:132
+#: app.cpp:128
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -106,11 +101,6 @@ msgstr "قۇرغان ۋاقىت"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr ""
-
-#: pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "تەھرىرلەيدىغان PDF ھۆججەت"
 
 #: qml/Actions.qml:10
 #, kde-format
@@ -264,7 +254,7 @@ msgctxt "@action:button"
 msgid "Add"
 msgstr "قوش"
 
-#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:143
+#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -287,43 +277,56 @@ msgstr ""
 msgid "last"
 msgstr ""
 
-#: qml/Dialogs/ExportDialog.qml:10
+#: qml/Dialogs/ExportDialog.qml:13
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Export Options"
 msgstr "چىقىرىشنى تاللاش تۈرى"
 
-#: qml/Dialogs/ExportDialog.qml:20
+#: qml/Dialogs/ExportDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@title:window"
+msgid "Save PDF file"
+msgstr "PDF ھۆججىتى تاللىنىدۇ"
+
+#: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
+#, fuzzy, kde-format
+#| msgid "PDF file to edit"
+msgid "PDF files (*.pdf)"
+msgstr "تەھرىرلەيدىغان PDF ھۆججەت"
+
+#: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr ""
 
-#: qml/Dialogs/ExportDialog.qml:25
+#: qml/Dialogs/ExportDialog.qml:48
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr ""
 
-#: qml/Dialogs/ExportDialog.qml:30
+#: qml/Dialogs/ExportDialog.qml:53
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr ""
 
-#: qml/Dialogs/ExportDialog.qml:39
+#: qml/Dialogs/ExportDialog.qml:62
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Password"
 msgstr "ئىم"
 
-#: qml/Dialogs/ExportDialog.qml:40
+#: qml/Dialogs/ExportDialog.qml:63
 #, kde-format
 msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
 msgstr ""
 
-#: qml/Dialogs/ExportDialog.qml:44
+#: qml/Dialogs/ExportDialog.qml:67
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit PDF Metadata"
@@ -394,31 +397,38 @@ msgstr ""
 msgid "Select pages to add"
 msgstr ""
 
-#: qml/Dialogs/OrganizerDialog.qml:19
+#: qml/Dialogs/OrganizerDialog.qml:20
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr ""
 
-#: qml/Dialogs/OrganizerDialog.qml:109
+#: qml/Dialogs/OrganizerDialog.qml:110
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr ""
 
-#: qml/Dialogs/OrganizerDialog.qml:112 qml/Dialogs/OrganizerDialog.qml:132
+#: qml/Dialogs/OrganizerDialog.qml:113 qml/Dialogs/OrganizerDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr ""
 
-#: qml/Dialogs/OrganizerDialog.qml:127
+#: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@title:window"
+msgid "Select PDF files"
+msgstr "PDF ھۆججىتى تاللىنىدۇ"
+
+#: qml/Dialogs/OrganizerDialog.qml:143
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr ""
 
-#: qml/Dialogs/OrganizerDialog.qml:138
+#: qml/Dialogs/OrganizerDialog.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
@@ -474,11 +484,16 @@ msgstr ""
 msgid "all pages out of range"
 msgstr ""
 
-#: qml/MainPage.qml:57
+#: qml/MainPage.qml:58
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "ھۆججەت"
+
+#: qml/MainPage.qml:93
+#, kde-format
+msgid "PDF files(*.pdf)"
+msgstr ""
 
 #: qml/MainToolbar.qml:154
 #, kde-format

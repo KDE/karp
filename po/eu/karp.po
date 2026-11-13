@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:42+0000\n"
+"POT-Creation-Date: 2026-11-13 00:55+0000\n"
 "PO-Revision-Date: 2025-06-08 11:24+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,22 +20,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.2\n"
 
-#: app.cpp:45 pdfsorganizer.cpp:189
-#, kde-format
-msgid "Select PDF files"
-msgstr "Hautatu PDF fitxategiak"
-
-#: app.cpp:125
+#: app.cpp:121
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF falta da."
 
-#: app.cpp:129
+#: app.cpp:125
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "Ghostscript falta da."
 
-#: app.cpp:132
+#: app.cpp:128
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -111,11 +106,6 @@ msgstr "Sorrera-data"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "Aldatze-data"
-
-#: pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "Editatu beharreko PDF fitxategia"
 
 #: qml/Actions.qml:10
 #, kde-format
@@ -272,7 +262,7 @@ msgctxt "@action:button"
 msgid "Add"
 msgstr "Gehitu"
 
-#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:143
+#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -295,20 +285,33 @@ msgstr "orrialdera seinalatzen du"
 msgid "last"
 msgstr "azkena"
 
-#: qml/Dialogs/ExportDialog.qml:10
+#: qml/Dialogs/ExportDialog.qml:13
 #, fuzzy, kde-format
 #| msgid "PDF Options"
 msgctxt "@title:dialog"
 msgid "Export Options"
 msgstr "PDF aukerak"
 
-#: qml/Dialogs/ExportDialog.qml:20
+#: qml/Dialogs/ExportDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "add PDF files"
+msgctxt "@title:window"
+msgid "Save PDF file"
+msgstr "gehitu PDF fitxategiak"
+
+#: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
+#, fuzzy, kde-format
+#| msgid "PDF file to edit"
+msgid "PDF files (*.pdf)"
+msgstr "Editatu beharreko PDF fitxategia"
+
+#: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "Optimizatu PDF"
 
-#: qml/Dialogs/ExportDialog.qml:25
+#: qml/Dialogs/ExportDialog.qml:48
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Reduce size"
@@ -316,13 +319,13 @@ msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "Txikiagotu neurria"
 
-#: qml/Dialogs/ExportDialog.qml:30
+#: qml/Dialogs/ExportDialog.qml:53
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "PDF bertsioa"
 
-#: qml/Dialogs/ExportDialog.qml:39
+#: qml/Dialogs/ExportDialog.qml:62
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Set password"
@@ -330,7 +333,7 @@ msgctxt "@action:inmenu"
 msgid "Password"
 msgstr "Ezarri pasahitza"
 
-#: qml/Dialogs/ExportDialog.qml:40
+#: qml/Dialogs/ExportDialog.qml:63
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Set password"
@@ -338,7 +341,7 @@ msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
 msgstr "Ezarri pasahitza"
 
-#: qml/Dialogs/ExportDialog.qml:44
+#: qml/Dialogs/ExportDialog.qml:67
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "PDF metadata"
@@ -412,31 +415,38 @@ msgstr "Kendu zerrendatik"
 msgid "Select pages to add"
 msgstr "Hautatu gehitu beharreko orrialdeak"
 
-#: qml/Dialogs/OrganizerDialog.qml:19
+#: qml/Dialogs/OrganizerDialog.qml:20
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "PDF fitxategiak gehitu eta antolatu"
 
-#: qml/Dialogs/OrganizerDialog.qml:109
+#: qml/Dialogs/OrganizerDialog.qml:110
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "Gehitu PDF fitxategi bat edo gehiago jarraitzeko"
 
-#: qml/Dialogs/OrganizerDialog.qml:112 qml/Dialogs/OrganizerDialog.qml:132
+#: qml/Dialogs/OrganizerDialog.qml:113 qml/Dialogs/OrganizerDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "Gehitu PDF"
 
-#: qml/Dialogs/OrganizerDialog.qml:127
+#: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@title:window"
+msgid "Select PDF files"
+msgstr "Hautatu PDF fitxategiak"
+
+#: qml/Dialogs/OrganizerDialog.qml:143
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "Orrialde guztira: %1"
 
-#: qml/Dialogs/OrganizerDialog.qml:138
+#: qml/Dialogs/OrganizerDialog.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
@@ -492,12 +502,18 @@ msgstr "%1 orrialdero"
 msgid "all pages out of range"
 msgstr "barrutitik kanpoko orrialde guztiak"
 
-#: qml/MainPage.qml:57
+#: qml/MainPage.qml:58
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "Fitxategia"
 msgstr[1] "fitxategiak"
+
+#: qml/MainPage.qml:93
+#, fuzzy, kde-format
+#| msgid "add PDF files"
+msgid "PDF files(*.pdf)"
+msgstr "gehitu PDF fitxategiak"
 
 #: qml/MainToolbar.qml:154
 #, kde-format
@@ -733,9 +749,6 @@ msgstr "KDEri buruz"
 #~ msgctxt "@action:button"
 #~ msgid "Add PDF..."
 #~ msgstr "Gehitu PDF..."
-
-#~ msgid "add PDF files"
-#~ msgstr "gehitu PDF fitxategiak"
 
 #~ msgid "Set PDF version"
 #~ msgstr "Ezarri PDF bertsioa"

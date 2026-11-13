@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:42+0000\n"
+"POT-Creation-Date: 2026-11-13 00:55+0000\n"
 "PO-Revision-Date: 2024-12-15 17:35+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -17,22 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: app.cpp:45 pdfsorganizer.cpp:189
-#, kde-format
-msgid "Select PDF files"
-msgstr "पीडीएफ फाइलें चुनें"
-
-#: app.cpp:125
+#: app.cpp:121
 #, kde-format
 msgid "QPDF is missing."
 msgstr "QPDF गायब है."
 
-#: app.cpp:129
+#: app.cpp:125
 #, kde-format
 msgid "Ghostscript is missing."
 msgstr "घोस्टस्क्रिप्ट गायब है."
 
-#: app.cpp:132
+#: app.cpp:128
 #, kde-format
 msgid ""
 "Install programs mentioned above, otherwise not all functions will be "
@@ -105,11 +100,6 @@ msgstr "निर्माण तिथि"
 #: pdfeditmodel.cpp:531
 msgid "Modification Date"
 msgstr "सुधार की तारीख"
-
-#: pdfeditmodel.cpp:580
-#, kde-format
-msgid "PDF file to edit"
-msgstr "संपादित करने के लिए पीडीएफ फाइल"
 
 #: qml/Actions.qml:10
 #, kde-format
@@ -272,7 +262,7 @@ msgctxt "@action:button"
 msgid "Add"
 msgstr "पीडीएफ जोड़ें"
 
-#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:143
+#: qml/Bookmarks/EditBookmarkDialog.qml:48 qml/Dialogs/OrganizerDialog.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -295,20 +285,33 @@ msgstr ""
 msgid "last"
 msgstr "अंतिम"
 
-#: qml/Dialogs/ExportDialog.qml:10
+#: qml/Dialogs/ExportDialog.qml:13
 #, fuzzy, kde-format
 #| msgid "PDF Options"
 msgctxt "@title:dialog"
 msgid "Export Options"
 msgstr "पीडीएफ विकल्प"
 
-#: qml/Dialogs/ExportDialog.qml:20
+#: qml/Dialogs/ExportDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@title:window"
+msgid "Save PDF file"
+msgstr "पीडीएफ फाइलें चुनें"
+
+#: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
+#, fuzzy, kde-format
+#| msgid "PDF file to edit"
+msgid "PDF files (*.pdf)"
+msgstr "संपादित करने के लिए पीडीएफ फाइल"
+
+#: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Optimize PDF"
 msgstr "पीडीएफ अनुकूलित करें"
 
-#: qml/Dialogs/ExportDialog.qml:25
+#: qml/Dialogs/ExportDialog.qml:48
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Reduce size"
@@ -316,13 +319,13 @@ msgctxt "@action:inmenu"
 msgid "Reduce Size"
 msgstr "आकार कम करें"
 
-#: qml/Dialogs/ExportDialog.qml:30
+#: qml/Dialogs/ExportDialog.qml:53
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PDF Version"
 msgstr "पीडीएफ संस्करण"
 
-#: qml/Dialogs/ExportDialog.qml:39
+#: qml/Dialogs/ExportDialog.qml:62
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Set password"
@@ -330,7 +333,7 @@ msgctxt "@action:inmenu"
 msgid "Password"
 msgstr "सांकेतिक शब्द लगना"
 
-#: qml/Dialogs/ExportDialog.qml:40
+#: qml/Dialogs/ExportDialog.qml:63
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Set password"
@@ -338,7 +341,7 @@ msgctxt "@action:inmenu password placeholder"
 msgid "No Password"
 msgstr "सांकेतिक शब्द लगना"
 
-#: qml/Dialogs/ExportDialog.qml:44
+#: qml/Dialogs/ExportDialog.qml:67
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "PDF metadata"
@@ -412,31 +415,38 @@ msgstr "सूची से हटाएँ"
 msgid "Select pages to add"
 msgstr "जोड़ने के लिए पृष्ठ चुनें"
 
-#: qml/Dialogs/OrganizerDialog.qml:19
+#: qml/Dialogs/OrganizerDialog.qml:20
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Add and Arrange PDF files"
 msgstr "पीडीएफ फाइलें जोड़ें और व्यवस्थित करें"
 
-#: qml/Dialogs/OrganizerDialog.qml:109
+#: qml/Dialogs/OrganizerDialog.qml:110
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add one or more PDF file to proceed"
 msgstr "आगे बढ़ने के लिए एक या अधिक PDF फ़ाइल जोड़ें"
 
-#: qml/Dialogs/OrganizerDialog.qml:112 qml/Dialogs/OrganizerDialog.qml:132
+#: qml/Dialogs/OrganizerDialog.qml:113 qml/Dialogs/OrganizerDialog.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Add PDF"
 msgstr "पीडीएफ जोड़ें"
 
-#: qml/Dialogs/OrganizerDialog.qml:127
+#: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
+#, fuzzy, kde-format
+#| msgid "Select PDF files"
+msgctxt "@title:window"
+msgid "Select PDF files"
+msgstr "पीडीएफ फाइलें चुनें"
+
+#: qml/Dialogs/OrganizerDialog.qml:143
 #, kde-format
 msgctxt "@info"
 msgid "Total pages: %1"
 msgstr "कुल पृष्ठ: %1"
 
-#: qml/Dialogs/OrganizerDialog.qml:138
+#: qml/Dialogs/OrganizerDialog.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
@@ -492,12 +502,19 @@ msgstr "हर %1 पेज"
 msgid "all pages out of range"
 msgstr "सभी पृष्ठ सीमा से बाहर"
 
-#: qml/MainPage.qml:57
+#: qml/MainPage.qml:58
 #, kde-format
 msgid "file"
 msgid_plural "files"
 msgstr[0] "फ़ाइलें"
 msgstr[1] "फ़ाइलें"
+
+#: qml/MainPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add PDF files"
+msgid "PDF files(*.pdf)"
+msgstr "पीडीएफ फ़ाइलें जोड़ें"
 
 #: qml/MainToolbar.qml:154
 #, kde-format
