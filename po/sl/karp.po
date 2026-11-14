@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-07-10 07:06+0200\n"
+"PO-Revision-Date: 2026-11-13 10:28+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: app.cpp:121
 #, kde-format
@@ -282,17 +282,15 @@ msgid "Export Options"
 msgstr "Možnosti izvoza"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "dodaj datoteke PDF"
+msgstr "Shrani datoteko PDF"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "PDF datoteka za urejanje"
+msgstr "Datoteke PDF (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -417,8 +415,7 @@ msgid "Add PDF"
 msgstr "Dodaj PDF"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "Izberite datoteke PDF"
@@ -495,10 +492,9 @@ msgstr[2] "datoteka"
 msgstr[3] "datoteka"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "dodaj datoteke PDF"
+msgstr "Datoteke PDF (*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format

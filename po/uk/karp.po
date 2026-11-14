@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the karp package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2024, 2025, 2026.
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Yuri Chornoivan <yurchor@ukr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-07-10 10:32+0300\n"
+"PO-Revision-Date: 2026-11-13 09:11+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: app.cpp:121
 #, kde-format
@@ -286,17 +286,15 @@ msgid "Export Options"
 msgstr "Параметри експорту"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "додати файли PDF"
+msgstr "Збереження файла PDF"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "Файл PDF для редагування"
+msgstr "файли PDF (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -421,8 +419,7 @@ msgid "Add PDF"
 msgstr "Додати PDF"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "Виберіть файли PDF"
@@ -499,10 +496,9 @@ msgstr[2] "файлів"
 msgstr[3] "файл"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "додати файли PDF"
+msgstr "файли PDF(*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format

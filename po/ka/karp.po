@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-07-10 05:35+0200\n"
+"PO-Revision-Date: 2026-11-13 03:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: app.cpp:121
 #, kde-format
@@ -286,17 +286,15 @@ msgid "Export Options"
 msgstr "გატანის მორგება"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "PDF ფაილების დამატება"
+msgstr "PDF ფაილის შენახვა"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "PDF ფაილი ჩასასწორებლად"
+msgstr "PDF ფაილები (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -419,8 +417,7 @@ msgid "Add PDF"
 msgstr "PDF-ის დამატება"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "აირჩიეთ PDF ფაილები"
@@ -495,10 +492,9 @@ msgstr[0] "ფაილი"
 msgstr[1] "ფაილები"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "PDF ფაილების დამატება"
+msgstr "PDF ფაილები (*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format

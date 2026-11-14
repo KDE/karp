@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-10-10 12:44+0200\n"
+"PO-Revision-Date: 2026-11-13 07:44+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -284,17 +284,15 @@ msgid "Export Options"
 msgstr "Параметры экспорта"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "Выбор файлов PDF"
+msgstr "Сохранение файла PDF"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "Файл PDF для редактирования"
+msgstr "Файлы PDF (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -419,8 +417,7 @@ msgid "Add PDF"
 msgstr "Добавить PDF"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "Выбор файлов PDF"
@@ -497,11 +494,9 @@ msgstr[2] "файлов"
 msgstr[3] "файл"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "Добавить файлы PDF"
+msgstr "Файлы PDF (*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-07-18 11:29+0200\n"
+"PO-Revision-Date: 2026-11-13 11:04+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: app.cpp:121
 #, kde-format
@@ -285,17 +285,15 @@ msgid "Export Options"
 msgstr "Možnosti exportu"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "Vybrat PDF soubory"
+msgstr "Uložit soubor PDF"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "PDF soubor k úpravám"
+msgstr "Soubory PDF (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -419,8 +417,7 @@ msgid "Add PDF"
 msgstr "Přidat PDF"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "Vybrat PDF soubory"
@@ -496,11 +493,9 @@ msgstr[1] "soubory"
 msgstr[2] "souborů"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "Přidat PDF soubory"
+msgstr "Soubory PDF (*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format

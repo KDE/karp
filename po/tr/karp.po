@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-08-03 18:36+0300\n"
+"PO-Revision-Date: 2026-11-13 19:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: app.cpp:121
 #, kde-format
@@ -285,17 +285,15 @@ msgid "Export Options"
 msgstr "Dışa Aktarma Seçenekleri"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "PDF Dosyaları Ekle"
+msgstr "PDF Dosyasını Kaydet"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "Düzenlenecek PDF dosyası"
+msgstr "PDF dosyaları (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -418,8 +416,7 @@ msgid "Add PDF"
 msgstr "PDF Ekle"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "PDF Dosyaları Seç"
@@ -494,10 +491,9 @@ msgstr[0] "dosya"
 msgstr[1] "dosya"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "PDF Dosyaları Ekle"
+msgstr "PDF dosyaları (*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format

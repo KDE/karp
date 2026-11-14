@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-07-10 10:24+0300\n"
+"PO-Revision-Date: 2026-11-13 11:44+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: app.cpp:121
 #, kde-format
@@ -284,17 +284,15 @@ msgid "Export Options"
 msgstr "אפשרויות ייצוא"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "הוספת קובצי PDF"
+msgstr "שמירת קובץ PDF"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "קובץ PDF לעריכה"
+msgstr "קובצי PDF‏ (‎*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -419,8 +417,7 @@ msgid "Add PDF"
 msgstr "הוספת PDF"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "בחירת קובצי PDF"
@@ -497,10 +494,9 @@ msgstr[2] "קבצים"
 msgstr[3] "קבצים"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "הוספת קובצי PDF"
+msgstr "קובצי PDF ‏(‎*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format
