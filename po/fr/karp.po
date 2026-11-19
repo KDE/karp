@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-08-29 19:36+0200\n"
+"PO-Revision-Date: 2026-11-17 19:51+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: app.cpp:121
 #, kde-format
@@ -282,17 +282,15 @@ msgid "Export Options"
 msgstr "Options d'exportation"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "ajouter des fichiers au format « PDF »"
+msgstr "Enregistrer le fichier de format « PDF »"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "Fichier « PDF » à modifier"
+msgstr "Fichiers PDF (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -416,11 +414,10 @@ msgid "Add PDF"
 msgstr "Ajouter un fichier « PDF »"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
-msgstr "Sélectionner les fichiers « PDF »"
+msgstr "Sélectionner les fichiers de format « PDF »"
 
 #: qml/Dialogs/OrganizerDialog.qml:143
 #, kde-format
@@ -493,10 +490,9 @@ msgstr[0] "fichier"
 msgstr[1] "fichiers"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgid "add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "ajouter des fichiers au format « PDF »"
+msgstr "Fichiers PDF (*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format

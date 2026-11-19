@@ -151,7 +151,7 @@ msgstr "Trieu les pàgines que s'han de moure"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Table of Contents (Bookmarks)"
-msgstr "Taula de contingut (adreces d'interés)"
+msgstr "Índex de continguts (adreces d'interés)"
 
 #: qml/Actions.qml:57
 #, kde-format
@@ -198,7 +198,7 @@ msgstr "Reduïx-ho tot"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Clear Table of Contents"
-msgstr "Neteja la taula de contingut"
+msgstr "Neteja l'índex de continguts"
 
 #: qml/Bookmarks/BookmarksView.qml:157 qml/Bookmarks/EditBookmarkDialog.qml:21
 #, kde-format
