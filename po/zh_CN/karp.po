@@ -283,17 +283,15 @@ msgid "Export Options"
 msgstr "导出选项"
 
 #: qml/Dialogs/ExportDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save PDF file"
-msgstr "选择 PDF 文件"
+msgstr "保存 PDF 文件"
 
 #: qml/Dialogs/ExportDialog.qml:26 qml/Dialogs/OrganizerDialog.qml:125
-#, fuzzy, kde-format
-#| msgid "PDF file to edit"
+#, kde-format
 msgid "PDF files (*.pdf)"
-msgstr "要编辑的 PDF 文件"
+msgstr "PDF 文件 (*.pdf)"
 
 #: qml/Dialogs/ExportDialog.qml:43
 #, kde-format
@@ -415,8 +413,7 @@ msgid "Add PDF"
 msgstr "添加 PDF"
 
 #: qml/Dialogs/OrganizerDialog.qml:122 qml/MainPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Select PDF files"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select PDF files"
 msgstr "选择 PDF 文件"
@@ -490,11 +487,9 @@ msgid_plural "files"
 msgstr[0] "文件"
 
 #: qml/MainPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add PDF files"
+#, kde-format
 msgid "PDF files(*.pdf)"
-msgstr "添加 PDF 文件"
+msgstr "PDF 文件 (*.pdf)"
 
 #: qml/MainToolbar.qml:154
 #, kde-format
