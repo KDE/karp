@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: karp\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-13 00:55+0000\n"
-"PO-Revision-Date: 2026-11-13 19:02+0300\n"
+"PO-Revision-Date: 2026-11-23 18:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -576,7 +576,7 @@ msgstr "Sabit yol"
 #: qml/Settings/General.qml:44
 #, kde-format
 msgid "Default name for output PDF"
-msgstr "PDF çıktısı için öntanımlı ad"
+msgstr "PDF çıktısı için varsayılan ad"
 
 #: qml/Settings/General.qml:48
 #, kde-format
@@ -624,12 +624,13 @@ msgstr "Üretilen dosyanın PDF sürümünü zorla"
 #, kde-format
 msgid "When set to default, the PDF version of the input file will be used."
 msgstr ""
-"Öntanımlı olarak ayarlandığında, girdi dosyasının PDF sürümü kullanılacaktır."
+"Varsayılan olarak ayarlandığında, girdi dosyasının PDF sürümü "
+"kullanılacaktır."
 
 #: qml/Settings/PdfTools.qml:26
 #, kde-format
 msgid "default"
-msgstr "öntanımlı"
+msgstr "varsayılan"
 
 #: qml/Settings/PdfTools.qml:39
 #, kde-format
